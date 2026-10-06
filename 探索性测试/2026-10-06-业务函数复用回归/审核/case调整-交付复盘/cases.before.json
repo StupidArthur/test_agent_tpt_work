@@ -3736,7 +3736,7 @@
       {
         "id": "G7-09-A1",
         "target": "附件容器可滚动",
-        "read": "限定当前草稿附件容器，读取横纵scroll/client尺寸及computed overflow；横向scrollWidth>clientWidth且允许横向滚动，或纵向scrollHeight>clientHeight且允许纵向滚动，任一成立为true。按成立的轴实际滚动到末端，再验证count-30.txt可见。容器读取失败为null。",
+        "read": "读取scrollHeight>clientHeight且overflow允许滚动布尔值",
         "operator": "equals",
         "expected": true,
         "evidence_contract": {
@@ -3765,7 +3765,7 @@
       "通过默认不截图；异常现场/视觉检查按需截图，同一现场共享；实际值、断言及操作/读取日志必须保留"
     ],
     "cleanup": "恢复设置原值；仅恢复本轮fast-assert-资产；导入技能结束停用，专家保留待审；不删除用户资产。",
-    "contract_version": "2.1",
+    "contract_version": "2.0",
     "feature_path": [
       "对话与任务",
       "附件",
@@ -5729,7 +5729,7 @@
       {
         "id": "G9-14-A1",
         "target": "伪PNG被作为有效图像",
-        "read": "限定本轮bad-png对象，核对img实际src/资源身份是否指向安装包中伪PNG；仅该源complete且naturalWidth>0才为true。显示默认SVG/img时该断言为false，不能把任意已加载img当伪PNG。保存src与资源身份；无法区分来源为null。",
+        "read": "读取该图像complete且naturalWidth>0",
         "operator": "equals",
         "expected": false,
         "evidence_contract": {
@@ -5742,7 +5742,7 @@
       {
         "id": "G9-14-A2",
         "target": "伪PNG默认图标降级",
-        "read": "限定本轮bad-png对象图标区域，读取可见的产品默认图标；允许内联svg或src为产品默认SVG/图标资源的img，不能只按svg标签判断。记录图标来源及可见性；无法核对来源为null。",
+        "read": "读取可见默认图标",
         "operator": "equals",
         "expected": true,
         "evidence_contract": {
@@ -5758,7 +5758,7 @@
       "通过默认不截图；异常现场/视觉检查按需截图，同一现场共享；实际值、断言及操作/读取日志必须保留"
     ],
     "cleanup": "恢复设置原值；仅恢复本轮fast-assert-资产；导入技能结束停用，专家保留待审；不删除用户资产。",
-    "contract_version": "2.1",
+    "contract_version": "2.0",
     "feature_path": [
       "技能",
       "图标",
@@ -8825,7 +8825,7 @@
       {
         "id": "G12-17-A1",
         "target": "本轮可逆设置规范化快照",
-        "read": "任务开始保存所有本轮将改动设置的字段及初值，含主题、语言、字号、默认权限、工作步骤、用量、链接、代码工具、记忆、沉淀、实验、开发者和新建/搜索快捷键；全部恢复后逐项独立回读同一字段集合，不允许省略改动项。字段无法读取时该断言actual=null并指出缺项，不能用不完整快照宣称全部恢复。",
+        "read": "任务开始与全部恢复后读取同一字段集合",
         "operator": "same_value",
         "expected": null,
         "evidence_contract": {
@@ -8841,7 +8841,7 @@
       "通过默认不截图；异常现场/视觉检查按需截图，同一现场共享；实际值、断言及操作/读取日志必须保留"
     ],
     "cleanup": "恢复设置原值；仅恢复本轮fast-assert-资产；导入技能结束停用，专家保留待审；不删除用户资产。",
-    "contract_version": "2.1",
+    "contract_version": "2.0",
     "feature_path": [
       "设置",
       "恢复核验",
@@ -9174,7 +9174,7 @@
       {
         "id": "G13-05-A1",
         "target": "推荐点击后预填",
-        "read": "点击前读取所选案例实际任务提示词字段绑定automation_prompt_expected（若只有标题则用完整标题），点击后读取composer纯文本trim，精确比较；只可规范CRLF expected必须独立于点击后actual；无法读提示词或完整标题时actual=null并写前置读取失败，禁止使用NOT_OBSERVED占位串作为预期。",
+        "read": "点击前读取所选案例实际任务提示词字段绑定automation_prompt_expected（若只有标题则用完整标题），点击后读取composer纯文本trim，精确比较；只可规范CRLF",
         "operator": "equals",
         "expected": "$automation_prompt_expected",
         "evidence_contract": {
@@ -9190,7 +9190,7 @@
       "通过默认不截图；异常现场/视觉检查按需截图，同一现场共享；实际值、断言及操作/读取日志必须保留"
     ],
     "cleanup": "恢复设置原值；仅恢复本轮fast-assert-资产；导入技能结束停用，专家保留待审；不删除用户资产。",
-    "contract_version": "2.1",
+    "contract_version": "2.0",
     "feature_path": [
       "自动化",
       "推荐案例",

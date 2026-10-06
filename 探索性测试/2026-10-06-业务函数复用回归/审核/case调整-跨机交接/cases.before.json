@@ -8825,7 +8825,7 @@
       {
         "id": "G12-17-A1",
         "target": "本轮可逆设置规范化快照",
-        "read": "任务开始保存所有本轮将改动设置的字段及初值，含主题、语言、字号、默认权限、工作步骤、用量、链接、代码工具、记忆、沉淀、实验、开发者和新建/搜索快捷键；全部恢复后逐项独立回读同一字段集合，不允许省略改动项。字段无法读取时该断言actual=null并指出缺项，不能用不完整快照宣称全部恢复。",
+        "read": "任务开始与全部恢复后读取同一字段集合",
         "operator": "same_value",
         "expected": null,
         "evidence_contract": {
@@ -8841,7 +8841,7 @@
       "通过默认不截图；异常现场/视觉检查按需截图，同一现场共享；实际值、断言及操作/读取日志必须保留"
     ],
     "cleanup": "恢复设置原值；仅恢复本轮fast-assert-资产；导入技能结束停用，专家保留待审；不删除用户资产。",
-    "contract_version": "2.1",
+    "contract_version": "2.0",
     "feature_path": [
       "设置",
       "恢复核验",
@@ -9174,7 +9174,7 @@
       {
         "id": "G13-05-A1",
         "target": "推荐点击后预填",
-        "read": "点击前读取所选案例实际任务提示词字段绑定automation_prompt_expected（若只有标题则用完整标题），点击后读取composer纯文本trim，精确比较；只可规范CRLF expected必须独立于点击后actual；无法读提示词或完整标题时actual=null并写前置读取失败，禁止使用NOT_OBSERVED占位串作为预期。",
+        "read": "点击前读取所选案例实际任务提示词字段绑定automation_prompt_expected（若只有标题则用完整标题），点击后读取composer纯文本trim，精确比较；只可规范CRLF",
         "operator": "equals",
         "expected": "$automation_prompt_expected",
         "evidence_contract": {
@@ -9190,7 +9190,7 @@
       "通过默认不截图；异常现场/视觉检查按需截图，同一现场共享；实际值、断言及操作/读取日志必须保留"
     ],
     "cleanup": "恢复设置原值；仅恢复本轮fast-assert-资产；导入技能结束停用，专家保留待审；不删除用户资产。",
-    "contract_version": "2.1",
+    "contract_version": "2.0",
     "feature_path": [
       "自动化",
       "推荐案例",
