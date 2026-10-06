@@ -6,6 +6,8 @@
 
 探索性测试或续跑时先读 `skills/exploratory-testing/SKILL.md`，按剩余检查点去重、共享场景取证。持续执行按明确队列推进；已测项目不重复巡检，真正缺条件的记录后收尾。
 
+异常、读值矛盾、前置失败的补测遵循 `skills/exploratory-testing/references/retest.md`：先确认动作、对象与取值，再有限修正/重建；校验器通过不代替业务复核。同一 UI 的脚本返回运行中 session/cell 时，等待结束再操作。
+
 ## 不要停
 
 **所有 case 跑完之前不要停。不要问用户要不要继续。**
