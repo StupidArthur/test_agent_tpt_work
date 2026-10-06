@@ -1,0 +1,205 @@
+{
+  "case_id": "SKILL-068",
+  "case_title": "生成失败不入库",
+  "source_sha256": "92a6f4ecd2a5dffe0f1a2a60e73fa18b5fb98763b09cc56ce4cc22fd56e13f0e",
+  "status": "已执行-存在差异",
+  "review_status": "待双方审核",
+  "latest_attempt_id": "SKILL-068-A02",
+  "attempts": [
+    {
+      "attempt_id": "SKILL-068-A01",
+      "started_at": "2026-10-05T20:44:04+08:00",
+      "ended_at": "2026-10-05T20:44:51+08:00",
+      "environment_id": "ENV-001",
+      "surface": "Unified conversation Skill-creation command, then Skill management iframe",
+      "actual_preconditions": {
+        "model": "standard / low",
+        "project": "tpt-workspace",
+        "asset_before": "My skills showed 7"
+      },
+      "input": "/create-skill Create one round-owned local test Skill only, unique English and Chinese names and description token. Harmless response marker only. Create no other assets.",
+      "actual_steps": [
+        "Submitted create-skill through visible unified conversation UI with a round-owned sample description.",
+        "Observed generated content but three create_skill final rename attempts failed with EPERM.",
+        "Assistant stated Skill was not created and no SKILL.md or other asset was written.",
+        "Independently opened Skill manager; My skills remained 7. Searched unique proposed English name and observed no matching Skill."
+      ],
+      "wait_condition": "Waited for terminal UI response (47 seconds).",
+      "checkpoints": [
+        {
+          "expected_index": 1,
+          "expected": "不写入我的技能",
+          "observed": "After the create tool failed, the Skill manager still reported 我的技能 7; searching RoundSkillExploration20261005 returned 没有匹配的技能.",
+          "verdict": "符合",
+          "evidence": [
+            "证据/SKILL-068/SKILL-068-A01/failure-trace.json",
+            "证据/SKILL-068/SKILL-068-A01/failure-trace.png",
+            "证据/SKILL-068/SKILL-068-A01/library-after-failure.json",
+            "证据/SKILL-068/SKILL-068-A01/library-after-failure.png"
+          ]
+        },
+        {
+          "expected_index": 2,
+          "expected": "无可用半成品",
+          "observed": "No half-installed listing appeared; the create dialogue stated no SKILL.md/other assets were written, and the unique name search returned zero results.",
+          "verdict": "符合",
+          "evidence": [
+            "证据/SKILL-068/SKILL-068-A01/failure-trace.json",
+            "证据/SKILL-068/SKILL-068-A01/failure-trace.png",
+            "证据/SKILL-068/SKILL-068-A01/library-after-failure.json",
+            "证据/SKILL-068/SKILL-068-A01/library-after-failure.png"
+          ]
+        }
+      ],
+      "observed_result": "Creation failed on the tool final rename with repeated EPERM. The skill manager remained at 7 and no round sample was listed; no workaround or manual write was attempted.",
+      "status": "已执行-符合预期",
+      "evidence": [
+        "证据/SKILL-068/SKILL-068-A01/failure-trace.json",
+        "证据/SKILL-068/SKILL-068-A01/failure-trace.png",
+        "证据/SKILL-068/SKILL-068-A01/library-after-failure.json",
+        "证据/SKILL-068/SKILL-068-A01/library-after-failure.png"
+      ],
+      "difference_ids": [],
+      "notes": "This is a tool/environment write denial rather than an induced package-structure failure. Conclusion limited to no visible half-installed Skill after this failed create attempt.",
+      "cleanup": {}
+    },
+    {
+      "attempt_id": "SKILL-068-A02",
+      "started_at": "2026-10-05T18:08:00.000Z",
+      "ended_at": "2026-10-05T18:08:00.000Z",
+      "environment_id": "ENV-001",
+      "surface": "TPT Work UI via verified CDP 127.0.0.1:9234 + Playwright; in-app file inputs; standard/low for actual Skill use",
+      "actual_preconditions": {
+        "account_alias": "Arthur",
+        "workspace": "tpt-workspace",
+        "project": "未新增项目",
+        "session_id": "本轮导入管理UI及显式调用新任务",
+        "model": "标准 / low（涉及实际调用的attempt）",
+        "permission": "工作区内修改；仅 round-owned fixtures",
+        "fixtures": [
+          "night-root-package-20261006.zip",
+          "night-trash-package-20261006.zip",
+          "night-collection-20261006",
+          "night-collection-safe-20261006",
+          "night-invalid-direct-20261006/SKILL.md"
+        ]
+      },
+      "input": "按SKILL-068用例检查点使用本轮无害导入夹具；未确认同名目录集合，避免可能覆盖。",
+      "actual_steps": [
+        "确认技能管理iframe、我的技能计数与本轮夹具归属。",
+        "经页面内文件选择器提交指定ZIP、SKILL.md或目录，不触发Windows原生文件窗口。",
+        "读取导入预览、结果、卡片/详情和计数；适用时以标准/low新任务实际调用本轮样本。",
+        "仅操作本轮样本的启停状态并保存界面证据。"
+      ],
+      "wait_condition": "等待 UI 预览或导入终态；读取可见卡片、来源、启停状态、详情目录和实际输出。",
+      "checkpoints": [
+        {
+          "expected_index": 1,
+          "expected": "不写入我的技能",
+          "observed": "样本实际入库并显示新卡，未达到失败不入库预期。",
+          "verdict": "差异",
+          "evidence": [
+            "证据/SKILL-068/SKILL-068-A02/failed-import.png",
+            "证据/SKILL-068/SKILL-068-A02/library-after-failure.png",
+            "证据/SKILL-068/SKILL-068-A02/cleanup-status.png"
+          ]
+        },
+        {
+          "expected_index": 2,
+          "expected": "无可用半成品",
+          "observed": "UI未显示校验失败；完成后出现用户创建卡片。",
+          "verdict": "差异",
+          "evidence": [
+            "证据/SKILL-068/SKILL-068-A02/failed-import.png",
+            "证据/SKILL-068/SKILL-068-A02/cleanup-status.png"
+          ]
+        }
+      ],
+      "observed_result": "通过 UI 选择单个 SKILL.md（name 存在而 description 缺失）并点击导入；操作结束后“我的技能”总数由32增至33，新增 round-night-invalid-only-20261006 卡片，且该卡片 role=switch aria-checked=true、disabled=true。缺 description 的包实际进入技能库，自动启用状态可见但开关不能操作。仅本轮样本。",
+      "status": "已执行-存在差异",
+      "evidence": [
+        "证据/SKILL-068/SKILL-068-A02/preconfirm.png",
+        "证据/SKILL-068/SKILL-068-A02/failed-import.png",
+        "证据/SKILL-068/SKILL-068-A02/library-after-failure.png",
+        "证据/SKILL-068/SKILL-068-A02/cleanup-status.png",
+        "证据/SKILL-068/SKILL-068-A02/cleanup-status.json"
+      ],
+      "difference_ids": [
+        "DIFF-031"
+      ],
+      "notes": "只涉及本轮 round-owned 测试包；旧尝试保留；产品结论待双方审核。"
+    }
+  ],
+  "product_observations": [
+    {
+      "observation": "create_skill tool generated content but its final rename failed three times with EPERM; subsequent UI library count remained seven and unique proposed name search found zero.",
+      "scope": "One round-owned local Skill creation attempt",
+      "depth": "Rendered tool trace, final conversation, Skill manager list/search",
+      "evidence": [
+        "证据/SKILL-068/SKILL-068-A01/failure-trace.json",
+        "证据/SKILL-068/SKILL-068-A01/failure-trace.png",
+        "证据/SKILL-068/SKILL-068-A01/library-after-failure.json",
+        "证据/SKILL-068/SKILL-068-A01/library-after-failure.png"
+      ],
+      "additional_feature": false
+    },
+    {
+      "feature_id": null,
+      "statement": "通过 UI 选择单个 SKILL.md（name 存在而 description 缺失）并点击导入；操作结束后“我的技能”总数由32增至33，新增 round-night-invalid-only-20261006 卡片，且该卡片 role=switch aria-checked=true、disabled=true。缺 description 的包实际进入技能库，自动启用状态可见但开关不能操作。仅本轮样本。",
+      "case_ids": [
+        "SKILL-068"
+      ],
+      "attempt_ids": [
+        "SKILL-068-A02"
+      ],
+      "environment_id": "ENV-001",
+      "verified_depth": "仅SKILL-068 SKILL-068-A02与其列明的round-owned UI样本",
+      "scope_and_limits": "只涉及本轮测试夹具、技能管理UI和本轮任务；未操作用户已有Skill。产品结论待双方审核。",
+      "evidence": [
+        "证据/SKILL-068/SKILL-068-A02/preconfirm.png",
+        "证据/SKILL-068/SKILL-068-A02/failed-import.png",
+        "证据/SKILL-068/SKILL-068-A02/library-after-failure.png",
+        "证据/SKILL-068/SKILL-068-A02/cleanup-status.png",
+        "证据/SKILL-068/SKILL-068-A02/cleanup-status.json"
+      ],
+      "observation_id": "OBS-186"
+    }
+  ],
+  "differences": [
+    "DIFF-031"
+  ],
+  "finding_ids": [],
+  "blocker": null,
+  "applicability_reason": null,
+  "cleanup": {
+    "changes": [
+      {
+        "change": "仅新增本轮round-owned Skill导入样本；root与valid collection样本已在UI停用。trash样本曾成功停用并留证；缺description样本被系统导入且UI开关为disabled+aria-checked=true，不能经开关恢复，本轮保留以供复核。未触及已有用户Skill。",
+        "restored": false,
+        "verification": "最新UI回读：3个可操作本轮样本aria-checked=false；缺description样本aria-checked=true且disabled=true，已保存DOM JSON及截图。",
+        "evidence": [
+          "证据/SKILL-068/SKILL-068-A02/cleanup-status.png",
+          "证据/SKILL-068/SKILL-068-A02/cleanup-status.json"
+        ]
+      }
+    ],
+    "remaining": [
+      "round-night-invalid-only-20261006为缺description且开关disabled，无法在UI停用；仅round-owned且无外部/工具行为，保留供复核。"
+    ]
+  },
+  "review": {
+    "assistant": null,
+    "user": null,
+    "approved_scope": [],
+    "final_decision": "待审核"
+  },
+  "audit_history": [
+    {
+      "at": "2026-10-05T18:08:00.000Z",
+      "event": "夜间UI实际操作补录SKILL-068-A02；保留旧记录，待双方审核。"
+    }
+  ],
+  "difference_ids": [
+    "DIFF-031"
+  ]
+}

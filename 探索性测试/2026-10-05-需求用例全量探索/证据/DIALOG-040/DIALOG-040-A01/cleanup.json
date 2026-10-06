@@ -1,0 +1,7 @@
+{
+  "case_id": "DIALOG-040",
+  "attempt_id": "DIALOG-040-A01",
+  "captured_at": "2026-10-05T12:39:11.103Z",
+  "visible_cleanup_result": "ne file named DIALOG040-round-owned.txt with exactly one line: DETAILS_ROUND_040. Then read it once and report the exact line. Do not modify any other file.\n20:38\n已完成工作\n用时 20秒\n\n已创建 \nDIALOG040-round-owned.txt\n，内容恰好一行：\n\n代码块\nDETAILS_ROUND_040\n\n已读取确认，未修改其他任何文件。\n\n已编辑 DIALOG040-round-owned.txt\n+1\n-0\n用量 57.1K tok\n20:38\nDelete only DIALOG040-round-owned.txt, the one temporary file created by this task. Do not delete any other file or memory. Confirm removal.\n20:38\n已完成工作\n用时 13秒\n\n已删除 DIALOG040-round-owned.txt（Test-Path 返回 False，确认文件已不存在），未删除或改动其他任何文件与记忆。\n\n用量 38.6K tok\n20:39\n发消息或创建任务, / 调用指令, @ 文件或对话\n工作区内修改\n标准\nlow\n2 轮 5 步·2913 tok/s\n95.7K tok·缓存命中 0%\n8%",
+  "scope": "Only the round-created DIALOG040-round-owned.txt was removed through the UI."
+}

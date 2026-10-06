@@ -1,0 +1,232 @@
+{
+  "case_id": "EXTRA-005",
+  "case_title": "本轮任务权限档位与执行限制",
+  "source_sha256": "0cc46b42d2dc71862ac96c24992cfbc43b39d69550d427c6ced70b71d07085e6",
+  "status": "已执行-结论不确定",
+  "review_status": "待双方审核",
+  "latest_attempt_id": "EXTRA-005-A02",
+  "attempts": [
+    {
+      "attempt_id": "EXTRA-005-A01",
+      "started_at": "2026-10-05T20:50:00+08:00",
+      "ended_at": "2026-10-05T21:15:00+08:00",
+      "environment_id": "ENV-001",
+      "surface": "UI/CDP",
+      "actual_preconditions": {
+        "account_alias": "Arthur",
+        "workspace": "界面未暴露空间切换入口，本轮未验证",
+        "project": "tpt-workspace（已有项目）",
+        "session_id": "不适用",
+        "model": "标准 / low",
+        "permission": "工作区内修改",
+        "fixtures": []
+      },
+      "input": "无输入；打开访问模式菜单只读",
+      "actual_steps": [
+        "进入新建任务页，读取当前权限档位（显示「工作区内修改」）",
+        "点击「访问模式」打开菜单",
+        "枚举四个档位与 EXP 标记"
+      ],
+      "wait_condition": "打开菜单后等待 1.2 秒。",
+      "checkpoints": [
+        {
+          "expected_index": 1,
+          "expected": "档位选项、选中状态、说明及生效范围被记录",
+          "observed": "四个档位完整记录：仅可查看、工作区内修改（当前选中）、完全权限、Auto review（带 EXP 标记）。菜单项均未 disabled。档位说明与生效范围未在菜单内展开，需进入对应档位后由行为判定。",
+          "verdict": "符合",
+          "evidence": [
+            "证据/ROUND1-ENTRY/ENTRY-编辑器-permission-A01/观察.png"
+          ]
+        },
+        {
+          "expected_index": 2,
+          "expected": "仅可查看下对本轮夹具的写入结果与说明相符，拒绝须由磁盘回读证明",
+          "observed": "未验证：本轮未切换「仅可查看」，也未发起写操作并用磁盘回读证明拒绝。切换权限档位会改变后续任务的执行边界，本轮未在无明确夹具的情况下执行。",
+          "verdict": "未验证",
+          "evidence": [
+            "证据/ROUND1-ENTRY/ENTRY-编辑器-permission-A01/观察.png"
+          ]
+        },
+        {
+          "expected_index": 3,
+          "expected": "工作区内修改对本轮范围限制有执行证据；不能仅凭按钮状态判断权限",
+          "observed": "未验证：未在「工作区内修改」档位下对本轮夹具做写入并回读边界。",
+          "verdict": "未验证",
+          "evidence": [
+            "证据/ROUND1-ENTRY/ENTRY-编辑器-permission-A01/观察.png"
+          ]
+        },
+        {
+          "expected_index": 4,
+          "expected": "Auto review与实验开关的关系需实际配置或契约证据，EXP标签不证明不可用",
+          "observed": "记录了现状：Auto review 带 EXP 文字标记，而设置 > 实验性功能总开关此前读到关闭（DIFF-007）。**本轮未选中该档位**，故 EXP 与总开关的实际关系未验证；按用例要求「EXP 标签不证明不可用」，不据此判定其失效。",
+          "verdict": "未验证",
+          "evidence": [
+            "证据/ROUND1-ENTRY/ENTRY-编辑器-permission-A01/观察.png"
+          ]
+        },
+        {
+          "expected_index": 5,
+          "expected": "完全权限或Auto review缺获准环境时保留未验证，不对真实资产做危险操作",
+          "observed": "未切换任何档位，未对真实资产做任何操作，故无危险操作发生；完全权限与 Auto review 的获准环境缺失，保留未验证。",
+          "verdict": "符合",
+          "evidence": [
+            "证据/ROUND1-ENTRY/ENTRY-编辑器-permission-A01/观察.png"
+          ]
+        }
+      ],
+      "observed_result": "验证深度：权限档位入口与选项（只读）。四档与 EXP 标记已记录；档位生效范围、写入拒绝与磁盘回读均未验证。",
+      "status": "已执行-结论不确定",
+      "evidence": [
+        "证据/EXTRA-005/EXTRA-005-A01/权限档位.txt"
+      ],
+      "difference_ids": [],
+      "notes": "未切换档位。要完成检查点 2/3 需一个本轮专属夹具（可安全写入的测试文件）并切换档位后由磁盘回读判定，本轮未创建该夹具，故记未验证。"
+    },
+    {
+      "attempt_id": "EXTRA-005-A02",
+      "started_at": "2026-10-05T20:26:08+08:00",
+      "ended_at": "2026-10-05T20:30:14+08:00",
+      "environment_id": "ENV-001",
+      "surface": "Unified conversation UI, standard/low model; task workspace tpt-workspace",
+      "actual_preconditions": {
+        "original_mode": "工作区内修改",
+        "project_workspace": "tpt-workspace",
+        "fixture": "none before this attempt; created only within attempt"
+      },
+      "input": "In the task workspace, create a one-line round-owned fixture; test read and attempted edit under read-only mode; independently read back; switch to workspace edit and test a scoped edit on the same fixture; restore and remove only the round-owned file.",
+      "actual_steps": [
+        "Opened access-mode menu and recorded visible options; did not select 完全权限 or Auto review.",
+        "In 工作区内修改, created EXTRA005-round-owned.txt with ROUND_OWNED_ORIGINAL and read it.",
+        "Selected 仅可查看; read succeeded, edit attempt returned FS_SANDBOX_DENIED.",
+        "Issued an independent read; confirmed file remained ROUND_OWNED_ORIGINAL.",
+        "Restored 工作区内修改; edited only the owned file to ROUND_OWNED_WORKSPACE_EDITED and read it.",
+        "Restored original line, reread it, then deleted only this temporary fixture through the UI.",
+        "Confirmed UI reported Test-Path missing; mode remained 工作区内修改."
+      ],
+      "wait_condition": "Waited for each task round terminal UI state and inspected rendered Trace tab.",
+      "checkpoints": [
+        {
+          "expected_index": 1,
+          "expected": "档位选项、选中状态、说明及生效范围被记录",
+          "observed": "The menu showed 仅可查看, 工作区内修改, 完全权限, Auto review, EXP; original mode was 工作区内修改. Mode descriptions beyond visible labels were not expanded.",
+          "verdict": "符合",
+          "evidence": [
+            "证据/EXTRA-005/EXTRA-005-A02/mode-menu.json",
+            "证据/EXTRA-005/EXTRA-005-A02/mode-menu.png"
+          ]
+        },
+        {
+          "expected_index": 2,
+          "expected": "仅可查看下对本轮夹具的写入结果与说明相符，拒绝须由磁盘回读证明",
+          "observed": "With 仅可查看 selected, UI trace showed read succeeded then edit of the round-owned fixture returned FS_SANDBOX_DENIED. An independent UI read after denial returned ROUND_OWNED_ORIGINAL.",
+          "verdict": "符合",
+          "evidence": [
+            "证据/EXTRA-005/EXTRA-005-A02/trace.json",
+            "证据/EXTRA-005/EXTRA-005-A02/trace.png",
+            "证据/EXTRA-005/EXTRA-005-A02/complete-trace.json"
+          ]
+        },
+        {
+          "expected_index": 3,
+          "expected": "工作区内修改对本轮范围限制有执行证据；不能仅凭按钮状态判断权限",
+          "observed": "With 工作区内修改 selected in the same task workspace, edit to ROUND_OWNED_WORKSPACE_EDITED succeeded and readback confirmed it. The fixture was then restored to ROUND_OWNED_ORIGINAL, read back, and deleted as round-owned cleanup.",
+          "verdict": "符合",
+          "evidence": [
+            "证据/EXTRA-005/EXTRA-005-A02/trace.json",
+            "证据/EXTRA-005/EXTRA-005-A02/complete-trace.json",
+            "证据/EXTRA-005/EXTRA-005-A02/cleanup.png"
+          ]
+        },
+        {
+          "expected_index": 4,
+          "expected": "Auto review与实验开关的关系需实际配置或契约证据，EXP标签不证明不可用",
+          "observed": "Auto review and EXP were visible in the menu, but no isolated gate or contract proof was available; not selected.",
+          "verdict": "未验证",
+          "evidence": [
+            "证据/EXTRA-005/EXTRA-005-A02/mode-menu.json"
+          ]
+        },
+        {
+          "expected_index": 5,
+          "expected": "完全权限或Auto review缺获准环境时保留未验证，不对真实资产做危险操作",
+          "observed": "完全权限 was visible but not selected.",
+          "verdict": "未验证",
+          "evidence": [
+            "证据/EXTRA-005/EXTRA-005-A02/mode-menu.json"
+          ]
+        }
+      ],
+      "observed_result": "Read-only enforcement was observed for the owned fixture; workspace edit was scoped to that file; content and mode restored, and owned fixture removed. Auto review and full permission were not tested.",
+      "status": "已执行-结论不确定",
+      "evidence": [
+        "证据/EXTRA-005/EXTRA-005-A02/trace.json",
+        "证据/EXTRA-005/EXTRA-005-A02/trace.png",
+        "证据/EXTRA-005/EXTRA-005-A02/final.png",
+        "证据/EXTRA-005/EXTRA-005-A02/mode-menu.png",
+        "证据/EXTRA-005/EXTRA-005-A02/mode-menu.json",
+        "证据/EXTRA-005/EXTRA-005-A02/cleanup.png",
+        "证据/EXTRA-005/EXTRA-005-A02/complete-trace.png",
+        "证据/EXTRA-005/EXTRA-005-A02/complete-trace.json"
+      ],
+      "difference_ids": [],
+      "notes": "Only this round-created fixture was edited/deleted. No existing user asset, memory, full permission, Auto review action or external resource was touched."
+    }
+  ],
+  "product_observations": [
+    {
+      "feature_id": null,
+      "statement": "【EXTRA-005】验证深度：权限档位入口与选项（只读）。四档与 EXP 标记已记录；档位生效范围、写入拒绝与磁盘回读均未验证。",
+      "case_ids": [
+        "EXTRA-005"
+      ],
+      "attempt_ids": [
+        "EXTRA-005-A01"
+      ],
+      "environment_id": "ENV-001",
+      "verified_depth": "操作有反馈",
+      "scope_and_limits": "账号 Arthur、app.asar SHA256 EF56656B…4CC2D9D、2026-10-05。",
+      "evidence": [
+        "证据/EXTRA-005/EXTRA-005-A01/权限档位.txt"
+      ],
+      "relation_to_design": "符合当前用例检查点",
+      "review_status": "待双方审核"
+    },
+    {
+      "observation": "Read-only mode prevented the fixture edit (FS_SANDBOX_DENIED) and a later read confirmed unchanged content; workspace edits allowed a scoped edit to the same fixture. Mode restored; fixture removed.",
+      "scope": "One round-owned file in tpt-workspace; no existing user asset",
+      "depth": "Rendered trace, conversation, file write/read outcomes observed",
+      "evidence": [
+        "证据/EXTRA-005/EXTRA-005-A02/trace.json",
+        "证据/EXTRA-005/EXTRA-005-A02/trace.png",
+        "证据/EXTRA-005/EXTRA-005-A02/final.png",
+        "证据/EXTRA-005/EXTRA-005-A02/mode-menu.png",
+        "证据/EXTRA-005/EXTRA-005-A02/mode-menu.json",
+        "证据/EXTRA-005/EXTRA-005-A02/cleanup.png",
+        "证据/EXTRA-005/EXTRA-005-A02/complete-trace.png",
+        "证据/EXTRA-005/EXTRA-005-A02/complete-trace.json"
+      ],
+      "additional_feature": false
+    }
+  ],
+  "differences": [],
+  "finding_ids": [],
+  "blocker": null,
+  "applicability_reason": null,
+  "cleanup": {
+    "changes": [
+      {
+        "item": "EXTRA005-round-owned.txt and permission mode",
+        "action": "Created one fixture; attempted denied read-only edit; edited within workspace; restored original; deleted fixture; restored initial mode",
+        "restore": "Completed through UI; deletion result confirmed"
+      }
+    ],
+    "remaining": []
+  },
+  "review": {
+    "assistant": null,
+    "user": null,
+    "approved_scope": [],
+    "final_decision": "待审核"
+  }
+}

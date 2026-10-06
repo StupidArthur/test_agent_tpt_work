@@ -1,0 +1,19 @@
+配置 APC系统
+
+按第三方系统接口填写连接信息
+
+📊
+APC系统
+
+APC系统 HTTP 桥接：通过用户名密码登录获取 Ticket，Bearer 鉴权调用 API
+
+连接名称
+登录方式
+APC-TPT
+API 域名
+账号
+密码
+选择 APC 系统接入版本（不同版本登录接口不同）：APC-CLI 登录 {域名}/inter-api/auth/login，APC-TPT 登录 {域名}/tpt-admin/system-manager/umsAdmin/login。填写 API 域名、账号和密码，保存连接时插件自动调用所选版本对应的登录接口（密码按 Base64 编码）换取 Ticket，并在后续 API 调用的 Authorization: Bearer 请求头中注入。账号密码与 Ticket 仅保存在 DSH 本机，不会暴露给模型。
+取消
+测试连接
+保存并启用

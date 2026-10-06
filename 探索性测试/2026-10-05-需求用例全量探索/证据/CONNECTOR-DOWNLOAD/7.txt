@@ -1,0 +1,19 @@
+配置 操作导航
+
+按第三方系统接口填写连接信息
+
+🧭
+操作导航
+
+操作导航主程序数据查询：主程序列表 / 状态筛选 / 分组查询
+
+连接名称
+版本
+VXDIRECT4-TPT
+API 域名
+用户名
+密码
+选择 VxDirect 接入版本（不同版本登录 API 不同），填写 API 域名与登录账号密码：保存连接时插件自动调用所选版本对应的登录接口换取 Token（VXDIRECT4-TPT 走 TPT 统一登录接口、密码按 Base64 编码，Token 注入 Authorization Bearer 头；VXDIRECT4-CLI 走 VxDirect 登录接口、密码按 RSA-OAEP-SHA256 加密，Token 注入 Supcon-Direct-Token 头），并在后续 API 调用中携带。账号密码与 Token 仅保存在 DSH 本机，不会暴露给模型。
+取消
+测试连接
+保存并启用

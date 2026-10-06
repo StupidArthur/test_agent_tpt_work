@@ -1,0 +1,325 @@
+{
+  "case_id": "AGENT-020",
+  "case_title": "Agent内Skill独立",
+  "source_sha256": "c3cdc4c71c1746e9a647aa5190e0983229af9b41c22e2e6c9a9bc3da80727b66",
+  "status": "已执行-存在差异",
+  "review_status": "待双方审核",
+  "latest_attempt_id": "AGENT-020-A04",
+  "attempts": [
+    {
+      "attempt_id": "AGENT-020-A02",
+      "started_at": "2026-10-05T16:08:40.000Z",
+      "ended_at": "2026-10-05T16:09:04.000Z",
+      "environment_id": "ENV-001",
+      "surface": "Visible TPT Expert detail/use and conversation Trace via CDP+Playwright; separate read-only check limited to this round-owned package",
+      "actual_preconditions": {
+        "account_alias": "Arthur",
+        "workspace": "tpt-workspace",
+        "project": "未新增项目",
+        "session_id": "round-owned Expert invocation session",
+        "model": "标准 / low",
+        "permission": "工作区内修改",
+        "fixtures": [
+          "round-agent-inline-only-20261006 and nested Skill fixture"
+        ]
+      },
+      "input": "Explicitly request invocation of bundled Skill; user message contains unique marker ROUND_BUNDLE_ONLY_20261006. No network, device, connector, or user file use.",
+      "actual_steps": [
+        "打开本轮内嵌技能核验专家详情页并点击“使用”。",
+        "在独立新会话发送明确要求调用内嵌Skill的虚构测试请求。",
+        "等待Trace终态，点击工具调用行展开工具结果与错误。",
+        "仅回读本轮专家目录和嵌套Skill确认唯一标记位置。"
+      ],
+      "wait_condition": "等待模型输出和Trace工具结束状态；两次尝试均在Trace中观察到Skill tool error；不以用户预先输入的标记判成功。",
+      "checkpoints": [
+        {
+          "expected_index": 1,
+          "expected": "Skill随Agent目录保存",
+          "observed": "metadata.skills指向Agent目录内独立的./skills/round-inline-only-20261006，实际文件存在；但运行时Skill工具加载失败。",
+          "verdict": "符合",
+          "evidence": [
+            "证据/AGENT-020/AGENT-020-A02/assistant-row.png",
+            "证据/AGENT-020/AGENT-020-A02/inline-skill-context-row.png",
+            "证据/AGENT-020/AGENT-020-A02/inline-skill-tool-row.png",
+            "证据/AGENT-020/AGENT-020-A02/input.png",
+            "证据/AGENT-020/AGENT-020-A02/installed-package-readback.json",
+            "证据/AGENT-020/AGENT-020-A02/tool-error-expanded.png",
+            "证据/AGENT-020/AGENT-020-A02/trace.json"
+          ]
+        },
+        {
+          "expected_index": 2,
+          "expected": "无原Skill共享引用",
+          "observed": "本轮目录树包含嵌套SKILL.md，global shared Skill path不存在。",
+          "verdict": "符合",
+          "evidence": [
+            "证据/AGENT-020/AGENT-020-A02/assistant-row.png",
+            "证据/AGENT-020/AGENT-020-A02/inline-skill-context-row.png",
+            "证据/AGENT-020/AGENT-020-A02/inline-skill-tool-row.png",
+            "证据/AGENT-020/AGENT-020-A02/input.png",
+            "证据/AGENT-020/AGENT-020-A02/installed-package-readback.json",
+            "证据/AGENT-020/AGENT-020-A02/tool-error-expanded.png",
+            "证据/AGENT-020/AGENT-020-A02/trace.json"
+          ]
+        }
+      ],
+      "observed_result": "round-owned Agent目录内含相对Skill路径及独立文件；UI Trace显式skill工具请求失败，报Error: skill \"round-inline-only-20261006\" is unknown or no longer available。助手仍输出了请求中已给出的唯一标记，不能作为Skill成功证据。",
+      "status": "已执行-存在差异",
+      "difference_ids": [
+        "DIFF-023"
+      ],
+      "evidence": [
+        "证据/AGENT-020/AGENT-020-A02/assistant-row.png",
+        "证据/AGENT-020/AGENT-020-A02/inline-skill-context-row.png",
+        "证据/AGENT-020/AGENT-020-A02/inline-skill-tool-row.png",
+        "证据/AGENT-020/AGENT-020-A02/input.png",
+        "证据/AGENT-020/AGENT-020-A02/installed-package-readback.json",
+        "证据/AGENT-020/AGENT-020-A02/tool-error-expanded.png",
+        "证据/AGENT-020/AGENT-020-A02/trace.json"
+      ],
+      "notes": "产品存储结构与运行时加载结果分开表述；仅测试本轮包，不外推到所有Expert或Skill。样本保留，不清理。"
+    },
+    {
+      "attempt_id": "AGENT-020-A03",
+      "started_at": "2026-10-05T16:43:00.000Z",
+      "ended_at": "2026-10-05T16:44:35.000Z",
+      "environment_id": "ENV-001",
+      "surface": "Visible TPT Expert detail/use and conversation Trace via CDP+Playwright; separate read-only check limited to this round-owned package",
+      "actual_preconditions": {
+        "account_alias": "Arthur",
+        "workspace": "tpt-workspace",
+        "project": "未新增项目",
+        "session_id": "round-owned Expert invocation session",
+        "model": "标准 / low",
+        "permission": "工作区内修改",
+        "fixtures": [
+          "round-agent-inline-only-20261006 and nested Skill fixture"
+        ]
+      },
+      "input": "Explicitly request invocation of bundled Skill; user message contains unique marker ROUND_BUNDLE_ONLY_20261006. No network, device, connector, or user file use.",
+      "actual_steps": [
+        "打开本轮内嵌技能核验专家详情页并点击“使用”。",
+        "在独立新会话发送明确要求调用内嵌Skill的虚构测试请求。",
+        "等待Trace终态，点击工具调用行展开工具结果与错误。",
+        "仅回读本轮专家目录和嵌套Skill确认唯一标记位置。"
+      ],
+      "wait_condition": "等待模型输出和Trace工具结束状态；两次尝试均在Trace中观察到Skill tool error；不以用户预先输入的标记判成功。",
+      "checkpoints": [
+        {
+          "expected_index": 1,
+          "expected": "Skill随Agent目录保存",
+          "observed": "metadata.skills指向Agent目录内独立的./skills/round-inline-only-20261006，实际文件存在；但运行时Skill工具加载失败。",
+          "verdict": "符合",
+          "evidence": [
+            "证据/AGENT-020/AGENT-020-A03/input.png",
+            "证据/AGENT-020/AGENT-020-A03/result-visible-text.txt",
+            "证据/AGENT-020/AGENT-020-A03/result.png",
+            "证据/AGENT-020/AGENT-020-A03/tool-error-excerpt.txt",
+            "证据/AGENT-020/AGENT-020-A03/tool-error-expanded.png",
+            "证据/AGENT-020/AGENT-020-A03/trace-visible-text.txt",
+            "证据/AGENT-020/AGENT-020-A03/trace-visible.png",
+            "证据/AGENT-020/AGENT-020-A03/installed-package-readback.json"
+          ]
+        },
+        {
+          "expected_index": 2,
+          "expected": "无原Skill共享引用",
+          "observed": "本轮目录树包含嵌套SKILL.md，global shared Skill path不存在。",
+          "verdict": "符合",
+          "evidence": [
+            "证据/AGENT-020/AGENT-020-A03/input.png",
+            "证据/AGENT-020/AGENT-020-A03/result-visible-text.txt",
+            "证据/AGENT-020/AGENT-020-A03/result.png",
+            "证据/AGENT-020/AGENT-020-A03/tool-error-excerpt.txt",
+            "证据/AGENT-020/AGENT-020-A03/tool-error-expanded.png",
+            "证据/AGENT-020/AGENT-020-A03/trace-visible-text.txt",
+            "证据/AGENT-020/AGENT-020-A03/trace-visible.png",
+            "证据/AGENT-020/AGENT-020-A03/installed-package-readback.json"
+          ]
+        }
+      ],
+      "observed_result": "复测中从round-owned Expert卡片点“使用”进入独立会话，Trace再次显示skill(name=round-inline-only-20261006)失败，UI展开错误为“Error: skill \"round-inline-only-20261006\" is unknown or no longer available”。模型回显ROUND_BUNDLE_ONLY_20261006，但标记也在用户输入中，不能算独立调用证明。独立只读读取本轮Expert目录，确认唯一标记仅存在于嵌套SKILL.md，不在agent.md；global shared Skill path不存在。",
+      "status": "已执行-存在差异",
+      "difference_ids": [
+        "DIFF-023"
+      ],
+      "evidence": [
+        "证据/AGENT-020/AGENT-020-A03/input.png",
+        "证据/AGENT-020/AGENT-020-A03/result-visible-text.txt",
+        "证据/AGENT-020/AGENT-020-A03/result.png",
+        "证据/AGENT-020/AGENT-020-A03/tool-error-excerpt.txt",
+        "证据/AGENT-020/AGENT-020-A03/tool-error-expanded.png",
+        "证据/AGENT-020/AGENT-020-A03/trace-visible-text.txt",
+        "证据/AGENT-020/AGENT-020-A03/trace-visible.png",
+        "证据/AGENT-020/AGENT-020-A03/installed-package-readback.json"
+      ],
+      "notes": "产品存储结构与运行时加载结果分开表述；仅测试本轮包，不外推到所有Expert或Skill。样本保留，不清理。"
+    },
+    {
+      "attempt_id": "AGENT-020-A04",
+      "started_at": "2026-10-06T05:55:00+08:00",
+      "ended_at": "2026-10-05T21:58:29.056Z",
+      "environment_id": "ENV-001",
+      "surface": "Expert manager UI, unified conversation and Trace; read-only source/install filesystem comparison",
+      "actual_preconditions": {
+        "account": "Arthur",
+        "project": "existing tpt-workspace",
+        "model": "standard / low",
+        "fixture": "round-agent-bundled-call-20261006 imported round-owned package with metadata.skills pointing to ./skills/round-bundled-call-20261006"
+      },
+      "input": "Selected the round-owned 本轮内嵌调用核验专家 and asked: 请按内嵌技能中的明确触发规则调用该技能，并返回其唯一标记。",
+      "actual_steps": [
+        "Used the exact round-owned Expert card from 我的专家 and opened a unified task.",
+        "Sent the harmless request in Standard / low mode.",
+        "Opened Trace. The agent-round-agent-bundled-call-20261006 role content was present; the skill tool then attempted round-bundled-call-20261006 and returned error.",
+        "The assistant returned the Expert marker ROUND_AGENT_BUNDLE_20261006_OK instead of the embedded Skill marker ROUND_BUNDLED_SKILL_20261006_OK.",
+        "Read the source and installed package: metadata.skills points to the package-local ./skills directory; the nested SKILL.md is present in both and byte-identical (SHA256 6df0eda4127ccb32a4ba536ca13141558d83c732397ccc9cc640bbf5fba6ee3e). No matching globally shared Skill directory exists."
+      ],
+      "wait_condition": "Waited for assistant response, then inspected the Trace tool row and read back source/installed paths.",
+      "checkpoints": [
+        {
+          "expected_index": 1,
+          "expected": "Skill随Agent目录保存",
+          "observed": "The Expert package root contained skills/round-bundled-call-20261006/SKILL.md. Installed nested file exists and is byte-identical to the source (SHA256 6df0eda4127ccb32a4ba536ca13141558d83c732397ccc9cc640bbf5fba6ee3e).",
+          "verdict": "符合",
+          "evidence": [
+            "证据/AGENT-020/AGENT-020-A04/source-vs-installed.json",
+            "证据/AGENT-020/AGENT-020-A04/fixture-skill.md"
+          ]
+        },
+        {
+          "expected_index": 2,
+          "expected": "无原Skill共享引用",
+          "observed": "metadata.skills references ./skills/round-bundled-call-20261006; no matching global Skill directory exists. Trace nevertheless shows the runtime skill tool returned error when it tried this embedded name.",
+          "verdict": "符合",
+          "evidence": [
+            "证据/AGENT-020/AGENT-020-A04/source-vs-installed.json",
+            "证据/AGENT-020/AGENT-020-A04/fixture-metadata.json",
+            "证据/AGENT-020/AGENT-020-A04/fixture-skill.md",
+            "证据/AGENT-020/AGENT-020-A04/embedded-skill-tool-error.png"
+          ]
+        }
+      ],
+      "observed_result": "The tested package preserves its embedded Skill independently under the Agent directory with no matching global shared Skill directory. Actual invocation through the selected Agent failed at the skill tool step, and the Expert returned its own marker instead. This adds a runtime difference beyond the two storage/reference checkpoints and is not generalized to other packages.",
+      "status": "已执行-存在差异",
+      "evidence": [
+        "证据/AGENT-020/AGENT-020-A04/embedded-skill-tool-error.png",
+        "证据/AGENT-020/AGENT-020-A04/tool-error.txt",
+        "证据/AGENT-020/AGENT-020-A04/expert-fallback-answer.png",
+        "证据/AGENT-020/AGENT-020-A04/assistant-answer.txt",
+        "证据/AGENT-020/AGENT-020-A04/source-vs-installed.json",
+        "证据/AGENT-020/AGENT-020-A04/fixture-agent.md",
+        "证据/AGENT-020/AGENT-020-A04/fixture-metadata.json",
+        "证据/AGENT-020/AGENT-020-A04/fixture-skill.md"
+      ],
+      "notes": "This variation reproduces the prior runtime error on another round-owned package. Checkpoint storage facts are conforming; runtime call error is an additional observed difference retained for bilateral review, not automatically classified as a product defect.",
+      "cleanup": {
+        "changes": [],
+        "remaining": [
+          "The round-owned Expert and embedded Skill package remain installed for this test round."
+        ]
+      }
+    }
+  ],
+  "product_observations": [
+    {
+      "feature_id": null,
+      "statement": "round-owned Agent目录内含相对Skill路径及独立文件；UI Trace显式skill工具请求失败，报Error: skill \"round-inline-only-20261006\" is unknown or no longer available。助手仍输出了请求中已给出的唯一标记，不能作为Skill成功证据。",
+      "case_ids": [
+        "AGENT-020"
+      ],
+      "attempt_ids": [
+        "AGENT-020-A02"
+      ],
+      "environment_id": "ENV-001",
+      "verified_depth": "Round-owned UI invocation/Trace plus only this sample’s installed-file readback",
+      "scope_and_limits": "本轮专家及嵌套Skill样本；用户输入含相同唯一标记，因此答案复述不独立证明Skill执行；待双方审核。",
+      "evidence": [
+        "证据/AGENT-020/AGENT-020-A02/assistant-row.png",
+        "证据/AGENT-020/AGENT-020-A02/inline-skill-context-row.png",
+        "证据/AGENT-020/AGENT-020-A02/inline-skill-tool-row.png",
+        "证据/AGENT-020/AGENT-020-A02/input.png",
+        "证据/AGENT-020/AGENT-020-A02/installed-package-readback.json",
+        "证据/AGENT-020/AGENT-020-A02/tool-error-expanded.png",
+        "证据/AGENT-020/AGENT-020-A02/trace.json"
+      ],
+      "relation_to_design": "按来源设计检查点记录，待双方审核。",
+      "review_status": "待双方审核"
+    },
+    {
+      "feature_id": null,
+      "statement": "复测中从round-owned Expert卡片点“使用”进入独立会话，Trace再次显示skill(name=round-inline-only-20261006)失败，UI展开错误为“Error: skill \"round-inline-only-20261006\" is unknown or no longer available”。模型回显ROUND_BUNDLE_ONLY_20261006，但标记也在用户输入中，不能算独立调用证明。独立只读读取本轮Expert目录，确认唯一标记仅存在于嵌套SKILL.md，不在agent.md；global shared Skill path不存在。",
+      "case_ids": [
+        "AGENT-020"
+      ],
+      "attempt_ids": [
+        "AGENT-020-A03"
+      ],
+      "environment_id": "ENV-001",
+      "verified_depth": "Round-owned UI invocation/Trace plus only this sample’s installed-file readback",
+      "scope_and_limits": "本轮专家及嵌套Skill样本；用户输入含相同唯一标记，因此答案复述不独立证明Skill执行；待双方审核。",
+      "evidence": [
+        "证据/AGENT-020/AGENT-020-A03/input.png",
+        "证据/AGENT-020/AGENT-020-A03/result-visible-text.txt",
+        "证据/AGENT-020/AGENT-020-A03/result.png",
+        "证据/AGENT-020/AGENT-020-A03/tool-error-excerpt.txt",
+        "证据/AGENT-020/AGENT-020-A03/tool-error-expanded.png",
+        "证据/AGENT-020/AGENT-020-A03/trace-visible-text.txt",
+        "证据/AGENT-020/AGENT-020-A03/trace-visible.png",
+        "证据/AGENT-020/AGENT-020-A03/installed-package-readback.json"
+      ],
+      "relation_to_design": "按来源设计检查点记录，待双方审核。",
+      "review_status": "待双方审核"
+    },
+    {
+      "observation_id": "OBS-232",
+      "feature_id": null,
+      "statement": "The imported round-owned Expert preserves the embedded Skill under its own package directory with a source/install byte match and no matching global shared Skill path. In actual Standard/low use, Trace attempted the exact embedded Skill tool and returned error; the assistant then returned the Expert marker rather than the Skill marker.",
+      "case_ids": [
+        "AGENT-020"
+      ],
+      "attempt_ids": [
+        "AGENT-020-A04"
+      ],
+      "environment_id": "ENV-001",
+      "verified_depth": "UI-selected Expert task, Trace skill tool call, unique marker outcome, source/install tree and SHA256 comparison",
+      "scope_and_limits": "One round-owned Agent package and one call. Storage/reference expectations are supported; runtime invocation failed for this sample. No real files/devices/network/connectors.",
+      "evidence": [
+        "证据/AGENT-020/AGENT-020-A04/embedded-skill-tool-error.png",
+        "证据/AGENT-020/AGENT-020-A04/tool-error.txt",
+        "证据/AGENT-020/AGENT-020-A04/expert-fallback-answer.png",
+        "证据/AGENT-020/AGENT-020-A04/assistant-answer.txt",
+        "证据/AGENT-020/AGENT-020-A04/source-vs-installed.json",
+        "证据/AGENT-020/AGENT-020-A04/fixture-agent.md",
+        "证据/AGENT-020/AGENT-020-A04/fixture-metadata.json",
+        "证据/AGENT-020/AGENT-020-A04/fixture-skill.md"
+      ],
+      "relation_to_design": "Pending bilateral review; separate storage facts from runtime invocation outcome.",
+      "review_status": "待双方审核"
+    }
+  ],
+  "differences": [
+    "DIFF-023"
+  ],
+  "finding_ids": [
+    "CAND-014"
+  ],
+  "blocker": null,
+  "applicability_reason": null,
+  "cleanup": {
+    "changes": [],
+    "remaining": []
+  },
+  "review": {
+    "assistant": null,
+    "user": null,
+    "approved_scope": [],
+    "final_decision": "待审核"
+  },
+  "audit_history": [
+    {
+      "at": "2026-10-05T16:44:35.000Z",
+      "event": "旧阻塞中的夹具/导入依赖由Round-owned Skill package和CDP UI导入能力解除；保留两次新的实际use尝试，运行时调用错误转为待审核差异。"
+    }
+  ]
+}

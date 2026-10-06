@@ -1,0 +1,30 @@
+{
+  "case_id": "G4-01",
+  "status": "通过",
+  "started_at": "2026-10-06T10:06:40+08:00",
+  "ended_at": "2026-10-06T10:07:20+08:00",
+  "actual_steps": [
+    "点击左侧“专家”打开专家页（iframe dsh-app://app/api/supcon-agents/ui）",
+    "点击“导入专家”",
+    "检查弹窗内 file/目录 input 与按钮"
+  ],
+  "observed": "专家页在 iframe 内渲染；点击“导入专家”出现页面内弹窗“导入本地专家”，含两个隐藏 input[type=file]（accept=.zip,application/zip 与 webkitdirectory 目录型），按钮“选择文件/选择文件夹/提交”，并有“内部名称（可选）”输入。导入要求写明校验 agent.md + metadata.json，名称冲突可覆盖或作为副本。页面内导入可用。",
+  "evidence": [
+    {
+      "path": "证据/G4-01-experts-page.png",
+      "sha256": "7c29e1775cc9d47ee1be466caa6c0aba005b3e382d744a927fe503f4eca59ea4"
+    },
+    {
+      "path": "证据/G4-01-import-dialog.png",
+      "sha256": "504a96376e1aa527b19e7e558df7e5cea33fe99f6ac804b574a2dfe44709bb4a"
+    }
+  ],
+  "cleanup": "关闭导入弹窗。",
+  "timings": {
+    "操作等待秒": 30,
+    "产品执行秒": 0,
+    "取证登记秒": 10,
+    "排障恢复秒": 0
+  },
+  "group": "G4"
+}

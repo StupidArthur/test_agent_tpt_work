@@ -1,0 +1,28 @@
+{
+  "case_id": "G3-05",
+  "status": "通过",
+  "started_at": "2026-10-06T10:03:50+08:00",
+  "ended_at": "2026-10-06T10:04:10+08:00",
+  "actual_steps": [
+    "读取上一任务终态助手回复"
+  ],
+  "observed": "助手终态回复正文仅 FAST_SKILL_EXEC_OK，任务显示“已完成工作 用时 6秒”。请求语句未包含该输出串，排除普通回显假阳性；结合 G3-04 的 skill_content 装载记录，判定为技能调用输出。",
+  "evidence": [
+    {
+      "path": "证据/G3-05-output.png",
+      "sha256": "fb2f4d4044eb97a55844cbeda893ea195fd6e962ce3fce678ef1ee7e333c6d9d"
+    },
+    {
+      "path": "证据/G3-05-chat-body.txt",
+      "sha256": "5642e584b1a1a00b807992402a3bef7f56f4ee2526b68c30888e19c1d2c714fb"
+    }
+  ],
+  "cleanup": "无。",
+  "timings": {
+    "操作等待秒": 5,
+    "产品执行秒": 0,
+    "取证登记秒": 10,
+    "排障恢复秒": 0
+  },
+  "group": "G3"
+}

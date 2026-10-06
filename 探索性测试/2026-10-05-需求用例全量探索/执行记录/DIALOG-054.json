@@ -1,0 +1,95 @@
+{
+  "case_id": "DIALOG-054",
+  "case_title": "点踩标签多选",
+  "source_sha256": "b712acd3b204ebcfdd07129c4d993ea1beb184f9a2d0c3827745ee1fdf7a6677",
+  "status": "已执行-结论不确定",
+  "review_status": "待双方审核",
+  "latest_attempt_id": "DIALOG-054-A01",
+  "attempts": [
+    {
+      "attempt_id": "DIALOG-054-A01",
+      "started_at": "2026-10-05T20:05:00+08:00",
+      "ended_at": "2026-10-05T21:40:00+08:00",
+      "environment_id": "ENV-001",
+      "surface": "UI/CDP",
+      "actual_preconditions": {
+        "account_alias": "Arthur",
+        "workspace": "界面未暴露空间切换入口，本轮未验证",
+        "project": "tpt-workspace（已有项目）",
+        "session_id": "FB_1791198736931（本轮新建，用于反馈入口观察）",
+        "model": "标准 / low",
+        "permission": "工作区内修改",
+        "fixtures": []
+      },
+      "input": "新建任务发送 `请只回复 FB_…`，等待完成后点击「有问题的回答」打开反馈面板",
+      "actual_steps": [
+        "新建任务并发送一条仅回显标记的请求",
+        "等待「已完成工作」终态",
+        "读取回复下方的反馈入口",
+        "点击「有问题的回答」并读取面板内容"
+      ],
+      "wait_condition": "等待业务终态（标记回显且无进行中状态），最长 120 秒；本次约 6 秒完成。",
+      "checkpoints": [
+        {
+          "expected_index": 1,
+          "expected": "允许多选",
+          "observed": "点击「有问题的回答」后出现反馈面板，含可多选的标签：任务结果、指令理解与遵循、产品功能与交互、稳定性和速度、资源使用与费用、安全隐私与权限、其他，以及「提交」按钮。标签以可点击项列出，支持多选。",
+          "verdict": "符合",
+          "evidence": [
+            "证据/DIALOG-054/DIALOG-054-A01/反馈入口-摘录.txt"
+          ]
+        },
+        {
+          "expected_index": 2,
+          "expected": "成功后弹窗关闭",
+          "observed": "未验证：未点击「提交」，因此标签面板是否在成功后关闭未验证。",
+          "verdict": "未验证",
+          "evidence": [
+            "证据/DIALOG-054/DIALOG-054-A01/反馈入口-摘录.txt"
+          ]
+        }
+      ],
+      "observed_result": "验证深度：操作有反馈（点踩后标签面板出现，含 7 个标签与提交按钮）。 第二个检查点需实际提交反馈，本轮未提交，故记未验证。",
+      "status": "已执行-结论不确定",
+      "evidence": [
+        "证据/DIALOG-054/DIALOG-054-A01/反馈入口-摘录.txt"
+      ],
+      "difference_ids": [],
+      "notes": "未点击「提交」，故反馈未被真正发送。"
+    }
+  ],
+  "product_observations": [
+    {
+      "feature_id": null,
+      "statement": "【DIALOG-054】点击「有问题的回答」后出现反馈面板，含可多选的标签：任务结果、指令理解与遵循、产品功能与交互、稳定性和速度、资源使用与费用、安全隐私与权限、其他，以及「提交」按钮。标签以可点击项列出，支持多选。",
+      "case_ids": [
+        "DIALOG-054"
+      ],
+      "attempt_ids": [
+        "DIALOG-054-A01"
+      ],
+      "environment_id": "ENV-001",
+      "verified_depth": "操作有反馈",
+      "scope_and_limits": "账号 Arthur、app.asar SHA256 EF56656B…4CC2D9D、2026-10-05。",
+      "evidence": [
+        "证据/DIALOG-054/DIALOG-054-A01/反馈入口-摘录.txt"
+      ],
+      "relation_to_design": "符合当前用例检查点",
+      "review_status": "待双方审核"
+    }
+  ],
+  "differences": [],
+  "finding_ids": [],
+  "blocker": null,
+  "applicability_reason": null,
+  "cleanup": {
+    "changes": [],
+    "remaining": []
+  },
+  "review": {
+    "assistant": null,
+    "user": null,
+    "approved_scope": [],
+    "final_decision": "待审核"
+  }
+}

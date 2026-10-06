@@ -1,0 +1,187 @@
+{
+  "reason": "用户要求按三个简明规则澄清尚未执行用例，业务预期与数量不变",
+  "before_sha256": "42f0a00ac9e73038bc9b68e38cc30e0c6dd772098105a5c1a697de81f779696a",
+  "after_sha256": "c31b8d161632549ca1b7055eb768b80c1b19ed1f1753ff4ee927ee5b8a7c5973",
+  "changes": [
+    {
+      "case_id": "G3-04",
+      "old_version": "2.0",
+      "new_version": "2.1",
+      "edits": [
+        {
+          "assertion_id": "G3-04-A1",
+          "before": "读取skill_content资源名列表或成功skill工具name列表；无成功工具时不能引用错误name",
+          "after": "仅读取本轮session、本次请求轨迹内的skill_content资源标识，或状态明确成功的skill工具记录name；保存记录原文及成功状态。不能在整个main/body搜索名称，失败工具或其他轮记录不计入。无法区分本次记录则actual=null并写原因。"
+        }
+      ]
+    },
+    {
+      "case_id": "G5-02",
+      "old_version": "2.0",
+      "new_version": "2.1",
+      "edits": [
+        {
+          "assertion_id": "G5-02-A1",
+          "before": "读取成功注入资源名列表",
+          "after": "仅读取本轮session、本次请求轨迹内专家正文注入记录的资源标识；保存该记录原文和成功状态，或明确展示已加载正文的记录。仅出现名称、composer引用、整页文本命中不算成功注入；没有可判别记录则actual=null并写原因。"
+        }
+      ]
+    },
+    {
+      "case_id": "G5-07",
+      "old_version": "2.0",
+      "new_version": "2.1",
+      "edits": [
+        {
+          "assertion_id": "G5-07-A1",
+          "before": "读取是否明确拒绝",
+          "after": "提交已选缺agent.md包后，在wait.ui_ms内读取本次提交的可见错误提示或失败响应；提示须指出agent.md缺失或必填文件缺失才为true。保存完整反馈及原始状态。弹窗未关闭、列表不变、目录不存在不能替代拒绝反馈。提交已完成且到时无对应反馈为false；提交未完成或读取失败为null。"
+        }
+      ]
+    },
+    {
+      "case_id": "G5-08",
+      "old_version": "2.0",
+      "new_version": "2.1",
+      "edits": [
+        {
+          "assertion_id": "G5-08-A1",
+          "before": "读取是否明确拒绝",
+          "after": "提交已选坏metadata.json包后，在wait.ui_ms内读取本次提交的可见错误提示或失败响应；提示须指出metadata.json/JSON解析或格式校验失败才为true。保存完整反馈及原始状态。弹窗未关闭、列表不变、目录不存在不能替代拒绝反馈。提交已完成且到时无对应反馈为false；提交未完成或读取失败为null。"
+        }
+      ]
+    },
+    {
+      "case_id": "G7-07",
+      "old_version": "2.0",
+      "new_version": "2.1",
+      "edits": [
+        {
+          "assertion_id": "G7-07-A2",
+          "before": "读取卡片是否宣称解析成功",
+          "after": "只读取当前草稿中目标未知格式附件卡的状态文本；明确出现解析成功/内容已识别等肯定声明为true，否则false。保存完整卡片文本；卡片无法定位或读取为null，不能把无法读取当作没有声明。"
+        }
+      ]
+    },
+    {
+      "case_id": "G9-07",
+      "old_version": "2.0",
+      "new_version": "2.1",
+      "edits": [
+        {
+          "assertion_id": "G9-07-A1",
+          "before": "读取明确校验拒绝",
+          "after": "提交缺技术name样本后，在wait.ui_ms内读取本次校验错误提示或失败响应，须指出name字段缺失/必填才为true；保存完整原文。未新增对象不能代替反馈。提交完成但无相应反馈为false；提交未完成或读取失败为null。"
+        }
+      ]
+    },
+    {
+      "case_id": "G9-08",
+      "old_version": "2.0",
+      "new_version": "2.1",
+      "edits": [
+        {
+          "assertion_id": "G9-08-A1",
+          "before": "读取明确校验拒绝",
+          "after": "提交缺技术description样本后，在wait.ui_ms内读取本次校验错误提示或失败响应，须指出description字段缺失/必填才为true；保存完整原文。未新增对象不能代替反馈。提交完成但无相应反馈为false；提交未完成或读取失败为null。"
+        }
+      ]
+    },
+    {
+      "case_id": "G10-06",
+      "old_version": "2.0",
+      "new_version": "2.1",
+      "edits": [
+        {
+          "assertion_id": "G10-06-A2",
+          "before": "读取是否宣称已解析出业务内容",
+          "after": "只读取目标二进制文件预览区的状态与正文；若显示对文件业务内容的解析结果或明确解析成功声明则true，仅名称/类型/大小及不支持预览说明则false。保存完整预览文本；无法定位或读取为null。"
+        }
+      ]
+    },
+    {
+      "case_id": "G10-07",
+      "old_version": "2.0",
+      "new_version": "2.1",
+      "edits": [
+        {
+          "assertion_id": "G10-07-A2",
+          "before": "读取成功加载的skill_content正文",
+          "after": "仅读取本轮session、本次请求成功加载的目标skill_content记录正文，保存正文和资源身份；不从卡片、详情、用户请求或整个页面查标记。"
+        }
+      ]
+    },
+    {
+      "case_id": "G10-08",
+      "old_version": "2.0",
+      "new_version": "2.1",
+      "edits": [
+        {
+          "assertion_id": "G10-08-A1",
+          "before": "读取提示明确无效字段或校验失败",
+          "after": "修改并触发重读后，在wait.ui_ms内读取对应本轮技能的错误反馈，须指出本次无效字段或校验失败，保存完整原文；旧内容仍可调用不能替代反馈。触发完成但无对应反馈为false；触发/读取失败为null。"
+        }
+      ]
+    },
+    {
+      "case_id": "G11-07",
+      "old_version": "2.0",
+      "new_version": "2.1",
+      "edits": [
+        {
+          "assertion_id": "G11-07-A1",
+          "before": "读取Trace成功skill资源正文",
+          "after": "仅读取本轮专家session、本次请求成功加载的附带技能资源正文，核对安装路径/内部name并保存正文与成功记录；不从专家详情、用户请求或整页文本查标记。"
+        }
+      ]
+    },
+    {
+      "case_id": "G11-08",
+      "old_version": "2.0",
+      "new_version": "2.1",
+      "edits": [
+        {
+          "assertion_id": "G11-08-A2",
+          "before": "读取编辑模式语义标识存在",
+          "after": "限定本次打开的编辑会话，读取可见编辑模式标签或composer上下文中明确表示修改/编辑该专家的文本，并保存原文；仅专家名称、普通对话入口或全页包含编辑二字不算。表面可读但无标识为false，无法读取为null。"
+        }
+      ]
+    },
+    {
+      "case_id": "G11-12",
+      "old_version": "2.0",
+      "new_version": "2.1",
+      "edits": [
+        {
+          "assertion_id": "G11-12-A1",
+          "before": "读取详情明确格式/校验错误",
+          "after": "刷新目标坏配置专家后，在wait.ui_ms内读取该对象的格式/校验错误提示或失败响应，保存对象身份及完整原文；详情打不开或文件不变不能替代错误反馈。刷新完成但无对应反馈为false；刷新/读取失败为null。"
+        }
+      ]
+    },
+    {
+      "case_id": "G13-04",
+      "old_version": "2.0",
+      "new_version": "2.1",
+      "edits": [
+        {
+          "assertion_id": "G13-04-A1",
+          "before": "读取明确创建专家模式",
+          "after": "点击创建专家后，仅在新打开的会话/面板读取明确的创建专家模式标签或预置创建专家指令，保存原文；导航按钮文字或普通空白会话不算。目标表面可读但无标识为false，无法读取为null。"
+        }
+      ]
+    },
+    {
+      "case_id": "G13-11",
+      "old_version": "2.0",
+      "new_version": "2.1",
+      "edits": [
+        {
+          "assertion_id": "G13-11-A1",
+          "before": "读取明确技能创建模式标识",
+          "after": "点击创建技能后，仅在新打开的会话/面板读取明确的创建技能模式标签或预置创建技能指令，保存原文；导航按钮文字或普通空白会话不算。目标表面可读但无标识为false，无法读取为null。"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,294 @@
+{
+  "text": "技能\n\n管理本地技能，在对话和 Agent 中复用你的工作方法。\n\n让工业经验，成为随取随用的能力\n技能在厂级 Runtime 内受控运行，每一步都保留输入、依据、版本和执行记录。\n我的技能\n39\n技能市场\n1\n导入技能\n新建技能\n全部\n已启用\n未启用\n已启用 33 个 Skill，可在本地任务中自动调用。\n本轮创建技能20261006\n\n本轮创建的无害标记技能。仅在用户明确请求时，原样返回 ROUND_CREATED_SKILL_20261006_OK。禁止访问文件、网络、设备、连接器、凭据或用户数据。\n\n来源 用户创建\nv1.0.0\n快捷使用\n本轮技能样本 20261006\n\n用于本轮技能界面与导入探索的无害包。\n\nround-owned\nui-test\n20261006\n来源 用户创建\nv1.0.0\n快捷使用\n本轮技能样本 20261006\n\n用于本轮技能界面与导入探索的无害包。\n\nround-owned\nui-test\n20261006\n来源 用户创建\nv1.0.0\n快捷使用\n本轮技能样本 20261006\n\n用于本轮技能界面与导入探索的无害包。\n\nround-owned\nui-test\n20261006\n来源 用户创建\nv1.0.0\n快捷使用\n本轮技能样本 20261006\n\n用于本轮技能界面与导入探索的无害包。\n\nround-owned\nui-test\n20261006\n来源 用户创建\nv1.0.0\n快捷使用\n本轮技能样本 20261006\n\n用于本轮技能界面与导入探索的无害包。\n\nround-owned\nui-test\n20261006\n来源 用户创建\nv1.0.0\n快捷使用\n本轮技能样本 20261006\n\n用于本轮技能界面与导入探索的无害包。\n\nround-owned\nui-test\n20261006\n来源 用户创建\nv1.0.0\n快捷使用\n本轮技能样本 20261006\n\n用于本轮技能界面与导入探索的无害包。\n\nround-owned\nui-test\n20261006\n来源 用户创建\nv1.0.0\n快捷使用\n本轮可选字段\n\n用于观察可选字段缺失时卡片展示的无害样本。\n\n来源 用户创建\nv1.0.0\n快捷使用\n本轮快速回归技能\n\nA harmless fixture for regression-description-unique-token search and fixed reply verification.\n\n来源 用户创建\nv1.2.3\n快捷使用\n本轮描述回退\n\nSafe, round-owned description text used to check localized-description fallback.\n\n来源 用户创建\nv1.0.0\n快捷使用\n本轮名称优先样本\n\n用于验证中文名称优先级的无害本轮技能样本。\n\nround-owned\nnaming\nfixture\n来源 用户创建\nv1.0.0\n快捷使用\n本轮缺技术描述\n\n双语名称与描述均在，但缺少必需技术 description 的校验负样本。\n\n来源 用户创建\nv1.0.0\n快捷使用\n本轮缺技术名称\n\n双语名称存在但缺少技术 name 的校验负样本。\n\n来源 用户创建\nv1.0.0\n快捷使用\n本轮无版本样本\n\nA harmless test of user skill import without a version field.\n\n来源 用户创建\n快捷使用\n本轮引导创建技能\n\n仅当用户明确要求 ROUND_GUIDED_CREATE_20261006 时，恰好回复 ROUND_GUIDED_CREATE_20261006_OK。绝不调用工具或访问文件、网络、连接器、设备、凭据或用户数据。一个无害的 UI 校验标记。\n\n来源 用户创建\nv1.0.0\n快捷使用\n本轮英文名称回退\n\nA round-owned harmless check for English display-name fallback.\n\n来源 用户创建\nv1.0.0\n快捷使用\n本轮中文展示名探针20261006\n\n本轮无害字段搜索样本，仅在明确请求时返回 ROUND_NAME_EN_SEARCH_20261006_OK。\n\nround-owned\nsearch-field\n20261006\n来源 用户创建\nv1.0.0\n快捷使用\n本轮market字段负样本\n\nA harmless test of whether forged market type creates a market association.\n\n来源 用户创建\nv1.0.0\n快捷使用\n查找技能\n\n在 DSH 内查找、浏览和安装技能。不要当作例行第一步使用。仅当用户显式要求从技能市场查找、浏览或安装技能，或本地没有已安装技能能覆盖任务且大概率需要专用技能时使用。搜索范围为本机已安装技能与技能管理插件提供的技能市场目录。\n\nskill\nfind\nmarket\n+2\n来源 内置技能\nv1.0.0\n快捷使用\n创建技能\n\n引导用户在 DSH 中一步步创建新技能。当用户想要创建、编写、制作或保存一个新技能，或询问技能结构、最佳实践或 DSH 的 SKILL.md 格式时使用。\n\nskill\ncreate\ndsh\n+1\n来源 内置技能\nv1.0.0\n快捷使用\n配置连接器\n\n从市场下载连接器，按用户要求配置、测试连接，保存并应用。当用户想配置或接入市场中的某个连接器时使用，例如「配置连接器」「接入市场里的 xxx」「把 xxx 连上」「下载 xxx 连接器」。\n\nconnector\nmcp\n连接器\n+3\n来源 内置技能\nv1.0.0\n快捷使用\n添加连接器\n\n引导用户在对话中添加 MCP 连接器。当用户想粘贴 mcpServers JSON 或描述连接信息（名称、地址、认证）来添加连接器时使用，例如「添加连接器」「导入连接器」「接入这个 MCP 服务」。\n\nmcp\nconnector\n连接器\n",
+  "inputs": [],
+  "buttons": [
+    {
+      "text": "我的技能 39",
+      "aria": null,
+      "role": "tab",
+      "cls": "inline-flex flex-1 items-center justify-"
+    },
+    {
+      "text": "技能市场 1",
+      "aria": null,
+      "role": "tab",
+      "cls": "inline-flex flex-1 items-center justify-"
+    },
+    {
+      "text": "导入技能",
+      "aria": null,
+      "role": null,
+      "cls": "inline-flex items-center justify-center "
+    },
+    {
+      "text": "新建技能",
+      "aria": null,
+      "role": null,
+      "cls": "inline-flex items-center justify-center "
+    },
+    {
+      "text": "全部",
+      "aria": null,
+      "role": null,
+      "cls": "_active_8pci2_45"
+    },
+    {
+      "text": "已启用",
+      "aria": null,
+      "role": null,
+      "cls": ""
+    },
+    {
+      "text": "未启用",
+      "aria": null,
+      "role": null,
+      "cls": ""
+    },
+    {
+      "text": "",
+      "aria": "删除",
+      "role": null,
+      "cls": "inline-flex items-center justify-center "
+    },
+    {
+      "text": "",
+      "aria": "删除",
+      "role": null,
+      "cls": "inline-flex items-center justify-center "
+    },
+    {
+      "text": "",
+      "aria": "删除",
+      "role": null,
+      "cls": "inline-flex items-center justify-center "
+    },
+    {
+      "text": "",
+      "aria": "删除",
+      "role": null,
+      "cls": "inline-flex items-center justify-center "
+    },
+    {
+      "text": "",
+      "aria": "删除",
+      "role": null,
+      "cls": "inline-flex items-center justify-center "
+    },
+    {
+      "text": "",
+      "aria": "删除",
+      "role": null,
+      "cls": "inline-flex items-center justify-center "
+    },
+    {
+      "text": "",
+      "aria": "删除",
+      "role": null,
+      "cls": "inline-flex items-center justify-center "
+    },
+    {
+      "text": "",
+      "aria": "删除",
+      "role": null,
+      "cls": "inline-flex items-center justify-center "
+    },
+    {
+      "text": "",
+      "aria": "删除",
+      "role": null,
+      "cls": "inline-flex items-center justify-center "
+    },
+    {
+      "text": "",
+      "aria": "删除",
+      "role": null,
+      "cls": "inline-flex items-center justify-center "
+    },
+    {
+      "text": "",
+      "aria": "删除",
+      "role": null,
+      "cls": "inline-flex items-center justify-center "
+    },
+    {
+      "text": "",
+      "aria": "删除",
+      "role": null,
+      "cls": "inline-flex items-center justify-center "
+    },
+    {
+      "text": "",
+      "aria": "删除",
+      "role": null,
+      "cls": "inline-flex items-center justify-center "
+    },
+    {
+      "text": "",
+      "aria": "删除",
+      "role": null,
+      "cls": "inline-flex items-center justify-center "
+    },
+    {
+      "text": "",
+      "aria": "删除",
+      "role": null,
+      "cls": "inline-flex items-center justify-center "
+    },
+    {
+      "text": "",
+      "aria": "删除",
+      "role": null,
+      "cls": "inline-flex items-center justify-center "
+    },
+    {
+      "text": "",
+      "aria": "删除",
+      "role": null,
+      "cls": "inline-flex items-center justify-center "
+    },
+    {
+      "text": "",
+      "aria": "删除",
+      "role": null,
+      "cls": "inline-flex items-center justify-center "
+    },
+    {
+      "text": "",
+      "aria": "删除",
+      "role": null,
+      "cls": "inline-flex items-center justify-center "
+    },
+    {
+      "text": "",
+      "aria": "删除",
+      "role": null,
+      "cls": "inline-flex items-center justify-center "
+    },
+    {
+      "text": "",
+      "aria": "删除",
+      "role": null,
+      "cls": "inline-flex items-center justify-center "
+    },
+    {
+      "text": "",
+      "aria": "删除",
+      "role": null,
+      "cls": "inline-flex items-center justify-center "
+    },
+    {
+      "text": "",
+      "aria": "删除",
+      "role": null,
+      "cls": "inline-flex items-center justify-center "
+    },
+    {
+      "text": "",
+      "aria": "删除",
+      "role": null,
+      "cls": "inline-flex items-center justify-center "
+    },
+    {
+      "text": "",
+      "aria": "删除",
+      "role": null,
+      "cls": "inline-flex items-center justify-center "
+    },
+    {
+      "text": "",
+      "aria": "删除",
+      "role": null,
+      "cls": "inline-flex items-center justify-center "
+    },
+    {
+      "text": "",
+      "aria": "删除",
+      "role": null,
+      "cls": "inline-flex items-center justify-center "
+    },
+    {
+      "text": "",
+      "aria": "删除",
+      "role": null,
+      "cls": "inline-flex items-center justify-center "
+    },
+    {
+      "text": "",
+      "aria": "删除",
+      "role": null,
+      "cls": "inline-flex items-center justify-center "
+    },
+    {
+      "text": "",
+      "aria": "删除",
+      "role": null,
+      "cls": "inline-flex items-center justify-center "
+    },
+    {
+      "text": "",
+      "aria": "删除",
+      "role": null,
+      "cls": "inline-flex items-center justify-center "
+    },
+    {
+      "text": "",
+      "aria": "删除",
+      "role": null,
+      "cls": "inline-flex items-center justify-center "
+    },
+    {
+      "text": "",
+      "aria": "删除",
+      "role": null,
+      "cls": "inline-flex items-center justify-center "
+    },
+    {
+      "text": "",
+      "aria": "删除",
+      "role": null,
+      "cls": "inline-flex items-center justify-center "
+    }
+  ],
+  "switches": [
+    {
+      "aria": null,
+      "checked": "false"
+    },
+    {
+      "aria": null,
+      "checked": "true"
+    },
+    {
+      "aria": null,
+      "checked": "true"
+    },
+    {
+      "aria": null,
+      "checked": "true"
+    },
+    {
+      "aria": null,
+      "checked": "true"
+    },
+    {
+      "aria": null,
+      "checked": "true"
+    },
+    {
+      "aria": null,
+      "checked": "true"
+    },
+    {
+      "aria": null,
+      "checked": "true"
+    },
+    {
+      "aria": null,
+      "checked": "true"
+    },
+    {
+      "aria": null,
+      "checked": "false"
+    }
+  ]
+}

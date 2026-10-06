@@ -1,0 +1,30 @@
+{
+  "case_id": "G5-07",
+  "status": "通过",
+  "started_at": "2026-10-06T10:11:30+08:00",
+  "ended_at": "2026-10-06T10:12:30+08:00",
+  "actual_steps": [
+    "打开导入专家弹窗",
+    "选择 expert-missing-agent 目录并提交",
+    "观察校验结果与列表"
+  ],
+  "observed": "提交后弹窗内提示“所选内容不是有效的专家包：需要包含 agent.md 与 metadata.json。”，并出现“import package fast-reg-invalid-missing-agent missing agent.md”。我的专家计数保持 13，未产生对象，本轮专家卡片仍为 2 个。导入被拒绝。",
+  "evidence": [
+    {
+      "path": "证据/G5-07-missing-agent.png",
+      "sha256": "fdd9f5e7295b472db79220cbe56f43c55130f2442743fa9c8ab6fbe9103a64d9"
+    },
+    {
+      "path": "证据/G5-bad-packages.txt",
+      "sha256": "b584eff10bf268901ead918981c8bfecde97a9cbe54f6c915887c729ca4460eb"
+    }
+  ],
+  "cleanup": "关闭弹窗。",
+  "timings": {
+    "操作等待秒": 30,
+    "产品执行秒": 10,
+    "取证登记秒": 10,
+    "排障恢复秒": 0
+  },
+  "group": "G5"
+}

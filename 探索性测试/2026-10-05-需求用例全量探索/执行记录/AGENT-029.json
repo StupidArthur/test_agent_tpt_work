@@ -1,0 +1,138 @@
+{
+  "case_id": "AGENT-029",
+  "case_title": "外部修改刷新读取",
+  "source_sha256": "c3cdc4c71c1746e9a647aa5190e0983229af9b41c22e2e6c9a9bc3da80727b66",
+  "status": "已执行-符合预期",
+  "review_status": "待双方审核",
+  "latest_attempt_id": "AGENT-029-A01",
+  "attempts": [
+    {
+      "attempt_id": "AGENT-029-A01",
+      "started_at": "2026-10-06T03:19:00+08:00",
+      "ended_at": "2026-10-06T03:19:00+08:00",
+      "environment_id": "ENV-001",
+      "surface": "本轮Expert详情→expert-manager本地文件编辑/read→重新打开Expert详情→恢复/read-back；CDP 9234 + Playwright",
+      "actual_preconditions": {
+        "account_alias": "Arthur",
+        "workspace": "tpt-workspace",
+        "project": "未新增项目",
+        "session_id": "round-agent-bundled-call-20261006 agent.md刷新与恢复",
+        "model": "标准/low",
+        "permission": "仅本轮round-owned Expert的agent.md；一次性审批仅限一行追加与恢复操作",
+        "fixtures": [
+          "round-agent-bundled-call-20261006；修改前正文与本轮夹具agent.md一致"
+        ]
+      },
+      "input": "在本轮样本agent.md末尾追加 <!-- ROUND_AGENT_REFRESH_20261006 -->；重新打开详情回读；随后移除该行。",
+      "actual_steps": [
+        "使用expert-manager只读确认agent.md全文与本轮样本相同。",
+        "仅在目标round-owned agent.md追加一行注释标记；对单文件修改使用一次性权限。",
+        "read-back确认末尾标记存在。",
+        "通过专家导航重新打开本轮Expert详情，查看“专家提示词”区域显示新标记。",
+        "回到expert-manager只删除这一行；read-back确认标记移除。",
+        "重新打开Expert详情，确认提示词不再包含标记；无其他文件或属性改动。"
+      ],
+      "wait_condition": "编辑/read-back后导航重新打开详情查看新内容；恢复/read-back后再次打开详情查看原文。",
+      "checkpoints": [
+        {
+          "expected_index": 1,
+          "expected": "重新读取有效内容",
+          "observed": "文件编辑成功且read-back包含ROUND_AGENT_REFRESH_20261006；随后重新打开专家详情的“专家提示词”显示新增行，证实重新读取内容。",
+          "verdict": "符合",
+          "evidence": [
+            "证据/AGENT-029/AGENT-029-A01/edit-and-read-trace.txt",
+            "证据/AGENT-029/AGENT-029-A01/edit-and-read-trace.png",
+            "证据/AGENT-029/AGENT-029-A01/detail-after-external-edit.txt",
+            "证据/AGENT-029/AGENT-029-A01/detail-after-external-edit.png"
+          ]
+        },
+        {
+          "expected_index": 2,
+          "expected": "不要求实时监听",
+          "observed": "本次按一次外部文件更新后再重新打开详情的步骤验证重新读取；没有把实时监听或即时同步作为条件。恢复后再次打开详情，标记消失。",
+          "verdict": "符合",
+          "evidence": [
+            "证据/AGENT-029/AGENT-029-A01/restore-trace.txt",
+            "证据/AGENT-029/AGENT-029-A01/restore-trace.png",
+            "证据/AGENT-029/AGENT-029-A01/detail-after-restore.txt",
+            "证据/AGENT-029/AGENT-029-A01/detail-after-restore.png"
+          ]
+        }
+      ],
+      "observed_result": "本轮样本round-agent-bundled-call-20261006的agent.md末尾追加唯一注释后，expert-manager工具确认写入成功并read-back显示标记；返回专家管理页重新打开详情，“专家提示词”也显示该新行。之后仅移除该行，read-back确认恢复，详情页刷新后标记消失。页面在重新打开详情时读取更新内容；未验证实时文件监视。",
+      "status": "已执行-符合预期",
+      "evidence": [
+        "证据/AGENT-029/AGENT-029-A01/edit-and-read-trace.txt",
+        "证据/AGENT-029/AGENT-029-A01/edit-and-read-trace.png",
+        "证据/AGENT-029/AGENT-029-A01/detail-after-external-edit.txt",
+        "证据/AGENT-029/AGENT-029-A01/detail-after-external-edit.png",
+        "证据/AGENT-029/AGENT-029-A01/restore-trace.txt",
+        "证据/AGENT-029/AGENT-029-A01/restore-trace.png",
+        "证据/AGENT-029/AGENT-029-A01/detail-after-restore.txt",
+        "证据/AGENT-029/AGENT-029-A01/detail-after-restore.png"
+      ],
+      "difference_ids": [],
+      "notes": "编辑仅通过本轮样本的expert-manager文件编辑/read路径，不触碰其他Agent；注释已删除并由read-back与UI详情双重回读确认。结果待双方审核。"
+    }
+  ],
+  "product_observations": [
+    {
+      "observation_id": "OBS-203",
+      "feature_id": null,
+      "statement": "本轮样本round-agent-bundled-call-20261006的agent.md末尾追加唯一注释后，expert-manager工具确认写入成功并read-back显示标记；返回专家管理页重新打开详情，“专家提示词”也显示该新行。之后仅移除该行，read-back确认恢复，详情页刷新后标记消失。页面在重新打开详情时读取更新内容；未验证实时文件监视。",
+      "case_ids": [
+        "AGENT-029"
+      ],
+      "attempt_ids": [
+        "AGENT-029-A01"
+      ],
+      "environment_id": "ENV-001",
+      "verified_depth": "一个本轮Expert的agent.md；一次追加/重新打开UI详情回读/恢复",
+      "scope_and_limits": "只对本轮round-owned样本；未测试实时文件监听；不外推所有对象。",
+      "evidence": [
+        "证据/AGENT-029/AGENT-029-A01/edit-and-read-trace.txt",
+        "证据/AGENT-029/AGENT-029-A01/edit-and-read-trace.png",
+        "证据/AGENT-029/AGENT-029-A01/detail-after-external-edit.txt",
+        "证据/AGENT-029/AGENT-029-A01/detail-after-external-edit.png",
+        "证据/AGENT-029/AGENT-029-A01/restore-trace.txt",
+        "证据/AGENT-029/AGENT-029-A01/restore-trace.png",
+        "证据/AGENT-029/AGENT-029-A01/detail-after-restore.txt",
+        "证据/AGENT-029/AGENT-029-A01/detail-after-restore.png"
+      ]
+    }
+  ],
+  "differences": [],
+  "finding_ids": [],
+  "blocker": null,
+  "applicability_reason": null,
+  "cleanup": {
+    "changes": [
+      {
+        "asset": "round-agent-bundled-call-20261006/agent.md",
+        "from": "本轮夹具原文",
+        "to": "仅追加一行HTML注释",
+        "restored_to": "本轮夹具原文",
+        "restoration_evidence": [
+          "证据/AGENT-029/AGENT-029-A01/restore-trace.txt",
+          "证据/AGENT-029/AGENT-029-A01/detail-after-restore.txt",
+          "证据/AGENT-029/AGENT-029-A01/detail-after-restore.png"
+        ]
+      }
+    ],
+    "remaining": [
+      "样本本身为用户授权保留的本轮复测资产；agent.md已恢复且无标记行。"
+    ]
+  },
+  "review": {
+    "assistant": null,
+    "user": null,
+    "approved_scope": [],
+    "final_decision": "待审核"
+  },
+  "audit_history": [
+    {
+      "at": "2026-10-06T03:19:00+08:00",
+      "event": "AGENT-029-A01对round-owned agent.md追加一行标记，重新打开详情验证显示，移除标记并二次回读确认恢复。"
+    }
+  ]
+}

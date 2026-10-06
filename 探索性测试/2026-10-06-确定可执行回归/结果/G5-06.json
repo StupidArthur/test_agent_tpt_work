@@ -1,0 +1,25 @@
+{
+  "case_id": "G5-06",
+  "status": "通过",
+  "started_at": "2026-10-06T10:11:00+08:00",
+  "ended_at": "2026-10-06T10:11:30+08:00",
+  "actual_steps": [
+    "导入前后回读本轮源夹具文件哈希",
+    "对比产品目录内容"
+  ],
+  "observed": "源夹具文件哈希与导入前一致（agent.md F3CB3F02…、metadata.json 66EFEAB1… 等，见证据），内容含 name fast-reg-expert-20261006095332 / version 1.2.3 / FAST_EXPERT_EXEC_OK 规则，未被覆盖或修改。产品侧原对象 fast-reg-expert-20261006095332 与副本 -1 各自独立存在。",
+  "evidence": [
+    {
+      "path": "证据/G5-06-source-hash.txt",
+      "sha256": "bcb0c305be67a6e862d7153255c26571436731a08d259103caccfedfdec7d264"
+    }
+  ],
+  "cleanup": "源文件保持原样。",
+  "timings": {
+    "操作等待秒": 10,
+    "产品执行秒": 0,
+    "取证登记秒": 15,
+    "排障恢复秒": 0
+  },
+  "group": "G5"
+}

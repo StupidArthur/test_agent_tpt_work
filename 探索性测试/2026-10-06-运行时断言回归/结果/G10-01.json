@@ -1,0 +1,55 @@
+{
+  "case_id": "G10-01",
+  "contract_version": "2.0",
+  "attempt_id": "G10-A01",
+  "environment_id": "env-20261006-oc1",
+  "object_identity": "rich技能详情",
+  "inputs": [],
+  "action_refs": [
+    "G10-16ee8573-f3e9-4dde-9e39-0460b3f63408-4",
+    "G10-16ee8573-f3e9-4dde-9e39-0460b3f63408-7",
+    "G10-16ee8573-f3e9-4dde-9e39-0460b3f63408-10",
+    "G10-16ee8573-f3e9-4dde-9e39-0460b3f63408-13",
+    "G10-16ee8573-f3e9-4dde-9e39-0460b3f63408-16",
+    "G10-16ee8573-f3e9-4dde-9e39-0460b3f63408-20",
+    "G10-16ee8573-f3e9-4dde-9e39-0460b3f63408-23",
+    "G10-16ee8573-f3e9-4dde-9e39-0460b3f63408-28",
+    "G10-16ee8573-f3e9-4dde-9e39-0460b3f63408-32",
+    "G10-16ee8573-f3e9-4dde-9e39-0460b3f63408-36",
+    "G10-16ee8573-f3e9-4dde-9e39-0460b3f63408-40"
+  ],
+  "status": "通过",
+  "started_at": "2026-10-06T06:06:08.857Z",
+  "ended_at": "2026-10-06T06:08:54.364Z",
+  "actual_steps": [
+    "打开详情"
+  ],
+  "assertions": [
+    {
+      "id": "G10-01-A1",
+      "actual": "SKILL.md",
+      "read_refs": [
+        "G10-16ee8573-f3e9-4dde-9e39-0460b3f63408-1"
+      ]
+    },
+    {
+      "id": "G10-01-A2",
+      "actual": "技能\n/\n详情\nfast-assert-rich-20261006-oc1\n\nHarmless package regression fixture\n\n删除\n本地打开\n对话修改\n使用\n版本\n1.0.0\n来源\n用户创建\nSkill 目录\n6个文件\nassets\ndata\nreferences\nSKILL.md\nSKILL.md\n只读查看\n---\nname: \"fast-assert-rich-20261006-oc1\"\ndescription: \"Harmless package regression fixture\"\nversion: \"1.0.0\"\nicon: \"assets/icon.png\"\n---\n\nWhen explicitly invoked, reply exactly FAST_RICH_BASE_OK. Do not access external systems.\n",
+      "read_refs": [
+        "G10-16ee8573-f3e9-4dde-9e39-0460b3f63408-2"
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "path": "运行日志/G10.jsonl",
+      "sha256": "6bb7cd07b7a13937d1317b9d00197696c6bfe7288904321930091c6378038595"
+    }
+  ],
+  "cleanup": {
+    "status": "restored",
+    "description": "rich安装SKILL.md已恢复原字节",
+    "read_refs": []
+  },
+  "notes": "G10基于rich安装对象。"
+}

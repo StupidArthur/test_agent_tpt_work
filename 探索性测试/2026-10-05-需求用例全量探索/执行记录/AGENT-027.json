@@ -1,0 +1,130 @@
+{
+  "case_id": "AGENT-027",
+  "case_title": "确认前不写入",
+  "source_sha256": "c3cdc4c71c1746e9a647aa5190e0983229af9b41c22e2e6c9a9bc3da80727b66",
+  "status": "已执行-符合预期",
+  "review_status": "待双方审核",
+  "latest_attempt_id": "AGENT-027-A01",
+  "attempts": [
+    {
+      "attempt_id": "AGENT-027-A01",
+      "started_at": "2026-10-05T16:20:25.000Z",
+      "ended_at": "2026-10-05T16:22:17.000Z",
+      "environment_id": "ENV-001",
+      "surface": "TPT Work visible UI through CDP + Playwright; independent readback only for round-owned fixture",
+      "actual_preconditions": {
+        "account_alias": "Arthur",
+        "workspace": "tpt-workspace",
+        "project": "未新增项目",
+        "session_id": "本轮编辑提案测试会话",
+        "model": "标准 / low",
+        "permission": "工作区内修改",
+        "fixtures": [
+          "round-owned Expert: round-agent-longread-20261005"
+        ]
+      },
+      "input": "针对round-agent-longread-20261005，要求提出“本轮长文阅读和唯一标记输出仅验证本地隔离行为”无害描述修改；明确禁止确认前写文件/读取文件/调用外部服务。",
+      "actual_steps": [
+        "在本轮专家的去对话编辑入口输入仅用于本轮样本的无害描述修改提案。",
+        "明确要求只生成候选、显示修改前后和待确认状态，在确认前不写入文件。",
+        "提交消息，等待助手终态；不点击确认/应用。",
+        "回读本轮Agent安装目录agent.md、metadata.json哈希与内容，并查看Trace。"
+      ],
+      "wait_condition": "等待页面出现稳定终态；发生导航/弹窗后重新读取可见frame及目标状态。",
+      "checkpoints": [
+        {
+          "expected_index": 1,
+          "expected": "先返回修改说明与影响",
+          "observed": "助手返回候选修改和影响范围并明确“待确认”“未写入任何文件”；未见工具调用。安装目录agent.md SHA256=858645b89620f06bc3054fbd56c328f8f018188e54597d0a4f62b24b69f133f3、metadata.json SHA256=dd51af3ca71489e66bbd0fe7914924e3abdf5c0d7228a640af578364dbd867c5，与修改前回读完全一致。",
+          "verdict": "符合",
+          "evidence": [
+            "证据/AGENT-027/AGENT-027-A01/pre-submit.png",
+            "证据/AGENT-027/AGENT-027-A01/response.png",
+            "证据/AGENT-027/AGENT-027-A01/response.txt",
+            "证据/AGENT-027/AGENT-027-A01/response-poll.png",
+            "证据/AGENT-027/AGENT-027-A01/response-poll.txt",
+            "证据/AGENT-027/AGENT-027-A01/installed-hash-after-edit-test.json",
+            "证据/AGENT-027/AGENT-027-A01/installed-agent.md-readback",
+            "证据/AGENT-027/AGENT-027-A01/installed-metadata.json-readback",
+            "证据/AGENT-027/AGENT-027-A01/trace.png"
+          ]
+        },
+        {
+          "expected_index": 2,
+          "expected": "目录内容尚未变更",
+          "observed": "助手返回候选修改和影响范围并明确“待确认”“未写入任何文件”；未见工具调用。安装目录agent.md SHA256=858645b89620f06bc3054fbd56c328f8f018188e54597d0a4f62b24b69f133f3、metadata.json SHA256=dd51af3ca71489e66bbd0fe7914924e3abdf5c0d7228a640af578364dbd867c5，与修改前回读完全一致。",
+          "verdict": "符合",
+          "evidence": [
+            "证据/AGENT-027/AGENT-027-A01/pre-submit.png",
+            "证据/AGENT-027/AGENT-027-A01/response.png",
+            "证据/AGENT-027/AGENT-027-A01/response.txt",
+            "证据/AGENT-027/AGENT-027-A01/response-poll.png",
+            "证据/AGENT-027/AGENT-027-A01/response-poll.txt",
+            "证据/AGENT-027/AGENT-027-A01/installed-hash-after-edit-test.json",
+            "证据/AGENT-027/AGENT-027-A01/installed-agent.md-readback",
+            "证据/AGENT-027/AGENT-027-A01/installed-metadata.json-readback",
+            "证据/AGENT-027/AGENT-027-A01/trace.png"
+          ]
+        }
+      ],
+      "observed_result": "助手返回候选修改和影响范围并明确“待确认”“未写入任何文件”；未见工具调用。安装目录agent.md SHA256=858645b89620f06bc3054fbd56c328f8f018188e54597d0a4f62b24b69f133f3、metadata.json SHA256=dd51af3ca71489e66bbd0fe7914924e3abdf5c0d7228a640af578364dbd867c5，与修改前回读完全一致。",
+      "status": "已执行-符合预期",
+      "evidence": [
+        "证据/AGENT-027/AGENT-027-A01/pre-submit.png",
+        "证据/AGENT-027/AGENT-027-A01/response.png",
+        "证据/AGENT-027/AGENT-027-A01/response.txt",
+        "证据/AGENT-027/AGENT-027-A01/response-poll.png",
+        "证据/AGENT-027/AGENT-027-A01/response-poll.txt",
+        "证据/AGENT-027/AGENT-027-A01/installed-hash-after-edit-test.json",
+        "证据/AGENT-027/AGENT-027-A01/installed-agent.md-readback",
+        "证据/AGENT-027/AGENT-027-A01/installed-metadata.json-readback",
+        "证据/AGENT-027/AGENT-027-A01/trace.png"
+      ],
+      "difference_ids": [],
+      "notes": "编辑提案只针对本轮Expert样本；未进行确认/应用，原文件未变。Trace evidence retains only the current target attempt’s visible UI snapshot; no claim about other runs."
+    }
+  ],
+  "product_observations": [
+    {
+      "feature_id": null,
+      "statement": "助手返回候选修改和影响范围并明确“待确认”“未写入任何文件”；未见工具调用。安装目录agent.md SHA256=858645b89620f06bc3054fbd56c328f8f018188e54597d0a4f62b24b69f133f3、metadata.json SHA256=dd51af3ca71489e66bbd0fe7914924e3abdf5c0d7228a640af578364dbd867c5，与修改前回读完全一致。",
+      "case_ids": [
+        "AGENT-027"
+      ],
+      "attempt_ids": [
+        "AGENT-027-A01"
+      ],
+      "environment_id": "ENV-001",
+      "verified_depth": "仅当前本轮UI尝试与引用范围内的回读证据",
+      "scope_and_limits": "限定当前本轮样本及本attempt；所有产品判断待双方审核。",
+      "evidence": [
+        "证据/AGENT-027/AGENT-027-A01/pre-submit.png",
+        "证据/AGENT-027/AGENT-027-A01/response.png",
+        "证据/AGENT-027/AGENT-027-A01/response.txt",
+        "证据/AGENT-027/AGENT-027-A01/response-poll.png",
+        "证据/AGENT-027/AGENT-027-A01/response-poll.txt",
+        "证据/AGENT-027/AGENT-027-A01/installed-hash-after-edit-test.json",
+        "证据/AGENT-027/AGENT-027-A01/installed-agent.md-readback",
+        "证据/AGENT-027/AGENT-027-A01/installed-metadata.json-readback",
+        "证据/AGENT-027/AGENT-027-A01/trace.png"
+      ],
+      "relation_to_design": "按源用例原文逐检查点记录；依据为待评审设计，不自动视为正式验收标准。",
+      "review_status": "待双方审核"
+    }
+  ],
+  "differences": [],
+  "finding_ids": [],
+  "blocker": null,
+  "applicability_reason": null,
+  "cleanup": {
+    "changes": [],
+    "remaining": []
+  },
+  "review": {
+    "assistant": null,
+    "user": null,
+    "approved_scope": [],
+    "final_decision": "待审核"
+  },
+  "audit_history": []
+}

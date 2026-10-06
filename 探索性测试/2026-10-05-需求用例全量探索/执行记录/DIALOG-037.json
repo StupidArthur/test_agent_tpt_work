@@ -1,0 +1,91 @@
+{
+  "case_id": "DIALOG-037",
+  "case_title": "单执行记录收起",
+  "source_sha256": "b712acd3b204ebcfdd07129c4d993ea1beb184f9a2d0c3827745ee1fdf7a6677",
+  "status": "已执行-结论不确定",
+  "review_status": "待双方审核",
+  "latest_attempt_id": "DIALOG-037-A01",
+  "attempts": [
+    {
+      "attempt_id": "DIALOG-037-A01",
+      "started_at": "2026-10-05T21:12:00+08:00",
+      "ended_at": "2026-10-05T21:23:00+08:00",
+      "environment_id": "ENV-001",
+      "surface": "Visible conversation and Trace tabs via CDP 9234; existing tpt-workspace project",
+      "actual_preconditions": {
+        "project": "existing tpt-workspace",
+        "model": "standard / low",
+        "access_mode": "workspace edits",
+        "action": "one read-only tool call on round-owned DIALOG030 fixture"
+      },
+      "input": "Single read-only file operation from DIALOG-046-A01; then inspect conversation and Trace surfaces for action summary and expandable detail controls.",
+      "actual_steps": [
+        "Observed the completed one-read task in the conversation tab.",
+        "Observed that the conversation displayed only final reply READ_LOGS_OK and task statistics; no per-action summary appeared in that conversation view.",
+        "Opened Trace tab; it showed the full read call and content.",
+        "Inspected visible expanded controls; no individual tool-action summary with a dedicated expand control was identified."
+      ],
+      "wait_condition": "Inspected after the single read task reached terminal state.",
+      "checkpoints": [
+        {
+          "expected_index": 1,
+          "expected": "默认只显示动作摘要",
+          "observed": "Conversation view showed final reply and task statistics only; no single-action summary appeared there. It is unclear whether the case expects a separate activity-summary surface.",
+          "verdict": "未验证",
+          "evidence": [
+            "证据/DIALOG-037/DIALOG-037-A01/conversation.json",
+            "证据/DIALOG-037/DIALOG-037-A01/conversation.png"
+          ]
+        },
+        {
+          "expected_index": 2,
+          "expected": "可展开详情",
+          "observed": "Switching to Trace exposed full details, but no per-action expandable summary control was found. The Trace tab is a navigation switch rather than a verified expand control.",
+          "verdict": "未验证",
+          "evidence": [
+            "证据/DIALOG-037/DIALOG-037-A01/trace.json",
+            "证据/DIALOG-037/DIALOG-037-A01/trace.png"
+          ]
+        }
+      ],
+      "observed_result": "A single read action was traceable in the full Trace tab; conversation view showed only final response and statistics. No per-action collapsible summary control was identified in inspected surfaces, so the expected interaction remains uncertain.",
+      "status": "已执行-结论不确定",
+      "evidence": [
+        "证据/DIALOG-037/DIALOG-037-A01/conversation.png",
+        "证据/DIALOG-037/DIALOG-037-A01/conversation.json",
+        "证据/DIALOG-037/DIALOG-037-A01/trace.png",
+        "证据/DIALOG-037/DIALOG-037-A01/trace.json"
+      ],
+      "notes": "Inspection scope limited to the conversation and Trace tabs for one read task; do not equate the Trace tab with a per-action expand control or infer a defect.",
+      "cleanup": {
+        "changes": [],
+        "remaining": []
+      }
+    }
+  ],
+  "product_observations": [
+    {
+      "observation": "Conversation displayed only the final reply; Trace tab exposed full read details. No per-action expand control was identified in those surfaces.",
+      "evidence": [
+        "证据/DIALOG-037/DIALOG-037-A01/conversation.png",
+        "证据/DIALOG-037/DIALOG-037-A01/conversation.json",
+        "证据/DIALOG-037/DIALOG-037-A01/trace.png",
+        "证据/DIALOG-037/DIALOG-037-A01/trace.json"
+      ]
+    }
+  ],
+  "differences": [],
+  "finding_ids": [],
+  "blocker": null,
+  "applicability_reason": null,
+  "cleanup": {
+    "changes": [],
+    "remaining": []
+  },
+  "review": {
+    "assistant": null,
+    "user": null,
+    "approved_scope": [],
+    "final_decision": "待审核"
+  }
+}

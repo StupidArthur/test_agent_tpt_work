@@ -1,0 +1,150 @@
+{
+  "case_id": "SKILL-019",
+  "case_title": "开关不终止在途任务",
+  "source_sha256": "92a6f4ecd2a5dffe0f1a2a60e73fa18b5fb98763b09cc56ce4cc22fd56e13f0e",
+  "status": "已执行-结论不确定",
+  "review_status": "?????",
+  "latest_attempt_id": "SKILL-019-A02",
+  "attempts": [
+    {
+      "attempt_id": "SKILL-019-A02",
+      "started_at": "2026-10-06T04:41:40+08:00",
+      "ended_at": "2026-10-06T04:44:30+08:00",
+      "environment_id": "ENV-001",
+      "surface": "TPT Work Skills management iframe and round-owned standard/low chat via CDP 9234 + Playwright",
+      "actual_preconditions": {
+        "account_alias": "Arthur",
+        "workspace": "tpt-workspace",
+        "project": "existing project; no new project created",
+        "session_id": "session:session-7176f7d9-506d-4a77-ba6c-8792ba7cbb3f",
+        "model": "standard / low",
+        "permission": "workspace modifications",
+        "fixtures": [
+          "round-inflight-long-toggle-20261006; round-owned imported Skill"
+        ]
+      },
+      "input": "Explicitly invoke the selected round-owned Skill and generate 600 numbered neutral productivity reminders; no tools, files or external resources.",
+      "actual_steps": [
+        "Verified the only target Skill switch was enabled=true in the management iframe.",
+        "Clicked its UI quick-use entry, retained the slash Skill selector, entered the neutral long task in the visible chat composer, and sent through the UI.",
+        "After send, observed the session Stop control visible, switched back to the Skills iframe and toggled only this round-owned Skill true to false.",
+        "Returned to the session row and observed the ????? status while the Skill was disabled.",
+        "Polled the active session until the Stop control disappeared and the transcript showed an assistant response; recorded the transcript boundary and noted that only an initial segment was visible.",
+        "Restored the target Skill switch to true in the Skills UI and read it back."
+      ],
+      "wait_condition": "Wait until the session is no longer active; observe in-flight status immediately after the off toggle and check state restoration.",
+      "checkpoints": [
+        {
+          "expected_index": 1,
+          "expected": "当前任务不被开关终止",
+          "observed": "After the target Skill was toggled off, the task remained visibly ?进行中?; a later poll showed no active Stop control and an assistant response in the transcript. This supports that it was not stopped immediately by the switch. Only the initial visible segment (about 35 reminders) was observed, so the requested 600-item output was not verified.",
+          "verdict": "符合",
+          "evidence": [
+            "证据/SKILL-019/SKILL-019-A02/inflight-after-toggle.png",
+            "证据/SKILL-019/SKILL-019-A02/inflight-after-toggle.txt",
+            "证据/SKILL-019/SKILL-019-A02/active-after-toggle.png",
+            "证据/SKILL-019/SKILL-019-A02/active-after-toggle.txt",
+            "证据/SKILL-019/SKILL-019-A02/after-completion.png",
+            "证据/SKILL-019/SKILL-019-A02/after-completion.txt",
+            "证据/SKILL-019/SKILL-019-A02/restored-after-a02.png",
+            "证据/SKILL-019/SKILL-019-A02/restored-after-a02.txt"
+          ]
+        },
+        {
+          "expected_index": 2,
+          "expected": "后续自动发现遵循新状态",
+          "observed": "No separate later task without explicit slash invocation was run while disabled. This checkpoint remains unverified.",
+          "verdict": "未验证",
+          "evidence": [
+            "证据/SKILL-019/SKILL-019-A02/inflight-after-toggle.png",
+            "证据/SKILL-019/SKILL-019-A02/inflight-after-toggle.txt",
+            "证据/SKILL-019/SKILL-019-A02/active-after-toggle.png",
+            "证据/SKILL-019/SKILL-019-A02/active-after-toggle.txt",
+            "证据/SKILL-019/SKILL-019-A02/after-completion.png",
+            "证据/SKILL-019/SKILL-019-A02/after-completion.txt",
+            "证据/SKILL-019/SKILL-019-A02/restored-after-a02.png",
+            "证据/SKILL-019/SKILL-019-A02/restored-after-a02.txt"
+          ]
+        }
+      ],
+      "observed_result": "Through UI quick-use, explicitly selected the round-owned long sample and sent the neutral 600-reminder task in the standard/low workspace. Stop was visible after send. In the Skills iframe, toggled only this sample from true to false while the session row still showed ?进行中?. After returning to the session, the active indicator was still present; a later poll had no Stop control and the transcript showed a final assistant response. The visible response only showed an initial short segment (about 35 reminders) and did not prove all 600. The later-task discovery checkpoint was not separately tested.",
+      "status": "已执行-结论不确定",
+      "evidence": [
+        "证据/SKILL-019/SKILL-019-A02/inflight-after-toggle.png",
+        "证据/SKILL-019/SKILL-019-A02/inflight-after-toggle.txt",
+        "证据/SKILL-019/SKILL-019-A02/active-after-toggle.png",
+        "证据/SKILL-019/SKILL-019-A02/active-after-toggle.txt",
+        "证据/SKILL-019/SKILL-019-A02/after-completion.png",
+        "证据/SKILL-019/SKILL-019-A02/after-completion.txt",
+        "证据/SKILL-019/SKILL-019-A02/restored-after-a02.png",
+        "证据/SKILL-019/SKILL-019-A02/restored-after-a02.txt"
+      ],
+      "difference_ids": [],
+      "notes": "Round-owned fixture only; explicit use tested. Visible transcript does not establish the exact 600-item instruction was fulfilled. The auto-discovery checkpoint was not tested. Initial blocker retained in previous_blockers."
+    }
+  ],
+  "product_observations": [
+    {
+      "observation_id": "OBS-215",
+      "feature_id": null,
+      "statement": "Through UI quick-use, explicitly selected the round-owned long sample and sent the neutral 600-reminder task in the standard/low workspace. Stop was visible after send. In the Skills iframe, toggled only this sample from true to false while the session row still showed ?进行中?. After returning to the session, the active indicator was still present; a later poll had no Stop control and the transcript showed a final assistant response. The visible response only showed an initial short segment (about 35 reminders) and did not prove all 600. The later-task discovery checkpoint was not separately tested.",
+      "case_ids": [
+        "SKILL-019"
+      ],
+      "attempt_ids": [
+        "SKILL-019-A02"
+      ],
+      "environment_id": "ENV-001",
+      "verified_depth": "One explicit-use task with a mid-flight toggle of one round-owned Skill; one post-toggle active-session observation and one final transcript capture.",
+      "scope_and_limits": "Only the named round-owned Skill and one standard/low session; auto-discovery and full 600-item output were not verified.",
+      "evidence": [
+        "证据/SKILL-019/SKILL-019-A02/inflight-after-toggle.png",
+        "证据/SKILL-019/SKILL-019-A02/inflight-after-toggle.txt",
+        "证据/SKILL-019/SKILL-019-A02/active-after-toggle.png",
+        "证据/SKILL-019/SKILL-019-A02/active-after-toggle.txt",
+        "证据/SKILL-019/SKILL-019-A02/after-completion.png",
+        "证据/SKILL-019/SKILL-019-A02/after-completion.txt",
+        "证据/SKILL-019/SKILL-019-A02/restored-after-a02.png",
+        "证据/SKILL-019/SKILL-019-A02/restored-after-a02.txt"
+      ]
+    }
+  ],
+  "differences": [],
+  "finding_ids": [],
+  "blocker": null,
+  "applicability_reason": null,
+  "cleanup": {
+    "changes": [
+      {
+        "change": "SKILL-019-A02 only toggled round-inflight-long-toggle-20261006 true?false?true in Skills UI during the in-flight attempt.",
+        "restored": true,
+        "verification": "Skills iframe aria-checked read back true after the test.",
+        "evidence": [
+          "证据/SKILL-019/SKILL-019-A02/restored-after-a02.png",
+          "证据/SKILL-019/SKILL-019-A02/restored-after-a02.txt"
+        ]
+      }
+    ],
+    "remaining": []
+  },
+  "review": {
+    "assistant": null,
+    "user": null,
+    "approved_scope": [],
+    "final_decision": "待审核"
+  },
+  "previous_blockers": [
+    {
+      "carried_from_initial_record": {
+        "reason": "无法在本轮可用的正常路径上构造该场景：需要一条正在运行的任务，并在运行中切换该技能的启用开关，观察在途任务是否被终止。本轮未执行，未以推测代替结论。",
+        "missing_dependency": "需要一条正在运行的任务，并在运行中切换该技能的启用开关，观察在途任务是否被终止",
+        "evidence": [
+          "证据/ROUND2-SKILL/SKILL-A02/搜索筛选详情与启停.txt",
+          "证据/SKILL-002/SKILL-002-A02/技能卡片全量.txt"
+        ],
+        "next_action": "需要可控的多轮模型会话（用于 SKILL-018 的显式调用）与一条运行时长足够的无害任务（用于 SKILL-019 的在途切换）后补测。"
+      },
+      "closed_by": "SKILL-019-A02"
+    }
+  ]
+}

@@ -1,0 +1,133 @@
+{
+  "case_id": "DIALOG-060",
+  "case_title": "HTML源码与渲染分离",
+  "source_sha256": "b712acd3b204ebcfdd07129c4d993ea1beb184f9a2d0c3827745ee1fdf7a6677",
+  "status": "已执行-符合预期",
+  "review_status": "待双方审核",
+  "latest_attempt_id": "DIALOG-060-A01",
+  "attempts": [
+    {
+      "attempt_id": "DIALOG-060-A01",
+      "started_at": "2026-10-06T07:53:00+08:00",
+      "ended_at": "2026-10-06T07:57:00+08:00",
+      "environment_id": "ENV-001",
+      "surface": "Existing tpt-workspace through standard/low conversation UI, UI change list + file Code view, and built-in in-app Browser; CDP 9234 + Playwright",
+      "actual_preconditions": {
+        "account_alias": "Arthur",
+        "workspace": "tpt-workspace (selected through the visible project picker; existing project only)",
+        "project": "existing tpt-workspace; did not create a project",
+        "session_id": "new current-round task",
+        "model": "标准 / low",
+        "permission": "工作区内修改 for exact round-owned folder and files only",
+        "fixtures": "none before run; prompt specified a unique new folder DIALOG060-round-owned"
+      },
+      "input": "In the currently selected existing tpt-workspace project, create exactly three harmless round-owned test files, and write them only inside a new project-relative folder named DIALOG060-round-owned. Do not create a project. Do not access, change, move, or delete anything outside that folder. Do not run shell commands, start external apps, use the network, or execute HTML scripts. Files: (1) index.html, static HTML only, no scripts or external resources, with title and H1 DIALOG060_RENDERED_OK and one paragraph HTML_SOURCE_AND_RENDER_SAMPLE; (2) fixture-one.txt containing DIALOG060_FIXTURE_ONE; (3) fixture-two.txt containing DIALOG060_FIXTURE_TWO. Use only the available workspace file tools. After writing, verify these exact project-relative paths and contents through the workspace UI/tool, then report each path. The generated sample is explicitly authorized for this testing round.",
+      "actual_steps": [
+        "Opened New Task; the project chooser was blank, so explicitly selected the existing tpt-workspace from the visible UI picker.",
+        "Verified standard / low and workspace edit permission on the new current-round task.",
+        "Sent a scoped prompt to create only DIALOG060-round-owned/index.html, fixture-one.txt and fixture-two.txt, with static markup and unique markers.",
+        "Waited 24 seconds for the task to complete. Trace showed three UI-agent write calls followed by three read-back calls on those exact files; the assistant confirmed all three paths and contents.",
+        "Clicked 在侧边栏查看本轮改动, selected index.html from the actual change list, and changed the side-panel viewer from HTML to 代码. The file source was visible as 11 HTML lines including the exact title/H1 and paragraph.",
+        "Opened the product side-panel document using its visible 在侧边栏打开 action. Direct HTML viewer mode returned a blank chrome-error frame; this was captured and preserved.",
+        "Opened a new tab in the side panel and selected the product built-in 浏览器. It accepts HTTP(S), so used a temporary read-only 127.0.0.1 static host restricted to the exact UI-created index.html path.",
+        "Entered http://127.0.0.1:6976/ in the built-in Browser UI; its rendered page displayed DIALOG060_RENDERED_OK and HTML_SOURCE_AND_RENDER_SAMPLE.",
+        "Stopped the local read-only host with Ctrl+C; no helper process remains."
+      ],
+      "wait_condition": "Waited for model task completion and exact path/content readback; then inspected the same file in the app code view and rendered it in the product built-in Browser UI.",
+      "checkpoints": [
+        {
+          "expected_index": 1,
+          "expected": "文件视图显示源码",
+          "observed": "Product side-panel viewer in 代码 mode displayed the complete 11-line source of DIALOG060-round-owned/index.html, including title/H1 DIALOG060_RENDERED_OK and paragraph HTML_SOURCE_AND_RENDER_SAMPLE.",
+          "verdict": "符合",
+          "evidence": [
+            "证据/DIALOG-060/DIALOG-060-A01/html-code-view.png",
+            "证据/DIALOG-060/DIALOG-060-A01/create-trace.txt"
+          ]
+        },
+        {
+          "expected_index": 2,
+          "expected": "浏览器显示渲染内容",
+          "observed": "The product in-app Browser UI, loaded from a temporary read-only localhost host that served the same exact workspace file, displayed rendered H1 DIALOG060_RENDERED_OK and paragraph HTML_SOURCE_AND_RENDER_SAMPLE. The host exposed only this one sample path and was stopped after the screenshot.",
+          "verdict": "符合",
+          "evidence": [
+            "证据/DIALOG-060/DIALOG-060-A01/browser-view-open.png",
+            "证据/DIALOG-060/DIALOG-060-A01/browser-rendered-view.png",
+            "证据/DIALOG-060/DIALOG-060-A01/localhost-host-source.cjs",
+            "证据/DIALOG-060/DIALOG-060-A01/localhost-host-cleanup.json"
+          ]
+        }
+      ],
+      "observed_result": "The three round-owned files were created and independently read back through the UI task Trace. The same index.html was shown as source in the product code view and rendered in the built-in Browser. Direct HTML viewer mode itself showed a blank chrome-error frame; the source and rendered-browser checkpoints were separately verifiable in the code and Browser views. A scoped localhost host was used for Browser UI loading and shut down immediately after evidence capture.",
+      "status": "已执行-符合预期",
+      "evidence": [
+        "证据/DIALOG-060/DIALOG-060-A01/before-create.png",
+        "证据/DIALOG-060/DIALOG-060-A01/prompt-before-send.png",
+        "证据/DIALOG-060/DIALOG-060-A01/create-result.png",
+        "证据/DIALOG-060/DIALOG-060-A01/create-result.txt",
+        "证据/DIALOG-060/DIALOG-060-A01/create-trace.png",
+        "证据/DIALOG-060/DIALOG-060-A01/create-trace.txt",
+        "证据/DIALOG-060/DIALOG-060-A01/result.json",
+        "证据/DIALOG-060/DIALOG-060-A01/conversation-created.png",
+        "证据/DIALOG-060/DIALOG-060-A01/workspace-file-view.png",
+        "证据/DIALOG-060/DIALOG-060-A01/html-file-open-in-sidebar.png",
+        "证据/DIALOG-060/DIALOG-060-A01/html-code-view.png",
+        "证据/DIALOG-060/DIALOG-060-A01/html-view-after-reload.png",
+        "证据/DIALOG-060/DIALOG-060-A01/browser-view-open.png",
+        "证据/DIALOG-060/DIALOG-060-A01/browser-rendered-view.png",
+        "证据/DIALOG-060/DIALOG-060-A01/localhost-host-source.cjs",
+        "证据/DIALOG-060/DIALOG-060-A01/localhost-host-cleanup.json"
+      ],
+      "difference_ids": [],
+      "notes": "Only a new explicitly round-owned subfolder and three harmless files were created inside the existing tpt-workspace. No external app, network resource, user file, project, or existing asset was touched. The local static host read only index.html and was stopped. Direct HTML viewer blank/error observation is retained for review; it is not treated as a failure of the separately observed code-source and in-app Browser rendering checkpoints."
+    }
+  ],
+  "product_observations": [
+    {
+      "feature_id": null,
+      "statement": "本轮UI创建的同一静态HTML在工作区文件差异面板“代码”视图中显示源码，在产品内置Browser通过localhost显示渲染标题/段落。直接侧边栏HTML模式同时观察到chrome-error空白frame；该现象保留待审，未覆盖代码视图和Browser检查点结果。",
+      "case_ids": [
+        "DIALOG-060"
+      ],
+      "attempt_ids": [
+        "DIALOG-060-A01"
+      ],
+      "environment_id": "ENV-001",
+      "verified_depth": "真实UI写/读三文件、文件变化面板Code视图、内置Browser对同一文件渲染回读",
+      "scope_and_limits": "只测round-owned静态index.html；HTTP host临时只读服务单一文件且已停止。没有外部资源或脚本。",
+      "evidence": [
+        "证据/DIALOG-060/DIALOG-060-A01/before-create.png",
+        "证据/DIALOG-060/DIALOG-060-A01/prompt-before-send.png",
+        "证据/DIALOG-060/DIALOG-060-A01/create-result.png",
+        "证据/DIALOG-060/DIALOG-060-A01/create-result.txt",
+        "证据/DIALOG-060/DIALOG-060-A01/create-trace.png",
+        "证据/DIALOG-060/DIALOG-060-A01/create-trace.txt",
+        "证据/DIALOG-060/DIALOG-060-A01/result.json",
+        "证据/DIALOG-060/DIALOG-060-A01/conversation-created.png",
+        "证据/DIALOG-060/DIALOG-060-A01/workspace-file-view.png",
+        "证据/DIALOG-060/DIALOG-060-A01/html-file-open-in-sidebar.png",
+        "证据/DIALOG-060/DIALOG-060-A01/html-code-view.png",
+        "证据/DIALOG-060/DIALOG-060-A01/html-view-after-reload.png",
+        "证据/DIALOG-060/DIALOG-060-A01/browser-view-open.png",
+        "证据/DIALOG-060/DIALOG-060-A01/browser-rendered-view.png",
+        "证据/DIALOG-060/DIALOG-060-A01/localhost-host-source.cjs",
+        "证据/DIALOG-060/DIALOG-060-A01/localhost-host-cleanup.json"
+      ],
+      "relation_to_design": "源码与浏览器渲染两个检查点均可见；直接HTML viewer空白行为待双方审核。",
+      "review_status": "待双方审核"
+    }
+  ],
+  "differences": [],
+  "finding_ids": [],
+  "applicability_reason": null,
+  "cleanup": {
+    "changes": [],
+    "remaining": []
+  },
+  "review": {
+    "assistant": null,
+    "user": null,
+    "approved_scope": [],
+    "final_decision": "待审核"
+  }
+}

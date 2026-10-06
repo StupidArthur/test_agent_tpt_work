@@ -1,0 +1,322 @@
+[
+  {
+    "id": "G13-01",
+    "title": "@入口资料选项",
+    "steps": [
+      "新空白任务输入@；只读取实际弹出菜单，之后清草稿。"
+    ],
+    "expected": [
+      "@菜单本地文件入口：true"
+    ],
+    "fixture": "见扩展场景与夹具说明",
+    "assertions": [
+      {
+        "id": "G13-01-A1",
+        "target": "@菜单本地文件入口",
+        "read": "读取限定菜单内是否有文件/本地资料入口",
+        "operator": "equals",
+        "expected": true
+      }
+    ]
+  },
+  {
+    "id": "G13-02",
+    "title": "+入口专家选项",
+    "steps": [
+      "点击composer +；只读取该菜单，不全页搜索“专家”。"
+    ],
+    "expected": [
+      "+菜单专家入口：true"
+    ],
+    "fixture": "见扩展场景与夹具说明",
+    "assertions": [
+      {
+        "id": "G13-02-A1",
+        "target": "+菜单专家入口",
+        "read": "读取限定菜单内是否有Agent/专家入口",
+        "operator": "equals",
+        "expected": true
+      }
+    ]
+  },
+  {
+    "id": "G13-03",
+    "title": "技能双页签",
+    "steps": [
+      "打开技能iframe，读取并分别切我的技能与市场，不安装。"
+    ],
+    "expected": [
+      "技能双页签：true"
+    ],
+    "fixture": "见扩展场景与夹具说明",
+    "assertions": [
+      {
+        "id": "G13-03-A1",
+        "target": "技能双页签",
+        "read": "读取两页签均可见可点击",
+        "operator": "equals",
+        "expected": true
+      }
+    ]
+  },
+  {
+    "id": "G13-04",
+    "title": "专家创建与导入入口",
+    "steps": [
+      "专家页点创建，观察创建会话模式后返回；打开导入dialog后关闭。"
+    ],
+    "expected": [
+      "专家创建模式：true",
+      "专家导入目录input：true"
+    ],
+    "fixture": "见扩展场景与夹具说明",
+    "assertions": [
+      {
+        "id": "G13-04-A1",
+        "target": "专家创建模式",
+        "read": "读取明确创建专家模式",
+        "operator": "equals",
+        "expected": true
+      },
+      {
+        "id": "G13-04-A2",
+        "target": "专家导入目录input",
+        "read": "读取dialog内webkitdirectory文件输入存在",
+        "operator": "equals",
+        "expected": true
+      }
+    ]
+  },
+  {
+    "id": "G13-05",
+    "title": "自动化推荐预填",
+    "steps": [
+      "打开自动化一级页，选一个推荐案例；记录卡片全文和点击后的composer文本，未预填则失败，不手动填来补通过。"
+    ],
+    "expected": [
+      "推荐点击后预填：true"
+    ],
+    "fixture": "见扩展场景与夹具说明",
+    "assertions": [
+      {
+        "id": "G13-05-A1",
+        "target": "推荐点击后预填",
+        "read": "点击前读取所选案例实际任务提示词字段绑定automation_prompt_expected（若只有标题则用完整标题），点击后读取composer纯文本trim，精确比较；只可规范CRLF",
+        "operator": "equals",
+        "expected": "$automation_prompt_expected"
+      }
+    ]
+  },
+  {
+    "id": "G13-06",
+    "title": "帮助反馈响应",
+    "steps": [
+      "预先监听顶层/各frame URL、dialog、window.open/外部进程变化；点击帮助与反馈一次；等最多3秒。"
+    ],
+    "expected": [
+      "帮助点击有可观察响应：true"
+    ],
+    "fixture": "见扩展场景与夹具说明",
+    "assertions": [
+      {
+        "id": "G13-06-A1",
+        "target": "帮助点击有可观察响应",
+        "read": "从监听事件判断至少一个明确帮助页面/dialog/外部目标打开",
+        "operator": "equals",
+        "expected": true
+      }
+    ]
+  },
+  {
+    "id": "G13-07",
+    "title": "中文名称搜索",
+    "steps": [
+      "技能页搜cn-all样本中文名“本轮中文优先”，读取本轮内部name匹配数；结束清空搜索。"
+    ],
+    "expected": [
+      "中文查询本轮匹配数：1"
+    ],
+    "fixture": "见扩展场景与夹具说明",
+    "assertions": [
+      {
+        "id": "G13-07-A1",
+        "target": "中文查询本轮匹配数",
+        "read": "限定结果列表按实际内部身份读取",
+        "operator": "equals",
+        "expected": 1
+      }
+    ]
+  },
+  {
+    "id": "G13-08",
+    "title": "标签搜索",
+    "steps": [
+      "技能页搜FAST_SEARCH_TAG，读取cn-all身份匹配数；结束清空搜索。"
+    ],
+    "expected": [
+      "标签查询本轮匹配数：1"
+    ],
+    "fixture": "见扩展场景与夹具说明",
+    "assertions": [
+      {
+        "id": "G13-08-A1",
+        "target": "标签查询本轮匹配数",
+        "read": "限定结果列表按cn-all内部身份读取",
+        "operator": "equals",
+        "expected": 1
+      }
+    ]
+  },
+  {
+    "id": "G13-09",
+    "title": "开关不打开详情",
+    "steps": [
+      "在本轮cn-all技能列表卡片保存开关值、URL/可见页面，切反值；读取卡片和详情状态；恢复原值。"
+    ],
+    "expected": [
+      "切开关后仍为技能列表：true",
+      "cn-all技能开关：null"
+    ],
+    "fixture": "见扩展场景与夹具说明",
+    "assertions": [
+      {
+        "id": "G13-09-A1",
+        "target": "切开关后仍为技能列表",
+        "read": "读取列表可见且该详情未打开",
+        "operator": "equals",
+        "expected": true
+      },
+      {
+        "id": "G13-09-A2",
+        "target": "cn-all技能开关",
+        "read": "切换前与最终恢复后读取checked",
+        "operator": "same_value",
+        "expected": null
+      }
+    ]
+  },
+  {
+    "id": "G13-10",
+    "title": "卡片主体打开详情",
+    "steps": [
+      "点击cn-all卡片非开关/快捷按钮的主体；读取详情内部name身份，再返回。"
+    ],
+    "expected": [
+      "卡片详情对象身份：true"
+    ],
+    "fixture": "见扩展场景与夹具说明",
+    "assertions": [
+      {
+        "id": "G13-10-A1",
+        "target": "卡片详情对象身份",
+        "read": "读取是否为本轮cn-all内部name",
+        "operator": "equals",
+        "expected": true
+      }
+    ]
+  },
+  {
+    "id": "G13-11",
+    "title": "技能创建模式入口",
+    "steps": [
+      "点击新建技能，读取composer创建模式与左导航；不提交生成。"
+    ],
+    "expected": [
+      "技能创建模式：true",
+      "创建页左导航：true"
+    ],
+    "fixture": "见扩展场景与夹具说明",
+    "assertions": [
+      {
+        "id": "G13-11-A1",
+        "target": "技能创建模式",
+        "read": "读取明确技能创建模式标识",
+        "operator": "equals",
+        "expected": true
+      },
+      {
+        "id": "G13-11-A2",
+        "target": "创建页左导航",
+        "read": "读取可见状态",
+        "operator": "equals",
+        "expected": true
+      }
+    ]
+  },
+  {
+    "id": "G13-12",
+    "title": "插件详情展开收起",
+    "steps": [
+      "设置内置插件页选择一个当前会话插件卡，读取aria-expanded初值，点击展开读取详情，再恢复初始折叠状态。"
+    ],
+    "expected": [
+      "插件展开详情：true",
+      "本轮插件卡展开状态：null"
+    ],
+    "fixture": "见扩展场景与夹具说明",
+    "assertions": [
+      {
+        "id": "G13-12-A1",
+        "target": "插件展开详情",
+        "read": "读取同一卡aria-expanded且详情内容非空",
+        "operator": "equals",
+        "expected": true
+      },
+      {
+        "id": "G13-12-A2",
+        "target": "本轮插件卡展开状态",
+        "read": "操作前与恢复后读取aria-expanded",
+        "operator": "same_value",
+        "expected": null
+      }
+    ]
+  },
+  {
+    "id": "G13-13",
+    "title": "会话搜索命中",
+    "steps": [
+      "仅用本轮会话；从可见搜索入口搜索本轮已确认标题，读取对应session id，清空退出。"
+    ],
+    "expected": [
+      "搜索结果本轮会话：1"
+    ],
+    "fixture": "见扩展场景与夹具说明",
+    "assertions": [
+      {
+        "id": "G13-13-A1",
+        "target": "搜索结果本轮会话",
+        "read": "按实际session id读取匹配数",
+        "operator": "equals",
+        "expected": 1
+      }
+    ]
+  },
+  {
+    "id": "G13-14",
+    "title": "会话排序菜单",
+    "steps": [
+      "保存当前排序，打开排序菜单读取选项；只对当前列表选择另一可逆排序，回读菜单选择后恢复；不改会话标题或删除。"
+    ],
+    "expected": [
+      "排序更改选中项：\"$sort_changed\"",
+      "排序恢复选中项：\"$sort_initial\""
+    ],
+    "fixture": "见扩展场景与夹具说明",
+    "assertions": [
+      {
+        "id": "G13-14-A1",
+        "target": "排序更改选中项",
+        "read": "读取改后选中值",
+        "operator": "equals",
+        "expected": "$sort_changed"
+      },
+      {
+        "id": "G13-14-A2",
+        "target": "排序恢复选中项",
+        "read": "独立回读",
+        "operator": "equals",
+        "expected": "$sort_initial"
+      }
+    ]
+  }
+]

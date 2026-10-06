@@ -1,0 +1,11 @@
+{
+  "captured_at": "2026-10-05T15:00:41.722Z",
+  "case_id": "SKILL-016",
+  "attempt_id": "SKILL-016-A02",
+  "page": "TPT Work trace tab, round-owned skill conversation",
+  "model": "标准 / low",
+  "prompt": "For the round-owned import-probe skill, what exact marker is it designed to return?",
+  "trace_tool_row": "工具\n\t\nskill{\"name\": \"round-import-probe-20261005\"}\n→\n<skill_content name=\"round-import-probe-20261005\"> <skill_resources> Base directory for this skill: C:\\Users\\Administrator.tpt-work\\dsh\\skills\\round-import-probe-20261005 Resolve relative paths mentioned by this skill against the base directory before using them. Load referenced resources only as needed. </skill_resources> <skill_instructions> Round import probe When explicitly asked for ROUND_IMPORT_PROBE_20261005, reply exactly ROUND_IMPORT_S",
+  "answer": "助手\n\t\nROUND_IMPORT_SKILL_OK",
+  "visible_caveat": "Prompt referenced the imported skill by name but did not include its trigger marker. Trace shows actual skill loading."
+}

@@ -1,0 +1,32 @@
+[
+  {
+    "kind": "skill",
+    "source": "夹具/import-probe-skill/SKILL.md",
+    "installed": "C:/Users/Administrator/.tpt-work/dsh/skills/round-import-probe-20261005/SKILL.md",
+    "source_sha256": "7093d79290d9b86b3aeed52cb8b81cf46d1bcb743de9666c144a196ccd575224",
+    "installed_sha256": "7093d79290d9b86b3aeed52cb8b81cf46d1bcb743de9666c144a196ccd575224",
+    "byte_equal": true,
+    "content_equal": true,
+    "installed_text": "---\nname: round-import-probe-20261005\ndescription: Harmless round-owned import fixture. Use only when the user explicitly requests ROUND_IMPORT_PROBE_20261005.\n---\n\n# Round import probe\n\nWhen explicitly asked for ROUND_IMPORT_PROBE_20261005, reply exactly ROUND_IMPORT_SKILL_OK. Do not call tools, access networks, or modify files.\n"
+  },
+  {
+    "kind": "agent",
+    "source": "夹具/round-import-expert-20261005/agent.md",
+    "installed": "C:/Users/Administrator/.tpt-work/agents/round-import-expert-20261005/agent.md",
+    "source_sha256": "159c3e9cc08fc9ac856f842cd55d2b91d5f0db6851e46a216343caf385d4322f",
+    "installed_sha256": "f6adda2e3c7651c67db393526a419abfd93df32e2d9ed20b1bc1130c1767e511",
+    "byte_equal": false,
+    "content_equal": false,
+    "installed_text": "---\nname: round-import-expert-20261005\ndescription: Harmless round-owned expert import fixture.\n---\n\n# 核心能力\nOnly verify this round's import and conversation path. When asked for the test marker, reply exactly ROUND_IMPORT_EXPERT_OK.\n\n# 工作流程\nRead the user's request and reply with text only. Do not call tools.\n\n# 输出规范\nUse the exact marker for marker requests. Explain this limited test scope for other requests.\n\n# 注意事项\nDo not access networks, devices, credentials, or files. Do not provide real industrial setpoints.\n\n"
+  },
+  {
+    "kind": "metadata",
+    "source": "夹具/round-import-expert-20261005/metadata.json",
+    "installed": "C:/Users/Administrator/.tpt-work/agents/round-import-expert-20261005/metadata.json",
+    "source_sha256": "ed58b41c1ec3fc06b90aeb3aa29ebde3c9e73b17efe2bafbbfca023d201099ee",
+    "installed_sha256": "24f3bc3b66905cc2fb86ea770443fd0a63f1bb0ce7ef30b730ccc3022821a4ef",
+    "byte_equal": false,
+    "content_equal": true,
+    "installed_text": "{\n  \"name\": \"round-import-expert-20261005\",\n  \"description\": \"Harmless import test expert that returns a fixed marker without tools or external services.\",\n  \"version\": \"1.0.0\",\n  \"author\": \"\",\n  \"category\": \"技术工程\",\n  \"profession\": {\n    \"zh\": \"本轮导入测试专家\",\n    \"en\": \"Round Import Test Expert\"\n  },\n  \"displayDescription\": {\n    \"zh\": \"仅用于本轮专家导入与查看功能验证，按明确请求回复固定测试标记，不访问网络，不操作现场设备，也不修改任何用户文件。\",\n    \"en\": \"Round-owned fixture for import and viewing. Returns a marker without network, device, or file operations.\"\n  },\n  \"defaultInitPrompt\": {\n    \"zh\": \"请回复本轮专家测试标记。\",\n    \"en\": \"Return the round expert test marker.\"\n  },\n  \"quickPrompts\": [\n    {\n      \"zh\": \"请回复本轮专家测试标记。\",\n      \"en\": \"Return the round expert test marker.\"\n    },\n    {\n      \"zh\": \"介绍你的测试范围。\",\n      \"en\": \"Explain your test scope.\"\n    },\n    {\n      \"zh\": \"说明你不会执行哪些操作。\",\n      \"en\": \"Describe your operation limits.\"\n    }\n  ],\n  \"tags\": [\n    {\n      \"zh\": \"导入验证\",\n      \"en\": \"Import probe\"\n    },\n    {\n      \"zh\": \"固定标记\",\n      \"en\": \"Fixed marker\"\n    },\n    {\n      \"zh\": \"无副作用\",\n      \"en\": \"No side effects\"\n    }\n  ],\n  \"agents\": [\n    \"agent.md\"\n  ],\n  \"avatar\": \"\",\n  \"skills\": []\n}\n"
+  }
+]

@@ -1,0 +1,26 @@
+请做两件事：1) 列出你当前会话可用的工具清单（只列名称，不要解释）；2) 如果你有 cordis 运行时检查工具，用它只读查看一下当前 Harness 的运行态信息并给我摘要。如果没有这类工具，直接回答「没有」。不要修改任何东西。
+15:58
+已完成工作
+用时 41秒
+1) 当前会话可用工具清单
+
+ask_user_edit、ask_user_question、automation_create、automation_delete、automation_list、automation_run_now、automation_runs、automation_update、cite_source、cordis_inspect_list、cordis_inspect_query、create_goal、create_skill、edit、exit_plan_mode、get_goal、glob、grep、interrupt_agent、job_kill、job_list、job_output、knowledge_search、list_agents、load_workspace_dependencies、memory_log、memory_note、memory_profile、memory_read、memory_recall、memory_reflect、memory_status、plugin_manager、present、pwsh、read、read_image、schedule_create、schedule_delete、schedule_list、schedule_update、send_message、skill、subagent、subagent_fork、todo_write、update_goal、web_fetch、web_search、workflow、write
+
+（共 51 个。另经 cordis_inspect_query 的 Tool 提供方 listTools 只读核对，Agent 侧可见工具集与上述一致。）
+
+2) Harness 运行态摘要（cordis inspect，只读）
+
+可用 Inspect Provider（9 个）：host 侧 4 个 —— Service、Event、Config、Tool；client 侧 5 个 —— Service、Event、Builtin、Slots、Theme。
+
+本次实际执行的只读查询
+
+查询	结果
+host / Tool / listTools	51 个工具
+host / Service / listService	catalog 模式，91 个服务键
+host / Event / listEvents	catalog 模式，75 个事件
+host / Config / listConfigs	Loader 共 232 条 entry（分页，首页 25 条）
+
+要点
+
+服务面：91 个 Host Service，覆盖 Agent 生命周期（agentLoop、agents、agentPresets、subagents、agentTeams）、会话与持久化（sessions、sessionPersistence、sessionProjections、compaction、tokenMeter）、工具与提示词装配（tools、systemPrompt、skills、workflowEngine）、文件与执行（fs、subprocess、shell、sandbox、sandboxPolicy、terminals）、以及平台能力（llm、credentials、deepseekAccount、web、workspace*、pluginManager）。
+事件面：75 个事件，四种模式——emit 为主，另有 waterfall（如 agent/request、tools/pre-execute、tools/post-execute、system-prompt/assemble、approval/request）、serial（agent/created、agent/turn-stopping）、parallel（session/flush、workspace

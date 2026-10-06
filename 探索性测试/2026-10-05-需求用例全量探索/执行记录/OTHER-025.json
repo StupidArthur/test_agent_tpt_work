@@ -1,0 +1,31 @@
+{
+  "case_id": "OTHER-025",
+  "case_title": "拒绝审核无副作用",
+  "source_sha256": "0cc46b42d2dc71862ac96c24992cfbc43b39d69550d427c6ced70b71d07085e6",
+  "status": "阻塞",
+  "review_status": "待双方审核",
+  "latest_attempt_id": null,
+  "attempts": [],
+  "product_observations": [],
+  "differences": [],
+  "finding_ids": [],
+  "blocker": {
+    "reason": "无法执行【拒绝审核无副作用（需要执行闸门）】：需要执行闸门与拒绝审核的完整链路。",
+    "missing_dependency": "需要执行闸门与拒绝审核的完整链路。",
+    "evidence": [
+      "证据/OTHER-025/OTHER-025-A01/专家市场-摘录.txt"
+    ],
+    "next_action": "需补充上述依赖；无入口的条目按任务 README 记为\"目前没有发现入口\"。"
+  },
+  "applicability_reason": null,
+  "cleanup": {
+    "changes": [],
+    "remaining": []
+  },
+  "review": {
+    "assistant": null,
+    "user": null,
+    "approved_scope": [],
+    "final_decision": "待审核"
+  }
+}

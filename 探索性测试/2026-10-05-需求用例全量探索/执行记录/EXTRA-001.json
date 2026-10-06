@@ -1,0 +1,112 @@
+{
+  "case_id": "EXTRA-001",
+  "case_title": "插件列表及本轮样本启停",
+  "source_sha256": "a04ced6d313f90f1d8016a8f382cf8adfa74e14f7e72015114a4c395ae87eacc",
+  "status": "已执行-结论不确定",
+  "review_status": "待双方审核",
+  "latest_attempt_id": "EXTRA-001-A01",
+  "attempts": [
+    {
+      "attempt_id": "EXTRA-001-A01",
+      "started_at": "2026-10-05T20:50:00+08:00",
+      "ended_at": "2026-10-05T21:15:00+08:00",
+      "environment_id": "ENV-001",
+      "surface": "UI/CDP",
+      "actual_preconditions": {
+        "account_alias": "Arthur",
+        "workspace": "界面未暴露空间切换入口，本轮未验证",
+        "project": "tpt-workspace（已有项目）",
+        "session_id": "不适用",
+        "model": "标准 / low",
+        "permission": "工作区内修改",
+        "fixtures": []
+      },
+      "input": "无输入；只读枚举插件页控件（未切换任何开关）",
+      "actual_steps": [
+        "从侧栏进入「更多 > 插件」",
+        "枚举页面全部 [role=switch] 及其 aria-label 与 aria-checked",
+        "枚举可见按钮文本"
+      ],
+      "wait_condition": "纯读取。",
+      "checkpoints": [
+        {
+          "expected_index": 1,
+          "expected": "列表和配置入口逐项有观察",
+          "observed": "插件页可进入并逐一列出：我的插件区 5 个 @tpt-work/* 插件、官方区 10 项、实验性 4 项、配置项若干；每个插件与实验项均有独立启用开关。",
+          "verdict": "符合",
+          "evidence": [
+            "证据/ROUND1-ENTRY/ENTRY-插件-A01/入口.png"
+          ]
+        },
+        {
+          "expected_index": 2,
+          "expected": "本轮样本启停后的状态与实际能力一致；仅列表开关变化不足以证明生效",
+          "observed": "未验证：本轮未切换任何开关。界面明确标注每个开关「改动下次启动生效」，即切换后需重启应用才能观察实际能力，本轮不做重启。",
+          "verdict": "未验证",
+          "evidence": [
+            "证据/ROUND1-ENTRY/ENTRY-插件-A01/入口.png"
+          ]
+        },
+        {
+          "expected_index": 3,
+          "expected": "实验项缺依赖或不可用有明确记录，不推断必然失效",
+          "observed": "实验性 4 项（智能体团队、自动授权审查、自动化任务、语音输入）当前 aria-checked 均为 false；界面未说明其依赖是否已具备。缺依赖或不可用情况未能通过执行确认，仅记录了当前关闭状态。",
+          "verdict": "未验证",
+          "evidence": [
+            "证据/ROUND1-ENTRY/ENTRY-插件-A01/入口.png"
+          ]
+        },
+        {
+          "expected_index": 4,
+          "expected": "原生添加弹窗不可控时不触发；已有用户插件不被改动",
+          "observed": "未触发原生添加弹窗：本轮未点「添加插件」（该入口会打开本地目录/压缩包安装面板，属原生选择器）。已有用户插件未被改动，5 个 @tpt-work 插件状态在读取前后一致（均 true）。",
+          "verdict": "符合",
+          "evidence": [
+            "证据/ROUND1-ENTRY/ENTRY-插件-A01/入口.png"
+          ]
+        }
+      ],
+      "observed_result": "验证深度：入口与列表读状态。5 个 @tpt-work 插件均启用、4 个实验项均停用；开关切换需重启生效，本轮未验证切换后的实际能力。",
+      "status": "已执行-结论不确定",
+      "evidence": [
+        "证据/EXTRA-001/EXTRA-001-A01/插件页清单.txt"
+      ],
+      "difference_ids": [],
+      "notes": "未切换任何插件开关，未点「添加插件」。因开关生效需重启，且重启会中断本轮已建立的 CDP 会话与正在进行的工作，故切换后的能力验证记未验证而非阻塞。"
+    }
+  ],
+  "product_observations": [
+    {
+      "feature_id": null,
+      "statement": "【EXTRA-001】验证深度：入口与列表读状态。5 个 @tpt-work 插件均启用、4 个实验项均停用；开关切换需重启生效，本轮未验证切换后的实际能力。",
+      "case_ids": [
+        "EXTRA-001"
+      ],
+      "attempt_ids": [
+        "EXTRA-001-A01"
+      ],
+      "environment_id": "ENV-001",
+      "verified_depth": "操作有反馈",
+      "scope_and_limits": "账号 Arthur、app.asar SHA256 EF56656B…4CC2D9D、2026-10-05。",
+      "evidence": [
+        "证据/EXTRA-001/EXTRA-001-A01/插件页清单.txt"
+      ],
+      "relation_to_design": "符合当前用例检查点",
+      "review_status": "待双方审核"
+    }
+  ],
+  "differences": [],
+  "finding_ids": [],
+  "blocker": null,
+  "applicability_reason": null,
+  "cleanup": {
+    "changes": [],
+    "remaining": []
+  },
+  "review": {
+    "assistant": null,
+    "user": null,
+    "approved_scope": [],
+    "final_decision": "待审核"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "case_id": "REFERENCE-033",
+  "case_title": "保存失败保留输入",
+  "source_sha256": "fd1506f12f283be6ce8a2f2b3178f4b7375f7e0fcd6061ccf22efdd91fffc8ca",
+  "status": "阻塞",
+  "review_status": "待双方审核",
+  "latest_attempt_id": null,
+  "attempts": [],
+  "product_observations": [],
+  "differences": [],
+  "finding_ids": [],
+  "blocker": {
+    "reason": "无法执行【保存失败保留输入】：引用与证据类用例需要多来源资料、同条件冲突文档、权限撤回、人工复核人等夹具，且需要产品侧可操作的引用编号/角标/复核入口。本机在可见界面中未发现引用编号、角标、复核或权限撤回的入口；数据资产（承载文件与知识来源）用户已确认未实现。",
+    "missing_dependency": "引用与证据类用例需要多来源资料、同条件冲突文档、权限撤回、人工复核人等夹具，且需要产品侧可操作的引用编号/角标/复核入口。本机在可见界面中未发现引用编号、角标、复核或权限撤回的入口；数据资产（承载文件与知识来源）用户已确认未实现。",
+    "evidence": [
+      "证据/AGENT-003/AGENT-003-A01/专家市场.txt"
+    ],
+    "next_action": "需要确认引用功能的入口是否存在（若存在需提供含有依据片段的会话样本）；同时需要多来源与冲突条件夹具、第二身份用于权限撤回、以及测试复核人。"
+  },
+  "applicability_reason": null,
+  "cleanup": {
+    "changes": [],
+    "remaining": []
+  },
+  "review": {
+    "assistant": null,
+    "user": null,
+    "approved_scope": [],
+    "final_decision": "待审核"
+  }
+}

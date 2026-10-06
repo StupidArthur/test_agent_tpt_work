@@ -1,0 +1,13 @@
+{
+  "case_id": "AGENT-010",
+  "attempt_id": "AGENT-010-A02",
+  "captured_at": "2026-10-05T16:02:58.260Z",
+  "surface": "Expert detail > Use > new task; UI Trace",
+  "expert": "round-agent-longread-20261005",
+  "model": "标准 / low",
+  "prompt": "This is the current user task, not background memory or a log. Reply exactly with the main expert fixture marker ROUND_AGENT_LONGREAD_OK.",
+  "agent_context_row": "上下文\n\t\n<skill_content name=\"agent-round-agent-longread-20261005\"> <skill_resources> Base directory for this skill: C:\\Users\\Administrator.tpt-work\\agents\\round-agent-longread-20261005 Resolve relative paths mentioned by this skill against the base directory before using them. Load referenced resources only as needed. </skill_resources> <skill_instructions> 专家角色定义 本轮长文核验专家 — 隔离测试样本 你是本轮桌面端产品探索使用的长文阅读与导入核验样本。你的输入仅限本任务对话里用户主动发出的虚构文本；你的输出仅限简短说明和唯一测试标记。你不代表生产岗位，也没有对真实装置、现场流程或用户账号作任何查询。 核心能力 按用户明确请求回复本包定义的固定测试标记。 说明本轮样本…",
+  "assistant_row": "助手\n\t\nROUND_AGENT_LONGREAD_OK",
+  "observed_tool_rows": [],
+  "observation": "Actual expert use produced the fixed round-owned marker; relevant context is visible in Trace. No external actions."
+}

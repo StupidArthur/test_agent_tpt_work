@@ -1,0 +1,116 @@
+{
+  "case_id": "DIALOG-027",
+  "case_title": "已发送附件固定",
+  "source_sha256": "b712acd3b204ebcfdd07129c4d993ea1beb184f9a2d0c3827745ee1fdf7a6677",
+  "status": "已执行-符合预期",
+  "review_status": "待双方审核",
+  "latest_attempt_id": "DIALOG-027-A01",
+  "attempts": [
+    {
+      "attempt_id": "DIALOG-027-A01",
+      "started_at": "2026-10-06T06:23:00+08:00",
+      "ended_at": "2026-10-05T22:27:02.773Z",
+      "environment_id": "ENV-001",
+      "surface": "Unified conversation composer and sent-message history UI via Electron CDP + Playwright",
+      "actual_preconditions": {
+        "account": "Arthur",
+        "project": "existing tpt-workspace",
+        "model": "standard / low",
+        "fixture": "35 tiny round-owned text files; task conversation created for this test"
+      },
+      "input": "Sent a harmless fixed-response message with 20 round-owned text attachments.",
+      "actual_steps": [
+        "Attached 20 round-owned text fixtures and sent a harmless fixed-response request.",
+        "Read back the exact user-message stack and verified its attachment row precedes the text bubble.",
+        "Enumerated buttons/removal controls within that historical message stack; no buttons or remove controls were present.",
+        "Left the round-owned conversation and sent attachments intact for audit."
+      ],
+      "wait_condition": "Waited for each assistant fixed-text response and read back the corresponding sent user-message attachment state.",
+      "checkpoints": [
+        {
+          "expected_index": 1,
+          "expected": "附件固定在用户文字上方",
+          "observed": "The sent user-message stack had ordered children: Sixlwa_attachmentRow containing the 20 attachment labels, followed by Sixlwa_bubble containing the user text.",
+          "verdict": "符合",
+          "evidence": [
+            "证据/DIALOG-027/DIALOG-027-A01/message-with-20-attachments.png",
+            "证据/DIALOG-027/DIALOG-027-A01/message-with-20-attachments.txt",
+            "证据/DIALOG-027/DIALOG-027-A01/history-attachment-layout.json",
+            "证据/DIALOG-027/DIALOG-027-A01/history-removal-controls.json",
+            "证据/DIALOG-027/DIALOG-027-A01/fixture-manifest.json"
+          ]
+        },
+        {
+          "expected_index": 2,
+          "expected": "不能从历史直接移除",
+          "observed": "The historical user-message stack exposed no buttons and no attachment-removal controls. No historical attachment was clicked or modified.",
+          "verdict": "符合",
+          "evidence": [
+            "证据/DIALOG-027/DIALOG-027-A01/message-with-20-attachments.png",
+            "证据/DIALOG-027/DIALOG-027-A01/message-with-20-attachments.txt",
+            "证据/DIALOG-027/DIALOG-027-A01/history-attachment-layout.json",
+            "证据/DIALOG-027/DIALOG-027-A01/history-removal-controls.json",
+            "证据/DIALOG-027/DIALOG-027-A01/fixture-manifest.json"
+          ]
+        }
+      ],
+      "observed_result": "After sending, the 20 attachment labels remained fixed above the associated user text. The history message had no remove button; only the current-draft composer exposes removal controls.",
+      "status": "已执行-符合预期",
+      "evidence": [
+        "证据/DIALOG-027/DIALOG-027-A01/message-with-20-attachments.png",
+        "证据/DIALOG-027/DIALOG-027-A01/message-with-20-attachments.txt",
+        "证据/DIALOG-027/DIALOG-027-A01/history-attachment-layout.json",
+        "证据/DIALOG-027/DIALOG-027-A01/history-removal-controls.json",
+        "证据/DIALOG-027/DIALOG-027-A01/fixture-manifest.json"
+      ],
+      "notes": "Only the round-owned test conversation and harmless fixture files were used. No real IM or external message was sent. The conversation is intentionally retained as round-owned test evidence; pending bilateral review.",
+      "cleanup": {
+        "changes": [],
+        "remaining": [
+          "The round-owned conversation and its 20/15 attached fixture references remain in task history for review. Source fixtures remain in the task fixture folder."
+        ]
+      }
+    }
+  ],
+  "product_observations": [
+    {
+      "observation_id": "OBS-245",
+      "feature_id": null,
+      "statement": "After sending, the 20 attachment labels remained fixed above the associated user text. The history message had no remove button; only the current-draft composer exposes removal controls.",
+      "case_ids": [
+        "DIALOG-027"
+      ],
+      "attempt_ids": [
+        "DIALOG-027-A01"
+      ],
+      "environment_id": "ENV-001",
+      "verified_depth": "Historical attachment row ordering and absence of removal controls on the sent user message",
+      "scope_and_limits": "One sent message in a round-owned test conversation; no pre-existing user conversation or file was modified.",
+      "evidence": [
+        "证据/DIALOG-027/DIALOG-027-A01/message-with-20-attachments.png",
+        "证据/DIALOG-027/DIALOG-027-A01/message-with-20-attachments.txt",
+        "证据/DIALOG-027/DIALOG-027-A01/history-attachment-layout.json",
+        "证据/DIALOG-027/DIALOG-027-A01/history-removal-controls.json",
+        "证据/DIALOG-027/DIALOG-027-A01/fixture-manifest.json"
+      ],
+      "relation_to_design": "Pending bilateral review; scoped to this round-owned local chat session.",
+      "review_status": "待双方审核"
+    }
+  ],
+  "differences": [],
+  "finding_ids": [],
+  "blocker": null,
+  "applicability_reason": null,
+  "cleanup": {
+    "changes": [],
+    "remaining": [
+      "The round-owned conversation and its 20/15 attached fixture references remain in task history for review. Source fixtures remain in the task fixture folder."
+    ]
+  },
+  "review": {
+    "assistant": null,
+    "user": null,
+    "approved_scope": [],
+    "final_decision": "待审核"
+  }
+}

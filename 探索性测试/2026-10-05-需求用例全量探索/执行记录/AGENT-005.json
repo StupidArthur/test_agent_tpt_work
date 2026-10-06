@@ -1,0 +1,208 @@
+{
+  "case_id": "AGENT-005",
+  "case_title": "导入独立入口",
+  "source_sha256": "c3cdc4c71c1746e9a647aa5190e0983229af9b41c22e2e6c9a9bc3da80727b66",
+  "status": "已执行-符合预期",
+  "review_status": "待双方审核",
+  "latest_attempt_id": "AGENT-005-A02",
+  "attempts": [
+    {
+      "attempt_id": "AGENT-005-A01",
+      "started_at": "2026-10-06T05:33:00+08:00",
+      "ended_at": "2026-10-05T21:42:47.586Z",
+      "environment_id": "ENV-001",
+      "surface": "Expert management iframe UI via Electron CDP + Playwright",
+      "actual_preconditions": {
+        "account": "Arthur",
+        "expert_manager": "8 round-owned local experts before import",
+        "project": "existing tpt-workspace",
+        "model": "standard / low",
+        "permission": "workspace edits",
+        "fixture": "night-agent-complete-20261006"
+      },
+      "input": "Imported the round-owned valid expert folder through the page file input; no native picker. No production expert or market item was modified.",
+      "actual_steps": [
+        "Opened the Experts management iframe and verified the existing list before adding one uniquely named round-owned sample.",
+        "Clicked the distinct 导入专家 entry; the in-page dialog exposed both ZIP and webkitdirectory folder inputs plus a 提交 action.",
+        "Supplied the round-owned folder to input[type=file][webkitdirectory] using Playwright and submitted it.",
+        "Observed the UI toast 专家校验通过，已导入「我的专家」; the newly imported entry appeared in 我的专家 as local/run-ready."
+      ],
+      "wait_condition": "Waited for the import terminal notice, then read the local expert card; for AGENT-014 also waited for the unique assistant marker.",
+      "checkpoints": [
+        {
+          "expected_index": 1,
+          "expected": "与新建分离",
+          "observed": "Experts management exposes separate 导入专家 and 新建专家 buttons; the import dialog is distinct from the guided create conversation.",
+          "verdict": "符合",
+          "evidence": [
+            "证据/AGENT-005/AGENT-005-A01/import-dialog.png"
+          ]
+        },
+        {
+          "expected_index": 2,
+          "expected": "可识别包导入流程",
+          "observed": "The dialog accepted the selected folder, showed its name and two files, and the UI reported successful validation/import into 我的专家.",
+          "verdict": "符合",
+          "evidence": [
+            "证据/AGENT-005/AGENT-005-A01/import-result.txt"
+          ]
+        }
+      ],
+      "observed_result": "A valid, round-owned expert folder was accepted via the in-page directory input; the UI confirmed import and the local expert list showed the new item. This replaces the historical native-picker blocker for the currently observed UI path; no broad claim about other platforms.",
+      "status": "已执行-符合预期",
+      "evidence": [
+        "证据/AGENT-005/AGENT-005-A01/import-result.txt",
+        "证据/AGENT-005/AGENT-005-A01/import-dialog.png",
+        "证据/AGENT-005/AGENT-005-A01/import-dialog.txt"
+      ],
+      "notes": "All findings remain pending bilateral review. The imported expert is a harmless round-owned sample, authorized for retention during this test round.",
+      "cleanup": {
+        "changes": [
+          "Added only round-owned expert night-agent-complete-20261006 via the authorized UI import."
+        ],
+        "remaining": [
+          "The sample remains installed under the product data root for continued authorized round testing."
+        ]
+      }
+    },
+    {
+      "attempt_id": "AGENT-005-A02",
+      "started_at": "2026-10-06T00:05:11.000Z",
+      "ended_at": "2026-10-06T00:06:15.731Z",
+      "environment_id": "ENV-001",
+      "surface": "TPT Work 专家管理iframe → 导入本地专家对话框 → webkitdirectory folder input；CDP 9234 + Playwright",
+      "actual_preconditions": {
+        "account_alias": "Arthur",
+        "workspace": "tpt-workspace",
+        "project": "未新增项目",
+        "model": "未发送模型请求",
+        "permission": "仅使用专家管理UI导入",
+        "fixtures": [
+          "本轮目录包 night-agent-complete-20261006；同名round-owned对象已存在"
+        ]
+      },
+      "input": "通过页面目录选择控件导入夹具/night-agent-complete-20261006；重名时选择作为副本，绝不覆盖。",
+      "actual_steps": [
+        "专家管理页可见“导入专家”和“新建专家”两个独立入口。",
+        "打开“导入本地专家”UI弹窗，以目录input上传本轮文件夹；界面显示FOLDER、night-agent-complete-20261006、2个文件·1.5KB。",
+        "点击提交后，产品提示该内部名称已存在，显示“覆盖现有”和“作为副本”两个选项。",
+        "明确选择“作为副本”；未触碰“覆盖现有”。随后独立回读我的专家数10→11，卡片列表增加同名本轮样本。"
+      ],
+      "wait_condition": "等待导入弹窗处理完成，再重新读取管理页卡片总数与来源标签。",
+      "checkpoints": [
+        {
+          "expected_index": 1,
+          "expected": "与新建分离",
+          "observed": "入口观察：专家管理页在同一页面提供独立“导入专家”按钮和“新建专家”按钮；后者为expert-manager引导创建会话。当前导入对话框与新建入口分离。",
+          "verdict": "符合",
+          "evidence": [
+            "证据/AGENT-CREATE-20261006/expert-manager-before-import.png",
+            "证据/AGENT-CREATE-20261006/folder-selected.png"
+          ]
+        },
+        {
+          "expected_index": 2,
+          "expected": "可识别包导入流程",
+          "observed": "目录选择UI将夹具呈现为FOLDER，列出内部包名及2个文件；重名时可选择“作为副本”。选择后UI卡片数10→11。此次副本的卡片标题与现有样本相同，内部区分边界只在后续composer引用中观察到，无法从列表单独确定身份。",
+          "verdict": "符合",
+          "evidence": [
+            "证据/AGENT-CREATE-20261006/folder-selected.png",
+            "证据/AGENT-CREATE-20261006/import-result.png",
+            "证据/AGENT-CREATE-20261006/name-conflict.png",
+            "证据/AGENT-CREATE-20261006/import-after-success.png",
+            "证据/AGENT-CREATE-20261006/expert-cards-before.json"
+          ]
+        }
+      ],
+      "observed_result": "专家管理页的导入入口与新建入口分离；目录input选中round-owned文件夹后显示FOLDER、文件夹名及2个文件；提交发现同名冲突时保留原项并选择“作为副本”；其后独立UI回读“我的专家”从10增至11，11张卡均显示“来源 我创建的 · 本地运行”。由于标题重名，不能仅凭卡片文本区分副本内部ID。",
+      "status": "已执行-符合预期",
+      "difference_ids": [],
+      "notes": "用户授权本轮round-owned包UI导入。导入的同名对象选择副本，不覆盖。新副本仍留在产品内供审核；因卡片标题相同且删除可能误触既有对象，本轮不删除。",
+      "source_sha256": "c3cdc4c71c1746e9a647aa5190e0983229af9b41c22e2e6c9a9bc3da80727b66",
+      "evidence": [
+        "证据/AGENT-CREATE-20261006/expert-manager-before-import.png",
+        "证据/AGENT-CREATE-20261006/folder-selected.png",
+        "证据/AGENT-CREATE-20261006/import-result.png",
+        "证据/AGENT-CREATE-20261006/name-conflict.png",
+        "证据/AGENT-CREATE-20261006/import-after-success.png",
+        "证据/AGENT-CREATE-20261006/expert-cards-before.json"
+      ]
+    }
+  ],
+  "product_observations": [
+    {
+      "observation_id": "OBS-227",
+      "feature_id": null,
+      "statement": "The UI presents a separate import entry and accepts a complete round-owned folder through the in-page directory input; successful import was visible in the local expert list. This observation supersedes the historical native-picker blocker for this UI path.",
+      "case_ids": [
+        "AGENT-005"
+      ],
+      "attempt_ids": [
+        "AGENT-005-A01"
+      ],
+      "environment_id": "ENV-001",
+      "verified_depth": "UI import entry, directory submission and successful local list result",
+      "scope_and_limits": "One harmless round-owned local fixture; no existing user expert changed. The evidence does not establish behavior for market, cloud or other platform imports.",
+      "evidence": [
+        "证据\\AGENT-005\\AGENT-005-A01/import-dialog.png",
+        "证据\\AGENT-005\\AGENT-005-A01/import-dialog.txt",
+        "证据\\AGENT-005\\AGENT-005-A01/import-result.txt"
+      ],
+      "relation_to_design": "Pending bilateral review; scoped to the tested local folder import and fixture call.",
+      "review_status": "待双方审核"
+    },
+    {
+      "observation_id": "OBS-258",
+      "feature_id": null,
+      "statement": "专家管理页的导入入口与新建入口分离；目录input选中round-owned文件夹后显示FOLDER、文件夹名及2个文件；提交发现同名冲突时保留原项并选择“作为副本”；其后独立UI回读“我的专家”从10增至11，11张卡均显示“来源 我创建的 · 本地运行”。由于标题重名，不能仅凭卡片文本区分副本内部ID。",
+      "case_ids": [
+        "AGENT-005"
+      ],
+      "attempt_ids": [
+        "AGENT-005-A02"
+      ],
+      "environment_id": "ENV-001",
+      "verified_depth": "只验证本轮专家文件夹导入、重名副本分支、卡片数量及可见来源标签；未据此断言市场来源。",
+      "scope_and_limits": "同名副本不能从卡片列表独立识别；未覆盖或删除任何既有对象；样本留存待审核。",
+      "evidence": [
+        "证据/AGENT-CREATE-20261006/expert-manager-before-import.png",
+        "证据/AGENT-CREATE-20261006/folder-selected.png",
+        "证据/AGENT-CREATE-20261006/import-result.png",
+        "证据/AGENT-CREATE-20261006/name-conflict.png",
+        "证据/AGENT-CREATE-20261006/import-after-success.png",
+        "证据/AGENT-CREATE-20261006/expert-cards-before.json"
+      ],
+      "review_status": "待双方审核"
+    }
+  ],
+  "differences": [],
+  "finding_ids": [],
+  "blocker": null,
+  "applicability_reason": null,
+  "cleanup": {
+    "changes": [
+      "Added only round-owned expert night-agent-complete-20261006 via the authorized UI import.",
+      {
+        "change": "同名round-owned专家包通过UI“作为副本”再导入一次",
+        "restored": false,
+        "verification": "我的专家卡片数由10增至11；没有覆盖旧条目。"
+      }
+    ],
+    "remaining": [
+      "The sample remains installed under the product data root for continued authorized round testing.",
+      "UI副本形成同名round-owned专家卡片；无法安全区分对应删除控件，故保留并记录为本轮资产。"
+    ]
+  },
+  "review": {
+    "assistant": null,
+    "user": null,
+    "approved_scope": [],
+    "final_decision": "待审核"
+  },
+  "audit_history": [
+    {
+      "at": "2026-10-06T00:06:15.731Z",
+      "event": "AGENT-005-A02 夜间续跑实际UI操作补测；保留既有attempt与证据，结论待双方审核。"
+    }
+  ]
+}

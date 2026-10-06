@@ -1,0 +1,197 @@
+{
+  "case_id": "AGENT-018",
+  "case_title": "副本导入不覆盖原对象",
+  "source_sha256": "c3cdc4c71c1746e9a647aa5190e0983229af9b41c22e2e6c9a9bc3da80727b66",
+  "status": "已执行-符合预期",
+  "review_status": "待双方审核",
+  "latest_attempt_id": "AGENT-018-A02",
+  "attempts": [
+    {
+      "attempt_id": "AGENT-018-A01",
+      "started_at": "2026-10-05T16:12:50.000Z",
+      "ended_at": "2026-10-05T16:13:55.000Z",
+      "environment_id": "ENV-001",
+      "surface": "TPT Work visible UI through CDP + Playwright; independent readback only for round-owned fixture",
+      "actual_preconditions": {
+        "account_alias": "Arthur",
+        "workspace": "tpt-workspace",
+        "project": "未新增项目",
+        "session_id": "未新增项目；本轮专家管理/详情操作",
+        "model": "标准 / low",
+        "permission": "工作区内修改",
+        "fixtures": [
+          "夹具/agent-variants/round-agent-longread-duplicate-20261005",
+          "安装目标round-agent-longread-20261005"
+        ]
+      },
+      "input": "同内部名本轮专家包，明确选择“作为副本”。",
+      "actual_steps": [
+        "在UI冲突流程中明确选择“作为副本”。",
+        "回读原本轮Agent文件的导入前/后哈希。",
+        "回读生成副本的独立目录名和元数据。"
+      ],
+      "wait_condition": "等待页面出现稳定终态；发生导航/弹窗后重新读取可见frame及目标状态。",
+      "checkpoints": [
+        {
+          "expected_index": 1,
+          "expected": "原目录内容不变",
+          "observed": "原 round-agent-longread-20261005 的agent.md与metadata.json哈希保持导入前值；副本落在round-agent-longread-20261005-1独立目录，元数据内部名也使用新名称。",
+          "verdict": "符合",
+          "evidence": [
+            "证据/AGENT-018/AGENT-018-A01/name-conflict.png",
+            "证据/AGENT-018/AGENT-018-A01/copy-result.png",
+            "证据/AGENT-018/AGENT-018-A01/target-before-hashes.json",
+            "证据/AGENT-018/AGENT-018-A01/ui-and-install-readback.json"
+          ]
+        },
+        {
+          "expected_index": 2,
+          "expected": "新对象有独立目录",
+          "observed": "原 round-agent-longread-20261005 的agent.md与metadata.json哈希保持导入前值；副本落在round-agent-longread-20261005-1独立目录，元数据内部名也使用新名称。",
+          "verdict": "符合",
+          "evidence": [
+            "证据/AGENT-018/AGENT-018-A01/name-conflict.png",
+            "证据/AGENT-018/AGENT-018-A01/copy-result.png",
+            "证据/AGENT-018/AGENT-018-A01/target-before-hashes.json",
+            "证据/AGENT-018/AGENT-018-A01/ui-and-install-readback.json"
+          ]
+        }
+      ],
+      "observed_result": "原 round-agent-longread-20261005 的agent.md与metadata.json哈希保持导入前值；副本落在round-agent-longread-20261005-1独立目录，元数据内部名也使用新名称。",
+      "status": "已执行-符合预期",
+      "evidence": [
+        "证据/AGENT-018/AGENT-018-A01/name-conflict.png",
+        "证据/AGENT-018/AGENT-018-A01/copy-result.png",
+        "证据/AGENT-018/AGENT-018-A01/target-before-hashes.json",
+        "证据/AGENT-018/AGENT-018-A01/ui-and-install-readback.json"
+      ],
+      "difference_ids": [],
+      "notes": "与AGENT-017同一UI尝试的另一组检查点；证据已在AGENT-017-A01登记，此处按本case再索引并说明共用交互。"
+    },
+    {
+      "attempt_id": "AGENT-018-A02",
+      "started_at": "2026-10-06T05:40:00+08:00",
+      "ended_at": "2026-10-05T21:46:45.122Z",
+      "environment_id": "ENV-001",
+      "surface": "Expert management iframe via Electron CDP + Playwright; independent filesystem readback",
+      "actual_preconditions": {
+        "account": "Arthur",
+        "expert_manager": "9 local experts before duplicate import; source round-owned only",
+        "model": "standard / low",
+        "fixture": "night-agent-complete-20261006 already imported by this round"
+      },
+      "input": "Reimported the same round-owned package with the same internal name and selected 作为副本 after the UI reported that the name already existed.",
+      "actual_steps": [
+        "Opened 导入专家 and selected the same harmless round-owned directory using the page webkitdirectory input.",
+        "Clicked 提交; the UI reported 名称冲突 and stated that night-agent-complete-20261006 already existed, with options 覆盖现有 and 作为副本.",
+        "Selected 作为副本. The UI returned to the list with count 10 and two cards sharing the display name.",
+        "Independently read the product root: the original directory and a distinct night-agent-complete-20261006-1 directory both existed; both contained agent.md and metadata.json.",
+        "Compared file hashes: agent.md remained byte-identical; the copy metadata had a distinct internal name."
+      ],
+      "wait_condition": "Waited for the duplicate import action to close and the local list to show 10 entries; independently read both directories and hashes.",
+      "checkpoints": [
+        {
+          "expected_index": 1,
+          "expected": "原目录内容不变",
+          "observed": "The round-owned original remains as night-agent-complete-20261006 with agent.md SHA256 72168746226c7371f7f91159f39490eadad81201d06285b906a2c5edb3ab7d6c. Its package files were not edited by this attempt.",
+          "verdict": "符合",
+          "evidence": [
+            "证据/AGENT-018/AGENT-018-A02/copy-card-original.png",
+            "证据/AGENT-018/AGENT-018-A02/filesystem-readback.json"
+          ]
+        },
+        {
+          "expected_index": 2,
+          "expected": "新对象有独立目录",
+          "observed": "UI list count increased 9→10 and displayed two same-name cards. Product-root readback showed a separate night-agent-complete-20261006-1 directory with agent.md and metadata.json.",
+          "verdict": "符合",
+          "evidence": [
+            "证据/AGENT-018/AGENT-018-A02/copy-card-copy.png",
+            "证据/AGENT-018/AGENT-018-A02/filesystem-readback.json"
+          ]
+        }
+      ],
+      "observed_result": "The name-conflict flow offered an explicit 作为副本 action. Choosing it retained the original and created a distinct -1 product-root directory. This is limited to the two round-owned fixture instances.",
+      "status": "已执行-符合预期",
+      "evidence": [
+        "证据/AGENT-018/AGENT-018-A02/copy-card-original.png",
+        "证据/AGENT-018/AGENT-018-A02/copy-card-copy.png",
+        "证据/AGENT-018/AGENT-018-A02/copy-cards.txt",
+        "证据/AGENT-018/AGENT-018-A02/filesystem-readback.json"
+      ],
+      "notes": "Round-owned duplicate retained for further testing; no preexisting user expert was changed. Pending bilateral review.",
+      "cleanup": {
+        "changes": [
+          "Created a second copy of the round-owned night-agent-complete-20261006 package through the UI."
+        ],
+        "remaining": [
+          "Both round-owned expert directories remain installed for continuing this round; removal is outside this attempted check."
+        ]
+      }
+    }
+  ],
+  "product_observations": [
+    {
+      "feature_id": null,
+      "statement": "原 round-agent-longread-20261005 的agent.md与metadata.json哈希保持导入前值；副本落在round-agent-longread-20261005-1独立目录，元数据内部名也使用新名称。",
+      "case_ids": [
+        "AGENT-018"
+      ],
+      "attempt_ids": [
+        "AGENT-018-A01"
+      ],
+      "environment_id": "ENV-001",
+      "verified_depth": "仅当前本轮UI尝试与引用范围内的回读证据",
+      "scope_and_limits": "限定当前本轮样本及本attempt；所有产品判断待双方审核。",
+      "evidence": [
+        "证据/AGENT-018/AGENT-018-A01/name-conflict.png",
+        "证据/AGENT-018/AGENT-018-A01/copy-result.png",
+        "证据/AGENT-018/AGENT-018-A01/target-before-hashes.json",
+        "证据/AGENT-018/AGENT-018-A01/ui-and-install-readback.json"
+      ],
+      "relation_to_design": "按源用例原文逐检查点记录；依据为待评审设计，不自动视为正式验收标准。",
+      "review_status": "待双方审核"
+    },
+    {
+      "observation_id": "OBS-229",
+      "feature_id": null,
+      "statement": "On same-name import, the UI offered copy versus overwrite. Choosing copy increased the local expert count 9→10 and created a distinct -1 directory; the original agent.md hash was unchanged. The copied metadata differs because the internal name was uniquified.",
+      "case_ids": [
+        "AGENT-018"
+      ],
+      "attempt_ids": [
+        "AGENT-018-A02"
+      ],
+      "environment_id": "ENV-001",
+      "verified_depth": "UI name conflict, copy action, local list and product-root directory/hash comparison",
+      "scope_and_limits": "Two round-owned sample packages only. No claim about existing user assets or all collision patterns.",
+      "evidence": [
+        "证据/AGENT-018/AGENT-018-A02/copy-card-original.png",
+        "证据/AGENT-018/AGENT-018-A02/copy-card-copy.png",
+        "证据/AGENT-018/AGENT-018-A02/copy-cards.txt",
+        "证据/AGENT-018/AGENT-018-A02/filesystem-readback.json"
+      ],
+      "relation_to_design": "Pending bilateral review, scoped to this UI copy path.",
+      "review_status": "待双方审核"
+    }
+  ],
+  "differences": [],
+  "finding_ids": [],
+  "blocker": null,
+  "applicability_reason": null,
+  "cleanup": {
+    "changes": [
+      "Created a second copy of the round-owned night-agent-complete-20261006 package through the UI."
+    ],
+    "remaining": [
+      "Both round-owned expert directories remain installed for continuing this round; removal is outside this attempted check."
+    ]
+  },
+  "review": {
+    "assistant": null,
+    "user": null,
+    "approved_scope": [],
+    "final_decision": "待审核"
+  },
+  "audit_history": []
+}

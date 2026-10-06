@@ -1,0 +1,90 @@
+{
+  "case_id": "AGENT-023",
+  "case_title": "查看页只读",
+  "source_sha256": "c3cdc4c71c1746e9a647aa5190e0983229af9b41c22e2e6c9a9bc3da80727b66",
+  "status": "已执行-符合预期",
+  "review_status": "待双方审核",
+  "latest_attempt_id": "AGENT-023-A01",
+  "attempts": [
+    {
+      "attempt_id": "AGENT-023-A01",
+      "started_at": "2026-10-05T16:19:30.000Z",
+      "ended_at": "2026-10-05T16:19:42.000Z",
+      "environment_id": "ENV-001",
+      "surface": "TPT Work visible UI through CDP + Playwright; independent readback only for round-owned fixture",
+      "actual_preconditions": {
+        "account_alias": "Arthur",
+        "workspace": "tpt-workspace",
+        "project": "未新增项目",
+        "session_id": "未新增项目；本轮专家管理/详情操作",
+        "model": "标准 / low",
+        "permission": "工作区内修改",
+        "fixtures": [
+          "round-owned Expert: round-agent-longread-20261005"
+        ]
+      },
+      "input": "本轮长文专家详情页只读浏览。",
+      "actual_steps": [
+        "在详情页面检查提示词和配置区域。",
+        "限定专家详情iframe读取input、textarea、contenteditable数量及可见返回编辑入口。"
+      ],
+      "wait_condition": "等待页面出现稳定终态；发生导航/弹窗后重新读取可见frame及目标状态。",
+      "checkpoints": [
+        {
+          "expected_index": 1,
+          "expected": "不在P0主页面直接编辑完整配置",
+          "observed": "详情内容可读文本展示；对应iframe内input、textarea和contenteditable均为0。页面有单独的“去对话编辑”入口。",
+          "verdict": "符合",
+          "evidence": [
+            "证据/AGENT-023/AGENT-023-A01/detail.png",
+            "证据/AGENT-023/AGENT-023-A01/dom-observation.json"
+          ]
+        }
+      ],
+      "observed_result": "详情内容可读文本展示；对应iframe内input、textarea和contenteditable均为0。页面有单独的“去对话编辑”入口。",
+      "status": "已执行-符合预期",
+      "evidence": [
+        "证据/AGENT-023/AGENT-023-A01/detail.png",
+        "证据/AGENT-023/AGENT-023-A01/dom-observation.json"
+      ],
+      "difference_ids": [],
+      "notes": "基于页面结构可见性判断，未点击“打开文件夹”以避免外部文件管理器。"
+    }
+  ],
+  "product_observations": [
+    {
+      "feature_id": null,
+      "statement": "详情内容可读文本展示；对应iframe内input、textarea和contenteditable均为0。页面有单独的“去对话编辑”入口。",
+      "case_ids": [
+        "AGENT-023"
+      ],
+      "attempt_ids": [
+        "AGENT-023-A01"
+      ],
+      "environment_id": "ENV-001",
+      "verified_depth": "仅当前本轮UI尝试与引用范围内的回读证据",
+      "scope_and_limits": "限定当前本轮样本及本attempt；所有产品判断待双方审核。",
+      "evidence": [
+        "证据/AGENT-023/AGENT-023-A01/detail.png",
+        "证据/AGENT-023/AGENT-023-A01/dom-observation.json"
+      ],
+      "relation_to_design": "按源用例原文逐检查点记录；依据为待评审设计，不自动视为正式验收标准。",
+      "review_status": "待双方审核"
+    }
+  ],
+  "differences": [],
+  "finding_ids": [],
+  "blocker": null,
+  "applicability_reason": null,
+  "cleanup": {
+    "changes": [],
+    "remaining": []
+  },
+  "review": {
+    "assistant": null,
+    "user": null,
+    "approved_scope": [],
+    "final_decision": "待审核"
+  },
+  "audit_history": []
+}

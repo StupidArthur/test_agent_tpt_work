@@ -1,0 +1,436 @@
+[
+  {
+    "id": "G8-01",
+    "group": "G8",
+    "group_title": "任务与执行详情",
+    "title": "后台完成与会话隔离",
+    "steps": [
+      "准备本轮A/B两任务；B先回显唯一B标记，绑定dialog_b_marker。",
+      "A请求生成编号1至150的短行，确认运行后切回B；等待A终态，回读侧栏A及B最终正文。"
+    ],
+    "expected": [
+      "后台A完成提醒：true",
+      "B助手正文：\"$dialog_b_marker\""
+    ],
+    "fixture": "见扩展场景与夹具说明",
+    "prior_task": "2026-10-05-需求用例全量探索",
+    "prior_case": "DIALOG-002",
+    "prior_attempt": "DIALOG-002-A02",
+    "source": {
+      "key": "D",
+      "file": "【桌面端】我的对话.adoc_我的对话-统一补充说明.adoc.md",
+      "line": 34,
+      "section": "3.1 F015",
+      "quote": "3.1 F015 标记为未读"
+    },
+    "basis": "需求文档对应检查点；历史只证明操作路径可尝试，不作为本轮答案",
+    "assertions": [
+      {
+        "id": "G8-01-A1",
+        "target": "后台A完成提醒",
+        "read": "读取A行存在未读完成提醒",
+        "operator": "equals",
+        "expected": true,
+        "evidence_contract": {
+          "identity": "本轮任务session id+工具调用id",
+          "raw": "记录真实原始文本/属性/字段/路径；布尔聚合须保存组成值与计算依据",
+          "normalization": "只按read定义规范化；不添加宽松同义替换或删除额外输出",
+          "absence": "对象不存在时记录真实false/0/空列表；对象无法读取时null+reason"
+        }
+      },
+      {
+        "id": "G8-01-A2",
+        "target": "B助手正文",
+        "read": "读取B最后助手正文trim",
+        "operator": "equals",
+        "expected": "$dialog_b_marker",
+        "evidence_contract": {
+          "identity": "本轮任务session id+工具调用id",
+          "raw": "记录真实原始文本/属性/字段/路径；布尔聚合须保存组成值与计算依据",
+          "normalization": "只按read定义规范化；不添加宽松同义替换或删除额外输出",
+          "absence": "对象不存在时记录真实false/0/空列表；对象无法读取时null+reason"
+        }
+      }
+    ],
+    "evidence_required": [
+      "本轮真实动作/读取日志；断言引用read event；比较包含before/after",
+      "通过默认不截图；异常现场/视觉检查按需截图，同一现场共享；实际值、断言及操作/读取日志必须保留"
+    ],
+    "cleanup": "恢复设置原值；仅恢复本轮fast-assert-资产；导入技能结束停用，专家保留待审；不删除用户资产。",
+    "contract_version": "2.0",
+    "feature_path": [
+      "对话与任务",
+      "状态与提醒",
+      "后台完成与会话隔离"
+    ],
+    "depends_on": [],
+    "object_identity": "本轮任务session id+工具调用id",
+    "runability": {
+      "kind": "timing-dependent",
+      "guarantee": "在已接入且可恢复的当前环境中可实际尝试；业务成功与全部下游断言可达不作保证",
+      "prerequisite_failure": "先记录实际尝试与已知差异；无法观察的下游断言actual=null并指出失败依赖，不能伪造通过或把记录完成写成业务验证完成"
+    },
+    "preconditions": [
+      "CDP+Playwright已核验当前实例；使用标准/low及已有项目",
+      "已创建唯一后缀夹具并记录哈希；相关初值及对象身份已从本轮读取"
+    ],
+    "wait": {
+      "ui_ms": 5000,
+      "model_ms": 90000,
+      "locator_corrections": 1,
+      "terminal": "目标控件/预览稳定、明确提交成功/拒绝/保存失败，或本轮任务明确终态；超时保存实际状态"
+    }
+  },
+  {
+    "id": "G8-04",
+    "group": "G8",
+    "group_title": "任务与执行详情",
+    "title": "运行状态与终态清理",
+    "steps": [
+      "专用任务请求生成200行；发送后立即观察运行状态，等待结束。"
+    ],
+    "expected": [
+      "运行阶段任务指示：true",
+      "结束后进行中标记数：0"
+    ],
+    "fixture": "见扩展场景与夹具说明",
+    "prior_task": "2026-10-05-需求用例全量探索",
+    "prior_case": "DIALOG-005",
+    "prior_attempt": "DIALOG-005-A03",
+    "source": {
+      "key": "D",
+      "file": "【桌面端】我的对话.adoc_我的对话-统一补充说明.adoc.md",
+      "line": 34,
+      "section": "3.1 F015",
+      "quote": "3.1 F015 标记为未读"
+    },
+    "basis": "需求文档对应检查点；历史只证明操作路径可尝试，不作为本轮答案",
+    "assertions": [
+      {
+        "id": "G8-04-A1",
+        "target": "运行阶段任务指示",
+        "read": "读取停止生成控件或侧栏运行标记可见",
+        "operator": "equals",
+        "expected": true,
+        "evidence_contract": {
+          "identity": "本轮任务session id+工具调用id",
+          "raw": "记录真实原始文本/属性/字段/路径；布尔聚合须保存组成值与计算依据",
+          "normalization": "只按read定义规范化；不添加宽松同义替换或删除额外输出",
+          "absence": "对象不存在时记录真实false/0/空列表；对象无法读取时null+reason"
+        }
+      },
+      {
+        "id": "G8-04-A2",
+        "target": "结束后进行中标记数",
+        "read": "只读取同一任务进行中指示",
+        "operator": "equals",
+        "expected": 0,
+        "evidence_contract": {
+          "identity": "本轮任务session id+工具调用id",
+          "raw": "记录真实原始文本/属性/字段/路径；布尔聚合须保存组成值与计算依据",
+          "normalization": "只按read定义规范化；不添加宽松同义替换或删除额外输出",
+          "absence": "对象不存在时记录真实false/0/空列表；对象无法读取时null+reason"
+        }
+      }
+    ],
+    "evidence_required": [
+      "本轮真实动作/读取日志；断言引用read event；比较包含before/after",
+      "通过默认不截图；异常现场/视觉检查按需截图，同一现场共享；实际值、断言及操作/读取日志必须保留"
+    ],
+    "cleanup": "恢复设置原值；仅恢复本轮fast-assert-资产；导入技能结束停用，专家保留待审；不删除用户资产。",
+    "contract_version": "2.0",
+    "feature_path": [
+      "对话与任务",
+      "状态与提醒",
+      "运行状态与终态清理"
+    ],
+    "depends_on": [],
+    "object_identity": "本轮任务session id+工具调用id",
+    "runability": {
+      "kind": "timing-dependent",
+      "guarantee": "在已接入且可恢复的当前环境中可实际尝试；业务成功与全部下游断言可达不作保证",
+      "prerequisite_failure": "先记录实际尝试与已知差异；无法观察的下游断言actual=null并指出失败依赖，不能伪造通过或把记录完成写成业务验证完成"
+    },
+    "preconditions": [
+      "CDP+Playwright已核验当前实例；使用标准/low及已有项目",
+      "已创建唯一后缀夹具并记录哈希；相关初值及对象身份已从本轮读取"
+    ],
+    "wait": {
+      "ui_ms": 5000,
+      "model_ms": 90000,
+      "locator_corrections": 1,
+      "terminal": "目标控件/预览稳定、明确提交成功/拒绝/保存失败，或本轮任务明确终态；超时保存实际状态"
+    }
+  },
+  {
+    "id": "G8-05",
+    "group": "G8",
+    "group_title": "任务与执行详情",
+    "title": "主动终止",
+    "steps": [
+      "新任务请求生成500行；出现运行状态即点停止；等待终态，记录终止前后的任务身份。"
+    ],
+    "expected": [
+      "终止操作是否提交：true",
+      "终止任务状态：true",
+      "终止后运行指示数：0"
+    ],
+    "fixture": "见扩展场景与夹具说明",
+    "prior_task": "2026-10-05-需求用例全量探索",
+    "prior_case": "DIALOG-008",
+    "prior_attempt": "DIALOG-008-A01",
+    "source": {
+      "key": "D",
+      "file": "【桌面端】我的对话.adoc_我的对话-统一补充说明.adoc.md",
+      "line": 34,
+      "section": "3.1 F015",
+      "quote": "3.1 F015 标记为未读"
+    },
+    "basis": "需求文档对应检查点；历史只证明操作路径可尝试，不作为本轮答案",
+    "assertions": [
+      {
+        "id": "G8-05-A1",
+        "target": "终止操作是否提交",
+        "read": "读取点击动作日志及按钮目标同一任务的布尔值",
+        "operator": "equals",
+        "expected": true,
+        "evidence_contract": {
+          "identity": "本轮任务session id+工具调用id",
+          "raw": "记录真实原始文本/属性/字段/路径；布尔聚合须保存组成值与计算依据",
+          "normalization": "只按read定义规范化；不添加宽松同义替换或删除额外输出",
+          "absence": "对象不存在时记录真实false/0/空列表；对象无法读取时null+reason"
+        }
+      },
+      {
+        "id": "G8-05-A2",
+        "target": "终止任务状态",
+        "read": "从任务详情读取明确终止/已停止语义",
+        "operator": "equals",
+        "expected": true,
+        "evidence_contract": {
+          "identity": "本轮任务session id+工具调用id",
+          "raw": "记录真实原始文本/属性/字段/路径；布尔聚合须保存组成值与计算依据",
+          "normalization": "只按read定义规范化；不添加宽松同义替换或删除额外输出",
+          "absence": "对象不存在时记录真实false/0/空列表；对象无法读取时null+reason"
+        }
+      },
+      {
+        "id": "G8-05-A3",
+        "target": "终止后运行指示数",
+        "read": "只读该任务",
+        "operator": "equals",
+        "expected": 0,
+        "evidence_contract": {
+          "identity": "本轮任务session id+工具调用id",
+          "raw": "记录真实原始文本/属性/字段/路径；布尔聚合须保存组成值与计算依据",
+          "normalization": "只按read定义规范化；不添加宽松同义替换或删除额外输出",
+          "absence": "对象不存在时记录真实false/0/空列表；对象无法读取时null+reason"
+        }
+      }
+    ],
+    "evidence_required": [
+      "本轮真实动作/读取日志；断言引用read event；比较包含before/after",
+      "通过默认不截图；异常现场/视觉检查按需截图，同一现场共享；实际值、断言及操作/读取日志必须保留"
+    ],
+    "cleanup": "恢复设置原值；仅恢复本轮fast-assert-资产；导入技能结束停用，专家保留待审；不删除用户资产。",
+    "contract_version": "2.0",
+    "feature_path": [
+      "对话与任务",
+      "状态与提醒",
+      "主动终止"
+    ],
+    "depends_on": [],
+    "object_identity": "本轮任务session id+工具调用id",
+    "runability": {
+      "kind": "timing-dependent",
+      "guarantee": "在已接入且可恢复的当前环境中可实际尝试；业务成功与全部下游断言可达不作保证",
+      "prerequisite_failure": "先记录实际尝试与已知差异；无法观察的下游断言actual=null并指出失败依赖，不能伪造通过或把记录完成写成业务验证完成"
+    },
+    "preconditions": [
+      "CDP+Playwright已核验当前实例；使用标准/low及已有项目",
+      "已创建唯一后缀夹具并记录哈希；相关初值及对象身份已从本轮读取"
+    ],
+    "wait": {
+      "ui_ms": 5000,
+      "model_ms": 90000,
+      "locator_corrections": 1,
+      "terminal": "目标控件/预览稳定、明确提交成功/拒绝/保存失败，或本轮任务明确终态；超时保存实际状态"
+    }
+  },
+  {
+    "id": "G12-14",
+    "group": "G12",
+    "group_title": "设置扩展",
+    "title": "排队发送实际时序",
+    "steps": [
+      "保存繁忙发送初值；选排队；本轮A任务生成200行，观察运行后用Enter提交唯一第二消息；读提交时间、第二消息入对话及两次终态。"
+    ],
+    "expected": [
+      "排队第二消息已提交：true",
+      "排队任务时序：true"
+    ],
+    "fixture": "见扩展场景与夹具说明",
+    "prior_task": "2026-10-05-需求用例全量探索",
+    "prior_case": "OTHER-019",
+    "prior_attempt": "OTHER-019-A10",
+    "source": {
+      "key": "SET",
+      "file": "【桌面端】设置界面.adoc.md",
+      "line": 8,
+      "section": "原则",
+      "quote": "原则：结构适应dsh和自身的高频迭代。在其他处显示自身特性"
+    },
+    "basis": "需求文档对应检查点；历史只证明操作路径可尝试，不作为本轮答案",
+    "assertions": [
+      {
+        "id": "G12-14-A1",
+        "target": "排队第二消息已提交",
+        "read": "读取用户气泡唯一标记存在",
+        "operator": "equals",
+        "expected": true,
+        "evidence_contract": {
+          "identity": "设置字段+本轮任务session id/目标URL",
+          "raw": "记录真实原始文本/属性/字段/路径；布尔聚合须保存组成值与计算依据",
+          "normalization": "只按read定义规范化；不添加宽松同义替换或删除额外输出",
+          "absence": "对象不存在时记录真实false/0/空列表；对象无法读取时null+reason"
+        }
+      },
+      {
+        "id": "G12-14-A2",
+        "target": "排队任务时序",
+        "read": "由原始事件计算第二执行开始时间>=第一终态时间",
+        "operator": "equals",
+        "expected": true,
+        "evidence_contract": {
+          "identity": "设置字段+本轮任务session id/目标URL",
+          "raw": "记录真实原始文本/属性/字段/路径；布尔聚合须保存组成值与计算依据",
+          "normalization": "只按read定义规范化；不添加宽松同义替换或删除额外输出",
+          "absence": "对象不存在时记录真实false/0/空列表；对象无法读取时null+reason"
+        }
+      }
+    ],
+    "evidence_required": [
+      "本轮真实动作/读取日志；断言引用read event；比较包含before/after",
+      "通过默认不截图；异常现场/视觉检查按需截图，同一现场共享；实际值、断言及操作/读取日志必须保留"
+    ],
+    "cleanup": "恢复设置原值；仅恢复本轮fast-assert-资产；导入技能结束停用，专家保留待审；不删除用户资产。",
+    "contract_version": "2.0",
+    "feature_path": [
+      "设置",
+      "繁忙发送",
+      "排队发送实际时序"
+    ],
+    "depends_on": [],
+    "object_identity": "设置字段+本轮任务session id/目标URL",
+    "runability": {
+      "kind": "timing-dependent",
+      "guarantee": "在已接入且可恢复的当前环境中可实际尝试；业务成功与全部下游断言可达不作保证",
+      "prerequisite_failure": "先记录实际尝试与已知差异；无法观察的下游断言actual=null并指出失败依赖，不能伪造通过或把记录完成写成业务验证完成"
+    },
+    "preconditions": [
+      "CDP+Playwright已核验当前实例；使用标准/low及已有项目",
+      "已创建唯一后缀夹具并记录哈希；相关初值及对象身份已从本轮读取"
+    ],
+    "wait": {
+      "ui_ms": 5000,
+      "model_ms": 90000,
+      "locator_corrections": 1,
+      "terminal": "目标控件/预览稳定、明确提交成功/拒绝/保存失败，或本轮任务明确终态；超时保存实际状态"
+    }
+  },
+  {
+    "id": "G12-15",
+    "group": "G12",
+    "group_title": "设置扩展",
+    "title": "插话发送实际加入",
+    "steps": [
+      "选插话/中断当前对应实际选项并记录标签；新任务运行期间Enter提交唯一第二指令，要求收尾回复FAST_INSERT_OK；读提交与终态；恢复。"
+    ],
+    "expected": [
+      "插话第二消息在运行中提交：true",
+      "插话任务最后回复：\"FAST_INSERT_OK\"",
+      "恢复后繁忙发送设置：\"$busy_initial\""
+    ],
+    "fixture": "见扩展场景与夹具说明",
+    "prior_task": "2026-10-05-需求用例全量探索",
+    "prior_case": "OTHER-019",
+    "prior_attempt": "OTHER-019-A10",
+    "source": {
+      "key": "SET",
+      "file": "【桌面端】设置界面.adoc.md",
+      "line": 8,
+      "section": "原则",
+      "quote": "原则：结构适应dsh和自身的高频迭代。在其他处显示自身特性"
+    },
+    "basis": "需求文档对应检查点；历史只证明操作路径可尝试，不作为本轮答案",
+    "assertions": [
+      {
+        "id": "G12-15-A1",
+        "target": "插话第二消息在运行中提交",
+        "read": "原始事件计算第二提交时间<首任务终态时间",
+        "operator": "equals",
+        "expected": true,
+        "evidence_contract": {
+          "identity": "设置字段+本轮任务session id/目标URL",
+          "raw": "记录真实原始文本/属性/字段/路径；布尔聚合须保存组成值与计算依据",
+          "normalization": "只按read定义规范化；不添加宽松同义替换或删除额外输出",
+          "absence": "对象不存在时记录真实false/0/空列表；对象无法读取时null+reason"
+        }
+      },
+      {
+        "id": "G12-15-A2",
+        "target": "插话任务最后回复",
+        "read": "读取最终助手正文",
+        "operator": "contains",
+        "expected": "FAST_INSERT_OK",
+        "evidence_contract": {
+          "identity": "设置字段+本轮任务session id/目标URL",
+          "raw": "记录真实原始文本/属性/字段/路径；布尔聚合须保存组成值与计算依据",
+          "normalization": "只按read定义规范化；不添加宽松同义替换或删除额外输出",
+          "absence": "对象不存在时记录真实false/0/空列表；对象无法读取时null+reason"
+        }
+      },
+      {
+        "id": "G12-15-A3",
+        "target": "恢复后繁忙发送设置",
+        "read": "独立回读",
+        "operator": "equals",
+        "expected": "$busy_initial",
+        "evidence_contract": {
+          "identity": "设置字段+本轮任务session id/目标URL",
+          "raw": "记录真实原始文本/属性/字段/路径；布尔聚合须保存组成值与计算依据",
+          "normalization": "只按read定义规范化；不添加宽松同义替换或删除额外输出",
+          "absence": "对象不存在时记录真实false/0/空列表；对象无法读取时null+reason"
+        }
+      }
+    ],
+    "evidence_required": [
+      "本轮真实动作/读取日志；断言引用read event；比较包含before/after",
+      "通过默认不截图；异常现场/视觉检查按需截图，同一现场共享；实际值、断言及操作/读取日志必须保留"
+    ],
+    "cleanup": "恢复设置原值；仅恢复本轮fast-assert-资产；导入技能结束停用，专家保留待审；不删除用户资产。",
+    "contract_version": "2.0",
+    "feature_path": [
+      "设置",
+      "繁忙发送",
+      "插话发送实际加入"
+    ],
+    "depends_on": [],
+    "object_identity": "设置字段+本轮任务session id/目标URL",
+    "runability": {
+      "kind": "timing-dependent",
+      "guarantee": "在已接入且可恢复的当前环境中可实际尝试；业务成功与全部下游断言可达不作保证",
+      "prerequisite_failure": "先记录实际尝试与已知差异；无法观察的下游断言actual=null并指出失败依赖，不能伪造通过或把记录完成写成业务验证完成"
+    },
+    "preconditions": [
+      "CDP+Playwright已核验当前实例；使用标准/low及已有项目",
+      "已创建唯一后缀夹具并记录哈希；相关初值及对象身份已从本轮读取"
+    ],
+    "wait": {
+      "ui_ms": 5000,
+      "model_ms": 90000,
+      "locator_corrections": 1,
+      "terminal": "目标控件/预览稳定、明确提交成功/拒绝/保存失败，或本轮任务明确终态；超时保存实际状态"
+    }
+  }
+]

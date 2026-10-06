@@ -1,0 +1,108 @@
+{
+  "case_id": "DIALOG-024",
+  "case_title": "移除单附件",
+  "source_sha256": "b712acd3b204ebcfdd07129c4d993ea1beb184f9a2d0c3827745ee1fdf7a6677",
+  "status": "已执行-符合预期",
+  "review_status": "待双方审核",
+  "latest_attempt_id": "DIALOG-024-A01",
+  "attempts": [
+    {
+      "attempt_id": "DIALOG-024-A01",
+      "started_at": "2026-10-06T06:01:00+08:00",
+      "ended_at": "2026-10-05T22:01:28.961Z",
+      "environment_id": "ENV-001",
+      "surface": "Unified task composer UI via Electron CDP + Playwright",
+      "actual_preconditions": {
+        "account": "Arthur",
+        "project": "existing tpt-workspace",
+        "model": "standard / low",
+        "fixture": "round-attachment-fixtures-20261006/attachment-a.txt, 155 bytes"
+      },
+      "input": "Removed the one attached round-owned fixture from the composer; did not send it.",
+      "actual_steps": [
+        "Started with the exact one-file attachment card from this round.",
+        "Clicked the visible 移除文件 attachment-a.txt control.",
+        "Verified the card disappeared and zero matching filename nodes remained.",
+        "Re-read the source fixture and confirmed its byte length and SHA256 were unchanged."
+      ],
+      "wait_condition": "Waited for the attachment card to render or disappear, then read back UI/source state.",
+      "checkpoints": [
+        {
+          "expected_index": 1,
+          "expected": "仅该附件引用消失",
+          "observed": "Clicking 移除文件 attachment-a.txt removed the only card; an immediate UI query found zero matching attachment filename references.",
+          "verdict": "符合",
+          "evidence": [
+            "证据/DIALOG-024/DIALOG-024-A01/post-remove.txt"
+          ]
+        },
+        {
+          "expected_index": 2,
+          "expected": "源文件和资产仍在",
+          "observed": "The source fixture still existed with its pre-removal size and SHA256. No product asset or other file was changed.",
+          "verdict": "符合",
+          "evidence": [
+            "证据/DIALOG-024/DIALOG-024-A01/source-preserved.json"
+          ]
+        }
+      ],
+      "observed_result": "The single attachment reference was removed from the draft composer; the underlying round-owned fixture remained byte-identical. The draft now has no attached file.",
+      "status": "已执行-符合预期",
+      "evidence": [
+        "证据/DIALOG-024/DIALOG-024-A01/attached-card.png",
+        "证据/DIALOG-024/DIALOG-024-A01/post-remove.txt",
+        "证据/DIALOG-024/DIALOG-024-A01/source-preserved.json"
+      ],
+      "notes": "Round-owned local attachment fixture only. No message sent; no native dialog; no changes to existing user assets.",
+      "cleanup": {
+        "changes": [
+          "Added then removed only the attachment reference from this test draft."
+        ],
+        "remaining": [
+          "The harmless fixture source remains in the test task fixture directory."
+        ]
+      }
+    }
+  ],
+  "product_observations": [
+    {
+      "observation_id": "OBS-234",
+      "feature_id": null,
+      "statement": "The single attachment reference was removed from the draft composer; the underlying round-owned fixture remained byte-identical. The draft now has no attached file.",
+      "case_ids": [
+        "DIALOG-024"
+      ],
+      "attempt_ids": [
+        "DIALOG-024-A01"
+      ],
+      "environment_id": "ENV-001",
+      "verified_depth": "Actual composer file attachment UI state and corresponding file/source readback",
+      "scope_and_limits": "One round-owned draft attachment; no message was sent and no user asset was modified.",
+      "evidence": [
+        "证据/DIALOG-024/DIALOG-024-A01/attached-card.png",
+        "证据/DIALOG-024/DIALOG-024-A01/post-remove.txt",
+        "证据/DIALOG-024/DIALOG-024-A01/source-preserved.json"
+      ],
+      "relation_to_design": "Pending bilateral review.",
+      "review_status": "待双方审核"
+    }
+  ],
+  "differences": [],
+  "finding_ids": [],
+  "blocker": null,
+  "applicability_reason": null,
+  "cleanup": {
+    "changes": [
+      "Added then removed only the attachment reference from this test draft."
+    ],
+    "remaining": [
+      "The harmless fixture source remains in the test task fixture directory."
+    ]
+  },
+  "review": {
+    "assistant": null,
+    "user": null,
+    "approved_scope": [],
+    "final_decision": "待审核"
+  }
+}

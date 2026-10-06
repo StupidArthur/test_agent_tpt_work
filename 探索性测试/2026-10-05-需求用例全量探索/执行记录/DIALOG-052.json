@@ -1,0 +1,32 @@
+{
+  "case_id": "DIALOG-052",
+  "case_title": "图像从摘要辅助区打开",
+  "source_sha256": "b712acd3b204ebcfdd07129c4d993ea1beb184f9a2d0c3827745ee1fdf7a6677",
+  "status": "阻塞",
+  "review_status": "待双方审核",
+  "latest_attempt_id": null,
+  "attempts": [],
+  "product_observations": [],
+  "differences": [],
+  "finding_ids": [],
+  "blocker": {
+    "reason": "无法执行【图像从摘要辅助区打开】：同上，且需要摘要辅助区。 本机可用条件：标准/low 模型、单一项目、无附件夹具、无故障注入、无第二身份。 Concrete unmet dependency: A PNG artifact and the product summary auxiliary panel with a same-resource preview entry are both required. No round-owned PNG is present in the inspected summary surface, and the summary auxiliary entry point was not identified.",
+    "missing_dependency": "A PNG artifact and the product summary auxiliary panel with a same-resource preview entry are both required. No round-owned PNG is present in the inspected summary surface, and the summary auxiliary entry point was not identified.",
+    "evidence": [
+      "证据/DIALOG-052/DIALOG-052-A01/反馈入口-摘录.txt"
+    ],
+    "next_action": "Expose the summary auxiliary panel for a round-owned PNG artifact, then open that same artifact from the panel and verify preview followed by full-screen view.",
+    "dependency_reviewed_at": "2026-10-05T21:27:00+08:00"
+  },
+  "applicability_reason": null,
+  "cleanup": {
+    "changes": [],
+    "remaining": []
+  },
+  "review": {
+    "assistant": null,
+    "user": null,
+    "approved_scope": [],
+    "final_decision": "待审核"
+  }
+}

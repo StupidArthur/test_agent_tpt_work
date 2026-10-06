@@ -1,0 +1,187 @@
+{
+  "case_id": "DIALOG-030",
+  "case_title": "过程说明可理解",
+  "source_sha256": "b712acd3b204ebcfdd07129c4d993ea1beb184f9a2d0c3827745ee1fdf7a6677",
+  "status": "已执行-符合预期",
+  "review_status": "待双方审核",
+  "latest_attempt_id": "DIALOG-030-A02",
+  "attempts": [
+    {
+      "attempt_id": "DIALOG-030-A01",
+      "started_at": "2026-10-05T19:52:00+08:00",
+      "ended_at": "2026-10-05T19:53:07+08:00",
+      "environment_id": "ENV-001",
+      "surface": "Electron UI via CDP 9234 + Playwright; dsh-app://app/ top frame; app file preview",
+      "actual_preconditions": {
+        "workspace": "tpt-workspace selected",
+        "project": "existing project",
+        "model": "standard / low",
+        "permission": "workspace edits",
+        "fixtures": [
+          "one uniquely named text artifact requested in task"
+        ]
+      },
+      "input": "Using workspace tools, create one file in the workspace root named round-DIALOG030-A01.txt with exactly two lines: DIALOG030_OK and safe file fixture. Then briefly report the filename and whether it was created. Do not write anywhere else.",
+      "actual_steps": [
+        "Submitted request through the visible TPT task editor in the existing project.",
+        "Waited about 21 seconds; UI showed completed task and a short natural-language summary.",
+        "Clicked the product file mention to open it in the in-app sidebar preview.",
+        "Read exact two-line contents in the preview and verified a copy of the produced file on disk.",
+        "Observed the displayed path is under the per-task folder C:\\Users\\Administrator\\.tpt-work\\tasks\\..., while D:\\code\\tpt-workspace remains empty; path mapping is unresolved and documented separately."
+      ],
+      "wait_condition": "Waited until UI reported completion, then used the in-app file preview and read-only filesystem check.",
+      "checkpoints": [
+        {
+          "expected_index": 1,
+          "expected": "自然语言简短",
+          "observed": "The result used brief natural language to report the file creation; no command JSON or detailed reasoning was included.",
+          "verdict": "符合",
+          "evidence": [
+            "证据/DIALOG-030/DIALOG-030-A01/file-preview.json",
+            "证据/DIALOG-030/DIALOG-030-A01/file-preview.png"
+          ]
+        },
+        {
+          "expected_index": 2,
+          "expected": "不默认铺开命令JSON和详细推理",
+          "observed": "The response contained a short result and edited-file summary only; no expanded command JSON or detailed reasoning appeared.",
+          "verdict": "符合",
+          "evidence": [
+            "证据/DIALOG-030/DIALOG-030-A01/file-preview.json",
+            "证据/DIALOG-030/DIALOG-030-A01/file-preview.png"
+          ]
+        }
+      ],
+      "observed_result": "The product UI reported the file as created; the sidebar preview and read-only disk check showed exactly two expected lines. The displayed file path maps to a per-task folder rather than the configured project directory, pending clarification.",
+      "status": "已执行-符合预期",
+      "evidence": [
+        "证据/DIALOG-030/DIALOG-030-A01/file-preview.json",
+        "证据/DIALOG-030/DIALOG-030-A01/file-preview.png",
+        "证据/DIALOG-030/DIALOG-030-A01/artifact.txt"
+      ],
+      "difference_ids": [],
+      "notes": "Task created only one current-round file. It remains under the isolated TPT task folder; path mapping is OBS-002, not a confirmed bug."
+    },
+    {
+      "attempt_id": "DIALOG-030-A02",
+      "started_at": "2026-10-05T17:35:30.000Z",
+      "ended_at": "2026-10-05T17:36:00.000Z",
+      "environment_id": "ENV-001",
+      "surface": "TPT Work UI via CDP + Playwright; standard/low; task creation and tool traces observed in UI",
+      "actual_preconditions": {
+        "account_alias": "Arthur",
+        "workspace": "tpt-workspace",
+        "project": "未新增项目",
+        "session_id": "t-20261006-013633-a5e0（新建本轮任务）",
+        "model": "标准 / low",
+        "permission": "工作区内修改",
+        "fixtures": [
+          "本轮任务工作区唯一测试文件DIALOG030-round-owned-20261006.txt"
+        ]
+      },
+      "input": "Create exactly one file named DIALOG030-round-owned-20261006.txt in the current task workspace. Write exactly this line: DIALOG030_ROUND_20261006. Then read that same file back and report its exact contents. Make no other changes. Do not access any other file, user data, network, connector, or device.",
+      "actual_steps": [
+        "从TPT Work UI新建任务；确认标准模式与low模型。",
+        "发送仅请求创建一个本轮文件并回读的多步骤指令。",
+        "在UI Trace观察write路径/内容与read返回值，再核对助手摘要和完成状态。"
+      ],
+      "wait_condition": "等待write和read工具调用均完成、结果UI稳定；当前操作限定当前任务工作区。",
+      "checkpoints": [
+        {
+          "expected_index": 1,
+          "expected": "自然语言简短",
+          "observed": "助手输出“已按要求完成：创建文件DIALOG030-round-owned-20261006.txt”并准确展示内容，另说明未做其他更改；约数行，无JSON和详细推理。",
+          "verdict": "符合",
+          "evidence": [
+            "证据/DIALOG-030/DIALOG-030-A02/result.png",
+            "证据/DIALOG-030/DIALOG-030-A02/trace.png",
+            "证据/DIALOG-030/DIALOG-030-A02/trace-observation.json"
+          ]
+        },
+        {
+          "expected_index": 2,
+          "expected": "不默认铺开命令JSON和详细推理",
+          "observed": "UI Trace显示write与read两个明确文件工具调用和内容；助手只总结文件名、回读值与操作边界。",
+          "verdict": "符合",
+          "evidence": [
+            "证据/DIALOG-030/DIALOG-030-A02/trace.png",
+            "证据/DIALOG-030/DIALOG-030-A02/trace-observation.json"
+          ]
+        }
+      ],
+      "observed_result": "在本轮新任务工作区用UI执行两次实际工具调用：write创建DIALOG030-round-owned-20261006.txt并写入唯一行；read同一文件返回DIALOG030_ROUND_20261006。助手以简短自然语言说明结果，没有铺开JSON或详细推理；本轮仅产生这一个任务范围文件。",
+      "status": "已执行-符合预期",
+      "evidence": [
+        "证据/DIALOG-030/DIALOG-030-A02/before-send.png",
+        "证据/DIALOG-030/DIALOG-030-A02/result.png",
+        "证据/DIALOG-030/DIALOG-030-A02/trace.png",
+        "证据/DIALOG-030/DIALOG-030-A02/trace-observation.json"
+      ],
+      "difference_ids": [],
+      "notes": "使用本轮新任务工作区；读取与创建路径同属该新会话，不触碰项目文件、其他任务数据或外部资源。文件保留在其任务工作区。"
+    }
+  ],
+  "product_observations": [
+    {
+      "observation": "Task output was concise; the in-app preview and disk read showed the exact two-line artifact. UI path was per-task directory, not D:\\code\\tpt-workspace.",
+      "scope": "ENV-001, existing project selection, product-generated per-task output folder",
+      "depth": "task completion, file preview, and disk readback",
+      "evidence": [
+        "证据/DIALOG-030/DIALOG-030-A01/file-preview.json",
+        "证据/DIALOG-030/DIALOG-030-A01/file-preview.png",
+        "证据/DIALOG-030/DIALOG-030-A01/artifact.txt"
+      ],
+      "additional_feature": false
+    },
+    {
+      "feature_id": null,
+      "statement": "在本轮新任务工作区用UI执行两次实际工具调用：write创建DIALOG030-round-owned-20261006.txt并写入唯一行；read同一文件返回DIALOG030_ROUND_20261006。助手以简短自然语言说明结果，没有铺开JSON或详细推理；本轮仅产生这一个任务范围文件。",
+      "case_ids": [
+        "DIALOG-030"
+      ],
+      "attempt_ids": [
+        "DIALOG-030-A02"
+      ],
+      "environment_id": "ENV-001",
+      "verified_depth": "仅新任务UI中本轮单文件write/read调用与回复",
+      "scope_and_limits": "限当前round-owned单文件、标准/low新任务与可见trace；待双方审核。",
+      "evidence": [
+        "证据/DIALOG-030/DIALOG-030-A02/before-send.png",
+        "证据/DIALOG-030/DIALOG-030-A02/result.png",
+        "证据/DIALOG-030/DIALOG-030-A02/trace.png",
+        "证据/DIALOG-030/DIALOG-030-A02/trace-observation.json"
+      ],
+      "relation_to_design": "按DIALOG-030用例原文“过程说明可理解”比较；未将工具输出扩展为系统级结论。",
+      "review_status": "待双方审核"
+    }
+  ],
+  "differences": [],
+  "finding_ids": [],
+  "blocker": null,
+  "applicability_reason": null,
+  "cleanup": {
+    "changes": [
+      {
+        "item": "Current-round file round-DIALOG030-A01.txt",
+        "action": "Created by the tested task and retained for additional read-only cases",
+        "restore": "Remove only this named sample after dependent checks if UI allows safe cleanup"
+      }
+    ],
+    "remaining": [
+      "Round-owned text file remains at the product-displayed per-task path",
+      "唯一round-owned文本保留在新建任务工作区；无其他资产或配置变更。"
+    ]
+  },
+  "review": {
+    "assistant": null,
+    "user": null,
+    "approved_scope": [],
+    "final_decision": "待审核"
+  },
+  "audit_history": [
+    {
+      "at": "2026-10-05T17:36:00.000Z",
+      "event": "夜间续跑补充真实write/read任务尝试A02；保留A01原结果，不将旧无工具尝试合并或篡改。"
+    }
+  ]
+}

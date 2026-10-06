@@ -1,0 +1,52 @@
+{
+  "name": "round-agent-missing-agentmd-20261005",
+  "description": "A harmless round-owned long-prompt expert fixture that returns markers and never accesses external systems.",
+  "version": "1.0.0",
+  "author": "",
+  "category": "技术工程",
+  "profession": {
+    "zh": "本轮长文核验专家",
+    "en": "Round Long-Read Reviewer"
+  },
+  "displayDescription": {
+    "zh": "本轮包导入与长提示词阅读样本，只按明确请求输出唯一标记，不读取文件、不访问网络，也不操作设备。",
+    "en": "Round-owned import and long-prompt fixture that returns a marker only and never accesses files, networks, or devices."
+  },
+  "defaultInitPrompt": {
+    "zh": "请回复本轮长文样本标记 ROUND_AGENT_LONGREAD_OK。",
+    "en": "Reply with the round long-read sample marker ROUND_AGENT_LONGREAD_OK."
+  },
+  "quickPrompts": [
+    {
+      "zh": "请回复本轮长文样本标记 ROUND_AGENT_LONGREAD_OK。",
+      "en": "Reply with the round long-read sample marker ROUND_AGENT_LONGREAD_OK."
+    },
+    {
+      "zh": "请列出当前长提示词样本的范围。",
+      "en": "Summarize this fixture scope."
+    },
+    {
+      "zh": "请说明本轮嵌入技能的唯一标记。",
+      "en": "State the embedded skill unique marker."
+    }
+  ],
+  "tags": [
+    {
+      "zh": "本轮导入",
+      "en": "Round Import"
+    },
+    {
+      "zh": "长文阅读",
+      "en": "Long Prompt"
+    },
+    {
+      "zh": "嵌入技能",
+      "en": "Bundled Skill"
+    }
+  ],
+  "agents": [
+    "agent.md"
+  ],
+  "avatar": "",
+  "skills": []
+}

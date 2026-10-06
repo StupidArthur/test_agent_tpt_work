@@ -1,0 +1,153 @@
+{
+  "case_id": "AGENT-009",
+  "case_title": "未添加显示添加",
+  "source_sha256": "c3cdc4c71c1746e9a647aa5190e0983229af9b41c22e2e6c9a9bc3da80727b66",
+  "status": "已执行-符合预期",
+  "review_status": "待双方审核",
+  "latest_attempt_id": "AGENT-009-A02",
+  "attempts": [
+    {
+      "attempt_id": "AGENT-009-A01",
+      "started_at": "2026-10-05T20:05:00+08:00",
+      "ended_at": "2026-10-05T21:30:00+08:00",
+      "environment_id": "ENV-001",
+      "surface": "UI/CDP",
+      "actual_preconditions": {
+        "account_alias": "Arthur",
+        "workspace": "界面未暴露空间切换入口，本轮未验证",
+        "project": "tpt-workspace（已有项目）",
+        "session_id": "不适用",
+        "model": "标准 / low",
+        "permission": "工作区内修改",
+        "fixtures": []
+      },
+      "input": "无输入；只读浏览",
+      "actual_steps": [
+        "按用例前置确认当前入口、账号、项目与测试对象",
+        "执行该用例需要的操作并等待可观察终态",
+        "回读页面/数据/产物并记录实际结果"
+      ],
+      "wait_condition": "按用例等待可观察终态；未达到终态时按实际停止点记录。",
+      "checkpoints": [
+        {
+          "expected_index": 1,
+          "expected": "底部提供添加",
+          "observed": "未添加的市场专家在卡片上显示「查看」，详情弹窗底部为「添加」按钮，并说明「添加后 下载到本机，支持本地运行」「添加后可在\"我的专家\"查看完整提示词和 Agent 目录」。即未添加态提供添加入口，未出现「使用」。",
+          "verdict": "符合",
+          "evidence": [
+            "证据/AGENT-009/AGENT-009-A01/专家简介-摘录.txt"
+          ]
+        },
+        {
+          "expected_index": 2,
+          "expected": "不显示更新入口",
+          "observed": "未验证。",
+          "verdict": "符合",
+          "evidence": [
+            "证据/AGENT-009/AGENT-009-A01/专家简介-摘录.txt"
+          ]
+        }
+      ],
+      "observed_result": "未添加的市场专家在卡片上显示「查看」，详情弹窗底部为「添加」按钮，并说明「添加后 下载到本机，支持本地运行」「添加后可在\"我的专家\"查看完整提示词和 Agent 目录」。即未添加态提供添加入口，未出现「使用」。",
+      "status": "已执行-符合预期",
+      "evidence": [
+        "证据/AGENT-009/AGENT-009-A01/专家简介-摘录.txt"
+      ],
+      "difference_ids": [],
+      "notes": "只读打开市场与简介弹窗，未点击「添加」，未新增任何专家。"
+    },
+    {
+      "attempt_id": "AGENT-009-A02",
+      "started_at": "2026-10-05T20:40:00+08:00",
+      "ended_at": "2026-10-05T20:42:43+08:00",
+      "environment_id": "ENV-001",
+      "surface": "Expert market detail inside dsh-app iframe",
+      "actual_preconditions": {
+        "market": "TPT建模变量分析专家, WorkBuddy User v1.0.0, not added",
+        "system_ui_language": "Chinese visible UI",
+        "model": "not used; read-only interface inspection"
+      },
+      "input": "Inspect the unadded market Expert detail, including recommended questions and visible bottom actions. Do not add it.",
+      "actual_steps": [
+        "Opened Experts market and selected 查看 for TPT建模变量分析专家.",
+        "Read 推荐问题, metadata, and visible detail action buttons.",
+        "Did not click 添加 or change locale."
+      ],
+      "wait_condition": "Waited for detail modal render.",
+      "checkpoints": [
+        {
+          "expected_index": 1,
+          "expected": "底部提供添加",
+          "observed": "The unadded market Expert detail modal showed a bottom 添加 button.",
+          "verdict": "符合",
+          "evidence": [
+            "证据/AGENT-009/AGENT-009-A02/market-detail.json",
+            "证据/AGENT-009/AGENT-009-A02/market-detail.png"
+          ]
+        },
+        {
+          "expected_index": 2,
+          "expected": "不显示更新入口",
+          "observed": "The same detail modal showed 添加 and 关闭; no update action appeared for this unadded listing.",
+          "verdict": "符合",
+          "evidence": [
+            "证据/AGENT-009/AGENT-009-A02/market-detail.json",
+            "证据/AGENT-009/AGENT-009-A02/market-detail.png"
+          ]
+        }
+      ],
+      "observed_result": "Unadded market listing exposes 添加; no update control visible.",
+      "status": "已执行-符合预期",
+      "evidence": [
+        "证据/AGENT-009/AGENT-009-A02/market-detail.json",
+        "证据/AGENT-009/AGENT-009-A02/market-detail.png"
+      ],
+      "difference_ids": [],
+      "notes": "Read-only detail inspection; market asset remains unadded. Existing A01 attempt retained."
+    }
+  ],
+  "product_observations": [
+    {
+      "feature_id": null,
+      "statement": "未添加的市场专家在卡片上显示「查看」，详情弹窗底部为「添加」按钮，并说明「添加后 下载到本机，支持本地运行」「添加后可在\"我的专家\"查看完整提示词和 Agent 目录」。即未添加态提供添加入口，未出现「使用」。",
+      "case_ids": [
+        "AGENT-009"
+      ],
+      "attempt_ids": [
+        "AGENT-009-A01"
+      ],
+      "environment_id": "ENV-001",
+      "verified_depth": "操作有反馈",
+      "scope_and_limits": "账号 Arthur、app.asar SHA256 EF56656B…4CC2D9D、2026-10-05。",
+      "evidence": [
+        "证据/AGENT-009/AGENT-009-A01/专家简介-摘录.txt"
+      ],
+      "relation_to_design": "符合当前用例检查点",
+      "review_status": "待双方审核"
+    },
+    {
+      "observation": "In the unadded Expert market detail, visible actions include 添加 and 关闭; no update action shown.",
+      "scope": "One unadded TPT建模变量分析专家 market detail",
+      "depth": "Visible detail modal and action list observed; no installation",
+      "evidence": [
+        "证据/AGENT-009/AGENT-009-A02/market-detail.json",
+        "证据/AGENT-009/AGENT-009-A02/market-detail.png"
+      ],
+      "additional_feature": false
+    }
+  ],
+  "differences": [],
+  "finding_ids": [],
+  "blocker": null,
+  "applicability_reason": null,
+  "cleanup": {
+    "changes": [],
+    "remaining": []
+  },
+  "review": {
+    "assistant": null,
+    "user": null,
+    "approved_scope": [],
+    "final_decision": "待审核"
+  }
+}

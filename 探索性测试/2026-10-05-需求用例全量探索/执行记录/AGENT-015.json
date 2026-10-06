@@ -1,0 +1,114 @@
+{
+  "case_id": "AGENT-015",
+  "case_title": "缺必填文件导入",
+  "source_sha256": "c3cdc4c71c1746e9a647aa5190e0983229af9b41c22e2e6c9a9bc3da80727b66",
+  "status": "已执行-符合预期",
+  "review_status": "待双方审核",
+  "latest_attempt_id": "AGENT-015-A01",
+  "attempts": [
+    {
+      "attempt_id": "AGENT-015-A01",
+      "started_at": "2026-10-05T16:11:50.000Z",
+      "ended_at": "2026-10-05T16:12:06.000Z",
+      "environment_id": "ENV-001",
+      "surface": "TPT Work visible UI through CDP + Playwright; independent readback only for round-owned fixture",
+      "actual_preconditions": {
+        "account_alias": "Arthur",
+        "workspace": "tpt-workspace",
+        "project": "未新增项目",
+        "session_id": "未新增项目；本轮专家管理/详情操作",
+        "model": "标准 / low",
+        "permission": "工作区内修改",
+        "fixtures": [
+          "夹具/agent-variants/round-agent-missing-agentmd-20261005"
+        ]
+      },
+      "input": "本轮负向夹具夹具/agent-variants/round-agent-missing-agentmd-20261005，只包含 metadata.json。",
+      "actual_steps": [
+        "打开我的专家中的导入专家入口。",
+        "使用本轮缺少 agent.md 的负向夹具通过页面目录 input 选择文件夹。",
+        "点击提交，读取页面错误并观察本轮专家列表和数量。"
+      ],
+      "wait_condition": "等待页面出现稳定终态；发生导航/弹窗后重新读取可见frame及目标状态。",
+      "checkpoints": [
+        {
+          "expected_index": 1,
+          "expected": "显示可修复错误",
+          "observed": "UI 错误原文“所选内容不是有效的专家包：需要包含 agent.md 与 metadata.json。”；原有3个专家保留，未出现半成品样本。",
+          "verdict": "符合",
+          "evidence": [
+            "证据/AGENT-015/AGENT-015-A01/validation-error-dialog.png",
+            "证据/AGENT-015/AGENT-015-A01/list-after-rejection.png",
+            "证据/AGENT-015/AGENT-015-A01/fixture-metadata.json",
+            "证据/AGENT-015/AGENT-015-A01/ui-observation.json"
+          ]
+        },
+        {
+          "expected_index": 2,
+          "expected": "无半成品Agent",
+          "observed": "UI 错误原文“所选内容不是有效的专家包：需要包含 agent.md 与 metadata.json。”；原有3个专家保留，未出现半成品样本。",
+          "verdict": "符合",
+          "evidence": [
+            "证据/AGENT-015/AGENT-015-A01/validation-error-dialog.png",
+            "证据/AGENT-015/AGENT-015-A01/list-after-rejection.png",
+            "证据/AGENT-015/AGENT-015-A01/fixture-metadata.json",
+            "证据/AGENT-015/AGENT-015-A01/ui-observation.json"
+          ]
+        }
+      ],
+      "observed_result": "UI 错误原文“所选内容不是有效的专家包：需要包含 agent.md 与 metadata.json。”；原有3个专家保留，未出现半成品样本。",
+      "status": "已执行-符合预期",
+      "evidence": [
+        "证据/AGENT-015/AGENT-015-A01/validation-error-dialog.png",
+        "证据/AGENT-015/AGENT-015-A01/list-after-rejection.png",
+        "证据/AGENT-015/AGENT-015-A01/fixture-metadata.json",
+        "证据/AGENT-015/AGENT-015-A01/ui-observation.json"
+      ],
+      "difference_ids": [],
+      "notes": "更新旧阻塞：用户后续授权自建本轮夹具并通过 HTML directory input 导入。旧阻塞仅为历史原因，本次出现明确可修复校验错误且没有半成品。"
+    }
+  ],
+  "product_observations": [
+    {
+      "feature_id": null,
+      "statement": "UI 错误原文“所选内容不是有效的专家包：需要包含 agent.md 与 metadata.json。”；原有3个专家保留，未出现半成品样本。",
+      "case_ids": [
+        "AGENT-015"
+      ],
+      "attempt_ids": [
+        "AGENT-015-A01"
+      ],
+      "environment_id": "ENV-001",
+      "verified_depth": "仅当前本轮UI尝试与引用范围内的回读证据",
+      "scope_and_limits": "限定当前本轮样本及本attempt；所有产品判断待双方审核。",
+      "evidence": [
+        "证据/AGENT-015/AGENT-015-A01/validation-error-dialog.png",
+        "证据/AGENT-015/AGENT-015-A01/list-after-rejection.png",
+        "证据/AGENT-015/AGENT-015-A01/fixture-metadata.json",
+        "证据/AGENT-015/AGENT-015-A01/ui-observation.json"
+      ],
+      "relation_to_design": "按源用例原文逐检查点记录；依据为待评审设计，不自动视为正式验收标准。",
+      "review_status": "待双方审核"
+    }
+  ],
+  "differences": [],
+  "finding_ids": [],
+  "blocker": null,
+  "applicability_reason": null,
+  "cleanup": {
+    "changes": [],
+    "remaining": []
+  },
+  "review": {
+    "assistant": null,
+    "user": null,
+    "approved_scope": [],
+    "final_decision": "待审核"
+  },
+  "audit_history": [
+    {
+      "at": "2026-10-05T16:12:06.000Z",
+      "event": "旧阻塞依赖已由用户授权与夜间实际UI/夹具能力复核；本轮新增attempt替代旧阻塞状态，保留旧原因于本attempt notes。"
+    }
+  ]
+}

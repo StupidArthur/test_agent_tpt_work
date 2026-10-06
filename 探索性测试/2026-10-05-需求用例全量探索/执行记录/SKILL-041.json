@@ -1,0 +1,107 @@
+{
+  "case_id": "SKILL-041",
+  "case_title": "文本与JSON只读",
+  "source_sha256": "92a6f4ecd2a5dffe0f1a2a60e73fa18b5fb98763b09cc56ce4cc22fd56e13f0e",
+  "status": "已执行-符合预期",
+  "review_status": "待双方审核",
+  "latest_attempt_id": "SKILL-041-A01",
+  "attempts": [
+    {
+      "attempt_id": "SKILL-041-A01",
+      "started_at": "2026-10-05T16:55:00.000Z",
+      "ended_at": "2026-10-05T16:56:00.000Z",
+      "environment_id": "ENV-001",
+      "surface": "TPT Work UI via CDP + Playwright; visible UI actions and direct Trace/readback; round-owned fixtures only",
+      "actual_preconditions": {
+        "account_alias": "Arthur",
+        "workspace": "tpt-workspace",
+        "project": "未新增项目",
+        "session_id": "本轮新建标准/low任务（UI对话及轨迹证据见本attempt）",
+        "model": "标准 / low",
+        "permission": "工作区内修改",
+        "fixtures": [
+          "夹具/skill-rich-20261006/round-rich-skill-20261006"
+        ]
+      },
+      "input": "文本与JSON只读",
+      "actual_steps": [
+        "在Skill目录分别点击references/guide.md和data/records.json。",
+        "观察右侧内容与只读标签。"
+      ],
+      "wait_condition": "UI变化后重新读取当前iframe/页面；等待导入或任务出现稳定终态；不使用API绕过UI。",
+      "checkpoints": [
+        {
+          "expected_index": 1,
+          "expected": "内容可读",
+          "observed": "guide.md显示本轮说明正文；records.json显示fixture、唯一marker、values[1,2,3]、safe=true。",
+          "verdict": "符合",
+          "evidence": [
+            "证据/SKILL-040/SKILL-040-A01/tree-file-guide-md.png",
+            "证据/SKILL-040/SKILL-040-A01/tree-file-records-json.png"
+          ]
+        },
+        {
+          "expected_index": 2,
+          "expected": "不提供产品内编辑保存",
+          "observed": "详情面板以“只读查看”标识；本轮实际点击后为内容展示而非编辑控件。",
+          "verdict": "符合",
+          "evidence": [
+            "证据/SKILL-040/SKILL-040-A01/tree-file-guide-md.png",
+            "证据/SKILL-040/SKILL-040-A01/tree-file-records-json.png"
+          ]
+        }
+      ],
+      "observed_result": "文本与JSON文件在只读面板分别显示正确本轮内容；界面标示只读查看。",
+      "status": "已执行-符合预期",
+      "evidence": [
+        "证据/SKILL-040/SKILL-040-A01/tree-file-guide-md.png",
+        "证据/SKILL-040/SKILL-040-A01/tree-file-records-json.png"
+      ],
+      "difference_ids": [],
+      "notes": "未点击“本地打开”，避免超出界面内只读检查。"
+    }
+  ],
+  "product_observations": [
+    {
+      "feature_id": null,
+      "statement": "文本与JSON文件在只读面板分别显示正确本轮内容；界面标示只读查看。",
+      "case_ids": [
+        "SKILL-041"
+      ],
+      "attempt_ids": [
+        "SKILL-041-A01"
+      ],
+      "environment_id": "ENV-001",
+      "verified_depth": "仅SKILL-041-A01与所引用UI、round-owned样本及证据范围",
+      "scope_and_limits": "未点击“本地打开”，避免超出界面内只读检查。；待双方审核。",
+      "evidence": [
+        "证据/SKILL-040/SKILL-040-A01/tree-file-guide-md.png",
+        "证据/SKILL-040/SKILL-040-A01/tree-file-records-json.png"
+      ],
+      "relation_to_design": "对照当前用例原文记录；本轮观察不自动作为正式验收结论。",
+      "review_status": "待双方审核"
+    }
+  ],
+  "differences": [],
+  "finding_ids": [],
+  "blocker": null,
+  "applicability_reason": null,
+  "cleanup": {
+    "changes": [],
+    "remaining": [
+      "本轮round-owned技能样本保留在产品技能库以供本任务后续对照；未改动已有技能资产。"
+    ]
+  },
+  "review": {
+    "assistant": null,
+    "user": null,
+    "approved_scope": [],
+    "final_decision": "待审核"
+  },
+  "audit_history": [
+    {
+      "at": "2026-10-05T16:56:00.000Z",
+      "event": "夜间续跑由实际可控UI与round-owned夹具执行新增A01；旧阻塞原因保留于历史，结论待双方审核。"
+    }
+  ]
+}

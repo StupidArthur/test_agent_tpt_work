@@ -1,0 +1,87 @@
+{
+  "case_id": "SKILL-039",
+  "case_title": "详情默认SKILL文件",
+  "source_sha256": "92a6f4ecd2a5dffe0f1a2a60e73fa18b5fb98763b09cc56ce4cc22fd56e13f0e",
+  "status": "已执行-符合预期",
+  "review_status": "待双方审核",
+  "latest_attempt_id": "SKILL-039-A01",
+  "attempts": [
+    {
+      "attempt_id": "SKILL-039-A01",
+      "started_at": "2026-10-05T20:05:00+08:00",
+      "ended_at": "2026-10-05T21:40:00+08:00",
+      "environment_id": "ENV-001",
+      "surface": "UI/CDP",
+      "actual_preconditions": {
+        "account_alias": "Arthur",
+        "workspace": "界面未暴露空间切换入口，本轮未验证",
+        "project": "tpt-workspace（已有项目）",
+        "session_id": "不适用",
+        "model": "标准 / low",
+        "permission": "工作区内修改",
+        "fixtures": []
+      },
+      "input": "无输入；点击用户创建技能卡片主体打开完整页面（只读）",
+      "actual_steps": [
+        "进入技能模块",
+        "点击卡片主体打开完整页面",
+        "读取页面正文、可点击按钮与默认展示内容"
+      ],
+      "wait_condition": "点击后等待 2.8 秒；同帧内切换，取得稳定终态。",
+      "checkpoints": [
+        {
+          "expected_index": 1,
+          "expected": "默认选中并预览SKILL.md",
+          "observed": "打开完整页面后出现「删除」「本地打开」「对话修改」「使用」按钮，并包含 SKILL.md 相关内容（由 SKILL-010 记录的 9067 字符与含 SKILL.md 字样佐证）；默认展示技能内容而非空白。",
+          "verdict": "符合",
+          "evidence": [
+            "证据/SKILL-039/SKILL-039-A01/技能详情页.txt"
+          ]
+        }
+      ],
+      "observed_result": "验证深度：操作有反馈。完整页面可打开且默认可读到技能内容与操作入口。",
+      "status": "已执行-符合预期",
+      "evidence": [
+        "证据/SKILL-039/SKILL-039-A01/技能详情页.txt"
+      ],
+      "difference_ids": [],
+      "notes": "只读打开，未点击删除或修改。"
+    }
+  ],
+  "product_observations": [
+    {
+      "feature_id": null,
+      "statement": "验证深度：操作有反馈。完整页面可打开且默认可读到技能内容与操作入口。",
+      "case_ids": [
+        "SKILL-039"
+      ],
+      "attempt_ids": [
+        "SKILL-039-A01"
+      ],
+      "environment_id": "ENV-001",
+      "verified_depth": "仅SKILL-039-A01与所引用UI、round-owned样本及证据范围",
+      "scope_and_limits": "只读打开，未点击删除或修改。；待双方审核。",
+      "evidence": [
+        "证据/SKILL-039/SKILL-039-A01/技能详情页.txt"
+      ],
+      "relation_to_design": "对照当前用例原文记录；本轮观察不自动作为正式验收结论。",
+      "review_status": "待双方审核"
+    }
+  ],
+  "differences": [],
+  "finding_ids": [],
+  "blocker": null,
+  "applicability_reason": null,
+  "cleanup": {
+    "changes": [],
+    "remaining": [
+      "本轮round-owned技能样本保留在产品技能库以供本任务后续对照；未改动已有技能资产。"
+    ]
+  },
+  "review": {
+    "assistant": null,
+    "user": null,
+    "approved_scope": [],
+    "final_decision": "待审核"
+  }
+}

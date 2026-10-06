@@ -1,0 +1,6 @@
+const fs=require('fs'),crypto=require('crypto');const id='AGENT-029',aid='AGENT-029-A01',oid='OBS-203',at='2026-10-06T03:19:00+08:00';
+const r=JSON.parse(fs.readFileSync(`执行记录/${id}.json`,'utf8')),ev=r.attempts[0].evidence;
+const rows=ev.map(p=>({path:p,case_id:id,attempt_id:aid,observation_id:oid,captured_at:at,type:p.endsWith('.png')?'screenshot':'trace',proves:`${aid}: ${r.attempts[0].observed_result}`,redacted:true,sha256:crypto.createHash('sha256').update(fs.readFileSync(p)).digest('hex')}));
+fs.appendFileSync('证据/索引.jsonl',rows.map(x=>JSON.stringify(x)).join('\n')+'\n','utf8');
+const observation=r.product_observations[0];fs.appendFileSync('观察记录.jsonl',JSON.stringify({observation_id:oid,recorded_at:at,related_cases:[id],category:'round-owned Expert agent.md refresh and restore',scope:`${aid}; agent.md one-line marker only`,observation:observation.statement,candidate_status:'pending bilateral review',evidence:rows})+'\n','utf8');
+fs.appendFileSync('覆盖地图.md',`\n| AGENT-029 | 外部修改刷新读取 | 已执行-符合预期（本轮样本；重新打开详情回读） | AGENT-029-A01；一行标记追加/恢复 |\n`,'utf8');fs.appendFileSync('变更清单.md',`\n| CL-21 | ${at} | 本轮Expert agent.md追加一行刷新标记并验证详情回读 | 已恢复至夹具原文；无残留 | AGENT-029-A01 |\n`,'utf8');console.log(rows.map(x=>x.sha256));

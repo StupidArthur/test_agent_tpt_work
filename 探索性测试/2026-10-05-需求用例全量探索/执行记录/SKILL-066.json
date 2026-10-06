@@ -1,0 +1,134 @@
+{
+  "case_id": "SKILL-066",
+  "case_title": "创建成功默认停用",
+  "source_sha256": "92a6f4ecd2a5dffe0f1a2a60e73fa18b5fb98763b09cc56ce4cc22fd56e13f0e",
+  "status": "已执行-存在差异",
+  "review_status": "待双方审核",
+  "latest_attempt_id": "SKILL-066-A01",
+  "attempts": [
+    {
+      "attempt_id": "SKILL-066-A01",
+      "started_at": "2026-10-05T17:42:30.000Z",
+      "ended_at": "2026-10-05T17:44:00.000Z",
+      "environment_id": "ENV-001",
+      "surface": "TPT Work UI through CDP + Playwright; Skill creation dialogue, management detail and actual standard/low invocation trace",
+      "actual_preconditions": {
+        "account_alias": "Arthur",
+        "workspace": "tpt-workspace",
+        "project": "未新增项目",
+        "session_id": "创建对话与本轮新使用任务；Trace UI证据见本attempt",
+        "model": "标准 / low",
+        "permission": "工作区内修改",
+        "fixtures": [
+          "本轮新创建Skill round-created-skill-20261006"
+        ]
+      },
+      "input": "/create-skill Create one round-owned harmless Skill: technical name round-created-skill-20261006; Chinese name 本轮创建技能20261006; description: only when explicitly requested, return exactly ROUND_CREATED_SKILL_20261006_OK. It must never access files, networks, devices, connectors, credentials, or user data. Use only this round-owned fixed marker. Please complete the guided creation and leave it disabled by default.",
+      "actual_steps": [
+        "在TPT Work UI新建任务，通过/create-skill引导创建仅含固定标记指令的round-owned Skill。",
+        "从我的技能列表与详情回读创建结果、启停状态和SKILL.md正文。",
+        "用标准/low新任务显式调用Skill，查看Trace与唯一标记。",
+        "通过应用内role=switch控件暂时启用后实际调用；最后将该样本切回未启用并确认总启用数恢复。"
+      ],
+      "wait_condition": "等待助手创建回执、Skill卡片详情与实际调用出现稳定终态；创建后通过UI独立回读启停状态；只操作本轮样本。",
+      "checkpoints": [
+        {
+          "expected_index": 1,
+          "expected": "生成有效user包",
+          "observed": "技能“本轮创建技能20261006”出现在我的技能，来源用户创建，版本1.0.0，详情显示只有SKILL.md。",
+          "verdict": "符合",
+          "evidence": [
+            "证据/SKILL-066/SKILL-066-A01/default-state-list.png",
+            "证据/SKILL-066/SKILL-066-A01/detail-default-state.png"
+          ]
+        },
+        {
+          "expected_index": 2,
+          "expected": "加入我的技能且默认未启用",
+          "observed": "创建完成后卡片role=switch的aria-checked=true且已启用29个（导入前为28）；与创建回执“默认不启用”不一致。之后通过UI实际调用成功，最后将本轮样本切回aria-checked=false，已启用28个。",
+          "verdict": "差异",
+          "evidence": [
+            "证据/SKILL-066/SKILL-066-A01/default-state-list.png",
+            "证据/SKILL-066/SKILL-066-A01/detail-default-state.png",
+            "证据/SKILL-066/SKILL-066-A01/use-result.png",
+            "证据/SKILL-066/SKILL-066-A01/use-trace.png",
+            "证据/SKILL-066/SKILL-066-A01/disabled-restored-confirmed.png"
+          ]
+        }
+      ],
+      "observed_result": "创建成功且可在UI详情阅读并由Trace实际调用返回唯一marker；但新Skill创建后实际默认已启用，和助手回执“该技能默认不启用”相反。验证调用后已关闭本轮样本，当前启用数回到28。",
+      "status": "已执行-存在差异",
+      "evidence": [
+        "证据/SKILL-066/SKILL-066-A01/response-1.png",
+        "证据/SKILL-066/SKILL-066-A01/default-state-list.png",
+        "证据/SKILL-066/SKILL-066-A01/detail-default-state.png",
+        "证据/SKILL-066/SKILL-066-A01/use-result.png",
+        "证据/SKILL-066/SKILL-066-A01/use-trace.png",
+        "证据/SKILL-066/SKILL-066-A01/use-trace.json",
+        "证据/SKILL-066/SKILL-066-A01/disabled-restored-confirmed.png",
+        "证据/SKILL-066/SKILL-066-A01/before-send.png"
+      ],
+      "difference_ids": [
+        "DIFF-029"
+      ],
+      "notes": "只新增round-owned技能；通过UI改变的只有该技能启用状态，最后恢复未启用。本轮技能样本保留。"
+    }
+  ],
+  "product_observations": [
+    {
+      "feature_id": null,
+      "statement": "创建成功且可在UI详情阅读并由Trace实际调用返回唯一marker；但新Skill创建后实际默认已启用，和助手回执“该技能默认不启用”相反。验证调用后已关闭本轮样本，当前启用数回到28。",
+      "case_ids": [
+        "SKILL-066"
+      ],
+      "attempt_ids": [
+        "SKILL-066-A01"
+      ],
+      "environment_id": "ENV-001",
+      "verified_depth": "仅本轮 round-created-skill20261006 创建回执、技能UI和标准/low实际调用Trace",
+      "scope_and_limits": "只涉及本轮新建样本；样本被禁用后保留；所有产品结论待双方审核。",
+      "evidence": [
+        "证据/SKILL-066/SKILL-066-A01/response-1.png",
+        "证据/SKILL-066/SKILL-066-A01/default-state-list.png",
+        "证据/SKILL-066/SKILL-066-A01/detail-default-state.png",
+        "证据/SKILL-066/SKILL-066-A01/use-result.png",
+        "证据/SKILL-066/SKILL-066-A01/use-trace.png",
+        "证据/SKILL-066/SKILL-066-A01/use-trace.json",
+        "证据/SKILL-066/SKILL-066-A01/disabled-restored-confirmed.png",
+        "证据/SKILL-066/SKILL-066-A01/before-send.png"
+      ],
+      "relation_to_design": "按当前用例创建成功/输出完整原检查点核验。",
+      "review_status": "待双方审核"
+    }
+  ],
+  "differences": [
+    "DIFF-029"
+  ],
+  "finding_ids": [],
+  "blocker": null,
+  "applicability_reason": null,
+  "cleanup": {
+    "changes": [
+      {
+        "change": "仅对round-created-skill-20261006执行UI启用后实际调用，随后切回未启用",
+        "restored": true,
+        "verification": "role=switch aria-checked=false，列表显示已启用28个，原始用户Skill状态未触碰"
+      }
+    ],
+    "remaining": [
+      "本轮新建round-created-skill-20261006保留在技能库，状态已关闭以供后续用例。"
+    ]
+  },
+  "review": {
+    "assistant": null,
+    "user": null,
+    "approved_scope": [],
+    "final_decision": "待审核"
+  },
+  "audit_history": [
+    {
+      "at": "2026-10-05T17:44:00.000Z",
+      "event": "夜间续跑新增本轮新建Skill闭环UI尝试；创建回执与独立UI状态存在差异，待双方审核。"
+    }
+  ]
+}

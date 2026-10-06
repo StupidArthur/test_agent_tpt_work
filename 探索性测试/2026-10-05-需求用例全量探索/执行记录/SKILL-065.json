@@ -1,0 +1,183 @@
+{
+  "case_id": "SKILL-065",
+  "case_title": "新建进入创建对话",
+  "source_sha256": "92a6f4ecd2a5dffe0f1a2a60e73fa18b5fb98763b09cc56ce4cc22fd56e13f0e",
+  "status": "已执行-符合预期",
+  "review_status": "待双方审核",
+  "latest_attempt_id": "SKILL-065-A02",
+  "attempts": [
+    {
+      "attempt_id": "SKILL-065-A01",
+      "started_at": "2026-10-05T20:16:42+08:00",
+      "ended_at": "2026-10-05T12:18:17.296Z",
+      "environment_id": "ENV-001",
+      "surface": "Unified conversation UI following Skill iframe entry",
+      "actual_preconditions": {
+        "section": "Skill management UI; account Arthur; project tpt-workspace; standard model, low reasoning; workspace edits"
+      },
+      "input": "/create-skill\\nPlease begin by asking me the first required detail. Do not generate, write, or save any Skill package or files yet.",
+      "actual_steps": [
+        "Opened the Skill management iframe and clicked 新建技能.",
+        "Observed the command entry /create-skill in the unified conversation composer of a new session.",
+        "Submitted a request to begin the guided creation dialogue and ask only the first requirement.",
+        "Assistant invoked the creation workflow and paused at the purpose/scope question; no details supplied and no package saved."
+      ],
+      "wait_condition": "Waited until the UI displayed the first creation question and explicit user choices.",
+      "checkpoints": [
+        {
+          "expected_index": 1,
+          "expected": "直接进入统一对话创建模式",
+          "observed": "The action opened the unified conversation creation workflow. The assistant asked what task/workflow the Skill should perform and displayed interaction options.",
+          "verdict": "符合",
+          "evidence": [
+            "证据/SKILL-065/SKILL-065-A01/waiting.json",
+            "证据/SKILL-065/SKILL-065-A01/waiting.png"
+          ]
+        },
+        {
+          "expected_index": 2,
+          "expected": "非空白配置表单",
+          "observed": "The view is a conversation with an actual question and response choices, not an empty configuration form. No fields were submitted and no Skill package/file was created.",
+          "verdict": "符合",
+          "evidence": [
+            "证据/SKILL-065/SKILL-065-A01/waiting.json",
+            "证据/SKILL-065/SKILL-065-A01/waiting.png"
+          ]
+        }
+      ],
+      "observed_result": "Creation conversation started and is waiting for purpose/scope input; no Skill was created.",
+      "status": "已执行-符合预期",
+      "evidence": [
+        "证据/SKILL-065/SKILL-065-A01/waiting.json",
+        "证据/SKILL-065/SKILL-065-A01/waiting.png"
+      ],
+      "difference_ids": [],
+      "notes": "Entry-point outcome only. Input contained literal backslash-n characters due UI text entry; create-skill workflow still invoked and stopped before any Skill content was collected or saved.",
+      "cleanup": {}
+    },
+    {
+      "attempt_id": "SKILL-065-A02",
+      "started_at": "2026-10-06T07:47:00+08:00",
+      "ended_at": "2026-10-06T07:50:00+08:00",
+      "environment_id": "ENV-001",
+      "surface": "Skills manager “新建技能” entry → unified Standard/low task → Skills UI independent list/detail readback; CDP 9234 + Playwright",
+      "actual_preconditions": {
+        "account_alias": "Arthur",
+        "workspace": "tpt-workspace",
+        "project": "existing current-round task space; no project created",
+        "model": "标准 / low",
+        "permission": "工作区内修改 for round-owned Skill creation; subsequent use is separate read-only task",
+        "fixture": "none before create; unique requested name round-guided-create-20261006"
+      },
+      "input": "Create exactly one new round-owned Skill via guided creation, with distinct name/name_en/name_cn, version 1.0.0, harmless unique marker instructions, and no tool/external/user-data access.",
+      "actual_steps": [
+        "Clicked visible 新建技能 in Skills manager; the UI inserted /create-skill into a new unified task composer.",
+        "Opened a new task and verified standard / low plus 工作区内修改.",
+        "Sent the full unique round-owned sample specification, explicitly authorizing only this new Skill creation and prohibiting modification of existing Skills or external actions.",
+        "Waited 26 seconds for the selected task to reach 已完成工作. The result listed name/name_en/name_cn, version, unique saved path, enabled status, and stated that no existing Skill was overwritten or modified.",
+        "Opened Skills manager again and searched the exact technical name; My Skills count changed 37→38, enabled count 32→33, with exactly one card titled 本轮引导创建技能 and source 用户创建.",
+        "Opened its details; independently read back aria-checked=true, version 1.0.0, one read-only SKILL.md, and the distinct names and unique marker instructions."
+      ],
+      "wait_condition": "Waited for completed UI creation task, then independently re-read the Skills list and exact item details through the UI.",
+      "checkpoints": [
+        {
+          "expected_index": 1,
+          "expected": "直接进入统一对话创建模式",
+          "observed": "The visible 新建技能 action opened the unified task composer with /create-skill. A real guided creation task then completed and reported a newly created round-owned sample.",
+          "verdict": "符合",
+          "evidence": [
+            "证据/SKILL-065/SKILL-065-A02/SKILL-065-A02-create-command.png",
+            "证据/SKILL-065/SKILL-065-A02/SKILL-065-A02-create-prompt.png",
+            "证据/SKILL-065/SKILL-065-A02/SKILL-065-A02-create-response-settled.png"
+          ]
+        },
+        {
+          "expected_index": 2,
+          "expected": "非空白配置表单",
+          "observed": "The new Skill was specified and created through the conversational composer; there was no blank configuration form. Product result and independent manager/detail readback showed a saved, enabled, uniquely named Skill with one readable SKILL.md.",
+          "verdict": "符合",
+          "evidence": [
+            "证据/SKILL-065/SKILL-065-A02/SKILL-065-A02-current-session.txt",
+            "证据/SKILL-065/SKILL-065-A02/SKILL-065-A02-manager-readback.png",
+            "证据/SKILL-065/SKILL-065-A02/SKILL-065-A02-detail-readback.png",
+            "证据/SKILL-065/SKILL-065-A02/observed.json"
+          ]
+        }
+      ],
+      "observed_result": "A real round-owned Skill was created through the unified guided conversation and independently re-read in Skills manager. It is enabled, has the requested three distinct identity fields, and displays the unique safe marker instructions. No existing Skill was modified.",
+      "status": "已执行-符合预期",
+      "evidence": [
+        "证据/SKILL-065/SKILL-065-A02/SKILL-065-A02-create-command.png",
+        "证据/SKILL-065/SKILL-065-A02/SKILL-065-A02-create-prompt.png",
+        "证据/SKILL-065/SKILL-065-A02/SKILL-065-A02-create-first-response.png",
+        "证据/SKILL-065/SKILL-065-A02/SKILL-065-A02-create-first-response.txt",
+        "证据/SKILL-065/SKILL-065-A02/SKILL-065-A02-create-response-settled.png",
+        "证据/SKILL-065/SKILL-065-A02/SKILL-065-A02-current-session.txt",
+        "证据/SKILL-065/SKILL-065-A02/SKILL-065-A02-manager-readback.png",
+        "证据/SKILL-065/SKILL-065-A02/SKILL-065-A02-detail-readback.png",
+        "证据/SKILL-065/SKILL-065-A02/observed.json"
+      ],
+      "difference_ids": [],
+      "notes": "The one new sample is intentionally retained as a round-owned fixture under the explicit authorization in 夜间续跑指引.md. This attempt includes actual creation plus independent UI readback; it does not claim model-side invocation, which is separately recorded as SKILL-012-A04. Pending bilateral review."
+    }
+  ],
+  "product_observations": [
+    {
+      "observation": "New Skill action inserted /create-skill into the unified conversation composer; after invocation, the assistant asked the first scope question with choices and paused for user input.",
+      "scope": "One round-created session; entry flow only",
+      "depth": "Rendered dialog state observed",
+      "evidence": [
+        "证据/SKILL-065/SKILL-065-A01/waiting.json",
+        "证据/SKILL-065/SKILL-065-A01/waiting.png"
+      ],
+      "additional_feature": false
+    },
+    {
+      "feature_id": null,
+      "statement": "新建技能入口启动统一/create-skill对话；实际创建后My Skills数量37→38、启用数32→33。独立UI搜索、开关与详情读取确认唯一 round-guided-create-20261006 来自用户创建、启用、含一份可读SKILL.md并显示唯一标记要求。",
+      "case_ids": [
+        "SKILL-065"
+      ],
+      "attempt_ids": [
+        "SKILL-065-A02"
+      ],
+      "environment_id": "ENV-001",
+      "verified_depth": "创建任务完成、My Skills数量/来源、启用开关、Skill详情字段与文件结构回读",
+      "scope_and_limits": "仅一条 round-owned 安全样本，标准/low；对话运行效果另由SKILL-012-A04核验。",
+      "evidence": [
+        "证据/SKILL-065/SKILL-065-A02/SKILL-065-A02-create-command.png",
+        "证据/SKILL-065/SKILL-065-A02/SKILL-065-A02-create-prompt.png",
+        "证据/SKILL-065/SKILL-065-A02/SKILL-065-A02-create-first-response.png",
+        "证据/SKILL-065/SKILL-065-A02/SKILL-065-A02-create-first-response.txt",
+        "证据/SKILL-065/SKILL-065-A02/SKILL-065-A02-create-response-settled.png",
+        "证据/SKILL-065/SKILL-065-A02/SKILL-065-A02-current-session.txt",
+        "证据/SKILL-065/SKILL-065-A02/SKILL-065-A02-manager-readback.png",
+        "证据/SKILL-065/SKILL-065-A02/SKILL-065-A02-detail-readback.png",
+        "证据/SKILL-065/SKILL-065-A02/observed.json"
+      ],
+      "relation_to_design": "对话式创建流与非空表单检查点符合；待双方审核。",
+      "review_status": "待双方审核"
+    }
+  ],
+  "differences": [],
+  "finding_ids": [],
+  "applicability_reason": null,
+  "cleanup": {
+    "changes": [
+      {
+        "item": "Round-owned Skill creation conversation session",
+        "action": "Entered flow and stopped at first question; no Skill package or file written",
+        "restore": "No cleanup required; session retained for review"
+      }
+    ],
+    "remaining": [
+      "Round-owned conversation remains waiting at purpose/scope question"
+    ]
+  },
+  "review": {
+    "assistant": null,
+    "user": null,
+    "approved_scope": [],
+    "final_decision": "待审核"
+  }
+}

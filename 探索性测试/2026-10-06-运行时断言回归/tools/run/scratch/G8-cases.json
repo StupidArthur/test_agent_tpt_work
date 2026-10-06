@@ -1,0 +1,192 @@
+[
+  {
+    "id": "G8-02",
+    "title": "阅读清除提醒",
+    "steps": [
+      "创建本轮A任务并让其完成短文本回显，记录session id和最终正文；切另一空白任务B，从A菜单手动标未读；保存A提醒before。",
+      "进入A并查看最后回复，读取提醒与历史正文；本case不依赖后台运行时长。"
+    ],
+    "expected": [
+      "A未读提醒：0",
+      "A历史正文可访问：true"
+    ],
+    "fixture": "见扩展场景与夹具说明",
+    "assertions": [
+      {
+        "id": "G8-02-A1",
+        "target": "A未读提醒",
+        "read": "读取同一A侧栏行未读提醒数量",
+        "operator": "equals",
+        "expected": 0
+      },
+      {
+        "id": "G8-02-A2",
+        "target": "A历史正文可访问",
+        "read": "读取非空最终正文",
+        "operator": "equals",
+        "expected": true
+      }
+    ]
+  },
+  {
+    "id": "G8-03",
+    "title": "手动未读复用",
+    "steps": [
+      "沿用已完成且已读的本轮A，切B后从A菜单标记未读；回读A行标记数量，最后进入A清除。"
+    ],
+    "expected": [
+      "A完成未读提醒数：1",
+      "A重复独立未读标记数：0"
+    ],
+    "fixture": "见扩展场景与夹具说明",
+    "assertions": [
+      {
+        "id": "G8-03-A1",
+        "target": "A完成未读提醒数",
+        "read": "读取A行完成未读提醒数量",
+        "operator": "equals",
+        "expected": 1
+      },
+      {
+        "id": "G8-03-A2",
+        "target": "A重复独立未读标记数",
+        "read": "读取并列额外标记数量",
+        "operator": "equals",
+        "expected": 0
+      }
+    ]
+  },
+  {
+    "id": "G8-06",
+    "title": "执行详情实际路径",
+    "steps": [
+      "建立本轮绝对目录与flow.txt，内容FAST_FLOW_INPUT；绑定flow_file。",
+      "任务请求只读取此绝对文件，原样回答；读取Trace展开的read输出。"
+    ],
+    "expected": [
+      "成功读取工具的路径列表：\"$flow_file\"",
+      "成功read输出：\"FAST_FLOW_INPUT\""
+    ],
+    "fixture": "见扩展场景与夹具说明",
+    "assertions": [
+      {
+        "id": "G8-06-A1",
+        "target": "成功读取工具的路径列表",
+        "read": "读取成功工具实际参数路径",
+        "operator": "contains",
+        "expected": "$flow_file"
+      },
+      {
+        "id": "G8-06-A2",
+        "target": "成功read输出",
+        "read": "读取该工具实际输出",
+        "operator": "contains",
+        "expected": "FAST_FLOW_INPUT"
+      }
+    ]
+  },
+  {
+    "id": "G8-07",
+    "title": "长工具输出可滚动",
+    "steps": [
+      "同目录创建long.txt（200行），请求只读它；展开实际read输出并滚动输出容器。"
+    ],
+    "expected": [
+      "工具输出内部滚动：true",
+      "实际read输出末行：\"FAST_LONG_LINE_200\""
+    ],
+    "fixture": "见扩展场景与夹具说明",
+    "assertions": [
+      {
+        "id": "G8-07-A1",
+        "target": "工具输出内部滚动",
+        "read": "读取输出容器scrollHeight>clientHeight且允许滚动",
+        "operator": "equals",
+        "expected": true
+      },
+      {
+        "id": "G8-07-A2",
+        "target": "实际read输出末行",
+        "read": "读取工具完整输出",
+        "operator": "contains",
+        "expected": "FAST_LONG_LINE_200"
+      }
+    ]
+  },
+  {
+    "id": "G8-08",
+    "title": "明确文件交付",
+    "steps": [
+      "任务请求在本轮绝对目录写deliver.txt内容FAST_DELIVER_OK，并明确将该文件作为最终交付；不能只检查模型声称已写。"
+    ],
+    "expected": [
+      "实际deliver.txt文件内容：\"FAST_DELIVER_OK\"",
+      "当前任务产物文件身份：true"
+    ],
+    "fixture": "见扩展场景与夹具说明",
+    "assertions": [
+      {
+        "id": "G8-08-A1",
+        "target": "实际deliver.txt文件内容",
+        "read": "从本轮工作目录读取UTF8 trim",
+        "operator": "equals",
+        "expected": "FAST_DELIVER_OK"
+      },
+      {
+        "id": "G8-08-A2",
+        "target": "当前任务产物文件身份",
+        "read": "从产物卡实际资源路径读取与deliver.txt绝对路径相等布尔值",
+        "operator": "equals",
+        "expected": true
+      }
+    ]
+  },
+  {
+    "id": "G8-09",
+    "title": "终态折叠与详情回读",
+    "steps": [
+      "沿用完成的read/write任务，观察工作步骤结束默认折叠，再展开。"
+    ],
+    "expected": [
+      "完成工作步骤默认折叠：true",
+      "展开后执行记录可读：true"
+    ],
+    "fixture": "见扩展场景与夹具说明",
+    "assertions": [
+      {
+        "id": "G8-09-A1",
+        "target": "完成工作步骤默认折叠",
+        "read": "读取该面板aria-expanded是否false",
+        "operator": "equals",
+        "expected": true
+      },
+      {
+        "id": "G8-09-A2",
+        "target": "展开后执行记录可读",
+        "read": "读取至少一条实际工具记录可见",
+        "operator": "equals",
+        "expected": true
+      }
+    ]
+  },
+  {
+    "id": "G8-10",
+    "title": "单动作不过度聚合",
+    "steps": [
+      "沿用只有一次read调用的任务，在展开步骤中读取嵌套聚合层级。"
+    ],
+    "expected": [
+      "单read多层聚合：false"
+    ],
+    "fixture": "见扩展场景与夹具说明",
+    "assertions": [
+      {
+        "id": "G8-10-A1",
+        "target": "单read多层聚合",
+        "read": "读取是否存在至少两层同类聚合嵌套",
+        "operator": "equals",
+        "expected": false
+      }
+    ]
+  }
+]

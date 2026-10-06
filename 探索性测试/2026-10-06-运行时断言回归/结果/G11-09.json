@@ -1,0 +1,79 @@
+{
+  "case_id": "G11-09",
+  "contract_version": "2.0",
+  "attempt_id": "G11-A01",
+  "environment_id": "env-20261006-oc1",
+  "object_identity": "longread安装文件",
+  "inputs": [
+    "仅提方案"
+  ],
+  "action_refs": [
+    "G11-b224fb3a-86bc-4320-8ca2-344e111af082-2",
+    "G11-b224fb3a-86bc-4320-8ca2-344e111af082-5",
+    "G11-b224fb3a-86bc-4320-8ca2-344e111af082-8",
+    "G11-b224fb3a-86bc-4320-8ca2-344e111af082-11",
+    "G11-b224fb3a-86bc-4320-8ca2-344e111af082-14",
+    "G11-b224fb3a-86bc-4320-8ca2-344e111af082-18",
+    "G11-b224fb3a-86bc-4320-8ca2-344e111af082-22",
+    "G11-b224fb3a-86bc-4320-8ca2-344e111af082-25",
+    "G11-b224fb3a-86bc-4320-8ca2-344e111af082-30",
+    "G11-b224fb3a-86bc-4320-8ca2-344e111af082-32",
+    "G11-b224fb3a-86bc-4320-8ca2-344e111af082-37",
+    "G11-b224fb3a-86bc-4320-8ca2-344e111af082-44",
+    "G11-b224fb3a-86bc-4320-8ca2-344e111af082-49",
+    "G11-b224fb3a-86bc-4320-8ca2-344e111af082-53",
+    "G11-b224fb3a-86bc-4320-8ca2-344e111af082-57",
+    "G11-b224fb3a-86bc-4320-8ca2-344e111af082-60",
+    "G11-b224fb3a-86bc-4320-8ca2-344e111af082-64",
+    "G11-b224fb3a-86bc-4320-8ca2-344e111af082-69"
+  ],
+  "status": "失败",
+  "started_at": "2026-10-06T06:18:30.020Z",
+  "ended_at": "2026-10-06T06:25:39.081Z",
+  "actual_steps": [
+    "提方案前后哈希"
+  ],
+  "assertions": [
+    {
+      "id": "G11-09-A1",
+      "actual": {
+        "before": "53b7d7164b56e9810402944d9f219bce9589e5a1407e81c722064a89deb14d67",
+        "after": "53b7d7164b56e9810402944d9f219bce9589e5a1407e81c722064a89deb14d67"
+      },
+      "read_refs": [
+        "G11-b224fb3a-86bc-4320-8ca2-344e111af082-41",
+        "G11-b224fb3a-86bc-4320-8ca2-344e111af082-46"
+      ]
+    },
+    {
+      "id": "G11-09-A2",
+      "actual": {
+        "before": "4eec2b939476deb99bc05894b4147aede15afe567100e6a3a3100309109ee6db",
+        "after": "4eec2b939476deb99bc05894b4147aede15afe567100e6a3a3100309109ee6db"
+      },
+      "read_refs": [
+        "G11-b224fb3a-86bc-4320-8ca2-344e111af082-42",
+        "G11-b224fb3a-86bc-4320-8ca2-344e111af082-47"
+      ]
+    },
+    {
+      "id": "G11-09-A3",
+      "actual": "",
+      "read_refs": [
+        "G11-b224fb3a-86bc-4320-8ca2-344e111af082-45"
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "path": "运行日志/G11.jsonl",
+      "sha256": "2eca1f2a8436da8d4a1cc76506776cef7f641f2f6dcfe50961e816ee58acaea0"
+    }
+  ],
+  "cleanup": {
+    "status": "restored",
+    "description": "专家安装文件已恢复原字节",
+    "read_refs": []
+  },
+  "notes": "G11基于本轮专家样本。"
+}

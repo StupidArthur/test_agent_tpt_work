@@ -1,0 +1,6 @@
+const fs=require('fs');
+const p='探索性测试/2026-10-05-需求用例全量探索/观察记录.jsonl';
+const line={observation_id:'OBS-246',feature_id:null,statement:'In one new round-owned conversation, the Standard/low response rendered an embedded four-row by three-column Markdown table. The assistant message exposed a visible copy action that was not clicked, so clipboard output remains unverified. Turn metadata showed one completed turn and zero tool calls, messages delegated to tools, or subagents; no independent file resource was observed.',case_ids:['DIALOG-048'],attempt_ids:['DIALOG-048-A01'],environment_id:'ENV-001',verified_depth:'Rendered DOM table and visible message controls plus turn-process metadata; clipboard effect unverified',scope_and_limits:'This response in a single round-owned task conversation, using fictional sensor values and a unique marker with Standard/low; no persistent file or setting was created.',evidence:['证据/DIALOG-048/DIALOG-048-A01/observed.json','证据/DIALOG-048/DIALOG-048-A01/table.png','证据/DIALOG-048/DIALOG-048-A01/message.png','证据/DIALOG-048/DIALOG-048-A01/input.txt'],relation_to_design:'待双方审核；复制入口可见，但没有操作剪贴板。',review_status:'待双方审核'};
+const all=fs.readFileSync(p,'utf8');
+if(all.includes('"observation_id":"OBS-246"'))throw Error('already appended');
+fs.appendFileSync(p,JSON.stringify(line)+'\n','utf8');

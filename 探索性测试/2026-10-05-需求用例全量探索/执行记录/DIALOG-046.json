@@ -1,0 +1,91 @@
+{
+  "case_id": "DIALOG-046",
+  "case_title": "中间日志不登记成果",
+  "source_sha256": "b712acd3b204ebcfdd07129c4d993ea1beb184f9a2d0c3827745ee1fdf7a6677",
+  "status": "已执行-符合预期",
+  "review_status": "待双方审核",
+  "latest_attempt_id": "DIALOG-046-A01",
+  "attempts": [
+    {
+      "attempt_id": "DIALOG-046-A01",
+      "started_at": "2026-10-05T21:12:00+08:00",
+      "ended_at": "2026-10-05T21:14:00+08:00",
+      "environment_id": "ENV-001",
+      "surface": "Visible conversation and Trace tab via CDP 9234, existing tpt-workspace project",
+      "actual_preconditions": {
+        "project": "existing tpt-workspace",
+        "model": "standard / low",
+        "access_mode": "workspace edits",
+        "fixture": "read-only use of prior round-owned DIALOG-030 file"
+      },
+      "input": "Read only the prior round-owned DIALOG-030 fixture. Do not modify or copy it, do not create files, do not expose it as a deliverable; reply only READ_LOGS_OK.",
+      "actual_steps": [
+        "Submitted the read-only request through the visible new-task UI using existing tpt-workspace and standard / low.",
+        "Waited for terminal completion; UI reported 13 seconds.",
+        "Opened Trace tab and observed a read tool entry with the explicit file path and exact two-line file content.",
+        "Returned to the conversation tab; final answer was only READ_LOGS_OK and no file/deliverable card appeared."
+      ],
+      "wait_condition": "Task terminal state; 13 seconds reported by UI.",
+      "checkpoints": [
+        {
+          "expected_index": 1,
+          "expected": "日志在过程可见",
+          "observed": "Trace tab displayed the intermediate read tool call and its file contents.",
+          "verdict": "符合",
+          "evidence": [
+            "证据/DIALOG-046/DIALOG-046-A01/trace.json",
+            "证据/DIALOG-046/DIALOG-046-A01/trace.png"
+          ]
+        },
+        {
+          "expected_index": 2,
+          "expected": "不自动进入输出内容",
+          "observed": "Final conversation contained only READ_LOGS_OK; no separate deliverable was displayed and no write was requested or performed.",
+          "verdict": "符合",
+          "evidence": [
+            "证据/DIALOG-046/DIALOG-046-A01/result.json",
+            "证据/DIALOG-046/DIALOG-046-A01/result.png"
+          ]
+        }
+      ],
+      "observed_result": "The intermediate read operation was visible in Trace, while the final conversation stayed limited to READ_LOGS_OK and produced no separate artifact.",
+      "status": "已执行-符合预期",
+      "evidence": [
+        "证据/DIALOG-046/DIALOG-046-A01/trace.json",
+        "证据/DIALOG-046/DIALOG-046-A01/trace.png",
+        "证据/DIALOG-046/DIALOG-046-A01/result.json",
+        "证据/DIALOG-046/DIALOG-046-A01/result.png"
+      ],
+      "notes": "Read-only access to a test-owned fixture from an earlier case; no user asset changed.",
+      "cleanup": {
+        "changes": [],
+        "remaining": []
+      }
+    }
+  ],
+  "product_observations": [
+    {
+      "observation": "Trace showed the intermediate read operation; no separate output artifact was displayed.",
+      "evidence": [
+        "证据/DIALOG-046/DIALOG-046-A01/trace.json",
+        "证据/DIALOG-046/DIALOG-046-A01/trace.png",
+        "证据/DIALOG-046/DIALOG-046-A01/result.json",
+        "证据/DIALOG-046/DIALOG-046-A01/result.png"
+      ]
+    }
+  ],
+  "differences": [],
+  "finding_ids": [],
+  "blocker": null,
+  "applicability_reason": null,
+  "cleanup": {
+    "changes": [],
+    "remaining": []
+  },
+  "review": {
+    "assistant": null,
+    "user": null,
+    "approved_scope": [],
+    "final_decision": "待审核"
+  }
+}

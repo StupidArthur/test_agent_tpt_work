@@ -1,0 +1,123 @@
+{
+  "case_id": "SKILL-048",
+  "case_title": "不生成本地修改标签",
+  "source_sha256": "92a6f4ecd2a5dffe0f1a2a60e73fa18b5fb98763b09cc56ce4cc22fd56e13f0e",
+  "status": "已执行-符合预期",
+  "review_status": "待双方审核",
+  "latest_attempt_id": "SKILL-048-A02",
+  "attempts": [
+    {
+      "attempt_id": "SKILL-048-A02",
+      "started_at": "2026-10-05T19:46:00.000Z",
+      "ended_at": "2026-10-05T19:53:00.000Z",
+      "environment_id": "ENV-001",
+      "surface": "Skills iframe in Electron through CDP + Playwright; round-owned Skill; standard/low; workspace edit mode",
+      "actual_preconditions": {
+        "account_alias": "Arthur",
+        "workspace": "tpt-workspace",
+        "project": "No new project",
+        "session_id": "round-night-md-direct-20261006 edit conversation",
+        "model": "Standard / low",
+        "permission": "Workspace-edit mode; one-time approval for each exact write to the round-owned sample",
+        "fixtures": [
+          "round-night-md-direct-20261006 (round-owned only)"
+        ]
+      },
+      "input": "Through the Skills detail Edit in conversation entry, append then remove one unique HTML comment line only in the round-owned sample SKILL.md.",
+      "actual_steps": [
+        "Opened the round-owned Skill detail and recorded original SKILL.md text.",
+        "Used Edit in conversation and requested only one unique marker line appended to the sample SKILL.md.",
+        "Approved the exact one-time write request; tool read back the marker.",
+        "Reopened Skill detail and saved modified content and visible labels. Marker appeared; neither P0 nor the local-modified label appeared.",
+        "Requested removal of only the marker; approved the exact one-time restoration.",
+        "Tool reported success and read back original content. Reopened detail; original body remained and marker plus labels were absent."
+      ],
+      "wait_condition": "Wait for each exact write and tool readback, then reopen Skill detail to inspect rendered content and labels.",
+      "checkpoints": [
+        {
+          "expected_index": 1,
+          "expected": "不出现P0已本地修改检测状态",
+          "observed": "The unique marker was written and read back in the round-owned sample. Reopened detail displayed the marker but contained no P0 or local-modified label text. After restoration the original body remained and the marker was absent.",
+          "verdict": "符合",
+          "evidence": [
+            "证据/SKILL-048/SKILL-048-A02/modified-detail.txt",
+            "证据/SKILL-048/SKILL-048-A02/modified-detail.png",
+            "证据/SKILL-048/SKILL-048-A02/edit-trace.txt",
+            "证据/SKILL-048/SKILL-048-A02/edit-trace.png",
+            "证据/SKILL-048/SKILL-048-A02/restored-detail.txt",
+            "证据/SKILL-048/SKILL-048-A02/restored-detail.png",
+            "证据/SKILL-048/SKILL-048-A02/restore-trace.txt",
+            "证据/SKILL-048/SKILL-048-A02/restore-trace.png"
+          ]
+        }
+      ],
+      "observed_result": "Using the product skill-manager file edit flow, wrote a unique comment to the round-owned Skill and read it back. The reopened detail displayed the changed body but no P0 or local-modified label. Removed only the comment, read back the original body, and reopened the detail to confirm restoration. The test sample is restored.",
+      "status": "已执行-符合预期",
+      "evidence": [
+        "证据/SKILL-048/SKILL-048-A02/modified-detail.txt",
+        "证据/SKILL-048/SKILL-048-A02/modified-detail.png",
+        "证据/SKILL-048/SKILL-048-A02/edit-trace.txt",
+        "证据/SKILL-048/SKILL-048-A02/edit-trace.png",
+        "证据/SKILL-048/SKILL-048-A02/restored-detail.txt",
+        "证据/SKILL-048/SKILL-048-A02/restored-detail.png",
+        "证据/SKILL-048/SKILL-048-A02/restore-trace.txt",
+        "证据/SKILL-048/SKILL-048-A02/restore-trace.png"
+      ],
+      "difference_ids": [],
+      "notes": "Scope is limited to round-night-md-direct-20261006. The file was written through skill-manager and inspected after reopening the detail. External editors, live cross-process watching, and other Skills were not tested."
+    }
+  ],
+  "product_observations": [
+    {
+      "feature_id": null,
+      "statement": "Using the product skill-manager file edit flow, wrote a unique comment to the round-owned Skill and read it back. The reopened detail displayed the changed body but no P0 or local-modified label. Removed only the comment, read back the original body, and reopened the detail to confirm restoration. The test sample is restored.",
+      "case_ids": [
+        "SKILL-048"
+      ],
+      "attempt_ids": [
+        "SKILL-048-A02"
+      ],
+      "environment_id": "ENV-001",
+      "verified_depth": "Round-owned single-file edit, detail label check, and restoration",
+      "scope_and_limits": "Only the round-owned sample, written through skill-manager. External-editor live watching not tested.",
+      "evidence": [
+        "证据/SKILL-048/SKILL-048-A02/modified-detail.txt",
+        "证据/SKILL-048/SKILL-048-A02/modified-detail.png",
+        "证据/SKILL-048/SKILL-048-A02/edit-trace.txt",
+        "证据/SKILL-048/SKILL-048-A02/edit-trace.png",
+        "证据/SKILL-048/SKILL-048-A02/restored-detail.txt",
+        "证据/SKILL-048/SKILL-048-A02/restored-detail.png",
+        "证据/SKILL-048/SKILL-048-A02/restore-trace.txt",
+        "证据/SKILL-048/SKILL-048-A02/restore-trace.png"
+      ],
+      "relation_to_design": "Observed result matches the case expectation; pending bilateral review.",
+      "review_status": "待双方审核"
+    }
+  ],
+  "differences": [],
+  "finding_ids": [],
+  "blocker": null,
+  "applicability_reason": null,
+  "cleanup": {
+    "changes": [
+      {
+        "change": "Temporarily appended and then removed one unique comment line in the round-owned sample SKILL.md.",
+        "restored": true,
+        "verification": "Tool readback and reopened Skill detail confirmed original body restored and marker absent."
+      }
+    ],
+    "remaining": []
+  },
+  "review": {
+    "assistant": null,
+    "user": null,
+    "approved_scope": [],
+    "final_decision": "待审核"
+  },
+  "audit_history": [
+    {
+      "at": "2026-10-05T19:53:00.000Z",
+      "event": "Executed a reversible local edit on a round-owned Skill under night-run authorization. Added A02 while preserving the older A01 blocked record and evidence."
+    }
+  ]
+}

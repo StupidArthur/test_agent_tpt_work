@@ -1,0 +1,52 @@
+{
+  "case_id": "G3-06",
+  "contract_version": "2.0",
+  "attempt_id": "G3-A01",
+  "environment_id": "env-20261006-oc1",
+  "object_identity": "本轮技能开关",
+  "inputs": [],
+  "action_refs": [
+    "G3-9b776e50-25c0-4aa3-ab20-581b3281ab29-3",
+    "G3-9b776e50-25c0-4aa3-ab20-581b3281ab29-7",
+    "G3-9b776e50-25c0-4aa3-ab20-581b3281ab29-9",
+    "G3-9b776e50-25c0-4aa3-ab20-581b3281ab29-11",
+    "G3-9b776e50-25c0-4aa3-ab20-581b3281ab29-14",
+    "G3-9b776e50-25c0-4aa3-ab20-581b3281ab29-20",
+    "G3-9b776e50-25c0-4aa3-ab20-581b3281ab29-23",
+    "G3-9b776e50-25c0-4aa3-ab20-581b3281ab29-26",
+    "G3-9b776e50-25c0-4aa3-ab20-581b3281ab29-28",
+    "G3-9b776e50-25c0-4aa3-ab20-581b3281ab29-31",
+    "G3-9b776e50-25c0-4aa3-ab20-581b3281ab29-34"
+  ],
+  "status": "通过",
+  "started_at": "2026-10-06T04:44:10.885Z",
+  "ended_at": "2026-10-06T04:44:58.969Z",
+  "actual_steps": [
+    "点击停用"
+  ],
+  "assertions": [
+    {
+      "id": "G3-06-A1",
+      "actual": false,
+      "read_refs": [
+        "G3-9b776e50-25c0-4aa3-ab20-581b3281ab29-24"
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "path": "运行日志/G3.jsonl",
+      "sha256": "1e5eac92c19bdbd7f2daa91fb35fda2ce27f5651efbe41233ba90ce3b9c9404e"
+    },
+    {
+      "path": "tools/run/scratch/g3-run.json",
+      "sha256": "b91549fca52e476db94a42bc555bc17e47f3a4f67a90a43580b1edc0f79a8701"
+    }
+  ],
+  "cleanup": {
+    "status": "retained",
+    "description": "本轮技能最终停用；调用会话保留",
+    "read_refs": []
+  },
+  "notes": "G3共享一次启用、调用Trace、停用与筛选。"
+}

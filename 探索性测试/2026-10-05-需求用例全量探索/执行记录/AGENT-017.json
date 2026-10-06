@@ -1,0 +1,120 @@
+{
+  "case_id": "AGENT-017",
+  "case_title": "内部名冲突默认副本",
+  "source_sha256": "c3cdc4c71c1746e9a647aa5190e0983229af9b41c22e2e6c9a9bc3da80727b66",
+  "status": "已执行-结论不确定",
+  "review_status": "待双方审核",
+  "latest_attempt_id": "AGENT-017-A01",
+  "attempts": [
+    {
+      "attempt_id": "AGENT-017-A01",
+      "started_at": "2026-10-05T16:12:50.000Z",
+      "ended_at": "2026-10-05T16:13:55.000Z",
+      "environment_id": "ENV-001",
+      "surface": "TPT Work visible UI through CDP + Playwright; independent readback only for round-owned fixture",
+      "actual_preconditions": {
+        "account_alias": "Arthur",
+        "workspace": "tpt-workspace",
+        "project": "未新增项目",
+        "session_id": "未新增项目；本轮专家管理/详情操作",
+        "model": "标准 / low",
+        "permission": "工作区内修改",
+        "fixtures": [
+          "夹具/agent-variants/round-agent-longread-duplicate-20261005",
+          "安装目标round-agent-longread-20261005"
+        ]
+      },
+      "input": "本轮两份 round-agent-longread-20261005 同内部名专家包。",
+      "actual_steps": [
+        "检查本轮目标目录导入前元数据与正文哈希。",
+        "通过UI扫描另一个内部名相同的本轮专家样本。",
+        "观察冲突对话框；本轮明确选择“作为副本”，未选择“覆盖现有”。",
+        "等待UI列表稳定；独立读取两个本轮安装目录和原目录哈希。"
+      ],
+      "wait_condition": "等待页面出现稳定终态；发生导航/弹窗后重新读取可见frame及目标状态。",
+      "checkpoints": [
+        {
+          "expected_index": 1,
+          "expected": "提供覆盖或副本",
+          "observed": "UI先显示“名称冲突「round-agent-longread-20261005」已存在，请选择处理方式”，提供“覆盖现有”“作为副本”。选择“作为副本”后新目录名为 round-agent-longread-20261005-1。原目录metadata与agent.md的SHA256仍为导入前值。",
+          "verdict": "符合",
+          "evidence": [
+            "证据/AGENT-017/AGENT-017-A01/import-selected.png",
+            "证据/AGENT-017/AGENT-017-A01/name-conflict.png",
+            "证据/AGENT-017/AGENT-017-A01/copy-result.png",
+            "证据/AGENT-017/AGENT-017-A01/target-before-hashes.json",
+            "证据/AGENT-017/AGENT-017-A01/ui-and-install-readback.json"
+          ]
+        },
+        {
+          "expected_index": 2,
+          "expected": "默认副本并产生新内部名",
+          "observed": "UI先显示“名称冲突「round-agent-longread-20261005」已存在，请选择处理方式”，提供“覆盖现有”“作为副本”。选择“作为副本”后新目录名为 round-agent-longread-20261005-1。原目录metadata与agent.md的SHA256仍为导入前值。",
+          "verdict": "未验证",
+          "evidence": [
+            "证据/AGENT-017/AGENT-017-A01/import-selected.png",
+            "证据/AGENT-017/AGENT-017-A01/name-conflict.png",
+            "证据/AGENT-017/AGENT-017-A01/copy-result.png",
+            "证据/AGENT-017/AGENT-017-A01/target-before-hashes.json",
+            "证据/AGENT-017/AGENT-017-A01/ui-and-install-readback.json"
+          ]
+        }
+      ],
+      "observed_result": "UI先显示“名称冲突「round-agent-longread-20261005」已存在，请选择处理方式”，提供“覆盖现有”“作为副本”。选择“作为副本”后新目录名为 round-agent-longread-20261005-1。原目录metadata与agent.md的SHA256仍为导入前值。",
+      "status": "已执行-结论不确定",
+      "evidence": [
+        "证据/AGENT-017/AGENT-017-A01/import-selected.png",
+        "证据/AGENT-017/AGENT-017-A01/name-conflict.png",
+        "证据/AGENT-017/AGENT-017-A01/copy-result.png",
+        "证据/AGENT-017/AGENT-017-A01/target-before-hashes.json",
+        "证据/AGENT-017/AGENT-017-A01/ui-and-install-readback.json"
+      ],
+      "difference_ids": [],
+      "notes": "第2检查点的“默认”未经观察：发生名称冲突后界面要求显式选择。本次选择副本仅验证了副本路径，默认分支仍待测。旧阻塞原因已由自建样本和页面目录input解除。"
+    }
+  ],
+  "product_observations": [
+    {
+      "feature_id": null,
+      "statement": "UI先显示“名称冲突「round-agent-longread-20261005」已存在，请选择处理方式”，提供“覆盖现有”“作为副本”。选择“作为副本”后新目录名为 round-agent-longread-20261005-1。原目录metadata与agent.md的SHA256仍为导入前值。",
+      "case_ids": [
+        "AGENT-017"
+      ],
+      "attempt_ids": [
+        "AGENT-017-A01"
+      ],
+      "environment_id": "ENV-001",
+      "verified_depth": "仅当前本轮UI尝试与引用范围内的回读证据",
+      "scope_and_limits": "限定当前本轮样本及本attempt；所有产品判断待双方审核。",
+      "evidence": [
+        "证据/AGENT-017/AGENT-017-A01/import-selected.png",
+        "证据/AGENT-017/AGENT-017-A01/name-conflict.png",
+        "证据/AGENT-017/AGENT-017-A01/copy-result.png",
+        "证据/AGENT-017/AGENT-017-A01/target-before-hashes.json",
+        "证据/AGENT-017/AGENT-017-A01/ui-and-install-readback.json"
+      ],
+      "relation_to_design": "按源用例原文逐检查点记录；依据为待评审设计，不自动视为正式验收标准。",
+      "review_status": "待双方审核"
+    }
+  ],
+  "differences": [],
+  "finding_ids": [],
+  "blocker": null,
+  "applicability_reason": null,
+  "cleanup": {
+    "changes": [],
+    "remaining": []
+  },
+  "review": {
+    "assistant": null,
+    "user": null,
+    "approved_scope": [],
+    "final_decision": "待审核"
+  },
+  "audit_history": [
+    {
+      "at": "2026-10-05T16:13:55.000Z",
+      "event": "旧阻塞依赖已由用户授权与夜间实际UI/夹具能力复核；本轮新增attempt替代旧阻塞状态，保留旧原因于本attempt notes。"
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+检查 F:\electron-ui\.tpt-agent\ptc-test\configs 目录下所有 JSON 文件（不含 schema.json），按 schema.json 找出缺失字段和不合法取值。每个问题写入一行；读取失败或解析失败的文件也要记入报告，并继续检查其余文件。最后给我一份问题汇总，并按「文件 / 问题类型 / 说明」列出。
+15:18
+已完成工作
+用时 56秒
+
+校验完成：F:\electron-ui\.tpt-agent\ptc-test\configs 下 7 个 JSON 文件（已排除 schema.json），依据 
+schema.json [1] 的 {name: string, port: number, enabled: boolean} 逐文件检查，通过 2 个，5 个文件有问题，共 5 条。解析失败的文件均只记一条问题并继续检查其余文件，无跳漏。
+
+文件	问题类型	说明
+
+svc-c.json	缺失字段	缺少必填字段 enabled（应为 boolean）
+
+svc-d.json	取值不合法	字段 port 期望 number，实际为 string（值 "8x"）
+
+svc-e.json	解析失败	第 1 行第 53 列：Expecting property name enclosed in double quotes（对象末尾多余逗号）
+
+svc-f.json	解析失败	文件为空（0 字节），无 JSON 内容
+
+svc-g.json	解析失败	第 1 行第 1 列：Expecting value（内容为 not json at all）
+通过：svc-a.json、svc-b.json（name/port/enabled 三字段齐全且类型正确）。
+无「未知字段」和「顶层类型不合法」问题。
+
+产物：问题汇总报告 
+config-validation-report.md，校验脚本 
+validate_configs.py（脚本把 字段→类型 映射写成通用逻辑，之后改 schema 可直接重跑，命令：python validate_configs.py）。
+
+数据 [1]
+已编辑 validate_configs.py
++135
+-0
+config-validation-report.md
+configs 目录 JSON 校验问题汇总
+validate_configs.py
+校验脚本，可重复运行重新生成报告
+用量 175K tok
+15:19
+发消息或创建任务, / 调用指令, @ 文件或对话
+工作区内修改
+deepseek-v4.1-flash
+1 轮 9 步·187 tok/s
+175K tok·缓存命中 87%
+8%

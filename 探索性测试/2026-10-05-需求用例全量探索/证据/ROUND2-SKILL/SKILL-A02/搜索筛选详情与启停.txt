@@ -1,0 +1,366 @@
+# SKILL-003..019 搜索、筛选、详情、启停
+# captured_at: 2026-10-05T10:59:03.161Z
+
+## 基线（7）
+[
+  {
+    "i": 0,
+    "name": "查找技能",
+    "desc": "在 DSH 内查找、浏览和安装技能。不要当作例行第一步使用。仅当用户显式要求从技能市场查找、浏览或安装技能，或本地没有已安装技能能覆盖任务且大概率需要专用技能时使用。搜索范围为本机已安装技能与技能管理插件提供的技能市场目录。",
+    "source": "内置技能",
+    "version": "v1.0.0",
+    "tags": [
+      "skill",
+      "find",
+      "market"
+    ],
+    "checked": "true",
+    "toggleTitle": "内置技能不允许停用",
+    "cardText": "查找技能 在 DSH 内查找、浏览和安装技能。不要当作例行第一步使用。仅当用户显式要求从技能市场查找、浏览或安装技能，或本地没有已安装技能能覆盖任务且大概率需要专用技能时使用。搜索范围为本机已安装技能与技能管理插件提供的技能市场目录。 skill find market +2 来源 内置技能 v1.0.0 快捷使用"
+  },
+  {
+    "i": 1,
+    "name": "创建技能",
+    "desc": "引导用户在 DSH 中一步步创建新技能。当用户想要创建、编写、制作或保存一个新技能，或询问技能结构、最佳实践或 DSH 的 SKILL.md 格式时使用。",
+    "source": "内置技能",
+    "version": "v1.0.0",
+    "tags": [
+      "skill",
+      "create",
+      "dsh"
+    ],
+    "checked": "true",
+    "toggleTitle": "内置技能不允许停用",
+    "cardText": "创建技能 引导用户在 DSH 中一步步创建新技能。当用户想要创建、编写、制作或保存一个新技能，或询问技能结构、最佳实践或 DSH 的 SKILL.md 格式时使用。 skill create dsh +1 来源 内置技能 v1.0.0 快捷使用"
+  },
+  {
+    "i": 2,
+    "name": "配置连接器",
+    "desc": "从市场下载连接器，按用户要求配置、测试连接，保存并应用。当用户想配置或接入市场中的某个连接器时使用，例如「配置连接器」「接入市场里的 xxx」「把 xxx 连上」「下载 xxx 连接器」。",
+    "source": "内置技能",
+    "version": "v1.0.0",
+    "tags": [
+      "connector",
+      "mcp",
+      "连接器"
+    ],
+    "checked": "true",
+    "toggleTitle": "内置技能不允许停用",
+    "cardText": "配置连接器 从市场下载连接器，按用户要求配置、测试连接，保存并应用。当用户想配置或接入市场中的某个连接器时使用，例如「配置连接器」「接入市场里的 xxx」「把 xxx 连上」「下载 xxx 连接器」。 connector mcp 连接器 +3 来源 内置技能 v1.0.0 快捷使用"
+  },
+  {
+    "i": 3,
+    "name": "添加连接器",
+    "desc": "引导用户在对话中添加 MCP 连接器。当用户想粘贴 mcpServers JSON 或描述连接信息（名称、地址、认证）来添加连接器时使用，例如「添加连接器」「导入连接器」「接入这个 MCP 服务」。",
+    "source": "内置技能",
+    "version": "v1.0.0",
+    "tags": [
+      "mcp",
+      "connector",
+      "连接器"
+    ],
+    "checked": "true",
+    "toggleTitle": "内置技能不允许停用",
+    "cardText": "添加连接器 引导用户在对话中添加 MCP 连接器。当用户想粘贴 mcpServers JSON 或描述连接信息（名称、地址、认证）来添加连接器时使用，例如「添加连接器」「导入连接器」「接入这个 MCP 服务」。 mcp connector 连接器 +2 来源 内置技能 v1.0.0 快捷使用"
+  },
+  {
+    "i": 4,
+    "name": "指标数据查询",
+    "desc": "按指标名称查询 supOS 指标服务的指标数据——技能自带脚本先按名称取指标详情拿到指标编码，再按编码查询指标数据（实测 MEA/目标 TAR/平衡 BAL/当量 EQU，小时/分钟/日/月/年单点与区间），并在本地汇总（数据点数、最小/最大/均值、quality 值类分布）。当用户查指标值、实测值、目标值、能耗或产量指标，或按日期范围取指标数据时触发。",
+    "source": "用户创建",
+    "version": "v1.0.0",
+    "tags": [
+      "指标",
+      "指标数据",
+      "指标值"
+    ],
+    "checked": "true",
+    "toggleTitle": "启停技能",
+    "cardText": "指标数据查询 按指标名称查询 supOS 指标服务的指标数据——技能自带脚本先按名称取指标详情拿到指标编码，再按编码查询指标数据（实测 MEA/目标 TAR/平衡 BAL/当量 EQU，小时/分钟/日/月/年单点与区间），并在本地汇总（数据点数、最小/最大/均值、quality 值类分布）。当用户查指标值、实测值、目标值、能耗或产量指标，或按日期范围取指标数据时触发。 指标 指标数据 指标值 +8 来源 用户创建 v1.0.0 快捷使用"
+  },
+  {
+    "i": 5,
+    "name": "指标信息查询",
+    "desc": "按指标名称查询 supOS 指标服务的指标信息——指标清单（指标 ID 与名称）与指标详情（指标编码、类型、单位、计算精度、物料、实测/平衡/当量/目标值公式与取值方式、启用状态、创建信息）。当用户问有哪些指标/指标清单/指标编码/指标单位/指标类型/指标公式/指标启用状态，或取数前需要确认准确的指标名称时触发。",
+    "source": "用户创建",
+    "version": "v1.0.0",
+    "tags": [
+      "指标",
+      "指标信息",
+      "指标清单"
+    ],
+    "checked": "true",
+    "toggleTitle": "启停技能",
+    "cardText": "指标信息查询 按指标名称查询 supOS 指标服务的指标信息——指标清单（指标 ID 与名称）与指标详情（指标编码、类型、单位、计算精度、物料、实测/平衡/当量/目标值公式与取值方式、启用状态、创建信息）。当用户问有哪些指标/指标清单/指标编码/指标单位/指标类型/指标公式/指标启用状态，或取数前需要确认准确的指标名称时触发。 指标 指标信息 指标清单 +4 来源 用户创建 v1.0.0 快捷使用"
+  },
+  {
+    "i": 6,
+    "name": "Agent 创建与修改",
+    "desc": "在 TPT 桌面端新建或修改 Agent：收集信息 → 在数据根里初始化包 → 写 metadata.json 与 agent.md（可带内嵌 Skill）→ 校验 → 注册（写 .registry.json）→ 收尾。触发词：新建 Agent、创建 Agent、生成 Agent、做一个专家、把资料转成 Agent；修改 Agent、编辑 Agent、更新 Agent、改提示词、改简介、改标签；批量创建 Agent。",
+    "source": "内置技能",
+    "version": "v1.0.0",
+    "tags": [
+      "agent",
+      "expert",
+      "create"
+    ],
+    "checked": "true",
+    "toggleTitle": "内置技能不允许停用",
+    "cardText": "Agent 创建与修改 在 TPT 桌面端新建或修改 Agent：收集信息 → 在数据根里初始化包 → 写 metadata.json 与 agent.md（可带内嵌 Skill）→ 校验 → 注册（写 .registry.json）→ 收尾。触发词：新建 Agent、创建 Agent、生成 Agent、做一个专家、把资料转成 Agent；修改 Agent、编辑 Agent、更新 Agent、改提示词、改简介、改标签；批量创建 Agent。 agent expert create +3 来源 内置技能 v1.0.0 快捷使用"
+  }
+]
+
+## 搜索
+[
+  {
+    "term": "指标数据",
+    "cardCount": 1,
+    "names": [
+      "指标数据查询"
+    ],
+    "emptyHint": false,
+    "hintLine": "",
+    "cleared": null,
+    "case": "SKILL-003",
+    "kind": "中文名称",
+    "afterClearCount": 7
+  },
+  {
+    "term": "Agent",
+    "cardCount": 1,
+    "names": [
+      "Agent 创建与修改"
+    ],
+    "emptyHint": false,
+    "hintLine": "",
+    "cleared": null,
+    "case": "SKILL-004",
+    "kind": "英文名称",
+    "afterClearCount": 7
+  },
+  {
+    "term": "create-skill",
+    "cardCount": 1,
+    "names": [
+      "创建技能"
+    ],
+    "emptyHint": false,
+    "hintLine": "",
+    "cleared": null,
+    "case": "SKILL-005",
+    "kind": "技术名称",
+    "afterClearCount": 7
+  },
+  {
+    "term": "连接器",
+    "cardCount": 2,
+    "names": [
+      "配置连接器",
+      "添加连接器"
+    ],
+    "emptyHint": false,
+    "hintLine": "",
+    "cleared": null,
+    "case": "SKILL-006",
+    "kind": "描述",
+    "afterClearCount": 7
+  },
+  {
+    "term": "market",
+    "cardCount": 2,
+    "names": [
+      "查找技能",
+      "配置连接器"
+    ],
+    "emptyHint": true,
+    "hintLine": "在 DSH 内查找、浏览和安装技能。不要当作例行第一步使用。仅当用户显式要求从技能市场查找、浏览或安装技能，或本地没有已安装技能能覆盖任务且大概率需要专用技能时使用。搜索范围为本机已安装技能与技能管理插件提供的技能市场目录。",
+    "cleared": null,
+    "case": "SKILL-007",
+    "kind": "标签",
+    "afterClearCount": 7
+  }
+]
+
+## 状态筛选
+{
+  "已启用": {
+    "label": "已启用",
+    "found": true,
+    "cardCount": 7,
+    "names": [
+      "查找技能",
+      "创建技能",
+      "配置连接器",
+      "添加连接器",
+      "指标数据查询",
+      "指标信息查询",
+      "Agent 创建与修改"
+    ],
+    "checked": [
+      "true",
+      "true",
+      "true",
+      "true",
+      "true",
+      "true",
+      "true"
+    ]
+  },
+  "未启用": {
+    "label": "未启用",
+    "found": true,
+    "cardCount": 0,
+    "names": [],
+    "checked": []
+  },
+  "全部": {
+    "label": "全部",
+    "found": true,
+    "cardCount": 7,
+    "names": [
+      "查找技能",
+      "创建技能",
+      "配置连接器",
+      "添加连接器",
+      "指标数据查询",
+      "指标信息查询",
+      "Agent 创建与修改"
+    ],
+    "checked": [
+      "true",
+      "true",
+      "true",
+      "true",
+      "true",
+      "true",
+      "true"
+    ]
+  }
+}
+
+## 搜索叠加筛选
+{
+  "search": {
+    "term": "技能",
+    "cardCount": 7,
+    "names": [
+      "查找技能",
+      "创建技能",
+      "配置连接器",
+      "添加连接器",
+      "指标数据查询",
+      "指标信息查询",
+      "Agent 创建与修改"
+    ],
+    "emptyHint": true,
+    "hintLine": "在 DSH 内查找、浏览和安装技能。不要当作例行第一步使用。仅当用户显式要求从技能市场查找、浏览或安装技能，或本地没有已安装技能能覆盖任务且大概率需要专用技能时使用。搜索范围为本机已安装技能与技能管理插件提供的技能市场目录。",
+    "cleared": null
+  },
+  "thenFilter": {
+    "label": "未启用",
+    "found": true,
+    "cardCount": 0,
+    "names": [],
+    "checked": []
+  }
+}
+
+## 卡片主体点击
+{
+  "hasDialog": false,
+  "dialogText": null,
+  "fullBody": "技能 管理本地技能，在对话和 Agent 中复用你的工作方法。 让工业经验，成为随取随用的能力 技能在厂级 Runtime 内受控运行，每一步都保留输入、依据、版本和执行记录。 我的技能 7 技能市场 1 导入技能 新建技能 全部 已启用 未启用 已启用 7 个 Skill，可在本地任务中自动调用。 查找技能 在 DSH 内查找、浏览和安装技能。不要当作例行第一步使用。仅当用户显式要求从技能市场查找、浏览或安装技能，或本地没有已安装技能能覆盖任务且大概率需要专用技能时使用。搜索范围为本机已安装技能与技能管理插件提供的技能市场目录。 skill find market +2 来源 内置技能 v1.0.0 快捷使用 创建技能 引导用户在 DSH 中一步步创建新技能。当用户想要创建、编写、制作或保存一个新技能，或询问技能结构、最佳实践或 DSH 的 SKILL.md 格式时使用。 skill create dsh +1 来源 内置技能 v1.0.0 快捷使用 配置连接器 从市场下载连接器，按用户要求配置、测试连接，保存并应用。当用户想配置或接入市场中的某个连接器时使用，例如「配置连接器」「接入市场里的 xxx」「把 xxx 连上」「下载 xxx 连接器」。 connector mcp 连接器 +3 来源 内置技能 v1.0.0 快捷使用 添加连接器 引导用户在对话中添加 MCP 连接器。当用户想粘贴 mcpServers JSON 或描述连接信息（名称、地址、认证）来添加连接器时使用，例如「添加连接器」「导入连接器」「接入这个 MCP 服务」。 mcp connector 连接器 +2 来源 内置技能 v1.0.0 快捷使用 指标数据查询 按指标名称查询 supOS 指标服务的指标数据——技能自带脚本先按名称取指标详情拿到指标编码，再按编码查询指标数据（实测 MEA/目标 TAR/平衡 BAL/当量 EQU，小时/分钟/日/月/年单点与区间），并在本地汇总（数据点数、最小/最大/均值、quality 值类分布）。当用户查指标值、实测值、目标值、能耗或产量指标，或按日期范围取指标数据时触发。 指标 指标数据 指标值 +8 来源 用户创建 v1.0.0 快捷使用 指标信息查询 按指标名称查询 supOS 指标服务的指标信息——指标清单（指标 ID 与名称）与指标详情（指标编码、类型、单位、计算精度、物料、实测/平衡/当量/目标值公式与取值方式、启用状态、创建信息）。当用户问有哪些指标/指标清单/指标编码/指标单位/指标类型/指标公式/指标启用状态，或取数前需要确认准确的指标名称时触发。 指标 指标信息 指标清单 +4 来源 用户创建 v1.0.0 快捷使用 Agent 创建与修改 在 TPT 桌面端新建或修改 Agent：收集信息 → 在数据根里初始化包 → 写 me"
+}
+
+clickErr=none
+
+## 启停
+[
+  {
+    "step": "disable",
+    "index": 4,
+    "before": "true",
+    "after": "false",
+    "title": "启停技能",
+    "disabled": false,
+    "changed": true,
+    "states": [
+      {
+        "name": "查找技能",
+        "checked": "true"
+      },
+      {
+        "name": "创建技能",
+        "checked": "true"
+      },
+      {
+        "name": "配置连接器",
+        "checked": "true"
+      },
+      {
+        "name": "添加连接器",
+        "checked": "true"
+      },
+      {
+        "name": "指标数据查询",
+        "checked": "false"
+      },
+      {
+        "name": "指标信息查询",
+        "checked": "true"
+      },
+      {
+        "name": "Agent 创建与修改",
+        "checked": "true"
+      }
+    ]
+  },
+  {
+    "step": "re-enable",
+    "index": 4,
+    "before": "false",
+    "after": "true",
+    "title": "启停技能",
+    "disabled": false,
+    "changed": true,
+    "states": [
+      {
+        "name": "查找技能",
+        "checked": "true"
+      },
+      {
+        "name": "创建技能",
+        "checked": "true"
+      },
+      {
+        "name": "配置连接器",
+        "checked": "true"
+      },
+      {
+        "name": "添加连接器",
+        "checked": "true"
+      },
+      {
+        "name": "指标数据查询",
+        "checked": "true"
+      },
+      {
+        "name": "指标信息查询",
+        "checked": "true"
+      },
+      {
+        "name": "Agent 创建与修改",
+        "checked": "true"
+      }
+    ]
+  },
+  {
+    "step": "builtin-attempt",
+    "index": 0,
+    "before": "true",
+    "title": "内置技能不允许停用",
+    "disabled": true,
+    "changed": false,
+    "note": "toggle disabled"
+  }
+]

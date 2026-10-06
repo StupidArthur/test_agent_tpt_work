@@ -1,0 +1,31 @@
+{
+  "case_id": "SKILL-052",
+  "case_title": "原Skill与Agent副本独立",
+  "source_sha256": "92a6f4ecd2a5dffe0f1a2a60e73fa18b5fb98763b09cc56ce4cc22fd56e13f0e",
+  "status": "阻塞",
+  "review_status": "待双方审核",
+  "latest_attempt_id": null,
+  "attempts": [],
+  "product_observations": [],
+  "differences": [],
+  "finding_ids": [],
+  "blocker": {
+    "reason": "无法执行【原Skill与Agent副本独立（原生弹窗受限,需要Agent样本）】：删除会经原生确认弹窗，且会移动用户技能目录内容（含回收站）；按任务边界「不删除记忆或已有用户数据」「原生弹窗不隔窗操作」，本轮不得执行删除。",
+    "missing_dependency": "删除会经原生确认弹窗，且会移动用户技能目录内容（含回收站）；按任务边界「不删除记忆或已有用户数据」「原生弹窗不隔窗操作」，本轮不得执行删除。",
+    "evidence": [
+      "证据/SKILL-052/SKILL-052-A01/技能详情页-摘录.txt"
+    ],
+    "next_action": "需要授权对一个本轮自建的一次性技能样本执行删除，并由人工处理原生确认弹窗。"
+  },
+  "applicability_reason": null,
+  "cleanup": {
+    "changes": [],
+    "remaining": []
+  },
+  "review": {
+    "assistant": null,
+    "user": null,
+    "approved_scope": [],
+    "final_decision": "待审核"
+  }
+}
