@@ -1,0 +1,61 @@
+{
+  "case_id": "G7-11",
+  "contract_version": "retest-1.0",
+  "attempt_id": "G7-11-A02",
+  "environment_id": "env-20261006-agent2",
+  "object_identity": "3附件草稿的附件工具区",
+  "inputs": [
+    "attachment-a.txt",
+    "attachment-b.txt",
+    "attachment-c.md"
+  ],
+  "action_refs": [
+    "business-c623e9e1-2967-4bb1-b7a9-8622335c4812-5",
+    "business-c623e9e1-2967-4bb1-b7a9-8622335c4812-6"
+  ],
+  "status": "失败",
+  "started_at": "2026-10-06T09:08:33.574Z",
+  "ended_at": "2026-10-06T09:08:47.172Z",
+  "actual_steps": [
+    "添加3份附件",
+    "读取附件工具区全部可见控件确认是否有批量清空",
+    "无入口故未执行清空"
+  ],
+  "assertions": [
+    {
+      "id": "G7-11-A1",
+      "actual": false,
+      "read_refs": [
+        "business-dd666df4-9bce-4263-a7b7-d361038cb652-1"
+      ]
+    },
+    {
+      "id": "G7-11-A2",
+      "actual": null,
+      "read_refs": [
+        "business-c623e9e1-2967-4bb1-b7a9-8622335c4812-7"
+      ],
+      "reason": "附件工具区未发现批量清空入口，未执行清空，故不清空后数量",
+      "failed_dependency": "G7-11-A1 清空入口"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "运行日志/business.jsonl",
+      "sha256": "9e589ccd7fc0b470fc97aabb8726ebb2b911ac35b21193405c3c19a608047c11"
+    },
+    {
+      "path": "运行日志/业务调用.jsonl",
+      "sha256": "c3863d3663584fcab290658c6fa851e6059dedf9f16ae98307830ece3528a641"
+    }
+  ],
+  "cleanup": {
+    "status": "unchanged",
+    "description": "附件未发送，草稿保留；无设置/资产变更",
+    "read_refs": []
+  },
+  "business_call_refs": [
+    "CALL-bcf91292-b909-43fa-8399-71e236cd179d"
+  ],
+  "notes": "原问题：当前附件控件只有逐个删除，没有清空入口；未执行清空时的缓存数量3不是清空失败后的新读取。本轮读取附件工具区全部可见控件，未发现批量清空入口(A1=false)，故A2记为未观测(null)并说明依赖。控件清单见raw。"
+}

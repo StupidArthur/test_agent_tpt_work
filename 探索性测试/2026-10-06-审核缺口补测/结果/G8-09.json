@@ -1,0 +1,61 @@
+{
+  "case_id": "G8-09",
+  "contract_version": "retest-1.0",
+  "attempt_id": "G8-09-A02",
+  "environment_id": "env-20261006-agent2",
+  "object_identity": "本轮会话工具调用组合步骤",
+  "inputs": [
+    "请在目录 .fast-assert-20261006-agent2 中读取 flow.txt"
+  ],
+  "action_refs": [
+    "business-5a01b2d8-a503-4ead-bb4e-c9710a7f0f38-1",
+    "business-5a01b2d8-a503-4ead-bb4e-c9710a7f0f38-2",
+    "business-5a01b2d8-a503-4ead-bb4e-c9710a7f0f38-4",
+    "business-5a01b2d8-a503-4ead-bb4e-c9710a7f0f38-5"
+  ],
+  "status": "不确定",
+  "started_at": "2026-10-06T09:35:51.581Z",
+  "ended_at": "2026-10-06T09:36:21.135Z",
+  "actual_steps": [
+    "发起本轮文件读取并等待终态",
+    "读取工具步骤面板aria-expanded",
+    "实际展开并读取子步骤记录"
+  ],
+  "assertions": [
+    {
+      "id": "G8-09-A1",
+      "actual": true,
+      "read_refs": [
+        "business-5a01b2d8-a503-4ead-bb4e-c9710a7f0f38-3"
+      ]
+    },
+    {
+      "id": "G8-09-A2",
+      "actual": null,
+      "read_refs": [
+        "business-5a01b2d8-a503-4ead-bb4e-c9710a7f0f38-6"
+      ],
+      "reason": "展开后工具步骤节点文本为空，未读到实际执行记录",
+      "failed_dependency": "工具步骤详情渲染/定位"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "运行日志/business.jsonl",
+      "sha256": "9e589ccd7fc0b470fc97aabb8726ebb2b911ac35b21193405c3c19a608047c11"
+    },
+    {
+      "path": "运行日志/业务调用.jsonl",
+      "sha256": "c3863d3663584fcab290658c6fa851e6059dedf9f16ae98307830ece3528a641"
+    }
+  ],
+  "cleanup": {
+    "status": "retained",
+    "description": "本轮会话保留待审；无设置/资产变更",
+    "read_refs": []
+  },
+  "business_call_refs": [
+    "CALL-3ce9c8f1-39d6-4699-b1a1-56e615fc66dc"
+  ],
+  "notes": "原问题：泛化aria-expanded与整页文字没有绑定目标组合工具组。本轮定位到 tool.call.toolview 步骤的 [aria-expanded]：默认 false(A1=true)；点击展开后节点文本仍为空，A2未观测。"
+}

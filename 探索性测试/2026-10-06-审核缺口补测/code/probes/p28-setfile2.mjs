@@ -1,0 +1,20 @@
+import { withApp, sleep } from '../automation/tpt.mjs';
+import { openSkills, closeDialogs, backToList, openImportDialog } from '../automation/skills.mjs';
+import fs from 'node:fs';
+import path from 'node:path';
+const ctx = { environment: JSON.parse(fs.readFileSync('环境记录.json', 'utf8')), runtime: JSON.parse(fs.readFileSync('运行上下文.json', 'utf8')) };
+const file = path.resolve('夹具/基础/20261006-agent2/skill-b.md');
+await withApp(ctx, async (page) => {
+  const frame = await openSkills(page);
+  await closeDialogs(frame, page);
+  await backToList(frame);
+  await openImportDialog(frame);
+  const inputs = await frame.evaluate(() => [...document.querySelectorAll('[role="dialog"] input[type="file"]')].map((i) => ({ accept: i.accept, dir: i.hasAttribute('webkitdirectory'), outer: i.outerHTML.slice(0, 120) })));
+  console.log('inputs', JSON.stringify(inputs, null, 2));
+  const input = frame.locator('[role="dialog"] input[type="file"][accept*=".zip"]').first();
+  console.log('locator count', await frame.locator('[role="dialog"] input[type="file"][accept*=".zip"]').count());
+  await input.setInputFiles(file);
+  await sleep(2000);
+  const t = await frame.evaluate(() => { const d = [...document.querySelectorAll('[role="dialog"]')].find((e) => e.offsetWidth); return d ? d.innerText.replace(/\s+/g, ' ').slice(0, 250) : null; });
+  console.log('after', JSON.stringify(t));
+});

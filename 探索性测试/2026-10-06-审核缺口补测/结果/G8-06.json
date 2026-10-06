@@ -1,0 +1,61 @@
+{
+  "case_id": "G8-06",
+  "contract_version": "retest-1.0",
+  "attempt_id": "G8-06-A02",
+  "environment_id": "env-20261006-agent2",
+  "object_identity": "本轮会话成功read工具步骤",
+  "inputs": [
+    "请在目录 .fast-assert-20261006-agent2 中读取 flow.txt"
+  ],
+  "action_refs": [
+    "business-5a01b2d8-a503-4ead-bb4e-c9710a7f0f38-1",
+    "business-5a01b2d8-a503-4ead-bb4e-c9710a7f0f38-2"
+  ],
+  "status": "不确定",
+  "started_at": "2026-10-06T09:35:51.581Z",
+  "ended_at": "2026-10-06T09:36:21.135Z",
+  "actual_steps": [
+    "发起本轮文件读取并等待终态",
+    "定位工具调用步骤节点",
+    "尝试读取该步骤参数与输出"
+  ],
+  "assertions": [
+    {
+      "id": "G8-06-A1",
+      "actual": null,
+      "read_refs": [
+        "business-5a01b2d8-a503-4ead-bb4e-c9710a7f0f38-7"
+      ],
+      "reason": "展开后工具步骤节点文本为空，未定位到实际参数路径",
+      "failed_dependency": "工具步骤详情渲染/定位"
+    },
+    {
+      "id": "G8-06-A2",
+      "actual": null,
+      "read_refs": [
+        "business-5a01b2d8-a503-4ead-bb4e-c9710a7f0f38-8"
+      ],
+      "reason": "展开后工具步骤节点文本为空，未定位到实际输出",
+      "failed_dependency": "工具步骤详情渲染/定位"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "运行日志/business.jsonl",
+      "sha256": "9e589ccd7fc0b470fc97aabb8726ebb2b911ac35b21193405c3c19a608047c11"
+    },
+    {
+      "path": "运行日志/业务调用.jsonl",
+      "sha256": "c3863d3663584fcab290658c6fa851e6059dedf9f16ae98307830ece3528a641"
+    }
+  ],
+  "cleanup": {
+    "status": "retained",
+    "description": "本轮会话保留待审；无设置/资产变更",
+    "read_refs": []
+  },
+  "business_call_refs": [
+    "CALL-3ce9c8f1-39d6-4699-b1a1-56e615fc66dc"
+  ],
+  "notes": "原问题：整页包含工具路径与用户请求，不证明参数输出已显示。本轮定位到 [data-slot=\"tool.call.toolview\"] 步骤节点，但其 innerText 为空，未取到参数/输出，故两项记未观测。"
+}

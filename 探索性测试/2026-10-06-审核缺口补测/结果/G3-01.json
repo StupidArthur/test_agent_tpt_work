@@ -1,0 +1,49 @@
+{
+  "case_id": "G3-01",
+  "contract_version": "retest-1.0",
+  "attempt_id": "G3-01-A02",
+  "environment_id": "env-20261006-agent2",
+  "object_identity": "fast-assert-default-20261006-agent2",
+  "inputs": [
+    "夹具/基础/20261006-agent2/skill-default/SKILL.md"
+  ],
+  "action_refs": [
+    "business-3e2ccb48-45e5-48d8-b9e4-e5aa0c911968-7",
+    "business-3e2ccb48-45e5-48d8-b9e4-e5aa0c911968-8"
+  ],
+  "status": "失败",
+  "started_at": "2026-10-06T08:29:56.893Z",
+  "ended_at": "2026-10-06T08:31:15.181Z",
+  "actual_steps": [
+    "导入新的合法技能",
+    "不点击任何开关，首次读取该技能卡片 aria-checked"
+  ],
+  "assertions": [
+    {
+      "id": "G3-01-A1",
+      "actual": true,
+      "read_refs": [
+        "business-3e2ccb48-45e5-48d8-b9e4-e5aa0c911968-9"
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "path": "运行日志/business.jsonl",
+      "sha256": "9e589ccd7fc0b470fc97aabb8726ebb2b911ac35b21193405c3c19a608047c11"
+    },
+    {
+      "path": "运行日志/业务调用.jsonl",
+      "sha256": "c3863d3663584fcab290658c6fa851e6059dedf9f16ae98307830ece3528a641"
+    }
+  ],
+  "cleanup": {
+    "status": "retained",
+    "description": "次轮导入技能保留待审（未停用，按计划G3后续处理）",
+    "read_refs": []
+  },
+  "business_call_refs": [
+    "CALL-7588ecf0-4872-4b54-950b-f445e6273b27"
+  ],
+  "notes": "原问题：读取前可能主动归一化且复用了已有技能。本轮使用全新身份 fast-assert-default-20261006-agent2，导入后不做任何切换立即读取 aria-checked=true（原始值见raw）。设计期望停用，此处按实测记录。"
+}

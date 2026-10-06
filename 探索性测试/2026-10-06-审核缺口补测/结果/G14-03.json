@@ -1,0 +1,52 @@
+{
+  "case_id": "G14-03",
+  "contract_version": "retest-1.0",
+  "attempt_id": "G14-03-A02",
+  "environment_id": "env-20261006-agent2",
+  "object_identity": "collection.zip新导入对象内部名",
+  "inputs": [
+    "zips/collection.zip"
+  ],
+  "action_refs": [
+    "business-bd39a311-6423-43c1-a8ea-0ece0855ca9f-13",
+    "business-bd39a311-6423-43c1-a8ea-0ece0855ca9f-14"
+  ],
+  "status": "失败",
+  "started_at": "2026-10-06T08:40:10.547Z",
+  "ended_at": "2026-10-06T08:42:11.630Z",
+  "actual_steps": [
+    "提交前记录相关身份不存在",
+    "确认导入collection.zip",
+    "读取本包新增正式对象内部名并排序"
+  ],
+  "assertions": [
+    {
+      "id": "G14-03-A1",
+      "actual": [
+        "one"
+      ],
+      "read_refs": [
+        "business-bd39a311-6423-43c1-a8ea-0ece0855ca9f-15"
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "path": "运行日志/business.jsonl",
+      "sha256": "9e589ccd7fc0b470fc97aabb8726ebb2b911ac35b21193405c3c19a608047c11"
+    },
+    {
+      "path": "运行日志/业务调用.jsonl",
+      "sha256": "c3863d3663584fcab290658c6fa851e6059dedf9f16ae98307830ece3528a641"
+    }
+  ],
+  "cleanup": {
+    "status": "retained",
+    "description": "本轮导入对象保留待审",
+    "read_refs": []
+  },
+  "business_call_refs": [
+    "CALL-c82a3c3a-6e92-4426-9a8c-d70025396034"
+  ],
+  "notes": "原问题：确认前弹窗只展示ZIP文件，不展示内部候选。本轮读取最终确认后的新增正式内部名。实际新增为[\"one\"]（包内文件夹名），与期望的YAML技术名不一致；deep二级样本未导入（见raw）。"
+}

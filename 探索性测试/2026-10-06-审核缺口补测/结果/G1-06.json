@@ -1,0 +1,50 @@
+{
+  "case_id": "G1-06",
+  "contract_version": "retest-1.0",
+  "attempt_id": "G1-06-A02",
+  "environment_id": "env-20261006-agent2",
+  "object_identity": "session-333f2e2d-3f3f-450d-8011-251b7de6efd4",
+  "inputs": [
+    "只回答：FAST_CHAT_OK"
+  ],
+  "action_refs": [
+    "business-5ab39283-9c6f-4c6f-801e-7d8bf64b077c-5"
+  ],
+  "status": "通过",
+  "started_at": "2026-10-06T08:16:56.436Z",
+  "ended_at": "2026-10-06T08:17:26.051Z",
+  "actual_steps": [
+    "选择已有项目",
+    "发送纯文本请求并等待终态",
+    "确认目标会话chat区域存在",
+    "在目标会话范围内统计文件产物元素"
+  ],
+  "assertions": [
+    {
+      "id": "G1-06-A1",
+      "actual": 0,
+      "read_refs": [
+        "business-5ab39283-9c6f-4c6f-801e-7d8bf64b077c-8"
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "path": "运行日志/business.jsonl",
+      "sha256": "9e589ccd7fc0b470fc97aabb8726ebb2b911ac35b21193405c3c19a608047c11"
+    },
+    {
+      "path": "运行日志/业务调用.jsonl",
+      "sha256": "c3863d3663584fcab290658c6fa851e6059dedf9f16ae98307830ece3528a641"
+    }
+  ],
+  "cleanup": {
+    "status": "retained",
+    "description": "本轮新增纯文本会话保留待审，无设置或资产变更",
+    "read_refs": []
+  },
+  "business_call_refs": [
+    "CALL-dac552e6-620d-429f-906d-a0925f38e8f3"
+  ],
+  "notes": "原问题：全页启发式计数不能证明目标会话无产物。本轮先读取目标会话chat区域存在(count=1)，再限定该区域统计文件产物元素；助手正文为 FAST_CHAT_OK，读取值见日志。"
+}

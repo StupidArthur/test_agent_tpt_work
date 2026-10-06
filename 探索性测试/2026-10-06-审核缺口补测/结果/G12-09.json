@@ -1,0 +1,51 @@
+{
+  "case_id": "G12-09",
+  "contract_version": "retest-1.0",
+  "attempt_id": "G12-09-A02",
+  "environment_id": "env-20261006-agent2",
+  "object_identity": "搜索会话快捷键组合与搜索面板",
+  "inputs": [
+    "按当前搜索会话组合"
+  ],
+  "action_refs": [
+    "business-7a49d0b2-4dd6-453a-8d45-fcfd77c3ed21-10",
+    "business-7a49d0b2-4dd6-453a-8d45-fcfd77c3ed21-11"
+  ],
+  "status": "通过",
+  "started_at": "2026-10-06T09:05:21.823Z",
+  "ended_at": "2026-10-06T09:05:39.774Z",
+  "actual_steps": [
+    "在快捷键dialog读取当前搜索会话组合",
+    "关闭弹层",
+    "实际按下该组合",
+    "读取搜索面板输入可见性"
+  ],
+  "assertions": [
+    {
+      "id": "G12-09-A1",
+      "actual": true,
+      "read_refs": [
+        "business-7a49d0b2-4dd6-453a-8d45-fcfd77c3ed21-12"
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "path": "运行日志/business.jsonl",
+      "sha256": "9e589ccd7fc0b470fc97aabb8726ebb2b911ac35b21193405c3c19a608047c11"
+    },
+    {
+      "path": "运行日志/业务调用.jsonl",
+      "sha256": "c3863d3663584fcab290658c6fa851e6059dedf9f16ae98307830ece3528a641"
+    }
+  ],
+  "cleanup": {
+    "status": "unchanged",
+    "description": "关闭搜索面板，无设置/资产变更",
+    "read_refs": []
+  },
+  "business_call_refs": [
+    "CALL-1440e186-4f37-4196-bd32-c008fd1a83b4"
+  ],
+  "notes": "原问题：未读出配置却固定按CtrlK。本轮在快捷键dialog读取当前搜索会话组合为Ctrl+K，关闭弹层后实际按下该组合，读取到可见搜索输入面板。"
+}

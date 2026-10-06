@@ -1,0 +1,49 @@
+{
+  "case_id": "G14-04",
+  "contract_version": "retest-1.0",
+  "attempt_id": "G14-04-A02",
+  "environment_id": "env-20261006-agent2",
+  "object_identity": "fast-assert-trash-20261006-agent2安装目录",
+  "inputs": [
+    "zips/trash.zip"
+  ],
+  "action_refs": [
+    "business-bd39a311-6423-43c1-a8ea-0ece0855ca9f-16",
+    "business-bd39a311-6423-43c1-a8ea-0ece0855ca9f-17"
+  ],
+  "status": "失败",
+  "started_at": "2026-10-06T08:40:10.547Z",
+  "ended_at": "2026-10-06T08:42:11.630Z",
+  "actual_steps": [
+    "确认导入trash.zip",
+    "递归列安装目录检查.DS_Store与__MACOSX"
+  ],
+  "assertions": [
+    {
+      "id": "G14-04-A1",
+      "actual": true,
+      "read_refs": [
+        "business-bd39a311-6423-43c1-a8ea-0ece0855ca9f-18"
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "path": "运行日志/business.jsonl",
+      "sha256": "9e589ccd7fc0b470fc97aabb8726ebb2b911ac35b21193405c3c19a608047c11"
+    },
+    {
+      "path": "运行日志/业务调用.jsonl",
+      "sha256": "c3863d3663584fcab290658c6fa851e6059dedf9f16ae98307830ece3528a641"
+    }
+  ],
+  "cleanup": {
+    "status": "retained",
+    "description": "本轮导入对象保留待审（含垃圾文件）",
+    "read_refs": []
+  },
+  "business_call_refs": [
+    "CALL-c82a3c3a-6e92-4426-9a8c-d70025396034"
+  ],
+  "notes": "原问题：安装目录确有.DS_Store和__MACOSX文件。本轮新垃圾包导入后递归列目录，实测仍含垃圾文件（true），文件清单见raw。"
+}

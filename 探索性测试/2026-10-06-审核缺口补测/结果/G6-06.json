@@ -1,0 +1,75 @@
+{
+  "case_id": "G6-06",
+  "contract_version": "retest-1.0",
+  "attempt_id": "G6-06-A02",
+  "environment_id": "env-20261006-agent2",
+  "object_identity": "默认权限设置 + 新建任务composer权限控件",
+  "inputs": [
+    "默认权限=工作区内修改",
+    "恢复为初值"
+  ],
+  "action_refs": [
+    "business-f2066c12-386e-4ae1-b161-d9246d149baf-2",
+    "business-f2066c12-386e-4ae1-b161-d9246d149baf-3",
+    "business-f2066c12-386e-4ae1-b161-d9246d149baf-5",
+    "business-f2066c12-386e-4ae1-b161-d9246d149baf-6",
+    "business-f2066c12-386e-4ae1-b161-d9246d149baf-8",
+    "business-f2066c12-386e-4ae1-b161-d9246d149baf-9",
+    "business-f2066c12-386e-4ae1-b161-d9246d149baf-11",
+    "business-f2066c12-386e-4ae1-b161-d9246d149baf-12"
+  ],
+  "status": "失败",
+  "started_at": "2026-10-06T08:47:01.557Z",
+  "ended_at": "2026-10-06T08:47:23.437Z",
+  "actual_steps": [
+    "读取默认权限初值",
+    "设为工作区内修改并重开回读",
+    "从新建入口创建独立新会话并读取composer权限",
+    "恢复初值重开回读",
+    "再创建新会话读取composer权限"
+  ],
+  "assertions": [
+    {
+      "id": "G6-06-A1",
+      "actual": "工作区内修改",
+      "read_refs": [
+        "business-f2066c12-386e-4ae1-b161-d9246d149baf-7"
+      ]
+    },
+    {
+      "id": "G6-06-A2",
+      "actual": "工作区内修改",
+      "read_refs": [
+        "business-f2066c12-386e-4ae1-b161-d9246d149baf-10"
+      ]
+    },
+    {
+      "id": "G6-06-A3",
+      "actual": "工作区内修改",
+      "read_refs": [
+        "business-f2066c12-386e-4ae1-b161-d9246d149baf-13"
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "path": "运行日志/business.jsonl",
+      "sha256": "9e589ccd7fc0b470fc97aabb8726ebb2b911ac35b21193405c3c19a608047c11"
+    },
+    {
+      "path": "运行日志/业务调用.jsonl",
+      "sha256": "c3863d3663584fcab290658c6fa851e6059dedf9f16ae98307830ece3528a641"
+    }
+  ],
+  "cleanup": {
+    "status": "restored",
+    "description": "默认权限已恢复并重开回读为初值工作区内修改",
+    "read_refs": [
+      "business-f2066c12-386e-4ae1-b161-d9246d149baf-10"
+    ]
+  },
+  "business_call_refs": [
+    "CALL-b36dadf0-d69e-4ca2-8051-6bd25d102046"
+  ],
+  "notes": "原问题：设置恢复为工作区内修改后新建界面显示仅可查看，保留继承差异候选。本轮在同一包(0.2.0-rc.1)下：初值=工作区内修改，设为工作区内修改并重开确认，改后新任务composer权限实测=工作区内修改（未复现“仅可查看”），恢复后另一新任务=工作区内修改。未在同一环境复现旧差异，不做“已修复”结论。"
+}

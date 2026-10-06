@@ -1,0 +1,49 @@
+{
+  "case_id": "G13-05",
+  "contract_version": "retest-1.0",
+  "attempt_id": "G13-05-A02",
+  "environment_id": "env-20261006-agent2",
+  "object_identity": "自动化任务推荐案例",
+  "inputs": [],
+  "action_refs": [
+    "business-b5642545-0f94-4616-9ad5-6c330fa86db5-14",
+    "business-b5642545-0f94-4616-9ad5-6c330fa86db5-15"
+  ],
+  "status": "不确定",
+  "started_at": "2026-10-06T08:53:17.953Z",
+  "ended_at": "2026-10-06T08:53:51.476Z",
+  "actual_steps": [
+    "点击自动化任务",
+    "探测推荐案例卡与提示词字段"
+  ],
+  "assertions": [
+    {
+      "id": "G13-05-A1",
+      "actual": null,
+      "read_refs": [
+        "business-b5642545-0f94-4616-9ad5-6c330fa86db5-16"
+      ],
+      "reason": "自动化页限定表面未发现推荐案例卡(cardCount=0)，未取得可独立绑定的点击前提示词",
+      "failed_dependency": "自动化推荐卡结构/入口"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "运行日志/business.jsonl",
+      "sha256": "9e589ccd7fc0b470fc97aabb8726ebb2b911ac35b21193405c3c19a608047c11"
+    },
+    {
+      "path": "运行日志/业务调用.jsonl",
+      "sha256": "c3863d3663584fcab290658c6fa851e6059dedf9f16ae98307830ece3528a641"
+    }
+  ],
+  "cleanup": {
+    "status": "unchanged",
+    "description": "未点击使用，无设置/资产变更",
+    "read_refs": []
+  },
+  "business_call_refs": [
+    "CALL-47572456-411b-43d5-9d13-b919396495ec"
+  ],
+  "notes": "原问题：expected取自点击后actual且命中style。本轮先探测自动化页面；未发现推荐案例卡，无法在点击前独立读取提示词，故actual=null，不做预填结论。"
+}

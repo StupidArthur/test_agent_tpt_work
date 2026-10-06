@@ -1,0 +1,20 @@
+import fs from 'node:fs';
+import { withApp, sleep } from '../automation/tpt.mjs';
+import { closeSettings, openSettings, openSection, openShortcutDialog, closeShortcutDialog } from '../automation/settings.mjs';
+const ctx = { environment: JSON.parse(fs.readFileSync('环境记录.json', 'utf8')), runtime: JSON.parse(fs.readFileSync('运行上下文.json', 'utf8')) };
+await withApp(ctx, async (page) => {
+  await closeSettings(page);
+  await openSettings(page);
+  await openSection(page, '常规');
+  await openShortcutDialog(page);
+  await page.evaluate(() => { const li = [...document.querySelectorAll('li')].find((x) => x.innerText.replace(/\s+/g, ' ').trim().startsWith('新会话')); const b = li && li.querySelector('button[aria-label^="修改"]'); if (b) b.click(); });
+  await sleep(800);
+  await page.evaluate(() => { const li = [...document.querySelectorAll('li')].find((x) => x.innerText.replace(/\s+/g, ' ').trim().startsWith('新会话')); const b = li && li.querySelector('button[aria-label="按下快捷键"]'); if (b) b.click(); });
+  await sleep(400);
+  await page.keyboard.press('Control+N');
+  await sleep(1000);
+  const v = await page.evaluate(() => { const li = [...document.querySelectorAll('li')].find((x) => x.innerText.replace(/\s+/g, ' ').trim().startsWith('新会话')); return li ? li.innerText.replace(/\s+/g, ' ').trim() : null; });
+  console.log('new-session now', JSON.stringify(v));
+  await closeShortcutDialog(page);
+  await closeSettings(page);
+});

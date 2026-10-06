@@ -1,0 +1,526 @@
+[
+  {
+    "id": "SM-01",
+    "title": "连接真实产品",
+    "feature_path": [
+      "应用",
+      "接入"
+    ],
+    "depends_on": [],
+    "contract_version": "smoke-1.0",
+    "steps": [
+      "访问本机CDP /json/version和/json/list，记录目标页面URL和包哈希",
+      "连接属于TPT Work的页面，读取当前可见主界面及登录状态"
+    ],
+    "wait": {
+      "ui_ms": 5000,
+      "model_ms": 90000,
+      "rule": "按明确目标状态等待；超时保存实际现场，允许一次有依据定位修正"
+    },
+    "assertions": [
+      {
+        "id": "SM-01-A1",
+        "target": "目标为TPT页面",
+        "read": "目标URL属于该实例且主界面可读，不把普通浏览器页面当产品",
+        "operator": "equals",
+        "expected": true
+      }
+    ],
+    "evidence": "实际动作/原始读取/对象身份/断言结果/代码版本；通过默认不截图",
+    "cleanup": "仅改本轮样本；临时设置恢复并回读；停用本轮技能，专家/会话保留待审"
+  },
+  {
+    "id": "SM-02",
+    "title": "新任务、已有项目和模型",
+    "feature_path": [
+      "对话",
+      "创建与配置"
+    ],
+    "depends_on": [
+      "SM-01"
+    ],
+    "contract_version": "smoke-1.0",
+    "steps": [
+      "进入新建任务，读取编辑器可见且可编辑状态",
+      "在选择项目中选择已存在项目；记录所选项目名，回读本任务项目控件",
+      "选择或确认标准/low；清理本次草稿中已有技能/专家引用，记录干净状态"
+    ],
+    "wait": {
+      "ui_ms": 5000,
+      "model_ms": 90000,
+      "rule": "按明确目标状态等待；超时保存实际现场，允许一次有依据定位修正"
+    },
+    "assertions": [
+      {
+        "id": "SM-02-A1",
+        "target": "任务编辑器可用",
+        "read": "读取本次编辑器isVisible及可编辑状态，两者都成立为true",
+        "operator": "equals",
+        "expected": true
+      },
+      {
+        "id": "SM-02-A2",
+        "target": "已选已有项目",
+        "read": "读取任务项目控件文本，与选项中预先记录的project比较",
+        "operator": "equals",
+        "expected": "$project"
+      },
+      {
+        "id": "SM-02-A3",
+        "target": "模型与推理等级",
+        "read": "读取本次模型控件，规范化为标准/low",
+        "operator": "equals",
+        "expected": "标准/low"
+      }
+    ],
+    "evidence": "实际动作/原始读取/对象身份/断言结果/代码版本；通过默认不截图",
+    "cleanup": "仅改本轮样本；临时设置恢复并回读；停用本轮技能，专家/会话保留待审"
+  },
+  {
+    "id": "SM-03",
+    "title": "标准/low完成短对话",
+    "feature_path": [
+      "对话",
+      "文本执行"
+    ],
+    "depends_on": [
+      "SM-02"
+    ],
+    "contract_version": "smoke-1.0",
+    "steps": [
+      "向本次干净任务发送“只回复：<chat_reply>。不要使用工具。”；chat_reply来自预期.json",
+      "绑定发送后session及这一次助手消息，等待明确完成或模型等待上限",
+      "读取该助手最终纯文本及执行终态"
+    ],
+    "wait": {
+      "ui_ms": 5000,
+      "model_ms": 90000,
+      "rule": "按明确目标状态等待；超时保存实际现场，允许一次有依据定位修正"
+    },
+    "assertions": [
+      {
+        "id": "SM-03-A1",
+        "target": "助手回复",
+        "read": "读取本轮目标助手最终文本，仅去掉首尾空白，与chat_reply精确比较",
+        "operator": "equals",
+        "expected": "$chat_reply"
+      },
+      {
+        "id": "SM-03-A2",
+        "target": "已完成",
+        "read": "读取本轮完成终态，不以全页不存在运行文字替代",
+        "operator": "equals",
+        "expected": true
+      }
+    ],
+    "evidence": "实际动作/原始读取/对象身份/断言结果/代码版本；通过默认不截图",
+    "cleanup": "仅改本轮样本；临时设置恢复并回读；停用本轮技能，专家/会话保留待审"
+  },
+  {
+    "id": "SM-04",
+    "title": "草稿附件添加与移除",
+    "feature_path": [
+      "对话",
+      "附件"
+    ],
+    "depends_on": [
+      "SM-02"
+    ],
+    "contract_version": "smoke-1.0",
+    "steps": [
+      "进入新草稿，通过HTML文件input添加本轮smoke-note.txt，不发送",
+      "在当前草稿附件区读取文件名，再点击这一文件的移除控件",
+      "回读同一草稿附件区数量"
+    ],
+    "wait": {
+      "ui_ms": 5000,
+      "model_ms": 90000,
+      "rule": "按明确目标状态等待；超时保存实际现场，允许一次有依据定位修正"
+    },
+    "assertions": [
+      {
+        "id": "SM-04-A1",
+        "target": "目标文件已添加",
+        "read": "在当前草稿附件区读取smoke-note.txt是否存在",
+        "operator": "equals",
+        "expected": true
+      },
+      {
+        "id": "SM-04-A2",
+        "target": "移除后无附件",
+        "read": "读取同一草稿附件区文件卡数量，目标区域定位失败为null",
+        "operator": "equals",
+        "expected": 0
+      }
+    ],
+    "evidence": "实际动作/原始读取/对象身份/断言结果/代码版本；通过默认不截图",
+    "cleanup": "仅改本轮样本；临时设置恢复并回读；停用本轮技能，专家/会话保留待审"
+  },
+  {
+    "id": "SM-05",
+    "title": "新技能导入、搜索和详情",
+    "feature_path": [
+      "技能",
+      "导入与发现"
+    ],
+    "depends_on": [
+      "SM-01"
+    ],
+    "contract_version": "smoke-1.0",
+    "steps": [
+      "确认本轮skill_name尚未安装；用HTML input提交新SKILL.md导入",
+      "读取本次导入反馈，使用内部name搜索并定位唯一对象",
+      "打开这张卡片详情，读取内部name、版本和来源"
+    ],
+    "wait": {
+      "ui_ms": 5000,
+      "model_ms": 90000,
+      "rule": "按明确目标状态等待；超时保存实际现场，允许一次有依据定位修正"
+    },
+    "assertions": [
+      {
+        "id": "SM-05-A1",
+        "target": "搜索命中目标",
+        "read": "按本轮内部name识别搜索结果，不只数所有卡片，目标对象数量为1",
+        "operator": "equals",
+        "expected": 1
+      },
+      {
+        "id": "SM-05-A2",
+        "target": "详情内部名",
+        "read": "读取目标详情字段并按字段语义去引号，不能做宽松子串匹配",
+        "operator": "equals",
+        "expected": "$skill_name"
+      },
+      {
+        "id": "SM-05-A3",
+        "target": "详情版本",
+        "read": "读取该对象version",
+        "operator": "equals",
+        "expected": "1.2.3"
+      },
+      {
+        "id": "SM-05-A4",
+        "target": "本地来源",
+        "read": "读取该对象来源的规范类别，用户创建映射为用户",
+        "operator": "equals",
+        "expected": "用户"
+      }
+    ],
+    "evidence": "实际动作/原始读取/对象身份/断言结果/代码版本；通过默认不截图",
+    "cleanup": "仅改本轮样本；临时设置恢复并回读；停用本轮技能，专家/会话保留待审"
+  },
+  {
+    "id": "SM-06",
+    "title": "技能开关可改变并保持",
+    "feature_path": [
+      "技能",
+      "状态控制"
+    ],
+    "depends_on": [
+      "SM-05"
+    ],
+    "contract_version": "smoke-1.0",
+    "steps": [
+      "记录本轮技能初始状态，不假定默认启用或停用",
+      "启用该技能，离开列表再返回，读取同一对象checked",
+      "停用后同样重开读取；最后再次启用供下一条使用"
+    ],
+    "wait": {
+      "ui_ms": 5000,
+      "model_ms": 90000,
+      "rule": "按明确目标状态等待；超时保存实际现场，允许一次有依据定位修正"
+    },
+    "assertions": [
+      {
+        "id": "SM-06-A1",
+        "target": "启用保存",
+        "read": "重开后读取目标开关checked或aria-checked的真实布尔值",
+        "operator": "equals",
+        "expected": true
+      },
+      {
+        "id": "SM-06-A2",
+        "target": "停用保存",
+        "read": "停用并重开后读取同一目标开关布尔值",
+        "operator": "equals",
+        "expected": false
+      },
+      {
+        "id": "SM-06-A3",
+        "target": "调用前已启用",
+        "read": "最后启用后重新读取目标开关",
+        "operator": "equals",
+        "expected": true
+      }
+    ],
+    "evidence": "实际动作/原始读取/对象身份/断言结果/代码版本；通过默认不截图",
+    "cleanup": "仅改本轮样本；临时设置恢复并回读；停用本轮技能，专家/会话保留待审"
+  },
+  {
+    "id": "SM-07",
+    "title": "选中技能并获得规则回复",
+    "feature_path": [
+      "技能",
+      "使用效果"
+    ],
+    "depends_on": [
+      "SM-06"
+    ],
+    "contract_version": "smoke-1.0",
+    "steps": [
+      "建立干净任务，只选择本轮技能；使用入口是否复用会话另记录，本条不要求它创建新会话",
+      "读取实际选中技能chip身份，确认没有其他技能/专家引用",
+      "发送“请执行当前选中回归技能的固定回复规则，不使用工具。”，请求中不写目标回复",
+      "绑定本轮session，等完成后读取该助手最终回复"
+    ],
+    "wait": {
+      "ui_ms": 5000,
+      "model_ms": 90000,
+      "rule": "按明确目标状态等待；超时保存实际现场，允许一次有依据定位修正"
+    },
+    "assertions": [
+      {
+        "id": "SM-07-A1",
+        "target": "选中技能身份",
+        "read": "读取实际引用chip对应内部name，不在全页找名字",
+        "operator": "equals",
+        "expected": "$skill_name"
+      },
+      {
+        "id": "SM-07-A2",
+        "target": "技能规则效果",
+        "read": "读取本轮助手最终文本trim，与预期.json的skill_reply比较",
+        "operator": "equals",
+        "expected": "$skill_reply"
+      }
+    ],
+    "evidence": "实际动作/原始读取/对象身份/断言结果/代码版本；通过默认不截图",
+    "cleanup": "仅改本轮样本；临时设置恢复并回读；停用本轮技能，专家/会话保留待审"
+  },
+  {
+    "id": "SM-08",
+    "title": "新专家目录导入和详情",
+    "feature_path": [
+      "专家",
+      "导入与发现"
+    ],
+    "depends_on": [
+      "SM-01"
+    ],
+    "contract_version": "smoke-1.0",
+    "steps": [
+      "确认本轮expert_name尚未安装；用目录input提交生成的expert目录",
+      "读取导入反馈，定位该内部name对应专家，打开详情",
+      "读取详情内部name和版本"
+    ],
+    "wait": {
+      "ui_ms": 5000,
+      "model_ms": 90000,
+      "rule": "按明确目标状态等待；超时保存实际现场，允许一次有依据定位修正"
+    },
+    "assertions": [
+      {
+        "id": "SM-08-A1",
+        "target": "专家身份",
+        "read": "读取目标详情name并按字段语义规范，不用标题猜身份",
+        "operator": "equals",
+        "expected": "$expert_name"
+      },
+      {
+        "id": "SM-08-A2",
+        "target": "专家版本",
+        "read": "读取该专家详情version",
+        "operator": "equals",
+        "expected": "1.2.3"
+      }
+    ],
+    "evidence": "实际动作/原始读取/对象身份/断言结果/代码版本；通过默认不截图",
+    "cleanup": "仅改本轮样本；临时设置恢复并回读；停用本轮技能，专家/会话保留待审"
+  },
+  {
+    "id": "SM-09",
+    "title": "选中专家并获得规则回复",
+    "feature_path": [
+      "专家",
+      "使用效果"
+    ],
+    "depends_on": [
+      "SM-08"
+    ],
+    "contract_version": "smoke-1.0",
+    "steps": [
+      "建立干净任务，选择本轮专家，不选择额外技能；读取实际专家chip身份",
+      "发送“请执行当前选中回归专家的固定回复规则，不使用工具。”，请求中不写目标回复",
+      "绑定本轮session，等完成后读取该助手最终回复"
+    ],
+    "wait": {
+      "ui_ms": 5000,
+      "model_ms": 90000,
+      "rule": "按明确目标状态等待；超时保存实际现场，允许一次有依据定位修正"
+    },
+    "assertions": [
+      {
+        "id": "SM-09-A1",
+        "target": "选中专家身份",
+        "read": "实际引用对应本轮expert_name；若UI资源标识带agent-前缀，记录原值及明确映射后比较内部名",
+        "operator": "equals",
+        "expected": "$expert_name"
+      },
+      {
+        "id": "SM-09-A2",
+        "target": "专家规则效果",
+        "read": "读取本轮助手最终纯文本trim，比较expert_reply",
+        "operator": "equals",
+        "expected": "$expert_reply"
+      }
+    ],
+    "evidence": "实际动作/原始读取/对象身份/断言结果/代码版本；通过默认不截图",
+    "cleanup": "仅改本轮样本；临时设置恢复并回读；停用本轮技能，专家/会话保留待审"
+  },
+  {
+    "id": "SM-10",
+    "title": "设置与快捷键面板可打开",
+    "feature_path": [
+      "设置",
+      "入口"
+    ],
+    "depends_on": [
+      "SM-01"
+    ],
+    "contract_version": "smoke-1.0",
+    "steps": [
+      "通过头像菜单打开设置，确认常规内容可读",
+      "点击编辑快捷键；用关闭快捷键/修改新会话快捷键按钮定位独立快捷键dialog",
+      "读取新会话和搜索会话当前组合；关闭快捷键及设置，不改组合"
+    ],
+    "wait": {
+      "ui_ms": 5000,
+      "model_ms": 90000,
+      "rule": "按明确目标状态等待；超时保存实际现场，允许一次有依据定位修正"
+    },
+    "assertions": [
+      {
+        "id": "SM-10-A1",
+        "target": "常规设置可读",
+        "read": "在真实设置dialog读取权限、语言、外观字段标签，三者均存在为true",
+        "operator": "equals",
+        "expected": true
+      },
+      {
+        "id": "SM-10-A2",
+        "target": "快捷键内容可读",
+        "read": "在独立快捷键dialog中读到新会话及搜索会话两条非空有效组合；记录具体组合，不预设CtrlN/K",
+        "operator": "equals",
+        "expected": true
+      }
+    ],
+    "evidence": "实际动作/原始读取/对象身份/断言结果/代码版本；通过默认不截图",
+    "cleanup": "仅改本轮样本；临时设置恢复并回读；停用本轮技能，专家/会话保留待审"
+  },
+  {
+    "id": "SM-11",
+    "title": "主题改变并恢复",
+    "feature_path": [
+      "设置",
+      "主题效果"
+    ],
+    "depends_on": [
+      "SM-03",
+      "SM-10"
+    ],
+    "contract_version": "smoke-1.0",
+    "steps": [
+      "保存设置中的外观初值；在SM-03会话助手正文记录computed color/background及影响它的实际容器",
+      "根据当前实际浅/深色选择相反的明确主题，保存并等待稳定；回读设置值及同一正文/容器的计算颜色",
+      "恢复原设置选项（可能是跟随系统），重开回读；在同一正文核验颜色恢复"
+    ],
+    "wait": {
+      "ui_ms": 5000,
+      "model_ms": 90000,
+      "rule": "按明确目标状态等待；超时保存实际现场，允许一次有依据定位修正"
+    },
+    "assertions": [
+      {
+        "id": "SM-11-A1",
+        "target": "主题保存",
+        "read": "回读外观选项，与切换前预先选择的theme_changed比较",
+        "operator": "equals",
+        "expected": "$theme_changed"
+      },
+      {
+        "id": "SM-11-A2",
+        "target": "实际主题效果",
+        "read": "比较同一正文/容器前后color/background，至少一个真实计算值变化为true",
+        "operator": "equals",
+        "expected": true
+      },
+      {
+        "id": "SM-11-A3",
+        "target": "主题选项恢复",
+        "read": "重开读取恢复后的选项",
+        "operator": "equals",
+        "expected": "$theme_initial"
+      },
+      {
+        "id": "SM-11-A4",
+        "target": "正文颜色恢复",
+        "read": "同一目标恢复后的计算颜色与初始颜色一致，保留前后原值",
+        "operator": "equals",
+        "expected": true
+      }
+    ],
+    "evidence": "实际动作/原始读取/对象身份/断言结果/代码版本；通过默认不截图",
+    "cleanup": "仅改本轮样本；临时设置恢复并回读；停用本轮技能，专家/会话保留待审"
+  },
+  {
+    "id": "SM-12",
+    "title": "样本停用与环境恢复",
+    "feature_path": [
+      "收尾",
+      "恢复核验"
+    ],
+    "depends_on": [
+      "SM-04",
+      "SM-07",
+      "SM-09",
+      "SM-11"
+    ],
+    "contract_version": "smoke-1.0",
+    "steps": [
+      "将本轮导入技能停用并重开列表回读，不删除",
+      "确认本次附件草稿已无附件、设置和快捷键弹层关闭，主题仍为初值",
+      "在干净草稿解除本轮专家/技能引用并回读；保留导入样本和测试会话待审，记录所有残留"
+    ],
+    "wait": {
+      "ui_ms": 5000,
+      "model_ms": 90000,
+      "rule": "按明确目标状态等待；超时保存实际现场，允许一次有依据定位修正"
+    },
+    "assertions": [
+      {
+        "id": "SM-12-A1",
+        "target": "样本技能已停用",
+        "read": "重开列表读取本轮skill_name的开关",
+        "operator": "equals",
+        "expected": false
+      },
+      {
+        "id": "SM-12-A2",
+        "target": "主题最终恢复",
+        "read": "最终独立回读设置外观选项",
+        "operator": "equals",
+        "expected": "$theme_initial"
+      },
+      {
+        "id": "SM-12-A3",
+        "target": "没有未恢复操作",
+        "read": "分别保存附件数、弹层状态、本次草稿引用、改动项恢复值；全部已恢复为true，任何未验证为null",
+        "operator": "equals",
+        "expected": true
+      }
+    ],
+    "evidence": "实际动作/原始读取/对象身份/断言结果/代码版本；通过默认不截图",
+    "cleanup": "仅改本轮样本；临时设置恢复并回读；停用本轮技能，专家/会话保留待审"
+  }
+]

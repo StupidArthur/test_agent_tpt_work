@@ -1,0 +1,62 @@
+{
+  "case_id": "G5-07",
+  "contract_version": "retest-1.0",
+  "attempt_id": "G5-07-A02",
+  "environment_id": "env-20261006-agent2",
+  "object_identity": "缺agent.md的专家目录（夹具/基础/20261006-agent2/expert-missing-agent）",
+  "inputs": [
+    "expert-missing-agent目录"
+  ],
+  "action_refs": [
+    "business-5ad6619c-cfca-449a-aa55-d29b03875421-2",
+    "business-5ad6619c-cfca-449a-aa55-d29b03875421-3"
+  ],
+  "status": "通过",
+  "started_at": "2026-10-06T08:34:53.164Z",
+  "ended_at": "2026-10-06T08:35:10.140Z",
+  "actual_steps": [
+    "记录提交前专家列表数量",
+    "选择缺agent.md目录并点击提交",
+    "等待并读取本次可见错误反馈",
+    "关闭弹窗并读取提交后列表数量"
+  ],
+  "assertions": [
+    {
+      "id": "G5-07-A1",
+      "actual": true,
+      "read_refs": [
+        "business-4e818521-c775-4d47-a9a2-9699115349e3-1"
+      ]
+    },
+    {
+      "id": "G5-07-A2",
+      "actual": {
+        "before": 21,
+        "after": 21
+      },
+      "read_refs": [
+        "business-5ad6619c-cfca-449a-aa55-d29b03875421-1",
+        "business-5ad6619c-cfca-449a-aa55-d29b03875421-5"
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "path": "运行日志/business.jsonl",
+      "sha256": "9e589ccd7fc0b470fc97aabb8726ebb2b911ac35b21193405c3c19a608047c11"
+    },
+    {
+      "path": "运行日志/业务调用.jsonl",
+      "sha256": "c3863d3663584fcab290658c6fa851e6059dedf9f16ae98307830ece3528a641"
+    }
+  ],
+  "cleanup": {
+    "status": "retained",
+    "description": "坏包源目录只读未变；未产生新正式对象",
+    "read_refs": []
+  },
+  "business_call_refs": [
+    "CALL-380f5d3a-eb64-4cdc-9691-25ea92fff0a9"
+  ],
+  "notes": "原问题：弹窗未关闭与列表未变不是明确拒绝。本轮读取到本次提交后的可见反馈原文：“所选内容不是有效的专家包：需要包含 agent.md 与 metadata.json。”，明确指出缺 agent.md。"
+}

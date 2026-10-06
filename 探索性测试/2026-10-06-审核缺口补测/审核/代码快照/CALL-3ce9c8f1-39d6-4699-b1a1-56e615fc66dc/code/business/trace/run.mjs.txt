@@ -1,0 +1,78 @@
+// G8-06/G8-09: tool step actual params/output, default collapsed panel and expand.
+import { withApp, sleep, newTask, selectProject, typeAndSend, waitTerminal } from '../../automation/tpt.mjs';
+
+export async function traceRun(ctx, args) {
+  const flowFile = ctx.runtime.flow_file;
+  return withApp(ctx, async (page) => {
+    const { recorder } = ctx;
+    const out = {};
+    await newTask(page);
+    await selectProject(page).catch(() => {});
+    const act = await recorder.action('发起文件读取请求', 'fill+click', '在目录中读取 flow.txt', async () => {
+      await typeAndSend(page, '请在目录 D:\\code\\tpt-workspace\\.fast-assert-20261006-agent2 中读取 flow.txt 文件，然后只回复该文件内容。');
+    });
+    const term = await waitTerminal(page, { timeout: 180000 });
+    await sleep(1500);
+
+    const readCollapsed = await recorder.read('完成工作步骤默认折叠', 'tool.panel.expanded-before', {
+      channel: 'dom', scope: '本轮会话/工具调用步骤', locator: '[data-slot="tool.call.toolview"] [aria-expanded]',
+    }, async () => {
+      const raw = await page.evaluate(() => {
+        const views = [...document.querySelectorAll('[data-slot="tool.call.toolview"]')];
+        if (!views.length) return null;
+        const t = views[views.length - 1].querySelector('[aria-expanded]');
+        return { count: views.length, expanded: t ? t.getAttribute('aria-expanded') : null };
+      });
+      if (!raw) return { value: null, raw, reason: 'tool view node not found' };
+      return { value: raw.expanded === 'false', raw, derivation: "aria-expanded === 'false'" };
+    });
+
+    const actExpand = await recorder.action('展开工具步骤', 'click', '工具步骤面板', async () => {
+      await page.evaluate(() => {
+        const views = [...document.querySelectorAll('[data-slot="tool.call.toolview"]')];
+        const v = views[views.length - 1];
+        const t = v && v.querySelector('[aria-expanded]');
+        if (t) t.click();
+      });
+      await sleep(1500);
+    });
+
+    const readExpanded = await recorder.read('展开后执行记录可读', 'tool.panel.expanded-after', {
+      channel: 'dom', scope: '本轮会话/展开后的工具步骤', locator: '[data-slot="tool.call.toolview"]',
+    }, async () => {
+      const raw = await page.evaluate(() => {
+        const views = [...document.querySelectorAll('[data-slot="tool.call.toolview"]')];
+        const v = views[views.length - 1];
+        if (!v) return null;
+        const t = v.querySelector('[aria-expanded]');
+        return { expanded: t ? t.getAttribute('aria-expanded') : null, text: (v.innerText || '').replace(/\s+/g, ' ').trim().slice(0, 600) };
+      });
+      if (!raw) return { value: null, raw, reason: 'tool view node not found' };
+      if (!raw.text) return { value: null, raw, reason: '展开后工具步骤节点文本为空，未定位到可读执行记录' };
+      return { value: raw.text.length > 0, raw, derivation: 'tool view has non-empty readable record after expand' };
+    });
+
+    const readParams = await recorder.read('成功读取工具的路径列表', 'tool.read.params', {
+      channel: 'dom', scope: '本轮会话/展开的成功read工具步骤', locator: '[data-slot="tool.call.toolview"]',
+    }, async () => {
+      const text = await page.evaluate(() => {
+        const views = [...document.querySelectorAll('[data-slot="tool.call.toolview"]')];
+        return views.map((v) => (v.innerText || '').replace(/\s+/g, ' ')).join(' || ');
+      });
+      return { value: text || null, raw: { text, empty: !text }, reason: text ? undefined : '工具步骤节点文本为空，未定位到参数路径', derivation: 'full tool view text' };
+    });
+    const readOutput = await recorder.read('成功read输出', 'tool.read.output', {
+      channel: 'dom', scope: '本轮会话/展开的成功read工具步骤', locator: '[data-slot="tool.call.toolview"]',
+    }, async () => {
+      const text = await page.evaluate(() => {
+        const views = [...document.querySelectorAll('[data-slot="tool.call.toolview"]')];
+        return views.map((v) => (v.innerText || '').replace(/\s+/g, ' ')).join(' || ');
+      });
+      return { value: text || null, raw: { contains_input: text.includes('FAST_FLOW_INPUT'), contains_flow_path: text.includes('flow.txt'), empty: !text }, reason: text ? undefined : '工具步骤节点文本为空，未定位到输出', derivation: 'tool view text contains output/path tokens' };
+    });
+
+    out.G8_06 = { action: act.event_id, paramsRead: readParams.event_id, outputRead: readOutput.event_id, paramsValue: readParams.value, outputValue: readOutput.value };
+    out.G8_09 = { action: act.event_id, collapsedRead: readCollapsed.event_id, collapsed: readCollapsed.value, expandAction: actExpand.event_id, expandedRead: readExpanded.event_id, expanded: readExpanded.value };
+    return out;
+  });
+}

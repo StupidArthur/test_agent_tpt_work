@@ -1,0 +1,104 @@
+{
+  "project": "tpt-workspace",
+  "skill_name": "fast-assert-skillb-20261006-agent2",
+  "expert_resource": "fast-assert-expert-20261006-agent2",
+  "expert_longread_description_initial": "FAST_EXPERT_DESCRIPTION_INITIAL",
+  "extension_run": "20261006-agent2",
+  "extension_fixture_root": "D:\\code\\electron-ui\\探索性测试\\2026-10-06-审核缺口补测\\夹具\\本轮\\20261006-agent2",
+  "collection_expected_names": [
+    "fast-assert-collection-one-20261006-agent2"
+  ],
+  "mixed_expected_status": {
+    "fast-assert-mixed-valid-20261006-agent2": "成功",
+    "fast-assert-root-20261006-agent2": "跳过",
+    "fast-assert-mixed-invalid-20261006-agent2": "失败"
+  },
+  "flow_file": "D:\\code\\tpt-workspace\\.fast-assert-20261006-agent2\\flow.txt",
+  "permission_initial": "工作区内修改",
+  "usage_initial": "详细",
+  "code_tools_initial": true,
+  "link_initial": "应用内侧边栏",
+  "shortcut_new_initial": "Ctrl+N",
+  "sort_initial": "最近更新",
+  "sort_changed": "手动排序",
+  "link_path": "/fast-assert-20261006-agent2/sidebar",
+  "automation_prompt_expected": "AUTOMATION_PROMPT_NOT_OBSERVED",
+  "binding_sources": {
+    "project": {
+      "kind": "read",
+      "event_id": "business-5ab39283-9c6f-4c6f-801e-7d8bf64b077c-3"
+    },
+    "skill_name": {
+      "kind": "fixture",
+      "path": "夹具/基础/20261006-agent2/skill-b.md"
+    },
+    "expert_resource": {
+      "kind": "fixture",
+      "path": "夹具/基础/20261006-agent2/expert/metadata.json"
+    },
+    "expert_longread_description_initial": {
+      "kind": "fixture",
+      "path": "夹具/本轮/20261006-agent2/experts/longread/agent.md"
+    },
+    "collection_expected_names": {
+      "kind": "fixture",
+      "path": "夹具/本轮/20261006-agent2/预期绑定.json"
+    },
+    "mixed_expected_status": {
+      "kind": "fixture",
+      "path": "夹具/本轮/20261006-agent2/预期绑定.json"
+    },
+    "extension_run": {
+      "kind": "fixture",
+      "path": "夹具/本轮/20261006-agent2/预期绑定.json"
+    },
+    "extension_fixture_root": {
+      "kind": "fixture",
+      "path": "夹具/本轮/20261006-agent2/预期绑定.json"
+    },
+    "flow_file": {
+      "kind": "chosen",
+      "chosen_at": "2026-10-06T08:10:00.000Z",
+      "reason": "本轮工作目录flow.txt绝对路径，执行前创建并预置FAST_FLOW_INPUT"
+    },
+    "permission_initial": {
+      "kind": "read",
+      "event_id": "business-f2066c12-386e-4ae1-b161-d9246d149baf-1"
+    },
+    "usage_initial": {
+      "kind": "read",
+      "event_id": "business-8102375d-3b15-46ac-b2a2-90f95e852fb5-1"
+    },
+    "code_tools_initial": {
+      "kind": "read",
+      "event_id": "business-28e23878-5ff7-4e8f-b075-d91b59e1e610-1"
+    },
+    "link_initial": {
+      "kind": "read",
+      "event_id": "business-28e23878-5ff7-4e8f-b075-d91b59e1e610-1"
+    },
+    "shortcut_new_initial": {
+      "kind": "read",
+      "event_id": "business-7a49d0b2-4dd6-453a-8d45-fcfd77c3ed21-1"
+    },
+    "sort_initial": {
+      "kind": "read",
+      "event_id": "business-25143a0d-0829-4d87-b1f4-cbc1a5e57961-3"
+    },
+    "sort_changed": {
+      "kind": "chosen",
+      "chosen_at": "2026-10-06T08:10:00.000Z",
+      "reason": "排序菜单另一可逆选项，执行前从菜单项集合选定"
+    },
+    "link_path": {
+      "kind": "chosen",
+      "chosen_at": "2026-10-06T08:10:00.000Z",
+      "reason": "link_fixture.py启动输出的sidebar完整请求路径"
+    },
+    "automation_prompt_expected": {
+      "kind": "chosen",
+      "chosen_at": "2026-10-06T08:10:00.000Z",
+      "reason": "自动化推荐点击前读取的提示词，运行时独立绑定"
+    }
+  }
+}

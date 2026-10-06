@@ -1,0 +1,59 @@
+{
+  "case_id": "G12-03",
+  "contract_version": "retest-1.0",
+  "attempt_id": "G12-03-A02",
+  "environment_id": "env-20261006-agent2",
+  "object_identity": "性能与用量设置 + 本轮回复性能页脚",
+  "inputs": [
+    "性能与用量=详细"
+  ],
+  "action_refs": [
+    "business-8102375d-3b15-46ac-b2a2-90f95e852fb5-8",
+    "business-8102375d-3b15-46ac-b2a2-90f95e852fb5-9"
+  ],
+  "status": "失败",
+  "started_at": "2026-10-06T08:50:26.230Z",
+  "ended_at": "2026-10-06T08:51:31.354Z",
+  "actual_steps": [
+    "切换为详细",
+    "在本轮会话性能页脚读取轮数/步数/token字段",
+    "恢复初值重开回读"
+  ],
+  "assertions": [
+    {
+      "id": "G12-03-A1",
+      "actual": false,
+      "read_refs": [
+        "business-8102375d-3b15-46ac-b2a2-90f95e852fb5-11"
+      ]
+    },
+    {
+      "id": "G12-03-A2",
+      "actual": "详细",
+      "read_refs": [
+        "business-8102375d-3b15-46ac-b2a2-90f95e852fb5-14"
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "path": "运行日志/business.jsonl",
+      "sha256": "9e589ccd7fc0b470fc97aabb8726ebb2b911ac35b21193405c3c19a608047c11"
+    },
+    {
+      "path": "运行日志/业务调用.jsonl",
+      "sha256": "c3863d3663584fcab290658c6fa851e6059dedf9f16ae98307830ece3528a641"
+    }
+  ],
+  "cleanup": {
+    "status": "restored",
+    "description": "用量设置已恢复为初值详细并回读",
+    "read_refs": [
+      "business-8102375d-3b15-46ac-b2a2-90f95e852fb5-14"
+    ]
+  },
+  "business_call_refs": [
+    "CALL-4b456289-bb8d-4430-b371-b0854f2b9734"
+  ],
+  "notes": "原问题：全页正则命中style或旧内容。本轮限定TS9iAW_root页脚：详细档实测只显示“用量 XX tok”，未见轮次/步骤字段(A1=false)，可能与模型未产生工具步骤有关；恢复后设置为详细(A2通过)。"
+}

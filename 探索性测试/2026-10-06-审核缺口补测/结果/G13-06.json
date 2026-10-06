@@ -1,0 +1,48 @@
+{
+  "case_id": "G13-06",
+  "contract_version": "retest-1.0",
+  "attempt_id": "G13-06-A02",
+  "environment_id": "env-20261006-agent2",
+  "object_identity": "帮助与反馈入口",
+  "inputs": [],
+  "action_refs": [
+    "business-b5642545-0f94-4616-9ad5-6c330fa86db5-17",
+    "business-b5642545-0f94-4616-9ad5-6c330fa86db5-18"
+  ],
+  "status": "通过",
+  "started_at": "2026-10-06T08:53:17.953Z",
+  "ended_at": "2026-10-06T08:53:51.476Z",
+  "actual_steps": [
+    "记录基线",
+    "点击账号菜单帮助与反馈",
+    "读取顶层/弹窗响应"
+  ],
+  "assertions": [
+    {
+      "id": "G13-06-A1",
+      "actual": true,
+      "read_refs": [
+        "business-b5642545-0f94-4616-9ad5-6c330fa86db5-19"
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "path": "运行日志/business.jsonl",
+      "sha256": "9e589ccd7fc0b470fc97aabb8726ebb2b911ac35b21193405c3c19a608047c11"
+    },
+    {
+      "path": "运行日志/业务调用.jsonl",
+      "sha256": "c3863d3663584fcab290658c6fa851e6059dedf9f16ae98307830ece3528a641"
+    }
+  ],
+  "cleanup": {
+    "status": "unchanged",
+    "description": "关闭打开的面板，无设置/资产变更",
+    "read_refs": []
+  },
+  "business_call_refs": [
+    "CALL-47572456-411b-43d5-9d13-b919396495ec"
+  ],
+  "notes": "原问题：只比顶层URL/dialog数量且点击异常被吞。本轮确认帮助与反馈菜单点击成功，并读取到新增可见dialog作为响应。raw含url/dialogs/text。"
+}

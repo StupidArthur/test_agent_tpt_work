@@ -1,0 +1,58 @@
+{
+  "case_id": "G14-02",
+  "contract_version": "retest-1.0",
+  "attempt_id": "G14-02-A02",
+  "environment_id": "env-20261006-agent2",
+  "object_identity": "fast-assert-root-20261006-agent2",
+  "inputs": [
+    "zips/root.zip"
+  ],
+  "action_refs": [
+    "business-bd39a311-6423-43c1-a8ea-0ece0855ca9f-7",
+    "business-bd39a311-6423-43c1-a8ea-0ece0855ca9f-8"
+  ],
+  "status": "通过",
+  "started_at": "2026-10-06T08:40:10.547Z",
+  "ended_at": "2026-10-06T08:42:11.630Z",
+  "actual_steps": [
+    "提交前读取注册表确认root不存在",
+    "确认导入root.zip",
+    "读取root对象增量",
+    "读取嵌套技术名全局匹配数"
+  ],
+  "assertions": [
+    {
+      "id": "G14-02-A1",
+      "actual": 1,
+      "read_refs": [
+        "business-bd39a311-6423-43c1-a8ea-0ece0855ca9f-10"
+      ]
+    },
+    {
+      "id": "G14-02-A2",
+      "actual": 0,
+      "read_refs": [
+        "business-bd39a311-6423-43c1-a8ea-0ece0855ca9f-11"
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "path": "运行日志/business.jsonl",
+      "sha256": "9e589ccd7fc0b470fc97aabb8726ebb2b911ac35b21193405c3c19a608047c11"
+    },
+    {
+      "path": "运行日志/业务调用.jsonl",
+      "sha256": "c3863d3663584fcab290658c6fa851e6059dedf9f16ae98307830ece3528a641"
+    }
+  ],
+  "cleanup": {
+    "status": "retained",
+    "description": "本轮root技能保留待审",
+    "read_refs": []
+  },
+  "business_call_refs": [
+    "CALL-c82a3c3a-6e92-4426-9a8c-d70025396034"
+  ],
+  "notes": "原问题：提交前root身份已存在，0增量与同名跳过正常。本轮提交前root不存在，导入后增量=1；嵌套技术名全局匹配数=0。"
+}
