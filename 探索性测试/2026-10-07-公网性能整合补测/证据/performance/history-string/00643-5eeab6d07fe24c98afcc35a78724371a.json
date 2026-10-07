@@ -1,0 +1,100 @@
+{
+  "sample_id": "5eeab6d07fe24c98afcc35a78724371a",
+  "request_index": 643,
+  "cases": [
+    "API-04",
+    "TPT-07",
+    "DIFF-04"
+  ],
+  "group": "history-string",
+  "warmup": false,
+  "target": "gateway-responses",
+  "protocol": "responses",
+  "request": {
+    "model": "flash",
+    "input": [
+      {
+        "role": "user",
+        "content": "记住 HISTORY_c5e6df8a768545d5b69a21ff2a371ff5，仅回答 OK"
+      },
+      {
+        "role": "assistant",
+        "content": "OK"
+      },
+      {
+        "role": "user",
+        "content": "刚才的标记是什么？仅输出标记。"
+      }
+    ],
+    "stream": false,
+    "max_output_tokens": 512,
+    "reasoning": {
+      "effort": "low"
+    }
+  },
+  "expected": {
+    "exact_text": "HISTORY_c5e6df8a768545d5b69a21ff2a371ff5"
+  },
+  "checks": {
+    "http200": true,
+    "no_transport_error": true,
+    "valid_json": true,
+    "terminal": true,
+    "exact_text": true
+  },
+  "ok": true,
+  "fully_completed": true,
+  "request_sha256": "14a0e8a4d861f01192f5391ffaf30f81887a4f2b7f83bf28890666ea803223dc",
+  "utc": "2026-10-07T06:22:33Z",
+  "start_monotonic": 222762.546,
+  "end_monotonic": 222764.937,
+  "http": 200,
+  "error_kind": null,
+  "error": null,
+  "body_text": "{\"id\":\"resp_838dc519169f8220\",\"created_at\":1791354154,\"incomplete_details\":null,\"instructions\":null,\"metadata\":null,\"model\":\"flash\",\"object\":\"response\",\"output\":[{\"id\":\"rs_ab516350dd85561d\",\"summary\":[],\"type\":\"reasoning\",\"content\":[{\"text\":\"1.  **分析用户的请求**：\\n    *   用户说：“记住 HISTORY_c5e6df8a768545d5b69a21ff2a371ff5，仅回答 OK”（记住 HISTORY_c5e6df8a768545d5b69a21ff2a371ff5，仅回答 OK）。\\n    *   我（助手）之前回答过“OK”。\\n    *   用户现在问：“刚才的标记是什么？仅输出标记。”（刚才的标记是什么？仅输出标记。）\\n    *   我需要提取我刚才指示记住的标记。\\n\\n2.  **识别标记**：\\n    *   标记是“HISTORY_c5e6df8a768545d5b69a21ff2a371ff5”。\\n\\n3.  **制定输出**：\\n    *   用户明确要求“仅输出标记”（只输出标记）。\\n    *   因此，输出应该严格只是标记，不能有其他任何内容。\\n\\n4.  **最终检查**：\\n    *   标记正确吗？是的，HISTORY_c5e6df8a768545d5b69a21ff2a371ff5。\\n    *   我是否严格遵守“仅输出标记”？是的。\",\"type\":\"reasoning_text\"}],\"encrypted_content\":null,\"status\":null},{\"id\":\"msg_90907eff9b315f9d\",\"content\":[{\"annotations\":[],\"text\":\"HISTORY_c5e6df8a768545d5b69a21ff2a371ff5\",\"type\":\"output_text\",\"logprobs\":null}],\"role\":\"assistant\",\"status\":\"completed\",\"type\":\"message\",\"phase\":null}],\"parallel_tool_calls\":true,\"temperature\":1.0,\"tool_choice\":\"none\",\"tools\":[],\"top_p\":1.0,\"background\":false,\"max_output_tokens\":512,\"max_tool_calls\":null,\"previous_response_id\":null,\"prompt\":null,\"reasoning\":{\"context\":null,\"effort\":\"low\",\"generate_summary\":null,\"mode\":null,\"summary\":null},\"service_tier\":\"auto\",\"status\":\"completed\",\"text\":null,\"top_logprobs\":null,\"truncation\":\"disabled\",\"usage\":{\"input_tokens\":45,\"input_tokens_details\":{\"cached_tokens\":0,\"input_tokens_per_turn\":[],\"cached_tokens_per_turn\":[]},\"output_tokens\":279,\"output_tokens_details\":{\"reasoning_tokens\":0,\"tool_output_tokens\":0,\"output_tokens_per_turn\":[],\"tool_output_tokens_per_turn\":[]},\"total_tokens\":324},\"user\":null,\"presence_penalty\":0.0,\"frequency_penalty\":0.0,\"kv_transfer_params\":null,\"ec_transfer_params\":null,\"input_messages\":null,\"output_messages\":null}",
+  "normalized": {
+    "protocol": "responses",
+    "text": "HISTORY_c5e6df8a768545d5b69a21ff2a371ff5",
+    "reasoning": "1.  **分析用户的请求**：\n    *   用户说：“记住 HISTORY_c5e6df8a768545d5b69a21ff2a371ff5，仅回答 OK”（记住 HISTORY_c5e6df8a768545d5b69a21ff2a371ff5，仅回答 OK）。\n    *   我（助手）之前回答过“OK”。\n    *   用户现在问：“刚才的标记是什么？仅输出标记。”（刚才的标记是什么？仅输出标记。）\n    *   我需要提取我刚才指示记住的标记。\n\n2.  **识别标记**：\n    *   标记是“HISTORY_c5e6df8a768545d5b69a21ff2a371ff5”。\n\n3.  **制定输出**：\n    *   用户明确要求“仅输出标记”（只输出标记）。\n    *   因此，输出应该严格只是标记，不能有其他任何内容。\n\n4.  **最终检查**：\n    *   标记正确吗？是的，HISTORY_c5e6df8a768545d5b69a21ff2a371ff5。\n    *   我是否严格遵守“仅输出标记”？是的。",
+    "final_text": null,
+    "tool_calls": [],
+    "usage": {
+      "input_tokens": 45,
+      "input_tokens_details": {
+        "cached_tokens": 0,
+        "input_tokens_per_turn": [],
+        "cached_tokens_per_turn": []
+      },
+      "output_tokens": 279,
+      "output_tokens_details": {
+        "reasoning_tokens": 0,
+        "tool_output_tokens": 0,
+        "output_tokens_per_turn": [],
+        "tool_output_tokens_per_turn": []
+      },
+      "total_tokens": 324
+    },
+    "terminal": "completed",
+    "terminal_reason": "completed",
+    "error_message": null,
+    "unknown_events": [],
+    "json_errors": []
+  },
+  "raw_frames": [],
+  "metrics": {
+    "e2e": 2.391,
+    "first_event": null,
+    "first_reasoning": null,
+    "first_text": null,
+    "first_tool": null,
+    "input_tokens": 45,
+    "output_tokens": 279,
+    "output_tokens_per_e2e": 116.68757841907151,
+    "text_chars": 40,
+    "text_delta_count": 0,
+    "text_span": null,
+    "text_intervals_s": [],
+    "middle_text_chunks_per_s": null,
+    "stream_batch_observation": null
+  }
+}

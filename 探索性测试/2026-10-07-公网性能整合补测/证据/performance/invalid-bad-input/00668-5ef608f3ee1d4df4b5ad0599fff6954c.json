@@ -1,0 +1,73 @@
+{
+  "sample_id": "5ef608f3ee1d4df4b5ad0599fff6954c",
+  "request_index": 668,
+  "cases": [
+    "API-08"
+  ],
+  "group": "invalid-bad-input",
+  "warmup": false,
+  "target": "gateway-responses",
+  "protocol": "responses",
+  "request": {
+    "model": "flash",
+    "input": 19,
+    "stream": true,
+    "max_output_tokens": 256,
+    "reasoning": {
+      "effort": "low"
+    }
+  },
+  "expected": {
+    "nonempty": true,
+    "terminal_allowed": [
+      "completed"
+    ]
+  },
+  "checks": {
+    "http200": false,
+    "no_transport_error": true,
+    "valid_json": true,
+    "terminal": false,
+    "nonempty": false
+  },
+  "ok": false,
+  "fully_completed": false,
+  "request_sha256": "bd0a1afded006da2155abc2b0dd233c78f3b5b2301d78b424c0683da2ed9e414",
+  "utc": "2026-10-07T06:22:58Z",
+  "start_monotonic": 222790.156,
+  "end_monotonic": 222790.296,
+  "http": 400,
+  "error_kind": null,
+  "error": null,
+  "body_text": "{\"error\":{\"message\":\"2 validation errors:\\n  {'type': 'string_type', 'loc': ('body', 'input', 'str'), 'msg': 'Input should be a valid string', 'input': 19}\\n  {'type': 'list_type', 'loc': ('body', 'input', 'list[union[EasyInputMessageParam,Message,ResponseOutputMessageParam,ResponseFileSearchToolCallParam,ResponseComputerToolCallParam,ComputerCallOutput,ResponseFunctionWebSearchParam,ResponseFunctionToolCallParam,FunctionCallOutput,ToolSearchCall,ResponseToolSearchOutputItemParamParam,AdditionalTools,ResponseReasoningItemParam,ResponseCompactionItemParamParam,ImageGenerationCall,ResponseCodeInterpreterToolCallParam,LocalShellCall,LocalShellCallOutput,ShellCall,ShellCallOutput,ApplyPatchCall,ApplyPatchCallOutput,McpListTools,McpApprovalRequest,McpApprovalResponse,McpCall,ResponseCustomToolCallOutputParam,ResponseCustomToolCallParam,CompactionTrigger,ItemReference,Program,ProgramOutput,union[ResponseOutputMessage,ResponseFileSearchToolCall,ResponseFunctionToolCall,ResponseFunctionToolCallOutputItem,ResponseFunctionWebSearch,ResponseComputerToolCall,ResponseComputerToolCallOutputItem,ResponseReasoningItem,Program,ProgramOutput,ResponseToolSearchCall,ResponseToolSearchOutputItem,AdditionalTools,ResponseCompactionItem,ImageGenerationCall,ResponseCodeInterpreterToolCall,LocalShellCall,LocalShellCallOutput,ResponseFunctionShellToolCall,ResponseFunctionShellToolCallOutput,ResponseApplyPatchToolCall,ResponseApplyPatchToolCallOutput,McpCall,McpListTools,McpApprovalRequest,McpApprovalResponse,ResponseCustomToolCall,ResponseCustomToolCallOutputItem]]]'), 'msg': 'Input should be a valid list', 'input': 19}\",\"type\":\"Bad Request\",\"param\":\"body.input\",\"code\":400}}",
+  "normalized": {
+    "protocol": "responses",
+    "text": "",
+    "reasoning": "",
+    "final_text": null,
+    "tool_calls": [],
+    "usage": null,
+    "terminal": null,
+    "terminal_reason": null,
+    "error_message": null,
+    "unknown_events": [],
+    "json_errors": []
+  },
+  "raw_frames": [],
+  "metrics": {
+    "e2e": 0.14,
+    "first_event": null,
+    "first_reasoning": null,
+    "first_text": null,
+    "first_tool": null,
+    "input_tokens": null,
+    "output_tokens": null,
+    "output_tokens_per_e2e": null,
+    "text_chars": 0,
+    "text_delta_count": 0,
+    "text_span": null,
+    "text_intervals_s": [],
+    "middle_text_chunks_per_s": null,
+    "stream_batch_observation": null
+  }
+}

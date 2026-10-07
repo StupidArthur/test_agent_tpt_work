@@ -1,0 +1,101 @@
+{
+  "sample_id": "47ae27931ea64fafacfed36a96fb65a4",
+  "request_index": 648,
+  "cases": [
+    "API-09",
+    "TPT-08",
+    "DIFF-07"
+  ],
+  "group": "terminal-wire-16-False",
+  "warmup": false,
+  "target": "gateway-responses",
+  "protocol": "responses",
+  "request": {
+    "model": "flash",
+    "input": [
+      {
+        "role": "user",
+        "content": [
+          {
+            "type": "input_text",
+            "text": "请写一篇很长的文章论述时间序列预测，越详细越好。"
+          }
+        ]
+      }
+    ],
+    "stream": false,
+    "max_output_tokens": 16,
+    "reasoning": {
+      "effort": "low"
+    }
+  },
+  "expected": {
+    "terminal_allowed": [
+      "completed",
+      "incomplete"
+    ],
+    "output_cap": 16
+  },
+  "checks": {
+    "http200": true,
+    "no_transport_error": true,
+    "valid_json": true,
+    "terminal": true,
+    "output_cap": true
+  },
+  "ok": true,
+  "fully_completed": false,
+  "request_sha256": "db023f34afd22752aef154974fcaa3a4e6ff13c86935557f4dbd768d93389e86",
+  "utc": "2026-10-07T06:22:36Z",
+  "start_monotonic": 222768.14,
+  "end_monotonic": 222768.515,
+  "http": 200,
+  "error_kind": null,
+  "error": null,
+  "body_text": "{\"id\":\"resp_a833074f69a0dd29\",\"created_at\":1791354159,\"incomplete_details\":{\"reason\":\"max_output_tokens\"},\"instructions\":null,\"metadata\":null,\"model\":\"flash\",\"object\":\"response\",\"output\":[{\"id\":\"rs_985603dfdb01be54\",\"summary\":[],\"type\":\"reasoning\",\"content\":[{\"text\":\"我们要求写一篇很长的文章论述时间序列预测，越详细越好。\",\"type\":\"reasoning_text\"}],\"encrypted_content\":null,\"status\":null}],\"parallel_tool_calls\":true,\"temperature\":1.0,\"tool_choice\":\"none\",\"tools\":[],\"top_p\":1.0,\"background\":false,\"max_output_tokens\":16,\"max_tool_calls\":null,\"previous_response_id\":null,\"prompt\":null,\"reasoning\":{\"context\":null,\"effort\":\"low\",\"generate_summary\":null,\"mode\":null,\"summary\":null},\"service_tier\":\"auto\",\"status\":\"incomplete\",\"text\":null,\"top_logprobs\":null,\"truncation\":\"disabled\",\"usage\":{\"input_tokens\":19,\"input_tokens_details\":{\"cached_tokens\":0,\"input_tokens_per_turn\":[],\"cached_tokens_per_turn\":[]},\"output_tokens\":16,\"output_tokens_details\":{\"reasoning_tokens\":0,\"tool_output_tokens\":0,\"output_tokens_per_turn\":[],\"tool_output_tokens_per_turn\":[]},\"total_tokens\":35},\"user\":null,\"presence_penalty\":0.0,\"frequency_penalty\":0.0,\"kv_transfer_params\":null,\"ec_transfer_params\":null,\"input_messages\":null,\"output_messages\":null}",
+  "normalized": {
+    "protocol": "responses",
+    "text": "",
+    "reasoning": "我们要求写一篇很长的文章论述时间序列预测，越详细越好。",
+    "final_text": null,
+    "tool_calls": [],
+    "usage": {
+      "input_tokens": 19,
+      "input_tokens_details": {
+        "cached_tokens": 0,
+        "input_tokens_per_turn": [],
+        "cached_tokens_per_turn": []
+      },
+      "output_tokens": 16,
+      "output_tokens_details": {
+        "reasoning_tokens": 0,
+        "tool_output_tokens": 0,
+        "output_tokens_per_turn": [],
+        "tool_output_tokens_per_turn": []
+      },
+      "total_tokens": 35
+    },
+    "terminal": "incomplete",
+    "terminal_reason": "max_output_tokens",
+    "error_message": null,
+    "unknown_events": [],
+    "json_errors": []
+  },
+  "raw_frames": [],
+  "metrics": {
+    "e2e": 0.375,
+    "first_event": null,
+    "first_reasoning": null,
+    "first_text": null,
+    "first_tool": null,
+    "input_tokens": 19,
+    "output_tokens": 16,
+    "output_tokens_per_e2e": 42.666666666666664,
+    "text_chars": 0,
+    "text_delta_count": 0,
+    "text_span": null,
+    "text_intervals_s": [],
+    "middle_text_chunks_per_s": null,
+    "stream_batch_observation": null
+  }
+}

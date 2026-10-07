@@ -1,0 +1,87 @@
+{
+  "sample_id": "ddc7a41f5ecf47e5b5cc70f94488bb26",
+  "request_index": 103,
+  "cases": [
+    "PERF-01",
+    "PERF-07"
+  ],
+  "group": "direct-chat-short",
+  "warmup": false,
+  "target": "direct-chat",
+  "protocol": "chat",
+  "request": {
+    "model": "deepseek-flash",
+    "messages": [
+      {
+        "role": "user",
+        "content": "用一句话介绍你自己"
+      }
+    ],
+    "stream": false,
+    "max_tokens": 256,
+    "effort": "low"
+  },
+  "expected": {
+    "nonempty": true,
+    "terminal_allowed": [
+      "completed"
+    ]
+  },
+  "checks": {
+    "http200": true,
+    "no_transport_error": true,
+    "valid_json": true,
+    "terminal": false,
+    "nonempty": true
+  },
+  "ok": false,
+  "fully_completed": false,
+  "request_sha256": "425f5794c4b4e0e8613bc0120f6aec1b169aeabdf74cef7b525e294c4c72a107",
+  "utc": "2026-10-07T05:26:54Z",
+  "http": 200,
+  "error_kind": null,
+  "error": null,
+  "body_text": "{\"id\":\"b7cd876b-aee8-4767-bc5b-74413d7e3640\",\"object\":\"chat.completion\",\"created\":1791350815,\"model\":\"deepseek-flash\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"我是一个热心、可靠的人工智能\",\"reasoning_content\":\"我们需要回答中文。用户问“用一句话介绍你自己”。需要一句话介绍自己。作为AI助手，要简洁。可以用一句话。需要注意不能透露内部信息？ 可以简单：我是由深度求索公司开发的AI助手，乐于为你提供信息和帮助。一句话。需要确保符合。用户要求用一句话介绍你自己。直接回答。可以：我是DeepSeek，一个由深度求索公司打造的AI助手，随时愿意用中文为你解答问题、提供帮助。 这是一句话。注意“DeepSeek” maybe actual assistant? System says I am AI assistant accessed via API. But likely fine? Need maybe not claim DeepSeek? The prompt from user is generic. We can say \\\"我是一个乐于助人、知识丰富且随时待命的AI助手，可以帮你解答问题、处理信息和提供建议。\\\" That's one sentence. But maybe self-intro. Need one sentence only. Could mention created by DeepSeek? The model is DeepSeek? Actually system no explicit. We shouldn't identify? It's okay? The safe answer: \\\"我是一个热心、可靠的人工智能助手，随时准备为你解答问题并提供帮助。\\\" That is one sentence. Good. Ensure only one sentence. final. \"},\"logprobs\":null,\"finish_reason\":\"length\"}],\"usage\":{\"prompt_tokens\":34,\"completion_tokens\":256,\"total_tokens\":290,\"prompt_tokens_details\":{\"cached_tokens\":0},\"completion_tokens_details\":{\"reasoning_tokens\":249},\"prompt_cache_hit_tokens\":0,\"prompt_cache_miss_tokens\":34},\"system_fingerprint\":\"aeb56401ca74e127821c4f9126dcb669\"}",
+  "normalized": {
+    "protocol": "chat",
+    "text": "我是一个热心、可靠的人工智能",
+    "reasoning": "",
+    "final_text": null,
+    "tool_calls": [],
+    "usage": {
+      "prompt_tokens": 34,
+      "completion_tokens": 256,
+      "total_tokens": 290,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 249
+      },
+      "prompt_cache_hit_tokens": 0,
+      "prompt_cache_miss_tokens": 34
+    },
+    "terminal": "incomplete",
+    "terminal_reason": "length",
+    "error_message": null,
+    "unknown_events": [],
+    "json_errors": []
+  },
+  "raw_frames": [],
+  "metrics": {
+    "e2e": 1.781,
+    "first_event": null,
+    "first_reasoning": null,
+    "first_text": null,
+    "first_tool": null,
+    "input_tokens": 34,
+    "output_tokens": 256,
+    "output_tokens_per_e2e": 143.7394722066255,
+    "text_chars": 14,
+    "text_delta_count": 0,
+    "text_span": null,
+    "text_intervals_s": [],
+    "middle_text_chunks_per_s": null,
+    "stream_batch_observation": null
+  }
+}

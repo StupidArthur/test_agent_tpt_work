@@ -1,0 +1,101 @@
+{
+  "sample_id": "78e896eede4a44f28f2f0673337dc85b",
+  "request_index": 656,
+  "cases": [
+    "API-09",
+    "TPT-08",
+    "DIFF-07"
+  ],
+  "group": "terminal-wire-512-False",
+  "warmup": false,
+  "target": "gateway-responses",
+  "protocol": "responses",
+  "request": {
+    "model": "flash",
+    "input": [
+      {
+        "role": "user",
+        "content": [
+          {
+            "type": "input_text",
+            "text": "请写一篇很长的文章论述时间序列预测，越详细越好。"
+          }
+        ]
+      }
+    ],
+    "stream": false,
+    "max_output_tokens": 512,
+    "reasoning": {
+      "effort": "low"
+    }
+  },
+  "expected": {
+    "terminal_allowed": [
+      "completed",
+      "incomplete"
+    ],
+    "output_cap": 512
+  },
+  "checks": {
+    "http200": true,
+    "no_transport_error": true,
+    "valid_json": true,
+    "terminal": true,
+    "output_cap": true
+  },
+  "ok": true,
+  "fully_completed": false,
+  "request_sha256": "7eef8bf325ce7e7e3902af659335c28fa880b86ea68b8c58bcaa1570c3efcc78",
+  "utc": "2026-10-07T06:22:43Z",
+  "start_monotonic": 222771.687,
+  "end_monotonic": 222775.484,
+  "http": 200,
+  "error_kind": null,
+  "error": null,
+  "body_text": "{\"id\":\"resp_af9e3d971ec2d49d\",\"created_at\":1791354163,\"incomplete_details\":{\"reason\":\"max_output_tokens\"},\"instructions\":null,\"metadata\":null,\"model\":\"flash\",\"object\":\"response\",\"output\":[{\"id\":\"rs_82f003f3a9748e6a\",\"summary\":[],\"type\":\"reasoning\",\"content\":[{\"text\":\"好的，用户要求写一篇很长的文章论述时间序列预测，要求越详细越好。这是一个专业性很强的写作任务，需要兼顾理论深度和叙述的流畅性。\\n\\n时间序列预测这个话题可以从多个维度展开：基本概念与数学定义、方法演进历史（从经典统计到机器学习再到深度学习）、各类方法的原理、评价体系、实际应用场景、挑战与展望。结构上可以按时间线或方法谱系来组织，用历史叙事作为主线会比较有吸引力，既有戏剧性又有知识密度。\\n\\n数学表达是这类文章的重要部分，ARIMA的公式、Holt-Winters的三重平滑方程这些核心内容需要准确呈现。文中要涉及的关键模型包括：自回归、移动平均、指数平滑、ARIMA、状态空间、向量自回归、机器学习方法、RNN/LSTM、Transformer、扩散模型等。\\n\\n实际应用部分可以引用经典案例，比如Box-Jenkins的航空公司数据、Walmart竞赛、Google流感趋势的失败案例等，这些能让文章更生动具体。\\n\\n挑战与展望部分要考虑数据质量、概念漂移、不确定性量化、可解释性、小样本与长尾预测、跨学科融合等问题。\\n\\n文章结构可以是：引言→基本概念与数学定义→经典统计时代→机器学习革命→深度学习时代→当前前沿→评价体系→挑战与展望→结语。整体采用编年史式的叙事框架，用历史和思想脉络串联起各个方法。\\n\\n篇幅上要足够长，每个部分都要有实质内容，不能空洞。写作时要注意适度的专业性与可读性平衡，让非专业读者也能理解，同时专业人士也能获得有价值的内容。\",\"type\":\"reasoning_text\"}],\"encrypted_content\":null,\"status\":null},{\"id\":\"msg_89fe37f161e3adcf\",\"content\":[{\"annotations\":[],\"text\":\"# 时间序列预测：从经典统计到深度学习的全景解析\\n\\n## 引言：时间之矢与预测之难\\n\\n时间序列预测是人类最古老也最执着的智力追求之一。占星术观察行星轨迹以预测命运，农人观察节气以安排耕作，经济学家盯着GDP曲线以预判衰退——所有这些活动的核心，都是试图从时间的有序排列中发现规律，并将这些规律投射向未来。时间序列预测的特殊之处在于：数据点之间不是独立的，而是按照时间顺序排列，具有内在的相关性和依赖结构。这种有序性既是预测得以可能的根基，也是预测困难重重的原因——因为我们不仅要理解\\\"变量之间的关系\\\"，更要理解\\\"变量与其自身过去的关系\\\"。\\n\\n纵观时间序列预测的发展史，它经历了从统计模型到机器学习、再到深度学习的多次范式转换。每一代方法都有其独特\",\"type\":\"output_text\",\"logprobs\":null}],\"role\":\"assistant\",\"status\":\"completed\",\"type\":\"message\",\"phase\":null}],\"parallel_tool_calls\":true,\"temperature\":1.0,\"tool_choice\":\"none\",\"tools\":[],\"top_p\":1.0,\"background\":false,\"max_output_tokens\":512,\"max_tool_calls\":null,\"previous_response_id\":null,\"prompt\":null,\"reasoning\":{\"context\":null,\"effort\":\"low\",\"generate_summary\":null,\"mode\":null,\"summary\":null},\"service_tier\":\"auto\",\"status\":\"incomplete\",\"text\":null,\"top_logprobs\":null,\"truncation\":\"disabled\",\"usage\":{\"input_tokens\":19,\"input_tokens_details\":{\"cached_tokens\":0,\"input_tokens_per_turn\":[],\"cached_tokens_per_turn\":[]},\"output_tokens\":512,\"output_tokens_details\":{\"reasoning_tokens\":0,\"tool_output_tokens\":0,\"output_tokens_per_turn\":[],\"tool_output_tokens_per_turn\":[]},\"total_tokens\":531},\"user\":null,\"presence_penalty\":0.0,\"frequency_penalty\":0.0,\"kv_transfer_params\":null,\"ec_transfer_params\":null,\"input_messages\":null,\"output_messages\":null}",
+  "normalized": {
+    "protocol": "responses",
+    "text": "# 时间序列预测：从经典统计到深度学习的全景解析\n\n## 引言：时间之矢与预测之难\n\n时间序列预测是人类最古老也最执着的智力追求之一。占星术观察行星轨迹以预测命运，农人观察节气以安排耕作，经济学家盯着GDP曲线以预判衰退——所有这些活动的核心，都是试图从时间的有序排列中发现规律，并将这些规律投射向未来。时间序列预测的特殊之处在于：数据点之间不是独立的，而是按照时间顺序排列，具有内在的相关性和依赖结构。这种有序性既是预测得以可能的根基，也是预测困难重重的原因——因为我们不仅要理解\"变量之间的关系\"，更要理解\"变量与其自身过去的关系\"。\n\n纵观时间序列预测的发展史，它经历了从统计模型到机器学习、再到深度学习的多次范式转换。每一代方法都有其独特",
+    "reasoning": "好的，用户要求写一篇很长的文章论述时间序列预测，要求越详细越好。这是一个专业性很强的写作任务，需要兼顾理论深度和叙述的流畅性。\n\n时间序列预测这个话题可以从多个维度展开：基本概念与数学定义、方法演进历史（从经典统计到机器学习再到深度学习）、各类方法的原理、评价体系、实际应用场景、挑战与展望。结构上可以按时间线或方法谱系来组织，用历史叙事作为主线会比较有吸引力，既有戏剧性又有知识密度。\n\n数学表达是这类文章的重要部分，ARIMA的公式、Holt-Winters的三重平滑方程这些核心内容需要准确呈现。文中要涉及的关键模型包括：自回归、移动平均、指数平滑、ARIMA、状态空间、向量自回归、机器学习方法、RNN/LSTM、Transformer、扩散模型等。\n\n实际应用部分可以引用经典案例，比如Box-Jenkins的航空公司数据、Walmart竞赛、Google流感趋势的失败案例等，这些能让文章更生动具体。\n\n挑战与展望部分要考虑数据质量、概念漂移、不确定性量化、可解释性、小样本与长尾预测、跨学科融合等问题。\n\n文章结构可以是：引言→基本概念与数学定义→经典统计时代→机器学习革命→深度学习时代→当前前沿→评价体系→挑战与展望→结语。整体采用编年史式的叙事框架，用历史和思想脉络串联起各个方法。\n\n篇幅上要足够长，每个部分都要有实质内容，不能空洞。写作时要注意适度的专业性与可读性平衡，让非专业读者也能理解，同时专业人士也能获得有价值的内容。",
+    "final_text": null,
+    "tool_calls": [],
+    "usage": {
+      "input_tokens": 19,
+      "input_tokens_details": {
+        "cached_tokens": 0,
+        "input_tokens_per_turn": [],
+        "cached_tokens_per_turn": []
+      },
+      "output_tokens": 512,
+      "output_tokens_details": {
+        "reasoning_tokens": 0,
+        "tool_output_tokens": 0,
+        "output_tokens_per_turn": [],
+        "tool_output_tokens_per_turn": []
+      },
+      "total_tokens": 531
+    },
+    "terminal": "incomplete",
+    "terminal_reason": "max_output_tokens",
+    "error_message": null,
+    "unknown_events": [],
+    "json_errors": []
+  },
+  "raw_frames": [],
+  "metrics": {
+    "e2e": 3.797,
+    "first_event": null,
+    "first_reasoning": null,
+    "first_text": null,
+    "first_tool": null,
+    "input_tokens": 19,
+    "output_tokens": 512,
+    "output_tokens_per_e2e": 134.84329734000525,
+    "text_chars": 323,
+    "text_delta_count": 0,
+    "text_span": null,
+    "text_intervals_s": [],
+    "middle_text_chunks_per_s": null,
+    "stream_batch_observation": null
+  }
+}

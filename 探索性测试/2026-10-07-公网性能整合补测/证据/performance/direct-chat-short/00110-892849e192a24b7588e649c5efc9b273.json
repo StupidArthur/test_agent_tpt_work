@@ -1,0 +1,87 @@
+{
+  "sample_id": "892849e192a24b7588e649c5efc9b273",
+  "request_index": 110,
+  "cases": [
+    "PERF-01",
+    "PERF-07"
+  ],
+  "group": "direct-chat-short",
+  "warmup": false,
+  "target": "direct-chat",
+  "protocol": "chat",
+  "request": {
+    "model": "deepseek-flash",
+    "messages": [
+      {
+        "role": "user",
+        "content": "用一句话介绍你自己"
+      }
+    ],
+    "stream": false,
+    "max_tokens": 256,
+    "effort": "low"
+  },
+  "expected": {
+    "nonempty": true,
+    "terminal_allowed": [
+      "completed"
+    ]
+  },
+  "checks": {
+    "http200": true,
+    "no_transport_error": true,
+    "valid_json": true,
+    "terminal": true,
+    "nonempty": true
+  },
+  "ok": true,
+  "fully_completed": true,
+  "request_sha256": "425f5794c4b4e0e8613bc0120f6aec1b169aeabdf74cef7b525e294c4c72a107",
+  "utc": "2026-10-07T05:27:04Z",
+  "http": 200,
+  "error_kind": null,
+  "error": null,
+  "body_text": "{\"id\":\"f16fc7e3-7425-40b2-bb70-e8bbb2561df5\",\"object\":\"chat.completion\",\"created\":1791350826,\"model\":\"deepseek-flash\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"我是由深度求索公司开发的 DeepSeek AI 助手，乐于用清晰、可靠的方式帮你解答问题、处理信息并完成各种文字任务。\",\"reasoning_content\":\"我们需要回答用户中文请求：“用一句话介绍你自己”。需要一句话介绍自己。作为AI助手。应简洁。可能：我是由深度求索公司创造的AI助手，乐于用中文为你提供清晰、可靠的帮助。注意只有一句话。可以提及能处理文本，支持文件上传等？一句话即可。需要符合身份。不要多余。最终用一句话。确保是中文。可以：“我是DeepSeek AI助手，由深度求索公司开发，能帮你解答问题、处理信息并完成各种文字任务。” 一句话。但用户说“用一句话介绍你自己”。我们应该直接回答。注意不能透露系统提示？可以。就用一句。\"},\"logprobs\":null,\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":34,\"completion_tokens\":167,\"total_tokens\":201,\"prompt_tokens_details\":{\"cached_tokens\":0},\"completion_tokens_details\":{\"reasoning_tokens\":134},\"prompt_cache_hit_tokens\":0,\"prompt_cache_miss_tokens\":34},\"system_fingerprint\":\"aeb56401ca74e127821c4f9126dcb669\"}",
+  "normalized": {
+    "protocol": "chat",
+    "text": "我是由深度求索公司开发的 DeepSeek AI 助手，乐于用清晰、可靠的方式帮你解答问题、处理信息并完成各种文字任务。",
+    "reasoning": "",
+    "final_text": null,
+    "tool_calls": [],
+    "usage": {
+      "prompt_tokens": 34,
+      "completion_tokens": 167,
+      "total_tokens": 201,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 134
+      },
+      "prompt_cache_hit_tokens": 0,
+      "prompt_cache_miss_tokens": 34
+    },
+    "terminal": "completed",
+    "terminal_reason": "stop",
+    "error_message": null,
+    "unknown_events": [],
+    "json_errors": []
+  },
+  "raw_frames": [],
+  "metrics": {
+    "e2e": 1.828,
+    "first_event": null,
+    "first_reasoning": null,
+    "first_text": null,
+    "first_tool": null,
+    "input_tokens": 34,
+    "output_tokens": 167,
+    "output_tokens_per_e2e": 91.35667396061268,
+    "text_chars": 60,
+    "text_delta_count": 0,
+    "text_span": null,
+    "text_intervals_s": [],
+    "middle_text_chunks_per_s": null,
+    "stream_batch_observation": null
+  }
+}

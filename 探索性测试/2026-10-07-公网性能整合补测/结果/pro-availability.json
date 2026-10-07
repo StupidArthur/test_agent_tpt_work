@@ -1,0 +1,284 @@
+{
+  "group": "pro-availability",
+  "summary": {
+    "attempted": 1,
+    "succeeded": 0,
+    "failed": 1,
+    "complete": 0,
+    "success_rate": 0.0,
+    "all_attempt_metrics": {
+      "e2e": {
+        "n": 1,
+        "mean": 0.547,
+        "p50": 0.547,
+        "p95": 0.547,
+        "min": 0.547,
+        "max": 0.547
+      },
+      "first_event": {
+        "n": 0,
+        "mean": null,
+        "p50": null,
+        "p95": null,
+        "min": null,
+        "max": null
+      },
+      "first_reasoning": {
+        "n": 0,
+        "mean": null,
+        "p50": null,
+        "p95": null,
+        "min": null,
+        "max": null
+      },
+      "first_text": {
+        "n": 0,
+        "mean": null,
+        "p50": null,
+        "p95": null,
+        "min": null,
+        "max": null
+      },
+      "first_tool": {
+        "n": 0,
+        "mean": null,
+        "p50": null,
+        "p95": null,
+        "min": null,
+        "max": null
+      },
+      "input_tokens": {
+        "n": 0,
+        "mean": null,
+        "p50": null,
+        "p95": null,
+        "min": null,
+        "max": null
+      },
+      "output_tokens": {
+        "n": 0,
+        "mean": null,
+        "p50": null,
+        "p95": null,
+        "min": null,
+        "max": null
+      },
+      "output_tokens_per_e2e": {
+        "n": 0,
+        "mean": null,
+        "p50": null,
+        "p95": null,
+        "min": null,
+        "max": null
+      },
+      "text_span": {
+        "n": 0,
+        "mean": null,
+        "p50": null,
+        "p95": null,
+        "min": null,
+        "max": null
+      },
+      "middle_text_chunks_per_s": {
+        "n": 0,
+        "mean": null,
+        "p50": null,
+        "p95": null,
+        "min": null,
+        "max": null
+      }
+    },
+    "success_metrics": {
+      "e2e": {
+        "n": 0,
+        "mean": null,
+        "p50": null,
+        "p95": null,
+        "min": null,
+        "max": null
+      },
+      "first_event": {
+        "n": 0,
+        "mean": null,
+        "p50": null,
+        "p95": null,
+        "min": null,
+        "max": null
+      },
+      "first_reasoning": {
+        "n": 0,
+        "mean": null,
+        "p50": null,
+        "p95": null,
+        "min": null,
+        "max": null
+      },
+      "first_text": {
+        "n": 0,
+        "mean": null,
+        "p50": null,
+        "p95": null,
+        "min": null,
+        "max": null
+      },
+      "first_tool": {
+        "n": 0,
+        "mean": null,
+        "p50": null,
+        "p95": null,
+        "min": null,
+        "max": null
+      },
+      "input_tokens": {
+        "n": 0,
+        "mean": null,
+        "p50": null,
+        "p95": null,
+        "min": null,
+        "max": null
+      },
+      "output_tokens": {
+        "n": 0,
+        "mean": null,
+        "p50": null,
+        "p95": null,
+        "min": null,
+        "max": null
+      },
+      "output_tokens_per_e2e": {
+        "n": 0,
+        "mean": null,
+        "p50": null,
+        "p95": null,
+        "min": null,
+        "max": null
+      },
+      "text_span": {
+        "n": 0,
+        "mean": null,
+        "p50": null,
+        "p95": null,
+        "min": null,
+        "max": null
+      },
+      "middle_text_chunks_per_s": {
+        "n": 0,
+        "mean": null,
+        "p50": null,
+        "p95": null,
+        "min": null,
+        "max": null
+      }
+    },
+    "terminations": {
+      "completed": 0,
+      "incomplete": 0,
+      "failed": 0,
+      "error": 0,
+      "null": 1
+    },
+    "evidence": [
+      {
+        "rel_path": "performance/pro-availability/00674-d238baeba88a4bb4a78807cb3f7d5199.json",
+        "sha256": "3E0C46C0DC7441954B47FEE7C4AAB17722B706FBF5E4454A2D422A4473D3B93A",
+        "instances": [
+          "TPT-05"
+        ],
+        "kind": "performance_wire",
+        "note": ""
+      }
+    ],
+    "slo": "unconfirmed; measurement only"
+  },
+  "samples": [
+    {
+      "sample_id": "d238baeba88a4bb4a78807cb3f7d5199",
+      "request_index": 674,
+      "cases": [
+        "TPT-05"
+      ],
+      "group": "pro-availability",
+      "warmup": false,
+      "target": "gateway-responses",
+      "protocol": "responses",
+      "request": {
+        "model": "pro",
+        "input": [
+          {
+            "role": "user",
+            "content": [
+              {
+                "type": "input_text",
+                "text": "只输出 PRO_OK"
+              }
+            ]
+          }
+        ],
+        "stream": false,
+        "max_output_tokens": 512,
+        "reasoning": {
+          "effort": "low"
+        }
+      },
+      "expected": {
+        "exact_text": "PRO_OK"
+      },
+      "checks": {
+        "http200": false,
+        "no_transport_error": true,
+        "valid_json": true,
+        "terminal": false,
+        "exact_text": false
+      },
+      "ok": false,
+      "fully_completed": false,
+      "request_sha256": "72b67a59c96b4bf14385cade6fa726a9d0202e6deced24e070e450a0e8ac349f",
+      "utc": "2026-10-07T06:23:03Z",
+      "start_monotonic": 222794.515,
+      "end_monotonic": 222795.062,
+      "http": 503,
+      "error_kind": null,
+      "error": null,
+      "body_text": "{\"error\":{\"code\":null,\"message\":\"当前模型暂时不可用: no available channels\",\"param\":null,\"type\":\"channel_error\"}}",
+      "normalized": {
+        "protocol": "responses",
+        "text": "",
+        "reasoning": "",
+        "final_text": null,
+        "tool_calls": [],
+        "usage": null,
+        "terminal": null,
+        "terminal_reason": null,
+        "error_message": null,
+        "unknown_events": [],
+        "json_errors": []
+      },
+      "raw_frames": [],
+      "metrics": {
+        "e2e": 0.547,
+        "first_event": null,
+        "first_reasoning": null,
+        "first_text": null,
+        "first_tool": null,
+        "input_tokens": null,
+        "output_tokens": null,
+        "output_tokens_per_e2e": null,
+        "text_chars": 0,
+        "text_delta_count": 0,
+        "text_span": null,
+        "text_intervals_s": [],
+        "middle_text_chunks_per_s": null,
+        "stream_batch_observation": null
+      },
+      "evidence": {
+        "rel_path": "performance/pro-availability/00674-d238baeba88a4bb4a78807cb3f7d5199.json",
+        "sha256": "3E0C46C0DC7441954B47FEE7C4AAB17722B706FBF5E4454A2D422A4473D3B93A",
+        "instances": [
+          "TPT-05"
+        ],
+        "kind": "performance_wire",
+        "note": ""
+      }
+    }
+  ]
+}

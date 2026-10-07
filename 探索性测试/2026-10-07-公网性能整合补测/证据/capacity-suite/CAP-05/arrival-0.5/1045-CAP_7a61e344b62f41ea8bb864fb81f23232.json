@@ -1,0 +1,1816 @@
+{
+  "request": {
+    "model": "flash",
+    "input": [
+      {
+        "role": "user",
+        "content": [
+          {
+            "type": "input_text",
+            "text": "只输出 CAP_7a61e344b62f41ea8bb864fb81f23232"
+          }
+        ]
+      }
+    ],
+    "stream": true,
+    "max_output_tokens": 256,
+    "reasoning": {
+      "effort": "low"
+    }
+  },
+  "response": {
+    "http_status": 200,
+    "error_kind": null,
+    "error": null,
+    "t_headers": 0.718,
+    "t_first_frame": 0.718,
+    "t_end": 1.843,
+    "is_event_stream": true,
+    "terminal": "completed",
+    "text": "CAP_7a61e344b62f41ea8bb864fb81f23232",
+    "final_text": "CAP_7a61e344b62f41ea8bb864fb81f23232",
+    "usage": {
+      "input_tokens": 26,
+      "input_tokens_details": {
+        "cached_tokens": 0,
+        "input_tokens_per_turn": [],
+        "cached_tokens_per_turn": []
+      },
+      "output_tokens": 233,
+      "output_tokens_details": {
+        "reasoning_tokens": 0,
+        "tool_output_tokens": 0,
+        "output_tokens_per_turn": [],
+        "tool_output_tokens_per_turn": []
+      },
+      "total_tokens": 259
+    }
+  },
+  "body_text": "",
+  "frames": [
+    {
+      "t": 223864.343,
+      "event": "response.created",
+      "data": "{\"response\":{\"id\":\"resp_8cc943861e4d042c\",\"created_at\":1791355255,\"incomplete_details\":null,\"instructions\":null,\"metadata\":null,\"model\":\"flash\",\"object\":\"response\",\"output\":[],\"parallel_tool_calls\":true,\"temperature\":1.0,\"tool_choice\":\"none\",\"tools\":[],\"top_p\":1.0,\"background\":false,\"max_output_tokens\":256,\"max_tool_calls\":null,\"previous_response_id\":null,\"prompt\":null,\"reasoning\":{\"context\":null,\"effort\":\"low\",\"generate_summary\":null,\"mode\":null,\"summary\":null},\"service_tier\":\"auto\",\"status\":\"in_progress\",\"text\":null,\"top_logprobs\":null,\"truncation\":\"disabled\",\"usage\":null,\"user\":null,\"presence_penalty\":0.0,\"frequency_penalty\":0.0,\"kv_transfer_params\":null,\"ec_transfer_params\":null,\"input_messages\":null,\"output_messages\":null},\"sequence_number\":0,\"type\":\"response.created\"}",
+      "raw": "event: response.created\ndata: {\"response\":{\"id\":\"resp_8cc943861e4d042c\",\"created_at\":1791355255,\"incomplete_details\":null,\"instructions\":null,\"metadata\":null,\"model\":\"flash\",\"object\":\"response\",\"output\":[],\"parallel_tool_calls\":true,\"temperature\":1.0,\"tool_choice\":\"none\",\"tools\":[],\"top_p\":1.0,\"background\":false,\"max_output_tokens\":256,\"max_tool_calls\":null,\"previous_response_id\":null,\"prompt\":null,\"reasoning\":{\"context\":null,\"effort\":\"low\",\"generate_summary\":null,\"mode\":null,\"summary\":null},\"service_tier\":\"auto\",\"status\":\"in_progress\",\"text\":null,\"top_logprobs\":null,\"truncation\":\"disabled\",\"usage\":null,\"user\":null,\"presence_penalty\":0.0,\"frequency_penalty\":0.0,\"kv_transfer_params\":null,\"ec_transfer_params\":null,\"input_messages\":null,\"output_messages\":null},\"sequence_number\":0,\"type\":\"response.created\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223864.343,
+      "event": "response.in_progress",
+      "data": "{\"response\":{\"id\":\"resp_8cc943861e4d042c\",\"created_at\":1791355255,\"incomplete_details\":null,\"instructions\":null,\"metadata\":null,\"model\":\"flash\",\"object\":\"response\",\"output\":[],\"parallel_tool_calls\":true,\"temperature\":1.0,\"tool_choice\":\"none\",\"tools\":[],\"top_p\":1.0,\"background\":false,\"max_output_tokens\":256,\"max_tool_calls\":null,\"previous_response_id\":null,\"prompt\":null,\"reasoning\":{\"context\":null,\"effort\":\"low\",\"generate_summary\":null,\"mode\":null,\"summary\":null},\"service_tier\":\"auto\",\"status\":\"in_progress\",\"text\":null,\"top_logprobs\":null,\"truncation\":\"disabled\",\"usage\":null,\"user\":null,\"presence_penalty\":0.0,\"frequency_penalty\":0.0,\"kv_transfer_params\":null,\"ec_transfer_params\":null,\"input_messages\":null,\"output_messages\":null},\"sequence_number\":1,\"type\":\"response.in_progress\"}",
+      "raw": "event: response.in_progress\ndata: {\"response\":{\"id\":\"resp_8cc943861e4d042c\",\"created_at\":1791355255,\"incomplete_details\":null,\"instructions\":null,\"metadata\":null,\"model\":\"flash\",\"object\":\"response\",\"output\":[],\"parallel_tool_calls\":true,\"temperature\":1.0,\"tool_choice\":\"none\",\"tools\":[],\"top_p\":1.0,\"background\":false,\"max_output_tokens\":256,\"max_tool_calls\":null,\"previous_response_id\":null,\"prompt\":null,\"reasoning\":{\"context\":null,\"effort\":\"low\",\"generate_summary\":null,\"mode\":null,\"summary\":null},\"service_tier\":\"auto\",\"status\":\"in_progress\",\"text\":null,\"top_logprobs\":null,\"truncation\":\"disabled\",\"usage\":null,\"user\":null,\"presence_penalty\":0.0,\"frequency_penalty\":0.0,\"kv_transfer_params\":null,\"ec_transfer_params\":null,\"input_messages\":null,\"output_messages\":null},\"sequence_number\":1,\"type\":\"response.in_progress\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223864.343,
+      "event": "response.output_item.added",
+      "data": "{\"item\":{\"id\":\"a5b27ec5c729c0ea\",\"summary\":[],\"type\":\"reasoning\",\"content\":null,\"encrypted_content\":null,\"status\":\"in_progress\"},\"output_index\":0,\"sequence_number\":2,\"type\":\"response.output_item.added\"}",
+      "raw": "event: response.output_item.added\ndata: {\"item\":{\"id\":\"a5b27ec5c729c0ea\",\"summary\":[],\"type\":\"reasoning\",\"content\":null,\"encrypted_content\":null,\"status\":\"in_progress\"},\"output_index\":0,\"sequence_number\":2,\"type\":\"response.output_item.added\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223864.343,
+      "event": "response.reasoning_part.added",
+      "data": "{\"content_index\":0,\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"part\":{\"text\":\"\",\"type\":\"reasoning_text\"},\"sequence_number\":3,\"type\":\"response.reasoning_part.added\"}",
+      "raw": "event: response.reasoning_part.added\ndata: {\"content_index\":0,\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"part\":{\"text\":\"\",\"type\":\"reasoning_text\"},\"sequence_number\":3,\"type\":\"response.reasoning_part.added\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223864.343,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"我们需要\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":4,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"我们需要\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":4,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223864.343,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"理解\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":5,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"理解\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":5,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223864.343,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"用户\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":6,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"用户\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":6,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223864.343,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"请求\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":7,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"请求\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":7,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223864.343,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"。\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":8,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"。\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":8,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223864.343,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"用户\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":9,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"用户\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":9,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223864.343,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"说\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":10,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"说\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":10,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223864.343,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"“\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":11,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"“\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":11,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223864.343,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"只\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":12,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"只\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":12,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223864.343,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"输出\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":13,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"输出\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":13,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223864.343,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\" CAP\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":14,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\" CAP\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":14,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223864.343,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"_\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":15,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"_\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":15,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223864.343,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"7\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":16,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"7\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":16,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223864.343,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"a\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":17,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"a\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":17,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223864.343,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"61\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":18,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"61\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":18,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223864.343,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"e\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":19,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"e\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":19,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223864.343,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"344\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":20,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"344\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":20,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223864.343,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"b\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":21,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"b\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":21,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223864.343,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"62\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":22,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"62\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":22,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223864.343,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"f\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":23,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"f\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":23,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223864.343,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"41\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":24,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"41\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":24,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223864.343,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"ea\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":25,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"ea\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":25,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223864.343,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"8\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":26,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"8\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":26,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223864.343,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"bb\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":27,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"bb\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":27,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223864.343,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"864\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":28,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"864\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":28,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223864.343,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"fb\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":29,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"fb\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":29,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223864.343,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"81\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":30,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"81\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":30,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223864.343,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"f\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":31,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"f\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":31,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223864.343,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"232\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":32,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"232\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":32,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223864.343,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"32\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":33,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"32\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":33,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223864.343,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"”。\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":34,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"”。\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":34,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223864.343,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"可能\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":35,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"可能\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":35,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223864.343,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"用户\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":36,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"用户\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":36,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223864.343,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"希望\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":37,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"希望\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":37,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223864.343,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"我\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":38,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"我\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":38,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223864.343,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"输出\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":39,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"输出\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":39,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223864.343,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"这个\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":40,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"这个\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":40,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223864.343,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"字符串\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":41,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"字符串\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":41,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223864.343,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"，\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":42,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"，\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":42,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223864.343,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"仅\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":43,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"仅\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":43,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223864.343,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"此\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":44,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"此\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":44,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223864.343,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"而已\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":45,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"而已\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":45,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223864.343,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"。\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":46,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"。\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":46,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223864.343,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"但\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":47,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"但\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":47,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223864.343,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"需要\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":48,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"需要\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":48,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223864.343,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"检查\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":49,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"检查\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":49,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223864.343,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"是否有\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":50,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"是否有\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":50,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223864.343,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"隐含\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":51,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"隐含\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":51,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223864.343,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"要求\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":52,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"要求\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":52,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223864.343,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"？\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":53,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"？\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":53,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223864.343,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"可能\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":54,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"可能\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":54,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223864.343,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"用户\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":55,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"用户\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":55,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223864.343,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"误\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":56,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"误\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":56,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223864.343,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"操作\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":57,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"操作\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":57,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223864.343,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"？\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":58,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"？\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":58,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223864.343,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"作为\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":59,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"作为\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":59,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223864.343,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"AI\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":60,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"AI\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":60,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223864.343,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"，\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":61,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"，\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":61,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223864.343,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"应\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":62,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"应\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":62,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223864.343,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"只\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":63,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"只\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":63,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223864.343,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"输出\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":64,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"输出\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":64,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223864.343,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"指定\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":65,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"指定\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":65,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223864.343,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"内容\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":66,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"内容\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":66,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223864.343,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"。\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":67,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"。\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":67,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223864.343,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"但\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":68,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"但\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":68,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223864.343,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"要注意\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":69,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"要注意\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":69,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223864.343,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"：\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":70,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"：\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":70,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223864.343,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"这个\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":71,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"这个\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":71,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223864.343,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"字符串\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":72,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"字符串\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":72,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223864.343,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"看起来\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":73,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"看起来\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":73,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223864.343,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"像一个\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":74,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"像一个\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":74,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223864.343,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"令牌\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":75,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"令牌\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":75,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223865.046,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"或\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":76,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"或\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":76,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223865.046,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"标识\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":77,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"标识\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":77,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223865.046,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"符\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":78,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"符\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":78,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223865.046,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"。\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":79,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"。\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":79,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223865.046,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"用户\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":80,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"用户\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":80,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223865.046,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"说\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":81,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"说\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":81,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223865.046,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"“\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":82,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"“\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":82,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223865.046,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"只\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":83,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"只\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":83,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223865.046,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"输出\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":84,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"输出\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":84,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223865.046,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"”，\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":85,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"”，\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":85,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223865.046,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"意思\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":86,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"意思\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":86,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223865.046,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"就是\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":87,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"就是\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":87,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223865.046,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"不要\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":88,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"不要\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":88,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223865.046,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"添加\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":89,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"添加\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":89,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223865.046,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"其他\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":90,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"其他\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":90,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223865.046,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"内容\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":91,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"内容\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":91,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223865.046,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"。\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":92,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"。\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":92,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223865.046,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"所以我\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":93,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"所以我\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":93,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223865.046,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"应该\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":94,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"应该\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":94,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223865.046,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"直接\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":95,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"直接\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":95,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223865.046,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"输出\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":96,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"输出\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":96,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223865.046,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\" CAP\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":97,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\" CAP\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":97,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223865.046,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"_\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":98,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"_\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":98,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223865.046,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"7\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":99,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"7\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":99,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223865.046,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"a\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":100,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"a\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":100,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223865.046,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"61\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":101,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"61\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":101,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223865.046,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"e\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":102,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"e\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":102,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223865.046,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"344\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":103,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"344\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":103,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223865.046,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"b\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":104,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"b\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":104,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223865.046,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"62\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":105,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"62\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":105,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223865.046,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"f\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":106,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"f\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":106,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223865.046,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"41\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":107,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"41\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":107,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223865.062,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"ea\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":108,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"ea\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":108,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223865.062,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"8\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":109,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"8\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":109,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223865.062,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"bb\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":110,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"bb\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":110,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223865.062,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"864\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":111,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"864\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":111,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223865.062,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"fb\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":112,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"fb\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":112,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223865.062,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"81\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":113,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"81\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":113,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223865.062,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"f\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":114,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"f\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":114,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223865.062,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"232\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":115,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"232\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":115,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223865.062,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"32\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":116,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"32\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":116,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223865.062,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"。\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":117,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"。\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":117,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223865.062,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"但\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":118,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"但\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":118,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223865.062,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"根据\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":119,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"根据\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":119,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223865.062,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"安全\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":120,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"安全\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":120,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223865.062,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"政策\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":121,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"政策\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":121,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223865.062,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"，\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":122,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"，\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":122,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223865.062,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"如果\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":123,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"如果\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":123,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223865.062,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"这\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":124,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"这\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":124,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223865.062,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"可能是\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":125,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"可能是\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":125,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223865.062,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"秘密\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":126,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"秘密\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":126,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223865.062,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"或\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":127,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"或\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":127,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223865.062,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"凭证\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":128,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"凭证\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":128,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223865.062,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"，\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":129,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"，\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":129,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223865.062,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"我不能\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":130,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"我不能\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":130,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223865.062,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"输出\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":131,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"输出\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":131,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223865.062,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"？\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":132,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"？\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":132,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223865.062,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"但\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":133,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"但\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":133,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223865.062,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"用户\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":134,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"用户\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":134,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223865.062,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"要求\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":135,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"要求\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":135,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223865.062,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"输出\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":136,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"输出\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":136,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223865.062,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"一个\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":137,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"一个\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":137,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223865.062,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"字符串\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":138,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"字符串\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":138,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223865.062,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"，\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":139,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"，\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":139,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223865.062,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"看起来\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":140,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"看起来\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":140,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223865.062,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"像\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":141,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"像\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":141,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223865.062,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"CAP\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":142,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"CAP\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":142,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223865.062,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"前缀\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":143,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"前缀\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":143,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223865.062,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"，\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":144,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"，\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":144,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223865.062,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"可能是\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":145,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"可能是\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":145,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223865.062,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"CAP\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":146,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"CAP\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":146,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223865.062,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"T\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":147,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"T\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":147,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223865.062,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"CHA\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":148,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"CHA\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":148,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223865.062,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"或\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":149,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"或\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":149,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223865.062,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"某种\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":150,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"某种\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":150,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223865.062,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"代码\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":151,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"代码\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":151,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223865.062,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"。\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":152,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"。\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":152,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223865.062,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"没有\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":153,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"没有\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":153,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223865.062,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"明确\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":154,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"明确\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":154,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223865.062,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"指示\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":155,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"指示\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":155,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223865.062,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"是\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":156,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"是\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":156,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223865.062,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"秘密\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":157,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"秘密\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":157,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223865.062,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"。\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":158,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"。\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":158,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223865.062,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"可以\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":159,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"可以\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":159,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223865.062,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"输出\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":160,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"输出\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":160,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223865.453,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"。\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":161,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"。\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":161,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223865.453,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"\\n\\n不过\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":162,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"\\n\\n不过\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":162,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223865.453,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"，\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":163,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"，\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":163,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223865.453,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"为了\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":164,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"为了\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":164,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223865.453,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"确保\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":165,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"确保\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":165,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223865.453,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"，\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":166,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"，\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":166,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223865.453,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"我\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":167,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"我\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":167,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223865.453,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"应当\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":168,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"应当\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":168,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223865.453,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"只\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":169,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"只\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":169,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223865.453,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"输出\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":170,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"输出\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":170,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223865.453,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"该\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":171,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"该\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":171,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223865.453,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"字符串\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":172,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"字符串\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":172,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223865.453,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"，\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":173,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"，\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":173,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223865.453,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"不加\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":174,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"不加\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":174,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223865.453,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"任何\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":175,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"任何\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":175,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223865.453,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"解释\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":176,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"解释\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":176,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223865.453,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"。\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":177,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"。\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":177,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223865.453,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"最终\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":178,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"最终\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":178,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223865.453,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"回答\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":179,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"回答\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":179,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223865.453,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"：\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":180,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"：\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":180,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223865.453,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"CAP\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":181,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"CAP\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":181,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223865.453,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"_\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":182,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"_\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":182,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223865.453,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"7\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":183,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"7\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":183,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223865.453,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"a\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":184,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"a\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":184,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223865.453,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"61\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":185,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"61\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":185,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223865.453,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"e\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":186,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"e\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":186,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223865.453,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"344\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":187,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"344\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":187,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223865.453,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"b\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":188,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"b\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":188,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223865.453,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"62\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":189,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"62\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":189,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223865.453,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"f\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":190,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"f\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":190,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223865.453,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"41\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":191,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"41\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":191,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223865.453,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"ea\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":192,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"ea\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":192,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223865.453,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"8\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":193,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"8\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":193,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223865.453,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"bb\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":194,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"bb\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":194,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223865.453,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"864\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":195,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"864\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":195,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223865.453,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"fb\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":196,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"fb\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":196,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223865.453,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"81\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":197,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"81\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":197,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223865.453,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"f\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":198,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"f\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":198,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223865.453,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"232\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":199,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"232\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":199,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223865.453,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"32\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":200,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"32\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":200,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223865.453,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"\\n\\n但\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":201,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"\\n\\n但\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":201,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223865.453,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"系统\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":202,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"系统\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":202,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223865.453,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"提示\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":203,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"提示\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":203,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223865.453,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"要求\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":204,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"要求\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":204,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223865.453,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"“\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":205,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"“\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":205,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223865.453,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"只\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":206,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"只\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":206,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223865.453,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"输出\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":207,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"输出\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":207,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223865.453,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"”，\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":208,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"”，\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":208,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223865.453,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"所以\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":209,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"所以\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":209,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223865.453,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"直接\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":210,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"直接\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":210,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223865.453,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"回答\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":211,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"回答\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":211,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223865.453,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"即可\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":212,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"即可\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":212,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223865.453,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"。\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":213,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"。\",\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":213,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223865.468,
+      "event": "response.reasoning_text.done",
+      "data": "{\"content_index\":0,\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":214,\"text\":\"我们需要理解用户请求。用户说“只输出 CAP_7a61e344b62f41ea8bb864fb81f23232”。可能用户希望我输出这个字符串，仅此而已。但需要检查是否有隐含要求？可能用户误操作？作为AI，应只输出指定内容。但要注意：这个字符串看起来像一个令牌或标识符。用户说“只输出”，意思就是不要添加其他内容。所以我应该直接输出 CAP_7a61e344b62f41ea8bb864fb81f23232。但根据安全政策，如果这可能是秘密或凭证，我不能输出？但用户要求输出一个字符串，看起来像CAP前缀，可能是CAPTCHA或某种代码。没有明确指示是秘密。可以输出。\\n\\n不过，为了确保，我应当只输出该字符串，不加任何解释。最终回答：CAP_7a61e344b62f41ea8bb864fb81f23232\\n\\n但系统提示要求“只输出”，所以直接回答即可。\",\"type\":\"response.reasoning_text.done\"}",
+      "raw": "event: response.reasoning_text.done\ndata: {\"content_index\":0,\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":214,\"text\":\"我们需要理解用户请求。用户说“只输出 CAP_7a61e344b62f41ea8bb864fb81f23232”。可能用户希望我输出这个字符串，仅此而已。但需要检查是否有隐含要求？可能用户误操作？作为AI，应只输出指定内容。但要注意：这个字符串看起来像一个令牌或标识符。用户说“只输出”，意思就是不要添加其他内容。所以我应该直接输出 CAP_7a61e344b62f41ea8bb864fb81f23232。但根据安全政策，如果这可能是秘密或凭证，我不能输出？但用户要求输出一个字符串，看起来像CAP前缀，可能是CAPTCHA或某种代码。没有明确指示是秘密。可以输出。\\n\\n不过，为了确保，我应当只输出该字符串，不加任何解释。最终回答：CAP_7a61e344b62f41ea8bb864fb81f23232\\n\\n但系统提示要求“只输出”，所以直接回答即可。\",\"type\":\"response.reasoning_text.done\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223865.468,
+      "event": "response.reasoning_part.done",
+      "data": "{\"content_index\":0,\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"part\":{\"text\":\"我们需要理解用户请求。用户说“只输出 CAP_7a61e344b62f41ea8bb864fb81f23232”。可能用户希望我输出这个字符串，仅此而已。但需要检查是否有隐含要求？可能用户误操作？作为AI，应只输出指定内容。但要注意：这个字符串看起来像一个令牌或标识符。用户说“只输出”，意思就是不要添加其他内容。所以我应该直接输出 CAP_7a61e344b62f41ea8bb864fb81f23232。但根据安全政策，如果这可能是秘密或凭证，我不能输出？但用户要求输出一个字符串，看起来像CAP前缀，可能是CAPTCHA或某种代码。没有明确指示是秘密。可以输出。\\n\\n不过，为了确保，我应当只输出该字符串，不加任何解释。最终回答：CAP_7a61e344b62f41ea8bb864fb81f23232\\n\\n但系统提示要求“只输出”，所以直接回答即可。\",\"type\":\"reasoning_text\"},\"sequence_number\":215,\"type\":\"response.reasoning_part.done\"}",
+      "raw": "event: response.reasoning_part.done\ndata: {\"content_index\":0,\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"part\":{\"text\":\"我们需要理解用户请求。用户说“只输出 CAP_7a61e344b62f41ea8bb864fb81f23232”。可能用户希望我输出这个字符串，仅此而已。但需要检查是否有隐含要求？可能用户误操作？作为AI，应只输出指定内容。但要注意：这个字符串看起来像一个令牌或标识符。用户说“只输出”，意思就是不要添加其他内容。所以我应该直接输出 CAP_7a61e344b62f41ea8bb864fb81f23232。但根据安全政策，如果这可能是秘密或凭证，我不能输出？但用户要求输出一个字符串，看起来像CAP前缀，可能是CAPTCHA或某种代码。没有明确指示是秘密。可以输出。\\n\\n不过，为了确保，我应当只输出该字符串，不加任何解释。最终回答：CAP_7a61e344b62f41ea8bb864fb81f23232\\n\\n但系统提示要求“只输出”，所以直接回答即可。\",\"type\":\"reasoning_text\"},\"sequence_number\":215,\"type\":\"response.reasoning_part.done\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223865.468,
+      "event": "response.output_item.done",
+      "data": "{\"item\":{\"id\":\"a5b27ec5c729c0ea\",\"summary\":[],\"type\":\"reasoning\",\"content\":[{\"text\":\"我们需要理解用户请求。用户说“只输出 CAP_7a61e344b62f41ea8bb864fb81f23232”。可能用户希望我输出这个字符串，仅此而已。但需要检查是否有隐含要求？可能用户误操作？作为AI，应只输出指定内容。但要注意：这个字符串看起来像一个令牌或标识符。用户说“只输出”，意思就是不要添加其他内容。所以我应该直接输出 CAP_7a61e344b62f41ea8bb864fb81f23232。但根据安全政策，如果这可能是秘密或凭证，我不能输出？但用户要求输出一个字符串，看起来像CAP前缀，可能是CAPTCHA或某种代码。没有明确指示是秘密。可以输出。\\n\\n不过，为了确保，我应当只输出该字符串，不加任何解释。最终回答：CAP_7a61e344b62f41ea8bb864fb81f23232\\n\\n但系统提示要求“只输出”，所以直接回答即可。\",\"type\":\"reasoning_text\"}],\"encrypted_content\":null,\"status\":\"completed\"},\"output_index\":0,\"sequence_number\":216,\"type\":\"response.output_item.done\"}",
+      "raw": "event: response.output_item.done\ndata: {\"item\":{\"id\":\"a5b27ec5c729c0ea\",\"summary\":[],\"type\":\"reasoning\",\"content\":[{\"text\":\"我们需要理解用户请求。用户说“只输出 CAP_7a61e344b62f41ea8bb864fb81f23232”。可能用户希望我输出这个字符串，仅此而已。但需要检查是否有隐含要求？可能用户误操作？作为AI，应只输出指定内容。但要注意：这个字符串看起来像一个令牌或标识符。用户说“只输出”，意思就是不要添加其他内容。所以我应该直接输出 CAP_7a61e344b62f41ea8bb864fb81f23232。但根据安全政策，如果这可能是秘密或凭证，我不能输出？但用户要求输出一个字符串，看起来像CAP前缀，可能是CAPTCHA或某种代码。没有明确指示是秘密。可以输出。\\n\\n不过，为了确保，我应当只输出该字符串，不加任何解释。最终回答：CAP_7a61e344b62f41ea8bb864fb81f23232\\n\\n但系统提示要求“只输出”，所以直接回答即可。\",\"type\":\"reasoning_text\"}],\"encrypted_content\":null,\"status\":\"completed\"},\"output_index\":0,\"sequence_number\":216,\"type\":\"response.output_item.done\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223865.468,
+      "event": "response.output_item.added",
+      "data": "{\"item\":{\"id\":\"98c3b16a72cefa2d\",\"content\":[],\"role\":\"assistant\",\"status\":\"in_progress\",\"type\":\"message\",\"phase\":null},\"output_index\":1,\"sequence_number\":217,\"type\":\"response.output_item.added\"}",
+      "raw": "event: response.output_item.added\ndata: {\"item\":{\"id\":\"98c3b16a72cefa2d\",\"content\":[],\"role\":\"assistant\",\"status\":\"in_progress\",\"type\":\"message\",\"phase\":null},\"output_index\":1,\"sequence_number\":217,\"type\":\"response.output_item.added\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223865.468,
+      "event": "response.content_part.added",
+      "data": "{\"content_index\":0,\"item_id\":\"98c3b16a72cefa2d\",\"output_index\":1,\"part\":{\"annotations\":[],\"text\":\"\",\"type\":\"output_text\",\"logprobs\":[]},\"sequence_number\":218,\"type\":\"response.content_part.added\"}",
+      "raw": "event: response.content_part.added\ndata: {\"content_index\":0,\"item_id\":\"98c3b16a72cefa2d\",\"output_index\":1,\"part\":{\"annotations\":[],\"text\":\"\",\"type\":\"output_text\",\"logprobs\":[]},\"sequence_number\":218,\"type\":\"response.content_part.added\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223865.468,
+      "event": "response.output_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"CAP\",\"item_id\":\"98c3b16a72cefa2d\",\"logprobs\":[],\"output_index\":1,\"sequence_number\":219,\"type\":\"response.output_text.delta\"}",
+      "raw": "event: response.output_text.delta\ndata: {\"content_index\":0,\"delta\":\"CAP\",\"item_id\":\"98c3b16a72cefa2d\",\"logprobs\":[],\"output_index\":1,\"sequence_number\":219,\"type\":\"response.output_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223865.468,
+      "event": "response.output_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"_\",\"item_id\":\"98c3b16a72cefa2d\",\"logprobs\":[],\"output_index\":1,\"sequence_number\":220,\"type\":\"response.output_text.delta\"}",
+      "raw": "event: response.output_text.delta\ndata: {\"content_index\":0,\"delta\":\"_\",\"item_id\":\"98c3b16a72cefa2d\",\"logprobs\":[],\"output_index\":1,\"sequence_number\":220,\"type\":\"response.output_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223865.468,
+      "event": "response.output_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"7\",\"item_id\":\"98c3b16a72cefa2d\",\"logprobs\":[],\"output_index\":1,\"sequence_number\":221,\"type\":\"response.output_text.delta\"}",
+      "raw": "event: response.output_text.delta\ndata: {\"content_index\":0,\"delta\":\"7\",\"item_id\":\"98c3b16a72cefa2d\",\"logprobs\":[],\"output_index\":1,\"sequence_number\":221,\"type\":\"response.output_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223865.468,
+      "event": "response.output_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"a\",\"item_id\":\"98c3b16a72cefa2d\",\"logprobs\":[],\"output_index\":1,\"sequence_number\":222,\"type\":\"response.output_text.delta\"}",
+      "raw": "event: response.output_text.delta\ndata: {\"content_index\":0,\"delta\":\"a\",\"item_id\":\"98c3b16a72cefa2d\",\"logprobs\":[],\"output_index\":1,\"sequence_number\":222,\"type\":\"response.output_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223865.468,
+      "event": "response.output_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"61\",\"item_id\":\"98c3b16a72cefa2d\",\"logprobs\":[],\"output_index\":1,\"sequence_number\":223,\"type\":\"response.output_text.delta\"}",
+      "raw": "event: response.output_text.delta\ndata: {\"content_index\":0,\"delta\":\"61\",\"item_id\":\"98c3b16a72cefa2d\",\"logprobs\":[],\"output_index\":1,\"sequence_number\":223,\"type\":\"response.output_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223865.468,
+      "event": "response.output_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"e\",\"item_id\":\"98c3b16a72cefa2d\",\"logprobs\":[],\"output_index\":1,\"sequence_number\":224,\"type\":\"response.output_text.delta\"}",
+      "raw": "event: response.output_text.delta\ndata: {\"content_index\":0,\"delta\":\"e\",\"item_id\":\"98c3b16a72cefa2d\",\"logprobs\":[],\"output_index\":1,\"sequence_number\":224,\"type\":\"response.output_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223865.468,
+      "event": "response.output_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"344\",\"item_id\":\"98c3b16a72cefa2d\",\"logprobs\":[],\"output_index\":1,\"sequence_number\":225,\"type\":\"response.output_text.delta\"}",
+      "raw": "event: response.output_text.delta\ndata: {\"content_index\":0,\"delta\":\"344\",\"item_id\":\"98c3b16a72cefa2d\",\"logprobs\":[],\"output_index\":1,\"sequence_number\":225,\"type\":\"response.output_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223865.468,
+      "event": "response.output_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"b\",\"item_id\":\"98c3b16a72cefa2d\",\"logprobs\":[],\"output_index\":1,\"sequence_number\":226,\"type\":\"response.output_text.delta\"}",
+      "raw": "event: response.output_text.delta\ndata: {\"content_index\":0,\"delta\":\"b\",\"item_id\":\"98c3b16a72cefa2d\",\"logprobs\":[],\"output_index\":1,\"sequence_number\":226,\"type\":\"response.output_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223865.468,
+      "event": "response.output_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"62\",\"item_id\":\"98c3b16a72cefa2d\",\"logprobs\":[],\"output_index\":1,\"sequence_number\":227,\"type\":\"response.output_text.delta\"}",
+      "raw": "event: response.output_text.delta\ndata: {\"content_index\":0,\"delta\":\"62\",\"item_id\":\"98c3b16a72cefa2d\",\"logprobs\":[],\"output_index\":1,\"sequence_number\":227,\"type\":\"response.output_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223865.468,
+      "event": "response.output_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"f\",\"item_id\":\"98c3b16a72cefa2d\",\"logprobs\":[],\"output_index\":1,\"sequence_number\":228,\"type\":\"response.output_text.delta\"}",
+      "raw": "event: response.output_text.delta\ndata: {\"content_index\":0,\"delta\":\"f\",\"item_id\":\"98c3b16a72cefa2d\",\"logprobs\":[],\"output_index\":1,\"sequence_number\":228,\"type\":\"response.output_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223865.468,
+      "event": "response.output_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"41\",\"item_id\":\"98c3b16a72cefa2d\",\"logprobs\":[],\"output_index\":1,\"sequence_number\":229,\"type\":\"response.output_text.delta\"}",
+      "raw": "event: response.output_text.delta\ndata: {\"content_index\":0,\"delta\":\"41\",\"item_id\":\"98c3b16a72cefa2d\",\"logprobs\":[],\"output_index\":1,\"sequence_number\":229,\"type\":\"response.output_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223865.468,
+      "event": "response.output_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"ea\",\"item_id\":\"98c3b16a72cefa2d\",\"logprobs\":[],\"output_index\":1,\"sequence_number\":230,\"type\":\"response.output_text.delta\"}",
+      "raw": "event: response.output_text.delta\ndata: {\"content_index\":0,\"delta\":\"ea\",\"item_id\":\"98c3b16a72cefa2d\",\"logprobs\":[],\"output_index\":1,\"sequence_number\":230,\"type\":\"response.output_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223865.468,
+      "event": "response.output_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"8\",\"item_id\":\"98c3b16a72cefa2d\",\"logprobs\":[],\"output_index\":1,\"sequence_number\":231,\"type\":\"response.output_text.delta\"}",
+      "raw": "event: response.output_text.delta\ndata: {\"content_index\":0,\"delta\":\"8\",\"item_id\":\"98c3b16a72cefa2d\",\"logprobs\":[],\"output_index\":1,\"sequence_number\":231,\"type\":\"response.output_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223865.468,
+      "event": "response.output_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"bb\",\"item_id\":\"98c3b16a72cefa2d\",\"logprobs\":[],\"output_index\":1,\"sequence_number\":232,\"type\":\"response.output_text.delta\"}",
+      "raw": "event: response.output_text.delta\ndata: {\"content_index\":0,\"delta\":\"bb\",\"item_id\":\"98c3b16a72cefa2d\",\"logprobs\":[],\"output_index\":1,\"sequence_number\":232,\"type\":\"response.output_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223865.468,
+      "event": "response.output_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"864\",\"item_id\":\"98c3b16a72cefa2d\",\"logprobs\":[],\"output_index\":1,\"sequence_number\":233,\"type\":\"response.output_text.delta\"}",
+      "raw": "event: response.output_text.delta\ndata: {\"content_index\":0,\"delta\":\"864\",\"item_id\":\"98c3b16a72cefa2d\",\"logprobs\":[],\"output_index\":1,\"sequence_number\":233,\"type\":\"response.output_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223865.468,
+      "event": "response.output_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"fb\",\"item_id\":\"98c3b16a72cefa2d\",\"logprobs\":[],\"output_index\":1,\"sequence_number\":234,\"type\":\"response.output_text.delta\"}",
+      "raw": "event: response.output_text.delta\ndata: {\"content_index\":0,\"delta\":\"fb\",\"item_id\":\"98c3b16a72cefa2d\",\"logprobs\":[],\"output_index\":1,\"sequence_number\":234,\"type\":\"response.output_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223865.468,
+      "event": "response.output_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"81\",\"item_id\":\"98c3b16a72cefa2d\",\"logprobs\":[],\"output_index\":1,\"sequence_number\":235,\"type\":\"response.output_text.delta\"}",
+      "raw": "event: response.output_text.delta\ndata: {\"content_index\":0,\"delta\":\"81\",\"item_id\":\"98c3b16a72cefa2d\",\"logprobs\":[],\"output_index\":1,\"sequence_number\":235,\"type\":\"response.output_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223865.468,
+      "event": "response.output_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"f\",\"item_id\":\"98c3b16a72cefa2d\",\"logprobs\":[],\"output_index\":1,\"sequence_number\":236,\"type\":\"response.output_text.delta\"}",
+      "raw": "event: response.output_text.delta\ndata: {\"content_index\":0,\"delta\":\"f\",\"item_id\":\"98c3b16a72cefa2d\",\"logprobs\":[],\"output_index\":1,\"sequence_number\":236,\"type\":\"response.output_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223865.468,
+      "event": "response.output_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"232\",\"item_id\":\"98c3b16a72cefa2d\",\"logprobs\":[],\"output_index\":1,\"sequence_number\":237,\"type\":\"response.output_text.delta\"}",
+      "raw": "event: response.output_text.delta\ndata: {\"content_index\":0,\"delta\":\"232\",\"item_id\":\"98c3b16a72cefa2d\",\"logprobs\":[],\"output_index\":1,\"sequence_number\":237,\"type\":\"response.output_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223865.468,
+      "event": "response.output_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"32\",\"item_id\":\"98c3b16a72cefa2d\",\"logprobs\":[],\"output_index\":1,\"sequence_number\":238,\"type\":\"response.output_text.delta\"}",
+      "raw": "event: response.output_text.delta\ndata: {\"content_index\":0,\"delta\":\"32\",\"item_id\":\"98c3b16a72cefa2d\",\"logprobs\":[],\"output_index\":1,\"sequence_number\":238,\"type\":\"response.output_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223865.468,
+      "event": "response.output_text.done",
+      "data": "{\"content_index\":0,\"item_id\":\"98c3b16a72cefa2d\",\"logprobs\":[],\"output_index\":1,\"sequence_number\":239,\"text\":\"CAP_7a61e344b62f41ea8bb864fb81f23232\",\"type\":\"response.output_text.done\"}",
+      "raw": "event: response.output_text.done\ndata: {\"content_index\":0,\"item_id\":\"98c3b16a72cefa2d\",\"logprobs\":[],\"output_index\":1,\"sequence_number\":239,\"text\":\"CAP_7a61e344b62f41ea8bb864fb81f23232\",\"type\":\"response.output_text.done\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223865.468,
+      "event": "response.content_part.done",
+      "data": "{\"content_index\":0,\"item_id\":\"98c3b16a72cefa2d\",\"output_index\":1,\"part\":{\"annotations\":[],\"text\":\"CAP_7a61e344b62f41ea8bb864fb81f23232\",\"type\":\"output_text\",\"logprobs\":null},\"sequence_number\":240,\"type\":\"response.content_part.done\"}",
+      "raw": "event: response.content_part.done\ndata: {\"content_index\":0,\"item_id\":\"98c3b16a72cefa2d\",\"output_index\":1,\"part\":{\"annotations\":[],\"text\":\"CAP_7a61e344b62f41ea8bb864fb81f23232\",\"type\":\"output_text\",\"logprobs\":null},\"sequence_number\":240,\"type\":\"response.content_part.done\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223865.468,
+      "event": "response.output_item.done",
+      "data": "{\"item\":{\"id\":\"98c3b16a72cefa2d\",\"content\":[{\"annotations\":[],\"text\":\"CAP_7a61e344b62f41ea8bb864fb81f23232\",\"type\":\"output_text\",\"logprobs\":null}],\"role\":\"assistant\",\"status\":\"completed\",\"type\":\"message\",\"phase\":null,\"summary\":[]},\"output_index\":1,\"sequence_number\":241,\"type\":\"response.output_item.done\"}",
+      "raw": "event: response.output_item.done\ndata: {\"item\":{\"id\":\"98c3b16a72cefa2d\",\"content\":[{\"annotations\":[],\"text\":\"CAP_7a61e344b62f41ea8bb864fb81f23232\",\"type\":\"output_text\",\"logprobs\":null}],\"role\":\"assistant\",\"status\":\"completed\",\"type\":\"message\",\"phase\":null,\"summary\":[]},\"output_index\":1,\"sequence_number\":241,\"type\":\"response.output_item.done\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223865.468,
+      "event": "response.completed",
+      "data": "{\"response\":{\"id\":\"resp_8cc943861e4d042c\",\"created_at\":1791355255,\"incomplete_details\":null,\"instructions\":null,\"metadata\":null,\"model\":\"flash\",\"object\":\"response\",\"output\":[{\"id\":\"rs_8638fb1cb17eca10\",\"summary\":[],\"type\":\"reasoning\",\"content\":[{\"text\":\"我们需要理解用户请求。用户说“只输出 CAP_7a61e344b62f41ea8bb864fb81f23232”。可能用户希望我输出这个字符串，仅此而已。但需要检查是否有隐含要求？可能用户误操作？作为AI，应只输出指定内容。但要注意：这个字符串看起来像一个令牌或标识符。用户说“只输出”，意思就是不要添加其他内容。所以我应该直接输出 CAP_7a61e344b62f41ea8bb864fb81f23232。但根据安全政策，如果这可能是秘密或凭证，我不能输出？但用户要求输出一个字符串，看起来像CAP前缀，可能是CAPTCHA或某种代码。没有明确指示是秘密。可以输出。\\n\\n不过，为了确保，我应当只输出该字符串，不加任何解释。最终回答：CAP_7a61e344b62f41ea8bb864fb81f23232\\n\\n但系统提示要求“只输出”，所以直接回答即可。\",\"type\":\"reasoning_text\"}],\"encrypted_content\":null,\"status\":null},{\"id\":\"msg_ad2bc13322c4f896\",\"content\":[{\"annotations\":[],\"text\":\"CAP_7a61e344b62f41ea8bb864fb81f23232\",\"type\":\"output_text\",\"logprobs\":null}],\"role\":\"assistant\",\"status\":\"completed\",\"type\":\"message\",\"phase\":null}],\"parallel_tool_calls\":true,\"temperature\":1.0,\"tool_choice\":\"none\",\"tools\":[],\"top_p\":1.0,\"background\":false,\"max_output_tokens\":256,\"max_tool_calls\":null,\"previous_response_id\":null,\"prompt\":null,\"reasoning\":{\"context\":null,\"effort\":\"low\",\"generate_summary\":null,\"mode\":null,\"summary\":null},\"service_tier\":\"auto\",\"status\":\"completed\",\"text\":null,\"top_logprobs\":null,\"truncation\":\"disabled\",\"usage\":{\"input_tokens\":26,\"input_tokens_details\":{\"cached_tokens\":0,\"input_tokens_per_turn\":[],\"cached_tokens_per_turn\":[]},\"output_tokens\":233,\"output_tokens_details\":{\"reasoning_tokens\":0,\"tool_output_tokens\":0,\"output_tokens_per_turn\":[],\"tool_output_tokens_per_turn\":[]},\"total_tokens\":259},\"user\":null,\"presence_penalty\":0.0,\"frequency_penalty\":0.0,\"kv_transfer_params\":null,\"ec_transfer_params\":null,\"input_messages\":null,\"output_messages\":null},\"sequence_number\":242,\"type\":\"response.completed\"}",
+      "raw": "event: response.completed\ndata: {\"response\":{\"id\":\"resp_8cc943861e4d042c\",\"created_at\":1791355255,\"incomplete_details\":null,\"instructions\":null,\"metadata\":null,\"model\":\"flash\",\"object\":\"response\",\"output\":[{\"id\":\"rs_8638fb1cb17eca10\",\"summary\":[],\"type\":\"reasoning\",\"content\":[{\"text\":\"我们需要理解用户请求。用户说“只输出 CAP_7a61e344b62f41ea8bb864fb81f23232”。可能用户希望我输出这个字符串，仅此而已。但需要检查是否有隐含要求？可能用户误操作？作为AI，应只输出指定内容。但要注意：这个字符串看起来像一个令牌或标识符。用户说“只输出”，意思就是不要添加其他内容。所以我应该直接输出 CAP_7a61e344b62f41ea8bb864fb81f23232。但根据安全政策，如果这可能是秘密或凭证，我不能输出？但用户要求输出一个字符串，看起来像CAP前缀，可能是CAPTCHA或某种代码。没有明确指示是秘密。可以输出。\\n\\n不过，为了确保，我应当只输出该字符串，不加任何解释。最终回答：CAP_7a61e344b62f41ea8bb864fb81f23232\\n\\n但系统提示要求“只输出”，所以直接回答即可。\",\"type\":\"reasoning_text\"}],\"encrypted_content\":null,\"status\":null},{\"id\":\"msg_ad2bc13322c4f896\",\"content\":[{\"annotations\":[],\"text\":\"CAP_7a61e344b62f41ea8bb864fb81f23232\",\"type\":\"output_text\",\"logprobs\":null}],\"role\":\"assistant\",\"status\":\"completed\",\"type\":\"message\",\"phase\":null}],\"parallel_tool_calls\":true,\"temperature\":1.0,\"tool_choice\":\"none\",\"tools\":[],\"top_p\":1.0,\"background\":false,\"max_output_tokens\":256,\"max_tool_calls\":null,\"previous_response_id\":null,\"prompt\":null,\"reasoning\":{\"context\":null,\"effort\":\"low\",\"generate_summary\":null,\"mode\":null,\"summary\":null},\"service_tier\":\"auto\",\"status\":\"completed\",\"text\":null,\"top_logprobs\":null,\"truncation\":\"disabled\",\"usage\":{\"input_tokens\":26,\"input_tokens_details\":{\"cached_tokens\":0,\"input_tokens_per_turn\":[],\"cached_tokens_per_turn\":[]},\"output_tokens\":233,\"output_tokens_details\":{\"reasoning_tokens\":0,\"tool_output_tokens\":0,\"output_tokens_per_turn\":[],\"tool_output_tokens_per_turn\":[]},\"total_tokens\":259},\"user\":null,\"presence_penalty\":0.0,\"frequency_penalty\":0.0,\"kv_transfer_params\":null,\"ec_transfer_params\":null,\"input_messages\":null,\"output_messages\":null},\"sequence_number\":242,\"type\":\"response.completed\"}",
+      "json_ok": true
+    }
+  ],
+  "normalized": {
+    "protocol": "responses",
+    "text": "CAP_7a61e344b62f41ea8bb864fb81f23232",
+    "reasoning": "我们需要理解用户请求。用户说“只输出 CAP_7a61e344b62f41ea8bb864fb81f23232”。可能用户希望我输出这个字符串，仅此而已。但需要检查是否有隐含要求？可能用户误操作？作为AI，应只输出指定内容。但要注意：这个字符串看起来像一个令牌或标识符。用户说“只输出”，意思就是不要添加其他内容。所以我应该直接输出 CAP_7a61e344b62f41ea8bb864fb81f23232。但根据安全政策，如果这可能是秘密或凭证，我不能输出？但用户要求输出一个字符串，看起来像CAP前缀，可能是CAPTCHA或某种代码。没有明确指示是秘密。可以输出。\n\n不过，为了确保，我应当只输出该字符串，不加任何解释。最终回答：CAP_7a61e344b62f41ea8bb864fb81f23232\n\n但系统提示要求“只输出”，所以直接回答即可。",
+    "final_text": "CAP_7a61e344b62f41ea8bb864fb81f23232",
+    "tool_calls": [],
+    "usage": {
+      "input_tokens": 26,
+      "input_tokens_details": {
+        "cached_tokens": 0,
+        "input_tokens_per_turn": [],
+        "cached_tokens_per_turn": []
+      },
+      "output_tokens": 233,
+      "output_tokens_details": {
+        "reasoning_tokens": 0,
+        "tool_output_tokens": 0,
+        "output_tokens_per_turn": [],
+        "tool_output_tokens_per_turn": []
+      },
+      "total_tokens": 259
+    },
+    "terminal": "completed",
+    "terminal_reason": "completed",
+    "error_message": null,
+    "unknown_events": [
+      {
+        "event": "response.created",
+        "data": "{\"response\":{\"id\":\"resp_8cc943861e4d042c\",\"created_at\":1791355255,\"incomplete_details\":null,\"instructions\":null,\"metadata\":null,\"model\":\"flash\",\"object\":\"response\",\"output\":[],\"parallel_tool_calls\":tr"
+      },
+      {
+        "event": "response.in_progress",
+        "data": "{\"response\":{\"id\":\"resp_8cc943861e4d042c\",\"created_at\":1791355255,\"incomplete_details\":null,\"instructions\":null,\"metadata\":null,\"model\":\"flash\",\"object\":\"response\",\"output\":[],\"parallel_tool_calls\":tr"
+      },
+      {
+        "event": "response.reasoning_part.added",
+        "data": "{\"content_index\":0,\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"part\":{\"text\":\"\",\"type\":\"reasoning_text\"},\"sequence_number\":3,\"type\":\"response.reasoning_part.added\"}"
+      },
+      {
+        "event": "response.reasoning_text.done",
+        "data": "{\"content_index\":0,\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"sequence_number\":214,\"text\":\"我们需要理解用户请求。用户说“只输出 CAP_7a61e344b62f41ea8bb864fb81f23232”。可能用户希望我输出这个字符串，仅此而已。但需要检查是否有隐含要求？可能用户误操作？作为AI，应只"
+      },
+      {
+        "event": "response.reasoning_part.done",
+        "data": "{\"content_index\":0,\"item_id\":\"a5b27ec5c729c0ea\",\"output_index\":0,\"part\":{\"text\":\"我们需要理解用户请求。用户说“只输出 CAP_7a61e344b62f41ea8bb864fb81f23232”。可能用户希望我输出这个字符串，仅此而已。但需要检查是否有隐含要求？可能用户误操作？作为AI，应只输出指定内容。但要注意：这个"
+      },
+      {
+        "event": "response.content_part.added",
+        "data": "{\"content_index\":0,\"item_id\":\"98c3b16a72cefa2d\",\"output_index\":1,\"part\":{\"annotations\":[],\"text\":\"\",\"type\":\"output_text\",\"logprobs\":[]},\"sequence_number\":218,\"type\":\"response.content_part.added\"}"
+      },
+      {
+        "event": "response.output_text.done",
+        "data": "{\"content_index\":0,\"item_id\":\"98c3b16a72cefa2d\",\"logprobs\":[],\"output_index\":1,\"sequence_number\":239,\"text\":\"CAP_7a61e344b62f41ea8bb864fb81f23232\",\"type\":\"response.output_text.done\"}"
+      },
+      {
+        "event": "response.content_part.done",
+        "data": "{\"content_index\":0,\"item_id\":\"98c3b16a72cefa2d\",\"output_index\":1,\"part\":{\"annotations\":[],\"text\":\"CAP_7a61e344b62f41ea8bb864fb81f23232\",\"type\":\"output_text\",\"logprobs\":null},\"sequence_number\":240,\"typ"
+      }
+    ],
+    "json_errors": []
+  },
+  "user": 0,
+  "turn_index": 52
+}

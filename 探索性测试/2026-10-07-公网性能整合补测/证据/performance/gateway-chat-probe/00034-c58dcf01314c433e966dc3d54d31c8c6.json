@@ -1,0 +1,78 @@
+{
+  "sample_id": "c58dcf01314c433e966dc3d54d31c8c6",
+  "request_index": 34,
+  "cases": [
+    "PREP",
+    "PERF-07"
+  ],
+  "group": "gateway-chat-probe",
+  "warmup": false,
+  "target": "gateway-chat",
+  "protocol": "chat",
+  "request": {
+    "model": "flash",
+    "messages": [
+      {
+        "role": "user",
+        "content": "只输出 OK"
+      }
+    ],
+    "stream": false,
+    "max_tokens": 256,
+    "think_level": "low"
+  },
+  "expected": {
+    "exact_text": "OK"
+  },
+  "checks": {
+    "http200": true,
+    "no_transport_error": true,
+    "valid_json": true,
+    "terminal": true,
+    "exact_text": true
+  },
+  "ok": true,
+  "fully_completed": true,
+  "request_sha256": "537758d4b021262438df8396b2b5aa515936aeeb7342d07012e43d5f764f2eeb",
+  "utc": "2026-10-07T05:25:06Z",
+  "http": 200,
+  "error_kind": null,
+  "error": null,
+  "body_text": "{\"id\":\"chatcmpl-1jbytbh1000dlyctv4eop5vrt37cvi03\",\"object\":\"chat.completion\",\"created\":1791350709,\"model\":\"flash\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"OK\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":7,\"completion_tokens\":8,\"total_tokens\":15,\"prompt_tokens_details\":{},\"completion_tokens_details\":{}}}",
+  "normalized": {
+    "protocol": "chat",
+    "text": "OK",
+    "reasoning": "",
+    "final_text": null,
+    "tool_calls": [],
+    "usage": {
+      "prompt_tokens": 7,
+      "completion_tokens": 8,
+      "total_tokens": 15,
+      "prompt_tokens_details": {},
+      "completion_tokens_details": {}
+    },
+    "terminal": "completed",
+    "terminal_reason": "stop",
+    "error_message": null,
+    "unknown_events": [],
+    "json_errors": []
+  },
+  "raw_frames": [],
+  "metrics": {
+    "e2e": 0.25,
+    "first_event": null,
+    "first_reasoning": null,
+    "first_text": null,
+    "first_tool": null,
+    "input_tokens": 7,
+    "output_tokens": 8,
+    "output_tokens_per_e2e": 32.0,
+    "text_chars": 2,
+    "text_delta_count": 0,
+    "text_span": null,
+    "text_intervals_s": [],
+    "middle_text_chunks_per_s": null,
+    "stream_batch_observation": null
+  }
+}

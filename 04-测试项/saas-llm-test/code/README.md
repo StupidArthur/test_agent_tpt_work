@@ -33,18 +33,21 @@ python 04-测试项/saas-llm-test/code/run.py --task-dir "探索性测试/本轮
 python 04-测试项/saas-llm-test/code/run.py --task-dir "探索性测试/本轮任务" capacity --target <目标> --plan-file "探索性测试/本轮任务/容量计划.json" --execute
 ```
 
-预算按实际速率/用户/窗口估算，最低样本数不是请求上限。整批硬请求预留预算不足时停止发起并排空，工具轮两请求预留，恢复阶段保留健康检查预算；样本不足不构成服务失败边界。单key、固定历史、本地近零耗时工具有适用范围，客户端资源与费用限制另需冻结。尚无新入口真实网关容量验证，不承诺最大用户数。
+预算按实际速率/用户/窗口估算，最低样本数不是请求上限。整批硬请求预留预算不足时停止发起并排空，工具轮两请求预留，恢复阶段保留健康检查预算；样本不足不构成服务失败边界。单key、固定历史、本地近零耗时工具有适用范围，客户端资源与费用限制另需冻结。已有 [公网用户曲线测量](../../../探索性测试/2026-10-07-公网性能整合补测/报告.md)，但正式SLO容量入口未执行，不承诺最大用户数。
 
 ## 离线验证
 
 ```powershell
 python 04-测试项/saas-llm-test/code/test_capacity_suite.py
+python 04-测试项/saas-llm-test/code/test_performance.py
 python 04-测试项/saas-llm-test/code/offline_validate.py --task-dir "探索性测试/本轮任务"
 ```
 
-前者13项，临时证据；后者8项，模拟HTTP/SSE证据写到指定任务。调用后核验实际输出，不把历史通过次数当新结果。
+容量13项、性能6项均使用临时离线证据；offline_validate为8项，模拟HTTP/SSE证据写到指定任务。调用后核验实际输出，不把历史通过次数当新结果。
 
 ## 需要改代码时再读
+
+新增性能采样库 `llm_probe/performance.py`：`Sampler.measure(target, body, cases=..., group=..., expected=...)` 保存完整wire、正文/推理/工具时点、计量、正文增量节奏及独立内容判据；`aggregate(samples)` 分开全部尝试与成功样本，暖机不混入。未知usage保持null，截断与完整回答分开。任务控制器负责冻结负载、队列和输出目录；使用示例见 [公网补测任务](../../../探索性测试/2026-10-07-公网性能整合补测/README.md)。未知SLO时仅输出测量，不绕过正式容量入口的达标前置。
 
 `llm_probe/transport.py`和`sse.py`管HTTP/帧；`protocol.py`管请求与归一化；`capacity.py`管基础调度；`capacity_suite.py`管容量计划/工具业务链/独立窗口/恢复；`runner.py`管实例；`evidence.py`管原始记录和索引；`stats.py`管指标；`cli.py`管任务路径；`report.py`管普通交付汇总。只读当前模块。
 
