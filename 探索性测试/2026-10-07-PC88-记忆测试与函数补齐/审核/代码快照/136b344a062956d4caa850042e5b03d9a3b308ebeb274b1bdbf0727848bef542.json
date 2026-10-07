@@ -1,0 +1,30 @@
+{
+  "functions": [
+    {
+      "name": "mem.inspectSurfaces",
+      "file": "code/business/memory.mjs",
+      "export": "inspectSurfaces",
+      "feature_path": ["记忆与进化", "探针", "结构枚举"],
+      "description": "枚举记忆与进化面板与设置记忆分区的文本与控件（本轮定位用）",
+      "version": "task-local-1.0",
+      "parameters": { "type": "object", "properties": {}, "required": [], "additionalProperties": false }
+    },
+    {
+      "name": "mem.probePanel",
+      "file": "code/business/memory.mjs",
+      "export": "probePanel",
+      "feature_path": ["记忆与进化", "探针", "面板"],
+      "description": "切记忆面板 tab / 打开编辑弹窗 / 高级设置并读取结构",
+      "version": "task-local-1.0",
+      "parameters": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "action": { "type": "string", "enum": ["tabs", "library", "advanced", "edit"] },
+          "index": { "type": "integer" }
+        },
+        "required": ["action"]
+      }
+    }
+  ]
+}

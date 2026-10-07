@@ -1,0 +1,95 @@
+{
+  "run": "PC88-20261007-memory01",
+  "machine_id": "PC88",
+  "note": "本任务新增函数，保存在任务 code/ 下，未并入主库，待管理者审核后再并入 tools/ui-operations。",
+  "functions": [
+    {
+      "id": "MEM-FN-01",
+      "name": "mem.readFiles",
+      "case": ["MEM-01", "MEM-03", "MEM-05", "MEM-09", "MEM-12", "MEM-18"],
+      "gap": "主库无记忆目录枚举与文件内容/哈希读取",
+      "file": "code/business/memory.mjs",
+      "export": "readFiles",
+      "parameters": { "path": "string(optional)", "files": "string[](optional)" },
+      "call_evidence": ["CALL-d0b83a13-6778-4ddc-b938-c50304a40236"],
+      "recovery": "只读，无副作用"
+    },
+    {
+      "id": "MEM-FN-02",
+      "name": "mem.addEntry",
+      "case": ["MEM-02"],
+      "gap": "主库无记忆库添加条目能力",
+      "file": "code/business/memory.mjs",
+      "export": "addEntry",
+      "parameters": { "type": "偏好|事实|结论|规则", "content": "string" },
+      "call_evidence": ["CALL-af7181ff-426b-4f7e-9a80-0add68c35492"],
+      "recovery": "产生的条目经 mem.deleteEntry 或 mem.restore 处理"
+    },
+    {
+      "id": "MEM-FN-03",
+      "name": "mem.editLayerFile",
+      "case": ["MEM-02"],
+      "gap": "主库无分层记忆文件编辑能力",
+      "file": "code/business/memory.mjs",
+      "export": "editLayerFile",
+      "parameters": { "index": "0..3 (SOUL/AGENTS/USER/MEMORY)", "content": "string" },
+      "call_evidence": ["CALL-0b7c55a3-7ed2-4cc5-821d-d8fe61056f8d"],
+      "recovery": "fixtures.backupFile + mem.restore 回写初始内容"
+    },
+    {
+      "id": "MEM-FN-04",
+      "name": "mem.readOverview",
+      "case": ["MEM-04", "MEM-05", "MEM-16"],
+      "gap": "主库无记忆概览计数与高级参数读取",
+      "file": "code/business/memory.mjs",
+      "export": "readOverview",
+      "parameters": {},
+      "call_evidence": ["CALL-78d60a38-ae48-4790-bef3-a1117f7d94f4"],
+      "recovery": "只读，关闭面板"
+    },
+    {
+      "id": "MEM-FN-05",
+      "name": "mem.deleteEntry",
+      "case": ["MEM-17"],
+      "gap": "主库无记忆库删除条目与 confirm 处理",
+      "file": "code/business/memory.mjs",
+      "export": "deleteEntry",
+      "parameters": { "marker": "string" },
+      "call_evidence": ["CALL-bd92c490-1911-4548-9d3f-441f8a6fff16"],
+      "recovery": "仅删自建测试条目；确认框按文档为原生 Windows 确认，本轮由人工关闭，不作为自动化通过"
+    },
+    {
+      "id": "MEM-FN-06",
+      "name": "mem.restore",
+      "case": ["MEM-18"],
+      "gap": "主库恢复函数仅单文件，本函数支持批量恢复+移除本轮新建文件+独立回读",
+      "file": "code/business/memory.mjs",
+      "export": "restore",
+      "parameters": { "restore": "[{name,path,sha256}]", "remove": "[path]" },
+      "call_evidence": ["CALL-5cdab22e-579f-467a-9bb1-5e5762092130"],
+      "recovery": "自身即恢复动作；审计增量按设计保留"
+    },
+    {
+      "id": "MEM-FN-07",
+      "name": "mem.probePanel / mem.inspectSurfaces",
+      "case": ["MEM-01", "MEM-02", "MEM-05", "MEM-16"],
+      "gap": "定位用探针（tab/行/控件/高级设置结构）",
+      "file": "code/business/memory.mjs",
+      "export": "probePanel / inspectSurfaces",
+      "parameters": { "action": "tabs|library|advanced|edit|rows|delete-first" },
+      "call_evidence": ["CALL-dbe01944-4777-4d4d-81db-f9fd29e6484c", "CALL-5110ee0e-9ac8-4905-96b3-8e2e7eae9dae"],
+      "recovery": "只读，关闭面板"
+    },
+    {
+      "id": "MEM-FN-08",
+      "name": "mem.setAdvanced",
+      "case": [],
+      "gap": "高级参数修改能力（本轮未实际修改，未验证）",
+      "file": "code/business/memory.mjs",
+      "export": "setAdvanced",
+      "parameters": { "label": "string", "value": "any" },
+      "call_evidence": [],
+      "recovery": "如使用需先记录初值并恢复"
+    }
+  ]
+}
