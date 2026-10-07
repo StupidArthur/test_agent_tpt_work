@@ -1,0 +1,51 @@
+{
+  "case_id": "G9-03",
+  "contract_version": "2.0",
+  "attempt_id": "fn-20261006-agent2-G9-03-A1",
+  "environment_id": "env-fn-20261006-agent2",
+  "object_identity": {
+    "skill": "fast-assert-cn-tech-fn-20261006-agent2"
+  },
+  "inputs": [
+    "导入 variants/cn-tech/SKILL.md，中文界面查看卡片"
+  ],
+  "action_refs": [
+    "business-6d0ac573-87a0-4f4e-835f-d4dd6239686f-4"
+  ],
+  "status": "通过",
+  "started_at": "2026-10-06T09:04:12.526Z",
+  "ended_at": "2026-10-06T09:05:00.000Z",
+  "actual_steps": [
+    "导入 cn-tech 单文件",
+    "读取卡片标题"
+  ],
+  "assertions": [
+    {
+      "id": "G9-03-A1",
+      "actual": "fast-assert-cn-tech-fn-20261006-agent2",
+      "read_refs": [
+        "business-79712ee8-e6ce-43b4-a273-a03765e4db04-1"
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "path": "运行日志/business.jsonl",
+      "sha256": "6203703aeaf46ab5fd94d64c474b878c26f39b97bc4c3f7a3840f9ee9a48bdc5"
+    },
+    {
+      "path": "运行日志/业务调用.jsonl",
+      "sha256": "91fc9bb4b29ad5347770a9e5e5a21b38b9c414c04a2e484e84b5dd981db87bd7"
+    }
+  ],
+  "cleanup": {
+    "status": "retained",
+    "description": "样本保留",
+    "read_refs": []
+  },
+  "business_call_refs": [
+    "CALL-af994457-5f88-4df3-9259-0c984762dfd0",
+    "CALL-1b9f19c0-a3e0-4849-82e0-ec4fbc4ca6f6"
+  ],
+  "notes": "缺 name_cn/name_en，回落技术 name，等于 $variant_cn_tech_name"
+}

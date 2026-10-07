@@ -1,0 +1,30 @@
+{
+  "observations": {
+    "action_refs": [
+      "business-edd422e9-b095-459c-aa5f-49094d24fedb-2"
+    ],
+    "observations": {
+      "read": {
+        "event_id": "business-edd422e9-b095-459c-aa5f-49094d24fedb-3",
+        "captured_at": "2026-10-06T11:38:08.413Z",
+        "environment_id": "env-fn-20261006-agent2",
+        "kind": "read",
+        "target": "会话搜索结果数",
+        "business_call_id": "CALL-2491d7ba-7a94-4e84-8008-6a3d7313a656",
+        "object_id": "session-search-count",
+        "source": {
+          "channel": "dom",
+          "scope": "搜索面板/结果列表",
+          "locator": "input,input[placeholder*=\"搜索\"]"
+        },
+        "value": 0,
+        "raw": {
+          "total": 5,
+          "matched": 0,
+          "query": "session-ad2534f2-7385-4c78-92d5-bd70bcfad671"
+        },
+        "derivation": "结果行含查询值计数"
+      }
+    }
+  }
+}

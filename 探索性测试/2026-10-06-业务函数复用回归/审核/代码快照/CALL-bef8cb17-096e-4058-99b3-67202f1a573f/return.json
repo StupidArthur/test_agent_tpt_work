@@ -1,0 +1,47 @@
+{
+  "observations": {
+    "observations": {
+      "exists": {
+        "event_id": "business-bc98d329-da18-447a-91bd-ab7996500cd1-1",
+        "captured_at": "2026-10-06T08:31:25.895Z",
+        "environment_id": "env-fn-20261006-agent2",
+        "kind": "read",
+        "target": "附件清空入口存在",
+        "business_call_id": "CALL-bef8cb17-096e-4058-99b3-67202f1a573f",
+        "object_id": "composer-attachment-clear-entry",
+        "source": {
+          "channel": "dom",
+          "scope": "composer 附件区",
+          "locator": "[data-slot=\"conversation.input.attachments\"]"
+        },
+        "value": false,
+        "raw": {
+          "buttonLabels": [
+            "移除文件 attachment-a.txt",
+            "移除文件 attachment-b.txt",
+            "移除文件 attachment-c.md"
+          ]
+        },
+        "derivation": "/清空|全部移除|清除全部/.test(labels)"
+      },
+      "count": {
+        "event_id": "business-bc98d329-da18-447a-91bd-ab7996500cd1-2",
+        "captured_at": "2026-10-06T08:31:25.897Z",
+        "environment_id": "env-fn-20261006-agent2",
+        "kind": "read",
+        "target": "草稿附件数",
+        "business_call_id": "CALL-bef8cb17-096e-4058-99b3-67202f1a573f",
+        "object_id": "composer-attachment-count",
+        "source": {
+          "channel": "dom",
+          "scope": "composer 附件区",
+          "locator": "[data-slot=\"conversation.input.attachments\"] [class*=\"name\"]"
+        },
+        "value": 3,
+        "raw": {
+          "count": 3
+        }
+      }
+    }
+  }
+}

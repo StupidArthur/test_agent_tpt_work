@@ -1,0 +1,65 @@
+{
+  "case_id": "G8-03",
+  "contract_version": "2.0",
+  "attempt_id": "fn-20261006-agent2-G8-03-A1",
+  "environment_id": "env-fn-20261006-agent2",
+  "object_identity": {
+    "expected": "本轮A会话行未读标记"
+  },
+  "inputs": [
+    "尝试对本轮A标记未读并读取标记数"
+  ],
+  "action_refs": [
+    "business-507f7823-86ec-43fc-b523-d02992091b9b-2",
+    "business-0ad515d0-2484-4312-8adf-d3af4c8ec845-2"
+  ],
+  "status": "不确定",
+  "started_at": "2026-10-06T08:58:50.384Z",
+  "ended_at": "2026-10-06T09:00:00.000Z",
+  "actual_steps": [
+    "新建任务并发送短文本",
+    "读取侧栏会话行列表",
+    "本轮A会话行未出现，标记未读/读取徽标无法执行"
+  ],
+  "assertions": [
+    {
+      "id": "G8-03-A1",
+      "actual": null,
+      "read_refs": [
+        "business-f4d2d937-0c8e-4994-938b-d7cc9297700a-1"
+      ],
+      "reason": "本轮A会话行未出现在侧栏，无法标记未读并读取提醒数",
+      "failed_dependency": "本轮A会话行定位"
+    },
+    {
+      "id": "G8-03-A2",
+      "actual": null,
+      "read_refs": [
+        "business-f4d2d937-0c8e-4994-938b-d7cc9297700a-1"
+      ],
+      "reason": "同上，无法读取并列额外标记数",
+      "failed_dependency": "本轮A会话行定位"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "运行日志/business.jsonl",
+      "sha256": "6203703aeaf46ab5fd94d64c474b878c26f39b97bc4c3f7a3840f9ee9a48bdc5"
+    },
+    {
+      "path": "运行日志/业务调用.jsonl",
+      "sha256": "91fc9bb4b29ad5347770a9e5e5a21b38b9c414c04a2e484e84b5dd981db87bd7"
+    }
+  ],
+  "cleanup": {
+    "status": "unchanged",
+    "description": "未产生可清理改动",
+    "read_refs": []
+  },
+  "business_call_refs": [
+    "CALL-03368b24-cb4c-48ac-9943-d24c0842dfcd",
+    "CALL-805c1c66-f795-408f-8ea4-5f395f6826c9",
+    "CALL-a6e112b0-d49a-470b-8ebd-3278dc246f17"
+  ],
+  "notes": "未观测：与 G8-02 同一依赖（本轮A会话行不可定位）"
+}

@@ -1,0 +1,51 @@
+{
+  "case_id": "G4-01",
+  "contract_version": "2.0",
+  "attempt_id": "fn-20261006-agent2-G4-01-A1",
+  "environment_id": "env-fn-20261006-agent2",
+  "object_identity": {
+    "internal_name": "fast-assert-expert-fn-20261006-agent2",
+    "display_name": "本轮快速回归专家"
+  },
+  "inputs": [
+    "专家页：点击 导入专家 打开弹窗"
+  ],
+  "action_refs": [
+    "business-1fbb5465-8ca6-4209-b077-2d1ec2c6354a-2"
+  ],
+  "status": "通过",
+  "started_at": "2026-10-06T07:42:57.000Z",
+  "ended_at": "2026-10-06T07:42:59.000Z",
+  "actual_steps": [
+    "打开导入本地专家弹窗",
+    "读取 webkitdirectory input 数量"
+  ],
+  "assertions": [
+    {
+      "id": "G4-01-A1",
+      "actual": 1,
+      "read_refs": [
+        "business-1fbb5465-8ca6-4209-b077-2d1ec2c6354a-3"
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "path": "运行日志/business.jsonl",
+      "sha256": "6203703aeaf46ab5fd94d64c474b878c26f39b97bc4c3f7a3840f9ee9a48bdc5"
+    },
+    {
+      "path": "运行日志/业务调用.jsonl",
+      "sha256": "91fc9bb4b29ad5347770a9e5e5a21b38b9c414c04a2e484e84b5dd981db87bd7"
+    }
+  ],
+  "cleanup": {
+    "status": "retained",
+    "description": "弹窗取消；专家保留待审",
+    "read_refs": []
+  },
+  "business_call_refs": [
+    "CALL-12b64663-5c21-422c-b165-530dc4e35e6c"
+  ],
+  "notes": "raw.dirCount=1，zipCount=1"
+}

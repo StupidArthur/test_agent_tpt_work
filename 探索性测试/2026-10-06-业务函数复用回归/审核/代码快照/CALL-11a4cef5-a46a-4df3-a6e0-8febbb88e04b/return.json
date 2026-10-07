@@ -1,0 +1,52 @@
+{
+  "observations": {
+    "action_refs": [
+      "business-4bf481fa-30a2-487d-afeb-c9e2510009b2-2"
+    ],
+    "observations": {
+      "toolText": {
+        "event_id": "business-4bf481fa-30a2-487d-afeb-c9e2510009b2-3",
+        "captured_at": "2026-10-06T08:44:01.332Z",
+        "environment_id": "env-fn-20261006-agent2",
+        "kind": "read",
+        "target": "轨迹工具记录",
+        "business_call_id": "CALL-11a4cef5-a46a-4df3-a6e0-8febbb88e04b",
+        "object_id": "trace-tool-row",
+        "source": {
+          "channel": "dom",
+          "scope": "本轮会话/轨迹表格",
+          "locator": "tr[data-kind=\"tool\"]"
+        },
+        "value": "工具 read{\"file_path\": \"D:\\tpt-workspace\\0929\\p1\\.fast-assert-fn-20261006-agent2\\flow.txt\"} → <path>D:\\tpt-workspace\\0929\\p1.fast-assert-fn-20261006-agent2\\flow.txt</path> <type>file</type> <content> 1: FAST_FLOW_INPUT (End of file - total 1 lines) </content>",
+        "raw": {
+          "count": 1,
+          "texts": [
+            "工具 read{\"file_path\": \"D:\\tpt-workspace\\0929\\p1\\.fast-assert-fn-20261006-agent2\\flow.txt\"} → <path>D:\\tpt-workspace\\0929\\p1.fast-assert-fn-20261006-agent2\\flow.txt</path> <type>file</type> <content> 1: FAST_FLOW_INPUT (End of file - total 1 lines) </content>"
+          ]
+        }
+      },
+      "scroll": {
+        "event_id": "business-4bf481fa-30a2-487d-afeb-c9e2510009b2-4",
+        "captured_at": "2026-10-06T08:44:01.335Z",
+        "environment_id": "env-fn-20261006-agent2",
+        "kind": "read",
+        "target": "工具输出容器可滚动",
+        "business_call_id": "CALL-11a4cef5-a46a-4df3-a6e0-8febbb88e04b",
+        "object_id": "trace-tool-scroll",
+        "source": {
+          "channel": "dom",
+          "scope": "本轮会话/轨迹工具输出单元",
+          "locator": "tr[data-kind=\"tool\"] td"
+        },
+        "value": false,
+        "raw": {
+          "found": true,
+          "scrollHeight": null,
+          "clientHeight": null,
+          "vert": false
+        },
+        "derivation": "某输出单元 scrollHeight>clientHeight 且允许纵向滚动"
+      }
+    }
+  }
+}

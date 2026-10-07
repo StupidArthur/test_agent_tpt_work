@@ -1,0 +1,67 @@
+{
+  "case_id": "G6-04",
+  "contract_version": "2.0",
+  "attempt_id": "fn-20261006-agent2-G6-04-A1",
+  "environment_id": "env-fn-20261006-agent2",
+  "object_identity": {
+    "font_initial": 14,
+    "font_changed": 15
+  },
+  "inputs": [
+    "字号改后在新会话用短回答读正文 computed font-size；恢复初值再读"
+  ],
+  "action_refs": [
+    "business-3aae6e5a-b9dc-4c80-b234-8ec6b2836c2c-2",
+    "business-6d9a7efa-1fe4-4a40-ad02-d7ddea9e8f99-2",
+    "business-0a74369d-095b-48b9-bbaf-6ca1bab3ca95-2"
+  ],
+  "status": "通过",
+  "started_at": "2026-10-06T08:14:36.295Z",
+  "ended_at": "2026-10-06T08:16:19.478Z",
+  "actual_steps": [
+    "字号 15 时新建任务发送 请只回复 OK",
+    "读取助手正文 computed font-size",
+    "删除 1px 恢复正常后新建任务再发送并读取"
+  ],
+  "assertions": [
+    {
+      "id": "G6-04-A1",
+      "actual": 15,
+      "read_refs": [
+        "business-4f28c452-9aa9-4820-b2f6-fcaa961e53cc-3"
+      ]
+    },
+    {
+      "id": "G6-04-A2",
+      "actual": 14,
+      "read_refs": [
+        "business-ce222481-f19f-4156-b992-89f18b7a6a33-3"
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "path": "运行日志/business.jsonl",
+      "sha256": "6203703aeaf46ab5fd94d64c474b878c26f39b97bc4c3f7a3840f9ee9a48bdc5"
+    },
+    {
+      "path": "运行日志/业务调用.jsonl",
+      "sha256": "91fc9bb4b29ad5347770a9e5e5a21b38b9c414c04a2e484e84b5dd981db87bd7"
+    }
+  ],
+  "cleanup": {
+    "status": "restored",
+    "description": "字号已恢复为初值 14 并在新会话正文回读核验",
+    "read_refs": [
+      "business-ce222481-f19f-4156-b992-89f18b7a6a33-3"
+    ]
+  },
+  "business_call_refs": [
+    "CALL-b785c7ee-f496-48fd-8bf8-9d08734a7a68",
+    "CALL-187233fd-b6f9-491a-8ff7-64ec02d3ec8a",
+    "CALL-48cbb71f-b5d7-4d35-903b-35fef9078edc",
+    "CALL-45c738d4-26c7-4f24-9107-1d33ead5a9e2",
+    "CALL-dad7a861-fccd-4b7d-b819-8e1e32b910ca"
+  ],
+  "notes": "读取的是助手气泡 computed font-size(px) 解析为数字；raw.fontSize 原值 15px/14px"
+}

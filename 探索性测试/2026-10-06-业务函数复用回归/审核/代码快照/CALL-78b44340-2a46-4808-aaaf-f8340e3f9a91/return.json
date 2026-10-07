@@ -1,0 +1,52 @@
+{
+  "observations": {
+    "action_refs": [
+      "business-22e0befc-1eca-442c-99a9-ee4939e36989-2"
+    ],
+    "observations": {
+      "wait": {
+        "waited_ms": 109149
+      },
+      "assistant": {
+        "event_id": "business-22e0befc-1eca-442c-99a9-ee4939e36989-3",
+        "captured_at": "2026-10-06T09:36:26.570Z",
+        "environment_id": "env-fn-20261006-agent2",
+        "kind": "read",
+        "target": "技能调用助手气泡",
+        "business_call_id": "CALL-78b44340-2a46-4808-aaaf-f8340e3f9a91",
+        "object_id": "last-assistant-bubble",
+        "source": {
+          "channel": "dom",
+          "scope": "对话 助手气泡",
+          "locator": "[class*=\"hWmORq_body\"]"
+        },
+        "value": "FAST_RICH_BASE_OK",
+        "raw": {
+          "count": 7,
+          "last": "FAST_RICH_BASE_OK"
+        }
+      },
+      "userReq": {
+        "event_id": "business-22e0befc-1eca-442c-99a9-ee4939e36989-4",
+        "captured_at": "2026-10-06T09:36:26.573Z",
+        "environment_id": "env-fn-20261006-agent2",
+        "kind": "read",
+        "target": "本轮用户请求",
+        "business_call_id": "CALL-78b44340-2a46-4808-aaaf-f8340e3f9a91",
+        "object_id": "last-user-bubble",
+        "source": {
+          "channel": "dom",
+          "scope": "对话 用户气泡",
+          "locator": "[class*=\"wSkVaW_body\"]"
+        },
+        "value": false,
+        "raw": {
+          "requestText": "/fast-assert-rich-fn-20261006-agent2 请执行此技能固定回复规则",
+          "full": "/fast-assert-rich-fn-20261006-agent2 请执行此技能固定回复规则\n17:34\n已完成工作\n用时 1分49秒\n\nFAST_RICH_BASE_OK\n\n用量 128K tok\n17:36\n发消息或创建任务, / 调用指令, @ 文件或对话\n工作区内修改\n标准\nlow\n1 轮 6 步·259 tok/s\n128K tok·缓存命中 0%\n9%",
+          "answer": "FAST_RICH_BASE_OK"
+        },
+        "derivation": "requestText.includes(FAST_RICH_BASE_OK)"
+      }
+    }
+  }
+}

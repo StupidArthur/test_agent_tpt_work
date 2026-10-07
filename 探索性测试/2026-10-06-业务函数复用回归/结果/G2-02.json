@@ -1,0 +1,57 @@
+{
+  "case_id": "G2-02",
+  "contract_version": "2.0",
+  "attempt_id": "fn-20261006-agent2-G2-02-A1",
+  "environment_id": "env-fn-20261006-agent2",
+  "object_identity": {
+    "internal_name": "fast-assert-skill-fn-20261006-agent2",
+    "display_name": "本轮快速回归技能"
+  },
+  "inputs": [
+    "提交夹具 夹具/本轮/fn-20261006-agent2/skill-src/SKILL.md"
+  ],
+  "action_refs": [
+    "business-9aae0cbf-78b5-4793-831d-1061de7fce35-2",
+    "business-9aae0cbf-78b5-4793-831d-1061de7fce35-5"
+  ],
+  "status": "通过",
+  "started_at": "2026-10-06T07:27:34.895Z",
+  "ended_at": "2026-10-06T07:27:38.386Z",
+  "actual_steps": [
+    "打开导入弹窗",
+    "对单文件 input 执行 setInputFiles",
+    "点击 导入",
+    "等待弹窗关闭并读取卡片存在"
+  ],
+  "assertions": [
+    {
+      "id": "G2-02-A1",
+      "actual": true,
+      "read_refs": [
+        "business-9aae0cbf-78b5-4793-831d-1061de7fce35-6"
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "path": "运行日志/business.jsonl",
+      "sha256": "6203703aeaf46ab5fd94d64c474b878c26f39b97bc4c3f7a3840f9ee9a48bdc5"
+    },
+    {
+      "path": "运行日志/业务调用.jsonl",
+      "sha256": "91fc9bb4b29ad5347770a9e5e5a21b38b9c414c04a2e484e84b5dd981db87bd7"
+    }
+  ],
+  "cleanup": {
+    "status": "retained",
+    "description": "本轮技能保留供 G3 调用；搜索已清空",
+    "read_refs": [
+      "business-6b6721dc-d6db-4622-a0ce-1f43b1723a99-3"
+    ]
+  },
+  "business_call_refs": [
+    "CALL-94da6f38-82fe-4e1a-a320-483ee185e97c",
+    "CALL-03b04a3d-a0ec-4935-813f-36de89fd20f5"
+  ],
+  "notes": "raw{count:1,visible:true}"
+}

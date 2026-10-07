@@ -1,0 +1,62 @@
+{
+  "case_id": "G7-05",
+  "contract_version": "2.0",
+  "attempt_id": "fn-20261006-agent2-G7-05-A1",
+  "environment_id": "env-fn-20261006-agent2",
+  "object_identity": {
+    "attachment": "preview.png"
+  },
+  "inputs": [
+    "点击 preview.png 缩略图打开预览，观察后关闭"
+  ],
+  "action_refs": [
+    "business-ed6da1f7-4c87-4748-9a89-2e6268a11436-2",
+    "business-a36c51a3-d6c5-45ef-815f-3ea714a9f1e7-2"
+  ],
+  "status": "通过",
+  "started_at": "2026-10-06T08:28:56.326Z",
+  "ended_at": "2026-10-06T08:29:11.039Z",
+  "actual_steps": [
+    "点击缩略图打开预览层",
+    "读取可见预览层与已加载图像",
+    "按 Escape 关闭并独立读取可见状态"
+  ],
+  "assertions": [
+    {
+      "id": "G7-05-A1",
+      "actual": true,
+      "read_refs": [
+        "business-ed6da1f7-4c87-4748-9a89-2e6268a11436-3"
+      ]
+    },
+    {
+      "id": "G7-05-A2",
+      "actual": false,
+      "read_refs": [
+        "business-a36c51a3-d6c5-45ef-815f-3ea714a9f1e7-3"
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "path": "运行日志/business.jsonl",
+      "sha256": "6203703aeaf46ab5fd94d64c474b878c26f39b97bc4c3f7a3840f9ee9a48bdc5"
+    },
+    {
+      "path": "运行日志/业务调用.jsonl",
+      "sha256": "91fc9bb4b29ad5347770a9e5e5a21b38b9c414c04a2e484e84b5dd981db87bd7"
+    }
+  ],
+  "cleanup": {
+    "status": "retained",
+    "description": "预览已关闭",
+    "read_refs": [
+      "business-a36c51a3-d6c5-45ef-815f-3ea714a9f1e7-3"
+    ]
+  },
+  "business_call_refs": [
+    "CALL-fdb26526-74bb-483b-9814-94d7a4021be7",
+    "CALL-243371c0-8bd5-4ab0-8234-02513a135836"
+  ],
+  "notes": "A1 raw{layers:1,imgLoaded:true}；A2 raw{layers:0}"
+}

@@ -1,0 +1,62 @@
+{
+  "case_id": "G2-05",
+  "contract_version": "2.0",
+  "attempt_id": "fn-20261006-agent2-G2-05-A1",
+  "environment_id": "env-fn-20261006-agent2",
+  "object_identity": {
+    "internal_name": "fast-assert-skill-fn-20261006-agent2",
+    "display_name": "本轮快速回归技能"
+  },
+  "inputs": [
+    "清空名称查询后搜索 regression-description-unique-token"
+  ],
+  "action_refs": [
+    "business-2c7a2231-7784-4ff9-ad58-3510b33b5202-2"
+  ],
+  "status": "通过",
+  "started_at": "2026-10-06T07:31:19.563Z",
+  "ended_at": "2026-10-06T07:31:20.873Z",
+  "actual_steps": [
+    "搜索框填入描述唯一词",
+    "读取结果卡片数量",
+    "读取命中标题是否包含描述搜索词"
+  ],
+  "assertions": [
+    {
+      "id": "G2-05-A1",
+      "actual": 1,
+      "read_refs": [
+        "business-2c7a2231-7784-4ff9-ad58-3510b33b5202-3"
+      ]
+    },
+    {
+      "id": "G2-05-A2",
+      "actual": false,
+      "read_refs": [
+        "business-2c7a2231-7784-4ff9-ad58-3510b33b5202-4"
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "path": "运行日志/business.jsonl",
+      "sha256": "6203703aeaf46ab5fd94d64c474b878c26f39b97bc4c3f7a3840f9ee9a48bdc5"
+    },
+    {
+      "path": "运行日志/业务调用.jsonl",
+      "sha256": "91fc9bb4b29ad5347770a9e5e5a21b38b9c414c04a2e484e84b5dd981db87bd7"
+    }
+  ],
+  "cleanup": {
+    "status": "retained",
+    "description": "搜索词已清空；本轮技能保留供 G3",
+    "read_refs": [
+      "business-6b6721dc-d6db-4622-a0ce-1f43b1723a99-3"
+    ]
+  },
+  "business_call_refs": [
+    "CALL-8d78c92e-ecef-4019-bae7-6af1c370e79b",
+    "CALL-03b04a3d-a0ec-4935-813f-36de89fd20f5"
+  ],
+  "notes": "A2 raw.term=regression-description-unique-token，titles=['本轮快速回归技能']"
+}

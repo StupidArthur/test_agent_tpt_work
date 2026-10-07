@@ -1,0 +1,57 @@
+{
+  "case_id": "G8-06",
+  "contract_version": "2.0",
+  "attempt_id": "fn-20261006-agent2-G8-06-A1",
+  "environment_id": "env-fn-20261006-agent2",
+  "object_identity": {
+    "flow_file": "D:\\tpt-workspace\\0929\\p1\\.fast-assert-fn-20261006-agent2\\flow.txt"
+  },
+  "inputs": [
+    "任务请求只读取本轮 flow.txt 并原样回答"
+  ],
+  "action_refs": [
+    "business-4bf481fa-30a2-487d-afeb-c9e2510009b2-2"
+  ],
+  "status": "通过",
+  "started_at": "2026-10-06T08:43:59.220Z",
+  "ended_at": "2026-10-06T08:44:01.335Z",
+  "actual_steps": [
+    "发送只读请求并等待终态",
+    "打开轨迹读取工具记录"
+  ],
+  "assertions": [
+    {
+      "id": "G8-06-A1",
+      "actual": "工具 read{\"file_path\": \"D:\\tpt-workspace\\0929\\p1\\.fast-assert-fn-20261006-agent2\\flow.txt\"} → <path>D:\\tpt-workspace\\0929\\p1.fast-assert-fn-20261006-agent2\\flow.txt</path> <type>file</type> <content> 1: FAST_FLOW_INPUT (End of file - total 1 lines) </content>",
+      "read_refs": [
+        "business-4bf481fa-30a2-487d-afeb-c9e2510009b2-3"
+      ]
+    },
+    {
+      "id": "G8-06-A2",
+      "actual": "工具 read{\"file_path\": \"D:\\tpt-workspace\\0929\\p1\\.fast-assert-fn-20261006-agent2\\flow.txt\"} → <path>D:\\tpt-workspace\\0929\\p1.fast-assert-fn-20261006-agent2\\flow.txt</path> <type>file</type> <content> 1: FAST_FLOW_INPUT (End of file - total 1 lines) </content>",
+      "read_refs": [
+        "business-4bf481fa-30a2-487d-afeb-c9e2510009b2-3"
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "path": "运行日志/business.jsonl",
+      "sha256": "6203703aeaf46ab5fd94d64c474b878c26f39b97bc4c3f7a3840f9ee9a48bdc5"
+    },
+    {
+      "path": "运行日志/业务调用.jsonl",
+      "sha256": "91fc9bb4b29ad5347770a9e5e5a21b38b9c414c04a2e484e84b5dd981db87bd7"
+    }
+  ],
+  "cleanup": {
+    "status": "retained",
+    "description": "任务保留待审",
+    "read_refs": []
+  },
+  "business_call_refs": [
+    "CALL-11a4cef5-a46a-4df3-a6e0-8febbb88e04b"
+  ],
+  "notes": "A1 工具实际参数路径含 flow 绝对路径；A2 该工具输出含 FAST_FLOW_INPUT。path 分隔符在工具回显中含一处单反斜杠"
+}

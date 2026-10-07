@@ -1,0 +1,79 @@
+{
+  "case_id": "G11-05",
+  "contract_version": "2.0",
+  "attempt_id": "fn-20261006-agent2-G11-05-A1",
+  "environment_id": "env-fn-20261006-agent2",
+  "object_identity": {
+    "expert": "fast-assert-expert-longread-fn-20261006-agent2",
+    "installed_metadata": "C:/Users/yuzechao/.tpt-work/agents/fast-assert-expert-longread-fn-20261006-agent2/metadata.json"
+  },
+  "inputs": [
+    "导入同名 overwrite 目录并选 覆盖现有"
+  ],
+  "action_refs": [
+    "business-c790e50b-f528-4386-8988-347e60ecd471-4",
+    "business-630f5aaf-d048-4743-9a93-1b38154681a2-4"
+  ],
+  "status": "通过",
+  "started_at": "2026-10-06T09:39:00.000Z",
+  "ended_at": "2026-10-06T09:45:00.000Z",
+  "actual_steps": [
+    "备份 longread 安装文件与哈希",
+    "导入同名 overwrite 选覆盖",
+    "读安装 metadata 内容与详情描述",
+    "恢复原字节并回读哈希"
+  ],
+  "assertions": [
+    {
+      "id": "G11-05-A1",
+      "actual": "{\n  \"name\": \"fast-assert-expert-longread-fn-20261006-agent2\",\n  \"description\": \"Harmless regression fixture with a fixed response and no external operations.\",\n  \"version\": \"1.2.3\",\n  \"author\": \"\",\n  \"category\": \"技术工程\",\n  \"profession\": {\n    \"zh\": \"本轮扩展专家-overwrite\",\n    \"en\": \"Fast Extended overwrite\"\n  },\n  \"displayDescription\": {\n    \"zh\": \"FAST_OVERWRITE\",\n    \"en\": \"FAST_OVERWRITE\"\n  },\n  \"defaultInitPrompt\": {\n    \"zh\": \"请执行你的本轮回归固定回复规则。\",\n    \"en\": \"Execute your regression fixed reply rule.\"\n  },\n  \"quickPrompts\": [\n    {\n      \"zh\": \"请执行你的本轮回归固定回复规则。\",\n      \"en\": \"Execute your regression fixed reply rule.\"\n    }\n  ],\n  \"tags\": [\n    {\n      \"zh\": \"回归验证\",\n      \"en\": \"Regression\"\n    }\n  ],\n  \"agents\": [\n    \"agent.md\"\n  ],\n  \"avatar\": \"\",\n  \"skills\": []\n}\n",
+      "read_refs": [
+        "business-7048fb8a-406b-416f-bcbf-046d66989c57-1"
+      ]
+    },
+    {
+      "id": "G11-05-A2",
+      "actual": "FAST_OVERWRITE",
+      "read_refs": [
+        "business-a3c84f39-79f0-4d50-acdc-e0e0bc19fecd-4"
+      ]
+    },
+    {
+      "id": "G11-05-A3",
+      "actual": {
+        "before": "5711271eccaa92f56f817320f9a24f37a1549c2cc668c6707d9bb96c8d40c252",
+        "after": "5711271eccaa92f56f817320f9a24f37a1549c2cc668c6707d9bb96c8d40c252"
+      },
+      "read_refs": [
+        "business-f2d4ee47-78cc-45bc-8043-3a34dac307c0-1",
+        "business-1bd9f7ef-cdac-4a14-89e0-f1d054e0ca13-1"
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "path": "运行日志/business.jsonl",
+      "sha256": "6203703aeaf46ab5fd94d64c474b878c26f39b97bc4c3f7a3840f9ee9a48bdc5"
+    },
+    {
+      "path": "运行日志/业务调用.jsonl",
+      "sha256": "91fc9bb4b29ad5347770a9e5e5a21b38b9c414c04a2e484e84b5dd981db87bd7"
+    }
+  ],
+  "cleanup": {
+    "status": "restored",
+    "description": "longread 安装 metadata.json 与 agent.md 已按原字节恢复并回读哈希一致",
+    "read_refs": [
+      "business-1bd9f7ef-cdac-4a14-89e0-f1d054e0ca13-1"
+    ]
+  },
+  "business_call_refs": [
+    "CALL-acfe1782-6858-4032-bb02-28d5be5228ea",
+    "CALL-e528d170-2410-4a45-834d-0b0abaef7db7",
+    "CALL-eafa2243-ee5c-43a8-b618-1b807708237e",
+    "CALL-16187398-6458-41f6-bac4-ba0baa1f6f0e",
+    "CALL-0176c10b-a3a8-4bfd-ae88-b2ac43d21ed8",
+    "CALL-93f0692f-3cea-41ac-b911-516d9b2e8810"
+  ],
+  "notes": "覆盖生效：安装 metadata 与详情描述均含 FAST_OVERWRITE；恢复后哈希一致"
+}

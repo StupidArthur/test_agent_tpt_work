@@ -1,0 +1,55 @@
+{
+  "case_id": "G4-02",
+  "contract_version": "2.0",
+  "attempt_id": "fn-20261006-agent2-G4-02-A1",
+  "environment_id": "env-fn-20261006-agent2",
+  "object_identity": {
+    "internal_name": "fast-assert-expert-fn-20261006-agent2",
+    "display_name": "本轮快速回归专家"
+  },
+  "inputs": [
+    "提交本轮专家目录 夹具/本轮/fn-20261006-agent2/expert-src"
+  ],
+  "action_refs": [
+    "business-c5764dac-b315-455c-9663-3b52b29d6f12-4"
+  ],
+  "status": "通过",
+  "started_at": "2026-10-06T07:42:59.659Z",
+  "ended_at": "2026-10-06T07:44:05.252Z",
+  "actual_steps": [
+    "选择专家文件夹并提交",
+    "弹窗关闭后读取我的专家卡片（含内部 name 标记）"
+  ],
+  "assertions": [
+    {
+      "id": "G4-02-A1",
+      "actual": true,
+      "read_refs": [
+        "business-cbf40a00-6d18-4423-8338-692693987b8b-4"
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "path": "运行日志/business.jsonl",
+      "sha256": "6203703aeaf46ab5fd94d64c474b878c26f39b97bc4c3f7a3840f9ee9a48bdc5"
+    },
+    {
+      "path": "运行日志/业务调用.jsonl",
+      "sha256": "91fc9bb4b29ad5347770a9e5e5a21b38b9c414c04a2e484e84b5dd981db87bd7"
+    }
+  ],
+  "cleanup": {
+    "status": "retained",
+    "description": "专家保留待审",
+    "read_refs": [
+      "business-0892616c-ca10-4036-a237-7b65c06c2170-4"
+    ]
+  },
+  "business_call_refs": [
+    "CALL-2cfb7872-9bd5-42e3-9e99-f3267a41b1b3",
+    "CALL-59452bf0-b431-42e4-8228-b5aae8858c86",
+    "CALL-304ee53f-0f5d-4133-9291-9f0923643cfc"
+  ],
+  "notes": "提交调用内 card 读取因当时卡片选择器不同返回 false；随后 readCard 用实际卡片结构重新读取为 true，raw{count:1,internalNameInDom:true}"
+}

@@ -1,0 +1,70 @@
+{
+  "case_id": "G12-04",
+  "contract_version": "2.0",
+  "attempt_id": "fn-20261006-agent2-G12-04-A1",
+  "environment_id": "env-fn-20261006-agent2",
+  "object_identity": {
+    "setting": "启用记忆"
+  },
+  "inputs": [
+    "设置→记忆与进化→切换启用记忆→重开回读→恢复"
+  ],
+  "action_refs": [
+    "business-8a58b3f9-0233-4a70-9786-4aa0dc224059-2"
+  ],
+  "status": "失败",
+  "started_at": "2026-10-06T10:05:00.000Z",
+  "ended_at": "2026-10-06T10:20:00.000Z",
+  "actual_steps": [
+    "读取启用记忆初值",
+    "尝试切换（点击 input 与 row 均无变化）",
+    "关闭重开回读",
+    "回读确认"
+  ],
+  "assertions": [
+    {
+      "id": "G12-04-A1",
+      "actual": true,
+      "read_refs": [
+        "business-bea80aa1-c4df-4bfb-b28d-ec00405df6b7-1"
+      ]
+    },
+    {
+      "id": "G12-04-A2",
+      "actual": false,
+      "read_refs": [
+        "business-8f34eb3b-7702-45d3-9ee7-7c951b654908-1"
+      ]
+    },
+    {
+      "id": "G12-04-A3",
+      "actual": true,
+      "read_refs": [
+        "business-bea80aa1-c4df-4bfb-b28d-ec00405df6b7-1"
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "path": "运行日志/business.jsonl",
+      "sha256": "6203703aeaf46ab5fd94d64c474b878c26f39b97bc4c3f7a3840f9ee9a48bdc5"
+    },
+    {
+      "path": "运行日志/业务调用.jsonl",
+      "sha256": "91fc9bb4b29ad5347770a9e5e5a21b38b9c414c04a2e484e84b5dd981db87bd7"
+    }
+  ],
+  "cleanup": {
+    "status": "unchanged",
+    "description": "启用记忆保持初值 true",
+    "read_refs": [
+      "business-bea80aa1-c4df-4bfb-b28d-ec00405df6b7-1"
+    ]
+  },
+  "business_call_refs": [
+    "CALL-7d8d24a7-4201-4735-88fb-784341a082d8",
+    "CALL-9cb7107d-ee1a-4b06-b7d1-f732e26eb338",
+    "CALL-58443355-8814-419c-8c74-30d7e78fb418"
+  ],
+  "notes": "A1 失败：启用记忆开关点击后 checked 不变（input 与整行点击均无变化），重开回读仍为初值 true，未达到 changed(false)；A2/A3 通过"
+}

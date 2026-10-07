@@ -1,0 +1,28 @@
+{
+  "observations": {
+    "observations": {
+      "read": {
+        "event_id": "business-41df7ecb-ef6b-4cb9-950d-8ab06d1dc713-1",
+        "captured_at": "2026-10-06T10:30:12.748Z",
+        "environment_id": "env-fn-20261006-agent2",
+        "kind": "read",
+        "target": "设置行开关状态",
+        "business_call_id": "CALL-b16629a2-73c2-4260-85ef-1f1b58582d09",
+        "object_id": "settings-row-toggle",
+        "source": {
+          "channel": "dom",
+          "scope": "设置/常规/代码工作工具",
+          "locator": "[data-shortcut-modal=\"settings\"] [role=\"switch\"], [data-shortcut-modal=\"settings\"] input[type=\"checkbox\"]"
+        },
+        "value": true,
+        "raw": {
+          "count": 1,
+          "label": "代码工作工具",
+          "aria_checked": "true",
+          "kind": "switch"
+        },
+        "derivation": "checkbox.checked 或 aria-checked"
+      }
+    }
+  }
+}

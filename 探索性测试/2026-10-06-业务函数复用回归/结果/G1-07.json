@@ -1,0 +1,54 @@
+{
+  "case_id": "G1-07",
+  "contract_version": "2.0",
+  "attempt_id": "fn-20261006-agent2-G1-07-A1",
+  "environment_id": "env-fn-20261006-agent2",
+  "object_identity": {
+    "session": "session-26fcd928-f045-4451-8033-55c98fad4b3a"
+  },
+  "inputs": [
+    "新会话请求文本：请只输出一个代码块，代码块内容为两行：第一行 A，第二行 B。不要输出代码块以外的任何文字。"
+  ],
+  "action_refs": [
+    "business-25c2e189-aeef-42a1-a017-300c99a2bbd2-2",
+    "business-64edc9b9-30bd-4b34-8e04-85474ad2ef37-2"
+  ],
+  "status": "通过",
+  "started_at": "2026-10-06T07:22:25.460Z",
+  "ended_at": "2026-10-06T07:22:52.165Z",
+  "actual_steps": [
+    "新建任务并选择项目",
+    "发送代码块请求并等待终态 15818ms",
+    "读取助手气泡内 pre.textContent，CRLF->LF 并 trim 末尾换行"
+  ],
+  "assertions": [
+    {
+      "id": "G1-07-A1",
+      "actual": "A\nB",
+      "read_refs": [
+        "business-7196a842-0ec1-4bf1-ac50-e6ba07c4cb01-3"
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "path": "运行日志/business.jsonl",
+      "sha256": "6203703aeaf46ab5fd94d64c474b878c26f39b97bc4c3f7a3840f9ee9a48bdc5"
+    },
+    {
+      "path": "运行日志/业务调用.jsonl",
+      "sha256": "91fc9bb4b29ad5347770a9e5e5a21b38b9c414c04a2e484e84b5dd981db87bd7"
+    }
+  ],
+  "cleanup": {
+    "status": "unchanged",
+    "description": "代码块会话无文件副作用；本轮会话保留",
+    "read_refs": []
+  },
+  "business_call_refs": [
+    "CALL-d018ce52-d542-4999-8372-368297505d55",
+    "CALL-68a5bbe9-e401-43cc-bf9a-97a764682ce8",
+    "CALL-ca468a37-d5eb-4483-9522-33b74597d4d8"
+  ],
+  "notes": "助手气泡 innerText 为 '代码块\\nA\\nB'，断言取 pre.textContent 规范化后 'A\\nB'"
+}

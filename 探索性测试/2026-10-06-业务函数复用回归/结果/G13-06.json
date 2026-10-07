@@ -1,0 +1,53 @@
+{
+  "case_id": "G13-06",
+  "contract_version": "2.0",
+  "attempt_id": "fn-20261006-agent2-G13-06-A1",
+  "environment_id": "env-fn-20261006-agent2",
+  "object_identity": {
+    "entry": "更多→帮助/反馈"
+  },
+  "inputs": [
+    "点击更多后尝试打开帮助/反馈，读取新页面/dialog"
+  ],
+  "action_refs": [
+    "business-8f2c60be-9253-4946-a3f8-18dc439d4fff-1"
+  ],
+  "status": "不确定",
+  "started_at": "2026-10-06T11:20:00.000Z",
+  "ended_at": "2026-10-06T11:38:00.000Z",
+  "actual_steps": [
+    "点击更多",
+    "尝试点击帮助",
+    "读取新页面/dialog"
+  ],
+  "assertions": [
+    {
+      "id": "G13-06-A1",
+      "actual": null,
+      "read_refs": [
+        "business-8f2c60be-9253-4946-a3f8-18dc439d4fff-3"
+      ],
+      "reason": "点击“更多”未展开含“帮助/反馈”的菜单（仅出现“标准模式”浮层），未定位到帮助入口，无法观察帮助目标是否打开",
+      "failed_dependency": "帮助/反馈入口定位"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "运行日志/business.jsonl",
+      "sha256": "6203703aeaf46ab5fd94d64c474b878c26f39b97bc4c3f7a3840f9ee9a48bdc5"
+    },
+    {
+      "path": "运行日志/业务调用.jsonl",
+      "sha256": "91fc9bb4b29ad5347770a9e5e5a21b38b9c414c04a2e484e84b5dd981db87bd7"
+    }
+  ],
+  "cleanup": {
+    "status": "retained",
+    "description": "样本保留待审",
+    "read_refs": []
+  },
+  "business_call_refs": [
+    "CALL-1b77a1cb-1bbd-4fe8-980b-bb4b3eb26f2e"
+  ],
+  "notes": "未观测：更多菜单未展开帮助项"
+}

@@ -1,0 +1,28 @@
+{
+  "observations": {
+    "observations": {
+      "read": {
+        "event_id": "business-bea80aa1-c4df-4bfb-b28d-ec00405df6b7-1",
+        "captured_at": "2026-10-06T10:22:22.301Z",
+        "environment_id": "env-fn-20261006-agent2",
+        "kind": "read",
+        "target": "设置行开关状态",
+        "business_call_id": "CALL-9cb7107d-ee1a-4b06-b7d1-f732e26eb338",
+        "object_id": "settings-row-toggle",
+        "source": {
+          "channel": "dom",
+          "scope": "设置/记忆与进化/启用记忆",
+          "locator": "[data-shortcut-modal=\"settings\"] [role=\"switch\"], [data-shortcut-modal=\"settings\"] input[type=\"checkbox\"]"
+        },
+        "value": true,
+        "raw": {
+          "count": 1,
+          "label": "启用记忆",
+          "checked": true,
+          "kind": "checkbox"
+        },
+        "derivation": "checkbox.checked 或 aria-checked"
+      }
+    }
+  }
+}

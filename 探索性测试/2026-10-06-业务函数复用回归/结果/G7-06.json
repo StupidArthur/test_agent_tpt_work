@@ -1,0 +1,59 @@
+{
+  "case_id": "G7-06",
+  "contract_version": "2.0",
+  "attempt_id": "fn-20261006-agent2-G7-06-A1",
+  "environment_id": "env-fn-20261006-agent2",
+  "object_identity": {
+    "attachment": "attachment-a.txt"
+  },
+  "inputs": [
+    "添加 attachment-a.txt，读取当前附件卡"
+  ],
+  "action_refs": [
+    "business-dc5c3206-b44c-4bc5-8099-601f78d52485-2"
+  ],
+  "status": "通过",
+  "started_at": "2026-10-06T08:29:22.133Z",
+  "ended_at": "2026-10-06T08:35:00.000Z",
+  "actual_steps": [
+    "新建任务添加 attachment-a.txt",
+    "读取完整文件名与卡内文件图标"
+  ],
+  "assertions": [
+    {
+      "id": "G7-06-A1",
+      "actual": "attachment-a.txt",
+      "read_refs": [
+        "business-9da9a86e-b74c-4cab-af7a-d1f3d13bc07e-1"
+      ]
+    },
+    {
+      "id": "G7-06-A2",
+      "actual": true,
+      "read_refs": [
+        "business-ec0f942c-7819-4237-bdf5-06779808ea82-1"
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "path": "运行日志/business.jsonl",
+      "sha256": "6203703aeaf46ab5fd94d64c474b878c26f39b97bc4c3f7a3840f9ee9a48bdc5"
+    },
+    {
+      "path": "运行日志/业务调用.jsonl",
+      "sha256": "91fc9bb4b29ad5347770a9e5e5a21b38b9c414c04a2e484e84b5dd981db87bd7"
+    }
+  ],
+  "cleanup": {
+    "status": "retained",
+    "description": "草稿保留；后续清理",
+    "read_refs": []
+  },
+  "business_call_refs": [
+    "CALL-8f06a618-6901-4e97-ae5d-780215d809c5",
+    "CALL-611ab754-b3e2-40af-b916-40c31c7782e9",
+    "CALL-30139296-89f6-4640-ba47-0b35fa9e7f08"
+  ],
+  "notes": "A1 取草稿首个附件名字符串；A2 raw.count=2"
+}

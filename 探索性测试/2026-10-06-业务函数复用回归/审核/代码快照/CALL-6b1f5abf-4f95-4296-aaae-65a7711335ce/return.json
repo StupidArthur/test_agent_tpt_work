@@ -1,0 +1,51 @@
+{
+  "observations": {
+    "action_refs": [
+      "business-f81eb734-17b3-4987-ab84-58b396eb12f2-2",
+      "business-f81eb734-17b3-4987-ab84-58b396eb12f2-4"
+    ],
+    "observations": {
+      "feedback": {
+        "event_id": "business-f81eb734-17b3-4987-ab84-58b396eb12f2-5",
+        "captured_at": "2026-10-06T09:04:29.391Z",
+        "environment_id": "env-fn-20261006-agent2",
+        "kind": "read",
+        "target": "导入校验反馈",
+        "business_call_id": "CALL-6b1f5abf-4f95-4296-aaae-65a7711335ce",
+        "object_id": "skill-import-feedback",
+        "source": {
+          "channel": "dom",
+          "scope": "技能页/导入弹窗",
+          "locator": "[role=\"dialog\"]"
+        },
+        "value": null,
+        "raw": {
+          "dialogCount": 0,
+          "text": null,
+          "field": null
+        },
+        "derivation": "field=null 校验提示"
+      },
+      "card": {
+        "event_id": "business-f81eb734-17b3-4987-ab84-58b396eb12f2-6",
+        "captured_at": "2026-10-06T09:04:30.206Z",
+        "environment_id": "env-fn-20261006-agent2",
+        "kind": "read",
+        "target": "本轮技能卡存在",
+        "business_call_id": "CALL-6b1f5abf-4f95-4296-aaae-65a7711335ce",
+        "object_id": "skill-card-present",
+        "source": {
+          "channel": "dom",
+          "scope": "技能页/我的技能卡片",
+          "locator": "section.panel [data-slot=\"card\"]"
+        },
+        "value": true,
+        "raw": {
+          "count": 1,
+          "visible": true
+        },
+        "derivation": "count>0 && visible"
+      }
+    }
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "case_id": "G3-07",
+  "contract_version": "2.0",
+  "attempt_id": "fn-20261006-agent2-G3-07-A1",
+  "environment_id": "env-fn-20261006-agent2",
+  "object_identity": {
+    "internal_name": "fast-assert-skill-fn-20261006-agent2",
+    "call_session": "session-13bcf86a-2d6f-4605-ac22-2bf42175f707"
+  },
+  "inputs": [
+    "唯一搜索词 fast-assert-skill-fn-20261006-agent2；分别切 未启用/已启用"
+  ],
+  "action_refs": [
+    "business-b997a294-67d6-42a1-9913-f31773d42a13-2",
+    "business-2432bb15-e3b6-4a45-976f-f2314843b08c-2"
+  ],
+  "status": "通过",
+  "started_at": "2026-10-06T07:39:36.325Z",
+  "ended_at": "2026-10-06T07:39:47.971Z",
+  "actual_steps": [
+    "搜索框填入内部唯一名",
+    "切到 未启用 读取本轮匹配数",
+    "切到 已启用 读取本轮匹配数"
+  ],
+  "assertions": [
+    {
+      "id": "G3-07-A1",
+      "actual": 1,
+      "read_refs": [
+        "business-b997a294-67d6-42a1-9913-f31773d42a13-3"
+      ]
+    },
+    {
+      "id": "G3-07-A2",
+      "actual": 0,
+      "read_refs": [
+        "business-2432bb15-e3b6-4a45-976f-f2314843b08c-3"
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "path": "运行日志/business.jsonl",
+      "sha256": "6203703aeaf46ab5fd94d64c474b878c26f39b97bc4c3f7a3840f9ee9a48bdc5"
+    },
+    {
+      "path": "运行日志/业务调用.jsonl",
+      "sha256": "91fc9bb4b29ad5347770a9e5e5a21b38b9c414c04a2e484e84b5dd981db87bd7"
+    }
+  ],
+  "cleanup": {
+    "status": "retained",
+    "description": "搜索与筛选在 G3-08 恢复；本轮技能保持停用",
+    "read_refs": [
+      "business-1c52c9cc-e729-4d10-846f-c51d95f0b719-1"
+    ]
+  },
+  "business_call_refs": [
+    "CALL-159404b2-5a86-41be-9446-c9443bf41af5",
+    "CALL-fd8f2ddc-0329-4a8f-a11b-a4d8a1a97b20",
+    "CALL-93f63dea-a5d1-4e2d-a8fe-fffe05923e11",
+    "CALL-238439a2-7361-468c-b6bd-68ab0534e4c3"
+  ],
+  "notes": "唯一搜索词命中本轮样本 1 条；停用后未启用命中 1、已启用命中 0"
+}

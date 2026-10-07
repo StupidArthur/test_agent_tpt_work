@@ -1,0 +1,66 @@
+{
+  "case_id": "G12-10",
+  "contract_version": "2.0",
+  "attempt_id": "fn-20261006-agent2-G12-10-A1",
+  "environment_id": "env-fn-20261006-agent2",
+  "object_identity": {
+    "setting": "代码工作工具=开",
+    "file": "D:/tpt-workspace/0929/p1/.fast-assert-fn-20261006-agent2/code-on.js"
+  },
+  "inputs": [
+    "代码工具开启；新任务把 code-on.js 内容改为 module.exports = 1; 后读取"
+  ],
+  "action_refs": [
+    "business-f4523ea8-7eea-4269-b9c4-f8323cea4648-1",
+    "business-ee4e7e0d-411e-4561-b14b-8b4d7a97f289-1",
+    "business-be6fb73e-84ff-4317-968f-88300864f7b7-2"
+  ],
+  "status": "通过",
+  "started_at": "2026-10-06T10:28:00.000Z",
+  "ended_at": "2026-10-06T11:08:00.000Z",
+  "actual_steps": [
+    "确认代码工作工具为开",
+    "新建任务并发送精确改写请求",
+    "处理 danger-full-access 审批（允许一次）",
+    "读取文件 trim 与轨迹入口"
+  ],
+  "assertions": [
+    {
+      "id": "G12-10-A1",
+      "actual": "module.exports = 1;",
+      "read_refs": [
+        "business-3947b9bf-3d72-451e-b306-29784fce993e-1"
+      ]
+    },
+    {
+      "id": "G12-10-A2",
+      "actual": true,
+      "read_refs": [
+        "business-9911a4ea-02ff-4b92-81fb-da226b487691-1"
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "path": "运行日志/business.jsonl",
+      "sha256": "6203703aeaf46ab5fd94d64c474b878c26f39b97bc4c3f7a3840f9ee9a48bdc5"
+    },
+    {
+      "path": "运行日志/业务调用.jsonl",
+      "sha256": "91fc9bb4b29ad5347770a9e5e5a21b38b9c414c04a2e484e84b5dd981db87bd7"
+    }
+  ],
+  "cleanup": {
+    "status": "retained",
+    "description": "样本保留待审",
+    "read_refs": []
+  },
+  "business_call_refs": [
+    "CALL-f9e812ac-5a21-4dd0-bfa9-8ddf9d196e5c",
+    "CALL-0c2cfb33-6224-4515-b701-fe40115d365d",
+    "CALL-d8b648b2-afa2-4b5a-9f53-26530159a78a",
+    "CALL-b863a121-4bdb-42d2-af25-0220e2feaafa",
+    "CALL-ccbeb3d9-f928-464e-8419-b6279ddb91da"
+  ],
+  "notes": "开启态写入成功：code-on.js 由 0 改为 1；Trace 入口可见。夹具目录被判定在会话工作区之外，需 danger-full-access 审批"
+}

@@ -1,0 +1,308 @@
+// 业务函数层：技能导入与查看。
+import { connectSkills, SKILL_SEL, cardByTitle } from '../../automation/skills.mjs';
+import { connect } from '../../automation/session.mjs';
+import { SEL } from '../../automation/conversation.mjs';
+import { waitTerminal } from '../../automation/conversation.mjs';
+
+// 读取导入弹窗内的文件 input 数量。
+export async function readImportDialog(ctx) {
+  const conn = await connectSkills(ctx);
+  try {
+    const { frame, page } = conn;
+    const rec = ctx.recorder;
+    const act = await rec.action('打开导入技能弹窗', 'click', null, async () => {
+      if (!(await frame.locator(SKILL_SEL.dialog).count())) {
+        await frame.getByRole('button', { name: '导入技能' }).click();
+      }
+      await page.waitForTimeout(1200);
+    });
+    const inputs = await rec.read('技能导入弹窗文件input数量', 'import-dialog-file-inputs', { channel: 'dom', scope: '技能页/导入技能弹窗', locator: `${SKILL_SEL.dialog} input[type="file"]` }, async () => {
+      const fileCount = await frame.locator(`${SKILL_SEL.dialog} input[type="file"]`).count();
+      const acceptCount = await frame.locator(SKILL_SEL.fileInput).count();
+      const dirCount = await frame.locator(SKILL_SEL.dirInput).count();
+      const dialogText = (await frame.locator(SKILL_SEL.dialog).first().innerText()).replace(/\s+/g, ' ').trim();
+      return { value: fileCount, raw: { fileCount, acceptCount, dirCount, dialogText }, derivation: '弹窗内 input[type=file] 总数' };
+    });
+    await frame.locator(SKILL_SEL.dialog).getByRole('button', { name: '取消' }).click().catch(() => {});
+    return { action_refs: [act.event_id], observations: { inputs } };
+  } finally { await conn.close(); }
+}
+
+// 选择单个 SKILL.md 并提交导入；返回文件input数量、弹窗是否关闭、卡片是否存在。
+export async function importSingleFile(ctx, args = {}) {
+  const { filePath, displayName } = args;
+  if (!filePath) throw new Error('filePath 必填');
+  const conn = await connectSkills(ctx);
+  try {
+    const { frame, page } = conn;
+    const rec = ctx.recorder;
+    const actionRefs = [];
+    const openAct = await rec.action('打开导入技能弹窗', 'click', null, async () => {
+      if (!(await frame.locator(SKILL_SEL.dialog).count())) {
+        await frame.getByRole('button', { name: '导入技能' }).click();
+      }
+      await page.waitForTimeout(1200);
+    });
+    actionRefs.push(openAct.event_id);
+    const inputs = await rec.read('技能导入弹窗文件input数量', 'import-dialog-file-inputs', { channel: 'dom', scope: '技能页/导入技能弹窗', locator: `${SKILL_SEL.dialog} input[type="file"]` }, async () => {
+      const fileCount = await frame.locator(`${SKILL_SEL.dialog} input[type="file"]`).count();
+      const acceptCount = await frame.locator(SKILL_SEL.fileInput).count();
+      const dirCount = await frame.locator(SKILL_SEL.dirInput).count();
+      const dialogText = (await frame.locator(SKILL_SEL.dialog).first().innerText()).replace(/\s+/g, ' ').trim();
+      return { value: fileCount, raw: { fileCount, acceptCount, dirCount, dialogText }, derivation: '弹窗内 input[type=file] 总数' };
+    });
+    const submitAct = await rec.action('提交技能导入', 'setInputFiles-and-import', { filePath }, async () => {
+      await frame.locator(SKILL_SEL.fileInput).first().setInputFiles(filePath);
+      await page.waitForTimeout(800);
+      await frame.locator(SKILL_SEL.dialog).locator('button', { hasText: '导入' }).last().click();
+    });
+    actionRefs.push(submitAct.event_id);
+    await frame.locator(SKILL_SEL.dialog).first().waitFor({ state: 'detached', timeout: 15000 }).catch(() => {});
+    await page.waitForTimeout(1200);
+    const result = await rec.read('本轮技能卡存在', 'skill-card-present', { channel: 'dom', scope: '技能页/我的技能卡片', locator: SKILL_SEL.card }, async () => {
+      const card = cardByTitle(frame, displayName);
+      const count = await card.count();
+      const visible = count ? await card.isVisible() : false;
+      const raw = { count, visible };
+      return { value: count > 0 && visible, raw, derivation: 'count>0 && visible' };
+    });
+    const dialogClosed = await frame.locator(SKILL_SEL.dialog).count() === 0;
+    return { action_refs: actionRefs, observations: { inputs, card: result, dialogClosed } };
+  } finally { await conn.close(); }
+}
+
+// 搜索技能并读取匹配卡片数量。
+export async function searchSkills(ctx, args = {}) {
+  const { term } = args;
+  const conn = await connectSkills(ctx);
+  try {
+    const { frame, page } = conn;
+    const rec = ctx.recorder;
+    const act = await rec.action('搜索技能', 'fill', { term }, async () => {
+      const input = frame.locator(SKILL_SEL.search).first();
+      await input.click();
+      await input.fill(term);
+      await page.waitForTimeout(1200);
+    });
+    const count = await rec.read('搜索结果卡片数量', 'search-results', { channel: 'dom', scope: '技能页/我的技能搜索结果', locator: SKILL_SEL.card }, async () => {
+      const n = await frame.locator(SKILL_SEL.card).count();
+      const titles = await frame.locator(SKILL_SEL.cardTitle).allInnerTexts();
+      return { value: n, raw: { count: n, titles } };
+    });
+    const titleContains = await rec.read('搜索命中标题是否含搜索词', 'search-title-contains', { channel: 'dom', scope: '技能页/我的技能搜索结果', locator: SKILL_SEL.cardTitle }, async () => {
+      const titles = (await frame.locator(SKILL_SEL.cardTitle).allInnerTexts()).map((t) => t.trim());
+      const any = titles.some((t) => t.includes(term));
+      return { value: any, raw: { term, titles }, derivation: 'titles.some(t => t.includes(term))' };
+    });
+    return { action_refs: [act.event_id], observations: { count, titleContains } };
+  } finally { await conn.close(); }
+}
+
+// 读取指定展示名技能卡片的标题/来源/版本/开关。
+export async function readSkillCard(ctx, args = {}) {
+  const { displayName } = args;
+  const conn = await connectSkills(ctx);
+  try {
+    const { frame } = conn;
+    const rec = ctx.recorder;
+    const card = cardByTitle(frame, displayName);
+    const title = await rec.read('本轮技能标题', 'skill-card-title', { channel: 'dom', scope: '技能页/我的技能卡片', locator: SKILL_SEL.cardTitle }, async () => {
+      const t = card.locator(SKILL_SEL.cardTitle).first();
+      const value = (await t.innerText()).trim();
+      return { value, raw: { title: value } };
+    });
+    const meta = await rec.read('本轮技能来源与版本', 'skill-card-meta', { channel: 'dom', scope: '技能页/我的技能卡片', locator: SKILL_SEL.card }, async () => {
+      const text = (await card.innerText()).replace(/\s+/g, ' ').trim();
+      const source = (/来源\s*([^\s]+)/.exec(text) || [])[1] || null;
+      const version = (/v([0-9][0-9.]*)/.exec(text) || [])[1] || null;
+      return { value: { source, version }, raw: { text, source, version } };
+    });
+    const source = await rec.read('本轮技能来源', 'skill-card-source', { channel: 'dom', scope: '技能页/我的技能卡片', locator: SKILL_SEL.card }, async () => {
+      const text = (await card.innerText()).replace(/\s+/g, ' ').trim();
+      const v = (/来源\s*([^\s]+)/.exec(text) || [])[1] || null;
+      return { value: v, raw: { text, source: v } };
+    });
+    const version = await rec.read('本轮技能版本', 'skill-card-version', { channel: 'dom', scope: '技能页/我的技能卡片', locator: SKILL_SEL.card }, async () => {
+      const text = (await card.innerText()).replace(/\s+/g, ' ').trim();
+      const v = (/v([0-9][0-9.]*)/.exec(text) || [])[1] || null;
+      return { value: v, raw: { text, version: v } };
+    });
+    const sw = await rec.read('本轮技能开关', 'skill-card-switch', { channel: 'dom', scope: '技能页/我的技能卡片', locator: SKILL_SEL.cardSwitch }, async () => {
+      const el = card.locator(SKILL_SEL.cardSwitch).first();
+      const aria = await el.getAttribute('aria-checked');
+      const raw = { aria_checked: aria };
+      return { value: aria === 'true', raw, derivation: "aria_checked === 'true'" };
+    });
+    const switchId = sw.event_id;
+    return { observations: { title, meta, source, version, switch: sw }, switch_read_ref: switchId };
+  } finally { await conn.close(); }
+}
+
+// 设置指定技能的启停开关；返回改前/改后值。
+export async function setSkillEnabled(ctx, args = {}) {
+  const { displayName, value } = args;
+  const conn = await connectSkills(ctx);
+  try {
+    const { frame, page } = conn;
+    const rec = ctx.recorder;
+    const card = cardByTitle(frame, displayName);
+    const before = await rec.read('本轮技能开关(改前)', 'skill-card-switch', { channel: 'dom', scope: '技能页/我的技能卡片', locator: SKILL_SEL.cardSwitch }, async () => {
+      const aria = await card.locator(SKILL_SEL.cardSwitch).first().getAttribute('aria-checked');
+      return { value: aria === 'true', raw: { aria_checked: aria }, derivation: "aria_checked === 'true'" };
+    });
+    const act = await rec.action('切换本轮技能开关', 'click', { target: value }, async () => {
+      await card.locator(SKILL_SEL.cardSwitch).first().click();
+      await page.waitForTimeout(1200);
+    });
+    const after = await rec.read('本轮技能开关(改后)', 'skill-card-switch', { channel: 'dom', scope: '技能页/我的技能卡片', locator: SKILL_SEL.cardSwitch }, async () => {
+      const aria = await card.locator(SKILL_SEL.cardSwitch).first().getAttribute('aria-checked');
+      return { value: aria === 'true', raw: { aria_checked: aria }, derivation: "aria_checked === 'true'" };
+    });
+    return { action_refs: [act.event_id], observations: { before, after } };
+  } finally { await conn.close(); }
+}
+
+// 打开技能详情并读取 SKILL.md 正文（详情为整页视图，非 dialog）。export async function readSkillDetail(ctx, args = {}) {
+  const { displayName } = args;
+  const conn = await connectSkills(ctx);
+  try {
+    const { frame, page } = conn;
+    const rec = ctx.recorder;
+    const card = cardByTitle(frame, displayName);
+    const act = await rec.action('打开技能详情', 'click-card', null, async () => {
+      await card.locator('[data-slot="card-content"]').first().click();
+      await page.waitForTimeout(1800);
+    });
+    const body = await rec.read('技能详情SKILL.md正文', 'skill-detail-body', { channel: 'dom', scope: '技能页/技能详情整页', locator: '[class*="dir-preview"]' }, async () => {
+      const el = frame.locator('[class*="dir-preview"]').first();
+      const text = await el.innerText();
+      const breadcrumb = (await frame.locator('[class*="page-top"]').first().innerText()).replace(/\s+/g, ' ').trim();
+      return { value: text, raw: { length: text.length, breadcrumb } };
+    });
+    return { action_refs: [act.event_id], observations: { detail: body } };
+  } finally { await conn.close(); }
+}
+
+// 在技能页切换 全部/已启用/未启用 筛选，读取本轮样本匹配卡片数。
+export async function filterSkills(ctx, args = {}) {
+  const { filter, displayName } = args;
+  const conn = await connectSkills(ctx);
+  try {
+    const { frame, page } = conn;
+    const rec = ctx.recorder;
+    const act = await rec.action('切换技能筛选', 'click', { filter }, async () => {
+      await frame.getByRole('button', { name: filter, exact: true }).click();
+      await page.waitForTimeout(1200);
+    });
+    const match = await rec.read('筛选后本轮样本匹配数', 'filter-round-match', { channel: 'dom', scope: `技能页/已${filter}过滤` , locator: SKILL_SEL.card }, async () => {
+      const n = await frame.locator(SKILL_SEL.card).filter({ has: frame.locator(SKILL_SEL.cardTitle, { hasText: displayName }) }).count();
+      const titles = await frame.locator(SKILL_SEL.cardTitle).allInnerTexts();
+      return { value: n, raw: { count: n, titles: titles.map((t) => t.trim()) } };
+    });
+    return { action_refs: [act.event_id], observations: { match } };
+  } finally { await conn.close(); }
+}
+
+// 读取技能页搜索框值、本轮样本存在状态与开关（用于筛选恢复核验）。
+export async function readSkillsListState(ctx, args = {}) {
+  const { displayName } = args;
+  const conn = await connectSkills(ctx);
+  try {
+    const { frame } = conn;
+    const rec = ctx.recorder;
+    const searchValue = await rec.read('技能搜索框值', 'skills-search-value', { channel: 'dom', scope: '技能页/搜索框', locator: SKILL_SEL.search }, async () => {
+      const v = await frame.locator(SKILL_SEL.search).first().inputValue();
+      return { value: v, raw: { value: v } };
+    });
+    const exists = await rec.read('全部列表本轮对象存在', 'round-card-exists', { channel: 'dom', scope: '技能页/我的技能卡片', locator: SKILL_SEL.card }, async () => {
+      const n = await frame.locator(SKILL_SEL.card).filter({ has: frame.locator(SKILL_SEL.cardTitle, { hasText: displayName }) }).count();
+      const raw = { count: n };
+      return { value: n > 0, raw, derivation: 'count > 0' };
+    });
+    const sw = await rec.read('本轮技能最终开关', 'skill-card-switch', { channel: 'dom', scope: '技能页/我的技能卡片', locator: SKILL_SEL.cardSwitch }, async () => {
+      const card = cardByTitle(frame, displayName);
+      const aria = await card.locator(SKILL_SEL.cardSwitch).first().getAttribute('aria-checked');
+      return { value: aria === 'true', raw: { aria_checked: aria }, derivation: "aria_checked === 'true'" };
+    });
+    return { observations: { searchValue, exists, switch: sw } };
+  } finally { await conn.close(); }
+}
+
+// 新建会话后经 快捷使用 引入本轮技能引用；返回改前/改后会话身份与引用内部名。
+export async function useSkill(ctx, args = {}) {
+  const { displayName } = args;
+  const conn = await connect(ctx);
+  try {
+    const { page } = conn;
+    const rec = ctx.recorder;
+    const readSession = async () => page.locator('[data-conversation-session]').first().getAttribute('data-conversation-session');
+    const sessionBefore = await rec.read('调用会话身份(前)', 'session', { channel: 'dom', scope: '主界面会话容器', locator: '[data-conversation-session]' }, async () => {
+      const v = await readSession();
+      return { value: v, raw: { value: v } };
+    });
+    const newAct = await rec.action('调用前新建任务', 'click', null, async () => {
+      await page.locator(SEL.newTask).first().click();
+      await page.waitForTimeout(1500);
+    });
+    const useAct = await rec.action('快捷使用本轮技能', 'click', { displayName }, async () => {
+      await page.locator('button[aria-label="技能"]').first().click();
+      await page.waitForTimeout(1500);
+      const frame = page.frames().find((f) => f.url().includes(SKILL_SEL.frameUrlPart));
+      if (await frame.locator('[class*="dir-preview"]').count()) {
+        await frame.locator('[class*="page-top"]').getByText('技能', { exact: true }).first().click().catch(() => {});
+        await page.waitForTimeout(800);
+      }
+      const card = cardByTitle(frame, displayName);
+      await card.scrollIntoViewIfNeeded();
+      await card.hover();
+      await card.getByText('快捷使用', { exact: true }).first().click();
+      await page.waitForTimeout(2000);
+    });
+    const reference = await rec.read('新会话技能引用', 'composer-skill-reference', { channel: 'dom', scope: 'composer 输入区', locator: SEL.composer }, async () => {
+      const text = await page.locator(SEL.composer).first().innerText();
+      const m = /\/\s*([A-Za-z0-9_-]+)/.exec(text);
+      return { value: m ? m[1] : null, raw: { composerText: text } };
+    });
+    const sessionAfter = await rec.read('调用会话身份(后)', 'session', { channel: 'dom', scope: '主界面会话容器', locator: '[data-conversation-session]' }, async () => {
+      const v = await readSession();
+      return { value: v, raw: { value: v } };
+    });
+    return { action_refs: [newAct.event_id, useAct.event_id], observations: { sessionBefore, sessionAfter, reference } };
+  } finally { await conn.close(); }
+}
+
+// 发送本轮技能的固定回复规则请求并等待终态；返回助手正文与用户请求。
+export async function useSkillRequest(ctx, args = {}) {
+  const { text = '请执行本轮回归技能的固定回复规则', timeoutMs = 120000 } = args;
+  const conn = await connect(ctx);
+  try {
+    const { page } = conn;
+    const rec = ctx.recorder;
+    let preCount = 0;
+    const act = await rec.action('发送技能固定回复请求', 'fill-and-send', { chars: text.length }, async () => {
+      preCount = await page.locator(SEL.assistantBody).count();
+      const c = page.locator(SEL.composer).first();
+      await c.click();
+      await c.fill(text);
+      await page.waitForTimeout(400);
+      await page.locator(SEL.send).first().click();
+    });
+    let wait;
+    try { wait = await waitTerminal(page, { timeoutMs, minBubbles: preCount + 1 }); }
+    catch (e) { wait = { error: String(e.message), timed_out: true }; }
+    const assistant = await rec.read('技能调用助手气泡', 'last-assistant-bubble', { channel: 'dom', scope: '对话 助手气泡', locator: SEL.assistantBody }, async () => {
+      const bubbles = page.locator(SEL.assistantBody);
+      const n = await bubbles.count();
+      const last = n ? (await bubbles.nth(n - 1).innerText()).trim() : null;
+      return { value: last, raw: { count: n, last } };
+    });
+    const userReq = await rec.read('本轮用户请求', 'last-user-bubble', { channel: 'dom', scope: '对话 用户气泡', locator: '[class*="wSkVaW_body"], [class*="user"]' }, async () => {
+      const els = page.locator('[class*="wSkVaW_body"]');
+      const n = await els.count();
+      const last = n ? (await els.nth(n - 1).innerText()).trim() : null;
+      const contains = last ? last.includes('FAST_SKILL_EXEC_OK') : false;
+      return { value: contains, raw: { last } , derivation: "last.includes('FAST_SKILL_EXEC_OK')" };
+    });
+    return { action_refs: [act.event_id], observations: { wait, assistant, userReq } };
+  } finally { await conn.close(); }
+}

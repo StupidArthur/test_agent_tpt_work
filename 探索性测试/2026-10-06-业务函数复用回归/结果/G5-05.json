@@ -1,0 +1,66 @@
+{
+  "case_id": "G5-05",
+  "contract_version": "2.0",
+  "attempt_id": "fn-20261006-agent2-G5-05-A1",
+  "environment_id": "env-fn-20261006-agent2",
+  "object_identity": {
+    "internal_name": "fast-assert-expert-fn-20261006-agent2"
+  },
+  "inputs": [
+    "同名冲突弹窗选择 作为副本"
+  ],
+  "action_refs": [
+    "business-91f53467-e4bc-4e1e-be7d-6facac77196c-2"
+  ],
+  "status": "通过",
+  "started_at": "2026-10-06T07:49:27.233Z",
+  "ended_at": "2026-10-06T07:50:05.617Z",
+  "actual_steps": [
+    "在冲突弹窗点击 作为副本",
+    "读取原/副本实际安装完整路径",
+    "读取副本目录 agent.md 与 metadata.json 存在状态"
+  ],
+  "assertions": [
+    {
+      "id": "G5-05-A1",
+      "actual": {
+        "before": "C:/Users/yuzechao/.tpt-work/agents/fast-assert-expert-fn-20261006-agent2",
+        "after": "C:/Users/yuzechao/.tpt-work/agents/fast-assert-expert-fn-20261006-agent2-1"
+      },
+      "read_refs": [
+        "business-babdfd9d-600c-44a8-9f5e-a351ccd812a2-1",
+        "business-babdfd9d-600c-44a8-9f5e-a351ccd812a2-2"
+      ]
+    },
+    {
+      "id": "G5-05-A2",
+      "actual": true,
+      "read_refs": [
+        "business-d707533b-ed36-4cc4-8c69-30fbb0504aee-1"
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "path": "运行日志/business.jsonl",
+      "sha256": "6203703aeaf46ab5fd94d64c474b878c26f39b97bc4c3f7a3840f9ee9a48bdc5"
+    },
+    {
+      "path": "运行日志/业务调用.jsonl",
+      "sha256": "91fc9bb4b29ad5347770a9e5e5a21b38b9c414c04a2e484e84b5dd981db87bd7"
+    }
+  ],
+  "cleanup": {
+    "status": "retained",
+    "description": "副本保留与本轮原始对象一并待审",
+    "read_refs": [
+      "business-d707533b-ed36-4cc4-8c69-30fbb0504aee-1"
+    ]
+  },
+  "business_call_refs": [
+    "CALL-8a57441a-7d8e-4a9f-9e4b-49f1f393dcd9",
+    "CALL-9080582f-3a0c-45a6-9c7c-e454ae1278eb",
+    "CALL-f24eb3c7-45a5-4303-a39c-09e173b80ffe"
+  ],
+  "notes": "副本内部名为 fast-assert-expert-fn-20261006-agent2-1；A2 raw{agentMd:true,metadataJson:true}"
+}

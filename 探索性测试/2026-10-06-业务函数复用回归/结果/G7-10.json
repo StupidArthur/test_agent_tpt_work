@@ -1,0 +1,55 @@
+{
+  "case_id": "G7-10",
+  "contract_version": "2.0",
+  "attempt_id": "fn-20261006-agent2-G7-10-A1",
+  "environment_id": "env-fn-20261006-agent2",
+  "object_identity": {
+    "draft": "a,b,c"
+  },
+  "inputs": [
+    "三文件草稿移除 attachment-b.txt"
+  ],
+  "action_refs": [
+    "business-34506f44-ef4b-4fe1-9ba1-b05be2b10a14-2"
+  ],
+  "status": "通过",
+  "started_at": "2026-10-06T08:31:10.585Z",
+  "ended_at": "2026-10-06T08:31:17.768Z",
+  "actual_steps": [
+    "新建任务加 a/b/c",
+    "确认 before 为三项",
+    "移除 attachment-b.txt",
+    "读剩余名列表"
+  ],
+  "assertions": [
+    {
+      "id": "G7-10-A1",
+      "actual": [
+        "attachment-a.txt",
+        "attachment-c.md"
+      ],
+      "read_refs": [
+        "business-34506f44-ef4b-4fe1-9ba1-b05be2b10a14-3"
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "path": "运行日志/business.jsonl",
+      "sha256": "6203703aeaf46ab5fd94d64c474b878c26f39b97bc4c3f7a3840f9ee9a48bdc5"
+    },
+    {
+      "path": "运行日志/业务调用.jsonl",
+      "sha256": "91fc9bb4b29ad5347770a9e5e5a21b38b9c414c04a2e484e84b5dd981db87bd7"
+    }
+  ],
+  "cleanup": {
+    "status": "retained",
+    "description": "草稿保留；后续清理",
+    "read_refs": []
+  },
+  "business_call_refs": [
+    "CALL-f3c1ee32-cfbe-42d0-abd5-1ed257aa7fec"
+  ],
+  "notes": "before 三项见 a0a99e5c-3"
+}

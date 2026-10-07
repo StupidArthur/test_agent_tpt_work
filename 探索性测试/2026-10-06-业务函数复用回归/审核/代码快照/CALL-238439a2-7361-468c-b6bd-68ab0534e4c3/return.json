@@ -1,0 +1,62 @@
+{
+  "observations": {
+    "observations": {
+      "searchValue": {
+        "event_id": "business-1c52c9cc-e729-4d10-846f-c51d95f0b719-1",
+        "captured_at": "2026-10-06T07:39:57.052Z",
+        "environment_id": "env-fn-20261006-agent2",
+        "kind": "read",
+        "target": "技能搜索框值",
+        "business_call_id": "CALL-238439a2-7361-468c-b6bd-68ab0534e4c3",
+        "object_id": "skills-search-value",
+        "source": {
+          "channel": "dom",
+          "scope": "技能页/搜索框",
+          "locator": "input[aria-label=\"搜索技能\"]"
+        },
+        "value": "",
+        "raw": {
+          "value": ""
+        }
+      },
+      "exists": {
+        "event_id": "business-1c52c9cc-e729-4d10-846f-c51d95f0b719-2",
+        "captured_at": "2026-10-06T07:39:57.055Z",
+        "environment_id": "env-fn-20261006-agent2",
+        "kind": "read",
+        "target": "全部列表本轮对象存在",
+        "business_call_id": "CALL-238439a2-7361-468c-b6bd-68ab0534e4c3",
+        "object_id": "round-card-exists",
+        "source": {
+          "channel": "dom",
+          "scope": "技能页/我的技能卡片",
+          "locator": "section.panel [data-slot=\"card\"]"
+        },
+        "value": true,
+        "raw": {
+          "count": 1
+        },
+        "derivation": "count > 0"
+      },
+      "switch": {
+        "event_id": "business-1c52c9cc-e729-4d10-846f-c51d95f0b719-3",
+        "captured_at": "2026-10-06T07:39:57.057Z",
+        "environment_id": "env-fn-20261006-agent2",
+        "kind": "read",
+        "target": "本轮技能最终开关",
+        "business_call_id": "CALL-238439a2-7361-468c-b6bd-68ab0534e4c3",
+        "object_id": "skill-card-switch",
+        "source": {
+          "channel": "dom",
+          "scope": "技能页/我的技能卡片",
+          "locator": "[role=\"switch\"]"
+        },
+        "value": false,
+        "raw": {
+          "aria_checked": "false"
+        },
+        "derivation": "aria_checked === 'true'"
+      }
+    }
+  }
+}

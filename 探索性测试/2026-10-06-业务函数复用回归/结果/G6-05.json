@@ -1,0 +1,52 @@
+{
+  "case_id": "G6-05",
+  "contract_version": "2.0",
+  "attempt_id": "fn-20261006-agent2-G6-05-A1",
+  "environment_id": "env-fn-20261006-agent2",
+  "object_identity": {
+    "permission_initial": "工作区内修改"
+  },
+  "inputs": [
+    "设置→常规→权限：切 仅可查看，关闭重开读取"
+  ],
+  "action_refs": [
+    "business-be3a3975-2605-4c0c-b22e-8514bea14f94-2"
+  ],
+  "status": "通过",
+  "started_at": "2026-10-06T08:16:32.189Z",
+  "ended_at": "2026-10-06T08:16:41.045Z",
+  "actual_steps": [
+    "切换默认权限为 仅可查看",
+    "关闭设置重开",
+    "读取默认权限选中值"
+  ],
+  "assertions": [
+    {
+      "id": "G6-05-A1",
+      "actual": "仅可查看",
+      "read_refs": [
+        "business-23c7850f-5e9d-4006-9cd3-dec84c181366-3"
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "path": "运行日志/business.jsonl",
+      "sha256": "6203703aeaf46ab5fd94d64c474b878c26f39b97bc4c3f7a3840f9ee9a48bdc5"
+    },
+    {
+      "path": "运行日志/业务调用.jsonl",
+      "sha256": "91fc9bb4b29ad5347770a9e5e5a21b38b9c414c04a2e484e84b5dd981db87bd7"
+    }
+  ],
+  "cleanup": {
+    "status": "retained",
+    "description": "该项在 G6-06 结束后恢复为初值 工作区内修改",
+    "read_refs": []
+  },
+  "business_call_refs": [
+    "CALL-0632cebb-0526-487a-8527-3c25a50c46ff",
+    "CALL-c7772f19-7ff8-4f0f-ac3c-59e90f937aa1"
+  ],
+  "notes": "设置保存后重开回读一致"
+}

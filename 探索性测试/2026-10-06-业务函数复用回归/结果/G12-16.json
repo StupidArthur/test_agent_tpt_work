@@ -1,0 +1,50 @@
+{
+  "case_id": "G12-16",
+  "contract_version": "2.0",
+  "attempt_id": "fn-20261006-agent2-G12-16-A1",
+  "environment_id": "env-fn-20261006-agent2",
+  "object_identity": {
+    "section": "个人主页"
+  },
+  "inputs": [
+    "打开设置→个人主页，读取用户名/用户类型的可编辑状态"
+  ],
+  "action_refs": [
+    "business-e52f6b27-a39e-43b9-87c1-e9395fd30bd6-2"
+  ],
+  "status": "通过",
+  "started_at": "2026-10-06T11:10:00.000Z",
+  "ended_at": "2026-10-06T11:15:00.000Z",
+  "actual_steps": [
+    "打开设置个人主页",
+    "读取身份输入框 disabled/readonly"
+  ],
+  "assertions": [
+    {
+      "id": "G12-16-A1",
+      "actual": true,
+      "read_refs": [
+        "business-e52f6b27-a39e-43b9-87c1-e9395fd30bd6-3"
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "path": "运行日志/business.jsonl",
+      "sha256": "6203703aeaf46ab5fd94d64c474b878c26f39b97bc4c3f7a3840f9ee9a48bdc5"
+    },
+    {
+      "path": "运行日志/业务调用.jsonl",
+      "sha256": "91fc9bb4b29ad5347770a9e5e5a21b38b9c414c04a2e484e84b5dd981db87bd7"
+    }
+  ],
+  "cleanup": {
+    "status": "retained",
+    "description": "样本保留待审",
+    "read_refs": []
+  },
+  "business_call_refs": [
+    "CALL-b5bf3eab-d13d-4da2-a98b-afb70e36f523"
+  ],
+  "notes": "用户名称 Arthur 与用户类型 个人用户 均为 disabled+readonly"
+}

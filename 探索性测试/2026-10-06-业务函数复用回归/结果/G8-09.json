@@ -1,0 +1,59 @@
+{
+  "case_id": "G8-09",
+  "contract_version": "2.0",
+  "attempt_id": "fn-20261006-agent2-G8-09-A1",
+  "environment_id": "env-fn-20261006-agent2",
+  "object_identity": {
+    "task": "完成的 write 交付任务"
+  },
+  "inputs": [
+    "沿用完成的 write 任务，观察工作步骤默认折叠并展开"
+  ],
+  "action_refs": [
+    "business-7d679415-61df-4513-a911-dbe6c42d448a-3"
+  ],
+  "status": "通过",
+  "started_at": "2026-10-06T08:51:23.822Z",
+  "ended_at": "2026-10-06T08:52:28.253Z",
+  "actual_steps": [
+    "读取已完成工作步骤面板 aria-expanded",
+    "点击展开",
+    "读取展开后可见工具调用记录"
+  ],
+  "assertions": [
+    {
+      "id": "G8-09-A1",
+      "actual": true,
+      "read_refs": [
+        "business-7d679415-61df-4513-a911-dbe6c42d448a-1"
+      ]
+    },
+    {
+      "id": "G8-09-A2",
+      "actual": true,
+      "read_refs": [
+        "business-325a49fe-25ac-40ff-9c25-c552dfc8ec67-1"
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "path": "运行日志/business.jsonl",
+      "sha256": "6203703aeaf46ab5fd94d64c474b878c26f39b97bc4c3f7a3840f9ee9a48bdc5"
+    },
+    {
+      "path": "运行日志/业务调用.jsonl",
+      "sha256": "91fc9bb4b29ad5347770a9e5e5a21b38b9c414c04a2e484e84b5dd981db87bd7"
+    }
+  ],
+  "cleanup": {
+    "status": "retained",
+    "description": "任务保留待审",
+    "read_refs": []
+  },
+  "business_call_refs": [
+    "CALL-b6ecbe54-c571-4bdd-89c3-9aaf49284581",
+    "CALL-0e593745-a8d8-4f27-a830-6bc7b769c181"
+  ],
+  "notes": "A1 raw.ariaExpanded='false'；A2 raw{count:2,visible:2}（data-chat-flow-kind=tool-call）"
+}

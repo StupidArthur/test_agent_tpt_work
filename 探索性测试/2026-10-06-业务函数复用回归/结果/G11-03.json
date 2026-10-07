@@ -1,0 +1,51 @@
+{
+  "case_id": "G11-03",
+  "contract_version": "2.0",
+  "attempt_id": "fn-20261006-agent2-G11-03-A1",
+  "environment_id": "env-fn-20261006-agent2",
+  "object_identity": {
+    "expert": "fast-assert-expert-base-description-fn-20261006-agent2"
+  },
+  "inputs": [
+    "导入 experts/base-description"
+  ],
+  "action_refs": [
+    "business-13522799-648b-48ee-86cb-c3ab438b69c6-4"
+  ],
+  "status": "通过",
+  "started_at": "2026-10-06T09:39:00.000Z",
+  "ended_at": "2026-10-06T09:45:00.000Z",
+  "actual_steps": [
+    "导入 base-description",
+    "读取卡片简介"
+  ],
+  "assertions": [
+    {
+      "id": "G11-03-A1",
+      "actual": "FAST_EXPERT_DESCRIPTION_BASE",
+      "read_refs": [
+        "business-86fb6ffc-bbc8-4f5f-ac50-49d79fb455fc-4"
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "path": "运行日志/business.jsonl",
+      "sha256": "6203703aeaf46ab5fd94d64c474b878c26f39b97bc4c3f7a3840f9ee9a48bdc5"
+    },
+    {
+      "path": "运行日志/业务调用.jsonl",
+      "sha256": "91fc9bb4b29ad5347770a9e5e5a21b38b9c414c04a2e484e84b5dd981db87bd7"
+    }
+  ],
+  "cleanup": {
+    "status": "retained",
+    "description": "样本保留待审",
+    "read_refs": []
+  },
+  "business_call_refs": [
+    "CALL-38a330fa-872e-43cd-b698-a535e865fa31",
+    "CALL-f1227abb-2943-4cf7-b7f6-78ff2c62b11e"
+  ],
+  "notes": "无 displayDescription，最终回退技术 description"
+}

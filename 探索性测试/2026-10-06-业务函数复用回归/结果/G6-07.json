@@ -1,0 +1,52 @@
+{
+  "case_id": "G6-07",
+  "contract_version": "2.0",
+  "attempt_id": "fn-20261006-agent2-G6-07-A1",
+  "environment_id": "env-fn-20261006-agent2",
+  "object_identity": {
+    "scene_initial": "标准模式"
+  },
+  "inputs": [
+    "设置→场景预设：切 PTC 模式，新建空白任务读场景标签"
+  ],
+  "action_refs": [
+    "business-d01bc0ec-6b69-4dc9-9757-66ee82fea7e3-2"
+  ],
+  "status": "失败",
+  "started_at": "2026-10-06T08:19:10.687Z",
+  "ended_at": "2026-10-06T08:19:17.965Z",
+  "actual_steps": [
+    "设置场景预设为 PTC 模式",
+    "新建空白任务",
+    "读取 composer 场景标签"
+  ],
+  "assertions": [
+    {
+      "id": "G6-07-A1",
+      "actual": "PTC 模式",
+      "read_refs": [
+        "business-4a1aa3ea-d260-45e6-8ee7-5838a23d413e-2"
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "path": "运行日志/business.jsonl",
+      "sha256": "6203703aeaf46ab5fd94d64c474b878c26f39b97bc4c3f7a3840f9ee9a48bdc5"
+    },
+    {
+      "path": "运行日志/业务调用.jsonl",
+      "sha256": "91fc9bb4b29ad5347770a9e5e5a21b38b9c414c04a2e484e84b5dd981db87bd7"
+    }
+  ],
+  "cleanup": {
+    "status": "retained",
+    "description": "场景在 G6-08 恢复为初值 标准模式",
+    "read_refs": []
+  },
+  "business_call_refs": [
+    "CALL-ebb60660-311e-47b3-8bbf-d8ea7a5acb81",
+    "CALL-fb28d375-1920-4b60-9989-9682f11a10fa"
+  ],
+  "notes": "A1 判失败：场景已切到 PTC，但新任务场景标签实际为 'PTC 模式'（含空格），与预期 'PTC模式'（无空格）不全等；属展示文本空格差异。场景预设改后值 read 亦为 'PTC 模式'"
+}

@@ -1,0 +1,31 @@
+{
+  "observations": {
+    "action_refs": [
+      "business-22b19da7-e6a1-4935-9d8b-134ae08c27b9-2"
+    ],
+    "observations": {
+      "menu": {
+        "event_id": "business-22b19da7-e6a1-4935-9d8b-134ae08c27b9-3",
+        "captured_at": "2026-10-06T11:18:03.965Z",
+        "environment_id": "env-fn-20261006-agent2",
+        "kind": "read",
+        "target": "composer 菜单项",
+        "business_call_id": "CALL-cc04da88-74a9-4d46-b139-30bf8367965f",
+        "object_id": "composer-menu",
+        "source": {
+          "channel": "dom",
+          "scope": "composer 弹出菜单",
+          "locator": "[role=\"menu\"],[class*=\"menu\"],[class*=\"popover\"]"
+        },
+        "value": false,
+        "raw": {
+          "items": [
+            "标准模式"
+          ],
+          "wantPattern": "Agent|专家"
+        },
+        "derivation": "菜单项匹配 /Agent|专家/"
+      }
+    }
+  }
+}

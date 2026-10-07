@@ -1,0 +1,64 @@
+{
+  "observations": {
+    "action_refs": [
+      "business-6b7ce59d-9fd8-4bdf-90ab-88eece7b2921-3",
+      "business-6b7ce59d-9fd8-4bdf-90ab-88eece7b2921-5"
+    ],
+    "observations": {
+      "sessionBefore": {
+        "event_id": "business-6b7ce59d-9fd8-4bdf-90ab-88eece7b2921-1",
+        "captured_at": "2026-10-06T07:35:50.752Z",
+        "environment_id": "env-fn-20261006-agent2",
+        "kind": "read",
+        "target": "调用会话身份(前)",
+        "business_call_id": "CALL-48bf5dd3-ada8-43fc-bc9a-9a5ff8b2ccff",
+        "object_id": "session",
+        "source": {
+          "channel": "dom",
+          "scope": "主界面会话容器",
+          "locator": "[data-conversation-session]"
+        },
+        "value": "session-358a4f3c-ec40-4869-99d1-5e7cc08abc12",
+        "raw": {
+          "value": "session-358a4f3c-ec40-4869-99d1-5e7cc08abc12"
+        }
+      },
+      "sessionAfter": {
+        "event_id": "business-6b7ce59d-9fd8-4bdf-90ab-88eece7b2921-7",
+        "captured_at": "2026-10-06T07:35:57.481Z",
+        "environment_id": "env-fn-20261006-agent2",
+        "kind": "read",
+        "target": "调用会话身份(后)",
+        "business_call_id": "CALL-48bf5dd3-ada8-43fc-bc9a-9a5ff8b2ccff",
+        "object_id": "session",
+        "source": {
+          "channel": "dom",
+          "scope": "主界面会话容器",
+          "locator": "[data-conversation-session]"
+        },
+        "value": "session-60c05acb-3b39-4a98-b36c-8f46c0d895a1",
+        "raw": {
+          "value": "session-60c05acb-3b39-4a98-b36c-8f46c0d895a1"
+        }
+      },
+      "reference": {
+        "event_id": "business-6b7ce59d-9fd8-4bdf-90ab-88eece7b2921-6",
+        "captured_at": "2026-10-06T07:35:57.479Z",
+        "environment_id": "env-fn-20261006-agent2",
+        "kind": "read",
+        "target": "新会话技能引用",
+        "business_call_id": "CALL-48bf5dd3-ada8-43fc-bc9a-9a5ff8b2ccff",
+        "object_id": "composer-skill-reference",
+        "source": {
+          "channel": "dom",
+          "scope": "composer 输入区",
+          "locator": "div[contenteditable=\"true\"][aria-label*=\"/ 调用指令\"]"
+        },
+        "value": null,
+        "raw": {
+          "composerText": "fast-assert-skill-fn-20261006-agent2\n "
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "case_id": "G4-07",
+  "contract_version": "2.0",
+  "attempt_id": "fn-20261006-agent2-G4-07-A1",
+  "environment_id": "env-fn-20261006-agent2",
+  "object_identity": {
+    "internal_name": "fast-assert-expert-fn-20261006-agent2",
+    "display_name": "本轮快速回归专家"
+  },
+  "inputs": [
+    "读取专家详情推荐问题"
+  ],
+  "action_refs": [
+    "business-860cc597-fede-442b-906d-c065d4c575f8-2"
+  ],
+  "status": "通过",
+  "started_at": "2026-10-06T07:45:11.010Z",
+  "ended_at": "2026-10-06T07:45:12.883Z",
+  "actual_steps": [
+    "读取详情页以'请执行'开头的推荐问题按钮文本"
+  ],
+  "assertions": [
+    {
+      "id": "G4-07-A1",
+      "actual": [
+        "请执行你的本轮回归固定回复规则。"
+      ],
+      "read_refs": [
+        "business-860cc597-fede-442b-906d-c065d4c575f8-5"
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "path": "运行日志/business.jsonl",
+      "sha256": "6203703aeaf46ab5fd94d64c474b878c26f39b97bc4c3f7a3840f9ee9a48bdc5"
+    },
+    {
+      "path": "运行日志/业务调用.jsonl",
+      "sha256": "91fc9bb4b29ad5347770a9e5e5a21b38b9c414c04a2e484e84b5dd981db87bd7"
+    }
+  ],
+  "cleanup": {
+    "status": "retained",
+    "description": "只读；专家保留待审",
+    "read_refs": []
+  },
+  "business_call_refs": [
+    "CALL-ac3aa389-8dd9-4cf1-a3a7-3efbc9ab54ed"
+  ],
+  "notes": "来自 metadata.quickPrompts[0].zh"
+}

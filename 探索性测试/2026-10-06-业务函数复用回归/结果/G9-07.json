@@ -1,0 +1,124 @@
+{
+  "case_id": "G9-07",
+  "contract_version": "2.1",
+  "attempt_id": "fn-20261006-agent2-G9-07-A1",
+  "environment_id": "env-fn-20261006-agent2",
+  "object_identity": {
+    "skill": "本轮缺技术名-fn-20261006-agent2"
+  },
+  "inputs": [
+    "导入 variants/missing-name"
+  ],
+  "action_refs": [
+    "business-a5207c9d-8293-44fc-b4dd-995af9e9939d-4"
+  ],
+  "status": "失败",
+  "started_at": "2026-10-06T09:04:00.000Z",
+  "ended_at": "2026-10-06T09:20:00.000Z",
+  "actual_steps": [
+    "记录列表身份",
+    "导入缺技术name单文件",
+    "读取校验反馈与列表"
+  ],
+  "assertions": [
+    {
+      "id": "G9-07-A1",
+      "actual": false,
+      "read_refs": [
+        "business-a5207c9d-8293-44fc-b4dd-995af9e9939d-5"
+      ]
+    },
+    {
+      "id": "G9-07-A2",
+      "actual": {
+        "before": [
+          "Agent 创建与修改",
+          "Fast English Fallback",
+          "dingtalk-aisearch",
+          "dingtalk-aitable",
+          "dingtalk-calendar",
+          "dingtalk-chat",
+          "dingtalk-contact",
+          "dingtalk-doc",
+          "dingtalk-drive",
+          "dingtalk-event",
+          "dingtalk-mail",
+          "dingtalk-minutes",
+          "dingtalk-misc",
+          "dingtalk-shared",
+          "dingtalk-todo",
+          "dingtalk-wiki",
+          "fast-assert-cn-tech-fn-20261006-agent2",
+          "fast-assert-desc-en-fn-20261006-agent2",
+          "fast-assert-desc-tech-fn-20261006-agent2",
+          "创建技能",
+          "指标信息查询",
+          "指标数据查询",
+          "本轮中文优先",
+          "本轮快速回归技能",
+          "本轮缺技术名-fn-20261006-agent2",
+          "本轮英文缺省",
+          "查找技能",
+          "添加连接器",
+          "配置连接器"
+        ],
+        "after": [
+          "Agent 创建与修改",
+          "Fast English Fallback",
+          "dingtalk-aisearch",
+          "dingtalk-aitable",
+          "dingtalk-calendar",
+          "dingtalk-chat",
+          "dingtalk-contact",
+          "dingtalk-doc",
+          "dingtalk-drive",
+          "dingtalk-event",
+          "dingtalk-mail",
+          "dingtalk-minutes",
+          "dingtalk-misc",
+          "dingtalk-shared",
+          "dingtalk-todo",
+          "dingtalk-wiki",
+          "fast-assert-cn-tech-fn-20261006-agent2",
+          "fast-assert-desc-en-fn-20261006-agent2",
+          "fast-assert-desc-tech-fn-20261006-agent2",
+          "创建技能",
+          "指标信息查询",
+          "指标数据查询",
+          "本轮中文优先",
+          "本轮快速回归技能",
+          "本轮缺技术名-fn-20261006-agent2",
+          "本轮英文缺省",
+          "查找技能",
+          "添加连接器",
+          "配置连接器"
+        ]
+      },
+      "read_refs": [
+        "business-0b0ae3a7-c06f-49db-92c6-871037ec3609-1",
+        "business-f3d85ca0-00c6-4a95-bd48-ca3cbdb6e928-1"
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "path": "运行日志/business.jsonl",
+      "sha256": "6203703aeaf46ab5fd94d64c474b878c26f39b97bc4c3f7a3840f9ee9a48bdc5"
+    },
+    {
+      "path": "运行日志/业务调用.jsonl",
+      "sha256": "91fc9bb4b29ad5347770a9e5e5a21b38b9c414c04a2e484e84b5dd981db87bd7"
+    }
+  ],
+  "cleanup": {
+    "status": "retained",
+    "description": "样本保留待审",
+    "read_refs": []
+  },
+  "business_call_refs": [
+    "CALL-7e78e6d9-9bcd-4440-8a23-9431a64aeaa1",
+    "CALL-b5f82b44-5060-4acf-abb3-799c15af2383",
+    "CALL-4cf02f85-780b-4ba9-a8ea-681721d9e8f2"
+  ],
+  "notes": "A1 失败：缺技术name样本被接受导入（无“name缺失/必填”拒绝反馈）。第2次提交因同名已存在未新增（列表29→29，故A2 same_value成立）；首次提交已新增对象（28→29），残留对象 本轮缺技术名-fn-20261006-agent2"
+}

@@ -1,0 +1,51 @@
+{
+  "case_id": "G9-09",
+  "contract_version": "2.0",
+  "attempt_id": "fn-20261006-agent2-G9-09-A1",
+  "environment_id": "env-fn-20261006-agent2",
+  "object_identity": {
+    "skill": "fast-assert-minimal-fn-20261006-agent2"
+  },
+  "inputs": [
+    "导入 variants/minimal 并打开详情"
+  ],
+  "action_refs": [
+    "business-8c297dc5-1dd8-4185-b0ff-1e071e1c8fa0-4"
+  ],
+  "status": "通过",
+  "started_at": "2026-10-06T09:04:00.000Z",
+  "ended_at": "2026-10-06T09:20:00.000Z",
+  "actual_steps": [
+    "导入 minimal",
+    "打开详情读取元数据区"
+  ],
+  "assertions": [
+    {
+      "id": "G9-09-A1",
+      "actual": false,
+      "read_refs": [
+        "business-a485a4ee-244a-497d-b233-60abed55b2d1-4"
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "path": "运行日志/business.jsonl",
+      "sha256": "6203703aeaf46ab5fd94d64c474b878c26f39b97bc4c3f7a3840f9ee9a48bdc5"
+    },
+    {
+      "path": "运行日志/业务调用.jsonl",
+      "sha256": "91fc9bb4b29ad5347770a9e5e5a21b38b9c414c04a2e484e84b5dd981db87bd7"
+    }
+  ],
+  "cleanup": {
+    "status": "retained",
+    "description": "样本保留待审",
+    "read_refs": []
+  },
+  "business_call_refs": [
+    "CALL-9ccddcfb-f816-464a-9db3-1e8491ef2fd7",
+    "CALL-680357c4-a389-410b-bd6a-17208292b5f6"
+  ],
+  "notes": "未出现空字段行（标签/版本/作者/推荐问题）"
+}

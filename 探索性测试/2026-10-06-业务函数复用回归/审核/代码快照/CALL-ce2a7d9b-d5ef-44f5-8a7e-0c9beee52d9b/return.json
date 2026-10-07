@@ -1,0 +1,52 @@
+{
+  "observations": {
+    "action_refs": [
+      "business-cdf9bda3-22cb-4050-979e-d23028c6f68f-2"
+    ],
+    "observations": {
+      "wait": {
+        "waited_ms": 30882
+      },
+      "assistant": {
+        "event_id": "business-cdf9bda3-22cb-4050-979e-d23028c6f68f-3",
+        "captured_at": "2026-10-06T09:45:23.855Z",
+        "environment_id": "env-fn-20261006-agent2",
+        "kind": "read",
+        "target": "专家助手最终正文",
+        "business_call_id": "CALL-ce2a7d9b-d5ef-44f5-8a7e-0c9beee52d9b",
+        "object_id": "last-assistant-bubble",
+        "source": {
+          "channel": "dom",
+          "scope": "对话 助手气泡",
+          "locator": "[class*=\"hWmORq_body\"]"
+        },
+        "value": "FAST_BUNDLED_OK",
+        "raw": {
+          "count": 2,
+          "last": "FAST_BUNDLED_OK"
+        }
+      },
+      "userReq": {
+        "event_id": "business-cdf9bda3-22cb-4050-979e-d23028c6f68f-4",
+        "captured_at": "2026-10-06T09:45:23.860Z",
+        "environment_id": "env-fn-20261006-agent2",
+        "kind": "read",
+        "target": "本轮用户请求",
+        "business_call_id": "CALL-ce2a7d9b-d5ef-44f5-8a7e-0c9beee52d9b",
+        "object_id": "last-user-bubble",
+        "source": {
+          "channel": "dom",
+          "scope": "对话 用户气泡",
+          "locator": "[class*=\"wSkVaW_body\"]"
+        },
+        "value": false,
+        "raw": {
+          "requestText": "/agent-fast-assert-expert-bundled-fn-20261006-agent2  请执行此技能固定回复规则",
+          "full": "/agent-fast-assert-expert-bundled-fn-20261006-agent2  请执行此技能固定回复规则\n17:44\n已完成工作\n用时 30秒\n\nFAST_BUNDLED_OK\n\n用量 42.1K tok\n17:45\n发消息或创建任务, / 调用指令, @ 文件或对话\n工作区内修改\n标准\nlow\n1 轮 2 步·1071 tok/s\n42.1K tok·缓存命中 0%\n8%",
+          "answer": "FAST_BUNDLED_OK"
+        },
+        "derivation": "requestText.includes(FAST_BUNDLED_OK)"
+      }
+    }
+  }
+}
