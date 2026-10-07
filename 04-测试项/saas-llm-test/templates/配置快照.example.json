@@ -1,0 +1,37 @@
+{
+  "_note": "示例，非已确认执行参数；配置及所有结果放在探索任务",
+  "targets": [
+    {
+      "name": "test-gateway",
+      "base_url": "https://gateway.example.invalid/v1",
+      "models_path": "/models",
+      "responses_path": "/responses",
+      "chat_path": "/chat/completions",
+      "api_key_env": "TPT_API_KEY",
+      "protocol": "responses",
+      "models": [
+        "MODEL_FROM_CATALOG"
+      ],
+      "reasoning_efforts": []
+    }
+  ],
+  "run_options": {
+    "connect_timeout": 10,
+    "idle_timeout": 60,
+    "total_timeout": 180,
+    "samples": 30,
+    "think_time": 5,
+    "min_seconds": 120,
+    "min_turns": 30,
+    "max_seconds": 600,
+    "users": [
+      1
+    ],
+    "slo": {
+      "confirmed": false,
+      "success_rate": null,
+      "turn_p95_s": null,
+      "first_text_p95_s": null
+    }
+  }
+}
