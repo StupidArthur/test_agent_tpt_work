@@ -1,0 +1,3463 @@
+{
+  "scope": "逐个给出处置与证据，实际调用可共享基线场景；不为函数数重复操作",
+  "functions": [
+    {
+      "name": "skills.readImportDialog",
+      "feature_path": [
+        "技能",
+        "导入与卡片"
+      ],
+      "file": "business/skills/manage.mjs",
+      "export": "readImportDialog",
+      "version": "portable-1.0",
+      "status": "已迁移-验证状态见verification.json",
+      "description": "打开技能导入弹窗并读取文件 input 数量",
+      "parameters": {
+        "type": "object",
+        "required": [],
+        "additionalProperties": false,
+        "properties": {
+          "internalName": {
+            "type": "string"
+          }
+        }
+      },
+      "modules": [
+        "automation/session.mjs",
+        "automation/skills.mjs"
+      ],
+      "origin": {
+        "machine": "PC-G",
+        "commit": "7aff430",
+        "export": "readImportDialog"
+      },
+      "preconditions": [
+        "当前实例CDP及环境身份已核验",
+        "对象名称/路径来自本轮夹具，不能沿用历史对象",
+        "模型依赖函数允许业务失败/超时，返回观察不判case通过"
+      ],
+      "returns": "真实observations与事件引用；读取失败抛错并登记null+error",
+      "cleanup": "调用者按case恢复；文件写入前调用fixtures.backupFile，最后restoreFile并回读"
+    },
+    {
+      "name": "skills.importSingleFile",
+      "feature_path": [
+        "技能",
+        "导入与卡片"
+      ],
+      "file": "business/skills/manage.mjs",
+      "export": "importSingleFile",
+      "version": "portable-1.0",
+      "status": "已迁移-验证状态见verification.json",
+      "description": "选择单个 SKILL.md 提交导入；返回文件input数量、卡片是否存在、弹窗是否关闭",
+      "parameters": {
+        "type": "object",
+        "required": [
+          "filePath",
+          "displayName"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "filePath": {
+            "type": "string"
+          },
+          "displayName": {
+            "type": "string"
+          },
+          "internalName": {
+            "type": "string"
+          }
+        }
+      },
+      "modules": [
+        "automation/session.mjs",
+        "automation/skills.mjs"
+      ],
+      "origin": {
+        "machine": "PC-G",
+        "commit": "7aff430",
+        "export": "importSingleFile"
+      },
+      "preconditions": [
+        "当前实例CDP及环境身份已核验",
+        "对象名称/路径来自本轮夹具，不能沿用历史对象",
+        "模型依赖函数允许业务失败/超时，返回观察不判case通过"
+      ],
+      "returns": "真实observations与事件引用；读取失败抛错并登记null+error",
+      "cleanup": "调用者按case恢复；文件写入前调用fixtures.backupFile，最后restoreFile并回读"
+    },
+    {
+      "name": "skills.searchSkills",
+      "feature_path": [
+        "技能",
+        "搜索"
+      ],
+      "file": "business/skills/manage.mjs",
+      "export": "searchSkills",
+      "version": "portable-1.0",
+      "status": "已迁移-验证状态见verification.json",
+      "description": "在技能页填入搜索词并读取匹配卡片数量与标题",
+      "parameters": {
+        "type": "object",
+        "required": [
+          "term"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "term": {
+            "type": "string"
+          },
+          "internalName": {
+            "type": "string"
+          }
+        }
+      },
+      "modules": [
+        "automation/session.mjs",
+        "automation/skills.mjs"
+      ],
+      "origin": {
+        "machine": "PC-G",
+        "commit": "7aff430",
+        "export": "searchSkills"
+      },
+      "preconditions": [
+        "当前实例CDP及环境身份已核验",
+        "对象名称/路径来自本轮夹具，不能沿用历史对象",
+        "模型依赖函数允许业务失败/超时，返回观察不判case通过"
+      ],
+      "returns": "真实observations与事件引用；读取失败抛错并登记null+error",
+      "cleanup": "调用者按case恢复；文件写入前调用fixtures.backupFile，最后restoreFile并回读"
+    },
+    {
+      "name": "skills.readSkillCard",
+      "feature_path": [
+        "技能",
+        "导入与卡片"
+      ],
+      "file": "business/skills/manage.mjs",
+      "export": "readSkillCard",
+      "version": "portable-1.0",
+      "status": "已迁移-验证状态见verification.json",
+      "description": "读取指定展示名技能卡片的标题、来源、版本与开关状态",
+      "parameters": {
+        "type": "object",
+        "required": [
+          "displayName"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "displayName": {
+            "type": "string"
+          },
+          "internalName": {
+            "type": "string"
+          }
+        }
+      },
+      "modules": [
+        "automation/session.mjs",
+        "automation/skills.mjs"
+      ],
+      "origin": {
+        "machine": "PC-G",
+        "commit": "7aff430",
+        "export": "readSkillCard"
+      },
+      "preconditions": [
+        "当前实例CDP及环境身份已核验",
+        "对象名称/路径来自本轮夹具，不能沿用历史对象",
+        "模型依赖函数允许业务失败/超时，返回观察不判case通过"
+      ],
+      "returns": "真实observations与事件引用；读取失败抛错并登记null+error",
+      "cleanup": "调用者按case恢复；文件写入前调用fixtures.backupFile，最后restoreFile并回读"
+    },
+    {
+      "name": "skills.setSkillEnabled",
+      "feature_path": [
+        "技能",
+        "启用与筛选"
+      ],
+      "file": "business/skills/manage.mjs",
+      "export": "setSkillEnabled",
+      "version": "portable-1.0",
+      "status": "已迁移-验证状态见verification.json",
+      "description": "切换指定技能的启停开关并返回改前/改后 aria-checked",
+      "parameters": {
+        "type": "object",
+        "required": [
+          "displayName",
+          "value"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "displayName": {
+            "type": "string"
+          },
+          "value": {
+            "type": "boolean"
+          },
+          "internalName": {
+            "type": "string"
+          }
+        }
+      },
+      "modules": [
+        "automation/session.mjs",
+        "automation/skills.mjs"
+      ],
+      "origin": {
+        "machine": "PC-G",
+        "commit": "7aff430",
+        "export": "setSkillEnabled"
+      },
+      "preconditions": [
+        "当前实例CDP及环境身份已核验",
+        "对象名称/路径来自本轮夹具，不能沿用历史对象",
+        "模型依赖函数允许业务失败/超时，返回观察不判case通过"
+      ],
+      "returns": "真实observations与事件引用；读取失败抛错并登记null+error",
+      "cleanup": "调用者按case恢复；文件写入前调用fixtures.backupFile，最后restoreFile并回读"
+    },
+    {
+      "name": "skills.readSkillDetail",
+      "feature_path": [
+        "技能",
+        "目录与预览"
+      ],
+      "file": "business/skills/manage.mjs",
+      "export": "readSkillDetail",
+      "version": "portable-1.0",
+      "status": "已迁移-验证状态见verification.json",
+      "description": "打开指定技能详情并读取 SKILL.md 正文",
+      "parameters": {
+        "type": "object",
+        "required": [
+          "displayName"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "displayName": {
+            "type": "string"
+          },
+          "internalName": {
+            "type": "string"
+          }
+        }
+      },
+      "modules": [
+        "automation/session.mjs",
+        "automation/skills.mjs"
+      ],
+      "origin": {
+        "machine": "PC-G",
+        "commit": "7aff430",
+        "export": "readSkillDetail"
+      },
+      "preconditions": [
+        "当前实例CDP及环境身份已核验",
+        "对象名称/路径来自本轮夹具，不能沿用历史对象",
+        "模型依赖函数允许业务失败/超时，返回观察不判case通过"
+      ],
+      "returns": "真实observations与事件引用；读取失败抛错并登记null+error",
+      "cleanup": "调用者按case恢复；文件写入前调用fixtures.backupFile，最后restoreFile并回读"
+    },
+    {
+      "name": "skills.filterSkills",
+      "feature_path": [
+        "技能",
+        "启用与筛选"
+      ],
+      "file": "business/skills/manage.mjs",
+      "export": "filterSkills",
+      "version": "portable-1.0",
+      "status": "已迁移-验证状态见verification.json",
+      "description": "切换 全部/已启用/未启用 筛选并读取本轮样本匹配卡片数",
+      "parameters": {
+        "type": "object",
+        "required": [
+          "filter",
+          "displayName"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "filter": {
+            "type": "string"
+          },
+          "displayName": {
+            "type": "string"
+          },
+          "internalName": {
+            "type": "string"
+          }
+        }
+      },
+      "modules": [
+        "automation/session.mjs",
+        "automation/skills.mjs"
+      ],
+      "origin": {
+        "machine": "PC-G",
+        "commit": "7aff430",
+        "export": "filterSkills"
+      },
+      "preconditions": [
+        "当前实例CDP及环境身份已核验",
+        "对象名称/路径来自本轮夹具，不能沿用历史对象",
+        "模型依赖函数允许业务失败/超时，返回观察不判case通过"
+      ],
+      "returns": "真实observations与事件引用；读取失败抛错并登记null+error",
+      "cleanup": "调用者按case恢复；文件写入前调用fixtures.backupFile，最后restoreFile并回读"
+    },
+    {
+      "name": "skills.readSkillsListState",
+      "feature_path": [
+        "技能",
+        "启用与筛选"
+      ],
+      "file": "business/skills/manage.mjs",
+      "export": "readSkillsListState",
+      "version": "portable-1.0",
+      "status": "已迁移-验证状态见verification.json",
+      "description": "读取技能页搜索框值、本轮样本存在状态与最终开关",
+      "parameters": {
+        "type": "object",
+        "required": [
+          "displayName"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "displayName": {
+            "type": "string"
+          },
+          "internalName": {
+            "type": "string"
+          }
+        }
+      },
+      "modules": [
+        "automation/session.mjs",
+        "automation/skills.mjs"
+      ],
+      "origin": {
+        "machine": "PC-G",
+        "commit": "7aff430",
+        "export": "readSkillsListState"
+      },
+      "preconditions": [
+        "当前实例CDP及环境身份已核验",
+        "对象名称/路径来自本轮夹具，不能沿用历史对象",
+        "模型依赖函数允许业务失败/超时，返回观察不判case通过"
+      ],
+      "returns": "真实observations与事件引用；读取失败抛错并登记null+error",
+      "cleanup": "调用者按case恢复；文件写入前调用fixtures.backupFile，最后restoreFile并回读"
+    },
+    {
+      "name": "skills.useSkill",
+      "feature_path": [
+        "技能",
+        "实际调用"
+      ],
+      "file": "business/skills/manage.mjs",
+      "export": "useSkill",
+      "version": "portable-1.0",
+      "status": "已迁移-验证状态见verification.json",
+      "description": "新建会话后经快捷使用引入本轮技能引用；返回改前/改后会话身份与引用内部名",
+      "parameters": {
+        "type": "object",
+        "required": [
+          "displayName"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "displayName": {
+            "type": "string"
+          },
+          "internalName": {
+            "type": "string"
+          }
+        }
+      },
+      "modules": [
+        "automation/session.mjs",
+        "automation/skills.mjs",
+        "automation/conversation.mjs"
+      ],
+      "origin": {
+        "machine": "PC-G",
+        "commit": "7aff430",
+        "export": "useSkill"
+      },
+      "preconditions": [
+        "当前实例CDP及环境身份已核验",
+        "对象名称/路径来自本轮夹具，不能沿用历史对象",
+        "模型依赖函数允许业务失败/超时，返回观察不判case通过"
+      ],
+      "returns": "真实observations与事件引用；读取失败抛错并登记null+error",
+      "cleanup": "调用者按case恢复；文件写入前调用fixtures.backupFile，最后restoreFile并回读"
+    },
+    {
+      "name": "skills.useSkillRequest",
+      "feature_path": [
+        "技能",
+        "实际调用"
+      ],
+      "file": "business/skills/manage.mjs",
+      "export": "useSkillRequest",
+      "version": "portable-1.0",
+      "status": "已迁移-验证状态见verification.json",
+      "description": "发送技能固定回复规则请求并等待终态；返回助手正文与用户请求是否含输出串",
+      "parameters": {
+        "type": "object",
+        "required": [
+          "text",
+          "answer"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "text": {
+            "type": "string"
+          },
+          "timeoutMs": {
+            "type": "number"
+          },
+          "answer": {
+            "type": "string"
+          },
+          "internalName": {
+            "type": "string"
+          }
+        }
+      },
+      "modules": [
+        "automation/session.mjs",
+        "automation/skills.mjs",
+        "automation/conversation.mjs"
+      ],
+      "origin": {
+        "machine": "PC-G",
+        "commit": "7aff430",
+        "export": "useSkillRequest"
+      },
+      "preconditions": [
+        "当前实例CDP及环境身份已核验",
+        "对象名称/路径来自本轮夹具，不能沿用历史对象",
+        "模型依赖函数允许业务失败/超时，返回观察不判case通过"
+      ],
+      "returns": "真实observations与事件引用；读取失败抛错并登记null+error",
+      "cleanup": "调用者按case恢复；文件写入前调用fixtures.backupFile，最后restoreFile并回读"
+    },
+    {
+      "name": "skills.useSkillDirect",
+      "feature_path": [
+        "技能",
+        "实际调用"
+      ],
+      "file": "business/skills/manage.mjs",
+      "export": "useSkillDirect",
+      "version": "portable-1.0",
+      "status": "已迁移-验证状态见verification.json",
+      "description": "仅经快捷使用入口（不手动新建任务），观察入口是否自行新建会话",
+      "parameters": {
+        "type": "object",
+        "required": [
+          "displayName"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "displayName": {
+            "type": "string"
+          },
+          "internalName": {
+            "type": "string"
+          }
+        }
+      },
+      "modules": [
+        "automation/session.mjs",
+        "automation/skills.mjs",
+        "automation/conversation.mjs"
+      ],
+      "origin": {
+        "machine": "PC-G",
+        "commit": "7aff430",
+        "export": "useSkillDirect"
+      },
+      "preconditions": [
+        "当前实例CDP及环境身份已核验",
+        "对象名称/路径来自本轮夹具，不能沿用历史对象",
+        "模型依赖函数允许业务失败/超时，返回观察不判case通过"
+      ],
+      "returns": "真实observations与事件引用；读取失败抛错并登记null+error",
+      "cleanup": "调用者按case恢复；文件写入前调用fixtures.backupFile，最后restoreFile并回读"
+    },
+    {
+      "name": "skills.readTraceSkillContent",
+      "feature_path": [
+        "技能",
+        "实际调用"
+      ],
+      "file": "business/skills/manage.mjs",
+      "export": "readTraceSkillContent",
+      "version": "portable-1.0",
+      "status": "已迁移-验证状态见verification.json",
+      "description": "读取本轮技能调用轨迹中的 skill_content 资源标识（限定轨迹表格）",
+      "parameters": {
+        "type": "object",
+        "required": [
+          "internalName"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "internalName": {
+            "type": "string"
+          }
+        }
+      },
+      "modules": [
+        "automation/session.mjs",
+        "automation/skills.mjs"
+      ],
+      "origin": {
+        "machine": "PC-G",
+        "commit": "7aff430",
+        "export": "readTraceSkillContent"
+      },
+      "preconditions": [
+        "当前实例CDP及环境身份已核验",
+        "对象名称/路径来自本轮夹具，不能沿用历史对象",
+        "模型依赖函数允许业务失败/超时，返回观察不判case通过"
+      ],
+      "returns": "真实observations与事件引用；读取失败抛错并登记null+error",
+      "cleanup": "调用者按case恢复；文件写入前调用fixtures.backupFile，最后restoreFile并回读"
+    },
+    {
+      "name": "skills.importPackage",
+      "feature_path": [
+        "技能",
+        "导入与卡片"
+      ],
+      "file": "business/skills/manage.mjs",
+      "export": "importPackage",
+      "version": "portable-1.0",
+      "status": "已迁移-验证状态见verification.json",
+      "description": "导入单个技能包（SKILL.md 或 .zip）并读取校验反馈与卡片存在",
+      "parameters": {
+        "type": "object",
+        "required": [
+          "filePath"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "filePath": {
+            "type": "string"
+          },
+          "displayName": {
+            "type": "string"
+          },
+          "field": {
+            "type": "string"
+          },
+          "internalName": {
+            "type": "string"
+          }
+        }
+      },
+      "modules": [
+        "automation/session.mjs",
+        "automation/skills.mjs",
+        "automation/conversation.mjs"
+      ],
+      "origin": {
+        "machine": "PC-G",
+        "commit": "7aff430",
+        "export": "importPackage"
+      },
+      "preconditions": [
+        "当前实例CDP及环境身份已核验",
+        "对象名称/路径来自本轮夹具，不能沿用历史对象",
+        "模型依赖函数允许业务失败/超时，返回观察不判case通过"
+      ],
+      "returns": "真实observations与事件引用；读取失败抛错并登记null+error",
+      "cleanup": "调用者按case恢复；文件写入前调用fixtures.backupFile，最后restoreFile并回读"
+    },
+    {
+      "name": "skills.readListIdentity",
+      "feature_path": [
+        "技能",
+        "导入与卡片"
+      ],
+      "file": "business/skills/manage.mjs",
+      "export": "readListIdentity",
+      "version": "portable-1.0",
+      "status": "已迁移-验证状态见verification.json",
+      "description": "读取技能列表全部卡片标题（排序）作为内部身份集合",
+      "parameters": {
+        "type": "object",
+        "required": [],
+        "additionalProperties": false,
+        "properties": {
+          "internalName": {
+            "type": "string"
+          }
+        }
+      },
+      "modules": [
+        "automation/session.mjs",
+        "automation/skills.mjs"
+      ],
+      "origin": {
+        "machine": "PC-G",
+        "commit": "7aff430",
+        "export": "readListIdentity"
+      },
+      "preconditions": [
+        "当前实例CDP及环境身份已核验",
+        "对象名称/路径来自本轮夹具，不能沿用历史对象",
+        "模型依赖函数允许业务失败/超时，返回观察不判case通过"
+      ],
+      "returns": "真实observations与事件引用；读取失败抛错并登记null+error",
+      "cleanup": "调用者按case恢复；文件写入前调用fixtures.backupFile，最后restoreFile并回读"
+    },
+    {
+      "name": "skills.readIconState",
+      "feature_path": [
+        "技能",
+        "图标"
+      ],
+      "file": "business/skills/manage.mjs",
+      "export": "readIconState",
+      "version": "portable-1.0",
+      "status": "已迁移-验证状态见verification.json",
+      "description": "读取指定技能卡图标加载状态与资源身份、默认图标可见性",
+      "parameters": {
+        "type": "object",
+        "required": [
+          "title"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "title": {
+            "type": "string"
+          },
+          "internalName": {
+            "type": "string"
+          }
+        }
+      },
+      "modules": [
+        "automation/session.mjs",
+        "automation/skills.mjs"
+      ],
+      "origin": {
+        "machine": "PC-G",
+        "commit": "7aff430",
+        "export": "readIconState"
+      },
+      "preconditions": [
+        "当前实例CDP及环境身份已核验",
+        "对象名称/路径来自本轮夹具，不能沿用历史对象",
+        "模型依赖函数允许业务失败/超时，返回观察不判case通过"
+      ],
+      "returns": "真实observations与事件引用；读取失败抛错并登记null+error",
+      "cleanup": "调用者按case恢复；文件写入前调用fixtures.backupFile，最后restoreFile并回读"
+    },
+    {
+      "name": "skills.importPackageMonitored",
+      "feature_path": [
+        "技能",
+        "图标"
+      ],
+      "file": "business/skills/manage.mjs",
+      "export": "importPackageMonitored",
+      "version": "portable-1.0",
+      "status": "已迁移-验证状态见verification.json",
+      "description": "导入技能包并监听与该 icon URL 匹配的网络请求数",
+      "parameters": {
+        "type": "object",
+        "required": [
+          "filePath"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "filePath": {
+            "type": "string"
+          },
+          "displayName": {
+            "type": "string"
+          },
+          "urlPattern": {
+            "type": "string"
+          },
+          "internalName": {
+            "type": "string"
+          }
+        }
+      },
+      "modules": [
+        "automation/session.mjs",
+        "automation/skills.mjs"
+      ],
+      "origin": {
+        "machine": "PC-G",
+        "commit": "7aff430",
+        "export": "importPackageMonitored"
+      },
+      "preconditions": [
+        "当前实例CDP及环境身份已核验",
+        "对象名称/路径来自本轮夹具，不能沿用历史对象",
+        "模型依赖函数允许业务失败/超时，返回观察不判case通过"
+      ],
+      "returns": "真实observations与事件引用；读取失败抛错并登记null+error",
+      "cleanup": "调用者按case恢复；文件写入前调用fixtures.backupFile，最后restoreFile并回读"
+    },
+    {
+      "name": "skills.readDetailTree",
+      "feature_path": [
+        "技能",
+        "目录与预览"
+      ],
+      "file": "business/skills/manage.mjs",
+      "export": "readDetailTree",
+      "version": "portable-1.0",
+      "status": "已迁移-验证状态见verification.json",
+      "description": "打开技能详情读取目录树选中节点与默认预览正文",
+      "parameters": {
+        "type": "object",
+        "required": [
+          "displayName"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "displayName": {
+            "type": "string"
+          },
+          "internalName": {
+            "type": "string"
+          }
+        }
+      },
+      "modules": [
+        "automation/session.mjs",
+        "automation/skills.mjs"
+      ],
+      "origin": {
+        "machine": "PC-G",
+        "commit": "7aff430",
+        "export": "readDetailTree"
+      },
+      "preconditions": [
+        "当前实例CDP及环境身份已核验",
+        "对象名称/路径来自本轮夹具，不能沿用历史对象",
+        "模型依赖函数允许业务失败/超时，返回观察不判case通过"
+      ],
+      "returns": "真实observations与事件引用；读取失败抛错并登记null+error",
+      "cleanup": "调用者按case恢复；文件写入前调用fixtures.backupFile，最后restoreFile并回读"
+    },
+    {
+      "name": "skills.clickTreeNode",
+      "feature_path": [
+        "技能",
+        "目录与预览"
+      ],
+      "file": "business/skills/manage.mjs",
+      "export": "clickTreeNode",
+      "version": "portable-1.1",
+      "status": "已迁移-验证状态见verification.json",
+      "description": "展开路径文件夹并选择文件，读取预览正文/可编辑控件数/图片加载",
+      "parameters": {
+        "type": "object",
+        "required": [
+          "displayName",
+          "path"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "displayName": {
+            "type": "string"
+          },
+          "path": {
+            "type": "array"
+          },
+          "internalName": {
+            "type": "string"
+          }
+        }
+      },
+      "modules": [
+        "automation/session.mjs",
+        "automation/skills.mjs"
+      ],
+      "origin": {
+        "machine": "PC-G",
+        "commit": "7aff430",
+        "export": "clickTreeNode"
+      },
+      "preconditions": [
+        "当前实例CDP及环境身份已核验",
+        "对象名称/路径来自本轮夹具，不能沿用历史对象",
+        "模型依赖函数允许业务失败/超时，返回观察不判case通过"
+      ],
+      "returns": "真实observations与事件引用；读取失败抛错并登记null+error",
+      "cleanup": "调用者按case恢复；文件写入前调用fixtures.backupFile，最后restoreFile并回读"
+    },
+    {
+      "name": "skills.toggleTreeFolder",
+      "feature_path": [
+        "技能",
+        "目录与预览"
+      ],
+      "file": "business/skills/manage.mjs",
+      "export": "toggleTreeFolder",
+      "version": "portable-1.0",
+      "status": "已迁移-验证状态见verification.json",
+      "description": "收起/展开目录树中的某个文件夹节点",
+      "parameters": {
+        "type": "object",
+        "required": [
+          "displayName",
+          "label"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "displayName": {
+            "type": "string"
+          },
+          "label": {
+            "type": "string"
+          },
+          "internalName": {
+            "type": "string"
+          }
+        }
+      },
+      "modules": [
+        "automation/session.mjs",
+        "automation/skills.mjs"
+      ],
+      "origin": {
+        "machine": "PC-G",
+        "commit": "7aff430",
+        "export": "toggleTreeFolder"
+      },
+      "preconditions": [
+        "当前实例CDP及环境身份已核验",
+        "对象名称/路径来自本轮夹具，不能沿用历史对象",
+        "模型依赖函数允许业务失败/超时，返回观察不判case通过"
+      ],
+      "returns": "真实observations与事件引用；读取失败抛错并登记null+error",
+      "cleanup": "调用者按case恢复；文件写入前调用fixtures.backupFile，最后restoreFile并回读"
+    },
+    {
+      "name": "skills.readTreeNodeVisible",
+      "feature_path": [
+        "技能",
+        "目录与预览"
+      ],
+      "file": "business/skills/manage.mjs",
+      "export": "readTreeNodeVisible",
+      "version": "portable-1.0",
+      "status": "已迁移-验证状态见verification.json",
+      "description": "读取指定目录树节点可见状态",
+      "parameters": {
+        "type": "object",
+        "required": [
+          "displayName",
+          "label"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "displayName": {
+            "type": "string"
+          },
+          "label": {
+            "type": "string"
+          },
+          "internalName": {
+            "type": "string"
+          }
+        }
+      },
+      "modules": [
+        "automation/session.mjs",
+        "automation/skills.mjs"
+      ],
+      "origin": {
+        "machine": "PC-G",
+        "commit": "7aff430",
+        "export": "readTreeNodeVisible"
+      },
+      "preconditions": [
+        "当前实例CDP及环境身份已核验",
+        "对象名称/路径来自本轮夹具，不能沿用历史对象",
+        "模型依赖函数允许业务失败/超时，返回观察不判case通过"
+      ],
+      "returns": "真实observations与事件引用；读取失败抛错并登记null+error",
+      "cleanup": "调用者按case恢复；文件写入前调用fixtures.backupFile，最后restoreFile并回读"
+    },
+    {
+      "name": "skills.installedSkillFile",
+      "feature_path": [
+        "技能",
+        "外部文件更新"
+      ],
+      "file": "business/skills/manage.mjs",
+      "export": "installedSkillFile",
+      "version": "portable-1.0",
+      "status": "已迁移-验证状态见verification.json",
+      "description": "读写本轮实际安装的技能文件（外部修改，channel=file）",
+      "parameters": {
+        "type": "object",
+        "required": [
+          "path"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "path": {
+            "type": "string"
+          },
+          "write": {
+            "type": "boolean"
+          },
+          "content": {
+            "type": "string"
+          },
+          "internalName": {
+            "type": "string"
+          }
+        }
+      },
+      "modules": [
+        "automation/session.mjs"
+      ],
+      "origin": {
+        "machine": "PC-G",
+        "commit": "7aff430",
+        "export": "installedSkillFile"
+      },
+      "preconditions": [
+        "当前实例CDP及环境身份已核验",
+        "对象名称/路径来自本轮夹具，不能沿用历史对象",
+        "模型依赖函数允许业务失败/超时，返回观察不判case通过"
+      ],
+      "returns": "真实observations与事件引用；读取失败抛错并登记null+error",
+      "cleanup": "调用者按case恢复；文件写入前调用fixtures.backupFile，最后restoreFile并回读"
+    },
+    {
+      "name": "skills.quickUse",
+      "feature_path": [
+        "技能",
+        "实际调用"
+      ],
+      "file": "business/skills/manage.mjs",
+      "export": "quickUse",
+      "version": "portable-1.0",
+      "status": "已迁移-验证状态见verification.json",
+      "description": "仅经快捷使用入口把技能引用注入当前会话",
+      "parameters": {
+        "type": "object",
+        "required": [
+          "displayName"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "displayName": {
+            "type": "string"
+          },
+          "internalName": {
+            "type": "string"
+          }
+        }
+      },
+      "modules": [
+        "automation/session.mjs",
+        "automation/skills.mjs",
+        "automation/conversation.mjs"
+      ],
+      "origin": {
+        "machine": "PC-G",
+        "commit": "7aff430",
+        "export": "quickUse"
+      },
+      "preconditions": [
+        "当前实例CDP及环境身份已核验",
+        "对象名称/路径来自本轮夹具，不能沿用历史对象",
+        "模型依赖函数允许业务失败/超时，返回观察不判case通过"
+      ],
+      "returns": "真实observations与事件引用；读取失败抛错并登记null+error",
+      "cleanup": "调用者按case恢复；文件写入前调用fixtures.backupFile，最后restoreFile并回读"
+    },
+    {
+      "name": "skills.readValidationFeedback",
+      "feature_path": [
+        "技能",
+        "外部文件更新"
+      ],
+      "file": "business/skills/manage.mjs",
+      "export": "readValidationFeedback",
+      "version": "portable-1.0",
+      "status": "已迁移-验证状态见verification.json",
+      "description": "打开技能列表读取本轮技能的外部修改校验反馈",
+      "parameters": {
+        "type": "object",
+        "required": [
+          "displayName"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "displayName": {
+            "type": "string"
+          },
+          "internalName": {
+            "type": "string"
+          }
+        }
+      },
+      "modules": [
+        "automation/session.mjs",
+        "automation/skills.mjs"
+      ],
+      "origin": {
+        "machine": "PC-G",
+        "commit": "7aff430",
+        "export": "readValidationFeedback"
+      },
+      "preconditions": [
+        "当前实例CDP及环境身份已核验",
+        "对象名称/路径来自本轮夹具，不能沿用历史对象",
+        "模型依赖函数允许业务失败/超时，返回观察不判case通过"
+      ],
+      "returns": "真实observations与事件引用；读取失败抛错并登记null+error",
+      "cleanup": "调用者按case恢复；文件写入前调用fixtures.backupFile，最后restoreFile并回读"
+    },
+    {
+      "name": "skills.readTabs",
+      "feature_path": [
+        "技能",
+        "页签"
+      ],
+      "file": "business/skills/manage.mjs",
+      "export": "readTabs",
+      "version": "portable-1.0",
+      "status": "已迁移-验证状态见verification.json",
+      "description": "读取技能页双页签均可见可点击",
+      "parameters": {
+        "type": "object",
+        "required": [],
+        "additionalProperties": false,
+        "properties": {
+          "internalName": {
+            "type": "string"
+          }
+        }
+      },
+      "modules": [
+        "automation/session.mjs",
+        "automation/skills.mjs"
+      ],
+      "origin": {
+        "machine": "PC-G",
+        "commit": "7aff430",
+        "export": "readTabs"
+      },
+      "preconditions": [
+        "当前实例CDP及环境身份已核验",
+        "对象名称/路径来自本轮夹具，不能沿用历史对象",
+        "模型依赖函数允许业务失败/超时，返回观察不判case通过"
+      ],
+      "returns": "真实observations与事件引用；读取失败抛错并登记null+error",
+      "cleanup": "调用者按case恢复；文件写入前调用fixtures.backupFile，最后restoreFile并回读"
+    },
+    {
+      "name": "skills.searchSkill",
+      "feature_path": [
+        "技能",
+        "搜索"
+      ],
+      "file": "business/skills/manage.mjs",
+      "export": "searchSkill",
+      "version": "portable-1.0",
+      "status": "已迁移-验证状态见verification.json",
+      "description": "技能页搜索并读取指定内部名命中数",
+      "parameters": {
+        "type": "object",
+        "required": [
+          "query",
+          "matchText"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "query": {
+            "type": "string"
+          },
+          "matchText": {
+            "type": "string"
+          },
+          "internalName": {
+            "type": "string"
+          }
+        }
+      },
+      "modules": [
+        "automation/session.mjs",
+        "automation/skills.mjs"
+      ],
+      "origin": {
+        "machine": "PC-G",
+        "commit": "7aff430",
+        "export": "searchSkill"
+      },
+      "preconditions": [
+        "当前实例CDP及环境身份已核验",
+        "对象名称/路径来自本轮夹具，不能沿用历史对象",
+        "模型依赖函数允许业务失败/超时，返回观察不判case通过"
+      ],
+      "returns": "真实observations与事件引用；读取失败抛错并登记null+error",
+      "cleanup": "调用者按case恢复；文件写入前调用fixtures.backupFile，最后restoreFile并回读"
+    },
+    {
+      "name": "skills.readFirstCardIdentity",
+      "feature_path": [
+        "技能",
+        "详情"
+      ],
+      "file": "business/skills/manage.mjs",
+      "export": "readFirstCardIdentity",
+      "version": "portable-1.0",
+      "status": "已迁移-验证状态见verification.json",
+      "description": "读取技能详情/首卡身份是否为本轮内部名",
+      "parameters": {
+        "type": "object",
+        "required": [
+          "internalName"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "internalName": {
+            "type": "string"
+          }
+        }
+      },
+      "modules": [
+        "automation/session.mjs",
+        "automation/skills.mjs"
+      ],
+      "origin": {
+        "machine": "PC-G",
+        "commit": "7aff430",
+        "export": "readFirstCardIdentity"
+      },
+      "preconditions": [
+        "当前实例CDP及环境身份已核验",
+        "对象名称/路径来自本轮夹具，不能沿用历史对象",
+        "模型依赖函数允许业务失败/超时，返回观察不判case通过"
+      ],
+      "returns": "真实observations与事件引用；读取失败抛错并登记null+error",
+      "cleanup": "调用者按case恢复；文件写入前调用fixtures.backupFile，最后restoreFile并回读"
+    },
+    {
+      "name": "skills.toggleSwitchNoDetail",
+      "feature_path": [
+        "技能",
+        "列表开关"
+      ],
+      "file": "business/skills/manage.mjs",
+      "export": "toggleSwitchNoDetail",
+      "version": "portable-1.0",
+      "status": "已迁移-验证状态见verification.json",
+      "description": "技能列表切换开关且不进入详情，回读改前/改后/恢复",
+      "parameters": {
+        "type": "object",
+        "required": [
+          "matchText"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "matchText": {
+            "type": "string"
+          },
+          "internalName": {
+            "type": "string"
+          }
+        }
+      },
+      "modules": [
+        "automation/session.mjs",
+        "automation/skills.mjs"
+      ],
+      "origin": {
+        "machine": "PC-G",
+        "commit": "7aff430",
+        "export": "toggleSwitchNoDetail"
+      },
+      "preconditions": [
+        "当前实例CDP及环境身份已核验",
+        "对象名称/路径来自本轮夹具，不能沿用历史对象",
+        "模型依赖函数允许业务失败/超时，返回观察不判case通过"
+      ],
+      "returns": "真实observations与事件引用；读取失败抛错并登记null+error",
+      "cleanup": "调用者按case恢复；文件写入前调用fixtures.backupFile，最后restoreFile并回读"
+    },
+    {
+      "name": "skills.openCardDetail",
+      "feature_path": [
+        "技能",
+        "卡片详情"
+      ],
+      "file": "business/skills/manage.mjs",
+      "export": "openCardDetail",
+      "version": "portable-1.0",
+      "status": "已迁移-验证状态见verification.json",
+      "description": "点击技能卡片主体打开详情并读取身份",
+      "parameters": {
+        "type": "object",
+        "required": [
+          "matchText",
+          "internalName"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "matchText": {
+            "type": "string"
+          },
+          "internalName": {
+            "type": "string"
+          }
+        }
+      },
+      "modules": [
+        "automation/session.mjs",
+        "automation/skills.mjs"
+      ],
+      "origin": {
+        "machine": "PC-G",
+        "commit": "7aff430",
+        "export": "openCardDetail"
+      },
+      "preconditions": [
+        "当前实例CDP及环境身份已核验",
+        "对象名称/路径来自本轮夹具，不能沿用历史对象",
+        "模型依赖函数允许业务失败/超时，返回观察不判case通过"
+      ],
+      "returns": "真实observations与事件引用；读取失败抛错并登记null+error",
+      "cleanup": "调用者按case恢复；文件写入前调用fixtures.backupFile，最后restoreFile并回读"
+    },
+    {
+      "name": "skills.startCreate",
+      "feature_path": [
+        "技能",
+        "创建入口"
+      ],
+      "file": "business/skills/manage.mjs",
+      "export": "startCreate",
+      "version": "portable-1.0",
+      "status": "已迁移-验证状态见verification.json",
+      "description": "点击新建技能并读取创建技能模式标识与面板可见",
+      "parameters": {
+        "type": "object",
+        "required": [],
+        "additionalProperties": false,
+        "properties": {
+          "label": {
+            "type": "string"
+          },
+          "presetPattern": {
+            "type": "string"
+          },
+          "internalName": {
+            "type": "string"
+          }
+        }
+      },
+      "modules": [
+        "automation/session.mjs",
+        "automation/skills.mjs"
+      ],
+      "origin": {
+        "machine": "PC-G",
+        "commit": "7aff430",
+        "export": "startCreate"
+      },
+      "preconditions": [
+        "当前实例CDP及环境身份已核验",
+        "对象名称/路径来自本轮夹具，不能沿用历史对象",
+        "模型依赖函数允许业务失败/超时，返回观察不判case通过"
+      ],
+      "returns": "真实observations与事件引用；读取失败抛错并登记null+error",
+      "cleanup": "调用者按case恢复；文件写入前调用fixtures.backupFile，最后restoreFile并回读"
+    },
+    {
+      "name": "skills.readImportCandidates",
+      "feature_path": [
+        "技能",
+        "ZIP导入"
+      ],
+      "file": "business/skills/manage.mjs",
+      "export": "readImportCandidates",
+      "version": "portable-1.0",
+      "status": "已迁移-验证状态见verification.json",
+      "description": "选择 ZIP 读候选与列表（不确认），随后取消",
+      "parameters": {
+        "type": "object",
+        "required": [
+          "filePath"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "filePath": {
+            "type": "string"
+          },
+          "internalName": {
+            "type": "string"
+          }
+        }
+      },
+      "modules": [
+        "automation/session.mjs",
+        "automation/skills.mjs"
+      ],
+      "origin": {
+        "machine": "PC-G",
+        "commit": "7aff430",
+        "export": "readImportCandidates"
+      },
+      "preconditions": [
+        "当前实例CDP及环境身份已核验",
+        "对象名称/路径来自本轮夹具，不能沿用历史对象",
+        "模型依赖函数允许业务失败/超时，返回观察不判case通过"
+      ],
+      "returns": "真实observations与事件引用；读取失败抛错并登记null+error",
+      "cleanup": "调用者按case恢复；文件写入前调用fixtures.backupFile，最后restoreFile并回读"
+    },
+    {
+      "name": "skills.confirmImport",
+      "feature_path": [
+        "技能",
+        "ZIP导入"
+      ],
+      "file": "business/skills/manage.mjs",
+      "export": "confirmImport",
+      "version": "portable-1.0",
+      "status": "已迁移-验证状态见verification.json",
+      "description": "提交并确认 ZIP 导入并读取结果",
+      "parameters": {
+        "type": "object",
+        "required": [
+          "filePath"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "filePath": {
+            "type": "string"
+          },
+          "internalName": {
+            "type": "string"
+          }
+        }
+      },
+      "modules": [
+        "automation/session.mjs",
+        "automation/skills.mjs"
+      ],
+      "origin": {
+        "machine": "PC-G",
+        "commit": "7aff430",
+        "export": "confirmImport"
+      },
+      "preconditions": [
+        "当前实例CDP及环境身份已核验",
+        "对象名称/路径来自本轮夹具，不能沿用历史对象",
+        "模型依赖函数允许业务失败/超时，返回观察不判case通过"
+      ],
+      "returns": "真实observations与事件引用；读取失败抛错并登记null+error",
+      "cleanup": "调用者按case恢复；文件写入前调用fixtures.backupFile，最后restoreFile并回读"
+    },
+    {
+      "name": "skills.readSkillCount",
+      "feature_path": [
+        "技能",
+        "列表"
+      ],
+      "file": "business/skills/manage.mjs",
+      "export": "readSkillCount",
+      "version": "portable-1.0",
+      "status": "已迁移-验证状态见verification.json",
+      "description": "读取我的技能列表卡片数",
+      "parameters": {
+        "type": "object",
+        "required": [],
+        "additionalProperties": false,
+        "properties": {
+          "internalName": {
+            "type": "string"
+          }
+        }
+      },
+      "modules": [
+        "automation/session.mjs",
+        "automation/skills.mjs"
+      ],
+      "origin": {
+        "machine": "PC-G",
+        "commit": "7aff430",
+        "export": "readSkillCount"
+      },
+      "preconditions": [
+        "当前实例CDP及环境身份已核验",
+        "对象名称/路径来自本轮夹具，不能沿用历史对象",
+        "模型依赖函数允许业务失败/超时，返回观察不判case通过"
+      ],
+      "returns": "真实observations与事件引用；读取失败抛错并登记null+error",
+      "cleanup": "调用者按case恢复；文件写入前调用fixtures.backupFile，最后restoreFile并回读"
+    },
+    {
+      "name": "skills.listInstalledFiles",
+      "feature_path": [
+        "技能",
+        "安装目录"
+      ],
+      "file": "business/skills/manage.mjs",
+      "export": "listInstalledFiles",
+      "version": "portable-1.0",
+      "status": "已迁移-验证状态见verification.json",
+      "description": "递归列出本机技能安装目录文件（channel=file）",
+      "parameters": {
+        "type": "object",
+        "required": [
+          "base"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "base": {
+            "type": "string"
+          },
+          "internalName": {
+            "type": "string"
+          }
+        }
+      },
+      "modules": [
+        "automation/session.mjs"
+      ],
+      "origin": {
+        "machine": "PC-G",
+        "commit": "7aff430",
+        "export": "listInstalledFiles"
+      },
+      "preconditions": [
+        "当前实例CDP及环境身份已核验",
+        "对象名称/路径来自本轮夹具，不能沿用历史对象",
+        "模型依赖函数允许业务失败/超时，返回观察不判case通过"
+      ],
+      "returns": "真实observations与事件引用；读取失败抛错并登记null+error",
+      "cleanup": "调用者按case恢复；文件写入前调用fixtures.backupFile，最后restoreFile并回读"
+    },
+    {
+      "name": "skills.countDelta",
+      "feature_path": [
+        "技能",
+        "ZIP导入"
+      ],
+      "file": "business/skills/manage.mjs",
+      "export": "countDelta",
+      "version": "portable-1.0",
+      "status": "已迁移-验证状态见verification.json",
+      "description": "基于两个读取事件计算计数增量（derived）",
+      "parameters": {
+        "type": "object",
+        "required": [
+          "beforeEvent",
+          "afterEvent"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "beforeEvent": {
+            "type": "string"
+          },
+          "afterEvent": {
+            "type": "string"
+          },
+          "internalName": {
+            "type": "string"
+          }
+        }
+      },
+      "modules": [
+        "automation/session.mjs"
+      ],
+      "origin": {
+        "machine": "PC-G",
+        "commit": "7aff430",
+        "export": "countDelta"
+      },
+      "preconditions": [
+        "当前实例CDP及环境身份已核验",
+        "对象名称/路径来自本轮夹具，不能沿用历史对象",
+        "模型依赖函数允许业务失败/超时，返回观察不判case通过"
+      ],
+      "returns": "真实observations与事件引用；读取失败抛错并登记null+error",
+      "cleanup": "调用者按case恢复；文件写入前调用fixtures.backupFile，最后restoreFile并回读"
+    },
+    {
+      "name": "skills.readSkillNames",
+      "feature_path": [
+        "技能",
+        "列表"
+      ],
+      "file": "business/skills/manage.mjs",
+      "export": "readSkillNames",
+      "version": "portable-1.0",
+      "status": "已迁移-验证状态见verification.json",
+      "description": "读取注册表中的实际内部名，按本轮 query 筛选；不从期望标题推断身份",
+      "parameters": {
+        "type": "object",
+        "required": [
+          "query"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "query": {
+            "type": "string"
+          },
+          "exactTitle": {
+            "type": "string"
+          },
+          "internalName": {
+            "type": "string"
+          }
+        }
+      },
+      "modules": [
+        "automation/session.mjs",
+        "automation/skills.mjs"
+      ],
+      "origin": {
+        "machine": "PC-G",
+        "commit": "7aff430",
+        "export": "readSkillNames"
+      },
+      "preconditions": [
+        "当前实例CDP及环境身份已核验",
+        "对象名称/路径来自本轮夹具，不能沿用历史对象",
+        "模型依赖函数允许业务失败/超时，返回观察不判case通过"
+      ],
+      "returns": "真实observations与事件引用；读取失败抛错并登记null+error",
+      "cleanup": "调用者按case恢复；文件写入前调用fixtures.backupFile，最后restoreFile并回读"
+    },
+    {
+      "name": "experts.readImportDialog",
+      "feature_path": [
+        "专家",
+        "导入与来源"
+      ],
+      "file": "business/experts/manage.mjs",
+      "export": "readImportDialog",
+      "version": "portable-1.1",
+      "status": "已迁移-验证状态见verification.json",
+      "description": "打开专家导入弹窗并读取目录(webkitdirectory)与zip input 数量",
+      "parameters": {
+        "type": "object",
+        "required": [],
+        "additionalProperties": false,
+        "properties": {
+          "internalName": {
+            "type": "string"
+          }
+        }
+      },
+      "modules": [
+        "automation/session.mjs",
+        "automation/experts.mjs"
+      ],
+      "origin": {
+        "machine": "PC-G",
+        "commit": "7aff430",
+        "export": "readImportDialog"
+      },
+      "preconditions": [
+        "当前实例CDP及环境身份已核验",
+        "对象名称/路径来自本轮夹具，不能沿用历史对象",
+        "模型依赖函数允许业务失败/超时，返回观察不判case通过"
+      ],
+      "returns": "真实observations与事件引用；读取失败抛错并登记null+error",
+      "cleanup": "调用者按case恢复；文件写入前调用fixtures.backupFile，最后restoreFile并回读"
+    },
+    {
+      "name": "experts.importDirectory",
+      "feature_path": [
+        "专家",
+        "导入与来源"
+      ],
+      "file": "business/experts/manage.mjs",
+      "export": "importDirectory",
+      "version": "portable-1.0",
+      "status": "已迁移-验证状态见verification.json",
+      "description": "提交专家目录导入，可处理同名冲突(副本/覆盖)；返回冲突弹窗文本与卡片存在状态",
+      "parameters": {
+        "type": "object",
+        "required": [
+          "dirPath",
+          "displayName"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "dirPath": {
+            "type": "string"
+          },
+          "displayName": {
+            "type": "string"
+          },
+          "onConflict": {
+            "type": "string"
+          },
+          "internalName": {
+            "type": "string"
+          }
+        }
+      },
+      "modules": [
+        "automation/session.mjs",
+        "automation/experts.mjs"
+      ],
+      "origin": {
+        "machine": "PC-G",
+        "commit": "7aff430",
+        "export": "importDirectory"
+      },
+      "preconditions": [
+        "当前实例CDP及环境身份已核验",
+        "对象名称/路径来自本轮夹具，不能沿用历史对象",
+        "模型依赖函数允许业务失败/超时，返回观察不判case通过"
+      ],
+      "returns": "真实observations与事件引用；读取失败抛错并登记null+error",
+      "cleanup": "调用者按case恢复；文件写入前调用fixtures.backupFile，最后restoreFile并回读"
+    },
+    {
+      "name": "experts.readCard",
+      "feature_path": [
+        "专家",
+        "导入与来源"
+      ],
+      "file": "business/experts/manage.mjs",
+      "export": "readCard",
+      "version": "portable-1.0",
+      "status": "已迁移-验证状态见verification.json",
+      "description": "读取本轮专家卡片标题/版本/来源/运行位置与存在状态",
+      "parameters": {
+        "type": "object",
+        "required": [
+          "displayName"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "displayName": {
+            "type": "string"
+          },
+          "internalName": {
+            "type": "string"
+          }
+        }
+      },
+      "modules": [
+        "automation/session.mjs",
+        "automation/experts.mjs"
+      ],
+      "origin": {
+        "machine": "PC-G",
+        "commit": "7aff430",
+        "export": "readCard"
+      },
+      "preconditions": [
+        "当前实例CDP及环境身份已核验",
+        "对象名称/路径来自本轮夹具，不能沿用历史对象",
+        "模型依赖函数允许业务失败/超时，返回观察不判case通过"
+      ],
+      "returns": "真实observations与事件引用；读取失败抛错并登记null+error",
+      "cleanup": "调用者按case恢复；文件写入前调用fixtures.backupFile，最后restoreFile并回读"
+    },
+    {
+      "name": "experts.readDetail",
+      "feature_path": [
+        "专家",
+        "详情阅读"
+      ],
+      "file": "business/experts/manage.mjs",
+      "export": "readDetail",
+      "version": "portable-1.0",
+      "status": "已迁移-验证状态见verification.json",
+      "description": "打开专家详情并读取提示词正文、可编辑元素数、推荐问题、目录入口按钮数",
+      "parameters": {
+        "type": "object",
+        "required": [
+          "displayName"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "displayName": {
+            "type": "string"
+          },
+          "endMarker": {
+            "type": "string"
+          },
+          "internalName": {
+            "type": "string"
+          }
+        }
+      },
+      "modules": [
+        "automation/session.mjs",
+        "automation/experts.mjs"
+      ],
+      "origin": {
+        "machine": "PC-G",
+        "commit": "7aff430",
+        "export": "readDetail"
+      },
+      "preconditions": [
+        "当前实例CDP及环境身份已核验",
+        "对象名称/路径来自本轮夹具，不能沿用历史对象",
+        "模型依赖函数允许业务失败/超时，返回观察不判case通过"
+      ],
+      "returns": "真实observations与事件引用；读取失败抛错并登记null+error",
+      "cleanup": "调用者按case恢复；文件写入前调用fixtures.backupFile，最后restoreFile并回读"
+    },
+    {
+      "name": "experts.readInstalledFileHashes",
+      "feature_path": [
+        "专家",
+        "外部文件更新"
+      ],
+      "file": "business/experts/manage.mjs",
+      "export": "readInstalledFileHashes",
+      "version": "portable-1.0",
+      "status": "已迁移-验证状态见verification.json",
+      "description": "读取本机已安装文件的 SHA256（channel=file）",
+      "parameters": {
+        "type": "object",
+        "required": [
+          "paths"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "paths": {
+            "type": "array"
+          },
+          "internalName": {
+            "type": "string"
+          }
+        }
+      },
+      "modules": [
+        "automation/session.mjs"
+      ],
+      "origin": {
+        "machine": "PC-G",
+        "commit": "7aff430",
+        "export": "readInstalledFileHashes"
+      },
+      "preconditions": [
+        "当前实例CDP及环境身份已核验",
+        "对象名称/路径来自本轮夹具，不能沿用历史对象",
+        "模型依赖函数允许业务失败/超时，返回观察不判case通过"
+      ],
+      "returns": "真实observations与事件引用；读取失败抛错并登记null+error",
+      "cleanup": "调用者按case恢复；文件写入前调用fixtures.backupFile，最后restoreFile并回读"
+    },
+    {
+      "name": "experts.readFileContent",
+      "feature_path": [
+        "专家",
+        "外部文件更新"
+      ],
+      "file": "business/experts/manage.mjs",
+      "export": "readFileContent",
+      "version": "portable-1.0",
+      "status": "已迁移-验证状态见verification.json",
+      "description": "读取本机已安装文件内容（channel=file）",
+      "parameters": {
+        "type": "object",
+        "required": [
+          "path"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "path": {
+            "type": "string"
+          },
+          "trim": {
+            "type": "boolean"
+          },
+          "internalName": {
+            "type": "string"
+          }
+        }
+      },
+      "modules": [
+        "automation/session.mjs"
+      ],
+      "origin": {
+        "machine": "PC-G",
+        "commit": "7aff430",
+        "export": "readFileContent"
+      },
+      "preconditions": [
+        "当前实例CDP及环境身份已核验",
+        "对象名称/路径来自本轮夹具，不能沿用历史对象",
+        "模型依赖函数允许业务失败/超时，返回观察不判case通过"
+      ],
+      "returns": "真实observations与事件引用；读取失败抛错并登记null+error",
+      "cleanup": "调用者按case恢复；文件写入前调用fixtures.backupFile，最后restoreFile并回读"
+    },
+    {
+      "name": "experts.readFileExists",
+      "feature_path": [
+        "专家",
+        "冲突与异常包"
+      ],
+      "file": "business/experts/manage.mjs",
+      "export": "readFileExists",
+      "version": "portable-1.0",
+      "status": "已迁移-验证状态见verification.json",
+      "description": "读取文件是否存在（channel=file）",
+      "parameters": {
+        "type": "object",
+        "required": [
+          "path"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "path": {
+            "type": "string"
+          },
+          "internalName": {
+            "type": "string"
+          }
+        }
+      },
+      "modules": [
+        "automation/session.mjs"
+      ],
+      "origin": {
+        "machine": "PC-G",
+        "commit": "7aff430",
+        "export": "readFileExists"
+      },
+      "preconditions": [
+        "当前实例CDP及环境身份已核验",
+        "对象名称/路径来自本轮夹具，不能沿用历史对象",
+        "模型依赖函数允许业务失败/超时，返回观察不判case通过"
+      ],
+      "returns": "真实observations与事件引用；读取失败抛错并登记null+error",
+      "cleanup": "调用者按case恢复；文件写入前调用fixtures.backupFile，最后restoreFile并回读"
+    },
+    {
+      "name": "experts.readMetadataField",
+      "feature_path": [
+        "专家",
+        "外置元数据"
+      ],
+      "file": "business/experts/manage.mjs",
+      "export": "readMetadataField",
+      "version": "portable-1.0",
+      "status": "已迁移-验证状态见verification.json",
+      "description": "读取安装 metadata.json 的指定字段",
+      "parameters": {
+        "type": "object",
+        "required": [
+          "path",
+          "field"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "path": {
+            "type": "string"
+          },
+          "field": {
+            "type": "string"
+          },
+          "internalName": {
+            "type": "string"
+          }
+        }
+      },
+      "modules": [
+        "automation/session.mjs"
+      ],
+      "origin": {
+        "machine": "PC-G",
+        "commit": "7aff430",
+        "export": "readMetadataField"
+      },
+      "preconditions": [
+        "当前实例CDP及环境身份已核验",
+        "对象名称/路径来自本轮夹具，不能沿用历史对象",
+        "模型依赖函数允许业务失败/超时，返回观察不判case通过"
+      ],
+      "returns": "真实observations与事件引用；读取失败抛错并登记null+error",
+      "cleanup": "调用者按case恢复；文件写入前调用fixtures.backupFile，最后restoreFile并回读"
+    },
+    {
+      "name": "experts.readValidationFeedback",
+      "feature_path": [
+        "专家",
+        "外部文件更新"
+      ],
+      "file": "business/experts/manage.mjs",
+      "export": "readValidationFeedback",
+      "version": "portable-1.0",
+      "status": "已迁移-验证状态见verification.json",
+      "description": "打开专家列表读取本轮对象的坏配置校验反馈",
+      "parameters": {
+        "type": "object",
+        "required": [
+          "displayName"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "displayName": {
+            "type": "string"
+          },
+          "internalName": {
+            "type": "string"
+          }
+        }
+      },
+      "modules": [
+        "automation/session.mjs",
+        "automation/experts.mjs"
+      ],
+      "origin": {
+        "machine": "PC-G",
+        "commit": "7aff430",
+        "export": "readValidationFeedback"
+      },
+      "preconditions": [
+        "当前实例CDP及环境身份已核验",
+        "对象名称/路径来自本轮夹具，不能沿用历史对象",
+        "模型依赖函数允许业务失败/超时，返回观察不判case通过"
+      ],
+      "returns": "真实observations与事件引用；读取失败抛错并登记null+error",
+      "cleanup": "调用者按case恢复；文件写入前调用fixtures.backupFile，最后restoreFile并回读"
+    },
+    {
+      "name": "experts.startCreate",
+      "feature_path": [
+        "专家",
+        "创建入口"
+      ],
+      "file": "business/experts/manage.mjs",
+      "export": "startCreate",
+      "version": "portable-1.0",
+      "status": "已迁移-验证状态见verification.json",
+      "description": "点击创建专家并读取创建专家模式标识",
+      "parameters": {
+        "type": "object",
+        "required": [],
+        "additionalProperties": false,
+        "properties": {
+          "presetPattern": {
+            "type": "string"
+          },
+          "internalName": {
+            "type": "string"
+          }
+        }
+      },
+      "modules": [
+        "automation/session.mjs",
+        "automation/experts.mjs"
+      ],
+      "origin": {
+        "machine": "PC-G",
+        "commit": "7aff430",
+        "export": "startCreate"
+      },
+      "preconditions": [
+        "当前实例CDP及环境身份已核验",
+        "对象名称/路径来自本轮夹具，不能沿用历史对象",
+        "模型依赖函数允许业务失败/超时，返回观察不判case通过"
+      ],
+      "returns": "真实observations与事件引用；读取失败抛错并登记null+error",
+      "cleanup": "调用者按case恢复；文件写入前调用fixtures.backupFile，最后restoreFile并回读"
+    },
+    {
+      "name": "experts.readImportDialogFolderInput",
+      "feature_path": [
+        "专家",
+        "导入入口"
+      ],
+      "file": "business/experts/manage.mjs",
+      "export": "readImportDialogFolderInput",
+      "version": "portable-1.0",
+      "status": "已迁移-验证状态见verification.json",
+      "description": "打开导入专家 dialog 读取 webkitdirectory 输入",
+      "parameters": {
+        "type": "object",
+        "required": [],
+        "additionalProperties": false,
+        "properties": {
+          "internalName": {
+            "type": "string"
+          }
+        }
+      },
+      "modules": [
+        "automation/session.mjs",
+        "automation/experts.mjs"
+      ],
+      "origin": {
+        "machine": "PC-G",
+        "commit": "7aff430",
+        "export": "readImportDialogFolderInput"
+      },
+      "preconditions": [
+        "当前实例CDP及环境身份已核验",
+        "对象名称/路径来自本轮夹具，不能沿用历史对象",
+        "模型依赖函数允许业务失败/超时，返回观察不判case通过"
+      ],
+      "returns": "真实observations与事件引用；读取失败抛错并登记null+error",
+      "cleanup": "调用者按case恢复；文件写入前调用fixtures.backupFile，最后restoreFile并回读"
+    },
+    {
+      "name": "experts.readPaths",
+      "feature_path": [
+        "专家",
+        "冲突与异常包"
+      ],
+      "file": "business/experts/manage.mjs",
+      "export": "readPaths",
+      "version": "portable-1.0",
+      "status": "已迁移-验证状态见verification.json",
+      "description": "分别读取若干完整绝对路径（channel=file）",
+      "parameters": {
+        "type": "object",
+        "required": [
+          "paths"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "paths": {
+            "type": "array"
+          },
+          "internalName": {
+            "type": "string"
+          }
+        }
+      },
+      "modules": [
+        "automation/session.mjs"
+      ],
+      "origin": {
+        "machine": "PC-G",
+        "commit": "7aff430",
+        "export": "readPaths"
+      },
+      "preconditions": [
+        "当前实例CDP及环境身份已核验",
+        "对象名称/路径来自本轮夹具，不能沿用历史对象",
+        "模型依赖函数允许业务失败/超时，返回观察不判case通过"
+      ],
+      "returns": "真实observations与事件引用；读取失败抛错并登记null+error",
+      "cleanup": "调用者按case恢复；文件写入前调用fixtures.backupFile，最后restoreFile并回读"
+    },
+    {
+      "name": "experts.startEdit",
+      "feature_path": [
+        "专家",
+        "对话编辑"
+      ],
+      "file": "business/experts/manage.mjs",
+      "export": "startEdit",
+      "version": "portable-1.0",
+      "status": "已迁移-验证状态见verification.json",
+      "description": "从专家详情进入对话编辑会话，读取引用/编辑模式/左侧导航",
+      "parameters": {
+        "type": "object",
+        "required": [
+          "displayName"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "displayName": {
+            "type": "string"
+          },
+          "internalName": {
+            "type": "string"
+          }
+        }
+      },
+      "modules": [
+        "automation/session.mjs",
+        "automation/experts.mjs",
+        "automation/conversation.mjs"
+      ],
+      "origin": {
+        "machine": "PC-G",
+        "commit": "7aff430",
+        "export": "startEdit"
+      },
+      "preconditions": [
+        "当前实例CDP及环境身份已核验",
+        "对象名称/路径来自本轮夹具，不能沿用历史对象",
+        "模型依赖函数允许业务失败/超时，返回观察不判case通过"
+      ],
+      "returns": "真实observations与事件引用；读取失败抛错并登记null+error",
+      "cleanup": "调用者按case恢复；文件写入前调用fixtures.backupFile，最后restoreFile并回读"
+    },
+    {
+      "name": "experts.editSend",
+      "feature_path": [
+        "专家",
+        "对话编辑"
+      ],
+      "file": "business/experts/manage.mjs",
+      "export": "editSend",
+      "version": "portable-1.0",
+      "status": "已迁移-验证状态见verification.json",
+      "description": "在编辑会话发送消息并等待终态，返回助手正文",
+      "parameters": {
+        "type": "object",
+        "required": [
+          "text"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "text": {
+            "type": "string"
+          },
+          "timeoutMs": {
+            "type": "number"
+          },
+          "internalName": {
+            "type": "string"
+          }
+        }
+      },
+      "modules": [
+        "automation/session.mjs",
+        "automation/experts.mjs",
+        "automation/conversation.mjs"
+      ],
+      "origin": {
+        "machine": "PC-G",
+        "commit": "7aff430",
+        "export": "editSend"
+      },
+      "preconditions": [
+        "当前实例CDP及环境身份已核验",
+        "对象名称/路径来自本轮夹具，不能沿用历史对象",
+        "模型依赖函数允许业务失败/超时，返回观察不判case通过"
+      ],
+      "returns": "真实observations与事件引用；读取失败抛错并登记null+error",
+      "cleanup": "调用者按case恢复；文件写入前调用fixtures.backupFile，最后restoreFile并回读"
+    },
+    {
+      "name": "experts.listAgentDirs",
+      "feature_path": [
+        "专家",
+        "导入与来源"
+      ],
+      "file": "business/experts/manage.mjs",
+      "export": "listAgentDirs",
+      "version": "portable-1.0",
+      "status": "已迁移-验证状态见verification.json",
+      "description": "列出本机已安装专家目录名",
+      "parameters": {
+        "type": "object",
+        "required": [],
+        "additionalProperties": false,
+        "properties": {
+          "base": {
+            "type": "string"
+          },
+          "internalName": {
+            "type": "string"
+          }
+        }
+      },
+      "modules": [
+        "automation/session.mjs"
+      ],
+      "origin": {
+        "machine": "PC-G",
+        "commit": "7aff430",
+        "export": "listAgentDirs"
+      },
+      "preconditions": [
+        "当前实例CDP及环境身份已核验",
+        "对象名称/路径来自本轮夹具，不能沿用历史对象",
+        "模型依赖函数允许业务失败/超时，返回观察不判case通过"
+      ],
+      "returns": "真实observations与事件引用；读取失败抛错并登记null+error",
+      "cleanup": "调用者按case恢复；文件写入前调用fixtures.backupFile，最后restoreFile并回读"
+    },
+    {
+      "name": "experts.submitImport",
+      "feature_path": [
+        "专家",
+        "冲突与异常包"
+      ],
+      "file": "business/experts/manage.mjs",
+      "export": "submitImport",
+      "version": "portable-1.0",
+      "status": "已迁移-验证状态见verification.json",
+      "description": "提交专家目录导入并读取同名冲突弹窗（不选择处理方式）",
+      "parameters": {
+        "type": "object",
+        "required": [
+          "dirPath"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "dirPath": {
+            "type": "string"
+          },
+          "internalName": {
+            "type": "string"
+          }
+        }
+      },
+      "modules": [
+        "automation/session.mjs",
+        "automation/experts.mjs"
+      ],
+      "origin": {
+        "machine": "PC-G",
+        "commit": "7aff430",
+        "export": "submitImport"
+      },
+      "preconditions": [
+        "当前实例CDP及环境身份已核验",
+        "对象名称/路径来自本轮夹具，不能沿用历史对象",
+        "模型依赖函数允许业务失败/超时，返回观察不判case通过"
+      ],
+      "returns": "真实observations与事件引用；读取失败抛错并登记null+error",
+      "cleanup": "调用者按case恢复；文件写入前调用fixtures.backupFile，最后restoreFile并回读"
+    },
+    {
+      "name": "experts.chooseConflict",
+      "feature_path": [
+        "专家",
+        "冲突与异常包"
+      ],
+      "file": "business/experts/manage.mjs",
+      "export": "chooseConflict",
+      "version": "portable-1.0",
+      "status": "已迁移-验证状态见verification.json",
+      "description": "在专家同名冲突弹窗中选择 覆盖/副本",
+      "parameters": {
+        "type": "object",
+        "required": [
+          "option"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "option": {
+            "type": "string"
+          },
+          "internalName": {
+            "type": "string"
+          }
+        }
+      },
+      "modules": [
+        "automation/session.mjs",
+        "automation/experts.mjs"
+      ],
+      "origin": {
+        "machine": "PC-G",
+        "commit": "7aff430",
+        "export": "chooseConflict"
+      },
+      "preconditions": [
+        "当前实例CDP及环境身份已核验",
+        "对象名称/路径来自本轮夹具，不能沿用历史对象",
+        "模型依赖函数允许业务失败/超时，返回观察不判case通过"
+      ],
+      "returns": "真实observations与事件引用；读取失败抛错并登记null+error",
+      "cleanup": "调用者按case恢复；文件写入前调用fixtures.backupFile，最后restoreFile并回读"
+    },
+    {
+      "name": "experts.useExpert",
+      "feature_path": [
+        "专家",
+        "实际调用"
+      ],
+      "file": "business/experts/manage.mjs",
+      "export": "useExpert",
+      "version": "portable-1.0",
+      "status": "已迁移-验证状态见verification.json",
+      "description": "新建会话后经 使用 引入本轮专家引用；返回改前/改后会话身份与引用名",
+      "parameters": {
+        "type": "object",
+        "required": [
+          "displayName"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "displayName": {
+            "type": "string"
+          },
+          "internalName": {
+            "type": "string"
+          }
+        }
+      },
+      "modules": [
+        "automation/session.mjs",
+        "automation/experts.mjs",
+        "automation/conversation.mjs"
+      ],
+      "origin": {
+        "machine": "PC-G",
+        "commit": "7aff430",
+        "export": "useExpert"
+      },
+      "preconditions": [
+        "当前实例CDP及环境身份已核验",
+        "对象名称/路径来自本轮夹具，不能沿用历史对象",
+        "模型依赖函数允许业务失败/超时，返回观察不判case通过"
+      ],
+      "returns": "真实observations与事件引用；读取失败抛错并登记null+error",
+      "cleanup": "调用者按case恢复；文件写入前调用fixtures.backupFile，最后restoreFile并回读"
+    },
+    {
+      "name": "experts.useExpertRequest",
+      "feature_path": [
+        "专家",
+        "实际调用"
+      ],
+      "file": "business/experts/manage.mjs",
+      "export": "useExpertRequest",
+      "version": "portable-1.0",
+      "status": "已迁移-验证状态见verification.json",
+      "description": "发送专家固定回复规则请求并读取终态与用户请求",
+      "parameters": {
+        "type": "object",
+        "required": [
+          "text",
+          "answer"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "text": {
+            "type": "string"
+          },
+          "timeoutMs": {
+            "type": "number"
+          },
+          "answer": {
+            "type": "string"
+          },
+          "internalName": {
+            "type": "string"
+          }
+        }
+      },
+      "modules": [
+        "automation/session.mjs",
+        "automation/experts.mjs",
+        "automation/conversation.mjs"
+      ],
+      "origin": {
+        "machine": "PC-G",
+        "commit": "7aff430",
+        "export": "useExpertRequest"
+      },
+      "preconditions": [
+        "当前实例CDP及环境身份已核验",
+        "对象名称/路径来自本轮夹具，不能沿用历史对象",
+        "模型依赖函数允许业务失败/超时，返回观察不判case通过"
+      ],
+      "returns": "真实observations与事件引用；读取失败抛错并登记null+error",
+      "cleanup": "调用者按case恢复；文件写入前调用fixtures.backupFile，最后restoreFile并回读"
+    },
+    {
+      "name": "experts.readTraceExpertContent",
+      "feature_path": [
+        "专家",
+        "实际调用"
+      ],
+      "file": "business/experts/manage.mjs",
+      "export": "readTraceExpertContent",
+      "version": "portable-1.0",
+      "status": "已迁移-验证状态见verification.json",
+      "description": "读取本轮专家调用轨迹中的专家正文注入记录（限定轨迹表格）",
+      "parameters": {
+        "type": "object",
+        "required": [],
+        "additionalProperties": false,
+        "properties": {
+          "contains": {
+            "type": "string"
+          },
+          "internalName": {
+            "type": "string"
+          }
+        }
+      },
+      "modules": [
+        "automation/session.mjs",
+        "automation/experts.mjs"
+      ],
+      "origin": {
+        "machine": "PC-G",
+        "commit": "7aff430",
+        "export": "readTraceExpertContent"
+      },
+      "preconditions": [
+        "当前实例CDP及环境身份已核验",
+        "对象名称/路径来自本轮夹具，不能沿用历史对象",
+        "模型依赖函数允许业务失败/超时，返回观察不判case通过"
+      ],
+      "returns": "真实observations与事件引用；读取失败抛错并登记null+error",
+      "cleanup": "调用者按case恢复；文件写入前调用fixtures.backupFile，最后restoreFile并回读"
+    },
+    {
+      "name": "experts.readInstallPaths",
+      "feature_path": [
+        "专家",
+        "冲突与异常包"
+      ],
+      "file": "business/experts/manage.mjs",
+      "export": "readInstallPaths",
+      "version": "portable-1.0",
+      "status": "已迁移-验证状态见verification.json",
+      "description": "读取指定内部名对应的完整安装路径",
+      "parameters": {
+        "type": "object",
+        "required": [
+          "internalNames"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "internalNames": {
+            "type": "array"
+          },
+          "base": {
+            "type": "string"
+          },
+          "internalName": {
+            "type": "string"
+          }
+        }
+      },
+      "modules": [
+        "automation/session.mjs"
+      ],
+      "origin": {
+        "machine": "PC-G",
+        "commit": "7aff430",
+        "export": "readInstallPaths"
+      },
+      "preconditions": [
+        "当前实例CDP及环境身份已核验",
+        "对象名称/路径来自本轮夹具，不能沿用历史对象",
+        "模型依赖函数允许业务失败/超时，返回观察不判case通过"
+      ],
+      "returns": "真实observations与事件引用；读取失败抛错并登记null+error",
+      "cleanup": "调用者按case恢复；文件写入前调用fixtures.backupFile，最后restoreFile并回读"
+    },
+    {
+      "name": "experts.readAgentDirFiles",
+      "feature_path": [
+        "专家",
+        "冲突与异常包"
+      ],
+      "file": "business/experts/manage.mjs",
+      "export": "readAgentDirFiles",
+      "version": "portable-1.0",
+      "status": "已迁移-验证状态见verification.json",
+      "description": "读取安装目录内 agent.md 与 metadata.json 是否均存在",
+      "parameters": {
+        "type": "object",
+        "required": [
+          "internalName"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "internalName": {
+            "type": "string"
+          },
+          "base": {
+            "type": "string"
+          }
+        }
+      },
+      "modules": [
+        "automation/session.mjs"
+      ],
+      "origin": {
+        "machine": "PC-G",
+        "commit": "7aff430",
+        "export": "readAgentDirFiles"
+      },
+      "preconditions": [
+        "当前实例CDP及环境身份已核验",
+        "对象名称/路径来自本轮夹具，不能沿用历史对象",
+        "模型依赖函数允许业务失败/超时，返回观察不判case通过"
+      ],
+      "returns": "真实observations与事件引用；读取失败抛错并登记null+error",
+      "cleanup": "调用者按case恢复；文件写入前调用fixtures.backupFile，最后restoreFile并回读"
+    },
+    {
+      "name": "experts.submitAndReadFeedback",
+      "feature_path": [
+        "专家",
+        "冲突与异常包"
+      ],
+      "file": "business/experts/manage.mjs",
+      "export": "submitAndReadFeedback",
+      "version": "portable-1.0",
+      "status": "已迁移-验证状态见verification.json",
+      "description": "提交专家目录导入并读取列表数量(前/后)与拒绝反馈；kind 决定反馈判据",
+      "parameters": {
+        "type": "object",
+        "required": [
+          "dirPath",
+          "kind"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "dirPath": {
+            "type": "string"
+          },
+          "kind": {
+            "type": "string"
+          },
+          "internalName": {
+            "type": "string"
+          }
+        }
+      },
+      "modules": [
+        "automation/session.mjs",
+        "automation/experts.mjs"
+      ],
+      "origin": {
+        "machine": "PC-G",
+        "commit": "7aff430",
+        "export": "submitAndReadFeedback"
+      },
+      "preconditions": [
+        "当前实例CDP及环境身份已核验",
+        "对象名称/路径来自本轮夹具，不能沿用历史对象",
+        "模型依赖函数允许业务失败/超时，返回观察不判case通过"
+      ],
+      "returns": "真实observations与事件引用；读取失败抛错并登记null+error",
+      "cleanup": "调用者按case恢复；文件写入前调用fixtures.backupFile，最后restoreFile并回读"
+    },
+    {
+      "name": "attachments.addLocalFiles",
+      "feature_path": [
+        "对话与任务",
+        "附件"
+      ],
+      "file": "business/attachments/manage.mjs",
+      "export": "addLocalFiles",
+      "version": "portable-1.0",
+      "status": "已迁移-验证状态见verification.json",
+      "description": "经 添加本地文件 一次选择多个附件并读取草稿附件名",
+      "parameters": {
+        "type": "object",
+        "required": [
+          "paths"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "paths": {
+            "type": "array"
+          }
+        }
+      },
+      "modules": [
+        "automation/session.mjs",
+        "automation/conversation.mjs"
+      ],
+      "origin": {
+        "machine": "PC-G",
+        "commit": "7aff430",
+        "export": "addLocalFiles"
+      },
+      "preconditions": [
+        "当前实例CDP及环境身份已核验",
+        "对象名称/路径来自本轮夹具，不能沿用历史对象",
+        "模型依赖函数允许业务失败/超时，返回观察不判case通过"
+      ],
+      "returns": "真实observations与事件引用；读取失败抛错并登记null+error",
+      "cleanup": "调用者按case恢复；文件写入前调用fixtures.backupFile，最后restoreFile并回读"
+    },
+    {
+      "name": "attachments.readDraftState",
+      "feature_path": [
+        "对话与任务",
+        "附件"
+      ],
+      "file": "business/attachments/manage.mjs",
+      "export": "readDraftState",
+      "version": "portable-1.0",
+      "status": "已迁移-验证状态见verification.json",
+      "description": "读取当前草稿附件名列表/数量/数量提示",
+      "parameters": {
+        "type": "object",
+        "required": [],
+        "additionalProperties": false,
+        "properties": {}
+      },
+      "modules": [
+        "automation/session.mjs",
+        "automation/conversation.mjs"
+      ],
+      "origin": {
+        "machine": "PC-G",
+        "commit": "7aff430",
+        "export": "readDraftState"
+      },
+      "preconditions": [
+        "当前实例CDP及环境身份已核验",
+        "对象名称/路径来自本轮夹具，不能沿用历史对象",
+        "模型依赖函数允许业务失败/超时，返回观察不判case通过"
+      ],
+      "returns": "真实observations与事件引用；读取失败抛错并登记null+error",
+      "cleanup": "调用者按case恢复；文件写入前调用fixtures.backupFile，最后restoreFile并回读"
+    },
+    {
+      "name": "attachments.removeAttachment",
+      "feature_path": [
+        "对话与任务",
+        "附件"
+      ],
+      "file": "business/attachments/manage.mjs",
+      "export": "removeAttachment",
+      "version": "portable-1.0",
+      "status": "已迁移-验证状态见verification.json",
+      "description": "移除指定附件并读取剩余名列表",
+      "parameters": {
+        "type": "object",
+        "required": [
+          "name"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "name": {
+            "type": "string"
+          }
+        }
+      },
+      "modules": [
+        "automation/session.mjs",
+        "automation/conversation.mjs"
+      ],
+      "origin": {
+        "machine": "PC-G",
+        "commit": "7aff430",
+        "export": "removeAttachment"
+      },
+      "preconditions": [
+        "当前实例CDP及环境身份已核验",
+        "对象名称/路径来自本轮夹具，不能沿用历史对象",
+        "模型依赖函数允许业务失败/超时，返回观察不判case通过"
+      ],
+      "returns": "真实observations与事件引用；读取失败抛错并登记null+error",
+      "cleanup": "调用者按case恢复；文件写入前调用fixtures.backupFile，最后restoreFile并回读"
+    },
+    {
+      "name": "attachments.clearAttachments",
+      "feature_path": [
+        "对话与任务",
+        "附件"
+      ],
+      "file": "business/attachments/manage.mjs",
+      "export": "clearAttachments",
+      "version": "portable-1.0",
+      "status": "已迁移-验证状态见verification.json",
+      "description": "在附件区域查找清空入口（可选点击）并读取数量",
+      "parameters": {
+        "type": "object",
+        "required": [],
+        "additionalProperties": false,
+        "properties": {
+          "click": {
+            "type": "boolean"
+          }
+        }
+      },
+      "modules": [
+        "automation/session.mjs",
+        "automation/conversation.mjs"
+      ],
+      "origin": {
+        "machine": "PC-G",
+        "commit": "7aff430",
+        "export": "clearAttachments"
+      },
+      "preconditions": [
+        "当前实例CDP及环境身份已核验",
+        "对象名称/路径来自本轮夹具，不能沿用历史对象",
+        "模型依赖函数允许业务失败/超时，返回观察不判case通过"
+      ],
+      "returns": "真实observations与事件引用；读取失败抛错并登记null+error",
+      "cleanup": "调用者按case恢复；文件写入前调用fixtures.backupFile，最后restoreFile并回读"
+    },
+    {
+      "name": "attachments.readImageState",
+      "feature_path": [
+        "对话与任务",
+        "附件"
+      ],
+      "file": "business/attachments/manage.mjs",
+      "export": "readImageState",
+      "version": "portable-1.0",
+      "status": "已迁移-验证状态见verification.json",
+      "description": "读取指定附件卡内图像 img.complete && naturalWidth>0",
+      "parameters": {
+        "type": "object",
+        "required": [
+          "name"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "name": {
+            "type": "string"
+          }
+        }
+      },
+      "modules": [
+        "automation/session.mjs",
+        "automation/conversation.mjs"
+      ],
+      "origin": {
+        "machine": "PC-G",
+        "commit": "7aff430",
+        "export": "readImageState"
+      },
+      "preconditions": [
+        "当前实例CDP及环境身份已核验",
+        "对象名称/路径来自本轮夹具，不能沿用历史对象",
+        "模型依赖函数允许业务失败/超时，返回观察不判case通过"
+      ],
+      "returns": "真实observations与事件引用；读取失败抛错并登记null+error",
+      "cleanup": "调用者按case恢复；文件写入前调用fixtures.backupFile，最后restoreFile并回读"
+    },
+    {
+      "name": "attachments.togglePreview",
+      "feature_path": [
+        "对话与任务",
+        "附件"
+      ],
+      "file": "business/attachments/manage.mjs",
+      "export": "togglePreview",
+      "version": "portable-1.0",
+      "status": "已迁移-验证状态见verification.json",
+      "description": "打开/关闭图片整屏预览并读取预览层状态",
+      "parameters": {
+        "type": "object",
+        "required": [
+          "name"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "open": {
+            "type": "boolean"
+          }
+        }
+      },
+      "modules": [
+        "automation/session.mjs",
+        "automation/conversation.mjs"
+      ],
+      "origin": {
+        "machine": "PC-G",
+        "commit": "7aff430",
+        "export": "togglePreview"
+      },
+      "preconditions": [
+        "当前实例CDP及环境身份已核验",
+        "对象名称/路径来自本轮夹具，不能沿用历史对象",
+        "模型依赖函数允许业务失败/超时，返回观察不判case通过"
+      ],
+      "returns": "真实observations与事件引用；读取失败抛错并登记null+error",
+      "cleanup": "调用者按case恢复；文件写入前调用fixtures.backupFile，最后restoreFile并回读"
+    },
+    {
+      "name": "attachments.scrollAttachments",
+      "feature_path": [
+        "对话与任务",
+        "附件"
+      ],
+      "file": "business/attachments/manage.mjs",
+      "export": "scrollAttachments",
+      "version": "portable-1.0",
+      "status": "已迁移-验证状态见verification.json",
+      "description": "读取附件容器可滚动性并滚到末端，返回末附件可见状态",
+      "parameters": {
+        "type": "object",
+        "required": [
+          "lastName"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "lastName": {
+            "type": "string"
+          }
+        }
+      },
+      "modules": [
+        "automation/session.mjs",
+        "automation/conversation.mjs"
+      ],
+      "origin": {
+        "machine": "PC-G",
+        "commit": "7aff430",
+        "export": "scrollAttachments"
+      },
+      "preconditions": [
+        "当前实例CDP及环境身份已核验",
+        "对象名称/路径来自本轮夹具，不能沿用历史对象",
+        "模型依赖函数允许业务失败/超时，返回观察不判case通过"
+      ],
+      "returns": "真实observations与事件引用；读取失败抛错并登记null+error",
+      "cleanup": "调用者按case恢复；文件写入前调用fixtures.backupFile，最后restoreFile并回读"
+    },
+    {
+      "name": "attachments.readComposerText",
+      "feature_path": [
+        "对话与任务",
+        "附件"
+      ],
+      "file": "business/attachments/manage.mjs",
+      "export": "readComposerText",
+      "version": "portable-1.0",
+      "status": "已迁移-验证状态见verification.json",
+      "description": "读取编辑器纯文本",
+      "parameters": {
+        "type": "object",
+        "required": [],
+        "additionalProperties": false,
+        "properties": {}
+      },
+      "modules": [
+        "automation/session.mjs",
+        "automation/conversation.mjs"
+      ],
+      "origin": {
+        "machine": "PC-G",
+        "commit": "7aff430",
+        "export": "readComposerText"
+      },
+      "preconditions": [
+        "当前实例CDP及环境身份已核验",
+        "对象名称/路径来自本轮夹具，不能沿用历史对象",
+        "模型依赖函数允许业务失败/超时，返回观察不判case通过"
+      ],
+      "returns": "真实observations与事件引用；读取失败抛错并登记null+error",
+      "cleanup": "调用者按case恢复；文件写入前调用fixtures.backupFile，最后restoreFile并回读"
+    },
+    {
+      "name": "attachments.readFeedback",
+      "feature_path": [
+        "对话与任务",
+        "附件"
+      ],
+      "file": "business/attachments/manage.mjs",
+      "export": "readFeedback",
+      "version": "portable-1.0",
+      "status": "已迁移-验证状态见verification.json",
+      "description": "读取附件相关的可见提示/反馈（超额、拒绝等）",
+      "parameters": {
+        "type": "object",
+        "required": [],
+        "additionalProperties": false,
+        "properties": {}
+      },
+      "modules": [
+        "automation/session.mjs",
+        "automation/conversation.mjs"
+      ],
+      "origin": {
+        "machine": "PC-G",
+        "commit": "7aff430",
+        "export": "readFeedback"
+      },
+      "preconditions": [
+        "当前实例CDP及环境身份已核验",
+        "对象名称/路径来自本轮夹具，不能沿用历史对象",
+        "模型依赖函数允许业务失败/超时，返回观察不判case通过"
+      ],
+      "returns": "真实observations与事件引用；读取失败抛错并登记null+error",
+      "cleanup": "调用者按case恢复；文件写入前调用fixtures.backupFile，最后restoreFile并回读"
+    },
+    {
+      "name": "attachments.readCardIcon",
+      "feature_path": [
+        "对话与任务",
+        "附件"
+      ],
+      "file": "business/attachments/manage.mjs",
+      "export": "readCardIcon",
+      "version": "portable-1.0",
+      "status": "已迁移-验证状态见verification.json",
+      "description": "读取指定附件卡内文件图标是否存在",
+      "parameters": {
+        "type": "object",
+        "required": [
+          "name"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "name": {
+            "type": "string"
+          }
+        }
+      },
+      "modules": [
+        "automation/session.mjs",
+        "automation/conversation.mjs"
+      ],
+      "origin": {
+        "machine": "PC-G",
+        "commit": "7aff430",
+        "export": "readCardIcon"
+      },
+      "preconditions": [
+        "当前实例CDP及环境身份已核验",
+        "对象名称/路径来自本轮夹具，不能沿用历史对象",
+        "模型依赖函数允许业务失败/超时，返回观察不判case通过"
+      ],
+      "returns": "真实observations与事件引用；读取失败抛错并登记null+error",
+      "cleanup": "调用者按case恢复；文件写入前调用fixtures.backupFile，最后restoreFile并回读"
+    },
+    {
+      "name": "attachments.readCardText",
+      "feature_path": [
+        "对话与任务",
+        "附件"
+      ],
+      "file": "business/attachments/manage.mjs",
+      "export": "readCardText",
+      "version": "portable-1.0",
+      "status": "已迁移-验证状态见verification.json",
+      "description": "读取指定附件卡完整文本并判断是否含肯定解析声明",
+      "parameters": {
+        "type": "object",
+        "required": [
+          "name"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "name": {
+            "type": "string"
+          }
+        }
+      },
+      "modules": [
+        "automation/session.mjs",
+        "automation/conversation.mjs"
+      ],
+      "origin": {
+        "machine": "PC-G",
+        "commit": "7aff430",
+        "export": "readCardText"
+      },
+      "preconditions": [
+        "当前实例CDP及环境身份已核验",
+        "对象名称/路径来自本轮夹具，不能沿用历史对象",
+        "模型依赖函数允许业务失败/超时，返回观察不判case通过"
+      ],
+      "returns": "真实observations与事件引用；读取失败抛错并登记null+error",
+      "cleanup": "调用者按case恢复；文件写入前调用fixtures.backupFile，最后restoreFile并回读"
+    },
+    {
+      "name": "attachments.readCardTitle",
+      "feature_path": [
+        "对话与任务",
+        "附件"
+      ],
+      "file": "business/attachments/manage.mjs",
+      "export": "readCardTitle",
+      "version": "portable-1.0",
+      "status": "已迁移-验证状态见verification.json",
+      "description": "悬停指定附件卡并读取 title/tooltip 完整名称",
+      "parameters": {
+        "type": "object",
+        "required": [
+          "name"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "name": {
+            "type": "string"
+          }
+        }
+      },
+      "modules": [
+        "automation/session.mjs",
+        "automation/conversation.mjs"
+      ],
+      "origin": {
+        "machine": "PC-G",
+        "commit": "7aff430",
+        "export": "readCardTitle"
+      },
+      "preconditions": [
+        "当前实例CDP及环境身份已核验",
+        "对象名称/路径来自本轮夹具，不能沿用历史对象",
+        "模型依赖函数允许业务失败/超时，返回观察不判case通过"
+      ],
+      "returns": "真实observations与事件引用；读取失败抛错并登记null+error",
+      "cleanup": "调用者按case恢复；文件写入前调用fixtures.backupFile，最后restoreFile并回读"
+    },
+    {
+      "name": "attachments.readSentBubble",
+      "feature_path": [
+        "对话与任务",
+        "附件"
+      ],
+      "file": "business/attachments/manage.mjs",
+      "export": "readSentBubble",
+      "version": "portable-1.0",
+      "status": "已迁移-验证状态见verification.json",
+      "description": "读取最后一条用户气泡内某附件存在状态与删除按钮数量",
+      "parameters": {
+        "type": "object",
+        "required": [
+          "name"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "name": {
+            "type": "string"
+          }
+        }
+      },
+      "modules": [
+        "automation/session.mjs",
+        "automation/conversation.mjs"
+      ],
+      "origin": {
+        "machine": "PC-G",
+        "commit": "7aff430",
+        "export": "readSentBubble"
+      },
+      "preconditions": [
+        "当前实例CDP及环境身份已核验",
+        "对象名称/路径来自本轮夹具，不能沿用历史对象",
+        "模型依赖函数允许业务失败/超时，返回观察不判case通过"
+      ],
+      "returns": "真实observations与事件引用；读取失败抛错并登记null+error",
+      "cleanup": "调用者按case恢复；文件写入前调用fixtures.backupFile，最后restoreFile并回读"
+    },
+    {
+      "name": "attachments.readSingleName",
+      "feature_path": [
+        "对话与任务",
+        "附件"
+      ],
+      "file": "business/attachments/manage.mjs",
+      "export": "readSingleName",
+      "version": "portable-1.0",
+      "status": "已迁移-验证状态见verification.json",
+      "description": "读取当前草稿第一个附件的完整文件名（字符串）",
+      "parameters": {
+        "type": "object",
+        "required": [],
+        "additionalProperties": false,
+        "properties": {}
+      },
+      "modules": [
+        "automation/session.mjs",
+        "automation/conversation.mjs"
+      ],
+      "origin": {
+        "machine": "PC-G",
+        "commit": "7aff430",
+        "export": "readSingleName"
+      },
+      "preconditions": [
+        "当前实例CDP及环境身份已核验",
+        "对象名称/路径来自本轮夹具，不能沿用历史对象",
+        "模型依赖函数允许业务失败/超时，返回观察不判case通过"
+      ],
+      "returns": "真实observations与事件引用；读取失败抛错并登记null+error",
+      "cleanup": "调用者按case恢复；文件写入前调用fixtures.backupFile，最后restoreFile并回读"
+    },
+    {
+      "name": "smoke.skills.skillsFrame",
+      "file": "business/smoke/compat.mjs",
+      "export": "skills_skillsFrame",
+      "description": "PC-88 skills.skillsFrame（共用接入与记录）",
+      "feature_path": [
+        "冒烟",
+        "skills",
+        "skillsFrame"
+      ],
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "required": [],
+        "additionalProperties": false
+      },
+      "version": "portable-1.0",
+      "status": "已迁移-验证状态见verification.json",
+      "origin": {
+        "machine": "PC-88",
+        "commit": "490e6ee"
+      },
+      "preconditions": [
+        "使用本轮实例、对象、请求",
+        "作用在当前表面，必要时传--session-id进行绑定"
+      ],
+      "returns": "真实observations；错误登记并抛出",
+      "cleanup": "设置及样本状态按case独立恢复",
+      "modules": []
+    },
+    {
+      "name": "smoke.skills.ensureMenu",
+      "file": "business/smoke/compat.mjs",
+      "export": "skills_ensureMenu",
+      "description": "PC-88 skills.ensureMenu（共用接入与记录）",
+      "feature_path": [
+        "冒烟",
+        "skills",
+        "ensureMenu"
+      ],
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "required": [],
+        "additionalProperties": false
+      },
+      "version": "portable-1.0",
+      "status": "已迁移-验证状态见verification.json",
+      "origin": {
+        "machine": "PC-88",
+        "commit": "490e6ee"
+      },
+      "preconditions": [
+        "使用本轮实例、对象、请求",
+        "作用在当前表面，必要时传--session-id进行绑定"
+      ],
+      "returns": "真实observations；错误登记并抛出",
+      "cleanup": "设置及样本状态按case独立恢复",
+      "modules": []
+    },
+    {
+      "name": "smoke.skills.openSkills",
+      "file": "business/smoke/compat.mjs",
+      "export": "skills_openSkills",
+      "description": "PC-88 skills.openSkills（共用接入与记录）",
+      "feature_path": [
+        "冒烟",
+        "skills",
+        "openSkills"
+      ],
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "required": [],
+        "additionalProperties": false
+      },
+      "version": "portable-1.0",
+      "status": "已迁移-验证状态见verification.json",
+      "origin": {
+        "machine": "PC-88",
+        "commit": "490e6ee"
+      },
+      "preconditions": [
+        "使用本轮实例、对象、请求",
+        "作用在当前表面，必要时传--session-id进行绑定"
+      ],
+      "returns": "真实observations；错误登记并抛出",
+      "cleanup": "设置及样本状态按case独立恢复",
+      "modules": []
+    },
+    {
+      "name": "smoke.skills.closeSkills",
+      "file": "business/smoke/compat.mjs",
+      "export": "skills_closeSkills",
+      "description": "PC-88 skills.closeSkills（共用接入与记录）",
+      "feature_path": [
+        "冒烟",
+        "skills",
+        "closeSkills"
+      ],
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "required": [],
+        "additionalProperties": false
+      },
+      "version": "portable-1.0",
+      "status": "已迁移-验证状态见verification.json",
+      "origin": {
+        "machine": "PC-88",
+        "commit": "490e6ee"
+      },
+      "preconditions": [
+        "使用本轮实例、对象、请求",
+        "作用在当前表面，必要时传--session-id进行绑定"
+      ],
+      "returns": "真实observations；错误登记并抛出",
+      "cleanup": "设置及样本状态按case独立恢复",
+      "modules": []
+    },
+    {
+      "name": "smoke.skills.importSkill",
+      "file": "business/smoke/compat.mjs",
+      "export": "skills_importSkill",
+      "description": "PC-88 skills.importSkill（共用接入与记录）",
+      "feature_path": [
+        "冒烟",
+        "skills",
+        "importSkill"
+      ],
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "filePath": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "filePath"
+        ],
+        "additionalProperties": false
+      },
+      "version": "portable-1.0",
+      "status": "已迁移-验证状态见verification.json",
+      "origin": {
+        "machine": "PC-88",
+        "commit": "490e6ee"
+      },
+      "preconditions": [
+        "使用本轮实例、对象、请求",
+        "作用在当前表面，必要时传--session-id进行绑定"
+      ],
+      "returns": "真实observations；错误登记并抛出",
+      "cleanup": "设置及样本状态按case独立恢复",
+      "modules": []
+    },
+    {
+      "name": "smoke.skills.search",
+      "file": "business/smoke/compat.mjs",
+      "export": "skills_search",
+      "description": "PC-88 skills.search（共用接入与记录）",
+      "feature_path": [
+        "冒烟",
+        "skills",
+        "search"
+      ],
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "term": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "term"
+        ],
+        "additionalProperties": false
+      },
+      "version": "portable-1.0",
+      "status": "已迁移-验证状态见verification.json",
+      "origin": {
+        "machine": "PC-88",
+        "commit": "490e6ee"
+      },
+      "preconditions": [
+        "使用本轮实例、对象、请求",
+        "作用在当前表面，必要时传--session-id进行绑定"
+      ],
+      "returns": "真实observations；错误登记并抛出",
+      "cleanup": "设置及样本状态按case独立恢复",
+      "modules": []
+    },
+    {
+      "name": "smoke.skills.listCards",
+      "file": "business/smoke/compat.mjs",
+      "export": "skills_listCards",
+      "description": "PC-88 skills.listCards（共用接入与记录）",
+      "feature_path": [
+        "冒烟",
+        "skills",
+        "listCards"
+      ],
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "required": [],
+        "additionalProperties": false
+      },
+      "version": "portable-1.0",
+      "status": "已迁移-验证状态见verification.json",
+      "origin": {
+        "machine": "PC-88",
+        "commit": "490e6ee"
+      },
+      "preconditions": [
+        "使用本轮实例、对象、请求",
+        "作用在当前表面，必要时传--session-id进行绑定"
+      ],
+      "returns": "真实observations；错误登记并抛出",
+      "cleanup": "设置及样本状态按case独立恢复",
+      "modules": []
+    },
+    {
+      "name": "smoke.skills.readSwitch",
+      "file": "business/smoke/compat.mjs",
+      "export": "skills_readSwitch",
+      "description": "PC-88 skills.readSwitch（共用接入与记录）",
+      "feature_path": [
+        "冒烟",
+        "skills",
+        "readSwitch"
+      ],
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "term": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "term"
+        ],
+        "additionalProperties": false
+      },
+      "version": "portable-1.0",
+      "status": "已迁移-验证状态见verification.json",
+      "origin": {
+        "machine": "PC-88",
+        "commit": "490e6ee"
+      },
+      "preconditions": [
+        "使用本轮实例、对象、请求",
+        "作用在当前表面，必要时传--session-id进行绑定"
+      ],
+      "returns": "真实observations；错误登记并抛出",
+      "cleanup": "设置及样本状态按case独立恢复",
+      "modules": []
+    },
+    {
+      "name": "smoke.skills.setSwitch",
+      "file": "business/smoke/compat.mjs",
+      "export": "skills_setSwitch",
+      "description": "PC-88 skills.setSwitch（共用接入与记录）",
+      "feature_path": [
+        "冒烟",
+        "skills",
+        "setSwitch"
+      ],
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "term": {
+            "type": "string"
+          },
+          "on": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "term",
+          "on"
+        ],
+        "additionalProperties": false
+      },
+      "version": "portable-1.0",
+      "status": "已迁移-验证状态见verification.json",
+      "origin": {
+        "machine": "PC-88",
+        "commit": "490e6ee"
+      },
+      "preconditions": [
+        "使用本轮实例、对象、请求",
+        "作用在当前表面，必要时传--session-id进行绑定"
+      ],
+      "returns": "真实observations；错误登记并抛出",
+      "cleanup": "设置及样本状态按case独立恢复",
+      "modules": []
+    },
+    {
+      "name": "smoke.skills.openAndReadDetail",
+      "file": "business/smoke/compat.mjs",
+      "export": "skills_openAndReadDetail",
+      "description": "PC-88 skills.openAndReadDetail（共用接入与记录）",
+      "feature_path": [
+        "冒烟",
+        "skills",
+        "openAndReadDetail"
+      ],
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "term": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "term"
+        ],
+        "additionalProperties": false
+      },
+      "version": "portable-1.0",
+      "status": "已迁移-验证状态见verification.json",
+      "origin": {
+        "machine": "PC-88",
+        "commit": "490e6ee"
+      },
+      "preconditions": [
+        "使用本轮实例、对象、请求",
+        "作用在当前表面，必要时传--session-id进行绑定"
+      ],
+      "returns": "真实observations；错误登记并抛出",
+      "cleanup": "设置及样本状态按case独立恢复",
+      "modules": []
+    },
+    {
+      "name": "experts.scrollPromptToEnd",
+      "file": "business/experts/scroll.mjs",
+      "export": "scrollPromptToEnd",
+      "feature_path": [
+        "experts",
+        "scrollPromptToEnd"
+      ],
+      "description": "滚动指定专家提示词并验证末尾标记处于可视裁剪区",
+      "version": "portable-1.0",
+      "status": "已实现-验证状态见verification.json",
+      "origin": {
+        "machine": "管理者整理"
+      },
+      "parameters": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "displayName": {
+            "type": "string"
+          },
+          "endMarker": {
+            "type": "string"
+          },
+          "internalName": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "displayName",
+          "endMarker"
+        ]
+      },
+      "channel": "ui",
+      "preconditions": [
+        "使用本轮环境及对象身份"
+      ],
+      "returns": "真实observations与动作/读取引用；不判case",
+      "cleanup": "根据函数副作用及本轮恢复记录收尾",
+      "modules": []
+    }
+  ]
+}
