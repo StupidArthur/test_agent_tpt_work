@@ -14,6 +14,8 @@ SECRET_RE = re.compile(r"sk-[A-Za-z0-9_\-]{20,}")
 def _load_results(task_dir):
     out = []
     for p in sorted(glob.glob(os.path.join(task_dir, "结果", "*.json"))):
+        if os.path.basename(p) in ("汇总.json",):
+            continue
         try:
             with open(p, encoding="utf-8") as f:
                 out.append((p, json.load(f)))
@@ -44,7 +46,12 @@ def generate_report(task_dir, cfg=None):
     attempts = 0
     instance_rows = []
     for path, data in results:
-        for inst in data.get("instances", []):
+        insts = data.get("instances", [])
+        if isinstance(insts, dict):
+            insts = list(insts.values())
+        for inst in insts:
+            if not isinstance(inst, dict):
+                continue
             st = inst.get("status", "未验证")
             counts[st] = counts.get(st, 0) + 1
             attempts += len(inst.get("attempts", []))
@@ -84,7 +91,7 @@ def generate_report(task_dir, cfg=None):
     lines.append("- 证据哈希见 `证据索引.jsonl`；脱敏仅移除凭据。\n")
     lines.append("_生成时间：见文件 mtime；范围不超过已测范围。_\n")
 
-    path = os.path.join(task_dir, "报告.md")
+    path = os.path.join(task_dir, "报告_自动.md")
     with open(path, "w", encoding="utf-8", newline="\n") as f:
         f.write("\n".join(lines))
     return path
@@ -118,14 +125,22 @@ def validate_delivery(task_dir):
     # 3) 结果文件状态字段完整
     bad = []
     for path, data in _load_results(task_dir):
-        for inst in data.get("instances", []):
-            if not inst.get("status"):
+        insts = data.get("instances", [])
+        if isinstance(insts, dict):
+            insts = list(insts.values())
+        for inst in insts:
+            if isinstance(inst, dict) and not inst.get("status"):
                 bad.append(path)
     checks.append(("结果状态完整", not bad, f"bad={bad}"))
     # 4) 失效尝试进入计数（attempts 中错误被记录）
     dropped = []
     for path, data in _load_results(task_dir):
-        for inst in data.get("instances", []):
+        insts = data.get("instances", [])
+        if isinstance(insts, dict):
+            insts = list(insts.values())
+        for inst in insts:
+            if not isinstance(inst, dict):
+                continue
             for a in inst.get("attempts", []):
                 if a.get("error_kind") is None and a.get("http_status") is None:
                     dropped.append(inst.get("instance_id"))

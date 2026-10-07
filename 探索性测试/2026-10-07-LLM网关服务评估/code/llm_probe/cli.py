@@ -53,6 +53,7 @@ def cmd_list(args):
         for item in sorted(table):
             print(f"  {item:8s} instances=1  est_requests={EST_REQUESTS.get(item, '?')}")
     print(f"# 条件项(未内置运行器，需隔离/声明/冻结): {', '.join(runner.CONDITIONAL_ITEMS)}")
+    print("# CAP-03/04/06 新入口: capacity --target <name> --plan-file <confirmed-plan.json>; 默认仅预览，--execute 才发请求")
     print(f"# targets: {', '.join(t['name'] for t in cfg['targets'])}")
     return 0
 
@@ -145,6 +146,11 @@ def main(argv=None):
 
     sub.add_parser("report")
 
+    cap = sub.add_parser("capacity", help="preview confirmed-plan capacity suite; no requests without --execute")
+    cap.add_argument("--target", required=True)
+    cap.add_argument("--plan-file", required=True)
+    cap.add_argument("--execute", action="store_true")
+
     args = ap.parse_args(argv)
     if args.cmd == "list":
         return cmd_list(args)
@@ -152,6 +158,24 @@ def main(argv=None):
         return cmd_run(args)
     if args.cmd == "report":
         return cmd_report(args)
+    if args.cmd == "capacity":
+        from . import capacity_suite
+        with open(args.plan_file, encoding="utf-8") as f:
+            plan = json.load(f)
+        if not args.execute:
+            print(json.dumps(capacity_suite.preview(plan), ensure_ascii=False, indent=2))
+            return 0
+        cfg = load_config(args.config)
+        target = make_target(cfg, args.target)
+        store = EvidenceStore(os.path.join(TASK_DIR, "证据"))
+        result = capacity_suite.execute(target, store, plan)
+        out_dir = os.path.join(TASK_DIR, "结果", "容量复核")
+        os.makedirs(out_dir, exist_ok=True)
+        dest = os.path.join(out_dir, result['run_id'] + '.json')
+        with open(dest, 'w', encoding='utf-8') as f:
+            json.dump(result, f, ensure_ascii=False, indent=2)
+        print(json.dumps({'result': dest, 'requests_sent': result['requests_sent']}, ensure_ascii=False))
+        return 0
     return 1
 
 

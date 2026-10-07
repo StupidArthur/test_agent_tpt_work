@@ -690,7 +690,7 @@ def cap05(target, store, opts):
                            body=json.dumps(body).encode(), connect_timeout=o["connect"],
                            idle_timeout=o["idle"], total_timeout=o["total"], stream=True)
         ns = P.normalize(res, "responses")
-        ok = res.http_status == 200 and ns.terminal == "completed"
+        ok = res.http_status == 200 and ns.terminal == "completed" and ns.text.strip() == CHECK_MARK
         return TurnResult(ok=ok, start=t0, end=time.monotonic(),
                           requests=[RequestAttempt(0, t0, time.monotonic(), ok, res.error_kind)],
                           scenario="text")

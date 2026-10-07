@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import threading
 import time
+import concurrent.futures
 from dataclasses import dataclass, field
 from typing import Callable, Optional
 
@@ -112,7 +113,7 @@ def run_closed_loop(
 
     stop_flag.set()
     for th in threads:
-        th.join(timeout=5.0)
+        th.join()  # turn_fn transport has finite request timeouts; never return with live workers
     res.end = clock()
     res.duration_s = res.end - res.start
     return res
@@ -142,6 +143,11 @@ def run_open_arrival(
     threads = []
 
     def do_turn(idx, planned_t, actual_start):
+        actual_start = clock()
+        with lock:
+            state['queue'] -= 1
+            state['in_flight'] += 1
+            state['peak'] = max(state['peak'], state['in_flight'])
         try:
             t = turn_fn(idx)
         except Exception as exc:  # noqa: BLE001
@@ -156,6 +162,9 @@ def run_open_arrival(
             results.append(t)
 
     scheduled = 0
+    if arrival_rate <= 0 or duration < 0 or max_in_flight <= 0 or queue_limit < 0:
+        raise ValueError('positive rate/in-flight, nonnegative duration/queue required')
+    pool = concurrent.futures.ThreadPoolExecutor(max_workers=max_in_flight)
     while clock() - start < duration:
         planned = start + scheduled * interval
         now = clock()
@@ -163,28 +172,20 @@ def run_open_arrival(
             sleep(min(0.005, planned - now))
             continue
         with lock:
-            if state["in_flight"] >= max_in_flight:
-                if state["queue"] >= queue_limit:
-                    state["rejected"] += 1
-                    scheduled += 1
-                    continue
-                state["queue"] += 1
-            # dequeue immediately (single-threaded admitter)
-            if state["queue"] > 0:
-                state["queue"] -= 1
+            if state['in_flight'] + state['queue'] >= max_in_flight + queue_limit:
+                state['rejected'] += 1
+                scheduled += 1
+                continue
+            state['queue'] += 1
             actual_start = clock()
-            state["in_flight"] += 1
-            if state["in_flight"] > state["peak"]:
-                state["peak"] = state["in_flight"]
             next_id["n"] += 1
             idx = next_id["n"]
-        th = threading.Thread(target=do_turn, args=(idx, planned, actual_start), daemon=True)
-        th.start()
-        threads.append(th)
+        threads.append(pool.submit(do_turn, idx, planned, actual_start))
         scheduled += 1
 
-    for th in threads:
-        th.join(timeout=30.0)
+    pool.shutdown(wait=True)
+    for future in threads:
+        future.result()
     # wait for in-flight
     while True:
         with lock:

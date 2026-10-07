@@ -1,0 +1,67 @@
+{
+  "image_sha256": "B69A543D9AA59703D3B47351B6289FDD188452641580EB0E72F0921EAA96CD33",
+  "image_bytes": 169,
+  "expected_answer": "3",
+  "trials": [
+    {
+      "model": "pro",
+      "declared_image": true,
+      "http": 503,
+      "status": null,
+      "text": "",
+      "reasoning_len": 0,
+      "usage": null,
+      "raw_head": "{\"error\":{\"code\":null,\"message\":\"当前模型暂时不可用: no available channels\",\"param\":null,\"type\":\"channel_error\"}}",
+      "error_head": "当前模型暂时不可用: no available channels"
+    },
+    {
+      "model": "flash-backup-ds",
+      "declared_image": true,
+      "http": 200,
+      "status": "completed",
+      "text": "3",
+      "reasoning_len": 0,
+      "usage": {
+        "input_tokens": 224,
+        "output_tokens": 47,
+        "total_tokens": 271,
+        "input_tokens_details": {
+          "cached_tokens": 0
+        },
+        "output_tokens_details": {
+          "reasoning_tokens": 45
+        }
+      },
+      "raw_head": "{\"id\":\"resp_e8b4e09e-e578-4ca5-8617-9f07b62478ad\",\"object\":\"response\",\"created_at\":1791345229,\"completed_at\":1791345230,\"status\":\"completed\",\"error\":null,\"incomplete_details\":null,\"instructions\":null,\"max_output_tokens\":1024,\"model\":\"flash-backup-ds\",\"output\":[{\"type\":\"reasoning\",\"id\":\"rs_e8b4e09e-e578-4ca5-8617-9f07b62478ad\",\"summary\":[{\"type\":\"summary_text\",\"text\":\"我们需要回答用户问题。用户问：“图中有几个红色方块？只输出数字。” 需要只输出数字。图片中三个红色方块水平排列。因此答案是3。只输出数字。注意不要额外文字。\"}]},{\"type\":\"message\",\"id\":\"msg_e8b4e09e-e578-4ca5-8617-9f07b62478ad\",\"status\":\"completed\",\"role\":\"assistant\",\"content\":[{\"type\":\"output_text\",\"text\":\"3\"}]}],\"parallel_tool_calls\":true,\"previous_response_id\":null,\"prompt\":null,\"reasoning\":{\"effort\":null,\"summary\":null},\"store\":false,\"conversation\":null,\"temperature\":1,\"text\":{\"format\":{\"type\":\"text\"}},\"tool_choice\":\"auto\",\"tools\":[],\"top_p\":1,\"truncation\":\"disabled\",\"usage\":{\"input_tokens\":224,\"output_tokens\":47,\"total_tokens\":271,\"input_tokens_details\":{\"cached_tokens\":0},\"output_tokens_details\":{\"reasoning_tokens\":45}},\"user\":null,\"metadata\":{}}",
+      "error_head": ""
+    },
+    {
+      "model": "flash",
+      "declared_image": false,
+      "http": 400,
+      "status": null,
+      "text": "",
+      "reasoning_len": 0,
+      "usage": null,
+      "raw_head": "{\"error\":{\"message\":\"249 validation errors:\\n  {'type': 'string_type', 'loc': ('body', 'input', 'str'), 'msg': 'Input should be a valid string', 'input': [{'content': [{'text': '图中有几个红色方块？只输出数字。', 'type': 'input_text'}, {'image_url': 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAIAAAAlC+aJAAAAcElEQVR4nO3PQQqAQAwEwfz/0/oBxYNgEelmrxO25lje6A+8LYAugC6ALoAugC6ALoAugC6ALoAugC6A7gow8/xu7329DaC3AfQ2gN4G0NsAevtLwKoC6ALoAugC6ALoAugC6ALoAugC6ALoAujWA04j8HX1Oy0exQAAAABJRU5ErkJggg==', 'type': 'input_image'}], 'role': 'user'}]}\\n  {'type': 'string_type', 'loc': ('body', 'input', 'list[union[EasyInputMessageParam,Message,ResponseOutputMessageParam,ResponseFileSearchToolCallParam,ResponseComputerToolCallParam,ComputerCallOutput,ResponseFunctionWebSearchParam,ResponseFunctionToolCallParam,FunctionCallOutput,ToolSearchCall,ResponseToolSearchOutputItemParamParam,AdditionalTools,ResponseReasoningItemParam,ResponseCompactionItemParamParam,ImageGenerationCall,ResponseCodeInterpreterToolCallParam,LocalShellCall,LocalShellCallOutput,ShellCall,ShellCallOutput,ApplyPatchCall,ApplyPatchCallOutput,McpListTools,McpApprovalRequest,McpApprovalResponse,McpCall,ResponseCustomToolCallOutputParam,ResponseCustomToolCallParam,CompactionTrigger,ItemReference,Program,ProgramOutput,union[ResponseOutputMessage,ResponseFileSearchToolCall,ResponseFunctionToolCall,ResponseFunctionToolCallOutputItem,ResponseFunctionWebSearch,ResponseComputerToolCall,ResponseComputerToolCallOutputItem,ResponseReasoningItem,Pro",
+      "error_head": "249 validation errors:\n  {'type': 'string_type', 'loc': ('body', 'input', 'str'), 'msg': 'Input should be a valid string', 'input': [{'content': [{'text': '图中有几"
+    }
+  ],
+  "text_only_control": [
+    {
+      "model": "pro",
+      "http": 503,
+      "text": ""
+    },
+    {
+      "model": "flash-backup-ds",
+      "http": 200,
+      "text": "3"
+    },
+    {
+      "model": "flash",
+      "http": 200,
+      "text": "3"
+    }
+  ]
+}

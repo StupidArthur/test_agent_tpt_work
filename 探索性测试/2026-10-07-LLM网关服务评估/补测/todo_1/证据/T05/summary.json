@@ -1,0 +1,22 @@
+{
+  "A_str_assistant": {
+    "http": 200,
+    "text": "M_a1"
+  },
+  "B_arr_assistant": {
+    "http": 400,
+    "error_head": "240 validation errors:\n  {'type': 'string_type', 'loc': ('body', 'input', 'str'), 'msg': 'Input should be a valid string', 'input': [{'content': [{'text': '记住标记"
+  },
+  "C1_tool_first": {
+    "http": 200,
+    "terminal": "completed",
+    "call_id": "call_af4bd620f029e644",
+    "name": "add_numbers",
+    "args": "{\"a\": 17, \"b\": 25}"
+  },
+  "C2_tool_reuse": {
+    "http": 200,
+    "terminal": "completed",
+    "text": "计算结果为 **42**。"
+  }
+}

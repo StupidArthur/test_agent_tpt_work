@@ -217,9 +217,14 @@ def normalize_responses(res: TransportResult) -> NormalizedStream:
                     ns.final_text = "".join(parts)
         elif ev == "response.completed":
             r = obj.get("response") or {}
-            ns.terminal = "completed"
+            # Event name is not the response status: the gateway may wrap
+            # an incomplete response in a response.completed event.
+            status = r.get("status")
+            ns.terminal = status if status in ("completed", "incomplete", "failed") else "completed" if status is None else "error"
             ns.usage = r.get("usage") or ns.usage
-            ns.terminal_reason = r.get("status")
+            ns.terminal_reason = (r.get("incomplete_details") or {}).get("reason") or status
+            if ns.terminal == "error":
+                ns.error_message = f"Unknown final response status: {status}"
             ns.t_terminal = ns.t_terminal or fr.t
         elif ev == "response.incomplete":
             r = obj.get("response") or {}
