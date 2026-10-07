@@ -5,12 +5,18 @@
 本页用于选函数。选中后只读一个函数的参数契约：
 
 ```powershell
-node tools/ui-operations/call.mjs --describe fixtures.backupFile
+node tools/ui-operations/call.mjs --describe fixtures.removeCreatedFile
 ```
 
 参数必须以 `--describe` 返回的 schema 为准；本页“必填”只用于快速筛选。`--list` 的输出包含描述，适合关键词搜索。
 
 **选用提醒**：服务 URL/端口/日志路径使用本次函数返回值。文件先备份，最后恢复并核验。夹具身份和各字段搜索词应本轮唯一。
+
+## 夹具 → 恢复 → 本轮新增文件
+
+| 函数 | 用途 | 必填参数 |
+|---|---|---|
+| `fixtures.removeCreatedFile` | 恢复本轮新增文件为不存在：需事前不存在的读取引用和当前SHA；拒绝核心记忆文件、目录及链接 | path, expectedSha256, absentReadRef |
 
 ## fixtures → backupFile
 
