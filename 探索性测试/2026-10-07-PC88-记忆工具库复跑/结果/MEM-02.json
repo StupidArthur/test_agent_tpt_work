@@ -1,0 +1,74 @@
+{
+  "run": "PC88-20261007-r2-01",
+  "case_id": "MEM-02",
+  "title": "面板添加和分层编辑",
+  "attempts": [
+    {
+      "attempt_id": "MEM-02-A1",
+      "started_at": "2026-10-07T04:43:39Z",
+      "ended_at": "2026-10-07T04:46:33Z",
+      "precondition": "MEM-01 完成，MEMORY.md 与 index.json 已备份；面板可见 记忆库/概览/日志 页签",
+      "inputs": [
+        "addEntry type=事实 content=MEM88R2-PC88-20261007-r2-01-MEM-02-s1 面板添加的唯一样本，用于本轮记忆工具库复跑。",
+        "editLayerFile file=MEMORY.md beforeSha256=4bbbe630…5fb2"
+      ],
+      "steps": ["memory.addEntry(显式选类型 事实)", "memory.readFiles(MEMORY.md,index.json)", "memory.editLayerFile(MEMORY.md)", "memory.readFiles(MEMORY.md,index.json,audit.jsonl)", "memory.readOverview"],
+      "subchecks": [
+        {
+          "id": "MEM-02-S1",
+          "name": "面板添加+显式选类型",
+          "expected": "在记忆库按显式类型(事实)添加唯一条目，界面出现对应行",
+          "actual": {"库页确认": "已写入 #1", "行": "F | MEM88R2-PC88-20261007-r2-01-MEM-02-s1 面板添加的唯一样本，用于本轮记忆工具库复跑。 | 2026-10-07 | 删除", "类型字母": "F"},
+          "verdict": "符合",
+          "source": "CALL-20453520-217c-4d0f-981c-5f48bbcadb3d-7"
+        },
+        {
+          "id": "MEM-02-S2",
+          "name": "落盘内容与索引",
+          "expected": "MEMORY.md 出现条目、index.json 记录该条目",
+          "actual": {"MEMORY.md": "- [F] MEM88R2-PC88-20261007-r2-01-MEM-02-s1 面板添加的唯一样本，用于本轮记忆工具库复跑。（2026-10-07） (127B, sha 4bbbe630…5fb2)", "index.entries[0]": {"id": "7cadfb11afb4", "type": "F", "file": "…MEMORY.md", "line": 1, "keywords": ["MEM88R2-…-MEM-02-s1", "面板添加的唯一样本", "用于本轮记忆工具库复跑"]}},
+          "verdict": "符合",
+          "source": "CALL-813bf9e0-8e32-485c-a641-090e875e40d8-2, -3"
+        },
+        {
+          "id": "MEM-02-S3",
+          "name": "编辑自建内容（旧值消失/新值出现）",
+          "expected": "编辑自建条目后旧内容消失、新内容出现，独立回读文件与索引一致",
+          "actual": {"旧内容": "- [F] …面板添加的唯一样本，用于本轮记忆工具库复跑。（2026-10-07）", "新内容": "- [F] …面板添加的唯一样本，编辑后新值 EDIT-2 用于本轮复跑核对。（2026-10-07）", "旧短语是否仍存在": false, "新短语是否存在": true, "savedText匹配请求": true, "index.entries[0].id": "ddd91b2327ef（编辑后索引条目 id 变化）", "index.entries[0].keywords": ["MEM88R2-…-MEM-02-s1", "面板添加的唯一样本", "编辑后新值", "EDIT-2", "用于本轮复跑核对"]},
+          "verdict": "符合",
+          "source": "CALL-04c35531-f495-4588-9f78-c19e40ac24e7-3, -8；CALL-5c8b0add-aefc-4fef-8a7e-89d72d3ffeba-2, -3"
+        },
+        {
+          "id": "MEM-02-S4",
+          "name": "编辑动作对应审计",
+          "expected": "编辑产生属于该动作的审计",
+          "actual": {"新增审计": "actor=host, type=memory_write, target=…MEMORY.md, summary=编辑文件 memory（89 字符）, time=1791348359293", "audit大小": "1844B→2026B"},
+          "verdict": "符合",
+          "source": "CALL-5c8b0add-aefc-4fef-8a7e-89d72d3ffeba-5"
+        },
+        {
+          "id": "MEM-02-S5",
+          "name": "面板添加动作审计（附加观察）",
+          "expected": "设计期望审计属于该动作",
+          "actual": {"面板添加后audit": "无新增行（仍 1844B / sha 3d5e35dd…）；添加仅产生 MEMORY.md 与 index.json 变化"},
+          "verdict": "差异",
+          "source": "CALL-813bf9e0-8e32-485c-a641-090e875e40d8-5",
+          "note": "与历史同版一致（历史 audit 亦无面板添加事件，仅编辑/工具写入/删除），按记录契约单列为候选差异，不据此判产品失败。"
+        },
+        {
+          "id": "MEM-02-S6",
+          "name": "编辑保存时生成的 .bak（附加观察）",
+          "expected": "记录编辑动作产生的额外文件",
+          "actual": {"新文件": "MEMORY.md.bak (127B, 编辑前版本)"},
+          "verdict": "符合",
+          "source": "CALL-5c8b0add-aefc-4fef-8a7e-89d72d3ffeba-1"
+        }
+      ],
+      "verdict": "通过（S5 候选差异单列）",
+      "restore": "MEM-18 恢复 MEMORY.md/index.json/audit 基线；MEMORY.md.bak 为本轮新增文件，归属登记见 夹具清单.json。"
+    }
+  ],
+  "status": "通过",
+  "differences": ["MEM-02-S5：面板添加无对应 audit 增量（与历史同版一致）"],
+  "evidence_refs": ["CALL-20453520", "CALL-813bf9e0", "CALL-04c35531", "CALL-5c8b0add", "CALL-3bef6870"]
+}

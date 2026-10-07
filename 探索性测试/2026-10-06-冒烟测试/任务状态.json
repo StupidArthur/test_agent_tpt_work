@@ -1,12 +1,30 @@
 {
-  "phase": "交接就绪-PC-88执行",
+  "phase": "已执行-待审核",
   "assigned_machine": "PC-88",
   "execution_allowed": true,
-  "execution_started": false,
+  "execution_started": true,
+  "execution_completed": true,
+  "run": "pc88-20261006-smoke01",
   "case_count": 12,
   "assertion_count": 30,
+  "assertions_passed": 30,
+  "cases_passed": 12,
+  "smoke_result": "通过",
   "model_request_count": 3,
   "scope": "短冒烟，不替代回归，不抢占本机或PC-G正在执行的UI",
-  "review_status": "用户已认可用例-执行结果待审",
-  "known_issue_note": "历史差异仍保留；不因本冒烟集排除它们而视为已解决"
+  "review_status": "执行结果待审",
+  "known_issue_note": "历史差异仍保留；不因本冒烟集排除它们而视为已解决",
+  "delivery": {
+    "report": "运行/pc88-20261006-smoke01/报告.md",
+    "results": "运行/pc88-20261006-smoke01/结果/",
+    "environment": "运行/pc88-20261006-smoke01/环境.json",
+    "fixture_index": "运行/pc88-20261006-smoke01/样本索引.json",
+    "logs": "运行/pc88-20261006-smoke01/运行日志.md",
+    "code_index": "运行/pc88-20261006-smoke01/脚本索引.json"
+  },
+  "residuals": {
+    "skill_disabled_retained": "smoke-skill-pc88-20261006-smoke01",
+    "expert_retained": "smoke-expert-pc88-20261006-smoke01",
+    "sessions_retained": ["SM-03 chat", "SM-07 skill", "SM-09 expert"]
+  }
 }

@@ -1,0 +1,59 @@
+{
+  "run": "PC88-20261007-r2-01",
+  "case_id": "MEM-18",
+  "title": "恢复与残留",
+  "attempts": [
+    {
+      "attempt_id": "MEM-18-A1",
+      "started_at": "2026-10-07T06:53:25Z",
+      "ended_at": "2026-10-07T06:54:30Z",
+      "precondition": "停止触发；本轮触及对象：四层文件、index.json、audit.jsonl、.reflection-state.json、工作日志与本轮新增文件",
+      "inputs": ["恢复备份 恢复备份/e3b0c442…b855.bin、恢复备份/8b84dc99…c637.bin；删除本轮新增文件"],
+      "steps": [
+        "memory.readFiles 记录 PRE 状态（MEMORY.md 9708B、index 17370B、audit 2267B、新增 5 文件）",
+        "fixtures.restoreFile ×5（SOUL/AGENTS/USER/MEMORY/index）",
+        "task.deleteNewFile ×5（MEMORY.md.bak、.entry-meta.json、2026-10-07.md、2026-10-05.md、2026-10-06.md）",
+        "memory.readFiles 回读哈希",
+        "memory.readOverview 复核设置"
+      ],
+      "subchecks": [
+        {
+          "id": "MEM-18-S1",
+          "name": "分层文件与索引恢复",
+          "expected": "四层文件与 index 按备份恢复并回读哈希",
+          "actual": {"SOUL.md": "0B e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855", "AGENTS.md": "0B 同", "USER.md": "0B 同", "MEMORY.md": "0B 同", "index.json": "87B 8b84dc991f54c2fc968bc2bedc4dfaf536dc489d0ad1c776dac42faf9437c637"},
+          "verdict": "符合",
+          "source": "CALL-3e359d9b…、CALL-7e4679df…、CALL-e8671f00…、CALL-8c424ccd…、CALL-<readFiles POST>"
+        },
+        {
+          "id": "MEM-18-S2",
+          "name": "本轮新增文件删除",
+          "expected": "删除本轮新增文件，回读存在性",
+          "actual": {"MEMORY.md.bak": "exists=false（删前 4bbbe630…,127B）", ".entry-meta.json": "exists=false（75d3d19f…,123B）", "2026-10-07.md": "exists=false（3ce84d11…,1858B）", "2026-10-05.md": "exists=false（4ad7ca08…,332B）", "2026-10-06.md": "exists=false（cd92e168…,213B）"},
+          "verdict": "符合",
+          "source": "CALL-1b0f7b0d…、CALL-9c59847b…、CALL-02cca5e4…、CALL-fd092d9b…、CALL-6ebaa1cd…"
+        },
+        {
+          "id": "MEM-18-S3",
+          "name": "设置恢复/未改动",
+          "expected": "全部触及设置恢复并回读",
+          "actual": {"启用记忆": true, "启用沉淀": true, "高级设置": "2400/1/240/30/8/价值过滤=true/反思升格=true/7/2/200/20000/4000（与初值一致）", "说明": "MEM-16 保存失败，开关值从未改变，无需恢复"},
+          "verdict": "符合",
+          "source": "CALL-<readOverview POST>"
+        },
+        {
+          "id": "MEM-18-S4",
+          "name": "审计增量与残留",
+          "expected": "真实审计增量不擦除，单列残留",
+          "actual": {"audit.jsonl": "1844B(基线)→2267B sha 849e09d4d7d0884f94faebf1f69f2e944ca1b8425dc2fd01e65bc63702258554；新增 2 行：host memory_write『编辑文件 memory（89 字符）』、tool memory_write『长期记忆追加 1 条（[F] importance=4）』", "会话残留": "本轮新建会话保留在侧栏（无法安全删除会话）", "reflections/": "仍为空"},
+          "verdict": "符合",
+          "source": "CALL-<readFiles POST audit>"
+        }
+      ],
+      "verdict": "通过",
+      "residual": ["audit.jsonl 新增 2 行（真实增量）", "本轮 6 个测试会话保留在侧栏"]
+    }
+  ],
+  "status": "通过",
+  "evidence_refs": ["CALL-3e359d9b", "CALL-7e4679df", "CALL-e8671f00", "CALL-8c424ccd", "CALL-1b0f7b0d", "CALL-9c59847b", "CALL-02cca5e4", "CALL-fd092d9b", "CALL-6ebaa1cd"]
+}

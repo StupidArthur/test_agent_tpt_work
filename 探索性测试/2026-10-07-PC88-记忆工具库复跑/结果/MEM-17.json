@@ -1,0 +1,57 @@
+{
+  "run": "PC88-20261007-r2-01",
+  "case_id": "MEM-17",
+  "title": "删除、导入导出/清空（条件项）",
+  "attempts": [
+    {
+      "attempt_id": "MEM-17-A1",
+      "started_at": "2026-10-07T05:23:00Z",
+      "ended_at": "2026-10-07T05:24:00Z",
+      "precondition": "记忆库 2 条本轮自建样本；不触发需要人工处理的 Windows 原生删除/选择器弹窗",
+      "inputs": [],
+      "steps": ["memory.probePanel action=library（枚举记忆库控件）", "memory.probePanel action=tabs（枚举 日志/概览 控件）", "memory.inspectSurfaces（枚举面板与设置）"],
+      "subchecks": [
+        {
+          "id": "MEM-17-S1",
+          "name": "删除入口",
+          "expected": "确认删除对象/后果、取消不改数据、确认只作用目标",
+          "actual": {"入口": "记忆库 每行右侧『删除』按钮（tpt-btn-danger）", "本轮是否触发": "未触发"},
+          "verdict": "阻塞",
+          "source": "CALL-f64c310f-1651-406f-8218-bc43d3603469-1；CALL-9d3d1ab1-503c-4ce8-84fe-543fa1478248-1",
+          "note": "历史同版删除依赖原生确认、需人工处理；按本轮 README 不触发需人工处理的 Windows 弹窗。补测条件：具备原生确认处理能力后，对隔离夹具执行删除并核对取消/确认后果。"
+        },
+        {
+          "id": "MEM-17-S2",
+          "name": "导入入口",
+          "expected": "有导出先验证备份；导入可核对",
+          "actual": {"入口": "记忆面板/设置记忆分区未发现导入按钮或入口"},
+          "verdict": "未验证",
+          "source": "CALL-9d3d1ab1-503c-4ce8-84fe-543fa1478248-1",
+          "note": "按设计：缺入口记“目前未发现”，不从请求失败推定未实现。"
+        },
+        {
+          "id": "MEM-17-S3",
+          "name": "导出入口",
+          "expected": "导出可核对",
+          "actual": {"入口": "未发现导出按钮；备份能力见 MEM-02 的 MEMORY.md.bak 与 fixtures 备份"},
+          "verdict": "未验证",
+          "source": "CALL-9d3d1ab1-503c-4ce8-84fe-543fa1478248-1"
+        },
+        {
+          "id": "MEM-17-S4",
+          "name": "清空入口",
+          "expected": "清空需确认回显对象/后果",
+          "actual": {"入口": "未发现“清空记忆/清空日志”入口；高级设置仅有“重置为默认”（配置项）与“清除全部自定义配置”提示，非记忆数据清空"},
+          "verdict": "未验证",
+          "source": "CALL-3bef6870-5283-4422-b39a-8de1a5137961-2"
+        }
+      ],
+      "verdict": "阻塞/未验证（删除受原生确认限制；导入/导出/清空未发现入口）",
+      "restore": "未触发删除，无数据改动"
+    }
+  ],
+  "status": "阻塞",
+  "blocked": ["MEM-17-S1 删除需原生确认处理能力（本轮不触发）"],
+  "unverified": ["MEM-17-S2 导入入口未发现", "MEM-17-S3 导出入口未发现", "MEM-17-S4 清空入口未发现"],
+  "evidence_refs": ["CALL-f64c310f", "CALL-9d3d1ab1"]
+}

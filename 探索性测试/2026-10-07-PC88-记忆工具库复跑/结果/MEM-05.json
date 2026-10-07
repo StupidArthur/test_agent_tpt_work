@@ -1,0 +1,63 @@
+{
+  "run": "PC88-20261007-r2-01",
+  "case_id": "MEM-05",
+  "title": "面板与文件口径",
+  "attempts": [
+    {
+      "attempt_id": "MEM-05-A1",
+      "started_at": "2026-10-07T04:49:15Z",
+      "ended_at": "2026-10-07T04:49:16Z",
+      "precondition": "复用 MEM-02 自建样本（编辑后 MEMORY.md 1 条）",
+      "inputs": ["同一自建条目（面板添加→编辑后）"],
+      "steps": ["memory.readOverview", "memory.readFiles(MEMORY.md,index.json,.entry-meta.json)"],
+      "subchecks": [
+        {
+          "id": "MEM-05-S1",
+          "name": "条目数口径：卡片/文件/索引",
+          "expected": "面板条卡数、MEMORY.md 条目数、index.entries 数按各自口径一致",
+          "actual": {"面板_记忆条目": 1, "面板_事实": 1, "面板_MEMORY.md": "1 条", "文件_MEMORY.md行数": 1, "index.entries长度": 1},
+          "verdict": "符合",
+          "source": "CALL-3bef6870-5283-4422-b39a-8de1a5137961-1；CALL-5c8b0add-aefc-4fef-8a7e-89d72d3ffeba-2,-3"
+        },
+        {
+          "id": "MEM-05-S2",
+          "name": "字符口径",
+          "expected": "面板字符数与文件内容关系按其声明口径，不把字节数当字符数",
+          "actual": {"面板_MEMORY.md字符": 89, "文件字节": 141, "说明": "面板 89 字符 < 文件 141 UTF-8 字节，二者非同一指标；条目数/字符数分别取值"},
+          "verdict": "符合",
+          "source": "CALL-3bef6870-5283-4422-b39a-8de1a5137961-1；CALL-5c8b0add-…-2"
+        },
+        {
+          "id": "MEM-05-S3",
+          "name": "索引条目口径",
+          "expected": "面板索引条目数与 index.json 实际条目一致",
+          "actual": {"面板_索引条目": 1, "index.entries": 1, "索引字段": ["id","type","file","line","keywords"], "recallCounts": {}},
+          "verdict": "符合",
+          "source": "CALL-3bef6870-…-1；CALL-5c8b0add-…-3"
+        },
+        {
+          "id": "MEM-05-S4",
+          "name": "importance 元数据（面板 vs 工具）",
+          "expected": "对同一写入，比较面板/工具写入的 importance 元数据口径",
+          "actual": {"面板添加/编辑": ".entry-meta.json 不存在，面板行无 importance 列，审计无 importance 字段", "工具写入(MEM-03)": ".entry-meta.json 生成，内容 {\"version\":1,\"entries\":{\"7513deb0e722\":{\"importance\":4,\"createdAt\":1791349131313}}}；审计含 detail.importance=4", "记忆条目/索引条目": "2 / 2（MEM-08 召回后工具条目 7513deb0e722 补入索引）"},
+          "verdict": "符合",
+          "source": "CALL-5c8b0add-aefc-4fef-8a7e-89d72d3ffeba-4；CALL-<readFiles meta>；CALL-9d3d1ab1-503c-4ce8-84fe-543fa1478248-1",
+          "note": "importance 元数据仅由模型工具写入生成（.entry-meta.json 以条目 id 为键）；面板添加/编辑不产生该元数据。原 S4 曾因 MEM-03 前无元数据文件标未验证，此处按 MEM-03 实际结果修订，保留原判断。"
+        },
+        {
+          "id": "MEM-05-S5",
+          "name": "空索引是否影响召回",
+          "expected": "空索引不自动判召回失效；需真实召回调用判断",
+          "actual": "本项索引非空；空索引场景在 MEM-08 覆盖",
+          "verdict": "暂缓",
+          "source": "见 MEM-08"
+        }
+      ],
+      "verdict": "通过（元数据子项未验证）",
+      "restore": "随 MEM-18"
+    }
+  ],
+  "status": "通过",
+  "unverified": ["MEM-05-S4 importance 元数据位置/字段未出现，记为未验证"],
+  "evidence_refs": ["CALL-3bef6870", "CALL-5c8b0add"]
+}

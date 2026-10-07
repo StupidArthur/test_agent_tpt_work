@@ -1,0 +1,54 @@
+{
+  "call_id": "CALL-ade901f9-830a-4a7b-ad9f-4b1a9b76be08",
+  "status": "returned",
+  "observations": {
+    "action_refs": [
+      "CALL-ade901f9-830a-4a7b-ad9f-4b1a9b76be08-2"
+    ],
+    "observations": {
+      "toolText": {
+        "event_id": "CALL-ade901f9-830a-4a7b-ad9f-4b1a9b76be08-3",
+        "captured_at": "2026-10-07T04:59:17.516Z",
+        "environment_id": "PC88-20261007-memlib-r2-01",
+        "business_call_id": "CALL-ade901f9-830a-4a7b-ad9f-4b1a9b76be08",
+        "kind": "read",
+        "target": "轨迹工具记录",
+        "object_id": "trace-tool-row",
+        "source": {
+          "channel": "dom",
+          "scope": "本轮会话/轨迹表格",
+          "locator": "tr[data-kind=\"tool\"]"
+        },
+        "value": "工具 memory_note{\"content\": \"MEM88R2-PC88-20261007-r2-01-MEM-03-tool1 这是由模型通过真实记忆工具写入的事实样本。\", \"type\": \"F\", \"importance\": 4} → 已写入长期记忆（1 行）",
+        "raw": {
+          "count": 1,
+          "texts": [
+            "工具 memory_note{\"content\": \"MEM88R2-PC88-20261007-r2-01-MEM-03-tool1 这是由模型通过真实记忆工具写入的事实样本。\", \"type\": \"F\", \"importance\": 4} → 已写入长期记忆（1 行）"
+          ]
+        }
+      },
+      "scroll": {
+        "event_id": "CALL-ade901f9-830a-4a7b-ad9f-4b1a9b76be08-4",
+        "captured_at": "2026-10-07T04:59:17.522Z",
+        "environment_id": "PC88-20261007-memlib-r2-01",
+        "business_call_id": "CALL-ade901f9-830a-4a7b-ad9f-4b1a9b76be08",
+        "kind": "read",
+        "target": "工具输出容器可滚动",
+        "object_id": "trace-tool-scroll",
+        "source": {
+          "channel": "dom",
+          "scope": "本轮会话/轨迹工具输出单元",
+          "locator": "tr[data-kind=\"tool\"] td"
+        },
+        "value": false,
+        "raw": {
+          "found": true,
+          "scrollHeight": null,
+          "clientHeight": null,
+          "vert": false
+        },
+        "derivation": "某输出单元 scrollHeight>clientHeight 且允许纵向滚动"
+      }
+    }
+  }
+}

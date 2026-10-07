@@ -1,1 +1,30 @@
-[]
+[
+  {
+    "name": "task.deleteNewFile",
+    "case": "MEM-18（恢复删除本轮新增文件）",
+    "gap": "主库 fixtures 只有 backupFile/readFile/writeFile/restoreFile，没有删除能力；恢复“本轮新增文件”需要删除。",
+    "candidate_search": "call.mjs --find \"删除 文件\"；fixtures 模块仅 10 个函数，无删除；memory.* 无删除文件能力。",
+    "file": "code/business/restore.mjs",
+    "export": "deleteNewFile",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "path": { "type": "string" },
+        "expectedSha256": { "type": "string" }
+      },
+      "required": ["path"],
+      "additionalProperties": false
+    },
+    "safety": "仅允许删除 memory_root 内、非核心记忆文件（SOUL/AGENTS/USER/MEMORY/index/audit/.reflection-state 受保护）；删除前核对 expectedSha256。",
+    "call_evidence": [
+      "CALL-1b0f7b0d-…（MEMORY.md.bak）",
+      "CALL-9c59847b-…（.entry-meta.json）",
+      "CALL-02cca5e4-…（2026-10-07.md）",
+      "CALL-fd092d9b-…（2026-10-05.md）",
+      "CALL-6ebaa1cd-…（2026-10-06.md）"
+    ],
+    "code_sha256": "见 审核/代码快照（调用时记录）",
+    "restore": "本函数用于恢复删除，本身不产生需恢复的副作用。",
+    "suggest_merge": "建议并入主库 fixtures（或独立 restore 模块），供其他 PC 恢复新增文件使用。"
+  }
+]

@@ -1,0 +1,50 @@
+{
+  "call_id": "CALL-f20d6b88-c265-495e-b6e1-888128b68067",
+  "status": "returned",
+  "observations": {
+    "action_refs": [
+      "CALL-f20d6b88-c265-495e-b6e1-888128b68067-2"
+    ],
+    "observations": {
+      "output": {
+        "event_id": "CALL-f20d6b88-c265-495e-b6e1-888128b68067-3",
+        "captured_at": "2026-10-07T04:59:29.729Z",
+        "environment_id": "PC88-20261007-memlib-r2-01",
+        "business_call_id": "CALL-f20d6b88-c265-495e-b6e1-888128b68067",
+        "kind": "read",
+        "target": "工具完整输出",
+        "object_id": "tool-detail-output",
+        "source": {
+          "channel": "dom",
+          "scope": "工具详情弹窗",
+          "locator": "aside[aria-label=\"事件详情\"]"
+        },
+        "value": "工具\n第 1 轮 · 第 1 步\n×\n概述\n参数\n结果\nSchema\n计时\n已写入长期记忆（1 行）",
+        "raw": {
+          "length": 50
+        }
+      },
+      "scroll": {
+        "event_id": "CALL-f20d6b88-c265-495e-b6e1-888128b68067-4",
+        "captured_at": "2026-10-07T04:59:29.736Z",
+        "environment_id": "PC88-20261007-memlib-r2-01",
+        "business_call_id": "CALL-f20d6b88-c265-495e-b6e1-888128b68067",
+        "kind": "read",
+        "target": "工具输出容器可滚动",
+        "object_id": "tool-detail-scroll",
+        "source": {
+          "channel": "dom",
+          "scope": "工具详情弹窗/结果区",
+          "locator": "aside[aria-label=\"事件详情\"]"
+        },
+        "value": false,
+        "raw": {
+          "found": true,
+          "scrollHeight": null,
+          "clientHeight": null
+        },
+        "derivation": "存在 scrollHeight>clientHeight 的同元素且允许滚动"
+      }
+    }
+  }
+}

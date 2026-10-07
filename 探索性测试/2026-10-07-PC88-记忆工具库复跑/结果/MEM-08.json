@@ -1,0 +1,55 @@
+{
+  "run": "PC88-20261007-r2-01",
+  "case_id": "MEM-08",
+  "title": "召回与来源",
+  "attempts": [
+    {
+      "attempt_id": "MEM-08-A1",
+      "started_at": "2026-10-07T05:09:06Z",
+      "ended_at": "2026-10-07T05:13:30Z",
+      "precondition": "新会话 session-43be5740-941f-4fbd-b223-46b1f0674f25；MEMORY.md 含面板条目(行1)与工具条目(行4)；index.json 当时仅含面板条目",
+      "inputs": ["检索词：MEM-02-s1（已索引）、MEM-03-tool1（未索引）、MEM-08-absent（不存在）"],
+      "steps": ["conversation.newTask(forceNew)", "conversation.sendMessage(要求调用记忆检索工具)", "conversation.readToolTrace(3 次 memory_recall)", "memory.readFiles(index.json/日志)"],
+      "subchecks": [
+        {
+          "id": "MEM-08-S1",
+          "name": "已索引样本召回",
+          "expected": "命中正确内容，能回到源文件/行号",
+          "actual": {"tool": "memory_recall{\"query\":\"MEM88R2-PC88-20261007-r2-01-MEM-02-s1\"}", "结果": "命中 1 条：[长期记忆 · MEMORY.md:1 · 相关度 60%] - [F] MEM88R2-PC88-20261007-r2-01-MEM-02-s1 面板添加的唯一样本，编辑后新值 EDIT-2 用于本轮复跑核对。（2026-10-07）"},
+          "verdict": "符合",
+          "source": "CALL-<readToolTrace 3 texts>[0]"
+        },
+        {
+          "id": "MEM-08-S2",
+          "name": "未索引样本召回",
+          "expected": "空索引不自动判召回失效；未索引条目的召回由实际工具结果判断",
+          "actual": {"tool": "memory_recall{\"query\":\"…MEM-03-tool1\"}", "结果": "命中 1 条：[长期记忆 · MEMORY.md:4 · 相关度 60%]", "召回时 index.entries": "仅 1 条（面板条目），不含工具条目"},
+          "verdict": "符合",
+          "source": "CALL-<readToolTrace 3 texts>[1]",
+          "note": "召回不依赖 index.json；未索引的 MEMORY.md 条目仍可召回并给出真实行号。"
+        },
+        {
+          "id": "MEM-08-S3",
+          "name": "不存在标记不编造",
+          "expected": "无标记不编造，如实未命中",
+          "actual": {"tool": "memory_recall{\"query\":\"…MEM-08-absent\"}", "结果": "未命中「…MEM-08-absent」相关记忆（已扫描：长期记忆、用户画像）"},
+          "verdict": "符合",
+          "source": "CALL-<readToolTrace 3 texts>[2]"
+        },
+        {
+          "id": "MEM-08-S4",
+          "name": "召回后索引与面板更新",
+          "expected": "记录召回对索引/面板的影响",
+          "actual": {"index.json": "recallCounts={ddd91b2327ef:1,7513deb0e722:1}，并新增工具条目 7513deb0e722(MEMORY.md:4)", "面板高频召回": "两条各 1 次"},
+          "verdict": "符合",
+          "source": "CALL-<readFiles index>；CALL-9d3d1ab1-503c-4ce8-84fe-543fa1478248-1"
+        }
+      ],
+      "verdict": "通过",
+      "restore": "index.json/2026-10-07.md 由 MEM-18 处理"
+    }
+  ],
+  "status": "通过",
+  "session_id": "session-43be5740-941f-4fbd-b223-46b1f0674f25",
+  "evidence_refs": ["CALL-91498b16"]
+}

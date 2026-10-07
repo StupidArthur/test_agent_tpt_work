@@ -1,0 +1,9 @@
+{
+  "run": "PC88-20261007-r2-01",
+  "machine_id": "PC88",
+  "note": "随执行追加；每个样本含标记、对象、初值哈希、恢复办法。",
+  "fixtures": [
+    {"id": "FIX-MEM-02-s1", "case": "MEM-02", "type": "面板添加条目", "marker": "MEM88R2-PC88-20261007-r2-01-MEM-02-s1", "object": "MEMORY.md / index.json", "before_sha256": {"MEMORY.md": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855", "index.json": "8b84dc991f54c2fc968bc2bedc4dfaf536dc489d0ad1c776dac42faf9437c637"}, "after_sha256": {"MEMORY.md": "8c8037aa8d7ba6ef2f582ab71663f65172e1c32ec82e34fd2e2dfd3035ea50e2", "index.json": "f9cda7c89a8e3f7fdb932d789e9698876ed70a92c464ab51bad5a33209b84ce2"}, "calls": ["CALL-20453520-217c-4d0f-981c-5f48bbcadb3d", "CALL-04c35531-f495-4588-9f78-c19e40ac24e7"], "restore": "MEM-18 用 恢复备份/e3b0c442…b855.bin 与 恢复备份/8b84dc99…c637.bin 恢复并回读哈希"},
+    {"id": "FIX-MEM-02-bak", "case": "MEM-02", "type": "本轮新增文件（编辑保存副产物）", "marker": null, "object": "MEMORY.md.bak", "note": "进入本轮时不存在；编辑 MEMORY.md 时由宿主生成，127B=编辑前版本", "restore": "MEM-18 记录为残留/删除归属见 恢复记录.md"}
+  ]
+}
