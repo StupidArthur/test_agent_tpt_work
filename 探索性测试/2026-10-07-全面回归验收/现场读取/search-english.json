@@ -1,0 +1,54 @@
+{
+  "call_id": "CALL-cdd84955-21db-4adc-8471-136c8cb6f58f",
+  "status": "returned",
+  "observations": {
+    "action_refs": [
+      "CALL-cdd84955-21db-4adc-8471-136c8cb6f58f-2"
+    ],
+    "observations": {
+      "count": {
+        "event_id": "CALL-cdd84955-21db-4adc-8471-136c8cb6f58f-3",
+        "captured_at": "2026-10-07T00:16:14.543Z",
+        "environment_id": "acceptance-20261007",
+        "business_call_id": "CALL-cdd84955-21db-4adc-8471-136c8cb6f58f",
+        "kind": "read",
+        "target": "搜索结果卡片数量",
+        "object_id": "search-results",
+        "source": {
+          "channel": "dom",
+          "scope": "技能页/我的技能搜索结果",
+          "locator": "section.panel [data-slot=\"card\"]"
+        },
+        "value": 1,
+        "raw": {
+          "count": 1,
+          "titles": [
+            "验收回归技能-audit-20261007"
+          ]
+        }
+      },
+      "titleContains": {
+        "event_id": "CALL-cdd84955-21db-4adc-8471-136c8cb6f58f-4",
+        "captured_at": "2026-10-07T00:16:14.546Z",
+        "environment_id": "acceptance-20261007",
+        "business_call_id": "CALL-cdd84955-21db-4adc-8471-136c8cb6f58f",
+        "kind": "read",
+        "target": "搜索命中标题是否含搜索词",
+        "object_id": "search-title-contains",
+        "source": {
+          "channel": "dom",
+          "scope": "技能页/我的技能搜索结果",
+          "locator": ".card-title h3"
+        },
+        "value": false,
+        "raw": {
+          "term": "FastRegressionSkillUnique-audit-20261007",
+          "titles": [
+            "验收回归技能-audit-20261007"
+          ]
+        },
+        "derivation": "titles.some(t => t.includes(term))"
+      }
+    }
+  }
+}

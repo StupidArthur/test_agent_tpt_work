@@ -1,0 +1,39 @@
+{
+  "case_id": "G12-17",
+  "contract_version": "2.0",
+  "environment_id": "agent-oc-20261006-funcfull-01",
+  "attempt_id": "G12-17-A01",
+  "object_identity": "设置全项快照",
+  "inputs": [
+    "任务开始保存快照",
+    "全部改动恢复后独立回读"
+  ],
+  "business_call_refs": [
+    "CALL-7e49aae2-72a6-448b-80e6-7dc01493335b",
+    "CALL-27fa6da3-db56-4ea3-8e42-fa007791cd68"
+  ],
+  "status": "通过",
+  "attempted_at": "2026-10-06T17:05:05.118Z",
+  "assertions": [
+    {
+      "id": "G12-17-A1",
+      "expected": "same_value",
+      "actual": {
+        "initial": "{主题:跟随系统,字号:14,语言:中文,默认权限:工作区内修改,工作步骤展示:标准,性能与用量:详细,网页链接默认打开方式:应用内侧边栏,代码工作工具:true,启用记忆:true,启用沉淀:true,实验性功能:false,开发者模式:false,新会话快捷键:Ctrl+N,搜索会话快捷键:Ctrl+K}",
+        "final": "同上"
+      },
+      "pass": true,
+      "read_refs": [
+        "CALL-7e49aae2-72a6-448b-80e6-7dc01493335b-3",
+        "CALL-27fa6da3-db56-4ea3-8e42-fa007791cd68-3"
+      ]
+    }
+  ],
+  "restore": {
+    "status": "unchanged",
+    "description": "本case未改动设置/文件",
+    "read_refs": []
+  },
+  "residual": "",
+  "notes": "初始与最终规范化快照完全一致。"
+}

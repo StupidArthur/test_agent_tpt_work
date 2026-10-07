@@ -1,0 +1,66 @@
+{
+  "case_id": "G10-07",
+  "contract_version": "2.0",
+  "environment_id": "agent-oc-20261006-funcfull-01",
+  "attempt_id": "G10-07-A01",
+  "object_identity": "fast-assert-rich-agent-oc-20261006-funcfull-01 安装 SKILL.md",
+  "inputs": [
+    "备份并外部替换 FAST_RICH_BASE_OK→FAST_RICH_NEW_OK",
+    "新任务显式使用并调用",
+    "恢复"
+  ],
+  "business_call_refs": [
+    "CALL-a6e22fa5-8364-4ec7-8b2b-c1b0b8fd9960",
+    "CALL-c0d1975a-23d5-4dd1-99f7-3f7ffc1cf8d3",
+    "CALL-95954096-abfa-4243-8c3c-14f7bd8823e3",
+    "CALL-d122531e-0e86-40f8-ba7a-7f3a855a69ff",
+    "CALL-e3daa8fe-e615-4bd1-b345-abfd8a25653f",
+    "CALL-4736c4d7-3c7c-4b4a-9bdb-33a1d72591d6",
+    "CALL-16857618-3853-451e-b7b9-015ea35255ef",
+    "CALL-8c8f37e2-d4cb-442b-b3ad-02e8ce9381f8",
+    "CALL-d9f5f783-110e-4c65-beea-a8b30d8fc92d"
+  ],
+  "status": "失败",
+  "attempted_at": "2026-10-06T16:49:25.341Z",
+  "assertions": [
+    {
+      "id": "G10-07-A1",
+      "expected": "FAST_RICH_NEW_OK",
+      "actual": "当前这条消息里只有背景上下文（记忆日志、技能注册信息），没有具体的操作请求……",
+      "pass": false,
+      "read_refs": [
+        "CALL-4736c4d7-3c7c-4b4a-9bdb-33a1d72591d6-3"
+      ]
+    },
+    {
+      "id": "G10-07-A2",
+      "expected": "FAST_RICH_NEW_OK",
+      "actual": "<skill_content name=\"fast-assert-rich-agent-oc-20261006-funcfull-01\"> ... <skill_instructions> When explicitly invoked, reply exactly FAST_RICH_NEW_OK. Do not access external systems. </skill_instructions> </skill_content>",
+      "pass": true,
+      "read_refs": [
+        "CALL-16857618-3853-451e-b7b9-015ea35255ef-3"
+      ],
+      "derivation": "本轮session轨迹内 skill_content 正文含 FAST_RICH_NEW_OK（不含 BASE）"
+    },
+    {
+      "id": "G10-07-A3",
+      "expected": "sha256_equal",
+      "actual": {
+        "before": "f71863e08398ec723d78602d97962d47514b4f72cbfba787e49b5c3b2d54c02a",
+        "after": "f71863e08398ec723d78602d97962d47514b4f72cbfba787e49b5c3b2d54c02a"
+      },
+      "pass": true,
+      "read_refs": [
+        "CALL-a6e22fa5-8364-4ec7-8b2b-c1b0b8fd9960-1",
+        "CALL-d9f5f783-110e-4c65-beea-a8b30d8fc92d-1"
+      ]
+    }
+  ],
+  "restore": {
+    "status": "unchanged",
+    "description": "本case未改动设置/文件",
+    "read_refs": []
+  },
+  "residual": "SKILL.md 已恢复原哈希 f71863e0…",
+  "notes": "外部合法修改确实生效：新会话轨迹加载的 skill_content 正文为 FAST_RICH_NEW_OK（A2 成立）；但模型回复为拒答文本而非标记（A1 不成立）。模型受会话记忆注入影响拒绝输出标记。"
+}

@@ -1,0 +1,40 @@
+{
+  "case_id": "G5-04",
+  "contract_version": "2.0",
+  "environment_id": "agent-oc-20261006-funcfull-01",
+  "attempt_id": "G5-04-A01",
+  "object_identity": "fast-assert-expert-agent-oc-20261006-funcfull-01",
+  "inputs": [
+    "再次提交同一 expert-src 目录"
+  ],
+  "business_call_refs": [
+    "CALL-1f76836b-4603-45ad-9927-6a8f56b80702"
+  ],
+  "status": "通过",
+  "attempted_at": "2026-10-06T16:16:33.804Z",
+  "assertions": [
+    {
+      "id": "G5-04-A1",
+      "expected": true,
+      "actual": true,
+      "pass": true,
+      "read_refs": [
+        "CALL-1f76836b-4603-45ad-9927-6a8f56b80702-4"
+      ],
+      "raw": {
+        "dialogCount": 1,
+        "hasOverwrite": true,
+        "hasCopy": true,
+        "text": "导入本地专家 × 名称冲突 「fast-assert-expert-agent-oc-20261006-funcfull-01」已存在，请选择处理方式。 ... 覆盖现有 作为副本"
+      },
+      "derivation": "hasOverwrite && hasCopy"
+    }
+  ],
+  "restore": {
+    "status": "unchanged",
+    "description": "本case未改动设置/文件",
+    "read_refs": []
+  },
+  "residual": "冲突弹窗保留，随后选副本",
+  "notes": "未选择覆盖。"
+}

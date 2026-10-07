@@ -1,0 +1,30 @@
+{
+  "call_id": "CALL-69bcc146-a7c8-45be-ad9c-e8a66b788eb7",
+  "status": "returned",
+  "observations": {
+    "observations": {
+      "read": {
+        "event_id": "CALL-69bcc146-a7c8-45be-ad9c-e8a66b788eb7-1",
+        "captured_at": "2026-10-06T17:04:12.756Z",
+        "environment_id": "agent-oc-20261006-funcfull-01",
+        "business_call_id": "CALL-69bcc146-a7c8-45be-ad9c-e8a66b788eb7",
+        "kind": "read",
+        "target": "设置行开关状态",
+        "object_id": "settings-row-toggle",
+        "source": {
+          "channel": "dom",
+          "scope": "设置/记忆与进化/启用沉淀",
+          "locator": "[data-shortcut-modal=\"settings\"] [role=\"switch\"], [data-shortcut-modal=\"settings\"] input[type=\"checkbox\"]"
+        },
+        "value": true,
+        "raw": {
+          "count": 1,
+          "label": "启用沉淀",
+          "checked": true,
+          "kind": "checkbox"
+        },
+        "derivation": "checkbox.checked 或 aria-checked"
+      }
+    }
+  }
+}

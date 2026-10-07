@@ -1,0 +1,51 @@
+{
+  "targets": [
+    {
+      "name": "flash-public-low",
+      "display_name": "flash网关(公网,think=low)",
+      "base_url": "https://tpt.supcon.com/tpt-work-router/v1",
+      "api_key": "sk-gw-e99ba85519bd6150c2554de583751eea",
+      "model": "flash",
+      "think_level": "low",
+      "supports_think": true
+    },
+    {
+      "name": "deepseek-flash-low",
+      "display_name": "deepseek-flash(effort=low)",
+      "base_url": "https://api.deepseek.com/v1",
+      "api_key": "sk-94491a3c43124c63aa9056f6f0416870",
+      "model": "deepseek-flash",
+      "think_level": null,
+      "supports_think": false,
+      "extra_fields": {"effort": "low"}
+    },
+    {
+      "name": "intranet",
+      "display_name": "内网(待填)",
+      "base_url": "http://填内网地址/v1",
+      "api_key": "填内网key",
+      "model": "flash",
+      "think_level": "low",
+      "supports_think": true
+    }
+  ],
+  "suite": {
+    "max_tokens": 4000,
+    "short_latency_runs": 10,
+    "ttft_runs": 10,
+    "throughput_runs": 3,
+    "prefill_repeated_runs": 3,
+    "prefill_fresh_runs": 3,
+    "concurrency_short_n": 10,
+    "think_levels": ["off", "low", "medium", "high"],
+    "think_runs_each": 3,
+    "steady_decode_runs": 3,
+    "steady_decode_max_tokens": 3000,
+    "nonstream_long_runs": 3,
+    "stream_timing_short_runs": 2,
+    "stream_timing_long_runs": 1,
+    "sweep": [1, 5, 10, 20, 50, 100],
+    "sweep_max_tokens": 800,
+    "timeout_s": 180
+  }
+}

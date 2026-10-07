@@ -1,0 +1,107 @@
+{
+  "call_id": "CALL-5be458f5-1133-44b1-8562-04655a06b679",
+  "status": "returned",
+  "observations": {
+    "action_refs": [
+      "CALL-5be458f5-1133-44b1-8562-04655a06b679-2"
+    ],
+    "observations": {
+      "preview": {
+        "event_id": "CALL-5be458f5-1133-44b1-8562-04655a06b679-3",
+        "captured_at": "2026-10-07T00:30:40.923Z",
+        "environment_id": "acceptance-20261007",
+        "business_call_id": "CALL-5be458f5-1133-44b1-8562-04655a06b679",
+        "kind": "read",
+        "target": "文件预览正文",
+        "object_id": "skill-file-preview",
+        "source": {
+          "channel": "dom",
+          "scope": "技能页/技能详情/预览",
+          "locator": "[class*=\"dir-preview\"]"
+        },
+        "value": "FAST_DEEP_CHECKLIST\n",
+        "raw": {
+          "length": 20
+        }
+      },
+      "editable": {
+        "event_id": "CALL-5be458f5-1133-44b1-8562-04655a06b679-4",
+        "captured_at": "2026-10-07T00:30:40.924Z",
+        "environment_id": "acceptance-20261007",
+        "business_call_id": "CALL-5be458f5-1133-44b1-8562-04655a06b679",
+        "kind": "read",
+        "target": "文件预览可编辑控件数",
+        "object_id": "skill-file-editable",
+        "source": {
+          "channel": "dom",
+          "scope": "技能页/技能详情/预览",
+          "locator": "[class*=\"dir-preview\"]"
+        },
+        "value": 0,
+        "raw": {
+          "count": 0
+        }
+      },
+      "image": {
+        "event_id": "CALL-5be458f5-1133-44b1-8562-04655a06b679-5",
+        "captured_at": "2026-10-07T00:30:40.925Z",
+        "environment_id": "acceptance-20261007",
+        "business_call_id": "CALL-5be458f5-1133-44b1-8562-04655a06b679",
+        "kind": "read",
+        "target": "包内图片预览加载",
+        "object_id": "skill-file-image",
+        "source": {
+          "channel": "dom",
+          "scope": "技能页/技能详情/预览",
+          "locator": "[class*=\"dir-preview\"]"
+        },
+        "value": false,
+        "raw": {
+          "hasImg": false,
+          "src": null,
+          "complete": null,
+          "naturalWidth": null
+        },
+        "derivation": "hasImg && complete && naturalWidth>0"
+      },
+      "meta": {
+        "event_id": "CALL-5be458f5-1133-44b1-8562-04655a06b679-6",
+        "captured_at": "2026-10-07T00:30:40.926Z",
+        "environment_id": "acceptance-20261007",
+        "business_call_id": "CALL-5be458f5-1133-44b1-8562-04655a06b679",
+        "kind": "read",
+        "target": "文件预览元信息",
+        "object_id": "skill-file-meta",
+        "source": {
+          "channel": "dom",
+          "scope": "技能页/技能详情/预览",
+          "locator": "[class*=\"dir-preview\"]"
+        },
+        "value": false,
+        "raw": {
+          "text": "FAST_DEEP_CHECKLIST"
+        },
+        "derivation": "预览含名称/类型/大小说明"
+      },
+      "parseClaim": {
+        "event_id": "CALL-5be458f5-1133-44b1-8562-04655a06b679-7",
+        "captured_at": "2026-10-07T00:30:40.927Z",
+        "environment_id": "acceptance-20261007",
+        "business_call_id": "CALL-5be458f5-1133-44b1-8562-04655a06b679",
+        "kind": "read",
+        "target": "二进制解析声称",
+        "object_id": "skill-file-parse",
+        "source": {
+          "channel": "dom",
+          "scope": "技能页/技能详情/预览",
+          "locator": "[class*=\"dir-preview\"]"
+        },
+        "value": false,
+        "raw": {
+          "text": "FAST_DEEP_CHECKLIST"
+        },
+        "derivation": "含对文件业务内容的解析成功声明"
+      }
+    }
+  }
+}

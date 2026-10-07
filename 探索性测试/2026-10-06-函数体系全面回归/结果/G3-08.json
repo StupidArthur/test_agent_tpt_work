@@ -1,0 +1,64 @@
+{
+  "case_id": "G3-08",
+  "contract_version": "2.0",
+  "environment_id": "agent-oc-20261006-funcfull-01",
+  "attempt_id": "G3-08-A01",
+  "object_identity": "fast-assert-skill-agent-oc-20261006-funcfull-01",
+  "inputs": [
+    "清空查询",
+    "筛选 全部"
+  ],
+  "business_call_refs": [
+    "CALL-a3fa5670-3598-4d1e-9a0b-a751a86e3a57",
+    "CALL-c587e07e-7bcc-4a04-bb10-b212d8ef166a",
+    "CALL-a5a1c0a5-bcb6-4fe9-9bb6-ee67fbac348b"
+  ],
+  "status": "通过",
+  "attempted_at": "2026-10-06T16:10:43.794Z",
+  "assertions": [
+    {
+      "id": "G3-08-A1",
+      "expected": "",
+      "actual": "",
+      "pass": true,
+      "read_refs": [
+        "CALL-c587e07e-7bcc-4a04-bb10-b212d8ef166a-1"
+      ],
+      "raw": {
+        "value": ""
+      },
+      "derivation": "searchSkills term='' 清空后，readSkillsListState 不带 internalName 读取搜索框（避免 connectSkills 预填内部名）"
+    },
+    {
+      "id": "G3-08-A2",
+      "expected": true,
+      "actual": true,
+      "pass": true,
+      "read_refs": [
+        "CALL-a5a1c0a5-bcb6-4fe9-9bb6-ee67fbac348b-2"
+      ],
+      "raw": {
+        "count": 1
+      }
+    },
+    {
+      "id": "G3-08-A3",
+      "expected": false,
+      "actual": false,
+      "pass": true,
+      "read_refs": [
+        "CALL-a5a1c0a5-bcb6-4fe9-9bb6-ee67fbac348b-3"
+      ],
+      "raw": {
+        "aria_checked": "false"
+      }
+    }
+  ],
+  "restore": {
+    "status": "unchanged",
+    "description": "本case未改动设置/文件",
+    "read_refs": []
+  },
+  "residual": "",
+  "notes": "工具注意：readSkillsListState/filterSkills 经 connectSkills 会先把 internalName 预填进搜索框；为观察“清空”真实空值，A1 用不带 internalName 的读取；A3 用带 internalName 的读取以绑定本轮对象（不带 internalName 时按标题会命中多个历史同名卡）。"
+}

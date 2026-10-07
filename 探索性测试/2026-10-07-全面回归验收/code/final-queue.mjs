@@ -1,0 +1,10 @@
+import fs from 'node:fs';import path from 'node:path';import {fileURLToPath} from 'node:url';
+const root=path.resolve(fileURLToPath(new URL('../',import.meta.url))),src=path.resolve(root,'../2026-10-06-函数体系全面回归/夹具/本轮/agent-oc-20261006-funcfull-01'),q=[],add=(name,args,save)=>q.push({name,args,save});
+const tagfile=path.join(root,'夹具/cn-all/SKILL.md');fs.mkdirSync(path.dirname(tagfile),{recursive:true});fs.writeFileSync(tagfile,fs.readFileSync(path.join(src,'variants/cn-all/SKILL.md'),'utf8').replaceAll('agent-oc-20261006-funcfull-01','audit-20261007').replaceAll('本轮中文优先','验收中文优先-audit-20261007').replaceAll('FAST_SEARCH_TAG','FAST_SEARCH_TAG-audit-20261007'));
+add('conversation.readTaskPermissionOptions',{},'task-permission-options');
+add('audit.closeFrameDialogs',{},'final-clear');add('skills.importSingleFile',{filePath:tagfile,displayName:'验收中文优先-audit-20261007',internalName:'fast-assert-cn-all-audit-20261007'},'tag-import');
+add('skills.searchSkill',{query:'验收中文优先-audit-20261007',matchText:'验收中文优先-audit-20261007'},'search-chinese');add('skills.searchSkill',{query:'FAST_SEARCH_TAG-audit-20261007',matchText:'验收中文优先-audit-20261007'},'search-tag');
+add('settings.listPluginCards',{},'plugins-before');add('settings.setPluginExpanded',{label:'persona',expanded:true},'plugin-expanded');add('settings.setPluginExpanded',{label:'persona',expanded:false},'plugin-restored');add('settings.closeSettings',{},'settings-close');
+add('skills.readSkillDetail',{displayName:'fast-assert-rich-audit-20261007',internalName:'fast-assert-rich-audit-20261007'},'tree-detail');
+add('audit.inspectSurface',{},'tree-surface');
+fs.writeFileSync(path.join(root,'code/queue.json'),JSON.stringify(q,null,2));

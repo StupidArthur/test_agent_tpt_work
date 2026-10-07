@@ -1,8 +1,10 @@
 # 本目录的 TPT Work 接入
 
-先读仓库 `02-测试方法与技术参考/测试接入与执行指南.md` 和 `portable-agent-exe-ui-api-guide.md`，再读当前探索任务 README 与最新授权。资料目录不是完整测试工程。
+先读本轮任务 README、根 AGENTS 与适用测试技能。已经接入时直接查 [软件 UI 操作工具](../../../tools/ui-operations/README.md)；尚未接入或需要排障时再读 [接入指南](../../../02-测试方法与技术参考/测试接入与执行指南.md)，需要具体启动命令才读 [详细实操指南](../../../02-测试方法与技术参考/portable-agent-exe-ui-api-guide.md)。本目录有现成操作函数，不包含详细指南中全部配套测试工程。
 
 真实界面优先 Electron CDP + Playwright。9234 是历史端口，复用前查真实 target 和页面；主页面通常 dsh-app://app/。技能、专家、连接器等在 iframe，定位和取证限定目标 frame。测试网关是独立 API 入口，API 通过不能代替 UI 通过。
+
+本仓库已有 [操作函数库](../../../tools/ui-operations/README.md)。先 `call.mjs --plan <case>` 查映射，再 `--describe <函数>` 查参数；140条回归与12条冒烟已有动作/取值能力映射。已有函数直接调用，缺能力才新增；不可复制历史session、call_id或路径冒充本轮对象。库会保留输入、真实返回和代码哈希，case结果仍由执行者按断言判定。
 
 导入入口应实际观察：本批技能与专家先出现页面内弹窗，含标准 file input，可用 setInputFiles 避开原生选择器。不要仅凭按钮叫“选择文件”就判 Windows 原生窗口阻塞。技能支持 SKILL.md/ZIP/目录；专家目录基本结构为 agent.md + metadata.json，字段以当前内置包契约与界面校验为准。
 

@@ -1,0 +1,65 @@
+{
+  "case_id": "G12-04",
+  "contract_version": "2.0",
+  "environment_id": "agent-oc-20261006-funcfull-01",
+  "attempt_id": "G12-04-A01",
+  "object_identity": "设置/记忆与进化/启用记忆",
+  "inputs": [
+    "切换启用记忆一次",
+    "重开回读",
+    "恢复"
+  ],
+  "business_call_refs": [
+    "CALL-310ff363-c1bc-4156-9571-7d10d3343790",
+    "CALL-521c5d6a-f0d1-42f2-9ed2-f34b980e0dd3",
+    "CALL-704b4bc1-b753-46ef-a2af-7653c3c7995e",
+    "CALL-01fa1d62-bf9c-442e-9d0c-123986111956",
+    "CALL-e49f35e4-2f7b-4baa-b160-a12751e1d63f"
+  ],
+  "status": "失败",
+  "attempted_at": "2026-10-06T17:06:07.663Z",
+  "assertions": [
+    {
+      "id": "G12-04-A1",
+      "expected": false,
+      "actual": true,
+      "pass": false,
+      "read_refs": [
+        "CALL-521c5d6a-f0d1-42f2-9ed2-f34b980e0dd3-1"
+      ],
+      "raw": {
+        "checked": true,
+        "kind": "checkbox"
+      },
+      "derivation": "切换后仍为 true，未变为 changed=false"
+    },
+    {
+      "id": "G12-04-A2",
+      "expected": false,
+      "actual": false,
+      "pass": true,
+      "read_refs": [
+        "CALL-704b4bc1-b753-46ef-a2af-7653c3c7995e-1"
+      ],
+      "raw": {
+        "texts": []
+      }
+    },
+    {
+      "id": "G12-04-A3",
+      "expected": true,
+      "actual": true,
+      "pass": true,
+      "read_refs": [
+        "CALL-e49f35e4-2f7b-4baa-b160-a12751e1d63f-1"
+      ]
+    }
+  ],
+  "restore": {
+    "status": "unchanged",
+    "description": "本case未改动设置/文件",
+    "read_refs": []
+  },
+  "residual": "",
+  "notes": "memory_initial=true。工具注意：setRowToggle 对该行（checkbox 类型）点击 label 未改变 checked，A1 期望的 changed=false 不成立；登记工具缺口候选（role=switch 行可切换，checkbox 行不可）。"
+}

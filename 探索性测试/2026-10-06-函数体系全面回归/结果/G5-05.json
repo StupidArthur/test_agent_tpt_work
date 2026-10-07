@@ -1,0 +1,54 @@
+{
+  "case_id": "G5-05",
+  "contract_version": "2.0",
+  "environment_id": "agent-oc-20261006-funcfull-01",
+  "attempt_id": "G5-05-A01",
+  "object_identity": "fast-assert-expert-agent-oc-20261006-funcfull-01",
+  "inputs": [
+    "选择 作为副本"
+  ],
+  "business_call_refs": [
+    "CALL-a7dd3673-242d-45bd-8817-b82a75ef08bc",
+    "CALL-f70026e2-4876-4a32-a3d4-308104443319",
+    "CALL-f52f7562-a8c2-47f0-9994-8aa6dee3dc4c"
+  ],
+  "status": "通过",
+  "attempted_at": "2026-10-06T16:16:36.387Z",
+  "assertions": [
+    {
+      "id": "G5-05-A1",
+      "expected": "different",
+      "actual": {
+        "original": "C:/Users/Administrator/.tpt-work/agents/fast-assert-expert-agent-oc-20261006-funcfull-01",
+        "copy": "C:/Users/Administrator/.tpt-work/agents/fast-assert-expert-agent-oc-20261006-funcfull-01-1"
+      },
+      "pass": true,
+      "read_refs": [
+        "CALL-f70026e2-4876-4a32-a3d4-308104443319-1",
+        "CALL-f70026e2-4876-4a32-a3d4-308104443319-2"
+      ]
+    },
+    {
+      "id": "G5-05-A2",
+      "expected": true,
+      "actual": true,
+      "pass": true,
+      "read_refs": [
+        "CALL-f52f7562-a8c2-47f0-9994-8aa6dee3dc4c-1"
+      ],
+      "raw": {
+        "dir": ".../fast-assert-expert-agent-oc-20261006-funcfull-01-1",
+        "agentMd": true,
+        "metadataJson": true
+      },
+      "derivation": "agentMd && metadataJson"
+    }
+  ],
+  "restore": {
+    "status": "unchanged",
+    "description": "本case未改动设置/文件",
+    "read_refs": []
+  },
+  "residual": "副本目录 fast-assert-expert-...-01-1 保留待审",
+  "notes": "副本为独立绝对路径 -1，含 agent.md 与 metadata.json。"
+}

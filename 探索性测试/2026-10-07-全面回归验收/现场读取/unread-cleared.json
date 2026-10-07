@@ -1,0 +1,47 @@
+{
+  "call_id": "CALL-5af28a2c-5ecb-4cbb-af8b-88156aec6421",
+  "status": "returned",
+  "observations": {
+    "observations": {
+      "badge": {
+        "event_id": "CALL-5af28a2c-5ecb-4cbb-af8b-88156aec6421-1",
+        "captured_at": "2026-10-07T00:11:57.999Z",
+        "environment_id": "acceptance-20261007",
+        "business_call_id": "CALL-5af28a2c-5ecb-4cbb-af8b-88156aec6421",
+        "kind": "read",
+        "target": "会话行未读提醒数量",
+        "object_id": "session-unread-badge",
+        "source": {
+          "channel": "dom",
+          "scope": "侧栏会话行",
+          "locator": "[data-row-key^=\"session:\"]"
+        },
+        "value": 0,
+        "raw": {
+          "badges": [],
+          "rowText": "请只回复 G8AONLY"
+        },
+        "derivation": "badge 文本数字求和，无数字按存在计 1"
+      },
+      "extra": {
+        "event_id": "CALL-5af28a2c-5ecb-4cbb-af8b-88156aec6421-2",
+        "captured_at": "2026-10-07T00:11:58.005Z",
+        "environment_id": "acceptance-20261007",
+        "business_call_id": "CALL-5af28a2c-5ecb-4cbb-af8b-88156aec6421",
+        "kind": "read",
+        "target": "会话行并列额外标记数量",
+        "object_id": "session-unread-extra",
+        "source": {
+          "channel": "dom",
+          "scope": "侧栏会话行",
+          "locator": "[data-row-key^=\"session:\"]"
+        },
+        "value": 0,
+        "raw": {
+          "badgeCount": 0
+        },
+        "derivation": "max(0, badgeCount - 1)"
+      }
+    }
+  }
+}

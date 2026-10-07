@@ -1,0 +1,35 @@
+{
+  "call_id": "CALL-1b903759-81d2-4a7c-a591-e9e5dcb7554b",
+  "status": "returned",
+  "observations": {
+    "action_refs": [
+      "CALL-1b903759-81d2-4a7c-a591-e9e5dcb7554b-2"
+    ],
+    "observations": {
+      "result": {
+        "event_id": "CALL-1b903759-81d2-4a7c-a591-e9e5dcb7554b-3",
+        "captured_at": "2026-10-07T00:24:09.542Z",
+        "environment_id": "acceptance-20261007",
+        "business_call_id": "CALL-1b903759-81d2-4a7c-a591-e9e5dcb7554b",
+        "kind": "read",
+        "target": "搜索结果命中数",
+        "object_id": "skill-search-count",
+        "source": {
+          "channel": "dom",
+          "scope": "技能页/结果列表",
+          "locator": "section.panel [data-slot=\"card\"]"
+        },
+        "value": 1,
+        "raw": {
+          "matched": 1,
+          "titles": [
+            "验收中文优先-audit-20261007"
+          ],
+          "query": "验收中文优先-audit-20261007",
+          "matchText": "验收中文优先-audit-20261007"
+        },
+        "derivation": "结果卡片标题等于本轮身份文本的计数"
+      }
+    }
+  }
+}

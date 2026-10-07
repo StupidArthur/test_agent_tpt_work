@@ -1,0 +1,39 @@
+{
+  "call_id": "CALL-6ce37d5d-7a78-4588-aef7-1cb46a1dbc98",
+  "status": "returned",
+  "observations": {
+    "action_refs": [
+      "CALL-6ce37d5d-7a78-4588-aef7-1cb46a1dbc98-2"
+    ],
+    "observations": {
+      "read": {
+        "event_id": "CALL-6ce37d5d-7a78-4588-aef7-1cb46a1dbc98-3",
+        "captured_at": "2026-10-06T17:18:43.179Z",
+        "environment_id": "agent-oc-20261006-funcfull-01",
+        "business_call_id": "CALL-6ce37d5d-7a78-4588-aef7-1cb46a1dbc98",
+        "kind": "read",
+        "target": "插件卡片展开状态",
+        "object_id": "plugin-card-expanded",
+        "source": {
+          "channel": "dom",
+          "scope": "插件页/卡片",
+          "locator": "[aria-expanded]"
+        },
+        "value": "tpt-workspace",
+        "raw": {
+          "cards": [
+            {
+              "expanded": "true",
+              "text": "tpt-workspace"
+            },
+            {
+              "expanded": "false",
+              "text": "A Arthur"
+            }
+          ]
+        },
+        "derivation": "存在 aria-expanded=true 的插件卡片"
+      }
+    }
+  }
+}

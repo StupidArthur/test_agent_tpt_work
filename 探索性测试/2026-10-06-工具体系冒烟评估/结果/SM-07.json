@@ -1,0 +1,50 @@
+{
+  "case_id": "SM-07",
+  "started_at": "2026-10-06T14:27:59.215Z",
+  "ended_at": "2026-10-06T14:28:16.058Z",
+  "status": "通过",
+  "assertions": [
+    {
+      "id": "SM-07-A1",
+      "actual": "smoke-skill-tool-smoke-20261006-eval1",
+      "expected": "smoke-skill-tool-smoke-20261006-eval1",
+      "pass": true,
+      "read_refs": [
+        "CALL-995f7888-df3c-43e0-8008-484a228e40ac-3"
+      ]
+    },
+    {
+      "id": "SM-07-A2",
+      "actual": "SMOKE_SKILL_tool-smoke-20261006-eval1_OK",
+      "expected": "SMOKE_SKILL_tool-smoke-20261006-eval1_OK",
+      "pass": true,
+      "read_refs": [
+        "CALL-ba3f2d9b-5891-495c-b0c7-a03c3566fcd2-3"
+      ]
+    }
+  ],
+  "business_call_refs": [
+    "CALL-58ec0621-5fff-4992-95d9-0f69a22a35d6",
+    "CALL-995f7888-df3c-43e0-8008-484a228e40ac",
+    "CALL-ba3f2d9b-5891-495c-b0c7-a03c3566fcd2"
+  ],
+  "tool_discovery": {
+    "feature_path": [
+      "技能",
+      "使用效果"
+    ],
+    "plan_functions": [
+      "conversation.newTask",
+      "skills.quickUse",
+      "conversation.readComposer",
+      "skills.useSkillRequest"
+    ],
+    "used": [
+      "conversation.newTask",
+      "skills.quickUse",
+      "skills.useSkillRequest"
+    ],
+    "additional_functions": [],
+    "all_product_operations_via_functions": true
+  }
+}

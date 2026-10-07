@@ -1,0 +1,41 @@
+{
+  "case_id": "G7-01",
+  "contract_version": "2.0",
+  "environment_id": "agent-oc-20261006-funcfull-01",
+  "attempt_id": "G7-01-A01",
+  "object_identity": "composer 草稿附件区",
+  "inputs": [
+    "一次选择 attachment-a.txt/attachment-b.txt/attachment-c.md"
+  ],
+  "business_call_refs": [
+    "CALL-6a04b43e-32e8-4103-8564-872417728f5a"
+  ],
+  "status": "通过",
+  "attempted_at": "2026-10-06T16:26:29.400Z",
+  "assertions": [
+    {
+      "id": "G7-01-A1",
+      "expected": [
+        "attachment-a.txt",
+        "attachment-b.txt",
+        "attachment-c.md"
+      ],
+      "actual": [
+        "attachment-a.txt",
+        "attachment-b.txt",
+        "attachment-c.md"
+      ],
+      "pass": true,
+      "read_refs": [
+        "CALL-6a04b43e-32e8-4103-8564-872417728f5a-3"
+      ]
+    }
+  ],
+  "restore": {
+    "status": "unchanged",
+    "description": "本case未改动设置/文件",
+    "read_refs": []
+  },
+  "residual": "草稿已清空",
+  "notes": "只读 composer 附件卡片文件名列表。"
+}

@@ -1,0 +1,48 @@
+{
+  "case_id": "G7-07",
+  "contract_version": "2.0",
+  "environment_id": "agent-oc-20261006-funcfull-01",
+  "attempt_id": "G7-07-A01",
+  "object_identity": "composer 草稿附件卡 fixture.unknown-fast",
+  "inputs": [
+    "添加 fixture.unknown-fast"
+  ],
+  "business_call_refs": [
+    "CALL-a7c86c5e-8da4-422f-aa25-dc0af56b4b8a",
+    "CALL-c9f9d11e-9a2a-44c6-8fb8-8b18d09d32ba",
+    "CALL-d71c5654-b462-4c9b-95c4-2e1e262f1c03"
+  ],
+  "status": "通过",
+  "attempted_at": "2026-10-06T16:30:21.429Z",
+  "assertions": [
+    {
+      "id": "G7-07-A1",
+      "expected": 1,
+      "actual": 1,
+      "pass": true,
+      "read_refs": [
+        "CALL-c9f9d11e-9a2a-44c6-8fb8-8b18d09d32ba-2"
+      ]
+    },
+    {
+      "id": "G7-07-A2",
+      "expected": false,
+      "actual": false,
+      "pass": true,
+      "read_refs": [
+        "CALL-d71c5654-b462-4c9b-95c4-2e1e262f1c03-1"
+      ],
+      "raw": {
+        "text": "fixture.unknown-fast UNKNOWN- 21B",
+        "positiveClaim": false
+      }
+    }
+  ],
+  "restore": {
+    "status": "unchanged",
+    "description": "本case未改动设置/文件",
+    "read_refs": []
+  },
+  "residual": "",
+  "notes": "未知格式卡片文本无肯定解析声明。"
+}

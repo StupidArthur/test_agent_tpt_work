@@ -165,6 +165,105 @@
       "description": "发起本轮文件读取，读取成功工具步骤的默认折叠状态、展开后的执行记录、参数路径与输出。",
       "parameters": {"type": "object", "required": [], "additionalProperties": false, "properties": {}},
       "modules": ["code/automation/tpt.mjs"]
+    },
+    {
+      "name": "batchA.skillUse",
+      "feature_path": ["技能", "实际调用", "显式使用入口与资源装载"],
+      "file": "code/business/batchA/skillUse.mjs",
+      "export": "batchSkillUse",
+      "version": "batchA-1.0",
+      "status": "本轮验证-待审核",
+      "description": "记录此前会话，技能详情点击使用，读取新会话技能chip与session身份，发送无害请求并读取本轮轨迹记录。",
+      "parameters": {"type": "object", "required": [], "additionalProperties": false, "properties": {}},
+      "modules": ["code/automation/tpt.mjs", "code/automation/skills.mjs"]
+    },
+    {
+      "name": "batchA.cnAll",
+      "feature_path": ["技能", "卡片导航", "卡片主体打开详情"],
+      "file": "code/business/batchA/cnAll.mjs",
+      "export": "batchCnAll",
+      "version": "batchA-1.0",
+      "status": "本轮验证-待审核",
+      "description": "导入cn-all单文件样本，按内部name定位卡片并点击卡片主体打开详情，按YAML字段语义读取name。",
+      "parameters": {"type": "object", "required": [], "additionalProperties": false, "properties": {}},
+      "modules": ["code/automation/tpt.mjs", "code/automation/skills.mjs"]
+    },
+    {
+      "name": "batchA.attachmentSend",
+      "feature_path": ["对话与任务", "附件", "发送附件固定"],
+      "file": "code/business/batchA/attachmentSend.mjs",
+      "export": "batchAttachmentSend",
+      "version": "batchA-1.0",
+      "status": "本轮验证-待审核",
+      "description": "添加本轮附件并发送，限定该条已发送用户消息读取附件名称与删除控件数量。",
+      "parameters": {"type": "object", "required": [], "additionalProperties": false, "properties": {}},
+      "modules": ["code/automation/tpt.mjs"]
+    },
+    {
+      "name": "batchA.trace",
+      "feature_path": ["对话与任务", "执行详情", "长工具输出与单动作聚合"],
+      "file": "code/business/batchA/trace.mjs",
+      "export": "batchTrace",
+      "version": "batchA-1.0",
+      "status": "本轮验证-待审核",
+      "description": "读取本轮长行文件，展开工具步骤读取输出容器滚动与完整输出；另建单次读取任务检查父子聚合嵌套。",
+      "parameters": {"type": "object", "required": [], "additionalProperties": false, "properties": {}},
+      "modules": ["code/automation/tpt.mjs"]
+    },
+    {
+      "name": "batchA.richDetail",
+      "feature_path": ["技能", "目录与预览", "目录折叠与图片预览"],
+      "file": "code/business/batchA/richDetail.mjs",
+      "export": "batchRichDetail",
+      "version": "batchA-1.0",
+      "status": "本轮验证-待审核",
+      "description": "打开rich详情，展开/收起references读取checklist.md树节点可见性，点击assets/icon.png读取图片预览img加载。",
+      "parameters": {"type": "object", "required": [], "additionalProperties": false, "properties": {}},
+      "modules": ["code/automation/tpt.mjs", "code/automation/skills.mjs"]
+    },
+    {
+      "name": "batchA.externalModify",
+      "feature_path": ["技能", "外部文件更新", "合法修改生效与来源标签"],
+      "file": "code/business/batchA/externalModify.mjs",
+      "export": "batchExternalModify",
+      "version": "batchA-1.0",
+      "status": "本轮验证-待审核",
+      "description": "外部合法修改rich SKILL.md，修改期间读取卡片来源标签，调用技能读取正文与加载记录，最后恢复并核验哈希。",
+      "parameters": {"type": "object", "required": [], "additionalProperties": false, "properties": {}},
+      "modules": ["code/automation/tpt.mjs", "code/automation/skills.mjs"]
+    },
+    {
+      "name": "batchA.mixed",
+      "feature_path": ["技能", "ZIP导入", "部分成功隔离纠错"],
+      "file": "code/business/batchA/mixed.mjs",
+      "export": "batchMixed",
+      "version": "batchA-1.0",
+      "status": "本轮验证-待审核",
+      "description": "提交全新mixed2.zip（唯一目录名与内部名），逐项按声明名读取注册/目录身份与针对该项的反馈。",
+      "parameters": {"type": "object", "required": [], "additionalProperties": false, "properties": {}},
+      "modules": ["code/automation/tpt.mjs", "code/automation/skills.mjs"]
+    },
+    {
+      "name": "batchA.deliver",
+      "feature_path": ["对话与任务", "文件交付", "明确文件交付"],
+      "file": "code/business/batchA/deliver.mjs",
+      "export": "batchDeliver",
+      "version": "batchA-1.0",
+      "status": "本轮验证-待审核",
+      "description": "请求生成本轮deliver.txt，读取执行终态、文件实际内容与所在会话产物文件卡资源路径。",
+      "parameters": {"type": "object", "required": [], "additionalProperties": false, "properties": {}},
+      "modules": ["code/automation/tpt.mjs"]
+    },
+    {
+      "name": "batchA.cleanup",
+      "feature_path": ["技能", "收尾", "停用与清理"],
+      "file": "code/business/batchA/cleanup.mjs",
+      "export": "batchCleanup",
+      "version": "batchA-1.0",
+      "status": "本轮验证-待审核",
+      "description": "停用本批额外启用的技能并回读，清理本批草稿附件。",
+      "parameters": {"type": "object", "required": [], "additionalProperties": false, "properties": {}},
+      "modules": ["code/automation/tpt.mjs", "code/automation/skills.mjs"]
     }
   ]
 }

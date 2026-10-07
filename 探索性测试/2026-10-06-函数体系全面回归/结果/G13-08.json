@@ -1,0 +1,41 @@
+{
+  "case_id": "G13-08",
+  "contract_version": "2.0",
+  "environment_id": "agent-oc-20261006-funcfull-01",
+  "attempt_id": "G13-08-A01",
+  "object_identity": "技能标签搜索",
+  "inputs": [
+    "搜索 FAST_SEARCH_TAG"
+  ],
+  "business_call_refs": [
+    "CALL-6d1d0ec4-e7f4-41af-8627-4d548da605c4"
+  ],
+  "status": "失败",
+  "attempted_at": "2026-10-06T17:17:04.663Z",
+  "assertions": [
+    {
+      "id": "G13-08-A1",
+      "expected": 1,
+      "actual": 3,
+      "pass": false,
+      "read_refs": [
+        "CALL-6d1d0ec4-e7f4-41af-8627-4d548da605c4-3"
+      ],
+      "raw": {
+        "matched": 3,
+        "titles": [
+          "本轮中文优先",
+          "本轮中文优先",
+          "本轮中文优先"
+        ]
+      }
+    }
+  ],
+  "restore": {
+    "status": "unchanged",
+    "description": "本case未改动设置/文件",
+    "read_refs": []
+  },
+  "residual": "",
+  "notes": "标签搜索命中 3（同 G13-07 环境累积同名夹具）。"
+}

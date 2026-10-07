@@ -1,0 +1,47 @@
+{
+  "case_id": "G2-04",
+  "contract_version": "2.0",
+  "environment_id": "agent-oc-20261006-funcfull-01",
+  "attempt_id": "G2-04-A01",
+  "object_identity": "fast-assert-skill-agent-oc-20261006-funcfull-01",
+  "inputs": [
+    "搜索词 FastRegressionSkillUnique"
+  ],
+  "business_call_refs": [
+    "CALL-449a66de-3870-4778-a0e3-25a973ce1496",
+    "CALL-8a2edfdf-7575-4f43-a0d8-9947ff6c48ec"
+  ],
+  "status": "失败",
+  "attempted_at": "2026-10-06T16:06:55.159Z",
+  "assertions": [
+    {
+      "id": "G2-04-A1",
+      "expected": 1,
+      "actual": 8,
+      "pass": false,
+      "read_refs": [
+        "CALL-449a66de-3870-4778-a0e3-25a973ce1496-3"
+      ],
+      "raw": {
+        "count": 8,
+        "titles": [
+          "本轮快速回归技能",
+          "本轮快速回归技能",
+          "本轮快速回归技能",
+          "本轮快速回归技能",
+          "本轮快速回归技能",
+          "本轮快速回归技能",
+          "本轮快速回归技能",
+          "本轮快速回归技能B"
+        ]
+      }
+    }
+  ],
+  "restore": {
+    "status": "unchanged",
+    "description": "本case未改动设置/文件",
+    "read_refs": []
+  },
+  "residual": "",
+  "notes": "本机已存在多个同 name_en=FastRegressionSkillUnique 的历史夹具（前序回归轮次导入同一模板），故英文唯一词命中 8 而非 1。补充证据：用完整内部名 fast-assert-skill-agent-oc-20261006-funcfull-01 搜索命中 1（CALL-8a2edfdf-7575-4f43-a0d8-9947ff6c48ec-3），说明搜索功能正常、可精确隔离本轮对象；失败源于环境累积重复样本，非本轮产品差异。登记候选问题见报告。"
+}

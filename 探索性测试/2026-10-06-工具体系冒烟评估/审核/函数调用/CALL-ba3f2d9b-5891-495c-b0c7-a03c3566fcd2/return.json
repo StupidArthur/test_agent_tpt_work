@@ -1,0 +1,56 @@
+{
+  "call_id": "CALL-ba3f2d9b-5891-495c-b0c7-a03c3566fcd2",
+  "status": "returned",
+  "observations": {
+    "action_refs": [
+      "CALL-ba3f2d9b-5891-495c-b0c7-a03c3566fcd2-2"
+    ],
+    "observations": {
+      "wait": {
+        "waited_ms": 7851
+      },
+      "assistant": {
+        "event_id": "CALL-ba3f2d9b-5891-495c-b0c7-a03c3566fcd2-3",
+        "captured_at": "2026-10-06T14:28:16.052Z",
+        "environment_id": "env-tool-smoke-eval1",
+        "business_call_id": "CALL-ba3f2d9b-5891-495c-b0c7-a03c3566fcd2",
+        "kind": "read",
+        "target": "技能调用助手气泡",
+        "object_id": "last-assistant-bubble",
+        "source": {
+          "channel": "dom",
+          "scope": "对话 助手气泡",
+          "locator": "[class*=\"hWmORq_body\"]"
+        },
+        "value": "SMOKE_SKILL_tool-smoke-20261006-eval1_OK",
+        "raw": {
+          "count": 2,
+          "last": "SMOKE_SKILL_tool-smoke-20261006-eval1_OK"
+        }
+      },
+      "userReq": {
+        "event_id": "CALL-ba3f2d9b-5891-495c-b0c7-a03c3566fcd2-4",
+        "captured_at": "2026-10-06T14:28:16.053Z",
+        "environment_id": "env-tool-smoke-eval1",
+        "business_call_id": "CALL-ba3f2d9b-5891-495c-b0c7-a03c3566fcd2",
+        "kind": "read",
+        "target": "本轮用户请求",
+        "object_id": "submitted-composer",
+        "source": {
+          "channel": "dom",
+          "scope": "本次提交前编辑区完整输入",
+          "locator": "div[contenteditable=\"true\"][aria-label*=\"/ 调用指令\"]"
+        },
+        "value": false,
+        "raw": {
+          "requestText": "/smoke-skill-tool-smoke-20261006-eval1 请执行当前选中回归技能的固定回复规则，不使用工具。",
+          "session": "session-624da725-16b0-4781-9520-d52bac6b76b5",
+          "capturedAt": "2026-10-06T14:28:08.130Z",
+          "answer": "SMOKE_SKILL_tool-smoke-20261006-eval1_OK",
+          "capturedBeforeSend": true
+        },
+        "derivation": "complete submitted composer text.includes(answer)"
+      }
+    }
+  }
+}

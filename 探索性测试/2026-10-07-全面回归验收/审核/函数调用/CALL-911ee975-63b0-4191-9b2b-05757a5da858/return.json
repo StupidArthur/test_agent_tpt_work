@@ -1,0 +1,30 @@
+{
+  "call_id": "CALL-911ee975-63b0-4191-9b2b-05757a5da858",
+  "status": "returned",
+  "observations": {
+    "observations": {
+      "read": {
+        "event_id": "CALL-911ee975-63b0-4191-9b2b-05757a5da858-1",
+        "captured_at": "2026-10-07T00:12:29.474Z",
+        "environment_id": "acceptance-20261007",
+        "business_call_id": "CALL-911ee975-63b0-4191-9b2b-05757a5da858",
+        "kind": "read",
+        "target": "设置行开关状态",
+        "object_id": "settings-row-toggle",
+        "source": {
+          "channel": "dom",
+          "scope": "设置/记忆与进化/启用记忆",
+          "locator": "[data-shortcut-modal=\"settings\"] [role=\"switch\"], [data-shortcut-modal=\"settings\"] input[type=\"checkbox\"]"
+        },
+        "value": true,
+        "raw": {
+          "count": 1,
+          "label": "启用记忆",
+          "checked": true,
+          "kind": "checkbox"
+        },
+        "derivation": "checkbox.checked 或 aria-checked"
+      }
+    }
+  }
+}

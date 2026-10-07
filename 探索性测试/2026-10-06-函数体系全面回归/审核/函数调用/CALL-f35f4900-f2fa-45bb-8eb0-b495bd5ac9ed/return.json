@@ -1,0 +1,51 @@
+{
+  "call_id": "CALL-f35f4900-f2fa-45bb-8eb0-b495bd5ac9ed",
+  "status": "returned",
+  "observations": {
+    "action_refs": [
+      "CALL-f35f4900-f2fa-45bb-8eb0-b495bd5ac9ed-2"
+    ],
+    "observations": {
+      "result": {
+        "event_id": "CALL-f35f4900-f2fa-45bb-8eb0-b495bd5ac9ed-3",
+        "captured_at": "2026-10-06T17:22:42.218Z",
+        "environment_id": "agent-oc-20261006-funcfull-01",
+        "business_call_id": "CALL-f35f4900-f2fa-45bb-8eb0-b495bd5ac9ed",
+        "kind": "read",
+        "target": "导入结果",
+        "object_id": "skill-import-result",
+        "source": {
+          "channel": "dom",
+          "scope": "技能页/导入弹窗或列表",
+          "locator": "[role=\"dialog\"]"
+        },
+        "value": "导入技能 每次导入一个技能：选择 ZIP、SKILL.md 或 Skill 文件夹。 选择文件 选择文件夹 ZIP mixed.zip 1 个文件 · 866 B × 未导入任何技能；已跳过同名技能：duplicate、invalid、valid 文件要求 压缩包或文件夹需包含 SKILL.md SKILL.md 需包含 YAML 格式的技能名称和描述 导入时复制完整内容，不修改原始来源 取消 导入",
+        "raw": {
+          "dialogCount": 1,
+          "text": "导入技能 每次导入一个技能：选择 ZIP、SKILL.md 或 Skill 文件夹。 选择文件 选择文件夹 ZIP mixed.zip 1 个文件 · 866 B × 未导入任何技能；已跳过同名技能：duplicate、invalid、valid 文件要求 压缩包或文件夹需包含 SKILL.md SKILL.md 需包含 YAML 格式的技能名称和描述 导入时复制完整内容，不修改原始来源 取消 导入",
+          "listCount": 94
+        },
+        "derivation": "导入结果文本或列表数"
+      },
+      "conflictDefault": {
+        "event_id": "CALL-f35f4900-f2fa-45bb-8eb0-b495bd5ac9ed-4",
+        "captured_at": "2026-10-06T17:22:42.221Z",
+        "environment_id": "agent-oc-20261006-funcfull-01",
+        "business_call_id": "CALL-f35f4900-f2fa-45bb-8eb0-b495bd5ac9ed",
+        "kind": "read",
+        "target": "候选默认选项",
+        "object_id": "skill-import-conflict-default",
+        "source": {
+          "channel": "dom",
+          "scope": "技能页/导入弹窗",
+          "locator": "[role=\"dialog\"]"
+        },
+        "value": "跳过",
+        "raw": {
+          "text": "导入技能 每次导入一个技能：选择 ZIP、SKILL.md 或 Skill 文件夹。 选择文件 选择文件夹 ZIP mixed.zip 1 个文件 · 866 B × 未导入任何技能；已跳过同名技能：duplicate、invalid、valid 文件要求 压缩包或文件夹需包含 SKILL.md SKILL.md 需包含 YAML 格式的技能名称和描述 导入时复制完整内容，不修改原始来源 取消 导入"
+        },
+        "derivation": "结果文本含 跳过/覆盖"
+      }
+    }
+  }
+}

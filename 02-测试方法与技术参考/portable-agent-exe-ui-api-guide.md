@@ -2,6 +2,8 @@
 
 这份文档可单独复制到另一台 Windows 机器。它说明如何找到并启动 `tpt-work.exe`，如何操作真实 UI，如何启动 `--test` 网关做 API 测试，以及如何把探索变成可复跑的 case。运行文中的现有脚本和 case 还需同时复制本测试仓库。安装路径、端口、项目目录和模型配置都以目标机器的实际情况为准。
 
+**本仓库的使用顺序：**先读任务与 [测试方法入口](README.md)。已接入时调用 [软件 UI 操作工具](../tools/ui-operations/README.md)；本指南按需查启动、登录和API细节。文中 tests/ui、Playwright Test 与 npm run test:* 示例需要另有配套工程，不能仅复制本文就运行。本仓库现成函数的依赖在 tools/ui-operations/package.json。
+
 ## 先记住两条入口
 
 | 要测什么 | 启动参数 | 连接方式 | 证明连接成功 |
@@ -17,8 +19,8 @@
 
 1. 定位本机 exe、记录包身份，并检查已有 TPT Work 实例和端口。已有可用 CDP 实例就复用；没有时，先处理旧实例的归属，再带 `--remote-debugging-port` 启动。关闭窗口可能只隐藏窗口，后台进程仍会占用单实例锁；如果新启动后端口未监听，重新检查进程，不要反复启动。
 2. 同时验证 `/json/version` 和 `/json/list`。后者必须有属于 TPT Work 的 `page` 或 `webview`；记录目标 URL。登录页可能是 `file:///.../renderer/welcome.html`，主界面是 `dsh-app://app/`，同一进程可同时暴露两者。按当前可见界面选择目标，不能只找 `dsh-app://` 然后误报“无页面”。
-3. 用 Playwright `chromium.connectOverCDP()` 连接，读取页面文字、可见弹窗和目标控件，再按**观察 → 一组已确认的操作 → 等待结果 → 再观察与判定**执行。同一稳定界面的表单填写可在一次工具调用中顺序完成；发生页面或流程状态变化后，先重新发现控件，再继续。具体分组规则见第 2.4 节。优先用 role、文本、稳定 ID 定位；不要跨状态复用截图坐标或盲点后台页面。关闭 Playwright 连接只表示断开 CDP，不表示退出 TPT Work。
-4. 需要可重复回归时，在配套测试仓库运行 fixture 和 case，并保存截图、trace、日志、输入和结果。当前资料目录没有这些测试源码及依赖；不要把本目录当作可直接运行 `npm run test:*` 的项目。
+3. 用现成业务函数连接和操作；它们内部通过 Playwright `chromium.connectOverCDP()` 接入。按**观察 → 一组已确认的操作 → 等待结果 → 再观察与判定**执行。稳定表单填写可顺序合并；发生页面或流程状态变化后重新发现控件。缺能力才写留存的任务函数，定位限定对象与frame，不跨状态复用截图坐标。关闭 Playwright 连接不表示退出 TPT Work。
+4. 按本轮任务保存实际输入、读取、调用、代码快照、结果与恢复。通过默认不截图，失败仅在图片有解释价值时留图。另有配套工程时才使用本文 fixture/test:* 示例，本仓库默认从 tools/ui-operations/call.mjs 调用业务函数。
 
 桌面窗口工具适合处理 Playwright 看不到的原生 Windows 弹窗，或已运行但未开放 CDP 的实例；它不是这份指南的默认 UI 测试入口。测试网关是另一条 **API / wire** 入口，不等同于 CDP，也不能代替真实界面的可见状态验证。
 
@@ -28,10 +30,14 @@
 
 ```powershell
 Set-Location '<测试仓库路径>'
-Test-Path -LiteralPath '.\package.json'
+Test-Path -LiteralPath '.\tools\ui-operations\package.json'
 node --version
 npm.cmd --version
-npm.cmd ci
+# 使用本仓库的软件UI操作工具时，在仓库根目录执行：
+if (Test-Path -LiteralPath '.\tools\ui-operations\package.json') {
+  npm.cmd ci --prefix '.\tools\ui-operations'
+}
+# 使用独立配套测试工程时，另按该工程的package.json安装依赖。
 ```
 
 优先使用操作者提供的安装路径。如果没有提供，可先检查当前用户的常见安装位置；仍找不到就请操作者给出路径，不要对整个磁盘盲目搜索：
@@ -174,13 +180,15 @@ if (loginVisible) {
 
 如果某一步失败、出现意外弹窗或结果不确定，立即结束这一组并重新观察；不要继续后续动作或整组重试，以免重复提交。已建立明确页面契约、等待条件和结果断言的回归用例可以跨页面连续运行；首次探索未知界面时按上述状态边界分组。
 
-聊天每轮都要核对用户消息、助手回复以及“进行中/探索中...”状态已结束，才发下一轮。仓库已有 `scripts/ui-manual-turn.mjs` 可作逐轮探索辅助；它默认连接 9234，也可用 `TPT_CDP_URL` 指定别的端口。此脚本只是辅助观察，正式 case 仍要检查业务闭环。
+聊天每轮都要核对用户消息、助手回复以及“进行中/探索中...”状态已结束，才发下一轮。本仓库使用 `conversation.sendMessage/readTaskState` 等业务函数，端口来自本轮环境。原配套工程的 `scripts/ui-manual-turn.mjs` 不在本目录，不能假定它可执行。正式case仍要检查业务闭环。
 
 比较模型或推理等级时，每个组合使用独立新会话，避免前一组合的上下文影响结果。若某轮出现提供方或网关错误，不要在原会话直接切换模型后把下一条回复当成独立验证：本机探索中，失败消息之后切换配置，后续回复仍混入此前失败请求的标记。先保存失败证据，再在新会话重测。
 
-探索过程中出现的用例外异常也要记录为缺陷候选。按“前置状态、操作、实际结果、合理预期、复现情况、证据”描述，不因它超出当前用例范围就略过；先区分已知配置限制与产品恢复行为，并排查自动化和环境问题。根因未明时记录现象，不猜测实现原因。示例见[自由探索缺陷原则](测试接入与执行指南.md#自由探索也要登记缺陷)。
+探索过程中出现的用例外异常也要记录为缺陷候选。按“前置状态、操作、实际结果、合理预期、复现情况、证据”描述，不因它超出当前用例范围就略过；先区分已知配置限制与产品恢复行为，并排查自动化和环境问题。根因未明时记录现象，不猜测实现原因。记录与审核按[测试技能](../skills/exploratory-testing/SKILL.md#记录与审核)执行。
 
 ### 2.5 运行 UI case
+
+下面是独立配套测试工程的命令，非本仓库根目录命令。当前任务优先按 tools/ui-operations 的工具调用与本轮结果契约执行；未携带对应package/scripts时不要运行下面示例。
 
 ```powershell
 # 保留第 1 层解析得到的 $env:TPT_EXE
@@ -229,7 +237,7 @@ Get-Process -Id $tptApiProcess.Id -ErrorAction SilentlyContinue |
 
 `/__verbs` 带正确 Bearer token 返回 200，才算网关就绪。无 token 返回 401 只能证明端口上有服务，不能证明鉴权和业务可用。若端口没有监听，检查上面的 stdout/stderr、进程是否退出、exe 是否支持本版本的 `--test`，并确认没有旧单实例抢占。不要把启动脚本的退出码 0 当作网关持续存活的证据。
 
-仓库也有 `node scripts/start-test-gateway.mjs <port> <token>` 启动辅助脚本。它在探测到 `/__verbs` 的 200 **或 401** 后打印 ready 并退出；使用它时仍必须单独执行上述带 token 的验证和进程检查。该脚本支持 `TPT_EXE`，默认路径只适用于原测试机器。
+原配套工程有 `node scripts/start-test-gateway.mjs <port> <token>` 启动辅助脚本，本目录未包含。原说明中它探测到 `/__verbs` 的 200 **或 401** 就打印 ready；即使另有该脚本，也必须单独执行带 token 的200验证和进程检查。默认路径只适用于原测试机器。
 
 ### 3.2 列接口、发一个只读 RPC
 
@@ -265,6 +273,8 @@ $response.result.ok
 流式接口走 `POST /.dsh/remote-stream`，body 形状为 `{"endpoint":"session/control","payload":{"args":{}}}`，响应是 NDJSON。验证真实帧、顺序、完成/关闭状态；只收到 HTTP 200 或第一帧，不足以证明业务完成。
 
 ### 3.3 运行 API case
+
+下面依赖独立配套API测试工程；本仓库未包含这些npm scripts。测试网关的启动与HTTP验证可按前文执行，业务case需按实际可用接口和本轮任务另行安排。
 
 测试进程与网关进程必须读取同一组地址和 token：
 
@@ -391,4 +401,4 @@ Get-CimInstance Win32_Process -Filter "ProcessId=$($tptApiProcess.Id)" |
 
 ## 可直接发给执行 Agent 的任务指令
 
-> 先读 `docs/portable-agent-exe-ui-api-guide.md`。在当前机器定位真实 `tpt-work.exe` 并设置 `TPT_EXE`；确认旧实例和端口归属。做 UI 时以 CDP 参数启动，验证 `/json/version`、renderer 和可见弹窗。同一稳定界面上已确认的操作可在一次 Playwright 调用中顺序执行；提交或页面状态变化后等待结果并重新观察，再决定下一组动作。做 API 时以 `--test --port --token` 启动隔离网关，用同一 token 验证 `/__verbs` 200，再调用当前注册的接口。单条 case 要有业务闭环和可读证据；失败先分类和保留现场。只清理本轮自己创建的数据与进程，并报告未完成项的具体阻塞。
+> 先读根AGENTS、本轮任务README与适用测试技能。已接入就查 tools/ui-operations/README.md，按case用 --plan 或 --find 找工具、--describe 查契约。未接入才按本指南确认真实exe、实例与CDP端口。通过现成业务函数执行，缺能力时保留任务函数；稳定操作可顺序合并，遇未知页面变化重新观察。API测试另用 --test 网关验证鉴权与接口。记录本轮真实动作、取值、恢复和剩余项；通过默认不截图，失败按需取图。持续完成已分配队列，不把checkpoint当暂停；只处理本轮已核实归属的进程和数据。

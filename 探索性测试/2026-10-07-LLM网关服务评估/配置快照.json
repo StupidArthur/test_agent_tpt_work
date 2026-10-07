@@ -1,0 +1,77 @@
+{
+  "_note": "本轮配置快照。字段可还原；不含任何真实 key（凭据一律走环境变量）。targets 中地址为历史/现行装配候选，可达性见 报告.md。",
+  "created": "2026-10-07",
+  "task": "2026-10-07-LLM网关服务评估",
+  "test_item": "04-测试项/saas-llm-test",
+  "protocol": "responses",
+  "targets": [
+    {
+      "name": "tpt-gateway-public",
+      "display_name": "TPT 公网网关(历史地址)",
+      "base_url": "https://tpt.supcon.com/tpt-work-router/v1",
+      "models_path": "/models",
+      "responses_path": "/responses",
+      "chat_path": "/chat/completions",
+      "api_key_env": "TPT_API_KEY",
+      "protocol": "responses",
+      "models": ["flash", "flash-backup-ds", "pro"],
+      "reasoning_efforts": [
+        {"id": "off", "wire": null},
+        {"id": "low", "wire": "low"},
+        {"id": "medium", "wire": "medium"},
+        {"id": "high", "wire": "high"}
+      ],
+      "supports": {"nonstream": true, "json_mode": false, "image": false, "chat": false},
+      "_reachable": "是（带历史 key 时 GET /models = 200；无 key = 401）。目录实际模型：flash(标准,is_default)、flash-backup-ds(标准,含image)、pro(高级,档位含xhigh)",
+      "_catalog_note": "模型列表来自本轮实测，未沿用历史 ds-flash 列表。"
+    },
+    {
+      "name": "tpt-gateway-fynode",
+      "display_name": "内网 fynode6",
+      "base_url": "http://fynode6.supcon5t.com:30880/v1",
+      "models_path": "/models",
+      "responses_path": "/responses",
+      "chat_path": "/chat/completions",
+      "api_key_env": "TPT_API_KEY",
+      "protocol": "responses",
+      "models": [],
+      "reasoning_efforts": [],
+      "supports": {},
+      "_reachable": "否（连接失败，见 运行日志）"
+    },
+    {
+      "name": "tpt-gateway-volc",
+      "display_name": "火山 NLB 内网",
+      "base_url": "http://nlb-2weu6cb4a97uoz9cqu39kvmj.nlb.cn-beijing.volces.com:30880/v1",
+      "models_path": "/models",
+      "responses_path": "/responses",
+      "chat_path": "/chat/completions",
+      "api_key_env": "TPT_API_KEY",
+      "protocol": "responses",
+      "models": [],
+      "reasoning_efforts": [],
+      "supports": {},
+      "_reachable": "否（连接失败，见 运行日志）"
+    }
+  ],
+  "run_options": {
+    "connect_timeout": 10.0,
+    "idle_timeout": 60.0,
+    "total_timeout": 180.0,
+    "samples": 30,
+    "warmup": 1,
+    "samples_long": 10,
+    "think_time": 5.0,
+    "min_seconds": 120.0,
+    "min_turns": 30,
+    "max_seconds": 600.0,
+    "users": [1, 5, 10, 20, 50, 100],
+    "burst_levels": [1, 5, 10, 20, 50, 100],
+    "arrival_rate": 1.0,
+    "duration": 120.0,
+    "max_in_flight": 10,
+    "queue_limit": 100,
+    "slo": {"success_rate": null, "turn_p95_s": null, "first_text_p95_s": null, "confirmed": false},
+    "_notes": "起步样本量/档位/窗口是设计默认，执行前需按已确认 SLO 与最大负载冻结；SLO 未确认只出测量。"
+  }
+}

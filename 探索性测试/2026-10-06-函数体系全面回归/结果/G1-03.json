@@ -1,0 +1,37 @@
+{
+  "case_id": "G1-03",
+  "contract_version": "2.0",
+  "environment_id": "agent-oc-20261006-funcfull-01",
+  "attempt_id": "G1-03-A01",
+  "object_identity": "session-9c8be6fd-0bb0-4054-bb33-e5ae4667964f",
+  "inputs": [
+    "选择已有项目 tpt-workspace (D:/code/tpt-workspace)"
+  ],
+  "business_call_refs": [
+    "CALL-e022d95c-14b8-42e2-b50b-144a4bbcd21f"
+  ],
+  "status": "通过",
+  "attempted_at": "2026-10-06T16:01:43.910Z",
+  "assertions": [
+    {
+      "id": "G1-03-A1",
+      "expected": "tpt-workspace",
+      "actual": "tpt-workspace",
+      "pass": true,
+      "read_refs": [
+        "CALL-e022d95c-14b8-42e2-b50b-144a4bbcd21f-5"
+      ],
+      "raw": {
+        "text": "tpt-workspace"
+      },
+      "binding": "expected 绑定本轮已有项目名（case 中为 $project）"
+    }
+  ],
+  "restore": {
+    "status": "unchanged",
+    "description": "本case未改动设置/文件",
+    "read_refs": []
+  },
+  "residual": "",
+  "notes": "项目来自已有项目列表（菜单 menuitem 精确匹配），未新增项目。"
+}

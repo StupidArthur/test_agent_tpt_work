@@ -1,0 +1,35 @@
+{
+  "call_id": "CALL-c2952d63-d976-40ff-90db-e53aeb44642c",
+  "status": "returned",
+  "observations": {
+    "action_refs": [
+      "CALL-c2952d63-d976-40ff-90db-e53aeb44642c-2"
+    ],
+    "observations": {
+      "feedback": {
+        "event_id": "CALL-c2952d63-d976-40ff-90db-e53aeb44642c-3",
+        "captured_at": "2026-10-06T17:01:47.557Z",
+        "environment_id": "agent-oc-20261006-funcfull-01",
+        "business_call_id": "CALL-c2952d63-d976-40ff-90db-e53aeb44642c",
+        "kind": "read",
+        "target": "坏JSON校验提示",
+        "object_id": "expert-validation-feedback",
+        "source": {
+          "channel": "dom",
+          "scope": "专家页/本轮卡片或提示",
+          "locator": "section, [role=\"alert\"], [class*=\"toast\"]"
+        },
+        "value": false,
+        "raw": {
+          "alerts": [
+            "全部来源",
+            "全部运行位置",
+            "回归验证"
+          ],
+          "bodyHead": "专家 管理你的本地与云端专家 把专业方法，封装成随时可调用的工业专家 围绕工艺、设备、安全、能源与质量问题，按任务自动组织数据、知识、模型和验证步骤。 我的专家 30 专家市场 3 导入专家 新建专家 全部来源 全部运行位置 本地已就绪 30 个专家，可在对话中直接调用 本轮扩展专家-longread FAST_EXPERT_DESCRIPTION_INITIAL 回归验证 来源 我创建的 · 本地运行 v1.2.3 使用"
+        },
+        "derivation": "提示含格式/校验错误"
+      }
+    }
+  }
+}

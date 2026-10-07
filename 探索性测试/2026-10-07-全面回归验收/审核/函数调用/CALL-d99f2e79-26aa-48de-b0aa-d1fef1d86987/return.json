@@ -1,0 +1,40 @@
+{
+  "call_id": "CALL-d99f2e79-26aa-48de-b0aa-d1fef1d86987",
+  "status": "returned",
+  "observations": {
+    "action_refs": [
+      "CALL-d99f2e79-26aa-48de-b0aa-d1fef1d86987-2"
+    ],
+    "observations": {
+      "menu": {
+        "event_id": "CALL-d99f2e79-26aa-48de-b0aa-d1fef1d86987-3",
+        "captured_at": "2026-10-07T00:39:18.056Z",
+        "environment_id": "acceptance-20261007",
+        "business_call_id": "CALL-d99f2e79-26aa-48de-b0aa-d1fef1d86987",
+        "kind": "read",
+        "target": "composer 菜单项",
+        "object_id": "composer-menu",
+        "source": {
+          "channel": "dom",
+          "scope": "composer 弹出菜单",
+          "locator": "[class*=\"menu\"],[class*=\"Menu\"],[role=\"menu\"]"
+        },
+        "value": true,
+        "raw": {
+          "items": [
+            "添加本地文件",
+            "从我的资料库添加",
+            "连接器",
+            "技能",
+            "专家",
+            "模式"
+          ],
+          "kind": "add",
+          "text": "添加本地文件\n从我的资料库添加\n连接器\n技能\n专家\n模式",
+          "wantPattern": "专家|Agent"
+        },
+        "derivation": "限定composer菜单的选项/分组标签匹配 /专家|Agent/"
+      }
+    }
+  }
+}

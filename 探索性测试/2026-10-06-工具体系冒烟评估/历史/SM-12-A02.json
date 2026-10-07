@@ -1,0 +1,96 @@
+{
+  "case_id": "SM-12",
+  "started_at": "2026-10-06T14:28:59.613Z",
+  "ended_at": "2026-10-06T14:29:22.914Z",
+  "status": "通过",
+  "assertions": [
+    {
+      "id": "SM-12-A1",
+      "actual": false,
+      "expected": false,
+      "pass": true,
+      "read_refs": [
+        "CALL-080d6f3c-5f43-42fe-8311-1e372c12603c-8"
+      ]
+    },
+    {
+      "id": "SM-12-A2",
+      "actual": "跟随系统",
+      "expected": "跟随系统",
+      "pass": true,
+      "read_refs": [
+        "CALL-03ed29d3-0a83-4a54-8e76-a0945f71841a-1"
+      ]
+    },
+    {
+      "id": "SM-12-A3",
+      "actual": true,
+      "expected": true,
+      "pass": true,
+      "read_refs": [
+        "CALL-6fe53236-db89-44af-b26a-f32d0c8cd987-2",
+        "CALL-c81c8eca-8198-4ae2-8303-7ea525e42d8c-1",
+        "CALL-ae7e3715-8756-4dde-90fe-23684559bb01-1"
+      ]
+    }
+  ],
+  "business_call_refs": [
+    "CALL-f12f31dc-a8b8-41ce-a5ce-82e529e34021",
+    "CALL-c9717220-b4cc-457b-9316-0dac81e5add9",
+    "CALL-15da366a-84d0-481b-aec8-371b76892dc0",
+    "CALL-7a940a86-d36f-4b8e-b298-725a2171d892",
+    "CALL-080d6f3c-5f43-42fe-8311-1e372c12603c",
+    "CALL-45f4982f-d757-427c-83d2-bb0f22b4fb1f",
+    "CALL-589302db-e2d4-4a87-b658-80449b14bc20",
+    "CALL-03ed29d3-0a83-4a54-8e76-a0945f71841a",
+    "CALL-ce0241f4-7385-4d8d-8183-086b512276ae",
+    "CALL-8fdaf058-b68f-430a-a81d-d5d6e06ac1ab",
+    "CALL-b87a0a9c-45bb-4001-93a8-eca89b56c6d5",
+    "CALL-c81c8eca-8198-4ae2-8303-7ea525e42d8c",
+    "CALL-6fe53236-db89-44af-b26a-f32d0c8cd987",
+    "CALL-ae7e3715-8756-4dde-90fe-23684559bb01"
+  ],
+  "tool_discovery": {
+    "feature_path": [
+      "收尾",
+      "恢复核验"
+    ],
+    "plan_functions": [
+      "skills.setSkillEnabled",
+      "settings.readGeneral",
+      "attachments.readDraftState",
+      "conversation.clearDraft",
+      "conversation.closeDialogs",
+      "conversation.readDialogs"
+    ],
+    "used": [
+      "skills.setSkillEnabled",
+      "smoke.skills.closeSkills",
+      "smoke.skills.openSkills",
+      "skills.readSkillCard",
+      "smoke.navigation.closeSidebarPanels",
+      "settings.setTheme",
+      "settings.readGeneral",
+      "conversation.newTask",
+      "conversation.clearDraft",
+      "conversation.closeDialogs",
+      "conversation.readDialogs",
+      "attachments.readDraftState",
+      "conversation.readComposer"
+    ],
+    "additional_functions": [
+      "smoke.skills.closeSkills",
+      "smoke.skills.openSkills",
+      "skills.readSkillCard",
+      "smoke.navigation.closeSidebarPanels",
+      "settings.setTheme",
+      "conversation.newTask",
+      "conversation.readComposer"
+    ],
+    "all_product_operations_via_functions": true
+  },
+  "attempt": "A02",
+  "supersedes": "历史/SM-12-A01.json",
+  "retest_reason": "修正路径、项目控件状态、快捷键实际标签及会话绑定，复测受影响项",
+  "error": null
+}

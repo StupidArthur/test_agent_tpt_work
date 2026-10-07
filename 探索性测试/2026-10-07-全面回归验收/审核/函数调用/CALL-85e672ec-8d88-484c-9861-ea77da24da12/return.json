@@ -1,0 +1,49 @@
+{
+  "call_id": "CALL-85e672ec-8d88-484c-9861-ea77da24da12",
+  "status": "returned",
+  "observations": {
+    "observations": {
+      "exists": {
+        "event_id": "CALL-85e672ec-8d88-484c-9861-ea77da24da12-1",
+        "captured_at": "2026-10-07T00:15:35.647Z",
+        "environment_id": "acceptance-20261007",
+        "business_call_id": "CALL-85e672ec-8d88-484c-9861-ea77da24da12",
+        "kind": "read",
+        "target": "附件清空入口存在",
+        "object_id": "composer-attachment-clear-entry",
+        "source": {
+          "channel": "dom",
+          "scope": "composer 附件区",
+          "locator": "[data-slot=\"conversation.input.attachments\"]"
+        },
+        "value": false,
+        "raw": {
+          "buttonLabels": [
+            "移除文件 attachment-a.txt",
+            "移除文件 attachment-b.txt",
+            "移除文件 attachment-c.md"
+          ]
+        },
+        "derivation": "/清空|全部移除|清除全部/.test(labels)"
+      },
+      "count": {
+        "event_id": "CALL-85e672ec-8d88-484c-9861-ea77da24da12-2",
+        "captured_at": "2026-10-07T00:15:35.650Z",
+        "environment_id": "acceptance-20261007",
+        "business_call_id": "CALL-85e672ec-8d88-484c-9861-ea77da24da12",
+        "kind": "read",
+        "target": "草稿附件数",
+        "object_id": "composer-attachment-count",
+        "source": {
+          "channel": "dom",
+          "scope": "composer 附件区",
+          "locator": "[data-slot=\"conversation.input.attachments\"] [class*=\"name\"]"
+        },
+        "value": 3,
+        "raw": {
+          "count": 3
+        }
+      }
+    }
+  }
+}

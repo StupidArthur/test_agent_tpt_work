@@ -1,0 +1,165 @@
+{
+  "call_id": "CALL-bd647538-4f16-41d5-b3cf-fd2b21557e86",
+  "status": "returned",
+  "observations": {
+    "observations": {
+      "title": {
+        "event_id": "CALL-bd647538-4f16-41d5-b3cf-fd2b21557e86-1",
+        "captured_at": "2026-10-06T16:32:53.013Z",
+        "environment_id": "agent-oc-20261006-funcfull-01",
+        "business_call_id": "CALL-bd647538-4f16-41d5-b3cf-fd2b21557e86",
+        "kind": "read",
+        "target": "本轮技能标题",
+        "object_id": "skill-card-title",
+        "source": {
+          "channel": "dom",
+          "scope": "技能页/我的技能卡片",
+          "locator": ".card-title h3"
+        },
+        "value": "Fast English Fallback",
+        "raw": {
+          "title": "Fast English Fallback"
+        }
+      },
+      "meta": {
+        "event_id": "CALL-bd647538-4f16-41d5-b3cf-fd2b21557e86-2",
+        "captured_at": "2026-10-06T16:32:53.015Z",
+        "environment_id": "agent-oc-20261006-funcfull-01",
+        "business_call_id": "CALL-bd647538-4f16-41d5-b3cf-fd2b21557e86",
+        "kind": "read",
+        "target": "本轮技能来源与版本",
+        "object_id": "skill-card-meta",
+        "source": {
+          "channel": "dom",
+          "scope": "技能页/我的技能卡片",
+          "locator": "section.panel [data-slot=\"card\"]"
+        },
+        "value": {
+          "source": "用户创建",
+          "version": null
+        },
+        "raw": {
+          "text": "Fast English Fallback FAST_DESCRIPTION_BASE 来源 用户创建 快捷使用",
+          "source": "用户创建",
+          "version": null
+        }
+      },
+      "source": {
+        "event_id": "CALL-bd647538-4f16-41d5-b3cf-fd2b21557e86-4",
+        "captured_at": "2026-10-06T16:32:53.019Z",
+        "environment_id": "agent-oc-20261006-funcfull-01",
+        "business_call_id": "CALL-bd647538-4f16-41d5-b3cf-fd2b21557e86",
+        "kind": "read",
+        "target": "本轮技能来源",
+        "object_id": "skill-card-source",
+        "source": {
+          "channel": "dom",
+          "scope": "技能页/我的技能卡片",
+          "locator": "section.panel [data-slot=\"card\"]"
+        },
+        "value": "用户创建",
+        "raw": {
+          "text": "Fast English Fallback FAST_DESCRIPTION_BASE 来源 用户创建 快捷使用",
+          "source": "用户创建"
+        }
+      },
+      "version": {
+        "event_id": "CALL-bd647538-4f16-41d5-b3cf-fd2b21557e86-7",
+        "captured_at": "2026-10-06T16:32:53.024Z",
+        "environment_id": "agent-oc-20261006-funcfull-01",
+        "business_call_id": "CALL-bd647538-4f16-41d5-b3cf-fd2b21557e86",
+        "kind": "read",
+        "target": "本轮技能版本",
+        "object_id": "skill-card-version",
+        "source": {
+          "channel": "dom",
+          "scope": "技能页/我的技能卡片",
+          "locator": "section.panel [data-slot=\"card\"]"
+        },
+        "value": null,
+        "raw": {
+          "text": "Fast English Fallback FAST_DESCRIPTION_BASE 来源 用户创建 快捷使用",
+          "version": null
+        }
+      },
+      "description": {
+        "event_id": "CALL-bd647538-4f16-41d5-b3cf-fd2b21557e86-3",
+        "captured_at": "2026-10-06T16:32:53.017Z",
+        "environment_id": "agent-oc-20261006-funcfull-01",
+        "business_call_id": "CALL-bd647538-4f16-41d5-b3cf-fd2b21557e86",
+        "kind": "read",
+        "target": "本轮样本描述",
+        "object_id": "skill-card-description",
+        "source": {
+          "channel": "dom",
+          "scope": "技能页/我的技能卡片",
+          "locator": "section.panel [data-slot=\"card\"]"
+        },
+        "value": "FAST_DESCRIPTION_BASE",
+        "raw": {
+          "text": "Fast English Fallback FAST_DESCRIPTION_BASE 来源 用户创建 快捷使用",
+          "desc": "FAST_DESCRIPTION_BASE"
+        }
+      },
+      "switch": {
+        "event_id": "CALL-bd647538-4f16-41d5-b3cf-fd2b21557e86-8",
+        "captured_at": "2026-10-06T16:32:53.025Z",
+        "environment_id": "agent-oc-20261006-funcfull-01",
+        "business_call_id": "CALL-bd647538-4f16-41d5-b3cf-fd2b21557e86",
+        "kind": "read",
+        "target": "本轮技能开关",
+        "object_id": "skill-card-switch",
+        "source": {
+          "channel": "dom",
+          "scope": "技能页/我的技能卡片",
+          "locator": "[role=\"switch\"]"
+        },
+        "value": true,
+        "raw": {
+          "aria_checked": "true"
+        },
+        "derivation": "aria_checked === 'true'"
+      },
+      "market": {
+        "event_id": "CALL-bd647538-4f16-41d5-b3cf-fd2b21557e86-5",
+        "captured_at": "2026-10-06T16:32:53.021Z",
+        "environment_id": "agent-oc-20261006-funcfull-01",
+        "business_call_id": "CALL-bd647538-4f16-41d5-b3cf-fd2b21557e86",
+        "kind": "read",
+        "target": "对象市场关联",
+        "object_id": "skill-card-market",
+        "source": {
+          "channel": "dom",
+          "scope": "技能页/我的技能卡片",
+          "locator": "section.panel [data-slot=\"card\"]"
+        },
+        "value": false,
+        "raw": {
+          "source": "用户创建",
+          "text": "Fast English Fallback FAST_DESCRIPTION_BASE 来源 用户创建 快捷使用"
+        },
+        "derivation": "来源含市场/公共 Agent 标记"
+      },
+      "localTag": {
+        "event_id": "CALL-bd647538-4f16-41d5-b3cf-fd2b21557e86-6",
+        "captured_at": "2026-10-06T16:32:53.022Z",
+        "environment_id": "agent-oc-20261006-funcfull-01",
+        "business_call_id": "CALL-bd647538-4f16-41d5-b3cf-fd2b21557e86",
+        "kind": "read",
+        "target": "卡片本地修改标签",
+        "object_id": "skill-card-local-tag",
+        "source": {
+          "channel": "dom",
+          "scope": "技能页/我的技能卡片",
+          "locator": "section.panel [data-slot=\"card\"]"
+        },
+        "value": false,
+        "raw": {
+          "text": "Fast English Fallback FAST_DESCRIPTION_BASE 来源 用户创建 快捷使用"
+        },
+        "derivation": "卡片标签含本地修改"
+      }
+    },
+    "switch_read_ref": "CALL-bd647538-4f16-41d5-b3cf-fd2b21557e86-8"
+  }
+}

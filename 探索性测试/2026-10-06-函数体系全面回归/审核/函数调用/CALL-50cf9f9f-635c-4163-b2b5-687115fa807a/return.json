@@ -1,0 +1,49 @@
+{
+  "call_id": "CALL-50cf9f9f-635c-4163-b2b5-687115fa807a",
+  "status": "returned",
+  "observations": {
+    "action_refs": [
+      "CALL-50cf9f9f-635c-4163-b2b5-687115fa807a-3"
+    ],
+    "observations": {
+      "before": {
+        "event_id": "CALL-50cf9f9f-635c-4163-b2b5-687115fa807a-1",
+        "captured_at": "2026-10-06T17:06:33.197Z",
+        "environment_id": "agent-oc-20261006-funcfull-01",
+        "business_call_id": "CALL-50cf9f9f-635c-4163-b2b5-687115fa807a",
+        "kind": "read",
+        "target": "设置行开关(改前)",
+        "object_id": "settings-row-toggle",
+        "source": {
+          "channel": "dom",
+          "scope": "设置/记忆与进化/启用沉淀",
+          "locator": "[data-shortcut-modal=\"settings\"] [role=\"switch\"], [data-shortcut-modal=\"settings\"] input[type=\"checkbox\"]"
+        },
+        "value": true,
+        "raw": {
+          "value": true,
+          "label": "启用沉淀"
+        }
+      },
+      "after": {
+        "event_id": "CALL-50cf9f9f-635c-4163-b2b5-687115fa807a-4",
+        "captured_at": "2026-10-06T17:06:34.442Z",
+        "environment_id": "agent-oc-20261006-funcfull-01",
+        "business_call_id": "CALL-50cf9f9f-635c-4163-b2b5-687115fa807a",
+        "kind": "read",
+        "target": "设置行开关(改后)",
+        "object_id": "settings-row-toggle",
+        "source": {
+          "channel": "dom",
+          "scope": "设置/记忆与进化/启用沉淀",
+          "locator": "[data-shortcut-modal=\"settings\"] [role=\"switch\"], [data-shortcut-modal=\"settings\"] input[type=\"checkbox\"]"
+        },
+        "value": true,
+        "raw": {
+          "value": true,
+          "label": "启用沉淀"
+        }
+      }
+    }
+  }
+}

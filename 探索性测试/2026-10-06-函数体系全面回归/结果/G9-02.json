@@ -1,0 +1,34 @@
+{
+  "case_id": "G9-02",
+  "contract_version": "2.0",
+  "environment_id": "agent-oc-20261006-funcfull-01",
+  "attempt_id": "G9-02-A01",
+  "object_identity": "fast-assert-cn-en-agent-oc-20261006-funcfull-01",
+  "inputs": [
+    "导入 variants/cn-en/SKILL.md"
+  ],
+  "business_call_refs": [
+    "CALL-0995d919-0ea9-4023-84d3-fd1fc1d2b98b",
+    "CALL-bd647538-4f16-41d5-b3cf-fd2b21557e86"
+  ],
+  "status": "通过",
+  "attempted_at": "2026-10-06T16:32:53.013Z",
+  "assertions": [
+    {
+      "id": "G9-02-A1",
+      "expected": "Fast English Fallback",
+      "actual": "Fast English Fallback",
+      "pass": true,
+      "read_refs": [
+        "CALL-bd647538-4f16-41d5-b3cf-fd2b21557e86-1"
+      ]
+    }
+  ],
+  "restore": {
+    "status": "unchanged",
+    "description": "本case未改动设置/文件",
+    "read_refs": []
+  },
+  "residual": "",
+  "notes": "无 name_cn 时回退 name_en。"
+}

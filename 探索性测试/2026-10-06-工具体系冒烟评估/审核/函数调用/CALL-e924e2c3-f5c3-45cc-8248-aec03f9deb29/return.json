@@ -1,0 +1,165 @@
+{
+  "call_id": "CALL-e924e2c3-f5c3-45cc-8248-aec03f9deb29",
+  "status": "returned",
+  "observations": {
+    "observations": {
+      "title": {
+        "event_id": "CALL-e924e2c3-f5c3-45cc-8248-aec03f9deb29-1",
+        "captured_at": "2026-10-06T14:27:59.187Z",
+        "environment_id": "env-tool-smoke-eval1",
+        "business_call_id": "CALL-e924e2c3-f5c3-45cc-8248-aec03f9deb29",
+        "kind": "read",
+        "target": "本轮技能标题",
+        "object_id": "skill-card-title",
+        "source": {
+          "channel": "dom",
+          "scope": "技能页/我的技能卡片",
+          "locator": ".card-title h3"
+        },
+        "value": "本轮快速回归技能",
+        "raw": {
+          "title": "本轮快速回归技能"
+        }
+      },
+      "meta": {
+        "event_id": "CALL-e924e2c3-f5c3-45cc-8248-aec03f9deb29-2",
+        "captured_at": "2026-10-06T14:27:59.189Z",
+        "environment_id": "env-tool-smoke-eval1",
+        "business_call_id": "CALL-e924e2c3-f5c3-45cc-8248-aec03f9deb29",
+        "kind": "read",
+        "target": "本轮技能来源与版本",
+        "object_id": "skill-card-meta",
+        "source": {
+          "channel": "dom",
+          "scope": "技能页/我的技能卡片",
+          "locator": "section.panel [data-slot=\"card\"]"
+        },
+        "value": {
+          "source": "用户创建",
+          "version": "1.2.3"
+        },
+        "raw": {
+          "text": "本轮快速回归技能 A harmless fixture for regression-description-unique-token search and fixed reply verification. 来源 用户创建 v1.2.3 快捷使用",
+          "source": "用户创建",
+          "version": "1.2.3"
+        }
+      },
+      "source": {
+        "event_id": "CALL-e924e2c3-f5c3-45cc-8248-aec03f9deb29-4",
+        "captured_at": "2026-10-06T14:27:59.193Z",
+        "environment_id": "env-tool-smoke-eval1",
+        "business_call_id": "CALL-e924e2c3-f5c3-45cc-8248-aec03f9deb29",
+        "kind": "read",
+        "target": "本轮技能来源",
+        "object_id": "skill-card-source",
+        "source": {
+          "channel": "dom",
+          "scope": "技能页/我的技能卡片",
+          "locator": "section.panel [data-slot=\"card\"]"
+        },
+        "value": "用户创建",
+        "raw": {
+          "text": "本轮快速回归技能 A harmless fixture for regression-description-unique-token search and fixed reply verification. 来源 用户创建 v1.2.3 快捷使用",
+          "source": "用户创建"
+        }
+      },
+      "version": {
+        "event_id": "CALL-e924e2c3-f5c3-45cc-8248-aec03f9deb29-7",
+        "captured_at": "2026-10-06T14:27:59.197Z",
+        "environment_id": "env-tool-smoke-eval1",
+        "business_call_id": "CALL-e924e2c3-f5c3-45cc-8248-aec03f9deb29",
+        "kind": "read",
+        "target": "本轮技能版本",
+        "object_id": "skill-card-version",
+        "source": {
+          "channel": "dom",
+          "scope": "技能页/我的技能卡片",
+          "locator": "section.panel [data-slot=\"card\"]"
+        },
+        "value": "1.2.3",
+        "raw": {
+          "text": "本轮快速回归技能 A harmless fixture for regression-description-unique-token search and fixed reply verification. 来源 用户创建 v1.2.3 快捷使用",
+          "version": "1.2.3"
+        }
+      },
+      "description": {
+        "event_id": "CALL-e924e2c3-f5c3-45cc-8248-aec03f9deb29-3",
+        "captured_at": "2026-10-06T14:27:59.192Z",
+        "environment_id": "env-tool-smoke-eval1",
+        "business_call_id": "CALL-e924e2c3-f5c3-45cc-8248-aec03f9deb29",
+        "kind": "read",
+        "target": "本轮样本描述",
+        "object_id": "skill-card-description",
+        "source": {
+          "channel": "dom",
+          "scope": "技能页/我的技能卡片",
+          "locator": "section.panel [data-slot=\"card\"]"
+        },
+        "value": "A harmless fixture for regression-description-unique-token search and fixed reply verification.",
+        "raw": {
+          "text": "本轮快速回归技能 A harmless fixture for regression-description-unique-token search and fixed reply verification. 来源 用户创建 v1.2.3 快捷使用",
+          "desc": "A harmless fixture for regression-description-unique-token search and fixed reply verification."
+        }
+      },
+      "switch": {
+        "event_id": "CALL-e924e2c3-f5c3-45cc-8248-aec03f9deb29-8",
+        "captured_at": "2026-10-06T14:27:59.200Z",
+        "environment_id": "env-tool-smoke-eval1",
+        "business_call_id": "CALL-e924e2c3-f5c3-45cc-8248-aec03f9deb29",
+        "kind": "read",
+        "target": "本轮技能开关",
+        "object_id": "skill-card-switch",
+        "source": {
+          "channel": "dom",
+          "scope": "技能页/我的技能卡片",
+          "locator": "[role=\"switch\"]"
+        },
+        "value": true,
+        "raw": {
+          "aria_checked": "true"
+        },
+        "derivation": "aria_checked === 'true'"
+      },
+      "market": {
+        "event_id": "CALL-e924e2c3-f5c3-45cc-8248-aec03f9deb29-5",
+        "captured_at": "2026-10-06T14:27:59.195Z",
+        "environment_id": "env-tool-smoke-eval1",
+        "business_call_id": "CALL-e924e2c3-f5c3-45cc-8248-aec03f9deb29",
+        "kind": "read",
+        "target": "对象市场关联",
+        "object_id": "skill-card-market",
+        "source": {
+          "channel": "dom",
+          "scope": "技能页/我的技能卡片",
+          "locator": "section.panel [data-slot=\"card\"]"
+        },
+        "value": false,
+        "raw": {
+          "source": "用户创建",
+          "text": "本轮快速回归技能 A harmless fixture for regression-description-unique-token search and fixed reply verification. 来源 用户创建 v1.2.3 快捷使用"
+        },
+        "derivation": "来源含市场/公共 Agent 标记"
+      },
+      "localTag": {
+        "event_id": "CALL-e924e2c3-f5c3-45cc-8248-aec03f9deb29-6",
+        "captured_at": "2026-10-06T14:27:59.196Z",
+        "environment_id": "env-tool-smoke-eval1",
+        "business_call_id": "CALL-e924e2c3-f5c3-45cc-8248-aec03f9deb29",
+        "kind": "read",
+        "target": "卡片本地修改标签",
+        "object_id": "skill-card-local-tag",
+        "source": {
+          "channel": "dom",
+          "scope": "技能页/我的技能卡片",
+          "locator": "section.panel [data-slot=\"card\"]"
+        },
+        "value": false,
+        "raw": {
+          "text": "本轮快速回归技能 A harmless fixture for regression-description-unique-token search and fixed reply verification. 来源 用户创建 v1.2.3 快捷使用"
+        },
+        "derivation": "卡片标签含本地修改"
+      }
+    },
+    "switch_read_ref": "CALL-e924e2c3-f5c3-45cc-8248-aec03f9deb29-8"
+  }
+}

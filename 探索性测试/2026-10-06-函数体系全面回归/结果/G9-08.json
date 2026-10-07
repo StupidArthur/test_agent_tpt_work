@@ -1,0 +1,54 @@
+{
+  "case_id": "G9-08",
+  "contract_version": "2.0",
+  "environment_id": "agent-oc-20261006-funcfull-01",
+  "attempt_id": "G9-08-A01",
+  "object_identity": "fast-assert-missing-description-agent-oc-20261006-funcfull-01",
+  "inputs": [
+    "导入 variants/missing-description/SKILL.md"
+  ],
+  "business_call_refs": [
+    "CALL-0cca66b8-0a27-4b1b-96c0-9b54e250ff22",
+    "CALL-55a4e83e-c7ed-42b8-a3eb-cd856707a564",
+    "CALL-80bae85c-fb8c-4d23-b27d-a2aacadd7c09"
+  ],
+  "status": "失败",
+  "attempted_at": "2026-10-06T16:33:55.414Z",
+  "assertions": [
+    {
+      "id": "G9-08-A1",
+      "expected": true,
+      "actual": false,
+      "pass": false,
+      "read_refs": [
+        "CALL-55a4e83e-c7ed-42b8-a3eb-cd856707a564-5"
+      ],
+      "raw": {
+        "dialogCount": 0,
+        "text": null,
+        "field": "description"
+      },
+      "derivation": "弹窗已关闭，无拒绝反馈"
+    },
+    {
+      "id": "G9-08-A2",
+      "expected": "same_value",
+      "actual": {
+        "before": 79,
+        "after": 80
+      },
+      "pass": false,
+      "read_refs": [
+        "CALL-0cca66b8-0a27-4b1b-96c0-9b54e250ff22-1",
+        "CALL-80bae85c-fb8c-4d23-b27d-a2aacadd7c09-1"
+      ]
+    }
+  ],
+  "restore": {
+    "status": "unchanged",
+    "description": "本case未改动设置/文件",
+    "read_refs": []
+  },
+  "residual": "导入对象 fast-assert-missing-description-agent-oc-20261006-funcfull-01 保留待审",
+  "notes": "缺技术 description（仅有 description_cn）的样本被成功导入（身份集合 79→80），未按预期拒绝。登记候选问题。"
+}

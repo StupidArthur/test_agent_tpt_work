@@ -1,0 +1,59 @@
+{
+  "case_id": "G6-06",
+  "contract_version": "2.0",
+  "environment_id": "agent-oc-20261006-funcfull-01",
+  "attempt_id": "G6-06-A01",
+  "object_identity": "新空白任务权限标签",
+  "inputs": [
+    "newTask（改后）",
+    "setPermission 工作区内修改",
+    "newTask（恢复后）"
+  ],
+  "business_call_refs": [
+    "CALL-392d0fa6-b616-40e3-958d-b000318cf666",
+    "CALL-bf40e1ff-e955-493c-bcbc-b369f3cd20ab",
+    "CALL-d2769d66-d789-4803-9c0a-140eb2cddf29",
+    "CALL-7f6b7f89-89df-4744-97d0-5de8b3d645ae",
+    "CALL-77599841-b403-403e-a742-d52df7d1c1e1",
+    "CALL-807e9671-bfda-4ab6-9c4c-757f29568735",
+    "CALL-c3184c76-1762-4aef-9ee4-fb46f8d468aa"
+  ],
+  "status": "通过",
+  "attempted_at": "2026-10-06T16:22:39.098Z",
+  "assertions": [
+    {
+      "id": "G6-06-A1",
+      "expected": "仅可查看",
+      "actual": "仅可查看",
+      "pass": true,
+      "read_refs": [
+        "CALL-bf40e1ff-e955-493c-bcbc-b369f3cd20ab-1"
+      ]
+    },
+    {
+      "id": "G6-06-A2",
+      "expected": "工作区内修改",
+      "actual": "工作区内修改",
+      "pass": true,
+      "read_refs": [
+        "CALL-7f6b7f89-89df-4744-97d0-5de8b3d645ae-3"
+      ]
+    },
+    {
+      "id": "G6-06-A3",
+      "expected": "工作区内修改",
+      "actual": "工作区内修改",
+      "pass": true,
+      "read_refs": [
+        "CALL-c3184c76-1762-4aef-9ee4-fb46f8d468aa-1"
+      ]
+    }
+  ],
+  "restore": {
+    "status": "unchanged",
+    "description": "本case未改动设置/文件",
+    "read_refs": []
+  },
+  "residual": "权限已恢复初值 工作区内修改；新任务 session-e5b5ae4b 保留",
+  "notes": "工具注意：空白任务上再点“新建任务”不会产生新会话（session id 不变，权限标签仍为旧任务值），A3 先在当前任务发送一条消息使其非空，再 newTask 才得到真正新任务（session-2f41e0be→session-e5b5ae4b），读回恢复后的默认权限。"
+}

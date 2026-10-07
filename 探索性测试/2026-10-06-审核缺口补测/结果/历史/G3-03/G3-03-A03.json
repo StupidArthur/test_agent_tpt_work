@@ -1,0 +1,63 @@
+{
+  "case_id": "G3-03",
+  "contract_version": "retest-1.0",
+  "attempt_id": "G3-03-A03",
+  "environment_id": "env-20261006-agent2",
+  "object_identity": "fast-assert-skillc-20261006-agent2 + 调用session",
+  "inputs": [
+    "技能详情点击使用",
+    "请执行本技能的固定回复规则"
+  ],
+  "action_refs": [
+    "business-af76232a-3c8e-4c39-babb-8247b80e9531-2",
+    "business-af76232a-3c8e-4c39-babb-8247b80e9531-3"
+  ],
+  "status": "失败",
+  "started_at": "2026-10-06T10:06:59.633Z",
+  "ended_at": "2026-10-06T10:08:10.818Z",
+  "actual_steps": [
+    "新建空任务作为当前活动会话",
+    "在技能详情点击使用",
+    "读取composer技能chip内部name",
+    "发送无害请求并回读会话身份"
+  ],
+  "assertions": [
+    {
+      "id": "G3-03-A1",
+      "actual": "fast-assert-skillc-20261006-agent2",
+      "read_refs": [
+        "business-af76232a-3c8e-4c39-babb-8247b80e9531-4"
+      ]
+    },
+    {
+      "id": "G3-03-A2",
+      "actual": {
+        "before": "session-828f2cb4-a020-4a38-9191-b34d30b9642c",
+        "after": "session-828f2cb4-a020-4a38-9191-b34d30b9642c"
+      },
+      "read_refs": [
+        "business-af76232a-3c8e-4c39-babb-8247b80e9531-1",
+        "business-af76232a-3c8e-4c39-babb-8247b80e9531-5"
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "path": "运行日志/business.jsonl",
+      "sha256": "3a73914d4316507abaaecf65619c9e529b2b72788b6ac8381644850334ef973e"
+    },
+    {
+      "path": "运行日志/业务调用.jsonl",
+      "sha256": "85a2b7b4e7bbe2e1193d69b549996c53db0bae5b7ff44c9c09f60a1761ada8de"
+    }
+  ],
+  "cleanup": {
+    "status": "retained",
+    "description": "本轮会话与技能引用保留待审；技能随后停用",
+    "read_refs": []
+  },
+  "business_call_refs": [
+    "CALL-13192a93-3c59-4ac5-8e3f-5e93875a08de"
+  ],
+  "notes": "原问题：点击使用后又手动newTask并输入斜杠文本覆盖入口效果。本轮只点击使用并读取chip与session：chip=fast-assert-skillc-20261006-agent2(A1通过)；使用未新建会话，composer引用被加入当前任务，发送后会话身份仍为原会话(A2 different=false)。"
+}

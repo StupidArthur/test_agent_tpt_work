@@ -1,0 +1,111 @@
+{
+  "call_id": "CALL-bc4fae9f-9b00-403a-9f28-a20fd1b1126e",
+  "status": "returned",
+  "observations": {
+    "observations": {
+      "title": {
+        "event_id": "CALL-bc4fae9f-9b00-403a-9f28-a20fd1b1126e-1",
+        "captured_at": "2026-10-06T17:01:48.612Z",
+        "environment_id": "agent-oc-20261006-funcfull-01",
+        "business_call_id": "CALL-bc4fae9f-9b00-403a-9f28-a20fd1b1126e",
+        "kind": "read",
+        "target": "本轮专家标题",
+        "object_id": "expert-card-title",
+        "source": {
+          "channel": "dom",
+          "scope": "专家页/我的专家卡片",
+          "locator": "h3"
+        },
+        "value": "本轮扩展专家-longread",
+        "raw": {
+          "title": "本轮扩展专家-longread"
+        }
+      },
+      "meta": {
+        "event_id": "CALL-bc4fae9f-9b00-403a-9f28-a20fd1b1126e-2",
+        "captured_at": "2026-10-06T17:01:48.616Z",
+        "environment_id": "agent-oc-20261006-funcfull-01",
+        "business_call_id": "CALL-bc4fae9f-9b00-403a-9f28-a20fd1b1126e",
+        "kind": "read",
+        "target": "本轮专家名称与版本",
+        "object_id": "expert-card-meta",
+        "source": {
+          "channel": "dom",
+          "scope": "专家页/我的专家卡片",
+          "locator": "div[class*=\"_card_\"]"
+        },
+        "value": [
+          "本轮扩展专家-longread",
+          "1.2.3"
+        ],
+        "raw": {
+          "title": "本轮扩展专家-longread",
+          "version": "1.2.3",
+          "text": "本轮扩展专家-longread FAST_EXPERT_DESCRIPTION_INITIAL 回归验证 来源 我创建的 · 本地运行 v1.2.3 使用"
+        }
+      },
+      "fields": {
+        "event_id": "CALL-bc4fae9f-9b00-403a-9f28-a20fd1b1126e-3",
+        "captured_at": "2026-10-06T17:01:48.617Z",
+        "environment_id": "agent-oc-20261006-funcfull-01",
+        "business_call_id": "CALL-bc4fae9f-9b00-403a-9f28-a20fd1b1126e",
+        "kind": "read",
+        "target": "本轮专家来源与运行类型",
+        "object_id": "expert-card-fields",
+        "source": {
+          "channel": "dom",
+          "scope": "专家页/我的专家卡片",
+          "locator": "div[class*=\"_card_\"]"
+        },
+        "value": [
+          "我创建的",
+          "本地运行"
+        ],
+        "raw": {
+          "text": "本轮扩展专家-longread FAST_EXPERT_DESCRIPTION_INITIAL 回归验证 来源 我创建的 · 本地运行 v1.2.3 使用",
+          "source": "我创建的",
+          "location": "本地运行"
+        }
+      },
+      "description": {
+        "event_id": "CALL-bc4fae9f-9b00-403a-9f28-a20fd1b1126e-4",
+        "captured_at": "2026-10-06T17:01:48.621Z",
+        "environment_id": "agent-oc-20261006-funcfull-01",
+        "business_call_id": "CALL-bc4fae9f-9b00-403a-9f28-a20fd1b1126e",
+        "kind": "read",
+        "target": "本轮专家简介",
+        "object_id": "expert-card-description",
+        "source": {
+          "channel": "dom",
+          "scope": "专家页/我的专家卡片",
+          "locator": "div[class*=\"_card_\"]"
+        },
+        "value": "FAST_EXPERT_DESCRIPTION_INITIAL",
+        "raw": {
+          "text": "本轮扩展专家-longread FAST_EXPERT_DESCRIPTION_INITIAL 回归验证 来源 我创建的 · 本地运行 v1.2.3 使用",
+          "desc": "FAST_EXPERT_DESCRIPTION_INITIAL"
+        }
+      },
+      "exists": {
+        "event_id": "CALL-bc4fae9f-9b00-403a-9f28-a20fd1b1126e-5",
+        "captured_at": "2026-10-06T17:01:48.628Z",
+        "environment_id": "agent-oc-20261006-funcfull-01",
+        "business_call_id": "CALL-bc4fae9f-9b00-403a-9f28-a20fd1b1126e",
+        "kind": "read",
+        "target": "按内部name核对存在",
+        "object_id": "expert-card-internal",
+        "source": {
+          "channel": "dom",
+          "scope": "专家页/我的专家卡片",
+          "locator": "div[class*=\"_card_\"]"
+        },
+        "value": true,
+        "raw": {
+          "count": 1,
+          "internalNameInDom": true
+        },
+        "derivation": "count > 0"
+      }
+    }
+  }
+}

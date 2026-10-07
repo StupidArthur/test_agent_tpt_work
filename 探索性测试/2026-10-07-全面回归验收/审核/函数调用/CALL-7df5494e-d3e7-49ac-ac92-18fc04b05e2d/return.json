@@ -1,0 +1,43 @@
+{
+  "call_id": "CALL-7df5494e-d3e7-49ac-ac92-18fc04b05e2d",
+  "status": "returned",
+  "observations": {
+    "action_refs": [
+      "CALL-7df5494e-d3e7-49ac-ac92-18fc04b05e2d-3"
+    ],
+    "observations": {
+      "before": {
+        "event_id": "CALL-7df5494e-d3e7-49ac-ac92-18fc04b05e2d-1",
+        "captured_at": "2026-10-07T00:26:05.856Z",
+        "environment_id": "acceptance-20261007",
+        "business_call_id": "CALL-7df5494e-d3e7-49ac-ac92-18fc04b05e2d",
+        "kind": "read",
+        "target": "任务权限修改前",
+        "object_id": "task-permission",
+        "source": {
+          "channel": "dom",
+          "scope": "当前任务"
+        },
+        "value": "工作区内修改"
+      },
+      "after": {
+        "event_id": "CALL-7df5494e-d3e7-49ac-ac92-18fc04b05e2d-4",
+        "captured_at": "2026-10-07T00:26:06.197Z",
+        "environment_id": "acceptance-20261007",
+        "business_call_id": "CALL-7df5494e-d3e7-49ac-ac92-18fc04b05e2d",
+        "kind": "read",
+        "target": "任务权限修改后",
+        "object_id": "task-permission",
+        "source": {
+          "channel": "dom",
+          "scope": "当前任务"
+        },
+        "value": "完全权限",
+        "raw": {
+          "aria": "访问模式，当前：完全权限",
+          "session": "session-28d9592b-5652-4b2d-87f9-d18e15b27036"
+        }
+      }
+    }
+  }
+}

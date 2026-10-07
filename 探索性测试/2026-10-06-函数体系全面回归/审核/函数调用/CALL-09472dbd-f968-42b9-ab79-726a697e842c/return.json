@@ -1,0 +1,66 @@
+{
+  "call_id": "CALL-09472dbd-f968-42b9-ab79-726a697e842c",
+  "status": "returned",
+  "observations": {
+    "action_refs": [
+      "CALL-09472dbd-f968-42b9-ab79-726a697e842c-3",
+      "CALL-09472dbd-f968-42b9-ab79-726a697e842c-5"
+    ],
+    "observations": {
+      "sessionBefore": {
+        "event_id": "CALL-09472dbd-f968-42b9-ab79-726a697e842c-1",
+        "captured_at": "2026-10-06T16:50:33.193Z",
+        "environment_id": "agent-oc-20261006-funcfull-01",
+        "business_call_id": "CALL-09472dbd-f968-42b9-ab79-726a697e842c",
+        "kind": "read",
+        "target": "调用会话身份(前)",
+        "object_id": "session",
+        "source": {
+          "channel": "dom",
+          "scope": "主界面会话容器",
+          "locator": "[data-conversation-session]"
+        },
+        "value": "session-b60cf70d-258a-4fda-8f9c-6d462ec4791c",
+        "raw": {
+          "value": "session-b60cf70d-258a-4fda-8f9c-6d462ec4791c"
+        }
+      },
+      "sessionAfter": {
+        "event_id": "CALL-09472dbd-f968-42b9-ab79-726a697e842c-7",
+        "captured_at": "2026-10-06T16:50:41.308Z",
+        "environment_id": "agent-oc-20261006-funcfull-01",
+        "business_call_id": "CALL-09472dbd-f968-42b9-ab79-726a697e842c",
+        "kind": "read",
+        "target": "调用会话身份(后)",
+        "object_id": "session",
+        "source": {
+          "channel": "dom",
+          "scope": "主界面会话容器",
+          "locator": "[data-conversation-session]"
+        },
+        "value": "session-f5253e77-f818-4301-afa3-f73f82535933",
+        "raw": {
+          "value": "session-f5253e77-f818-4301-afa3-f73f82535933"
+        }
+      },
+      "reference": {
+        "event_id": "CALL-09472dbd-f968-42b9-ab79-726a697e842c-6",
+        "captured_at": "2026-10-06T16:50:41.306Z",
+        "environment_id": "agent-oc-20261006-funcfull-01",
+        "business_call_id": "CALL-09472dbd-f968-42b9-ab79-726a697e842c",
+        "kind": "read",
+        "target": "新会话技能引用",
+        "object_id": "composer-skill-reference",
+        "source": {
+          "channel": "dom",
+          "scope": "composer 输入区",
+          "locator": "div[contenteditable=\"true\"][aria-label*=\"/ 调用指令\"]"
+        },
+        "value": "fast-assert-rich-agent-oc-20261006-funcfull-01",
+        "raw": {
+          "composerText": "/fast-assert-rich-agent-oc-20261006-funcfull-01 "
+        }
+      }
+    }
+  }
+}

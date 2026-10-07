@@ -1,0 +1,39 @@
+{
+  "case_id": "G4-01",
+  "contract_version": "2.0",
+  "environment_id": "agent-oc-20261006-funcfull-01",
+  "attempt_id": "G4-01-A01",
+  "object_identity": "fast-assert-expert-agent-oc-20261006-funcfull-01",
+  "inputs": [
+    "打开导入专家弹窗读取目录 input"
+  ],
+  "business_call_refs": [
+    "CALL-0faf2f74-a8cc-4c29-b030-a7d27722f9fd"
+  ],
+  "status": "通过",
+  "attempted_at": "2026-10-06T16:13:04.166Z",
+  "assertions": [
+    {
+      "id": "G4-01-A1",
+      "expected": 0,
+      "actual": 1,
+      "pass": true,
+      "read_refs": [
+        "CALL-0faf2f74-a8cc-4c29-b030-a7d27722f9fd-3"
+      ],
+      "raw": {
+        "dirCount": 1,
+        "zipCount": 1,
+        "dialogText": "导入本地专家 × 选择或拖入专家压缩包 / 文件夹 ... 提交"
+      },
+      "derivation": "operator=greater_than, expected=0, actual=dirCount=1"
+    }
+  ],
+  "restore": {
+    "status": "unchanged",
+    "description": "本case未改动设置/文件",
+    "read_refs": []
+  },
+  "residual": "该调用读取后清理失败，弹窗由 conversation.closeDialogs 关闭（CALL-d898b999-6d92-42d3-95fb-989b30a8f7c1）",
+  "notes": "工具注意：experts.readImportDialog 读值成功（dirCount=1），但函数随后点击弹窗“取消”按钮超时——本版本弹窗无“取消”，只有“提交”和关闭“×”。读取事件有效，断言成立；登记为工具缺口候选。"
+}

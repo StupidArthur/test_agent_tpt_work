@@ -1,0 +1,53 @@
+{
+  "call_id": "CALL-bedf1cc7-34df-4518-984a-5361bf746982",
+  "status": "returned",
+  "observations": {
+    "action_refs": [
+      "CALL-bedf1cc7-34df-4518-984a-5361bf746982-2",
+      "CALL-bedf1cc7-34df-4518-984a-5361bf746982-4"
+    ],
+    "observations": {
+      "feedback": {
+        "event_id": "CALL-bedf1cc7-34df-4518-984a-5361bf746982-5",
+        "captured_at": "2026-10-06T16:35:24.952Z",
+        "environment_id": "agent-oc-20261006-funcfull-01",
+        "business_call_id": "CALL-bedf1cc7-34df-4518-984a-5361bf746982",
+        "kind": "read",
+        "target": "导入校验反馈",
+        "object_id": "skill-import-feedback",
+        "source": {
+          "channel": "dom",
+          "scope": "技能页/导入弹窗",
+          "locator": "[role=\"dialog\"]"
+        },
+        "value": null,
+        "raw": {
+          "dialogCount": 0,
+          "text": null,
+          "field": null
+        },
+        "derivation": "field=null 校验提示"
+      },
+      "card": {
+        "event_id": "CALL-bedf1cc7-34df-4518-984a-5361bf746982-6",
+        "captured_at": "2026-10-06T16:35:26.283Z",
+        "environment_id": "agent-oc-20261006-funcfull-01",
+        "business_call_id": "CALL-bedf1cc7-34df-4518-984a-5361bf746982",
+        "kind": "read",
+        "target": "本轮技能卡存在",
+        "object_id": "skill-card-present",
+        "source": {
+          "channel": "dom",
+          "scope": "技能页/我的技能卡片",
+          "locator": "section.panel [data-slot=\"card\"]"
+        },
+        "value": true,
+        "raw": {
+          "count": 1,
+          "visible": true
+        },
+        "derivation": "count>0 && visible"
+      }
+    }
+  }
+}

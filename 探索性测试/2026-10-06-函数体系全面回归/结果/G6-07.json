@@ -1,0 +1,42 @@
+{
+  "case_id": "G6-07",
+  "contract_version": "2.0",
+  "environment_id": "agent-oc-20261006-funcfull-01",
+  "attempt_id": "G6-07-A01",
+  "object_identity": "切PTC后的新任务场景",
+  "inputs": [
+    "setScene PTC 模式",
+    "newTask"
+  ],
+  "business_call_refs": [
+    "CALL-006131f2-a2e9-4906-8c8d-c6a948cb889a",
+    "CALL-54114423-a230-4ad5-aecc-52685b10de4f",
+    "CALL-259250d5-54b2-4b54-ae78-7dc6a60c4487",
+    "CALL-fc483e0b-3e45-4a8f-adac-a97aaff41d50"
+  ],
+  "status": "通过",
+  "attempted_at": "2026-10-06T16:24:17.019Z",
+  "assertions": [
+    {
+      "id": "G6-07-A1",
+      "expected": "PTC模式",
+      "actual": "PTC 模式",
+      "pass": true,
+      "read_refs": [
+        "CALL-fc483e0b-3e45-4a8f-adac-a97aaff41d50-2"
+      ],
+      "raw": {
+        "value": "PTC 模式",
+        "normalized": "PTC模式"
+      },
+      "derivation": "删除标签中全部空白字符后与 PTC模式 比较"
+    }
+  ],
+  "restore": {
+    "status": "unchanged",
+    "description": "本case未改动设置/文件",
+    "read_refs": []
+  },
+  "residual": "场景暂为 PTC 模式，G6-08 恢复",
+  "notes": "按本轮修订只规范化标签排版空白；业务期望仍为 PTC 模式。"
+}

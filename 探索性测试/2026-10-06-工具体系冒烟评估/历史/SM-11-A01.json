@@ -1,0 +1,54 @@
+{
+  "case_id": "SM-11",
+  "started_at": "2026-10-06T14:28:59.612Z",
+  "ended_at": "2026-10-06T14:28:59.612Z",
+  "status": "不确定",
+  "assertions": [
+    {
+      "id": "SM-11-A1",
+      "actual": null,
+      "expected": "$theme_changed",
+      "pass": false,
+      "reason": "args.sessionId must be string"
+    },
+    {
+      "id": "SM-11-A2",
+      "actual": null,
+      "expected": true,
+      "pass": false,
+      "reason": "args.sessionId must be string"
+    },
+    {
+      "id": "SM-11-A3",
+      "actual": null,
+      "expected": "$theme_initial",
+      "pass": false,
+      "reason": "args.sessionId must be string"
+    },
+    {
+      "id": "SM-11-A4",
+      "actual": null,
+      "expected": true,
+      "pass": false,
+      "reason": "args.sessionId must be string"
+    }
+  ],
+  "business_call_refs": [],
+  "tool_discovery": {
+    "feature_path": [
+      "设置",
+      "主题效果"
+    ],
+    "plan_functions": [
+      "conversation.openSession",
+      "settings.readGeneral",
+      "settings.closeSettings",
+      "settings.readConversationAppearance",
+      "settings.setTheme"
+    ],
+    "used": [],
+    "additional_functions": [],
+    "all_product_operations_via_functions": true
+  },
+  "error": "args.sessionId must be string"
+}

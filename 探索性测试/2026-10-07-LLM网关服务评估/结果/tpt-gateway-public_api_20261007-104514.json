@@ -1,0 +1,501 @@
+{
+  "run": {
+    "target": "tpt-gateway-public",
+    "module": "api",
+    "items": [
+      "API-01",
+      "API-02",
+      "API-03",
+      "API-04",
+      "API-05",
+      "API-06",
+      "API-07",
+      "API-08",
+      "API-09",
+      "API-10"
+    ],
+    "ts": "20261007-104514",
+    "est_requests": 54,
+    "seconds": 6.625,
+    "key_present": true,
+    "base_url": "https://tpt.supcon.com/tpt-work-router/v1"
+  },
+  "instances": [
+    {
+      "instance_id": "API-01/tpt-gateway-public/discovery",
+      "item": "API-01",
+      "status": "通过",
+      "assertions": [
+        {
+          "name": "http_200",
+          "expected": "200",
+          "actual": "200",
+          "satisfied": true
+        },
+        {
+          "name": "parsable_catalog",
+          "expected": "list non-empty",
+          "actual": "3 items",
+          "satisfied": true
+        },
+        {
+          "name": "ids_nonempty_str",
+          "expected": "True",
+          "actual": "True",
+          "satisfied": true
+        },
+        {
+          "name": "target_present:flash",
+          "expected": "True",
+          "actual": "True",
+          "satisfied": true
+        },
+        {
+          "name": "target_present:flash-backup-ds",
+          "expected": "True",
+          "actual": "True",
+          "satisfied": true
+        },
+        {
+          "name": "target_present:pro",
+          "expected": "True",
+          "actual": "True",
+          "satisfied": true
+        }
+      ],
+      "attempts": [],
+      "evidence": [
+        "api/API-01_tpt-gateway-public_models.json"
+      ],
+      "notes": [],
+      "metrics": {
+        "model_count": 3
+      },
+      "failure_attribution": null
+    },
+    {
+      "instance_id": "API-02/tpt-gateway-public/nonstream",
+      "item": "API-02",
+      "status": "通过",
+      "assertions": [
+        {
+          "name": "http_200",
+          "expected": "200",
+          "actual": "200",
+          "satisfied": true
+        },
+        {
+          "name": "body_is_mark",
+          "expected": "GW_CHECK_7c91",
+          "actual": "GW_CHECK_7c91",
+          "satisfied": true
+        },
+        {
+          "name": "finish_ok",
+          "expected": "stop/completed",
+          "actual": "completed",
+          "satisfied": true
+        }
+      ],
+      "attempts": [
+        {
+          "http_status": 200,
+          "error_kind": null,
+          "error": null,
+          "t_headers": 0.438,
+          "t_first_frame": null,
+          "t_end": 0.438,
+          "is_event_stream": false,
+          "terminal": "completed",
+          "text": "GW_CHECK_7c91",
+          "final_text": null,
+          "usage": {
+            "input_tokens": 35,
+            "input_tokens_details": {
+              "cached_tokens": 0,
+              "input_tokens_per_turn": [],
+              "cached_tokens_per_turn": []
+            },
+            "output_tokens": 14,
+            "output_tokens_details": {
+              "reasoning_tokens": 0,
+              "tool_output_tokens": 0,
+              "output_tokens_per_turn": [],
+              "tool_output_tokens_per_turn": []
+            },
+            "total_tokens": 49
+          }
+        }
+      ],
+      "evidence": [
+        "api/API-02_tpt-gateway-public/nonstream.json"
+      ],
+      "notes": [],
+      "metrics": {
+        "timings": {
+          "t_headers": 0.438,
+          "t_first_frame": null,
+          "t_first_text": null,
+          "t_end": 0.438
+        }
+      },
+      "failure_attribution": null
+    },
+    {
+      "instance_id": "API-03/tpt-gateway-public/stream",
+      "item": "API-03",
+      "status": "通过",
+      "assertions": [
+        {
+          "name": "http_200",
+          "expected": "200",
+          "actual": "200",
+          "satisfied": true
+        },
+        {
+          "name": "body_is_mark",
+          "expected": "GW_CHECK_7c91",
+          "actual": "GW_CHECK_7c91",
+          "satisfied": true
+        },
+        {
+          "name": "has_terminal",
+          "expected": "completed",
+          "actual": "completed",
+          "satisfied": true
+        }
+      ],
+      "attempts": [
+        {
+          "http_status": 200,
+          "error_kind": null,
+          "error": null,
+          "t_headers": 0.468,
+          "t_first_frame": 0.468,
+          "t_end": 0.468,
+          "is_event_stream": true,
+          "terminal": "completed",
+          "text": "GW_CHECK_7c91",
+          "final_text": "GW_CHECK_7c91",
+          "usage": {
+            "input_tokens": 35,
+            "input_tokens_details": {
+              "cached_tokens": 0,
+              "input_tokens_per_turn": [],
+              "cached_tokens_per_turn": []
+            },
+            "output_tokens": 14,
+            "output_tokens_details": {
+              "reasoning_tokens": 0,
+              "tool_output_tokens": 0,
+              "output_tokens_per_turn": [],
+              "tool_output_tokens_per_turn": []
+            },
+            "total_tokens": 49
+          }
+        }
+      ],
+      "evidence": [
+        "api/API-03_tpt-gateway-public/stream.json"
+      ],
+      "notes": [],
+      "metrics": {
+        "timings": {
+          "t_headers": 0.468,
+          "t_first_frame": 0.468,
+          "t_first_text": 0.468,
+          "t_end": 0.468
+        }
+      },
+      "failure_attribution": null
+    },
+    {
+      "instance_id": "API-04/tpt-gateway-public/context",
+      "item": "API-04",
+      "status": "失败",
+      "assertions": [
+        {
+          "name": "turn1_ok",
+          "expected": "True",
+          "actual": "200",
+          "satisfied": true
+        },
+        {
+          "name": "recall_marker",
+          "expected": "CTX_a68098",
+          "actual": "",
+          "satisfied": false
+        }
+      ],
+      "attempts": [],
+      "evidence": [
+        "api/API-04_tpt-gateway-public_turn1.json",
+        "api/API-04_tpt-gateway-public_turn2.json"
+      ],
+      "notes": [],
+      "metrics": {},
+      "failure_attribution": null
+    },
+    {
+      "instance_id": "API-05/tpt-gateway-public/tool",
+      "item": "API-05",
+      "status": "通过",
+      "assertions": [
+        {
+          "name": "tool_name",
+          "expected": "add_numbers",
+          "actual": "add_numbers",
+          "satisfied": true
+        },
+        {
+          "name": "call_id_nonempty",
+          "expected": "True",
+          "actual": "chatcmpl-tool-a0a74e4a88bc4b72",
+          "satisfied": true
+        },
+        {
+          "name": "params_correct",
+          "expected": "{\"a\":17,\"b\":25}",
+          "actual": "{\"a\": 17, \"b\": 25}",
+          "satisfied": true
+        },
+        {
+          "name": "final_body_42",
+          "expected": "42",
+          "actual": "调用 `add_numbers` 的结果是 **42**（17 + 25 = 4",
+          "satisfied": true
+        }
+      ],
+      "attempts": [],
+      "evidence": [
+        "api/API-05_tpt-gateway-public_turn1.json",
+        "api/API-05_tpt-gateway-public_turn2.json"
+      ],
+      "notes": [],
+      "metrics": {},
+      "failure_attribution": null
+    },
+    {
+      "instance_id": "API-06/tpt-gateway-public/tool",
+      "item": "API-06",
+      "status": "通过",
+      "assertions": [
+        {
+          "name": "tool_name",
+          "expected": "add_numbers",
+          "actual": "add_numbers",
+          "satisfied": true
+        },
+        {
+          "name": "call_id_nonempty",
+          "expected": "True",
+          "actual": "call_89fdb25c304f84f6",
+          "satisfied": true
+        },
+        {
+          "name": "params_correct",
+          "expected": "{\"a\":17,\"b\":25}",
+          "actual": "{\"a\": 17, \"b\": 25}",
+          "satisfied": true
+        },
+        {
+          "name": "final_body_42",
+          "expected": "42",
+          "actual": "计算结果为 42。",
+          "satisfied": true
+        },
+        {
+          "name": "delta_matches_final",
+          "expected": "True",
+          "actual": "True",
+          "satisfied": true
+        }
+      ],
+      "attempts": [],
+      "evidence": [
+        "api/API-06_tpt-gateway-public_turn1.json",
+        "api/API-06_tpt-gateway-public_turn2.json"
+      ],
+      "notes": [],
+      "metrics": {},
+      "failure_attribution": null
+    },
+    {
+      "instance_id": "API-07/tpt-gateway-public/auth",
+      "item": "API-07",
+      "status": "通过",
+      "assertions": [
+        {
+          "name": "no_key_rejected",
+          "expected": "401/403",
+          "actual": "401",
+          "satisfied": true
+        },
+        {
+          "name": "bad_key_rejected",
+          "expected": "401/403",
+          "actual": "401",
+          "satisfied": true
+        }
+      ],
+      "attempts": [],
+      "evidence": [
+        "api/API-07_tpt-gateway-public_none.json",
+        "api/API-07_tpt-gateway-public_bad.json"
+      ],
+      "notes": [],
+      "metrics": {},
+      "failure_attribution": null
+    },
+    {
+      "instance_id": "API-08/tpt-gateway-public/invalid",
+      "item": "API-08",
+      "status": "通过",
+      "assertions": [
+        {
+          "name": "rejected:unknown_model",
+          "expected": "400/404/422",
+          "actual": "400",
+          "satisfied": true
+        },
+        {
+          "name": "rejected:bad_input_type",
+          "expected": "400/404/422",
+          "actual": "400",
+          "satisfied": true
+        },
+        {
+          "name": "rejected:empty_model",
+          "expected": "400/404/422",
+          "actual": "400",
+          "satisfied": true
+        }
+      ],
+      "attempts": [],
+      "evidence": [
+        "api/API-08_tpt-gateway-public_unknown_model.json",
+        "api/API-08_tpt-gateway-public_bad_input_type.json",
+        "api/API-08_tpt-gateway-public_empty_model.json"
+      ],
+      "notes": [],
+      "metrics": {},
+      "failure_attribution": null
+    },
+    {
+      "instance_id": "API-09/tpt-gateway-public/usage",
+      "item": "API-09",
+      "status": "通过",
+      "assertions": [
+        {
+          "name": "usage_input_nonneg",
+          "expected": "True",
+          "actual": "15",
+          "satisfied": true
+        },
+        {
+          "name": "usage_output_nonneg",
+          "expected": "True",
+          "actual": "32",
+          "satisfied": true
+        },
+        {
+          "name": "output_within_limit",
+          "expected": "<=32",
+          "actual": "32",
+          "satisfied": true
+        }
+      ],
+      "attempts": [
+        {
+          "http_status": 200,
+          "error_kind": null,
+          "error": null,
+          "t_headers": 0.484,
+          "t_first_frame": null,
+          "t_end": 0.484,
+          "is_event_stream": false,
+          "terminal": "incomplete",
+          "text": "",
+          "final_text": null,
+          "usage": {
+            "input_tokens": 15,
+            "input_tokens_details": {
+              "cached_tokens": 0,
+              "input_tokens_per_turn": [],
+              "cached_tokens_per_turn": []
+            },
+            "output_tokens": 32,
+            "output_tokens_details": {
+              "reasoning_tokens": 0,
+              "tool_output_tokens": 0,
+              "output_tokens_per_turn": [],
+              "tool_output_tokens_per_turn": []
+            },
+            "total_tokens": 47
+          }
+        }
+      ],
+      "evidence": [
+        "api/API-09_tpt-gateway-public_usage.json"
+      ],
+      "notes": [],
+      "metrics": {
+        "usage": {
+          "input_tokens": 15,
+          "input_tokens_details": {
+            "cached_tokens": 0,
+            "input_tokens_per_turn": [],
+            "cached_tokens_per_turn": []
+          },
+          "output_tokens": 32,
+          "output_tokens_details": {
+            "reasoning_tokens": 0,
+            "tool_output_tokens": 0,
+            "output_tokens_per_turn": [],
+            "tool_output_tokens_per_turn": []
+          },
+          "total_tokens": 47
+        }
+      },
+      "failure_attribution": null
+    },
+    {
+      "instance_id": "API-10/tpt-gateway-public/json",
+      "item": "API-10",
+      "status": "通过",
+      "assertions": [
+        {
+          "name": "http_200",
+          "expected": "200",
+          "actual": "200",
+          "satisfied": true
+        },
+        {
+          "name": "json_object",
+          "expected": "True",
+          "actual": "{\"answer\":42}",
+          "satisfied": true
+        },
+        {
+          "name": "answer_42",
+          "expected": "42",
+          "actual": "42",
+          "satisfied": true
+        },
+        {
+          "name": "no_markdown_wrap",
+          "expected": "True",
+          "actual": "{\"answer\":42}",
+          "satisfied": true
+        }
+      ],
+      "attempts": [],
+      "evidence": [
+        "api/API-10_tpt-gateway-public_json.json"
+      ],
+      "notes": [],
+      "metrics": {},
+      "failure_attribution": null
+    }
+  ]
+}

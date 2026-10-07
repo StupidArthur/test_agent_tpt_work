@@ -1,0 +1,65 @@
+{
+  "call_id": "CALL-4dec248c-bc35-4af2-8807-c27d5f6ae1cc",
+  "status": "returned",
+  "observations": {
+    "action_refs": [
+      "CALL-4dec248c-bc35-4af2-8807-c27d5f6ae1cc-5"
+    ],
+    "observations": {
+      "sessionBefore": {
+        "event_id": "CALL-4dec248c-bc35-4af2-8807-c27d5f6ae1cc-3",
+        "captured_at": "2026-10-07T00:33:20.771Z",
+        "environment_id": "acceptance-20261007",
+        "business_call_id": "CALL-4dec248c-bc35-4af2-8807-c27d5f6ae1cc",
+        "kind": "read",
+        "target": "入口前活动会话",
+        "object_id": "session",
+        "source": {
+          "channel": "dom",
+          "scope": "主界面会话容器",
+          "locator": "[data-conversation-session]"
+        },
+        "value": "session-44f9ce8e-83a6-41ad-b5da-164468e58438",
+        "raw": {
+          "value": "session-44f9ce8e-83a6-41ad-b5da-164468e58438"
+        }
+      },
+      "sessionAfter": {
+        "event_id": "CALL-4dec248c-bc35-4af2-8807-c27d5f6ae1cc-7",
+        "captured_at": "2026-10-07T00:33:27.328Z",
+        "environment_id": "acceptance-20261007",
+        "business_call_id": "CALL-4dec248c-bc35-4af2-8807-c27d5f6ae1cc",
+        "kind": "read",
+        "target": "入口后活动会话",
+        "object_id": "session",
+        "source": {
+          "channel": "dom",
+          "scope": "主界面会话容器",
+          "locator": "[data-conversation-session]"
+        },
+        "value": "session-44f9ce8e-83a6-41ad-b5da-164468e58438",
+        "raw": {
+          "value": "session-44f9ce8e-83a6-41ad-b5da-164468e58438"
+        }
+      },
+      "reference": {
+        "event_id": "CALL-4dec248c-bc35-4af2-8807-c27d5f6ae1cc-6",
+        "captured_at": "2026-10-07T00:33:27.325Z",
+        "environment_id": "acceptance-20261007",
+        "business_call_id": "CALL-4dec248c-bc35-4af2-8807-c27d5f6ae1cc",
+        "kind": "read",
+        "target": "入口后技能引用",
+        "object_id": "composer-skill-reference",
+        "source": {
+          "channel": "dom",
+          "scope": "composer 输入区",
+          "locator": "div[contenteditable=\"true\"][aria-label*=\"/ 调用指令\"]"
+        },
+        "value": "fast-assert-skill-audit-20261007",
+        "raw": {
+          "composerText": "fast-assert-skill-audit-20261007\n "
+        }
+      }
+    }
+  }
+}

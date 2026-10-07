@@ -1,0 +1,140 @@
+{
+  "http_status": 200,
+  "error_kind": null,
+  "error": null,
+  "timings": {
+    "t_headers": 0.39,
+    "t_first_frame": 0.39,
+    "t_end": 0.39
+  },
+  "body_text": "",
+  "frames": [
+    {
+      "t": 0.39,
+      "event": "response.created",
+      "data": "{\"response\":{\"id\":\"resp_b8dfa2e4af4bf3b2\",\"created_at\":1791341122,\"incomplete_details\":null,\"instructions\":null,\"metadata\":null,\"model\":\"flash\",\"object\":\"response\",\"output\":[],\"parallel_tool_calls\":true,\"temperature\":1.0,\"tool_choice\":\"auto\",\"tools\":[{\"name\":\"add_numbers\",\"parameters\":{\"properties\":{\"a\":{\"type\":\"integer\"},\"b\":{\"type\":\"integer\"}},\"required\":[\"a\",\"b\"],\"type\":\"object\"},\"strict\":null,\"type\":\"function\",\"allowed_callers\":null,\"defer_loading\":null,\"description\":\"Add two integers and return the sum.\",\"output_schema\":null}],\"top_p\":1.0,\"background\":false,\"max_output_tokens\":64,\"max_tool_calls\":null,\"previous_response_id\":null,\"prompt\":null,\"reasoning\":null,\"service_tier\":\"auto\",\"status\":\"in_progress\",\"text\":null,\"top_logprobs\":null,\"truncation\":\"disabled\",\"usage\":null,\"user\":null,\"presence_penalty\":0.0,\"frequency_penalty\":0.0,\"kv_transfer_params\":null,\"ec_transfer_params\":null,\"input_messages\":null,\"output_messages\":null},\"sequence_number\":0,\"type\":\"response.created\"}",
+      "json_ok": true
+    },
+    {
+      "t": 0.39,
+      "event": "response.in_progress",
+      "data": "{\"response\":{\"id\":\"resp_b8dfa2e4af4bf3b2\",\"created_at\":1791341122,\"incomplete_details\":null,\"instructions\":null,\"metadata\":null,\"model\":\"flash\",\"object\":\"response\",\"output\":[],\"parallel_tool_calls\":true,\"temperature\":1.0,\"tool_choice\":\"auto\",\"tools\":[{\"name\":\"add_numbers\",\"parameters\":{\"properties\":{\"a\":{\"type\":\"integer\"},\"b\":{\"type\":\"integer\"}},\"required\":[\"a\",\"b\"],\"type\":\"object\"},\"strict\":null,\"type\":\"function\",\"allowed_callers\":null,\"defer_loading\":null,\"description\":\"Add two integers and return the sum.\",\"output_schema\":null}],\"top_p\":1.0,\"background\":false,\"max_output_tokens\":64,\"max_tool_calls\":null,\"previous_response_id\":null,\"prompt\":null,\"reasoning\":null,\"service_tier\":\"auto\",\"status\":\"in_progress\",\"text\":null,\"top_logprobs\":null,\"truncation\":\"disabled\",\"usage\":null,\"user\":null,\"presence_penalty\":0.0,\"frequency_penalty\":0.0,\"kv_transfer_params\":null,\"ec_transfer_params\":null,\"input_messages\":null,\"output_messages\":null},\"sequence_number\":1,\"type\":\"response.in_progress\"}",
+      "json_ok": true
+    },
+    {
+      "t": 0.39,
+      "event": "response.output_item.added",
+      "data": "{\"item\":{\"id\":\"ba331d98b414886a\",\"content\":[],\"role\":\"assistant\",\"status\":\"in_progress\",\"type\":\"message\",\"phase\":null},\"output_index\":0,\"sequence_number\":2,\"type\":\"response.output_item.added\"}",
+      "json_ok": true
+    },
+    {
+      "t": 0.39,
+      "event": "response.content_part.added",
+      "data": "{\"content_index\":0,\"item_id\":\"ba331d98b414886a\",\"output_index\":0,\"part\":{\"annotations\":[],\"text\":\"\",\"type\":\"output_text\",\"logprobs\":[]},\"sequence_number\":3,\"type\":\"response.content_part.added\"}",
+      "json_ok": true
+    },
+    {
+      "t": 0.39,
+      "event": "response.output_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"计算结果\",\"item_id\":\"ba331d98b414886a\",\"logprobs\":[],\"output_index\":0,\"sequence_number\":4,\"type\":\"response.output_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 0.39,
+      "event": "response.output_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"为\",\"item_id\":\"ba331d98b414886a\",\"logprobs\":[],\"output_index\":0,\"sequence_number\":5,\"type\":\"response.output_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 0.39,
+      "event": "response.output_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\" \",\"item_id\":\"ba331d98b414886a\",\"logprobs\":[],\"output_index\":0,\"sequence_number\":6,\"type\":\"response.output_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 0.39,
+      "event": "response.output_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"42\",\"item_id\":\"ba331d98b414886a\",\"logprobs\":[],\"output_index\":0,\"sequence_number\":7,\"type\":\"response.output_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 0.39,
+      "event": "response.output_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"。\",\"item_id\":\"ba331d98b414886a\",\"logprobs\":[],\"output_index\":0,\"sequence_number\":8,\"type\":\"response.output_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 0.39,
+      "event": "response.output_text.done",
+      "data": "{\"content_index\":0,\"item_id\":\"ba331d98b414886a\",\"logprobs\":[],\"output_index\":0,\"sequence_number\":9,\"text\":\"计算结果为 42。\",\"type\":\"response.output_text.done\"}",
+      "json_ok": true
+    },
+    {
+      "t": 0.39,
+      "event": "response.content_part.done",
+      "data": "{\"content_index\":0,\"item_id\":\"ba331d98b414886a\",\"output_index\":0,\"part\":{\"annotations\":[],\"text\":\"计算结果为 42。\",\"type\":\"output_text\",\"logprobs\":null},\"sequence_number\":10,\"type\":\"response.content_part.done\"}",
+      "json_ok": true
+    },
+    {
+      "t": 0.39,
+      "event": "response.output_item.done",
+      "data": "{\"item\":{\"id\":\"ba331d98b414886a\",\"content\":[{\"annotations\":[],\"text\":\"计算结果为 42。\",\"type\":\"output_text\",\"logprobs\":null}],\"role\":\"assistant\",\"status\":\"completed\",\"type\":\"message\",\"phase\":null,\"summary\":[]},\"output_index\":0,\"sequence_number\":11,\"type\":\"response.output_item.done\"}",
+      "json_ok": true
+    },
+    {
+      "t": 0.39,
+      "event": "response.completed",
+      "data": "{\"response\":{\"id\":\"resp_b8dfa2e4af4bf3b2\",\"created_at\":1791341122,\"incomplete_details\":null,\"instructions\":null,\"metadata\":null,\"model\":\"flash\",\"object\":\"response\",\"output\":[{\"id\":\"msg_b5652c02e73f1bc8\",\"content\":[{\"annotations\":[],\"text\":\"计算结果为 42。\",\"type\":\"output_text\",\"logprobs\":null}],\"role\":\"assistant\",\"status\":\"completed\",\"type\":\"message\",\"phase\":null}],\"parallel_tool_calls\":true,\"temperature\":1.0,\"tool_choice\":\"auto\",\"tools\":[{\"name\":\"add_numbers\",\"parameters\":{\"properties\":{\"a\":{\"type\":\"integer\"},\"b\":{\"type\":\"integer\"}},\"required\":[\"a\",\"b\"],\"type\":\"object\"},\"strict\":null,\"type\":\"function\",\"allowed_callers\":null,\"defer_loading\":null,\"description\":\"Add two integers and return the sum.\",\"output_schema\":null}],\"top_p\":1.0,\"background\":false,\"max_output_tokens\":64,\"max_tool_calls\":null,\"previous_response_id\":null,\"prompt\":null,\"reasoning\":null,\"service_tier\":\"auto\",\"status\":\"completed\",\"text\":null,\"top_logprobs\":null,\"truncation\":\"disabled\",\"usage\":{\"input_tokens\":403,\"input_tokens_details\":{\"cached_tokens\":256,\"input_tokens_per_turn\":[],\"cached_tokens_per_turn\":[]},\"output_tokens\":7,\"output_tokens_details\":{\"reasoning_tokens\":0,\"tool_output_tokens\":0,\"output_tokens_per_turn\":[],\"tool_output_tokens_per_turn\":[]},\"total_tokens\":410},\"user\":null,\"presence_penalty\":0.0,\"frequency_penalty\":0.0,\"kv_transfer_params\":null,\"ec_transfer_params\":null,\"input_messages\":null,\"output_messages\":null},\"sequence_number\":12,\"type\":\"response.completed\"}",
+      "json_ok": true
+    }
+  ],
+  "normalized": {
+    "protocol": "responses",
+    "text": "计算结果为 42。",
+    "reasoning": "",
+    "final_text": "计算结果为 42。",
+    "tool_calls": [],
+    "usage": {
+      "input_tokens": 403,
+      "input_tokens_details": {
+        "cached_tokens": 256,
+        "input_tokens_per_turn": [],
+        "cached_tokens_per_turn": []
+      },
+      "output_tokens": 7,
+      "output_tokens_details": {
+        "reasoning_tokens": 0,
+        "tool_output_tokens": 0,
+        "output_tokens_per_turn": [],
+        "tool_output_tokens_per_turn": []
+      },
+      "total_tokens": 410
+    },
+    "terminal": "completed",
+    "terminal_reason": "completed",
+    "error_message": null,
+    "unknown_events": [
+      {
+        "event": "response.created",
+        "data": "{\"response\":{\"id\":\"resp_b8dfa2e4af4bf3b2\",\"created_at\":1791341122,\"incomplete_details\":null,\"instructions\":null,\"metadata\":null,\"model\":\"flash\",\"object\":\"response\",\"output\":[],\"parallel_tool_calls\":tr"
+      },
+      {
+        "event": "response.in_progress",
+        "data": "{\"response\":{\"id\":\"resp_b8dfa2e4af4bf3b2\",\"created_at\":1791341122,\"incomplete_details\":null,\"instructions\":null,\"metadata\":null,\"model\":\"flash\",\"object\":\"response\",\"output\":[],\"parallel_tool_calls\":tr"
+      },
+      {
+        "event": "response.content_part.added",
+        "data": "{\"content_index\":0,\"item_id\":\"ba331d98b414886a\",\"output_index\":0,\"part\":{\"annotations\":[],\"text\":\"\",\"type\":\"output_text\",\"logprobs\":[]},\"sequence_number\":3,\"type\":\"response.content_part.added\"}"
+      },
+      {
+        "event": "response.output_text.done",
+        "data": "{\"content_index\":0,\"item_id\":\"ba331d98b414886a\",\"logprobs\":[],\"output_index\":0,\"sequence_number\":9,\"text\":\"计算结果为 42。\",\"type\":\"response.output_text.done\"}"
+      },
+      {
+        "event": "response.content_part.done",
+        "data": "{\"content_index\":0,\"item_id\":\"ba331d98b414886a\",\"output_index\":0,\"part\":{\"annotations\":[],\"text\":\"计算结果为 42。\",\"type\":\"output_text\",\"logprobs\":null},\"sequence_number\":10,\"type\":\"response.content_part.do"
+      }
+    ],
+    "json_errors": []
+  }
+}

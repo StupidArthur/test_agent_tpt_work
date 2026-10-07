@@ -1,0 +1,52 @@
+{
+  "case_id": "G9-14",
+  "contract_version": "2.0",
+  "environment_id": "agent-oc-20261006-funcfull-01",
+  "attempt_id": "G9-14-A01",
+  "object_identity": "fast-assert-bad-png-agent-oc-20261006-funcfull-01",
+  "inputs": [
+    "导入 zips/bad-png.zip"
+  ],
+  "business_call_refs": [
+    "CALL-e1f084d6-4976-4dfb-8dcb-6980b62ece8e",
+    "CALL-4bbc65c6-3ac8-492e-9014-0eb2bdcc01c1"
+  ],
+  "status": "通过",
+  "attempted_at": "2026-10-06T16:35:34.973Z",
+  "assertions": [
+    {
+      "id": "G9-14-A1",
+      "expected": false,
+      "actual": false,
+      "pass": true,
+      "read_refs": [
+        "CALL-4bbc65c6-3ac8-492e-9014-0eb2bdcc01c1-2"
+      ],
+      "raw": {
+        "src": "data:image/svg+xml,...",
+        "isDefaultSrc": true
+      },
+      "derivation": "图标 src 为默认 SVG，未指向安装包伪 PNG"
+    },
+    {
+      "id": "G9-14-A2",
+      "expected": true,
+      "actual": true,
+      "pass": true,
+      "read_refs": [
+        "CALL-4bbc65c6-3ac8-492e-9014-0eb2bdcc01c1-3"
+      ],
+      "raw": {
+        "hasImgVisible": true,
+        "defaultSrc": true
+      }
+    }
+  ],
+  "restore": {
+    "status": "unchanged",
+    "description": "本case未改动设置/文件",
+    "read_refs": []
+  },
+  "residual": "",
+  "notes": "伪 PNG 未被当作有效图像，降级默认图标。"
+}

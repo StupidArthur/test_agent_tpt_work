@@ -1,0 +1,56 @@
+{
+  "case_id": "G14-02",
+  "contract_version": "2.0",
+  "environment_id": "agent-oc-20261006-funcfull-01",
+  "attempt_id": "G14-02-A01",
+  "object_identity": "root.zip 导入",
+  "inputs": [
+    "确认导入 root.zip",
+    "读列表数前后",
+    "查 nested"
+  ],
+  "business_call_refs": [
+    "CALL-595982b3-97c5-4ea9-a844-7910a4d3ef94",
+    "CALL-348b71f0-d8dd-4193-8562-afeb9ad09aa6",
+    "CALL-39071729-cc21-45b6-8c44-a37cbd282737",
+    "CALL-dbc2434d-bd68-4962-b2a0-5480cf696c6a"
+  ],
+  "status": "通过",
+  "attempted_at": "2026-10-06T17:21:05.190Z",
+  "assertions": [
+    {
+      "id": "G14-02-A1",
+      "expected": 1,
+      "actual": {
+        "before": 92,
+        "after": 93
+      },
+      "pass": true,
+      "read_refs": [
+        "CALL-595982b3-97c5-4ea9-a844-7910a4d3ef94-1",
+        "CALL-39071729-cc21-45b6-8c44-a37cbd282737-1"
+      ],
+      "derivation": "after-before=1"
+    },
+    {
+      "id": "G14-02-A2",
+      "expected": 0,
+      "actual": 0,
+      "pass": true,
+      "read_refs": [
+        "CALL-dbc2434d-bd68-4962-b2a0-5480cf696c6a-3"
+      ],
+      "raw": {
+        "matched": 0,
+        "titles": []
+      }
+    }
+  ],
+  "restore": {
+    "status": "unchanged",
+    "description": "本case未改动设置/文件",
+    "read_refs": []
+  },
+  "residual": "root.zip 技能 fast-assert-root-agent-oc-20261006-funcfull-01 保留待审",
+  "notes": "根包只识别一项，内部 nested 未拆成全局对象。"
+}

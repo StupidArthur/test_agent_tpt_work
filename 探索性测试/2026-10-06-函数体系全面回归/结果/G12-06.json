@@ -1,0 +1,53 @@
+{
+  "case_id": "G12-06",
+  "contract_version": "2.0",
+  "environment_id": "agent-oc-20261006-funcfull-01",
+  "attempt_id": "G12-06-A01",
+  "object_identity": "设置/实验性功能#0",
+  "inputs": [
+    "切换总开关",
+    "重开回读",
+    "恢复"
+  ],
+  "business_call_refs": [
+    "CALL-8869fab2-a78e-41e2-9618-9eaeb42f487e",
+    "CALL-07a5d0a5-7f4d-4ae7-a8c2-cc5f1364e1e2",
+    "CALL-c6725176-8922-49e9-bca6-d9a6f53b077f",
+    "CALL-b8a46583-7809-42fa-b3eb-6a792bd267e7"
+  ],
+  "status": "通过",
+  "attempted_at": "2026-10-06T17:06:50.529Z",
+  "assertions": [
+    {
+      "id": "G12-06-A1",
+      "expected": true,
+      "actual": true,
+      "pass": true,
+      "read_refs": [
+        "CALL-07a5d0a5-7f4d-4ae7-a8c2-cc5f1364e1e2-1"
+      ],
+      "raw": {
+        "aria_checked": "true"
+      }
+    },
+    {
+      "id": "G12-06-A2",
+      "expected": false,
+      "actual": false,
+      "pass": true,
+      "read_refs": [
+        "CALL-b8a46583-7809-42fa-b3eb-6a792bd267e7-1"
+      ],
+      "raw": {
+        "aria_checked": "false"
+      }
+    }
+  ],
+  "restore": {
+    "status": "unchanged",
+    "description": "本case未改动设置/文件",
+    "read_refs": []
+  },
+  "residual": "",
+  "notes": "experimental_initial=false。"
+}

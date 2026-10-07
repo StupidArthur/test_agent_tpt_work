@@ -1,0 +1,71 @@
+{
+  "case_id": "G11-12",
+  "contract_version": "2.0",
+  "environment_id": "agent-oc-20261006-funcfull-01",
+  "attempt_id": "G11-12-A01",
+  "object_identity": "fast-assert-expert-longread-agent-oc-20261006-funcfull-01",
+  "inputs": [
+    "写入无效 metadata.json { invalid",
+    "刷新详情",
+    "恢复"
+  ],
+  "business_call_refs": [
+    "CALL-3578650e-4de6-444b-9746-cd6e006c2830",
+    "CALL-aaa4af95-39ed-4cc1-aa6d-27f35ec56d51",
+    "CALL-c2952d63-d976-40ff-90db-e53aeb44642c",
+    "CALL-25d1ef63-459a-4416-b758-baff5983f3ca",
+    "CALL-c246319c-5dd3-4e8e-b0ce-d524cb763b65",
+    "CALL-bc4fae9f-9b00-403a-9f28-a20fd1b1126e"
+  ],
+  "status": "失败",
+  "attempted_at": "2026-10-06T17:01:47.557Z",
+  "assertions": [
+    {
+      "id": "G11-12-A1",
+      "expected": true,
+      "actual": false,
+      "pass": false,
+      "read_refs": [
+        "CALL-c2952d63-d976-40ff-90db-e53aeb44642c-3"
+      ],
+      "raw": {
+        "alerts": [
+          "全部来源",
+          "全部运行位置",
+          "回归验证"
+        ],
+        "bodyHead": "…本轮扩展专家-longread FAST_EXPERT_DESCRIPTION_INITIAL 回归验证 来源 我创建的 · 本地运行 v1.2.3 使用"
+      },
+      "derivation": "列表未显示 JSON/格式校验错误提示"
+    },
+    {
+      "id": "G11-12-A2",
+      "expected": "sha256_equal",
+      "actual": {
+        "before": "aa240a0ccab83012343d3c5968854e2015e18ba9061a9dff49e2b115ce86f98a",
+        "after": "aa240a0ccab83012343d3c5968854e2015e18ba9061a9dff49e2b115ce86f98a"
+      },
+      "pass": true,
+      "read_refs": [
+        "CALL-aaa4af95-39ed-4cc1-aa6d-27f35ec56d51-1",
+        "CALL-25d1ef63-459a-4416-b758-baff5983f3ca-1"
+      ]
+    },
+    {
+      "id": "G11-12-A3",
+      "expected": true,
+      "actual": true,
+      "pass": true,
+      "read_refs": [
+        "CALL-bc4fae9f-9b00-403a-9f28-a20fd1b1126e-5"
+      ]
+    }
+  ],
+  "restore": {
+    "status": "unchanged",
+    "description": "本case未改动设置/文件",
+    "read_refs": []
+  },
+  "residual": "metadata.json 已恢复原哈希",
+  "notes": "坏 JSON 未被自动改写（哈希不变），但列表未给出格式/校验错误反馈，A1 不成立。登记候选问题。"
+}

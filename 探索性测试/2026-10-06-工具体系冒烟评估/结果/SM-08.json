@@ -1,0 +1,49 @@
+{
+  "case_id": "SM-08",
+  "started_at": "2026-10-06T14:28:16.059Z",
+  "ended_at": "2026-10-06T14:28:26.487Z",
+  "status": "通过",
+  "assertions": [
+    {
+      "id": "SM-08-A1",
+      "actual": "smoke-expert-tool-smoke-20261006-eval1",
+      "expected": "smoke-expert-tool-smoke-20261006-eval1",
+      "pass": true,
+      "read_refs": [
+        "CALL-821014a0-b896-4ae2-9c27-7d87a9b11af2-1"
+      ]
+    },
+    {
+      "id": "SM-08-A2",
+      "actual": "1.2.3",
+      "expected": "1.2.3",
+      "pass": true,
+      "read_refs": [
+        "CALL-821014a0-b896-4ae2-9c27-7d87a9b11af2-1"
+      ]
+    }
+  ],
+  "business_call_refs": [
+    "CALL-0c1ed27f-8698-49ee-ad6c-749260e17db0",
+    "CALL-61bfabe0-b48e-4f5d-a55d-12c49dde8d06",
+    "CALL-821014a0-b896-4ae2-9c27-7d87a9b11af2"
+  ],
+  "tool_discovery": {
+    "feature_path": [
+      "专家",
+      "导入与发现"
+    ],
+    "plan_functions": [
+      "experts.importDirectory",
+      "experts.readDetail",
+      "application.readDetailIdentity"
+    ],
+    "used": [
+      "experts.importDirectory",
+      "experts.readDetail",
+      "application.readDetailIdentity"
+    ],
+    "additional_functions": [],
+    "all_product_operations_via_functions": true
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "call_id": "CALL-c33f4645-c19a-49b3-bbf7-cd93fd14300c",
+  "status": "returned",
+  "observations": {
+    "action_refs": [
+      "CALL-c33f4645-c19a-49b3-bbf7-cd93fd14300c-2"
+    ],
+    "observations": {
+      "count": {
+        "event_id": "CALL-c33f4645-c19a-49b3-bbf7-cd93fd14300c-3",
+        "captured_at": "2026-10-06T14:27:33.826Z",
+        "environment_id": "env-tool-smoke-eval1",
+        "business_call_id": "CALL-c33f4645-c19a-49b3-bbf7-cd93fd14300c",
+        "kind": "read",
+        "target": "搜索结果卡片数量",
+        "object_id": "search-results",
+        "source": {
+          "channel": "dom",
+          "scope": "技能页/我的技能搜索结果",
+          "locator": "section.panel [data-slot=\"card\"]"
+        },
+        "value": 1,
+        "raw": {
+          "count": 1,
+          "titles": [
+            "本轮快速回归技能"
+          ]
+        }
+      },
+      "titleContains": {
+        "event_id": "CALL-c33f4645-c19a-49b3-bbf7-cd93fd14300c-4",
+        "captured_at": "2026-10-06T14:27:33.828Z",
+        "environment_id": "env-tool-smoke-eval1",
+        "business_call_id": "CALL-c33f4645-c19a-49b3-bbf7-cd93fd14300c",
+        "kind": "read",
+        "target": "搜索命中标题是否含搜索词",
+        "object_id": "search-title-contains",
+        "source": {
+          "channel": "dom",
+          "scope": "技能页/我的技能搜索结果",
+          "locator": ".card-title h3"
+        },
+        "value": false,
+        "raw": {
+          "term": "smoke-skill-tool-smoke-20261006-eval1",
+          "titles": [
+            "本轮快速回归技能"
+          ]
+        },
+        "derivation": "titles.some(t => t.includes(term))"
+      }
+    }
+  }
+}

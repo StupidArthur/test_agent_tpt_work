@@ -1,0 +1,36 @@
+{
+  "case_id": "G5-01",
+  "contract_version": "2.0",
+  "environment_id": "agent-oc-20261006-funcfull-01",
+  "attempt_id": "G5-01-A01",
+  "object_identity": "fast-assert-expert-agent-oc-20261006-funcfull-01",
+  "inputs": [
+    "使用 本轮快速回归专家"
+  ],
+  "business_call_refs": [
+    "CALL-c8e994c0-0861-4725-bd0c-ad39475c3970"
+  ],
+  "status": "通过",
+  "attempted_at": "2026-10-06T16:15:58.442Z",
+  "assertions": [
+    {
+      "id": "G5-01-A1",
+      "expected": "agent-fast-assert-expert-agent-oc-20261006-funcfull-01",
+      "actual": "agent-fast-assert-expert-agent-oc-20261006-funcfull-01",
+      "pass": true,
+      "read_refs": [
+        "CALL-c8e994c0-0861-4725-bd0c-ad39475c3970-6"
+      ],
+      "raw": {
+        "composerText": "agent-fast-assert-expert-agent-oc-20261006-funcfull-01\n "
+      }
+    }
+  ],
+  "restore": {
+    "status": "unchanged",
+    "description": "本case未改动设置/文件",
+    "read_refs": []
+  },
+  "residual": "新会话 session-15023657 保留",
+  "notes": "expert_resource 绑定=agent-+内部名（来自夹具 metadata.name 与安装目录）；前后会话 id 不同（session-9c8be6fd→session-15023657）。"
+}
