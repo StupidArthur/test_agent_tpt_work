@@ -1,0 +1,4123 @@
+{
+  "label": "u10",
+  "users": 10,
+  "think_time_s": 5.0,
+  "min_tasks": 30,
+  "duration_s": 64.579,
+  "stop_reason": "sample_met",
+  "attempted_tasks": 34,
+  "peak_in_flight": 10,
+  "utc_start": "2026-10-07T14:51:16.106+00:00",
+  "utc_end": "2026-10-07T14:52:20.694+00:00",
+  "beijing_start": "2026-10-07T22:51:16.106+08:00",
+  "beijing_end": "2026-10-07T22:52:20.694+08:00",
+  "summary": {
+    "tasks": 34,
+    "task_success": 34,
+    "task_success_rate": 100.0,
+    "llm_requests": 68,
+    "gateway_requests_success": 68,
+    "gateway_success_rate": 100.0,
+    "task_e2e": {
+      "n": 34,
+      "mean": 13.339147,
+      "p50": 13.25,
+      "p95": 18.188,
+      "max": 18.343
+    },
+    "first_feedback": {
+      "n": 34,
+      "mean": 6.519853,
+      "p50": 6.406,
+      "p95": 10.359,
+      "max": 10.61
+    },
+    "tool_call_success": 100.0,
+    "attribution": {},
+    "requests_per_s": 1.053,
+    "turns_per_s": 0.5265,
+    "llm_requests_per_task": 2.0
+  },
+  "turns": [
+    {
+      "task_id": 69,
+      "task_ok": true,
+      "checks": {
+        "first_completed": true,
+        "expected_tool": true,
+        "tool_arguments": true,
+        "second_completed": true,
+        "final_numbers": true,
+        "final_report": true
+      },
+      "attribution": "ok",
+      "first_feedback_s": 3.094,
+      "marker": "CAP_AGENT_fda6362435f5498791793cd5a8974d36",
+      "template_idx": 7,
+      "source_session": "session-d7132eee-2911-40d6-a5eb-5e9706f9cf81",
+      "llm_requests": 2,
+      "gateway_success": [
+        true,
+        true
+      ],
+      "e2e_s": 8.11,
+      "requests": [
+        {
+          "rid": 129,
+          "template_idx": 7,
+          "marker": "CAP_AGENT_fda6362435f5498791793cd5a8974d36",
+          "request_sha256": "FB9F3ED049FD8944991E44E4D226EA98635E2FA069ABD80AD18AA22F7579EAE9",
+          "request_len": 82723,
+          "http_status": 200,
+          "error_kind": null,
+          "is_event_stream": true,
+          "terminal": "completed",
+          "terminal_reason": "completed",
+          "protocol_ok": true,
+          "json_errors": [],
+          "tool_calls": [
+            {
+              "key": "88b996b0cc80f09e",
+              "call_id": "call_97cf303469aa7189",
+              "name": "pwsh",
+              "arguments_from_deltas": "{\"command\": \"$months = 1..6; $rev = 1000..6000; $cost = 700,1400,2100,2800,3500,4200; $tr = ($rev | Measure-Object -Sum).Sum; $tc = ($cost | Measure-Object -Sum).Sum; $p = $tr - $tc; $m = $p / $tr * 100; [pscustomobject]@{TotalRevenue=$tr; TotalCost=$tc; Profit=$p; Margin=(\\\"{0:N1}%\\\" -f $m)}\", \"description\": \"Compute total revenue, cost, profit and margin\"}",
+              "final_arguments": "{\"command\": \"$months = 1..6; $rev = 1000..6000; $cost = 700,1400,2100,2800,3500,4200; $tr = ($rev | Measure-Object -Sum).Sum; $tc = ($cost | Measure-Object -Sum).Sum; $p = $tr - $tc; $m = $p / $tr * 100; [pscustomobject]@{TotalRevenue=$tr; TotalCost=$tc; Profit=$p; Margin=(\\\"{0:N1}%\\\" -f $m)}\", \"description\": \"Compute total revenue, cost, profit and margin\"}",
+              "output_index": 1,
+              "item_id": "88b996b0cc80f09e",
+              "delta_matches_final": true
+            }
+          ],
+          "text_len": 0,
+          "usage": {
+            "input_tokens": 22607,
+            "input_tokens_details": {
+              "cached_tokens": 18176,
+              "input_tokens_per_turn": [],
+              "cached_tokens_per_turn": []
+            },
+            "output_tokens": 236,
+            "output_tokens_details": {
+              "reasoning_tokens": 0,
+              "tool_output_tokens": 0,
+              "output_tokens_per_turn": [],
+              "tool_output_tokens_per_turn": []
+            },
+            "total_tokens": 22843
+          },
+          "timings": {
+            "t_headers": 0.422,
+            "t_first_frame": 0.469,
+            "t_first_reasoning": 3.094,
+            "t_first_tool": 3.094,
+            "t_first_text": null,
+            "t_end": 3.172
+          },
+          "e2e": 3.172,
+          "_wire": "wire/00069-1-CAP_AGENT_fda6362435f5498791793cd5a8974d36.json"
+        },
+        {
+          "rid": 132,
+          "template_idx": 7,
+          "marker": "CAP_AGENT_fda6362435f5498791793cd5a8974d36",
+          "request_sha256": "7DC15B17C0431EF3C5456A940609CE918095261AE0071C5A39E5CD967D321D66",
+          "request_len": 83620,
+          "http_status": 200,
+          "error_kind": null,
+          "is_event_stream": true,
+          "terminal": "completed",
+          "terminal_reason": "completed",
+          "protocol_ok": true,
+          "json_errors": [],
+          "tool_calls": [],
+          "text_len": 746,
+          "usage": {
+            "input_tokens": 22975,
+            "input_tokens_details": {
+              "cached_tokens": 22528,
+              "input_tokens_per_turn": [],
+              "cached_tokens_per_turn": []
+            },
+            "output_tokens": 404,
+            "output_tokens_details": {
+              "reasoning_tokens": 0,
+              "tool_output_tokens": 0,
+              "output_tokens_per_turn": [],
+              "tool_output_tokens_per_turn": []
+            },
+            "total_tokens": 23379
+          },
+          "timings": {
+            "t_headers": 0.375,
+            "t_first_frame": 0.406,
+            "t_first_reasoning": null,
+            "t_first_tool": null,
+            "t_first_text": 1.016,
+            "t_end": 3.844
+          },
+          "e2e": 3.844,
+          "_wire": "wire/00069-2-CAP_AGENT_fda6362435f5498791793cd5a8974d36.json"
+        }
+      ]
+    },
+    {
+      "task_id": 68,
+      "task_ok": true,
+      "checks": {
+        "first_completed": true,
+        "expected_tool": true,
+        "tool_arguments": true,
+        "second_completed": true,
+        "final_numbers": true,
+        "final_report": true
+      },
+      "attribution": "ok",
+      "first_feedback_s": 4.531,
+      "marker": "CAP_AGENT_2f08872ea8634603b2561a4ee4edb810",
+      "template_idx": 6,
+      "source_session": "session-c4fd6ffd-a5ae-4d4c-93f3-b35d7063aaa5",
+      "llm_requests": 2,
+      "gateway_success": [
+        true,
+        true
+      ],
+      "e2e_s": 10.078,
+      "requests": [
+        {
+          "rid": 128,
+          "template_idx": 6,
+          "marker": "CAP_AGENT_2f08872ea8634603b2561a4ee4edb810",
+          "request_sha256": "F568C4480E4991B81390681C6C6C56867CD3CB84ED45D2B6540833D3B92A9E00",
+          "request_len": 82723,
+          "http_status": 200,
+          "error_kind": null,
+          "is_event_stream": true,
+          "terminal": "completed",
+          "terminal_reason": "completed",
+          "protocol_ok": true,
+          "json_errors": [],
+          "tool_calls": [
+            {
+              "key": "b194db05f32c15ec",
+              "call_id": "call_b98acb8eb3ed0626",
+              "name": "pwsh",
+              "arguments_from_deltas": "{\"command\": \"$months = @(\\n  @{m=1;r=1000;c=700},\\n  @{m=2;r=2000;c=1400},\\n  @{m=3;r=3000;c=2100},\\n  @{m=4;r=4000;c=2800},\\n  @{m=5;r=5000;c=3500},\\n  @{m=6;r=6000;c=4200}\\n)\\n$tr = ($months | Measure-Object -Property r -Sum).Sum\\n$tc = ($months | Measure-Object -Property c -Sum).Sum\\n$tp = $tr - $tc\\n$margin = [math]::Round(100 * $tp / $tr, 2)\\n\\\"TOTAL=$tr COST=$tc PROFIT=$tp MARGIN=$margin%\\\"\\nforeach($x in $months){ $p = $x.r - $x.c; $m=[math]::Round(100*$p/$x.r,1); \\\"M$x R=$($x.r) C=$($x.c) P=$p MARGIN=$m%\\\" }\", \"description\": \"Compute sales totals in memory\"}",
+              "final_arguments": "{\"command\": \"$months = @(\\n  @{m=1;r=1000;c=700},\\n  @{m=2;r=2000;c=1400},\\n  @{m=3;r=3000;c=2100},\\n  @{m=4;r=4000;c=2800},\\n  @{m=5;r=5000;c=3500},\\n  @{m=6;r=6000;c=4200}\\n)\\n$tr = ($months | Measure-Object -Property r -Sum).Sum\\n$tc = ($months | Measure-Object -Property c -Sum).Sum\\n$tp = $tr - $tc\\n$margin = [math]::Round(100 * $tp / $tr, 2)\\n\\\"TOTAL=$tr COST=$tc PROFIT=$tp MARGIN=$margin%\\\"\\nforeach($x in $months){ $p = $x.r - $x.c; $m=[math]::Round(100*$p/$x.r,1); \\\"M$x R=$($x.r) C=$($x.c) P=$p MARGIN=$m%\\\" }\", \"description\": \"Compute sales totals in memory\"}",
+              "output_index": 1,
+              "item_id": "b194db05f32c15ec",
+              "delta_matches_final": true
+            }
+          ],
+          "text_len": 0,
+          "usage": {
+            "input_tokens": 22612,
+            "input_tokens_details": {
+              "cached_tokens": 18176,
+              "input_tokens_per_turn": [],
+              "cached_tokens_per_turn": []
+            },
+            "output_tokens": 446,
+            "output_tokens_details": {
+              "reasoning_tokens": 0,
+              "tool_output_tokens": 0,
+              "output_tokens_per_turn": [],
+              "tool_output_tokens_per_turn": []
+            },
+            "total_tokens": 23058
+          },
+          "timings": {
+            "t_headers": 0.406,
+            "t_first_frame": 0.437,
+            "t_first_reasoning": 1.781,
+            "t_first_tool": 4.531,
+            "t_first_text": null,
+            "t_end": 4.687
+          },
+          "e2e": 4.687,
+          "_wire": "wire/00068-1-CAP_AGENT_2f08872ea8634603b2561a4ee4edb810.json"
+        },
+        {
+          "rid": 133,
+          "template_idx": 6,
+          "marker": "CAP_AGENT_2f08872ea8634603b2561a4ee4edb810",
+          "request_sha256": "2555BBF8B00E48845E1A8680DE4978616E3D808E175BAD0C06B3756A76EF8CD0",
+          "request_len": 83553,
+          "http_status": 200,
+          "error_kind": null,
+          "is_event_stream": true,
+          "terminal": "completed",
+          "terminal_reason": "completed",
+          "protocol_ok": true,
+          "json_errors": [],
+          "tool_calls": [],
+          "text_len": 899,
+          "usage": {
+            "input_tokens": 22960,
+            "input_tokens_details": {
+              "cached_tokens": 22528,
+              "input_tokens_per_turn": [],
+              "cached_tokens_per_turn": []
+            },
+            "output_tokens": 522,
+            "output_tokens_details": {
+              "reasoning_tokens": 0,
+              "tool_output_tokens": 0,
+              "output_tokens_per_turn": [],
+              "tool_output_tokens_per_turn": []
+            },
+            "total_tokens": 23482
+          },
+          "timings": {
+            "t_headers": 0.375,
+            "t_first_frame": 0.406,
+            "t_first_reasoning": 0.969,
+            "t_first_tool": null,
+            "t_first_text": 0.969,
+            "t_end": 4.453
+          },
+          "e2e": 4.453,
+          "_wire": "wire/00068-2-CAP_AGENT_2f08872ea8634603b2561a4ee4edb810.json"
+        }
+      ]
+    },
+    {
+      "task_id": 65,
+      "task_ok": true,
+      "checks": {
+        "first_completed": true,
+        "expected_tool": true,
+        "tool_arguments": true,
+        "second_completed": true,
+        "final_numbers": true,
+        "final_report": true
+      },
+      "attribution": "ok",
+      "first_feedback_s": 7.687,
+      "marker": "CAP_AGENT_7516fb22fbe442e389a5431266321422",
+      "template_idx": 3,
+      "source_session": "session-cf4a4cde-3814-4891-b462-df57e180394b",
+      "llm_requests": 2,
+      "gateway_success": [
+        true,
+        true
+      ],
+      "e2e_s": 14.078,
+      "requests": [
+        {
+          "rid": 125,
+          "template_idx": 3,
+          "marker": "CAP_AGENT_7516fb22fbe442e389a5431266321422",
+          "request_sha256": "B0E5212E6F33EBB1C8509A9F97E8CCF9193D79F52D5F582981BA8500C8A3AAF6",
+          "request_len": 82723,
+          "http_status": 200,
+          "error_kind": null,
+          "is_event_stream": true,
+          "terminal": "completed",
+          "terminal_reason": "completed",
+          "protocol_ok": true,
+          "json_errors": [],
+          "tool_calls": [
+            {
+              "key": "a4bf25ba4438d78c",
+              "call_id": "call_b4af10de1cbced7d",
+              "name": "pwsh",
+              "arguments_from_deltas": "{\"command\": \"$rev = @(1000,2000,3000,4000,5000,6000); $cost = @(700,1400,2100,2800,3500,4200); $tr = ($rev | Measure-Object -Sum).Sum; $tc = ($cost | Measure-Object -Sum).Sum; $p = $tr - $tc; $m = $p / $tr * 100; \\\"TOTAL=$tr COST=$tc PROFIT=$p MARGIN=$([math]::Round($m,1))%\\\"\", \"description\": \"Compute total revenue, cost, profit, margin in memory\"}",
+              "final_arguments": "{\"command\": \"$rev = @(1000,2000,3000,4000,5000,6000); $cost = @(700,1400,2100,2800,3500,4200); $tr = ($rev | Measure-Object -Sum).Sum; $tc = ($cost | Measure-Object -Sum).Sum; $p = $tr - $tc; $m = $p / $tr * 100; \\\"TOTAL=$tr COST=$tc PROFIT=$p MARGIN=$([math]::Round($m,1))%\\\"\", \"description\": \"Compute total revenue, cost, profit, margin in memory\"}",
+              "output_index": 1,
+              "item_id": "a4bf25ba4438d78c",
+              "delta_matches_final": true
+            }
+          ],
+          "text_len": 0,
+          "usage": {
+            "input_tokens": 22600,
+            "input_tokens_details": {
+              "cached_tokens": 18176,
+              "input_tokens_per_turn": [],
+              "cached_tokens_per_turn": []
+            },
+            "output_tokens": 403,
+            "output_tokens_details": {
+              "reasoning_tokens": 0,
+              "tool_output_tokens": 0,
+              "output_tokens_per_turn": [],
+              "tool_output_tokens_per_turn": []
+            },
+            "total_tokens": 23003
+          },
+          "timings": {
+            "t_headers": 0.547,
+            "t_first_frame": 0.594,
+            "t_first_reasoning": 4.453,
+            "t_first_tool": 7.687,
+            "t_first_text": null,
+            "t_end": 7.766
+          },
+          "e2e": 7.766,
+          "_wire": "wire/00065-1-CAP_AGENT_7516fb22fbe442e389a5431266321422.json"
+        },
+        {
+          "rid": 134,
+          "template_idx": 3,
+          "marker": "CAP_AGENT_7516fb22fbe442e389a5431266321422",
+          "request_sha256": "2826863A68ADBE73DCA2028EF1D7FB761A30CC7678BF2509083A7023DFA44322",
+          "request_len": 83604,
+          "http_status": 200,
+          "error_kind": null,
+          "is_event_stream": true,
+          "terminal": "completed",
+          "terminal_reason": "completed",
+          "protocol_ok": true,
+          "json_errors": [],
+          "tool_calls": [],
+          "text_len": 685,
+          "usage": {
+            "input_tokens": 22935,
+            "input_tokens_details": {
+              "cached_tokens": 22528,
+              "input_tokens_per_turn": [],
+              "cached_tokens_per_turn": []
+            },
+            "output_tokens": 368,
+            "output_tokens_details": {
+              "reasoning_tokens": 0,
+              "tool_output_tokens": 0,
+              "output_tokens_per_turn": [],
+              "tool_output_tokens_per_turn": []
+            },
+            "total_tokens": 23303
+          },
+          "timings": {
+            "t_headers": 0.359,
+            "t_first_frame": 0.391,
+            "t_first_reasoning": null,
+            "t_first_tool": null,
+            "t_first_text": 1.563,
+            "t_end": 5.234
+          },
+          "e2e": 5.234,
+          "_wire": "wire/00065-2-CAP_AGENT_7516fb22fbe442e389a5431266321422.json"
+        }
+      ]
+    },
+    {
+      "task_id": 70,
+      "task_ok": true,
+      "checks": {
+        "first_completed": true,
+        "expected_tool": true,
+        "tool_arguments": true,
+        "second_completed": true,
+        "final_numbers": true,
+        "final_report": true
+      },
+      "attribution": "ok",
+      "first_feedback_s": 8.922,
+      "marker": "CAP_AGENT_3c63430bf99548b9a884668ee8da7502",
+      "template_idx": 8,
+      "source_session": "session-261a9fb1-f506-4589-bf4b-cec7f39076c6",
+      "llm_requests": 2,
+      "gateway_success": [
+        true,
+        true
+      ],
+      "e2e_s": 14.14,
+      "requests": [
+        {
+          "rid": 130,
+          "template_idx": 8,
+          "marker": "CAP_AGENT_3c63430bf99548b9a884668ee8da7502",
+          "request_sha256": "24606A0F376B0F218A95FBA3C3B02432CAFC1C2BF27E7472C585D967BB9A590D",
+          "request_len": 82723,
+          "http_status": 200,
+          "error_kind": null,
+          "is_event_stream": true,
+          "terminal": "completed",
+          "terminal_reason": "completed",
+          "protocol_ok": true,
+          "json_errors": [],
+          "tool_calls": [
+            {
+              "key": "8457a020e1b0bbf2",
+              "call_id": "call_a45cbeeb259d2e7f",
+              "name": "pwsh",
+              "arguments_from_deltas": "{\"command\": \"$rev = @(1000,2000,3000,4000,5000,6000)\\n$cost = @(700,1400,2100,2800,3500,4200)\\n$t = ($rev | Measure-Object -Sum).Sum\\n$c = ($cost | Measure-Object -Sum).Sum\\n$p = $t - $c\\n$m = [math]::Round($p / $t * 100, 1)\\n\\\"TOTAL=$t COST=$c PROFIT=$p MARGIN=$m%\\\"\\nfor($i=0;$i -lt 6;$i++){ \\\"Month{0}: revenue={1} cost={2} profit={3}\\\" -f ($i+1),$rev[$i],$cost[$i],($rev[$i]-$cost[$i]) }\", \"description\": \"Compute totals, profit, margin\"}",
+              "final_arguments": "{\"command\": \"$rev = @(1000,2000,3000,4000,5000,6000)\\n$cost = @(700,1400,2100,2800,3500,4200)\\n$t = ($rev | Measure-Object -Sum).Sum\\n$c = ($cost | Measure-Object -Sum).Sum\\n$p = $t - $c\\n$m = [math]::Round($p / $t * 100, 1)\\n\\\"TOTAL=$t COST=$c PROFIT=$p MARGIN=$m%\\\"\\nfor($i=0;$i -lt 6;$i++){ \\\"Month{0}: revenue={1} cost={2} profit={3}\\\" -f ($i+1),$rev[$i],$cost[$i],($rev[$i]-$cost[$i]) }\", \"description\": \"Compute totals, profit, margin\"}",
+              "output_index": 1,
+              "item_id": "8457a020e1b0bbf2",
+              "delta_matches_final": true
+            }
+          ],
+          "text_len": 0,
+          "usage": {
+            "input_tokens": 22608,
+            "input_tokens_details": {
+              "cached_tokens": 18176,
+              "input_tokens_per_turn": [],
+              "cached_tokens_per_turn": []
+            },
+            "output_tokens": 551,
+            "output_tokens_details": {
+              "reasoning_tokens": 0,
+              "tool_output_tokens": 0,
+              "output_tokens_per_turn": [],
+              "tool_output_tokens_per_turn": []
+            },
+            "total_tokens": 23159
+          },
+          "timings": {
+            "t_headers": 0.531,
+            "t_first_frame": 0.578,
+            "t_first_reasoning": 4.39,
+            "t_first_tool": 8.922,
+            "t_first_text": null,
+            "t_end": 9.0
+          },
+          "e2e": 9.0,
+          "_wire": "wire/00070-1-CAP_AGENT_3c63430bf99548b9a884668ee8da7502.json"
+        },
+        {
+          "rid": 138,
+          "template_idx": 8,
+          "marker": "CAP_AGENT_3c63430bf99548b9a884668ee8da7502",
+          "request_sha256": "FA358A37698DA6ACD92496AF13DCB62ADA5CD0871DDB2CEDE74E5B528E542DBA",
+          "request_len": 83737,
+          "http_status": 200,
+          "error_kind": null,
+          "is_event_stream": true,
+          "terminal": "completed",
+          "terminal_reason": "completed",
+          "protocol_ok": true,
+          "json_errors": [],
+          "tool_calls": [],
+          "text_len": 673,
+          "usage": {
+            "input_tokens": 23004,
+            "input_tokens_details": {
+              "cached_tokens": 18176,
+              "input_tokens_per_turn": [],
+              "cached_tokens_per_turn": []
+            },
+            "output_tokens": 376,
+            "output_tokens_details": {
+              "reasoning_tokens": 0,
+              "tool_output_tokens": 0,
+              "output_tokens_per_turn": [],
+              "tool_output_tokens_per_turn": []
+            },
+            "total_tokens": 23380
+          },
+          "timings": {
+            "t_headers": 0.343,
+            "t_first_frame": 0.39,
+            "t_first_reasoning": null,
+            "t_first_tool": null,
+            "t_first_text": 1.765,
+            "t_end": 4.203
+          },
+          "e2e": 4.203,
+          "_wire": "wire/00070-2-CAP_AGENT_3c63430bf99548b9a884668ee8da7502.json"
+        }
+      ]
+    },
+    {
+      "task_id": 63,
+      "task_ok": true,
+      "checks": {
+        "first_completed": true,
+        "expected_tool": true,
+        "tool_arguments": true,
+        "second_completed": true,
+        "final_numbers": true,
+        "final_report": true
+      },
+      "attribution": "ok",
+      "first_feedback_s": 7.704,
+      "marker": "CAP_AGENT_b521fb8684c94d51ac3680a181305807",
+      "template_idx": 1,
+      "source_session": "session-e0b6f8a7-0823-4a48-be4c-cdf7ada7f086",
+      "llm_requests": 2,
+      "gateway_success": [
+        true,
+        true
+      ],
+      "e2e_s": 14.844,
+      "requests": [
+        {
+          "rid": 123,
+          "template_idx": 1,
+          "marker": "CAP_AGENT_b521fb8684c94d51ac3680a181305807",
+          "request_sha256": "92ACF64C6430B1D2C8882B97B0D4D03747E015BFEDF26C1F9DF1D79C9E8D6B0A",
+          "request_len": 82723,
+          "http_status": 200,
+          "error_kind": null,
+          "is_event_stream": true,
+          "terminal": "completed",
+          "terminal_reason": "completed",
+          "protocol_ok": true,
+          "json_errors": [],
+          "tool_calls": [
+            {
+              "key": "87e5341970f32cd4",
+              "call_id": "call_988c63a0567f0fea",
+              "name": "pwsh",
+              "arguments_from_deltas": "{\"command\": \"$rev = 1000+2000+3000+4000+5000+6000; $cost = 700+1400+2100+2800+3500+4200; $profit = $rev - $cost; $margin = [math]::Round($profit/$rev*100,1); \\\"TOTAL=$rev COST=$cost PROFIT=$profit MARGIN=${margin}%\\\"\", \"description\": \"在内存中计算总收入成本利润与利润率\"}",
+              "final_arguments": "{\"command\": \"$rev = 1000+2000+3000+4000+5000+6000; $cost = 700+1400+2100+2800+3500+4200; $profit = $rev - $cost; $margin = [math]::Round($profit/$rev*100,1); \\\"TOTAL=$rev COST=$cost PROFIT=$profit MARGIN=${margin}%\\\"\", \"description\": \"在内存中计算总收入成本利润与利润率\"}",
+              "output_index": 1,
+              "item_id": "87e5341970f32cd4",
+              "delta_matches_final": true
+            }
+          ],
+          "text_len": 0,
+          "usage": {
+            "input_tokens": 22600,
+            "input_tokens_details": {
+              "cached_tokens": 18176,
+              "input_tokens_per_turn": [],
+              "cached_tokens_per_turn": []
+            },
+            "output_tokens": 398,
+            "output_tokens_details": {
+              "reasoning_tokens": 0,
+              "tool_output_tokens": 0,
+              "output_tokens_per_turn": [],
+              "tool_output_tokens_per_turn": []
+            },
+            "total_tokens": 22998
+          },
+          "timings": {
+            "t_headers": 0.438,
+            "t_first_frame": 0.469,
+            "t_first_reasoning": 4.407,
+            "t_first_tool": 7.704,
+            "t_first_text": null,
+            "t_end": 7.75
+          },
+          "e2e": 7.75,
+          "_wire": "wire/00063-1-CAP_AGENT_b521fb8684c94d51ac3680a181305807.json"
+        },
+        {
+          "rid": 135,
+          "template_idx": 1,
+          "marker": "CAP_AGENT_b521fb8684c94d51ac3680a181305807",
+          "request_sha256": "2B87E6F55008D25FE555C101619004FD8CECEE0002FD9C02F7F648752F623F55",
+          "request_len": 83250,
+          "http_status": 200,
+          "error_kind": null,
+          "is_event_stream": true,
+          "terminal": "completed",
+          "terminal_reason": "completed",
+          "protocol_ok": true,
+          "json_errors": [],
+          "tool_calls": [],
+          "text_len": 762,
+          "usage": {
+            "input_tokens": 22791,
+            "input_tokens_details": {
+              "cached_tokens": 22528,
+              "input_tokens_per_turn": [],
+              "cached_tokens_per_turn": []
+            },
+            "output_tokens": 436,
+            "output_tokens_details": {
+              "reasoning_tokens": 0,
+              "tool_output_tokens": 0,
+              "output_tokens_per_turn": [],
+              "tool_output_tokens_per_turn": []
+            },
+            "total_tokens": 23227
+          },
+          "timings": {
+            "t_headers": 0.375,
+            "t_first_frame": 0.422,
+            "t_first_reasoning": null,
+            "t_first_tool": null,
+            "t_first_text": 1.562,
+            "t_end": 5.922
+          },
+          "e2e": 5.922,
+          "_wire": "wire/00063-2-CAP_AGENT_b521fb8684c94d51ac3680a181305807.json"
+        }
+      ]
+    },
+    {
+      "task_id": 67,
+      "task_ok": true,
+      "checks": {
+        "first_completed": true,
+        "expected_tool": true,
+        "tool_arguments": true,
+        "second_completed": true,
+        "final_numbers": true,
+        "final_report": true
+      },
+      "attribution": "ok",
+      "first_feedback_s": 8.984,
+      "marker": "CAP_AGENT_e4b4a48dd02f44b99a504242efe4c39f",
+      "template_idx": 5,
+      "source_session": "session-a17ae506-8129-45cc-8ed9-8e35329c0de6",
+      "llm_requests": 2,
+      "gateway_success": [
+        true,
+        true
+      ],
+      "e2e_s": 15.296,
+      "requests": [
+        {
+          "rid": 127,
+          "template_idx": 5,
+          "marker": "CAP_AGENT_e4b4a48dd02f44b99a504242efe4c39f",
+          "request_sha256": "4A52DC4F136D03C61939662FD58E3E4D5B31FDF2175D8EF0F0BCBB7871532C29",
+          "request_len": 82723,
+          "http_status": 200,
+          "error_kind": null,
+          "is_event_stream": true,
+          "terminal": "completed",
+          "terminal_reason": "completed",
+          "protocol_ok": true,
+          "json_errors": [],
+          "tool_calls": [
+            {
+              "key": "b970fd7ac55bbeb5",
+              "call_id": "call_9d648afcf6ca436e",
+              "name": "pwsh",
+              "arguments_from_deltas": "{\"command\": \"$r = @(1000,2000,3000,4000,5000,6000); $c = @(700,1400,2100,2800,3500,4200); $tr = ($r | Measure-Object -Sum).Sum; $tc = ($c | Measure-Object -Sum).Sum; $p = $tr - $tc; $m = [math]::Round($p/$tr*100,2); \\\"TOTAL=$tr COST=$tc PROFIT=$p MARGIN=$m%\\\"; 0..5 | ForEach-Object { $i=$_+1; \\\"$i月 收入=$($r[$_]) 成本=$($c[$_]) 利润=$($r[$_]-$c[$_]) 利润率=$([math]::Round(($r[$_]-$c[$_])/$r[$_]*100,2))%\\\" }\", \"description\": \"Compute monthly and total sales metrics\"}",
+              "final_arguments": "{\"command\": \"$r = @(1000,2000,3000,4000,5000,6000); $c = @(700,1400,2100,2800,3500,4200); $tr = ($r | Measure-Object -Sum).Sum; $tc = ($c | Measure-Object -Sum).Sum; $p = $tr - $tc; $m = [math]::Round($p/$tr*100,2); \\\"TOTAL=$tr COST=$tc PROFIT=$p MARGIN=$m%\\\"; 0..5 | ForEach-Object { $i=$_+1; \\\"$i月 收入=$($r[$_]) 成本=$($c[$_]) 利润=$($r[$_]-$c[$_]) 利润率=$([math]::Round(($r[$_]-$c[$_])/$r[$_]*100,2))%\\\" }\", \"description\": \"Compute monthly and total sales metrics\"}",
+              "output_index": 1,
+              "item_id": "b970fd7ac55bbeb5",
+              "delta_matches_final": true
+            }
+          ],
+          "text_len": 0,
+          "usage": {
+            "input_tokens": 22616,
+            "input_tokens_details": {
+              "cached_tokens": 18176,
+              "input_tokens_per_turn": [],
+              "cached_tokens_per_turn": []
+            },
+            "output_tokens": 550,
+            "output_tokens_details": {
+              "reasoning_tokens": 0,
+              "tool_output_tokens": 0,
+              "output_tokens_per_turn": [],
+              "tool_output_tokens_per_turn": []
+            },
+            "total_tokens": 23166
+          },
+          "timings": {
+            "t_headers": 0.437,
+            "t_first_frame": 0.453,
+            "t_first_reasoning": 4.343,
+            "t_first_tool": 8.984,
+            "t_first_text": null,
+            "t_end": 9.031
+          },
+          "e2e": 9.031,
+          "_wire": "wire/00067-1-CAP_AGENT_e4b4a48dd02f44b99a504242efe4c39f.json"
+        },
+        {
+          "rid": 139,
+          "template_idx": 5,
+          "marker": "CAP_AGENT_e4b4a48dd02f44b99a504242efe4c39f",
+          "request_sha256": "BEF4AC129E9FC7F2714FD811E9FBF14ECB3BADB350587B429DA278879A6A5340",
+          "request_len": 83697,
+          "http_status": 200,
+          "error_kind": null,
+          "is_event_stream": true,
+          "terminal": "completed",
+          "terminal_reason": "completed",
+          "protocol_ok": true,
+          "json_errors": [],
+          "tool_calls": [],
+          "text_len": 904,
+          "usage": {
+            "input_tokens": 23010,
+            "input_tokens_details": {
+              "cached_tokens": 18176,
+              "input_tokens_per_turn": [],
+              "cached_tokens_per_turn": []
+            },
+            "output_tokens": 523,
+            "output_tokens_details": {
+              "reasoning_tokens": 0,
+              "tool_output_tokens": 0,
+              "output_tokens_per_turn": [],
+              "tool_output_tokens_per_turn": []
+            },
+            "total_tokens": 23533
+          },
+          "timings": {
+            "t_headers": 0.344,
+            "t_first_frame": 0.375,
+            "t_first_reasoning": null,
+            "t_first_tool": null,
+            "t_first_text": 1.735,
+            "t_end": 5.25
+          },
+          "e2e": 5.25,
+          "_wire": "wire/00067-2-CAP_AGENT_e4b4a48dd02f44b99a504242efe4c39f.json"
+        }
+      ]
+    },
+    {
+      "task_id": 71,
+      "task_ok": true,
+      "checks": {
+        "first_completed": true,
+        "expected_tool": true,
+        "tool_arguments": true,
+        "second_completed": true,
+        "final_numbers": true,
+        "final_report": true
+      },
+      "attribution": "ok",
+      "first_feedback_s": 8.094,
+      "marker": "CAP_AGENT_2d9a2cf5fa404745bf6604dc94a43310",
+      "template_idx": 9,
+      "source_session": "session-791db3c9-90d1-4147-8c01-364785803c00",
+      "llm_requests": 2,
+      "gateway_success": [
+        true,
+        true
+      ],
+      "e2e_s": 15.266,
+      "requests": [
+        {
+          "rid": 131,
+          "template_idx": 9,
+          "marker": "CAP_AGENT_2d9a2cf5fa404745bf6604dc94a43310",
+          "request_sha256": "D658715760E234C1EEA9CCE96B5E6CF2C57575AF06285632C739C649E0229FEE",
+          "request_len": 82723,
+          "http_status": 200,
+          "error_kind": null,
+          "is_event_stream": true,
+          "terminal": "completed",
+          "terminal_reason": "completed",
+          "protocol_ok": true,
+          "json_errors": [],
+          "tool_calls": [
+            {
+              "key": "87e9499e41b7696c",
+              "call_id": "call_b322896cfb03fbc7",
+              "name": "pwsh",
+              "arguments_from_deltas": "{\"command\": \"$rev = 1000+2000+3000+4000+5000+6000; $cost = 700+1400+2100+2800+3500+4200; $profit = $rev - $cost; $margin = [math]::Round(($profit/$rev)*100,2); \\\"REV=$rev COST=$cost PROFIT=$profit MARGIN=$margin%\\\"; foreach($m in 0..5){$r=(($m+1)*1000); $c=(($m+1)*700); $p=$r-$c; $mg=[math]::Round(($p/$r)*100,1); \\\"$($m+1)月 收入=$r 成本=$c 利润=$p 利润率=$mg%\\\"}\", \"description\": \"Compute monthly and total sales figures in memory\"}",
+              "final_arguments": "{\"command\": \"$rev = 1000+2000+3000+4000+5000+6000; $cost = 700+1400+2100+2800+3500+4200; $profit = $rev - $cost; $margin = [math]::Round(($profit/$rev)*100,2); \\\"REV=$rev COST=$cost PROFIT=$profit MARGIN=$margin%\\\"; foreach($m in 0..5){$r=(($m+1)*1000); $c=(($m+1)*700); $p=$r-$c; $mg=[math]::Round(($p/$r)*100,1); \\\"$($m+1)月 收入=$r 成本=$c 利润=$p 利润率=$mg%\\\"}\", \"description\": \"Compute monthly and total sales figures in memory\"}",
+              "output_index": 1,
+              "item_id": "87e9499e41b7696c",
+              "delta_matches_final": true
+            }
+          ],
+          "text_len": 0,
+          "usage": {
+            "input_tokens": 22612,
+            "input_tokens_details": {
+              "cached_tokens": 18176,
+              "input_tokens_per_turn": [],
+              "cached_tokens_per_turn": []
+            },
+            "output_tokens": 456,
+            "output_tokens_details": {
+              "reasoning_tokens": 0,
+              "tool_output_tokens": 0,
+              "output_tokens_per_turn": [],
+              "tool_output_tokens_per_turn": []
+            },
+            "total_tokens": 23068
+          },
+          "timings": {
+            "t_headers": 0.453,
+            "t_first_frame": 0.5,
+            "t_first_reasoning": 4.25,
+            "t_first_tool": 8.094,
+            "t_first_text": null,
+            "t_end": 8.156
+          },
+          "e2e": 8.156,
+          "_wire": "wire/00071-1-CAP_AGENT_2d9a2cf5fa404745bf6604dc94a43310.json"
+        },
+        {
+          "rid": 137,
+          "template_idx": 9,
+          "marker": "CAP_AGENT_2d9a2cf5fa404745bf6604dc94a43310",
+          "request_sha256": "95D340E52B1001F508995DD3272A6E8FB8A22972EFBFC3F2003AE8421A98DCBA",
+          "request_len": 83697,
+          "http_status": 200,
+          "error_kind": null,
+          "is_event_stream": true,
+          "terminal": "completed",
+          "terminal_reason": "completed",
+          "protocol_ok": true,
+          "json_errors": [],
+          "tool_calls": [],
+          "text_len": 821,
+          "usage": {
+            "input_tokens": 23001,
+            "input_tokens_details": {
+              "cached_tokens": 22528,
+              "input_tokens_per_turn": [],
+              "cached_tokens_per_turn": []
+            },
+            "output_tokens": 487,
+            "output_tokens_details": {
+              "reasoning_tokens": 0,
+              "tool_output_tokens": 0,
+              "output_tokens_per_turn": [],
+              "tool_output_tokens_per_turn": []
+            },
+            "total_tokens": 23488
+          },
+          "timings": {
+            "t_headers": 0.328,
+            "t_first_frame": 0.359,
+            "t_first_reasoning": 1.0,
+            "t_first_tool": null,
+            "t_first_text": 1.0,
+            "t_end": 5.953
+          },
+          "e2e": 5.953,
+          "_wire": "wire/00071-2-CAP_AGENT_2d9a2cf5fa404745bf6604dc94a43310.json"
+        }
+      ]
+    },
+    {
+      "task_id": 66,
+      "task_ok": true,
+      "checks": {
+        "first_completed": true,
+        "expected_tool": true,
+        "tool_arguments": true,
+        "second_completed": true,
+        "final_numbers": true,
+        "final_report": true
+      },
+      "attribution": "ok",
+      "first_feedback_s": 8.171,
+      "marker": "CAP_AGENT_6e856407fca448eebcfd5def19075437",
+      "template_idx": 4,
+      "source_session": "session-d03e6b6e-72da-4a62-8368-5e42f90bb697",
+      "llm_requests": 2,
+      "gateway_success": [
+        true,
+        true
+      ],
+      "e2e_s": 16.734,
+      "requests": [
+        {
+          "rid": 126,
+          "template_idx": 4,
+          "marker": "CAP_AGENT_6e856407fca448eebcfd5def19075437",
+          "request_sha256": "BE06E4AB65843091D5F2A5F99779CB3D5171CE2ADBEE2CFE93F54E7D89B5946B",
+          "request_len": 82723,
+          "http_status": 200,
+          "error_kind": null,
+          "is_event_stream": true,
+          "terminal": "completed",
+          "terminal_reason": "completed",
+          "protocol_ok": true,
+          "json_errors": [],
+          "tool_calls": [
+            {
+              "key": "a431741fcfce54f9",
+              "call_id": "call_a38270fdaf60b893",
+              "name": "pwsh",
+              "arguments_from_deltas": "{\"command\": \"$months = 1..6\\n$rev = @(1000,2000,3000,4000,5000,6000)\\n$cost = @(700,1400,2100,2800,3500,4200)\\n$totRev = ($rev | Measure-Object -Sum).Sum\\n$totCost = ($cost | Measure-Object -Sum).Sum\\n$profit = $totRev - $totCost\\n$margin = '{0:P1}' -f ($profit / $totRev)\\n\\\"总收入=$totRev 总成本=$totCost 利润=$profit 利润率=$margin\\\"\\nfor($i=0;$i -lt 6;$i++){ $m=$i+1; \\\"第${m}月 收入=$($rev[$i]) 成本=$($cost[$i]) 利润=$($rev[$i]-$cost[$i]) 利润率={0:P1}\\\" -f (($rev[$i]-$cost[$i])/$rev[$i]) }\", \"description\": \"计算逐月收入成本利润\"}",
+              "final_arguments": "{\"command\": \"$months = 1..6\\n$rev = @(1000,2000,3000,4000,5000,6000)\\n$cost = @(700,1400,2100,2800,3500,4200)\\n$totRev = ($rev | Measure-Object -Sum).Sum\\n$totCost = ($cost | Measure-Object -Sum).Sum\\n$profit = $totRev - $totCost\\n$margin = '{0:P1}' -f ($profit / $totRev)\\n\\\"总收入=$totRev 总成本=$totCost 利润=$profit 利润率=$margin\\\"\\nfor($i=0;$i -lt 6;$i++){ $m=$i+1; \\\"第${m}月 收入=$($rev[$i]) 成本=$($cost[$i]) 利润=$($rev[$i]-$cost[$i]) 利润率={0:P1}\\\" -f (($rev[$i]-$cost[$i])/$rev[$i]) }\", \"description\": \"计算逐月收入成本利润\"}",
+              "output_index": 1,
+              "item_id": "a431741fcfce54f9",
+              "delta_matches_final": true
+            }
+          ],
+          "text_len": 0,
+          "usage": {
+            "input_tokens": 22604,
+            "input_tokens_details": {
+              "cached_tokens": 18176,
+              "input_tokens_per_turn": [],
+              "cached_tokens_per_turn": []
+            },
+            "output_tokens": 450,
+            "output_tokens_details": {
+              "reasoning_tokens": 0,
+              "tool_output_tokens": 0,
+              "output_tokens_per_turn": [],
+              "tool_output_tokens_per_turn": []
+            },
+            "total_tokens": 23054
+          },
+          "timings": {
+            "t_headers": 0.484,
+            "t_first_frame": 0.531,
+            "t_first_reasoning": 4.484,
+            "t_first_tool": 8.171,
+            "t_first_text": null,
+            "t_end": 8.218
+          },
+          "e2e": 8.218,
+          "_wire": "wire/00066-1-CAP_AGENT_6e856407fca448eebcfd5def19075437.json"
+        },
+        {
+          "rid": 136,
+          "template_idx": 4,
+          "marker": "CAP_AGENT_6e856407fca448eebcfd5def19075437",
+          "request_sha256": "8115EDD53588B887026272B98709F3A92702C8383AB78658B37AC9C7D56F6FD6",
+          "request_len": 83854,
+          "http_status": 200,
+          "error_kind": null,
+          "is_event_stream": true,
+          "terminal": "completed",
+          "terminal_reason": "completed",
+          "protocol_ok": true,
+          "json_errors": [],
+          "tool_calls": [],
+          "text_len": 993,
+          "usage": {
+            "input_tokens": 23037,
+            "input_tokens_details": {
+              "cached_tokens": 22528,
+              "input_tokens_per_turn": [],
+              "cached_tokens_per_turn": []
+            },
+            "output_tokens": 589,
+            "output_tokens_details": {
+              "reasoning_tokens": 0,
+              "tool_output_tokens": 0,
+              "output_tokens_per_turn": [],
+              "tool_output_tokens_per_turn": []
+            },
+            "total_tokens": 23626
+          },
+          "timings": {
+            "t_headers": 0.313,
+            "t_first_frame": 0.344,
+            "t_first_reasoning": 1.141,
+            "t_first_tool": null,
+            "t_first_text": 1.141,
+            "t_end": 7.516
+          },
+          "e2e": 7.516,
+          "_wire": "wire/00066-2-CAP_AGENT_6e856407fca448eebcfd5def19075437.json"
+        }
+      ]
+    },
+    {
+      "task_id": 62,
+      "task_ok": true,
+      "checks": {
+        "first_completed": true,
+        "expected_tool": true,
+        "tool_arguments": true,
+        "second_completed": true,
+        "final_numbers": true,
+        "final_report": true
+      },
+      "attribution": "ok",
+      "first_feedback_s": 10.61,
+      "marker": "CAP_AGENT_20e1bb368afc43f693e4dfb8f3a01f34",
+      "template_idx": 0,
+      "source_session": "session-0085a1a5-ea38-4831-92df-afed9df3ec8c",
+      "llm_requests": 2,
+      "gateway_success": [
+        true,
+        true
+      ],
+      "e2e_s": 18.188,
+      "requests": [
+        {
+          "rid": 122,
+          "template_idx": 0,
+          "marker": "CAP_AGENT_20e1bb368afc43f693e4dfb8f3a01f34",
+          "request_sha256": "B436863866F35DEF639C2A13D690A464C0AA43814FAB69BDA24905BC80BCE095",
+          "request_len": 82659,
+          "http_status": 200,
+          "error_kind": null,
+          "is_event_stream": true,
+          "terminal": "completed",
+          "terminal_reason": "completed",
+          "protocol_ok": true,
+          "json_errors": [],
+          "tool_calls": [
+            {
+              "key": "927fdaaa656e11a3",
+              "call_id": "call_b7d5d60239485478",
+              "name": "pwsh",
+              "arguments_from_deltas": "{\"command\": \"$months=1..6; $rev=@(1000,2000,3000,4000,5000,6000); $cost=@(700,1400,2100,2800,3500,4200); $totalRev=($rev|Measure-Object -Sum).Sum; $totalCost=($cost|Measure-Object -Sum).Sum; $profit=$totalRev-$totalCost; $margin=[math]::Round($profit/$totalRev*100,2); \\\"TOTAL=$totalRev COST=$totalCost PROFIT=$profit MARGIN=$margin%\\\"; for($i=0;$i -lt 6;$i++){ $p=$rev[$i]-$cost[$i]; \\\"{0}月 收入={1} 成本={2} 利润={3} 利润率={4}%\\\" -f ($i+1),$rev[$i],$cost[$i],$p,(($p/$rev[$i])*100) }\", \"description\": \"计算逐月收入成本利润及汇总\"}",
+              "final_arguments": "{\"command\": \"$months=1..6; $rev=@(1000,2000,3000,4000,5000,6000); $cost=@(700,1400,2100,2800,3500,4200); $totalRev=($rev|Measure-Object -Sum).Sum; $totalCost=($cost|Measure-Object -Sum).Sum; $profit=$totalRev-$totalCost; $margin=[math]::Round($profit/$totalRev*100,2); \\\"TOTAL=$totalRev COST=$totalCost PROFIT=$profit MARGIN=$margin%\\\"; for($i=0;$i -lt 6;$i++){ $p=$rev[$i]-$cost[$i]; \\\"{0}月 收入={1} 成本={2} 利润={3} 利润率={4}%\\\" -f ($i+1),$rev[$i],$cost[$i],$p,(($p/$rev[$i])*100) }\", \"description\": \"计算逐月收入成本利润及汇总\"}",
+              "output_index": 1,
+              "item_id": "927fdaaa656e11a3",
+              "delta_matches_final": true
+            }
+          ],
+          "text_len": 0,
+          "usage": {
+            "input_tokens": 22621,
+            "input_tokens_details": {
+              "cached_tokens": 18176,
+              "input_tokens_per_turn": [],
+              "cached_tokens_per_turn": []
+            },
+            "output_tokens": 654,
+            "output_tokens_details": {
+              "reasoning_tokens": 0,
+              "tool_output_tokens": 0,
+              "output_tokens_per_turn": [],
+              "tool_output_tokens_per_turn": []
+            },
+            "total_tokens": 23275
+          },
+          "timings": {
+            "t_headers": 0.375,
+            "t_first_frame": 0.407,
+            "t_first_reasoning": 4.5,
+            "t_first_tool": 10.61,
+            "t_first_text": null,
+            "t_end": 10.672
+          },
+          "e2e": 10.672,
+          "_wire": "wire/00062-1-CAP_AGENT_20e1bb368afc43f693e4dfb8f3a01f34.json"
+        },
+        {
+          "rid": 141,
+          "template_idx": 0,
+          "marker": "CAP_AGENT_20e1bb368afc43f693e4dfb8f3a01f34",
+          "request_sha256": "24280CB80B718F20266C7E5E0857D70AD281470FC49485F62F88ADE77AAC5BBF",
+          "request_len": 83823,
+          "http_status": 200,
+          "error_kind": null,
+          "is_event_stream": true,
+          "terminal": "completed",
+          "terminal_reason": "completed",
+          "protocol_ok": true,
+          "json_errors": [],
+          "tool_calls": [],
+          "text_len": 934,
+          "usage": {
+            "input_tokens": 23080,
+            "input_tokens_details": {
+              "cached_tokens": 22528,
+              "input_tokens_per_turn": [],
+              "cached_tokens_per_turn": []
+            },
+            "output_tokens": 517,
+            "output_tokens_details": {
+              "reasoning_tokens": 0,
+              "tool_output_tokens": 0,
+              "output_tokens_per_turn": [],
+              "tool_output_tokens_per_turn": []
+            },
+            "total_tokens": 23597
+          },
+          "timings": {
+            "t_headers": 0.328,
+            "t_first_frame": 0.375,
+            "t_first_reasoning": null,
+            "t_first_tool": null,
+            "t_first_text": 1.297,
+            "t_end": 6.516
+          },
+          "e2e": 6.516,
+          "_wire": "wire/00062-2-CAP_AGENT_20e1bb368afc43f693e4dfb8f3a01f34.json"
+        }
+      ]
+    },
+    {
+      "task_id": 64,
+      "task_ok": true,
+      "checks": {
+        "first_completed": true,
+        "expected_tool": true,
+        "tool_arguments": true,
+        "second_completed": true,
+        "final_numbers": true,
+        "final_report": true
+      },
+      "attribution": "ok",
+      "first_feedback_s": 10.359,
+      "marker": "CAP_AGENT_f6fdbc8e26024252aa2df0da7b806451",
+      "template_idx": 2,
+      "source_session": "session-34721e42-7172-406f-8536-84d795cf8970",
+      "llm_requests": 2,
+      "gateway_success": [
+        true,
+        true
+      ],
+      "e2e_s": 18.343,
+      "requests": [
+        {
+          "rid": 124,
+          "template_idx": 2,
+          "marker": "CAP_AGENT_f6fdbc8e26024252aa2df0da7b806451",
+          "request_sha256": "D308477CC7BDCB0BCC1405115269DFE40187C37871A6F68BDF06867077E18D4A",
+          "request_len": 82723,
+          "http_status": 200,
+          "error_kind": null,
+          "is_event_stream": true,
+          "terminal": "completed",
+          "terminal_reason": "completed",
+          "protocol_ok": true,
+          "json_errors": [],
+          "tool_calls": [
+            {
+              "key": "b84fbb386532df9e",
+              "call_id": "call_b0a84855ed5e4dd8",
+              "name": "pwsh",
+              "arguments_from_deltas": "{\"command\": \"$rev = @(1000,2000,3000,4000,5000,6000); $cost = @(700,1400,2100,2800,3500,4200); $tRev = ($rev | Measure-Object -Sum).Sum; $tCost = ($cost | Measure-Object -Sum).Sum; $profit = $tRev - $tCost; $margin = $profit / $tRev * 100; \\\"REV=$tRev COST=$tCost PROFIT=$profit MARGIN=$([math]::Round($margin,2))%\\\"; $i=1; for($i=0;$i -lt 6;$i++){ $p = $rev[$i]-$cost[$i]; $m = $p/$rev[$i]*100; \\\"M$($i+1): REV=$($rev[$i]) COST=$($cost[$i]) PROFIT=$p MARGIN=$([math]::Round($m,2))%\\\" }\", \"description\": \"计算总收入、总成本、利润及逐月利润率\"}",
+              "final_arguments": "{\"command\": \"$rev = @(1000,2000,3000,4000,5000,6000); $cost = @(700,1400,2100,2800,3500,4200); $tRev = ($rev | Measure-Object -Sum).Sum; $tCost = ($cost | Measure-Object -Sum).Sum; $profit = $tRev - $tCost; $margin = $profit / $tRev * 100; \\\"REV=$tRev COST=$tCost PROFIT=$profit MARGIN=$([math]::Round($margin,2))%\\\"; $i=1; for($i=0;$i -lt 6;$i++){ $p = $rev[$i]-$cost[$i]; $m = $p/$rev[$i]*100; \\\"M$($i+1): REV=$($rev[$i]) COST=$($cost[$i]) PROFIT=$p MARGIN=$([math]::Round($m,2))%\\\" }\", \"description\": \"计算总收入、总成本、利润及逐月利润率\"}",
+              "output_index": 1,
+              "item_id": "b84fbb386532df9e",
+              "delta_matches_final": true
+            }
+          ],
+          "text_len": 0,
+          "usage": {
+            "input_tokens": 22605,
+            "input_tokens_details": {
+              "cached_tokens": 18176,
+              "input_tokens_per_turn": [],
+              "cached_tokens_per_turn": []
+            },
+            "output_tokens": 626,
+            "output_tokens_details": {
+              "reasoning_tokens": 0,
+              "tool_output_tokens": 0,
+              "output_tokens_per_turn": [],
+              "tool_output_tokens_per_turn": []
+            },
+            "total_tokens": 23231
+          },
+          "timings": {
+            "t_headers": 0.437,
+            "t_first_frame": 0.484,
+            "t_first_reasoning": 4.437,
+            "t_first_tool": 10.359,
+            "t_first_text": null,
+            "t_end": 10.406
+          },
+          "e2e": 10.406,
+          "_wire": "wire/00064-1-CAP_AGENT_f6fdbc8e26024252aa2df0da7b806451.json"
+        },
+        {
+          "rid": 140,
+          "template_idx": 2,
+          "marker": "CAP_AGENT_f6fdbc8e26024252aa2df0da7b806451",
+          "request_sha256": "5ADD6C6CFBED5186FE81D7C4C2557973B57C6D1B7E1BC1EA5F6C8B1A29CD4863",
+          "request_len": 83542,
+          "http_status": 200,
+          "error_kind": null,
+          "is_event_stream": true,
+          "terminal": "completed",
+          "terminal_reason": "completed",
+          "protocol_ok": true,
+          "json_errors": [],
+          "tool_calls": [],
+          "text_len": 881,
+          "usage": {
+            "input_tokens": 22933,
+            "input_tokens_details": {
+              "cached_tokens": 22528,
+              "input_tokens_per_turn": [],
+              "cached_tokens_per_turn": []
+            },
+            "output_tokens": 543,
+            "output_tokens_details": {
+              "reasoning_tokens": 0,
+              "tool_output_tokens": 0,
+              "output_tokens_per_turn": [],
+              "tool_output_tokens_per_turn": []
+            },
+            "total_tokens": 23476
+          },
+          "timings": {
+            "t_headers": 0.329,
+            "t_first_frame": 0.36,
+            "t_first_reasoning": 1.266,
+            "t_first_tool": null,
+            "t_first_text": 1.266,
+            "t_end": 6.735
+          },
+          "e2e": 6.735,
+          "_wire": "wire/00064-2-CAP_AGENT_f6fdbc8e26024252aa2df0da7b806451.json"
+        }
+      ]
+    },
+    {
+      "task_id": 72,
+      "task_ok": true,
+      "checks": {
+        "first_completed": true,
+        "expected_tool": true,
+        "tool_arguments": true,
+        "second_completed": true,
+        "final_numbers": true,
+        "final_report": true
+      },
+      "attribution": "ok",
+      "first_feedback_s": 4.422,
+      "marker": "CAP_AGENT_fa4901036d404c25afe7de84710a9834",
+      "template_idx": 8,
+      "source_session": "session-261a9fb1-f506-4589-bf4b-cec7f39076c6",
+      "llm_requests": 2,
+      "gateway_success": [
+        true,
+        true
+      ],
+      "e2e_s": 13.687,
+      "requests": [
+        {
+          "rid": 142,
+          "template_idx": 8,
+          "marker": "CAP_AGENT_fa4901036d404c25afe7de84710a9834",
+          "request_sha256": "6084651322DE33EA5E13A4A86149F823E1A32DD416510C91BD85C7DD30E1925C",
+          "request_len": 82723,
+          "http_status": 200,
+          "error_kind": null,
+          "is_event_stream": true,
+          "terminal": "completed",
+          "terminal_reason": "completed",
+          "protocol_ok": true,
+          "json_errors": [],
+          "tool_calls": [
+            {
+              "key": "ada0708e0d2e8f33",
+              "call_id": "call_9e52ed302e59a5a3",
+              "name": "pwsh",
+              "arguments_from_deltas": "{\"command\": \"$rev=1000+2000+3000+4000+5000+6000; $cost=700+1400+2100+2800+3500+4200; $profit=$rev-$cost; $margin=[math]::Round($profit/$rev*100,1); \\\"TOTAL=$rev COST=$cost PROFIT=$profit MARGIN=$margin%\\\"\", \"description\": \"Compute totals, profit, and margin in memory\"}",
+              "final_arguments": "{\"command\": \"$rev=1000+2000+3000+4000+5000+6000; $cost=700+1400+2100+2800+3500+4200; $profit=$rev-$cost; $margin=[math]::Round($profit/$rev*100,1); \\\"TOTAL=$rev COST=$cost PROFIT=$profit MARGIN=$margin%\\\"\", \"description\": \"Compute totals, profit, and margin in memory\"}",
+              "output_index": 1,
+              "item_id": "ada0708e0d2e8f33",
+              "delta_matches_final": true
+            }
+          ],
+          "text_len": 0,
+          "usage": {
+            "input_tokens": 22604,
+            "input_tokens_details": {
+              "cached_tokens": 18176,
+              "input_tokens_per_turn": [],
+              "cached_tokens_per_turn": []
+            },
+            "output_tokens": 340,
+            "output_tokens_details": {
+              "reasoning_tokens": 0,
+              "tool_output_tokens": 0,
+              "output_tokens_per_turn": [],
+              "tool_output_tokens_per_turn": []
+            },
+            "total_tokens": 22944
+          },
+          "timings": {
+            "t_headers": 0.344,
+            "t_first_frame": 0.375,
+            "t_first_reasoning": 1.406,
+            "t_first_tool": 4.422,
+            "t_first_text": null,
+            "t_end": 4.484
+          },
+          "e2e": 4.5,
+          "_wire": "wire/00072-1-CAP_AGENT_fa4901036d404c25afe7de84710a9834.json"
+        },
+        {
+          "rid": 144,
+          "template_idx": 8,
+          "marker": "CAP_AGENT_fa4901036d404c25afe7de84710a9834",
+          "request_sha256": "6490407BE5F4C22D2DF5B5C69BCF259C4882D0D542C9668A3A92F67C4075C326",
+          "request_len": 83553,
+          "http_status": 200,
+          "error_kind": null,
+          "is_event_stream": true,
+          "terminal": "completed",
+          "terminal_reason": "completed",
+          "protocol_ok": true,
+          "json_errors": [],
+          "tool_calls": [],
+          "text_len": 816,
+          "usage": {
+            "input_tokens": 22904,
+            "input_tokens_details": {
+              "cached_tokens": 22528,
+              "input_tokens_per_turn": [],
+              "cached_tokens_per_turn": []
+            },
+            "output_tokens": 497,
+            "output_tokens_details": {
+              "reasoning_tokens": 0,
+              "tool_output_tokens": 0,
+              "output_tokens_per_turn": [],
+              "tool_output_tokens_per_turn": []
+            },
+            "total_tokens": 23401
+          },
+          "timings": {
+            "t_headers": 0.375,
+            "t_first_frame": 0.422,
+            "t_first_reasoning": 2.297,
+            "t_first_tool": null,
+            "t_first_text": 2.297,
+            "t_end": 8.281
+          },
+          "e2e": 8.281,
+          "_wire": "wire/00072-2-CAP_AGENT_fa4901036d404c25afe7de84710a9834.json"
+        }
+      ]
+    },
+    {
+      "task_id": 73,
+      "task_ok": true,
+      "checks": {
+        "first_completed": true,
+        "expected_tool": true,
+        "tool_arguments": true,
+        "second_completed": true,
+        "final_numbers": true,
+        "final_report": true
+      },
+      "attribution": "ok",
+      "first_feedback_s": 6.922,
+      "marker": "CAP_AGENT_8e3dd95cdfe148cd8472791c533cfdb2",
+      "template_idx": 7,
+      "source_session": "session-d7132eee-2911-40d6-a5eb-5e9706f9cf81",
+      "llm_requests": 2,
+      "gateway_success": [
+        true,
+        true
+      ],
+      "e2e_s": 13.547,
+      "requests": [
+        {
+          "rid": 143,
+          "template_idx": 7,
+          "marker": "CAP_AGENT_8e3dd95cdfe148cd8472791c533cfdb2",
+          "request_sha256": "A150E09534321BB61FD773A8311A73D662332D5FAF263F5F5C231512E12D9E28",
+          "request_len": 82723,
+          "http_status": 200,
+          "error_kind": null,
+          "is_event_stream": true,
+          "terminal": "completed",
+          "terminal_reason": "completed",
+          "protocol_ok": true,
+          "json_errors": [],
+          "tool_calls": [
+            {
+              "key": "8d0a987e8da5d74c",
+              "call_id": "call_9e8b66a06ce29d91",
+              "name": "pwsh",
+              "arguments_from_deltas": "{\"command\": \"$rev = @(1000,2000,3000,4000,5000,6000); $cost = @(700,1400,2100,2800,3500,4200); $months=1..6; foreach($i in $months){$p=$rev[$i-1]-$cost[$i-1]; $m=[math]::Round($p/$rev[$i-1]*100,1); \\\"月$i 收入=$($rev[$i-1]) 成本=$($cost[$i-1]) 利润=$p 利润率=$m%\\\"}; $tr=($rev|Measure-Object -Sum).Sum; $tc=($cost|Measure-Object -Sum).Sum; $tp=$tr-$tc; $tm=[math]::Round($tp/$tr*100,1); \\\"TOTAL=$tr COST=$tc PROFIT=$tp MARGIN=$tm%\\\"\", \"description\": \"计算销售数据汇总\"}",
+              "final_arguments": "{\"command\": \"$rev = @(1000,2000,3000,4000,5000,6000); $cost = @(700,1400,2100,2800,3500,4200); $months=1..6; foreach($i in $months){$p=$rev[$i-1]-$cost[$i-1]; $m=[math]::Round($p/$rev[$i-1]*100,1); \\\"月$i 收入=$($rev[$i-1]) 成本=$($cost[$i-1]) 利润=$p 利润率=$m%\\\"}; $tr=($rev|Measure-Object -Sum).Sum; $tc=($cost|Measure-Object -Sum).Sum; $tp=$tr-$tc; $tm=[math]::Round($tp/$tr*100,1); \\\"TOTAL=$tr COST=$tc PROFIT=$tp MARGIN=$tm%\\\"\", \"description\": \"计算销售数据汇总\"}",
+              "output_index": 1,
+              "item_id": "8d0a987e8da5d74c",
+              "delta_matches_final": true
+            }
+          ],
+          "text_len": 0,
+          "usage": {
+            "input_tokens": 22615,
+            "input_tokens_details": {
+              "cached_tokens": 18176,
+              "input_tokens_per_turn": [],
+              "cached_tokens_per_turn": []
+            },
+            "output_tokens": 534,
+            "output_tokens_details": {
+              "reasoning_tokens": 0,
+              "tool_output_tokens": 0,
+              "output_tokens_per_turn": [],
+              "tool_output_tokens_per_turn": []
+            },
+            "total_tokens": 23149
+          },
+          "timings": {
+            "t_headers": 0.328,
+            "t_first_frame": 0.359,
+            "t_first_reasoning": 1.375,
+            "t_first_tool": 6.922,
+            "t_first_text": null,
+            "t_end": 6.984
+          },
+          "e2e": 7.0,
+          "_wire": "wire/00073-1-CAP_AGENT_8e3dd95cdfe148cd8472791c533cfdb2.json"
+        },
+        {
+          "rid": 152,
+          "template_idx": 7,
+          "marker": "CAP_AGENT_8e3dd95cdfe148cd8472791c533cfdb2",
+          "request_sha256": "35CE137977CA58DDCD3DFAA696E6E684B0D9589C9E285F7BE1F3972350E102F4",
+          "request_len": 83751,
+          "http_status": 200,
+          "error_kind": null,
+          "is_event_stream": true,
+          "terminal": "completed",
+          "terminal_reason": "completed",
+          "protocol_ok": true,
+          "json_errors": [],
+          "tool_calls": [],
+          "text_len": 858,
+          "usage": {
+            "input_tokens": 23056,
+            "input_tokens_details": {
+              "cached_tokens": 18176,
+              "input_tokens_per_turn": [],
+              "cached_tokens_per_turn": []
+            },
+            "output_tokens": 490,
+            "output_tokens_details": {
+              "reasoning_tokens": 0,
+              "tool_output_tokens": 0,
+              "output_tokens_per_turn": [],
+              "tool_output_tokens_per_turn": []
+            },
+            "total_tokens": 23546
+          },
+          "timings": {
+            "t_headers": 0.359,
+            "t_first_frame": 0.391,
+            "t_first_reasoning": 1.281,
+            "t_first_tool": null,
+            "t_first_text": 1.281,
+            "t_end": 5.469
+          },
+          "e2e": 5.469,
+          "_wire": "wire/00073-2-CAP_AGENT_8e3dd95cdfe148cd8472791c533cfdb2.json"
+        }
+      ]
+    },
+    {
+      "task_id": 77,
+      "task_ok": true,
+      "checks": {
+        "first_completed": true,
+        "expected_tool": true,
+        "tool_arguments": true,
+        "second_completed": true,
+        "final_numbers": true,
+        "final_report": true
+      },
+      "attribution": "ok",
+      "first_feedback_s": 4.86,
+      "marker": "CAP_AGENT_881bb20af6264994b6c5dc64a74df65c",
+      "template_idx": 6,
+      "source_session": "session-c4fd6ffd-a5ae-4d4c-93f3-b35d7063aaa5",
+      "llm_requests": 2,
+      "gateway_success": [
+        true,
+        true
+      ],
+      "e2e_s": 9.782,
+      "requests": [
+        {
+          "rid": 148,
+          "template_idx": 6,
+          "marker": "CAP_AGENT_881bb20af6264994b6c5dc64a74df65c",
+          "request_sha256": "517046F86F4A19A606E8E94E59B3F6D057F44211475E8DE8322992E122CD279C",
+          "request_len": 82723,
+          "http_status": 200,
+          "error_kind": null,
+          "is_event_stream": true,
+          "terminal": "completed",
+          "terminal_reason": "completed",
+          "protocol_ok": true,
+          "json_errors": [],
+          "tool_calls": [
+            {
+              "key": "a3f9d265208132f0",
+              "call_id": "call_978806923c49b216",
+              "name": "pwsh",
+              "arguments_from_deltas": "{\"command\": \"$rev=@(1000,2000,3000,4000,5000,6000); $cost=@(700,1400,2100,2800,3500,4200); $tr=($rev|Measure-Object -Sum).Sum; $tc=($cost|Measure-Object -Sum).Sum; $tp=$tr-$tc; $m=[math]::Round(100*$tp/$tr,1); \\\"REV=$tr COST=$tc PROFIT=$tp MARGIN=$m%\\\"\", \"description\": \"Compute monthly sales totals in memory\"}",
+              "final_arguments": "{\"command\": \"$rev=@(1000,2000,3000,4000,5000,6000); $cost=@(700,1400,2100,2800,3500,4200); $tr=($rev|Measure-Object -Sum).Sum; $tc=($cost|Measure-Object -Sum).Sum; $tp=$tr-$tc; $m=[math]::Round(100*$tp/$tr,1); \\\"REV=$tr COST=$tc PROFIT=$tp MARGIN=$m%\\\"\", \"description\": \"Compute monthly sales totals in memory\"}",
+              "output_index": 1,
+              "item_id": "a3f9d265208132f0",
+              "delta_matches_final": true
+            }
+          ],
+          "text_len": 0,
+          "usage": {
+            "input_tokens": 22612,
+            "input_tokens_details": {
+              "cached_tokens": 18176,
+              "input_tokens_per_turn": [],
+              "cached_tokens_per_turn": []
+            },
+            "output_tokens": 403,
+            "output_tokens_details": {
+              "reasoning_tokens": 0,
+              "tool_output_tokens": 0,
+              "output_tokens_per_turn": [],
+              "tool_output_tokens_per_turn": []
+            },
+            "total_tokens": 23015
+          },
+          "timings": {
+            "t_headers": 0.297,
+            "t_first_frame": 0.344,
+            "t_first_reasoning": 1.719,
+            "t_first_tool": 4.86,
+            "t_first_text": null,
+            "t_end": 4.922
+          },
+          "e2e": 4.922,
+          "_wire": "wire/00077-1-CAP_AGENT_881bb20af6264994b6c5dc64a74df65c.json"
+        },
+        {
+          "rid": 155,
+          "template_idx": 6,
+          "marker": "CAP_AGENT_881bb20af6264994b6c5dc64a74df65c",
+          "request_sha256": "B253FB2B58C049C8821A8CC7D2181CE87D3E9321466F901113A8F624DAC969CC",
+          "request_len": 83275,
+          "http_status": 200,
+          "error_kind": null,
+          "is_event_stream": true,
+          "terminal": "completed",
+          "terminal_reason": "completed",
+          "protocol_ok": true,
+          "json_errors": [],
+          "tool_calls": [],
+          "text_len": 669,
+          "usage": {
+            "input_tokens": 22826,
+            "input_tokens_details": {
+              "cached_tokens": 22528,
+              "input_tokens_per_turn": [],
+              "cached_tokens_per_turn": []
+            },
+            "output_tokens": 366,
+            "output_tokens_details": {
+              "reasoning_tokens": 0,
+              "tool_output_tokens": 0,
+              "output_tokens_per_turn": [],
+              "tool_output_tokens_per_turn": []
+            },
+            "total_tokens": 23192
+          },
+          "timings": {
+            "t_headers": 0.328,
+            "t_first_frame": 0.359,
+            "t_first_reasoning": null,
+            "t_first_tool": null,
+            "t_first_text": 1.015,
+            "t_end": 3.922
+          },
+          "e2e": 3.922,
+          "_wire": "wire/00077-2-CAP_AGENT_881bb20af6264994b6c5dc64a74df65c.json"
+        }
+      ]
+    },
+    {
+      "task_id": 78,
+      "task_ok": true,
+      "checks": {
+        "first_completed": true,
+        "expected_tool": true,
+        "tool_arguments": true,
+        "second_completed": true,
+        "final_numbers": true,
+        "final_report": true
+      },
+      "attribution": "ok",
+      "first_feedback_s": 4.984,
+      "marker": "CAP_AGENT_0db0370416f8498ca52f4efdd6526f87",
+      "template_idx": 0,
+      "source_session": "session-0085a1a5-ea38-4831-92df-afed9df3ec8c",
+      "llm_requests": 2,
+      "gateway_success": [
+        true,
+        true
+      ],
+      "e2e_s": 11.75,
+      "requests": [
+        {
+          "rid": 149,
+          "template_idx": 0,
+          "marker": "CAP_AGENT_0db0370416f8498ca52f4efdd6526f87",
+          "request_sha256": "8CD24E02635C990532BD27949A0EAB5C27A72C45CFF73DC81F4D75176DA96332",
+          "request_len": 82659,
+          "http_status": 200,
+          "error_kind": null,
+          "is_event_stream": true,
+          "terminal": "completed",
+          "terminal_reason": "completed",
+          "protocol_ok": true,
+          "json_errors": [],
+          "tool_calls": [
+            {
+              "key": "ae4cfde6a89fb598",
+              "call_id": "call_a5b7b2e6eeefb890",
+              "name": "pwsh",
+              "arguments_from_deltas": "{\"command\": \"$rev = 1000+2000+3000+4000+5000+6000; $cost = 700+1400+2100+2800+3500+4200; $profit = $rev-$cost; $margin = [math]::Round($profit/$rev*100,1); \\\"TOTAL=$rev COST=$cost PROFIT=$profit MARGIN=$margin%\\\"; $months = @(@('1月',1000,700),@('2月',2000,1400),@('3月',3000,2100),@('4月',4000,2800),@('5月',5000,3500),@('6月',6000,4200)); foreach($m in $months){ \\\"{0} 收入{1} 成本{2} 利润{3} 利润率{4}%\\\" -f $m[0],$m[1],$m[2],($m[1]-$m[2]),[math]::Round(($m[1]-$m[2])/$m[1]*100,1) }\", \"description\": \"计算逐月及合计收入成本利润\"}",
+              "final_arguments": "{\"command\": \"$rev = 1000+2000+3000+4000+5000+6000; $cost = 700+1400+2100+2800+3500+4200; $profit = $rev-$cost; $margin = [math]::Round($profit/$rev*100,1); \\\"TOTAL=$rev COST=$cost PROFIT=$profit MARGIN=$margin%\\\"; $months = @(@('1月',1000,700),@('2月',2000,1400),@('3月',3000,2100),@('4月',4000,2800),@('5月',5000,3500),@('6月',6000,4200)); foreach($m in $months){ \\\"{0} 收入{1} 成本{2} 利润{3} 利润率{4}%\\\" -f $m[0],$m[1],$m[2],($m[1]-$m[2]),[math]::Round(($m[1]-$m[2])/$m[1]*100,1) }\", \"description\": \"计算逐月及合计收入成本利润\"}",
+              "output_index": 1,
+              "item_id": "ae4cfde6a89fb598",
+              "delta_matches_final": true
+            }
+          ],
+          "text_len": 0,
+          "usage": {
+            "input_tokens": 22609,
+            "input_tokens_details": {
+              "cached_tokens": 18176,
+              "input_tokens_per_turn": [],
+              "cached_tokens_per_turn": []
+            },
+            "output_tokens": 452,
+            "output_tokens_details": {
+              "reasoning_tokens": 0,
+              "tool_output_tokens": 0,
+              "output_tokens_per_turn": [],
+              "tool_output_tokens_per_turn": []
+            },
+            "total_tokens": 23061
+          },
+          "timings": {
+            "t_headers": 0.296,
+            "t_first_frame": 0.343,
+            "t_first_reasoning": 1.625,
+            "t_first_tool": 4.984,
+            "t_first_text": null,
+            "t_end": 5.234
+          },
+          "e2e": 5.234,
+          "_wire": "wire/00078-1-CAP_AGENT_0db0370416f8498ca52f4efdd6526f87.json"
+        },
+        {
+          "rid": 156,
+          "template_idx": 0,
+          "marker": "CAP_AGENT_0db0370416f8498ca52f4efdd6526f87",
+          "request_sha256": "7D701BE2F67FEFAC84ABB2231B1963615DADA6B7EC056F82348DB54442441947",
+          "request_len": 83826,
+          "http_status": 200,
+          "error_kind": null,
+          "is_event_stream": true,
+          "terminal": "completed",
+          "terminal_reason": "completed",
+          "protocol_ok": true,
+          "json_errors": [],
+          "tool_calls": [],
+          "text_len": 818,
+          "usage": {
+            "input_tokens": 23096,
+            "input_tokens_details": {
+              "cached_tokens": 18176,
+              "input_tokens_per_turn": [],
+              "cached_tokens_per_turn": []
+            },
+            "output_tokens": 447,
+            "output_tokens_details": {
+              "reasoning_tokens": 0,
+              "tool_output_tokens": 0,
+              "output_tokens_per_turn": [],
+              "tool_output_tokens_per_turn": []
+            },
+            "total_tokens": 23543
+          },
+          "timings": {
+            "t_headers": 0.343,
+            "t_first_frame": 0.39,
+            "t_first_reasoning": null,
+            "t_first_tool": null,
+            "t_first_text": 1.437,
+            "t_end": 5.5
+          },
+          "e2e": 5.5,
+          "_wire": "wire/00078-2-CAP_AGENT_0db0370416f8498ca52f4efdd6526f87.json"
+        }
+      ]
+    },
+    {
+      "task_id": 76,
+      "task_ok": true,
+      "checks": {
+        "first_completed": true,
+        "expected_tool": true,
+        "tool_arguments": true,
+        "second_completed": true,
+        "final_numbers": true,
+        "final_report": true
+      },
+      "attribution": "ok",
+      "first_feedback_s": 4.938,
+      "marker": "CAP_AGENT_7b74bc15bb734ee18ba1f5528b0e606e",
+      "template_idx": 2,
+      "source_session": "session-34721e42-7172-406f-8536-84d795cf8970",
+      "llm_requests": 2,
+      "gateway_success": [
+        true,
+        true
+      ],
+      "e2e_s": 12.375,
+      "requests": [
+        {
+          "rid": 147,
+          "template_idx": 2,
+          "marker": "CAP_AGENT_7b74bc15bb734ee18ba1f5528b0e606e",
+          "request_sha256": "3ECFA566BC7760FFF9F20AC6C9AF9DF70554BE8229EA5CB1B9ADBE864B6F934D",
+          "request_len": 82723,
+          "http_status": 200,
+          "error_kind": null,
+          "is_event_stream": true,
+          "terminal": "completed",
+          "terminal_reason": "completed",
+          "protocol_ok": true,
+          "json_errors": [],
+          "tool_calls": [
+            {
+              "key": "9d18482aaae31a1b",
+              "call_id": "call_ad8816e3da433371",
+              "name": "pwsh",
+              "arguments_from_deltas": "{\"command\": \"$months = 1..6; $rev = @(1000,2000,3000,4000,5000,6000); $cost = @(700,1400,2100,2800,3500,4200); $totalRev = ($rev | Measure-Object -Sum).Sum; $totalCost = ($cost | Measure-Object -Sum).Sum; $profit = $totalRev - $totalCost; $margin = [math]::Round($profit / $totalRev * 100, 1); \\\"TOTAL=$totalRev COST=$totalCost PROFIT=$profit MARGIN=$margin%\\\"\", \"description\": \"Compute monthly sales totals and margin\"}",
+              "final_arguments": "{\"command\": \"$months = 1..6; $rev = @(1000,2000,3000,4000,5000,6000); $cost = @(700,1400,2100,2800,3500,4200); $totalRev = ($rev | Measure-Object -Sum).Sum; $totalCost = ($cost | Measure-Object -Sum).Sum; $profit = $totalRev - $totalCost; $margin = [math]::Round($profit / $totalRev * 100, 1); \\\"TOTAL=$totalRev COST=$totalCost PROFIT=$profit MARGIN=$margin%\\\"\", \"description\": \"Compute monthly sales totals and margin\"}",
+              "output_index": 1,
+              "item_id": "9d18482aaae31a1b",
+              "delta_matches_final": true
+            }
+          ],
+          "text_len": 0,
+          "usage": {
+            "input_tokens": 22613,
+            "input_tokens_details": {
+              "cached_tokens": 18176,
+              "input_tokens_per_turn": [],
+              "cached_tokens_per_turn": []
+            },
+            "output_tokens": 263,
+            "output_tokens_details": {
+              "reasoning_tokens": 0,
+              "tool_output_tokens": 0,
+              "output_tokens_per_turn": [],
+              "tool_output_tokens_per_turn": []
+            },
+            "total_tokens": 22876
+          },
+          "timings": {
+            "t_headers": 0.313,
+            "t_first_frame": 0.344,
+            "t_first_reasoning": 1.578,
+            "t_first_tool": 4.938,
+            "t_first_text": null,
+            "t_end": 4.985
+          },
+          "e2e": 4.985,
+          "_wire": "wire/00076-1-CAP_AGENT_7b74bc15bb734ee18ba1f5528b0e606e.json"
+        },
+        {
+          "rid": 154,
+          "template_idx": 2,
+          "marker": "CAP_AGENT_7b74bc15bb734ee18ba1f5528b0e606e",
+          "request_sha256": "46A0A0914F6634CCC8755649E33F242AAB8DE416B360CA613B858373AF23CA84",
+          "request_len": 83397,
+          "http_status": 200,
+          "error_kind": null,
+          "is_event_stream": true,
+          "terminal": "completed",
+          "terminal_reason": "completed",
+          "protocol_ok": true,
+          "json_errors": [],
+          "tool_calls": [],
+          "text_len": 915,
+          "usage": {
+            "input_tokens": 22853,
+            "input_tokens_details": {
+              "cached_tokens": 22528,
+              "input_tokens_per_turn": [],
+              "cached_tokens_per_turn": []
+            },
+            "output_tokens": 505,
+            "output_tokens_details": {
+              "reasoning_tokens": 0,
+              "tool_output_tokens": 0,
+              "output_tokens_per_turn": [],
+              "tool_output_tokens_per_turn": []
+            },
+            "total_tokens": 23358
+          },
+          "timings": {
+            "t_headers": 0.328,
+            "t_first_frame": 0.359,
+            "t_first_reasoning": null,
+            "t_first_tool": null,
+            "t_first_text": 1.547,
+            "t_end": 6.188
+          },
+          "e2e": 6.188,
+          "_wire": "wire/00076-2-CAP_AGENT_7b74bc15bb734ee18ba1f5528b0e606e.json"
+        }
+      ]
+    },
+    {
+      "task_id": 75,
+      "task_ok": true,
+      "checks": {
+        "first_completed": true,
+        "expected_tool": true,
+        "tool_arguments": true,
+        "second_completed": true,
+        "final_numbers": true,
+        "final_report": true
+      },
+      "attribution": "ok",
+      "first_feedback_s": 6.782,
+      "marker": "CAP_AGENT_eaf8b3455acd4d5cb2fdd4cedeb06058",
+      "template_idx": 9,
+      "source_session": "session-791db3c9-90d1-4147-8c01-364785803c00",
+      "llm_requests": 2,
+      "gateway_success": [
+        true,
+        true
+      ],
+      "e2e_s": 12.953,
+      "requests": [
+        {
+          "rid": 146,
+          "template_idx": 9,
+          "marker": "CAP_AGENT_eaf8b3455acd4d5cb2fdd4cedeb06058",
+          "request_sha256": "DBC043F7B362DD5FC1666BE3F4725C678F7EB10792C329B069EB9887FC51FDE8",
+          "request_len": 82723,
+          "http_status": 200,
+          "error_kind": null,
+          "is_event_stream": true,
+          "terminal": "completed",
+          "terminal_reason": "completed",
+          "protocol_ok": true,
+          "json_errors": [],
+          "tool_calls": [
+            {
+              "key": "a24383d2b703f506",
+              "call_id": "call_81077c6edea1b832",
+              "name": "pwsh",
+              "arguments_from_deltas": "{\"command\": \"$inc = 1000+2000+3000+4000+5000+6000; $cost = 700+1400+2100+2800+3500+4200; $profit = $inc-$cost; $margin = [math]::Round($profit/$inc*100,1); \\\"TOTAL=$inc COST=$cost PROFIT=$profit MARGIN=$margin%\\\"; for($m=1;$m -le 6;$m++){ $i=$m*1000; $c=$m*700; $p=$i-$c; $mm=[math]::Round($p/$i*100,1); \\\"$m`: $i $c $p $mm%\\\" }\", \"description\": \"计算收入成本利润利润率\"}",
+              "final_arguments": "{\"command\": \"$inc = 1000+2000+3000+4000+5000+6000; $cost = 700+1400+2100+2800+3500+4200; $profit = $inc-$cost; $margin = [math]::Round($profit/$inc*100,1); \\\"TOTAL=$inc COST=$cost PROFIT=$profit MARGIN=$margin%\\\"; for($m=1;$m -le 6;$m++){ $i=$m*1000; $c=$m*700; $p=$i-$c; $mm=[math]::Round($p/$i*100,1); \\\"$m`: $i $c $p $mm%\\\" }\", \"description\": \"计算收入成本利润利润率\"}",
+              "output_index": 1,
+              "item_id": "a24383d2b703f506",
+              "delta_matches_final": true
+            }
+          ],
+          "text_len": 0,
+          "usage": {
+            "input_tokens": 22616,
+            "input_tokens_details": {
+              "cached_tokens": 18176,
+              "input_tokens_per_turn": [],
+              "cached_tokens_per_turn": []
+            },
+            "output_tokens": 393,
+            "output_tokens_details": {
+              "reasoning_tokens": 0,
+              "tool_output_tokens": 0,
+              "output_tokens_per_turn": [],
+              "tool_output_tokens_per_turn": []
+            },
+            "total_tokens": 23009
+          },
+          "timings": {
+            "t_headers": 0.297,
+            "t_first_frame": 0.328,
+            "t_first_reasoning": 2.188,
+            "t_first_tool": 6.782,
+            "t_first_text": null,
+            "t_end": 6.813
+          },
+          "e2e": 6.813,
+          "_wire": "wire/00075-1-CAP_AGENT_eaf8b3455acd4d5cb2fdd4cedeb06058.json"
+        },
+        {
+          "rid": 157,
+          "template_idx": 9,
+          "marker": "CAP_AGENT_eaf8b3455acd4d5cb2fdd4cedeb06058",
+          "request_sha256": "1E94536DF9F64EB99206D04714798EB5B94C00C4A4469B5FA9CB2667865D5560",
+          "request_len": 83634,
+          "http_status": 200,
+          "error_kind": null,
+          "is_event_stream": true,
+          "terminal": "completed",
+          "terminal_reason": "completed",
+          "protocol_ok": true,
+          "json_errors": [],
+          "tool_calls": [],
+          "text_len": 932,
+          "usage": {
+            "input_tokens": 22988,
+            "input_tokens_details": {
+              "cached_tokens": 18176,
+              "input_tokens_per_turn": [],
+              "cached_tokens_per_turn": []
+            },
+            "output_tokens": 471,
+            "output_tokens_details": {
+              "reasoning_tokens": 0,
+              "tool_output_tokens": 0,
+              "output_tokens_per_turn": [],
+              "tool_output_tokens_per_turn": []
+            },
+            "total_tokens": 23459
+          },
+          "timings": {
+            "t_headers": 0.329,
+            "t_first_frame": 0.375,
+            "t_first_reasoning": null,
+            "t_first_tool": null,
+            "t_first_text": 1.329,
+            "t_end": 4.985
+          },
+          "e2e": 4.985,
+          "_wire": "wire/00075-2-CAP_AGENT_eaf8b3455acd4d5cb2fdd4cedeb06058.json"
+        }
+      ]
+    },
+    {
+      "task_id": 74,
+      "task_ok": true,
+      "checks": {
+        "first_completed": true,
+        "expected_tool": true,
+        "tool_arguments": true,
+        "second_completed": true,
+        "final_numbers": true,
+        "final_report": true
+      },
+      "attribution": "ok",
+      "first_feedback_s": 9.109,
+      "marker": "CAP_AGENT_0975e106384a48208aa4485edd655d88",
+      "template_idx": 4,
+      "source_session": "session-d03e6b6e-72da-4a62-8368-5e42f90bb697",
+      "llm_requests": 2,
+      "gateway_success": [
+        true,
+        true
+      ],
+      "e2e_s": 15.516,
+      "requests": [
+        {
+          "rid": 145,
+          "template_idx": 4,
+          "marker": "CAP_AGENT_0975e106384a48208aa4485edd655d88",
+          "request_sha256": "6AE8E839FEC823B4D02934269ED089D882E65AAFEE046E95CE15D867FC0165BC",
+          "request_len": 82723,
+          "http_status": 200,
+          "error_kind": null,
+          "is_event_stream": true,
+          "terminal": "completed",
+          "terminal_reason": "completed",
+          "protocol_ok": true,
+          "json_errors": [],
+          "tool_calls": [
+            {
+              "key": "b282a41ef1abda3a",
+              "call_id": "call_a9d35426c5df34ab",
+              "name": "pwsh",
+              "arguments_from_deltas": "{\"command\": \"$in = @(1000,2000,3000,4000,5000,6000); $co = @(700,1400,2100,2800,3500,4200); $totalIn = ($in | Measure-Object -Sum).Sum; $totalCo = ($co | Measure-Object -Sum).Sum; $profit = $totalIn - $totalCo; $margin = [math]::Round($profit / $totalIn * 100, 1); for($i=0;$i -lt 6;$i++){ \\\"月$($i+1): 收入=$($in[$i]) 成本=$($co[$i]) 利润=$($in[$i]-$co[$i]) 利润率=$([math]::Round(($in[$i]-$co[$i])/$in[$i]*100,1))%\\\" }; \\\"TOTAL_IN=$totalIn TOTAL_COST=$totalCo PROFIT=$profit MARGIN=$margin%\\\"\", \"description\": \"Compute monthly and total sales metrics\"}",
+              "final_arguments": "{\"command\": \"$in = @(1000,2000,3000,4000,5000,6000); $co = @(700,1400,2100,2800,3500,4200); $totalIn = ($in | Measure-Object -Sum).Sum; $totalCo = ($co | Measure-Object -Sum).Sum; $profit = $totalIn - $totalCo; $margin = [math]::Round($profit / $totalIn * 100, 1); for($i=0;$i -lt 6;$i++){ \\\"月$($i+1): 收入=$($in[$i]) 成本=$($co[$i]) 利润=$($in[$i]-$co[$i]) 利润率=$([math]::Round(($in[$i]-$co[$i])/$in[$i]*100,1))%\\\" }; \\\"TOTAL_IN=$totalIn TOTAL_COST=$totalCo PROFIT=$profit MARGIN=$margin%\\\"\", \"description\": \"Compute monthly and total sales metrics\"}",
+              "output_index": 1,
+              "item_id": "b282a41ef1abda3a",
+              "delta_matches_final": true
+            }
+          ],
+          "text_len": 0,
+          "usage": {
+            "input_tokens": 22600,
+            "input_tokens_details": {
+              "cached_tokens": 18176,
+              "input_tokens_per_turn": [],
+              "cached_tokens_per_turn": []
+            },
+            "output_tokens": 551,
+            "output_tokens_details": {
+              "reasoning_tokens": 0,
+              "tool_output_tokens": 0,
+              "output_tokens_per_turn": [],
+              "tool_output_tokens_per_turn": []
+            },
+            "total_tokens": 23151
+          },
+          "timings": {
+            "t_headers": 0.313,
+            "t_first_frame": 0.359,
+            "t_first_reasoning": 2.313,
+            "t_first_tool": 9.109,
+            "t_first_text": null,
+            "t_end": 9.156
+          },
+          "e2e": 9.156,
+          "_wire": "wire/00074-1-CAP_AGENT_0975e106384a48208aa4485edd655d88.json"
+        },
+        {
+          "rid": 158,
+          "template_idx": 4,
+          "marker": "CAP_AGENT_0975e106384a48208aa4485edd655d88",
+          "request_sha256": "5835C8313161137CC1BADF5E4688AA4B1278AF65B097E483095E54C30E07F108",
+          "request_len": 83840,
+          "http_status": 200,
+          "error_kind": null,
+          "is_event_stream": true,
+          "terminal": "completed",
+          "terminal_reason": "completed",
+          "protocol_ok": true,
+          "json_errors": [],
+          "tool_calls": [],
+          "text_len": 929,
+          "usage": {
+            "input_tokens": 23031,
+            "input_tokens_details": {
+              "cached_tokens": 22528,
+              "input_tokens_per_turn": [],
+              "cached_tokens_per_turn": []
+            },
+            "output_tokens": 518,
+            "output_tokens_details": {
+              "reasoning_tokens": 0,
+              "tool_output_tokens": 0,
+              "output_tokens_per_turn": [],
+              "tool_output_tokens_per_turn": []
+            },
+            "total_tokens": 23549
+          },
+          "timings": {
+            "t_headers": 0.328,
+            "t_first_frame": 0.375,
+            "t_first_reasoning": null,
+            "t_first_tool": null,
+            "t_first_text": 1.0,
+            "t_end": 5.344
+          },
+          "e2e": 5.344,
+          "_wire": "wire/00074-2-CAP_AGENT_0975e106384a48208aa4485edd655d88.json"
+        }
+      ]
+    },
+    {
+      "task_id": 80,
+      "task_ok": true,
+      "checks": {
+        "first_completed": true,
+        "expected_tool": true,
+        "tool_arguments": true,
+        "second_completed": true,
+        "final_numbers": true,
+        "final_report": true
+      },
+      "attribution": "ok",
+      "first_feedback_s": 6.391,
+      "marker": "CAP_AGENT_7082499f37634bfe9c628b0c2d77673a",
+      "template_idx": 1,
+      "source_session": "session-e0b6f8a7-0823-4a48-be4c-cdf7ada7f086",
+      "llm_requests": 2,
+      "gateway_success": [
+        true,
+        true
+      ],
+      "e2e_s": 11.781,
+      "requests": [
+        {
+          "rid": 151,
+          "template_idx": 1,
+          "marker": "CAP_AGENT_7082499f37634bfe9c628b0c2d77673a",
+          "request_sha256": "0D59DDF152205FC6386CD2AAAE1DE9F4ECDE0FBA7B7ABEEEA280F18F7F13E8E7",
+          "request_len": 82723,
+          "http_status": 200,
+          "error_kind": null,
+          "is_event_stream": true,
+          "terminal": "completed",
+          "terminal_reason": "completed",
+          "protocol_ok": true,
+          "json_errors": [],
+          "tool_calls": [
+            {
+              "key": "93762c65771dad12",
+              "call_id": "call_b2aaf11db622a22d",
+              "name": "pwsh",
+              "arguments_from_deltas": "{\"command\": \"$rev = 1000+2000+3000+4000+5000+6000; $cost = 700+1400+2100+2800+3500+4200; \\\"TOTAL=$rev\\\"; \\\"COST=$cost\\\"; \\\"PROFIT=$($rev-$cost)\\\"; \\\"MARGIN=$([math]::Round(($rev-$cost)/$rev*100,1))%\\\"; 1..6 | ForEach-Object { $r = $_*1000; $c = $_*700; [pscustomobject]@{Month=$_; Rev=$r; Cost=$c; Profit=$r-$c} } | Format-Table -AutoSize | Out-String\", \"description\": \"计算总收入成本利润及逐月明细\"}",
+              "final_arguments": "{\"command\": \"$rev = 1000+2000+3000+4000+5000+6000; $cost = 700+1400+2100+2800+3500+4200; \\\"TOTAL=$rev\\\"; \\\"COST=$cost\\\"; \\\"PROFIT=$($rev-$cost)\\\"; \\\"MARGIN=$([math]::Round(($rev-$cost)/$rev*100,1))%\\\"; 1..6 | ForEach-Object { $r = $_*1000; $c = $_*700; [pscustomobject]@{Month=$_; Rev=$r; Cost=$c; Profit=$r-$c} } | Format-Table -AutoSize | Out-String\", \"description\": \"计算总收入成本利润及逐月明细\"}",
+              "output_index": 1,
+              "item_id": "93762c65771dad12",
+              "delta_matches_final": true
+            }
+          ],
+          "text_len": 0,
+          "usage": {
+            "input_tokens": 22616,
+            "input_tokens_details": {
+              "cached_tokens": 18176,
+              "input_tokens_per_turn": [],
+              "cached_tokens_per_turn": []
+            },
+            "output_tokens": 466,
+            "output_tokens_details": {
+              "reasoning_tokens": 0,
+              "tool_output_tokens": 0,
+              "output_tokens_per_turn": [],
+              "tool_output_tokens_per_turn": []
+            },
+            "total_tokens": 23082
+          },
+          "timings": {
+            "t_headers": 0.297,
+            "t_first_frame": 0.328,
+            "t_first_reasoning": 1.828,
+            "t_first_tool": 6.391,
+            "t_first_text": null,
+            "t_end": 6.453
+          },
+          "e2e": 6.453,
+          "_wire": "wire/00080-1-CAP_AGENT_7082499f37634bfe9c628b0c2d77673a.json"
+        },
+        {
+          "rid": 161,
+          "template_idx": 1,
+          "marker": "CAP_AGENT_7082499f37634bfe9c628b0c2d77673a",
+          "request_sha256": "F8343CDDED546989F131DE2A5FD9EA7D0CFD0E3BA31F94E665513E98914B0DB7",
+          "request_len": 83388,
+          "http_status": 200,
+          "error_kind": null,
+          "is_event_stream": true,
+          "terminal": "completed",
+          "terminal_reason": "completed",
+          "protocol_ok": true,
+          "json_errors": [],
+          "tool_calls": [],
+          "text_len": 739,
+          "usage": {
+            "input_tokens": 22868,
+            "input_tokens_details": {
+              "cached_tokens": 22528,
+              "input_tokens_per_turn": [],
+              "cached_tokens_per_turn": []
+            },
+            "output_tokens": 420,
+            "output_tokens_details": {
+              "reasoning_tokens": 0,
+              "tool_output_tokens": 0,
+              "output_tokens_per_turn": [],
+              "tool_output_tokens_per_turn": []
+            },
+            "total_tokens": 23288
+          },
+          "timings": {
+            "t_headers": 0.359,
+            "t_first_frame": 0.39,
+            "t_first_reasoning": null,
+            "t_first_tool": null,
+            "t_first_text": 1.109,
+            "t_end": 4.187
+          },
+          "e2e": 4.187,
+          "_wire": "wire/00080-2-CAP_AGENT_7082499f37634bfe9c628b0c2d77673a.json"
+        }
+      ]
+    },
+    {
+      "task_id": 79,
+      "task_ok": true,
+      "checks": {
+        "first_completed": true,
+        "expected_tool": true,
+        "tool_arguments": true,
+        "second_completed": true,
+        "final_numbers": true,
+        "final_report": true
+      },
+      "attribution": "ok",
+      "first_feedback_s": 7.531,
+      "marker": "CAP_AGENT_cfc843a8a0fa403a86149b163a5c6bbb",
+      "template_idx": 5,
+      "source_session": "session-a17ae506-8129-45cc-8ed9-8e35329c0de6",
+      "llm_requests": 2,
+      "gateway_success": [
+        true,
+        true
+      ],
+      "e2e_s": 13.25,
+      "requests": [
+        {
+          "rid": 150,
+          "template_idx": 5,
+          "marker": "CAP_AGENT_cfc843a8a0fa403a86149b163a5c6bbb",
+          "request_sha256": "CBB680B2C26911C26B56A26C990829347781E349F43459B8F0E5BBE2BD8567C4",
+          "request_len": 82723,
+          "http_status": 200,
+          "error_kind": null,
+          "is_event_stream": true,
+          "terminal": "completed",
+          "terminal_reason": "completed",
+          "protocol_ok": true,
+          "json_errors": [],
+          "tool_calls": [
+            {
+              "key": "a87d0c3694bbffea",
+              "call_id": "call_9e5c23af2a3656c1",
+              "name": "pwsh",
+              "arguments_from_deltas": "{\"command\": \"$rev = @(1000,2000,3000,4000,5000,6000); $cost=@(700,1400,2100,2800,3500,4200); $tr=($rev|Measure-Object -Sum).Sum; $tc=($cost|Measure-Object -Sum).Sum; $p=$tr-$tc; $m=[math]::Round($p/$tr*100,1); \\\"TOTAL=$tr COST=$tc PROFIT=$p MARGIN=$m%\\\"\", \"description\": \"Compute total revenue cost profit margin in memory\"}",
+              "final_arguments": "{\"command\": \"$rev = @(1000,2000,3000,4000,5000,6000); $cost=@(700,1400,2100,2800,3500,4200); $tr=($rev|Measure-Object -Sum).Sum; $tc=($cost|Measure-Object -Sum).Sum; $p=$tr-$tc; $m=[math]::Round($p/$tr*100,1); \\\"TOTAL=$tr COST=$tc PROFIT=$p MARGIN=$m%\\\"\", \"description\": \"Compute total revenue cost profit margin in memory\"}",
+              "output_index": 1,
+              "item_id": "a87d0c3694bbffea",
+              "delta_matches_final": true
+            }
+          ],
+          "text_len": 0,
+          "usage": {
+            "input_tokens": 22612,
+            "input_tokens_details": {
+              "cached_tokens": 18176,
+              "input_tokens_per_turn": [],
+              "cached_tokens_per_turn": []
+            },
+            "output_tokens": 529,
+            "output_tokens_details": {
+              "reasoning_tokens": 0,
+              "tool_output_tokens": 0,
+              "output_tokens_per_turn": [],
+              "tool_output_tokens_per_turn": []
+            },
+            "total_tokens": 23141
+          },
+          "timings": {
+            "t_headers": 0.297,
+            "t_first_frame": 0.344,
+            "t_first_reasoning": 1.359,
+            "t_first_tool": 7.531,
+            "t_first_text": null,
+            "t_end": 7.594
+          },
+          "e2e": 7.594,
+          "_wire": "wire/00079-1-CAP_AGENT_cfc843a8a0fa403a86149b163a5c6bbb.json"
+        },
+        {
+          "rid": 160,
+          "template_idx": 5,
+          "marker": "CAP_AGENT_cfc843a8a0fa403a86149b163a5c6bbb",
+          "request_sha256": "35067BFD6E2BD4FDBCF5A590DB96F6E2A72B756D0EC7483D58E600CC3F9CAA87",
+          "request_len": 83536,
+          "http_status": 200,
+          "error_kind": null,
+          "is_event_stream": true,
+          "terminal": "completed",
+          "terminal_reason": "completed",
+          "protocol_ok": true,
+          "json_errors": [],
+          "tool_calls": [],
+          "text_len": 816,
+          "usage": {
+            "input_tokens": 22925,
+            "input_tokens_details": {
+              "cached_tokens": 22528,
+              "input_tokens_per_turn": [],
+              "cached_tokens_per_turn": []
+            },
+            "output_tokens": 456,
+            "output_tokens_details": {
+              "reasoning_tokens": 0,
+              "tool_output_tokens": 0,
+              "output_tokens_per_turn": [],
+              "tool_output_tokens_per_turn": []
+            },
+            "total_tokens": 23381
+          },
+          "timings": {
+            "t_headers": 0.328,
+            "t_first_frame": 0.391,
+            "t_first_reasoning": null,
+            "t_first_tool": null,
+            "t_first_text": 1.203,
+            "t_end": 4.641
+          },
+          "e2e": 4.641,
+          "_wire": "wire/00079-2-CAP_AGENT_cfc843a8a0fa403a86149b163a5c6bbb.json"
+        }
+      ]
+    },
+    {
+      "task_id": 81,
+      "task_ok": true,
+      "checks": {
+        "first_completed": true,
+        "expected_tool": true,
+        "tool_arguments": true,
+        "second_completed": true,
+        "final_numbers": true,
+        "final_report": true
+      },
+      "attribution": "ok",
+      "first_feedback_s": 5.782,
+      "marker": "CAP_AGENT_92032a9961f04fcb8db9a149d122b402",
+      "template_idx": 3,
+      "source_session": "session-cf4a4cde-3814-4891-b462-df57e180394b",
+      "llm_requests": 2,
+      "gateway_success": [
+        true,
+        true
+      ],
+      "e2e_s": 12.844,
+      "requests": [
+        {
+          "rid": 153,
+          "template_idx": 3,
+          "marker": "CAP_AGENT_92032a9961f04fcb8db9a149d122b402",
+          "request_sha256": "EB525B51E8E6032805F3D4E656F7401B2171B0E2AE791E2A823A4E270C58DE14",
+          "request_len": 82723,
+          "http_status": 200,
+          "error_kind": null,
+          "is_event_stream": true,
+          "terminal": "completed",
+          "terminal_reason": "completed",
+          "protocol_ok": true,
+          "json_errors": [],
+          "tool_calls": [
+            {
+              "key": "8c4158f7ec7dbe5a",
+              "call_id": "call_bd5e8b5066e097ac",
+              "name": "pwsh",
+              "arguments_from_deltas": "{\"command\": \"$rev = @(1000,2000,3000,4000,5000,6000); $cost = @(700,1400,2100,2800,3500,4200); $tr = ($rev | Measure-Object -Sum).Sum; $tc = ($cost | Measure-Object -Sum).Sum; $p = $tr - $tc; $m = [math]::Round($p/$tr*100,1); Write-Output \\\"TOTAL=$tr COST=$tc PROFIT=$p MARGIN=$m%\\\"; Write-Output (\\\"Monthly margin: \\\" + (($rev -join ', ') + ' / ' + ($cost -join ', ')))\", \"description\": \"计算销售收入与成本汇总\"}",
+              "final_arguments": "{\"command\": \"$rev = @(1000,2000,3000,4000,5000,6000); $cost = @(700,1400,2100,2800,3500,4200); $tr = ($rev | Measure-Object -Sum).Sum; $tc = ($cost | Measure-Object -Sum).Sum; $p = $tr - $tc; $m = [math]::Round($p/$tr*100,1); Write-Output \\\"TOTAL=$tr COST=$tc PROFIT=$p MARGIN=$m%\\\"; Write-Output (\\\"Monthly margin: \\\" + (($rev -join ', ') + ' / ' + ($cost -join ', ')))\", \"description\": \"计算销售收入与成本汇总\"}",
+              "output_index": 1,
+              "item_id": "8c4158f7ec7dbe5a",
+              "delta_matches_final": true
+            }
+          ],
+          "text_len": 0,
+          "usage": {
+            "input_tokens": 22612,
+            "input_tokens_details": {
+              "cached_tokens": 18176,
+              "input_tokens_per_turn": [],
+              "cached_tokens_per_turn": []
+            },
+            "output_tokens": 413,
+            "output_tokens_details": {
+              "reasoning_tokens": 0,
+              "tool_output_tokens": 0,
+              "output_tokens_per_turn": [],
+              "tool_output_tokens_per_turn": []
+            },
+            "total_tokens": 23025
+          },
+          "timings": {
+            "t_headers": 0.313,
+            "t_first_frame": 0.344,
+            "t_first_reasoning": 1.766,
+            "t_first_tool": 5.782,
+            "t_first_text": null,
+            "t_end": 5.844
+          },
+          "e2e": 5.844,
+          "_wire": "wire/00081-1-CAP_AGENT_92032a9961f04fcb8db9a149d122b402.json"
+        },
+        {
+          "rid": 159,
+          "template_idx": 3,
+          "marker": "CAP_AGENT_92032a9961f04fcb8db9a149d122b402",
+          "request_sha256": "7E8FD7D66D16F0377B648E1E0CB133CBA313A5E8A0EF15851359DA4BEF8EAEF1",
+          "request_len": 83682,
+          "http_status": 200,
+          "error_kind": null,
+          "is_event_stream": true,
+          "terminal": "completed",
+          "terminal_reason": "completed",
+          "protocol_ok": true,
+          "json_errors": [],
+          "tool_calls": [],
+          "text_len": 873,
+          "usage": {
+            "input_tokens": 22969,
+            "input_tokens_details": {
+              "cached_tokens": 18176,
+              "input_tokens_per_turn": [],
+              "cached_tokens_per_turn": []
+            },
+            "output_tokens": 526,
+            "output_tokens_details": {
+              "reasoning_tokens": 0,
+              "tool_output_tokens": 0,
+              "output_tokens_per_turn": [],
+              "tool_output_tokens_per_turn": []
+            },
+            "total_tokens": 23495
+          },
+          "timings": {
+            "t_headers": 0.344,
+            "t_first_frame": 0.391,
+            "t_first_reasoning": 1.266,
+            "t_first_tool": null,
+            "t_first_text": 1.266,
+            "t_end": 5.953
+          },
+          "e2e": 5.953,
+          "_wire": "wire/00081-2-CAP_AGENT_92032a9961f04fcb8db9a149d122b402.json"
+        }
+      ]
+    },
+    {
+      "task_id": 82,
+      "task_ok": true,
+      "checks": {
+        "first_completed": true,
+        "expected_tool": true,
+        "tool_arguments": true,
+        "second_completed": true,
+        "final_numbers": true,
+        "final_report": true
+      },
+      "attribution": "ok",
+      "first_feedback_s": 4.516,
+      "marker": "CAP_AGENT_6fd81896352c4d84a9208f7c912c1e32",
+      "template_idx": 9,
+      "source_session": "session-791db3c9-90d1-4147-8c01-364785803c00",
+      "llm_requests": 2,
+      "gateway_success": [
+        true,
+        true
+      ],
+      "e2e_s": 11.0,
+      "requests": [
+        {
+          "rid": 162,
+          "template_idx": 9,
+          "marker": "CAP_AGENT_6fd81896352c4d84a9208f7c912c1e32",
+          "request_sha256": "ACC1517800E327388F0265C5607A63C2E949199578025C5D0D38E8934B569F71",
+          "request_len": 82723,
+          "http_status": 200,
+          "error_kind": null,
+          "is_event_stream": true,
+          "terminal": "completed",
+          "terminal_reason": "completed",
+          "protocol_ok": true,
+          "json_errors": [],
+          "tool_calls": [
+            {
+              "key": "b5d9d433919e7daf",
+              "call_id": "call_88ff020e52600f70",
+              "name": "pwsh",
+              "arguments_from_deltas": "{\"command\": \"$rev = @(1000,2000,3000,4000,5000,6000); $cost = @(700,1400,2100,2800,3500,4200); $tr = ($rev | Measure-Object -Sum).Sum; $tc = ($cost | Measure-Object -Sum).Sum; $profit = $tr - $tc; $margin = [math]::Round($profit / $tr * 100, 2); \\\"TOTAL=$tr COST=$tc PROFIT=$profit MARGIN=$margin%\\\"\", \"description\": \"实算总收入、总成本、利润与利润率\"}",
+              "final_arguments": "{\"command\": \"$rev = @(1000,2000,3000,4000,5000,6000); $cost = @(700,1400,2100,2800,3500,4200); $tr = ($rev | Measure-Object -Sum).Sum; $tc = ($cost | Measure-Object -Sum).Sum; $profit = $tr - $tc; $margin = [math]::Round($profit / $tr * 100, 2); \\\"TOTAL=$tr COST=$tc PROFIT=$profit MARGIN=$margin%\\\"\", \"description\": \"实算总收入、总成本、利润与利润率\"}",
+              "output_index": 1,
+              "item_id": "b5d9d433919e7daf",
+              "delta_matches_final": true
+            }
+          ],
+          "text_len": 0,
+          "usage": {
+            "input_tokens": 22620,
+            "input_tokens_details": {
+              "cached_tokens": 18176,
+              "input_tokens_per_turn": [],
+              "cached_tokens_per_turn": []
+            },
+            "output_tokens": 414,
+            "output_tokens_details": {
+              "reasoning_tokens": 0,
+              "tool_output_tokens": 0,
+              "output_tokens_per_turn": [],
+              "tool_output_tokens_per_turn": []
+            },
+            "total_tokens": 23034
+          },
+          "timings": {
+            "t_headers": 0.297,
+            "t_first_frame": 0.328,
+            "t_first_reasoning": 1.235,
+            "t_first_tool": 4.516,
+            "t_first_text": null,
+            "t_end": 4.578
+          },
+          "e2e": 4.578,
+          "_wire": "wire/00082-1-CAP_AGENT_6fd81896352c4d84a9208f7c912c1e32.json"
+        },
+        {
+          "rid": 168,
+          "template_idx": 9,
+          "marker": "CAP_AGENT_6fd81896352c4d84a9208f7c912c1e32",
+          "request_sha256": "B0371E3649223FB5959F9D319A5878D13C7EA9C95573E8BD75EEA2163A3AC5D4",
+          "request_len": 83616,
+          "http_status": 200,
+          "error_kind": null,
+          "is_event_stream": true,
+          "terminal": "completed",
+          "terminal_reason": "completed",
+          "protocol_ok": true,
+          "json_errors": [],
+          "tool_calls": [],
+          "text_len": 840,
+          "usage": {
+            "input_tokens": 22964,
+            "input_tokens_details": {
+              "cached_tokens": 18176,
+              "input_tokens_per_turn": [],
+              "cached_tokens_per_turn": []
+            },
+            "output_tokens": 474,
+            "output_tokens_details": {
+              "reasoning_tokens": 0,
+              "tool_output_tokens": 0,
+              "output_tokens_per_turn": [],
+              "tool_output_tokens_per_turn": []
+            },
+            "total_tokens": 23438
+          },
+          "timings": {
+            "t_headers": 0.313,
+            "t_first_frame": 0.344,
+            "t_first_reasoning": null,
+            "t_first_tool": null,
+            "t_first_text": 1.375,
+            "t_end": 5.297
+          },
+          "e2e": 5.297,
+          "_wire": "wire/00082-2-CAP_AGENT_6fd81896352c4d84a9208f7c912c1e32.json"
+        }
+      ]
+    },
+    {
+      "task_id": 83,
+      "task_ok": true,
+      "checks": {
+        "first_completed": true,
+        "expected_tool": true,
+        "tool_arguments": true,
+        "second_completed": true,
+        "final_numbers": true,
+        "final_report": true
+      },
+      "attribution": "ok",
+      "first_feedback_s": 4.328,
+      "marker": "CAP_AGENT_c4b3235116f8412783587209d984c275",
+      "template_idx": 8,
+      "source_session": "session-261a9fb1-f506-4589-bf4b-cec7f39076c6",
+      "llm_requests": 2,
+      "gateway_success": [
+        true,
+        true
+      ],
+      "e2e_s": 9.984,
+      "requests": [
+        {
+          "rid": 163,
+          "template_idx": 8,
+          "marker": "CAP_AGENT_c4b3235116f8412783587209d984c275",
+          "request_sha256": "487E46C01C6581F10328F23E01E0852C0B64E32A11B8D52A2546D1C53F439314",
+          "request_len": 82723,
+          "http_status": 200,
+          "error_kind": null,
+          "is_event_stream": true,
+          "terminal": "completed",
+          "terminal_reason": "completed",
+          "protocol_ok": true,
+          "json_errors": [],
+          "tool_calls": [
+            {
+              "key": "bdb10b48bc06a6e4",
+              "call_id": "call_90c2a0984a0d4d31",
+              "name": "pwsh",
+              "arguments_from_deltas": "{\"command\": \"$rev = 1000,2000,3000,4000,5000,6000; $cost = 700,1400,2100,2800,3500,4200; $tR = ($rev | Measure-Object -Sum).Sum; $tC = ($cost | Measure-Object -Sum).Sum; $tP = $tR - $tC; \\\"TOTAL=$tR COST=$tC PROFIT=$tP MARGIN={0:P1}\\\" -f ($tP/$tR)\", \"description\": \"Compute sales totals in memory\"}",
+              "final_arguments": "{\"command\": \"$rev = 1000,2000,3000,4000,5000,6000; $cost = 700,1400,2100,2800,3500,4200; $tR = ($rev | Measure-Object -Sum).Sum; $tC = ($cost | Measure-Object -Sum).Sum; $tP = $tR - $tC; \\\"TOTAL=$tR COST=$tC PROFIT=$tP MARGIN={0:P1}\\\" -f ($tP/$tR)\", \"description\": \"Compute sales totals in memory\"}",
+              "output_index": 1,
+              "item_id": "bdb10b48bc06a6e4",
+              "delta_matches_final": true
+            }
+          ],
+          "text_len": 0,
+          "usage": {
+            "input_tokens": 22600,
+            "input_tokens_details": {
+              "cached_tokens": 18176,
+              "input_tokens_per_turn": [],
+              "cached_tokens_per_turn": []
+            },
+            "output_tokens": 392,
+            "output_tokens_details": {
+              "reasoning_tokens": 0,
+              "tool_output_tokens": 0,
+              "output_tokens_per_turn": [],
+              "tool_output_tokens_per_turn": []
+            },
+            "total_tokens": 22992
+          },
+          "timings": {
+            "t_headers": 0.312,
+            "t_first_frame": 0.344,
+            "t_first_reasoning": 1.297,
+            "t_first_tool": 4.328,
+            "t_first_text": null,
+            "t_end": 4.39
+          },
+          "e2e": 4.39,
+          "_wire": "wire/00083-1-CAP_AGENT_c4b3235116f8412783587209d984c275.json"
+        },
+        {
+          "rid": 169,
+          "template_idx": 8,
+          "marker": "CAP_AGENT_c4b3235116f8412783587209d984c275",
+          "request_sha256": "653FE86F5F6862D404215AB175675C02B7F99B5E89DA56FC113178C03B4276CE",
+          "request_len": 83582,
+          "http_status": 200,
+          "error_kind": null,
+          "is_event_stream": true,
+          "terminal": "completed",
+          "terminal_reason": "completed",
+          "protocol_ok": true,
+          "json_errors": [],
+          "tool_calls": [],
+          "text_len": 860,
+          "usage": {
+            "input_tokens": 22930,
+            "input_tokens_details": {
+              "cached_tokens": 18176,
+              "input_tokens_per_turn": [],
+              "cached_tokens_per_turn": []
+            },
+            "output_tokens": 479,
+            "output_tokens_details": {
+              "reasoning_tokens": 0,
+              "tool_output_tokens": 0,
+              "output_tokens_per_turn": [],
+              "tool_output_tokens_per_turn": []
+            },
+            "total_tokens": 23409
+          },
+          "timings": {
+            "t_headers": 0.312,
+            "t_first_frame": 0.343,
+            "t_first_reasoning": null,
+            "t_first_tool": null,
+            "t_first_text": 1.297,
+            "t_end": 4.672
+          },
+          "e2e": 4.672,
+          "_wire": "wire/00083-2-CAP_AGENT_c4b3235116f8412783587209d984c275.json"
+        }
+      ]
+    },
+    {
+      "task_id": 86,
+      "task_ok": true,
+      "checks": {
+        "first_completed": true,
+        "expected_tool": true,
+        "tool_arguments": true,
+        "second_completed": true,
+        "final_numbers": true,
+        "final_report": true
+      },
+      "attribution": "ok",
+      "first_feedback_s": 5.109,
+      "marker": "CAP_AGENT_45cfb6cdd49c48c289727334020f0208",
+      "template_idx": 3,
+      "source_session": "session-cf4a4cde-3814-4891-b462-df57e180394b",
+      "llm_requests": 2,
+      "gateway_success": [
+        true,
+        true
+      ],
+      "e2e_s": 10.328,
+      "requests": [
+        {
+          "rid": 166,
+          "template_idx": 3,
+          "marker": "CAP_AGENT_45cfb6cdd49c48c289727334020f0208",
+          "request_sha256": "AD7AAE7E4763EC74039AB64B4124019165E4FEA164F41E41CF6B0A3693EC99AC",
+          "request_len": 82723,
+          "http_status": 200,
+          "error_kind": null,
+          "is_event_stream": true,
+          "terminal": "completed",
+          "terminal_reason": "completed",
+          "protocol_ok": true,
+          "json_errors": [],
+          "tool_calls": [
+            {
+              "key": "a15140cd126c1471",
+              "call_id": "call_9dcd61609e5d8242",
+              "name": "pwsh",
+              "arguments_from_deltas": "{\"command\": \"$rev = @(1000,2000,3000,4000,5000,6000); $cost = @(700,1400,2100,2800,3500,4200); $tr = ($rev | Measure-Object -Sum).Sum; $tc = ($cost | Measure-Object -Sum).Sum; $tp = $tr - $tc; $m = $tp / $tr * 100; \\\"TOTAL=$tr COST=$tc PROFIT=$tp MARGIN=$([math]::Round($m,1))%\\\"\", \"description\": \"Compute totals, profit and margin in memory\"}",
+              "final_arguments": "{\"command\": \"$rev = @(1000,2000,3000,4000,5000,6000); $cost = @(700,1400,2100,2800,3500,4200); $tr = ($rev | Measure-Object -Sum).Sum; $tc = ($cost | Measure-Object -Sum).Sum; $tp = $tr - $tc; $m = $tp / $tr * 100; \\\"TOTAL=$tr COST=$tc PROFIT=$tp MARGIN=$([math]::Round($m,1))%\\\"\", \"description\": \"Compute totals, profit and margin in memory\"}",
+              "output_index": 2,
+              "item_id": "a15140cd126c1471",
+              "delta_matches_final": true
+            }
+          ],
+          "text_len": 65,
+          "usage": {
+            "input_tokens": 22608,
+            "input_tokens_details": {
+              "cached_tokens": 18176,
+              "input_tokens_per_turn": [],
+              "cached_tokens_per_turn": []
+            },
+            "output_tokens": 409,
+            "output_tokens_details": {
+              "reasoning_tokens": 0,
+              "tool_output_tokens": 0,
+              "output_tokens_per_turn": [],
+              "tool_output_tokens_per_turn": []
+            },
+            "total_tokens": 23017
+          },
+          "timings": {
+            "t_headers": 0.344,
+            "t_first_frame": 0.422,
+            "t_first_reasoning": 1.781,
+            "t_first_tool": 5.109,
+            "t_first_text": 5.109,
+            "t_end": 5.203
+          },
+          "e2e": 5.203,
+          "_wire": "wire/00086-1-CAP_AGENT_45cfb6cdd49c48c289727334020f0208.json"
+        },
+        {
+          "rid": 175,
+          "template_idx": 3,
+          "marker": "CAP_AGENT_45cfb6cdd49c48c289727334020f0208",
+          "request_sha256": "3EB82B51C437420A9F07C571B646491298323373795E3A53F24BDC97B2BE92DB",
+          "request_len": 83756,
+          "http_status": 200,
+          "error_kind": null,
+          "is_event_stream": true,
+          "terminal": "completed",
+          "terminal_reason": "completed",
+          "protocol_ok": true,
+          "json_errors": [],
+          "tool_calls": [],
+          "text_len": 867,
+          "usage": {
+            "input_tokens": 22953,
+            "input_tokens_details": {
+              "cached_tokens": 22528,
+              "input_tokens_per_turn": [],
+              "cached_tokens_per_turn": []
+            },
+            "output_tokens": 488,
+            "output_tokens_details": {
+              "reasoning_tokens": 0,
+              "tool_output_tokens": 0,
+              "output_tokens_per_turn": [],
+              "tool_output_tokens_per_turn": []
+            },
+            "total_tokens": 23441
+          },
+          "timings": {
+            "t_headers": 0.313,
+            "t_first_frame": 0.36,
+            "t_first_reasoning": null,
+            "t_first_tool": null,
+            "t_first_text": 0.907,
+            "t_end": 4.047
+          },
+          "e2e": 4.047,
+          "_wire": "wire/00086-2-CAP_AGENT_45cfb6cdd49c48c289727334020f0208.json"
+        }
+      ]
+    },
+    {
+      "task_id": 84,
+      "task_ok": true,
+      "checks": {
+        "first_completed": true,
+        "expected_tool": true,
+        "tool_arguments": true,
+        "second_completed": true,
+        "final_numbers": true,
+        "final_report": true
+      },
+      "attribution": "ok",
+      "first_feedback_s": 3.5,
+      "marker": "CAP_AGENT_8cb5b7fa721e4cc3ae8c883af3f1f3b4",
+      "template_idx": 7,
+      "source_session": "session-d7132eee-2911-40d6-a5eb-5e9706f9cf81",
+      "llm_requests": 2,
+      "gateway_success": [
+        true,
+        true
+      ],
+      "e2e_s": 13.843,
+      "requests": [
+        {
+          "rid": 164,
+          "template_idx": 7,
+          "marker": "CAP_AGENT_8cb5b7fa721e4cc3ae8c883af3f1f3b4",
+          "request_sha256": "5F9C926BA8FEF22A63F04AF8A0CEC2A78F231F0CD03C1F0D9F4148D41E185A0B",
+          "request_len": 82723,
+          "http_status": 200,
+          "error_kind": null,
+          "is_event_stream": true,
+          "terminal": "completed",
+          "terminal_reason": "completed",
+          "protocol_ok": true,
+          "json_errors": [],
+          "tool_calls": [
+            {
+              "key": "a60744dcdd2355a4",
+              "call_id": "call_8dc4ca9aa79312bc",
+              "name": "pwsh",
+              "arguments_from_deltas": "{\"command\": \"$revenue = 1000+2000+3000+4000+5000+6000; $cost = 700+1400+2100+2800+3500+4200; $profit = $revenue - $cost; $margin = [math]::Round($profit/$revenue*100,1); Write-Output \\\"TOTAL=$revenue\\\"; Write-Output \\\"COST=$cost\\\"; Write-Output \\\"PROFIT=$profit\\\"; Write-Output \\\"MARGIN=$margin%\\\"\", \"description\": \"计算总收入、总成本、利润及利润率\"}",
+              "final_arguments": "{\"command\": \"$revenue = 1000+2000+3000+4000+5000+6000; $cost = 700+1400+2100+2800+3500+4200; $profit = $revenue - $cost; $margin = [math]::Round($profit/$revenue*100,1); Write-Output \\\"TOTAL=$revenue\\\"; Write-Output \\\"COST=$cost\\\"; Write-Output \\\"PROFIT=$profit\\\"; Write-Output \\\"MARGIN=$margin%\\\"\", \"description\": \"计算总收入、总成本、利润及利润率\"}",
+              "output_index": 1,
+              "item_id": "a60744dcdd2355a4",
+              "delta_matches_final": true
+            }
+          ],
+          "text_len": 0,
+          "usage": {
+            "input_tokens": 22635,
+            "input_tokens_details": {
+              "cached_tokens": 18176,
+              "input_tokens_per_turn": [],
+              "cached_tokens_per_turn": []
+            },
+            "output_tokens": 240,
+            "output_tokens_details": {
+              "reasoning_tokens": 0,
+              "tool_output_tokens": 0,
+              "output_tokens_per_turn": [],
+              "tool_output_tokens_per_turn": []
+            },
+            "total_tokens": 22875
+          },
+          "timings": {
+            "t_headers": 0.343,
+            "t_first_frame": 0.39,
+            "t_first_reasoning": 1.359,
+            "t_first_tool": 3.5,
+            "t_first_text": null,
+            "t_end": 3.562
+          },
+          "e2e": 3.562,
+          "_wire": "wire/00084-1-CAP_AGENT_8cb5b7fa721e4cc3ae8c883af3f1f3b4.json"
+        },
+        {
+          "rid": 171,
+          "template_idx": 7,
+          "marker": "CAP_AGENT_8cb5b7fa721e4cc3ae8c883af3f1f3b4",
+          "request_sha256": "E1B05E4AA0793C0BB1ABD9BD7E220D80C228691EF7049DD8AC9131F847B4B444",
+          "request_len": 83638,
+          "http_status": 200,
+          "error_kind": null,
+          "is_event_stream": true,
+          "terminal": "completed",
+          "terminal_reason": "completed",
+          "protocol_ok": true,
+          "json_errors": [],
+          "tool_calls": [],
+          "text_len": 985,
+          "usage": {
+            "input_tokens": 22993,
+            "input_tokens_details": {
+              "cached_tokens": 18176,
+              "input_tokens_per_turn": [],
+              "cached_tokens_per_turn": []
+            },
+            "output_tokens": 562,
+            "output_tokens_details": {
+              "reasoning_tokens": 0,
+              "tool_output_tokens": 0,
+              "output_tokens_per_turn": [],
+              "tool_output_tokens_per_turn": []
+            },
+            "total_tokens": 23555
+          },
+          "timings": {
+            "t_headers": 0.344,
+            "t_first_frame": 0.391,
+            "t_first_reasoning": 2.937,
+            "t_first_tool": null,
+            "t_first_text": 2.937,
+            "t_end": 9.172
+          },
+          "e2e": 9.187,
+          "_wire": "wire/00084-2-CAP_AGENT_8cb5b7fa721e4cc3ae8c883af3f1f3b4.json"
+        }
+      ]
+    },
+    {
+      "task_id": 90,
+      "task_ok": true,
+      "checks": {
+        "first_completed": true,
+        "expected_tool": true,
+        "tool_arguments": true,
+        "second_completed": true,
+        "final_numbers": true,
+        "final_report": true
+      },
+      "attribution": "ok",
+      "first_feedback_s": 6.562,
+      "marker": "CAP_AGENT_af4e2ad9ab20480a8e22e9dd13d42a44",
+      "template_idx": 6,
+      "source_session": "session-c4fd6ffd-a5ae-4d4c-93f3-b35d7063aaa5",
+      "llm_requests": 2,
+      "gateway_success": [
+        true,
+        true
+      ],
+      "e2e_s": 11.859,
+      "requests": [
+        {
+          "rid": 173,
+          "template_idx": 6,
+          "marker": "CAP_AGENT_af4e2ad9ab20480a8e22e9dd13d42a44",
+          "request_sha256": "54C3BA9AA65A1D8E1B9E835825A72C781E7912DDB8BCC76CC75421AF3086F00D",
+          "request_len": 82723,
+          "http_status": 200,
+          "error_kind": null,
+          "is_event_stream": true,
+          "terminal": "completed",
+          "terminal_reason": "completed",
+          "protocol_ok": true,
+          "json_errors": [],
+          "tool_calls": [
+            {
+              "key": "a73e4da9c68c4c60",
+              "call_id": "call_a892063edf73503e",
+              "name": "pwsh",
+              "arguments_from_deltas": "{\"command\": \"$r = 1000+2000+3000+4000+5000+6000; $c = 700+1400+2100+2800+3500+4200; $p = $r-$c; $m = $p/$r*100; \\\"TOTAL=$r COST=$c PROFIT=$p MARGIN=$([math]::Round($m,2))%\\\"\", \"description\": \"计算总收入、成本、利润及利润率\"}",
+              "final_arguments": "{\"command\": \"$r = 1000+2000+3000+4000+5000+6000; $c = 700+1400+2100+2800+3500+4200; $p = $r-$c; $m = $p/$r*100; \\\"TOTAL=$r COST=$c PROFIT=$p MARGIN=$([math]::Round($m,2))%\\\"\", \"description\": \"计算总收入、成本、利润及利润率\"}",
+              "output_index": 1,
+              "item_id": "a73e4da9c68c4c60",
+              "delta_matches_final": true
+            }
+          ],
+          "text_len": 0,
+          "usage": {
+            "input_tokens": 22624,
+            "input_tokens_details": {
+              "cached_tokens": 18176,
+              "input_tokens_per_turn": [],
+              "cached_tokens_per_turn": []
+            },
+            "output_tokens": 390,
+            "output_tokens_details": {
+              "reasoning_tokens": 0,
+              "tool_output_tokens": 0,
+              "output_tokens_per_turn": [],
+              "tool_output_tokens_per_turn": []
+            },
+            "total_tokens": 23014
+          },
+          "timings": {
+            "t_headers": 0.344,
+            "t_first_frame": 0.391,
+            "t_first_reasoning": 2.781,
+            "t_first_tool": 6.562,
+            "t_first_text": null,
+            "t_end": 6.641
+          },
+          "e2e": 6.641,
+          "_wire": "wire/00090-1-CAP_AGENT_af4e2ad9ab20480a8e22e9dd13d42a44.json"
+        },
+        {
+          "rid": 178,
+          "template_idx": 6,
+          "marker": "CAP_AGENT_af4e2ad9ab20480a8e22e9dd13d42a44",
+          "request_sha256": "E7B13D40F3FD1BD1DE550D1C384A0CF5D41955BDA8D8AD7A0829AC7AD4DEA11D",
+          "request_len": 83203,
+          "http_status": 200,
+          "error_kind": null,
+          "is_event_stream": true,
+          "terminal": "completed",
+          "terminal_reason": "completed",
+          "protocol_ok": true,
+          "json_errors": [],
+          "tool_calls": [],
+          "text_len": 836,
+          "usage": {
+            "input_tokens": 22813,
+            "input_tokens_details": {
+              "cached_tokens": 18176,
+              "input_tokens_per_turn": [],
+              "cached_tokens_per_turn": []
+            },
+            "output_tokens": 460,
+            "output_tokens_details": {
+              "reasoning_tokens": 0,
+              "tool_output_tokens": 0,
+              "output_tokens_per_turn": [],
+              "tool_output_tokens_per_turn": []
+            },
+            "total_tokens": 23273
+          },
+          "timings": {
+            "t_headers": 0.406,
+            "t_first_frame": 0.438,
+            "t_first_reasoning": null,
+            "t_first_tool": null,
+            "t_first_text": 1.328,
+            "t_end": 4.266
+          },
+          "e2e": 4.266,
+          "_wire": "wire/00090-2-CAP_AGENT_af4e2ad9ab20480a8e22e9dd13d42a44.json"
+        }
+      ]
+    },
+    {
+      "task_id": 85,
+      "task_ok": true,
+      "checks": {
+        "first_completed": true,
+        "expected_tool": true,
+        "tool_arguments": true,
+        "second_completed": true,
+        "final_numbers": true,
+        "final_report": true
+      },
+      "attribution": "ok",
+      "first_feedback_s": 6.703,
+      "marker": "CAP_AGENT_e06ddfc73b934f2ea5c95981b16dcec2",
+      "template_idx": 1,
+      "source_session": "session-e0b6f8a7-0823-4a48-be4c-cdf7ada7f086",
+      "llm_requests": 2,
+      "gateway_success": [
+        true,
+        true
+      ],
+      "e2e_s": 15.109,
+      "requests": [
+        {
+          "rid": 165,
+          "template_idx": 1,
+          "marker": "CAP_AGENT_e06ddfc73b934f2ea5c95981b16dcec2",
+          "request_sha256": "FC76BBAADE6478AEA7193F5482E0383801465AC2A29E81DBC37FCAF911E324A2",
+          "request_len": 82723,
+          "http_status": 200,
+          "error_kind": null,
+          "is_event_stream": true,
+          "terminal": "completed",
+          "terminal_reason": "completed",
+          "protocol_ok": true,
+          "json_errors": [],
+          "tool_calls": [
+            {
+              "key": "b4e50764ab64b9e0",
+              "call_id": "call_86cb2b54b42c53c0",
+              "name": "pwsh",
+              "arguments_from_deltas": "{\"command\": \"$rev = 1000,2000,3000,4000,5000,6000; $cost = 700,1400,2100,2800,3500,4200; $tR = ($rev | Measure-Object -Sum).Sum; $tC = ($cost | Measure-Object -Sum).Sum; $tP = $tR - $tC; $m = [math]::Round(100 * $tP / $tR,1); \\\"TOTAL=$tR COST=$tC PROFIT=$tP MARGIN=$m%\\\"; for($i=0;$i -lt 6;$i++){ \\\"M{0} R={1} C={2} P={3}\\\" -f ($i+1), $rev[$i], $cost[$i], ($rev[$i]-$cost[$i]) }\", \"description\": \"内存计算逐月与全年收入成本利润\"}",
+              "final_arguments": "{\"command\": \"$rev = 1000,2000,3000,4000,5000,6000; $cost = 700,1400,2100,2800,3500,4200; $tR = ($rev | Measure-Object -Sum).Sum; $tC = ($cost | Measure-Object -Sum).Sum; $tP = $tR - $tC; $m = [math]::Round(100 * $tP / $tR,1); \\\"TOTAL=$tR COST=$tC PROFIT=$tP MARGIN=$m%\\\"; for($i=0;$i -lt 6;$i++){ \\\"M{0} R={1} C={2} P={3}\\\" -f ($i+1), $rev[$i], $cost[$i], ($rev[$i]-$cost[$i]) }\", \"description\": \"内存计算逐月与全年收入成本利润\"}",
+              "output_index": 1,
+              "item_id": "b4e50764ab64b9e0",
+              "delta_matches_final": true
+            }
+          ],
+          "text_len": 0,
+          "usage": {
+            "input_tokens": 22620,
+            "input_tokens_details": {
+              "cached_tokens": 18176,
+              "input_tokens_per_turn": [],
+              "cached_tokens_per_turn": []
+            },
+            "output_tokens": 403,
+            "output_tokens_details": {
+              "reasoning_tokens": 0,
+              "tool_output_tokens": 0,
+              "output_tokens_per_turn": [],
+              "tool_output_tokens_per_turn": []
+            },
+            "total_tokens": 23023
+          },
+          "timings": {
+            "t_headers": 0.421,
+            "t_first_frame": 0.453,
+            "t_first_reasoning": 1.796,
+            "t_first_tool": 6.703,
+            "t_first_text": null,
+            "t_end": 7.14
+          },
+          "e2e": 7.14,
+          "_wire": "wire/00085-1-CAP_AGENT_e06ddfc73b934f2ea5c95981b16dcec2.json"
+        },
+        {
+          "rid": 177,
+          "template_idx": 1,
+          "marker": "CAP_AGENT_e06ddfc73b934f2ea5c95981b16dcec2",
+          "request_sha256": "349AA9FD614ECA953184E7386FCA491903256E4BAB6F7C09972413EC53C22539",
+          "request_len": 83410,
+          "http_status": 200,
+          "error_kind": null,
+          "is_event_stream": true,
+          "terminal": "completed",
+          "terminal_reason": "completed",
+          "protocol_ok": true,
+          "json_errors": [],
+          "tool_calls": [],
+          "text_len": 772,
+          "usage": {
+            "input_tokens": 22911,
+            "input_tokens_details": {
+              "cached_tokens": 22528,
+              "input_tokens_per_turn": [],
+              "cached_tokens_per_turn": []
+            },
+            "output_tokens": 459,
+            "output_tokens_details": {
+              "reasoning_tokens": 0,
+              "tool_output_tokens": 0,
+              "output_tokens_per_turn": [],
+              "tool_output_tokens_per_turn": []
+            },
+            "total_tokens": 23370
+          },
+          "timings": {
+            "t_headers": 0.344,
+            "t_first_frame": 0.39,
+            "t_first_reasoning": 1.281,
+            "t_first_tool": null,
+            "t_first_text": 1.281,
+            "t_end": 6.812
+          },
+          "e2e": 6.812,
+          "_wire": "wire/00085-2-CAP_AGENT_e06ddfc73b934f2ea5c95981b16dcec2.json"
+        }
+      ]
+    },
+    {
+      "task_id": 87,
+      "task_ok": true,
+      "checks": {
+        "first_completed": true,
+        "expected_tool": true,
+        "tool_arguments": true,
+        "second_completed": true,
+        "final_numbers": true,
+        "final_report": true
+      },
+      "attribution": "ok",
+      "first_feedback_s": 7.094,
+      "marker": "CAP_AGENT_e6dbb69552354b6b8ccd9324385ecc67",
+      "template_idx": 0,
+      "source_session": "session-0085a1a5-ea38-4831-92df-afed9df3ec8c",
+      "llm_requests": 2,
+      "gateway_success": [
+        true,
+        true
+      ],
+      "e2e_s": 16.235,
+      "requests": [
+        {
+          "rid": 167,
+          "template_idx": 0,
+          "marker": "CAP_AGENT_e6dbb69552354b6b8ccd9324385ecc67",
+          "request_sha256": "6DA90FF5CFAB84DE02BEE0A7D833D230945E6AED22BDD8B50CB160D5154AB9AD",
+          "request_len": 82659,
+          "http_status": 200,
+          "error_kind": null,
+          "is_event_stream": true,
+          "terminal": "completed",
+          "terminal_reason": "completed",
+          "protocol_ok": true,
+          "json_errors": [],
+          "tool_calls": [
+            {
+              "key": "953cbf9585b00757",
+              "call_id": "call_b274739b26f4fb0f",
+              "name": "pwsh",
+              "arguments_from_deltas": "{\"command\": \"$rev = @(1000,2000,3000,4000,5000,6000); $cost = @(700,1400,2100,2800,3500,4200); $tr = ($rev | Measure-Object -Sum).Sum; $tc = ($cost | Measure-Object -Sum).Sum; $profit = $tr - $tc; $margin = [math]::Round($profit / $tr * 100, 1); \\\"TOTAL=$tr COST=$tc PROFIT=$profit MARGIN=$margin%\\\"; for($i=0;$i -lt 6;$i++){ $m=$rev[$i]-$cost[$i]; \\\"M$($i+1): rev=$($rev[$i]) cost=$($cost[$i]) profit=$m margin=$([math]::Round($m/$rev[$i]*100,1))%\\\" }\", \"description\": \"计算销售总收入、成本、利润与利润率\"}",
+              "final_arguments": "{\"command\": \"$rev = @(1000,2000,3000,4000,5000,6000); $cost = @(700,1400,2100,2800,3500,4200); $tr = ($rev | Measure-Object -Sum).Sum; $tc = ($cost | Measure-Object -Sum).Sum; $profit = $tr - $tc; $margin = [math]::Round($profit / $tr * 100, 1); \\\"TOTAL=$tr COST=$tc PROFIT=$profit MARGIN=$margin%\\\"; for($i=0;$i -lt 6;$i++){ $m=$rev[$i]-$cost[$i]; \\\"M$($i+1): rev=$($rev[$i]) cost=$($cost[$i]) profit=$m margin=$([math]::Round($m/$rev[$i]*100,1))%\\\" }\", \"description\": \"计算销售总收入、成本、利润与利润率\"}",
+              "output_index": 1,
+              "item_id": "953cbf9585b00757",
+              "delta_matches_final": true
+            }
+          ],
+          "text_len": 0,
+          "usage": {
+            "input_tokens": 22609,
+            "input_tokens_details": {
+              "cached_tokens": 18176,
+              "input_tokens_per_turn": [],
+              "cached_tokens_per_turn": []
+            },
+            "output_tokens": 410,
+            "output_tokens_details": {
+              "reasoning_tokens": 0,
+              "tool_output_tokens": 0,
+              "output_tokens_per_turn": [],
+              "tool_output_tokens_per_turn": []
+            },
+            "total_tokens": 23019
+          },
+          "timings": {
+            "t_headers": 0.329,
+            "t_first_frame": 0.36,
+            "t_first_reasoning": 1.75,
+            "t_first_tool": 7.094,
+            "t_first_text": null,
+            "t_end": 7.125
+          },
+          "e2e": 7.125,
+          "_wire": "wire/00087-1-CAP_AGENT_e6dbb69552354b6b8ccd9324385ecc67.json"
+        },
+        {
+          "rid": 176,
+          "template_idx": 0,
+          "marker": "CAP_AGENT_e6dbb69552354b6b8ccd9324385ecc67",
+          "request_sha256": "DC62955390D1160FA1466674E82E5D80FA95AB8EDE64D39DF26C5E58FAB3A17D",
+          "request_len": 83790,
+          "http_status": 200,
+          "error_kind": null,
+          "is_event_stream": true,
+          "terminal": "completed",
+          "terminal_reason": "completed",
+          "protocol_ok": true,
+          "json_errors": [],
+          "tool_calls": [],
+          "text_len": 882,
+          "usage": {
+            "input_tokens": 23050,
+            "input_tokens_details": {
+              "cached_tokens": 22528,
+              "input_tokens_per_turn": [],
+              "cached_tokens_per_turn": []
+            },
+            "output_tokens": 536,
+            "output_tokens_details": {
+              "reasoning_tokens": 0,
+              "tool_output_tokens": 0,
+              "output_tokens_per_turn": [],
+              "tool_output_tokens_per_turn": []
+            },
+            "total_tokens": 23586
+          },
+          "timings": {
+            "t_headers": 0.313,
+            "t_first_frame": 0.359,
+            "t_first_reasoning": 1.344,
+            "t_first_tool": null,
+            "t_first_text": 1.344,
+            "t_end": 8.094
+          },
+          "e2e": 8.094,
+          "_wire": "wire/00087-2-CAP_AGENT_e6dbb69552354b6b8ccd9324385ecc67.json"
+        }
+      ]
+    },
+    {
+      "task_id": 88,
+      "task_ok": true,
+      "checks": {
+        "first_completed": true,
+        "expected_tool": true,
+        "tool_arguments": true,
+        "second_completed": true,
+        "final_numbers": true,
+        "final_report": true
+      },
+      "attribution": "ok",
+      "first_feedback_s": 8.391,
+      "marker": "CAP_AGENT_8240a9913b374acb8299c2a1282394b6",
+      "template_idx": 5,
+      "source_session": "session-a17ae506-8129-45cc-8ed9-8e35329c0de6",
+      "llm_requests": 2,
+      "gateway_success": [
+        true,
+        true
+      ],
+      "e2e_s": 16.078,
+      "requests": [
+        {
+          "rid": 170,
+          "template_idx": 5,
+          "marker": "CAP_AGENT_8240a9913b374acb8299c2a1282394b6",
+          "request_sha256": "4AD8006CB210351D137B3056452BBD1DD79CD09B635B4BD49054E8A7451C092A",
+          "request_len": 82723,
+          "http_status": 200,
+          "error_kind": null,
+          "is_event_stream": true,
+          "terminal": "completed",
+          "terminal_reason": "completed",
+          "protocol_ok": true,
+          "json_errors": [],
+          "tool_calls": [
+            {
+              "key": "ac6a9aca46911247",
+              "call_id": "call_b1b2b32d1b38b1d7",
+              "name": "pwsh",
+              "arguments_from_deltas": "{\"command\": \"$rev = @(1000,2000,3000,4000,5000,6000); $cost = @(700,1400,2100,2800,3500,4200); $tr = ($rev | Measure-Object -Sum).Sum; $tc = ($cost | Measure-Object -Sum).Sum; $tp = $tr - $tc; $m = $tp / $tr * 100; for($i=0;$i -lt 6;$i++){ Write-Output (\\\"月{0}: 收入{1} 成本{2} 利润{3}\\\" -f ($i+1),$rev[$i],$cost[$i],($rev[$i]-$cost[$i])) }; Write-Output (\\\"TOTAL={0} COST={1} PROFIT={2} MARGIN={3}%\\\" -f $tr,$tc,$tp,[math]::Round($m,1))\", \"description\": \"Compute monthly totals, profit and margin in memory\"}",
+              "final_arguments": "{\"command\": \"$rev = @(1000,2000,3000,4000,5000,6000); $cost = @(700,1400,2100,2800,3500,4200); $tr = ($rev | Measure-Object -Sum).Sum; $tc = ($cost | Measure-Object -Sum).Sum; $tp = $tr - $tc; $m = $tp / $tr * 100; for($i=0;$i -lt 6;$i++){ Write-Output (\\\"月{0}: 收入{1} 成本{2} 利润{3}\\\" -f ($i+1),$rev[$i],$cost[$i],($rev[$i]-$cost[$i])) }; Write-Output (\\\"TOTAL={0} COST={1} PROFIT={2} MARGIN={3}%\\\" -f $tr,$tc,$tp,[math]::Round($m,1))\", \"description\": \"Compute monthly totals, profit and margin in memory\"}",
+              "output_index": 1,
+              "item_id": "ac6a9aca46911247",
+              "delta_matches_final": true
+            }
+          ],
+          "text_len": 0,
+          "usage": {
+            "input_tokens": 22616,
+            "input_tokens_details": {
+              "cached_tokens": 18176,
+              "input_tokens_per_turn": [],
+              "cached_tokens_per_turn": []
+            },
+            "output_tokens": 536,
+            "output_tokens_details": {
+              "reasoning_tokens": 0,
+              "tool_output_tokens": 0,
+              "output_tokens_per_turn": [],
+              "tool_output_tokens_per_turn": []
+            },
+            "total_tokens": 23152
+          },
+          "timings": {
+            "t_headers": 0.328,
+            "t_first_frame": 0.36,
+            "t_first_reasoning": 3.141,
+            "t_first_tool": 8.391,
+            "t_first_text": null,
+            "t_end": 8.453
+          },
+          "e2e": 8.453,
+          "_wire": "wire/00088-1-CAP_AGENT_8240a9913b374acb8299c2a1282394b6.json"
+        },
+        {
+          "rid": 182,
+          "template_idx": 5,
+          "marker": "CAP_AGENT_8240a9913b374acb8299c2a1282394b6",
+          "request_sha256": "5562AFC42F0F6645FDF2BF286151AD46B1DB0DFA17A8F2D4D030BB0D2E42F705",
+          "request_len": 83733,
+          "http_status": 200,
+          "error_kind": null,
+          "is_event_stream": true,
+          "terminal": "completed",
+          "terminal_reason": "completed",
+          "protocol_ok": true,
+          "json_errors": [],
+          "tool_calls": [],
+          "text_len": 831,
+          "usage": {
+            "input_tokens": 23019,
+            "input_tokens_details": {
+              "cached_tokens": 22528,
+              "input_tokens_per_turn": [],
+              "cached_tokens_per_turn": []
+            },
+            "output_tokens": 472,
+            "output_tokens_details": {
+              "reasoning_tokens": 0,
+              "tool_output_tokens": 0,
+              "output_tokens_per_turn": [],
+              "tool_output_tokens_per_turn": []
+            },
+            "total_tokens": 23491
+          },
+          "timings": {
+            "t_headers": 0.344,
+            "t_first_frame": 0.375,
+            "t_first_reasoning": null,
+            "t_first_tool": null,
+            "t_first_text": 1.375,
+            "t_end": 6.609
+          },
+          "e2e": 6.609,
+          "_wire": "wire/00088-2-CAP_AGENT_8240a9913b374acb8299c2a1282394b6.json"
+        }
+      ]
+    },
+    {
+      "task_id": 91,
+      "task_ok": true,
+      "checks": {
+        "first_completed": true,
+        "expected_tool": true,
+        "tool_arguments": true,
+        "second_completed": true,
+        "final_numbers": true,
+        "final_report": true
+      },
+      "attribution": "ok",
+      "first_feedback_s": 5.563,
+      "marker": "CAP_AGENT_3abd1a81756142959704ff1f80a61362",
+      "template_idx": 4,
+      "source_session": "session-d03e6b6e-72da-4a62-8368-5e42f90bb697",
+      "llm_requests": 2,
+      "gateway_success": [
+        true,
+        true
+      ],
+      "e2e_s": 14.625,
+      "requests": [
+        {
+          "rid": 174,
+          "template_idx": 4,
+          "marker": "CAP_AGENT_3abd1a81756142959704ff1f80a61362",
+          "request_sha256": "6A1078D804607ACB8B12DB549E13B8F72D5EB6F760A98DE7A544090AF99A1165",
+          "request_len": 82723,
+          "http_status": 200,
+          "error_kind": null,
+          "is_event_stream": true,
+          "terminal": "completed",
+          "terminal_reason": "completed",
+          "protocol_ok": true,
+          "json_errors": [],
+          "tool_calls": [
+            {
+              "key": "8924f3171ef57492",
+              "call_id": "call_ad522676f497168f",
+              "name": "pwsh",
+              "arguments_from_deltas": "{\"command\": \"$rev=1000+2000+3000+4000+5000+6000; $cost=700+1400+2100+2800+3500+4200; $profit=$rev-$cost; $margin=[math]::Round(($profit/$rev)*100,1); \\\"TOTAL=$rev COST=$cost PROFIT=$profit MARGIN=$margin%\\\"; \\\"monthly:\\\"; $r=@(1000,2000,3000,4000,5000,6000); $c=@(700,1400,2100,2800,3500,4200); for($i=0;$i -lt 6;$i++){\\\"M$($i+1): rev=$($r[$i]) cost=$($c[$i]) profit=$($r[$i]-$c[$i]) margin=$([math]::Round((($r[$i]-$c[$i])/$r[$i])*100,1))%\\\"}\", \"description\": \"Compute revenue, cost, profit and margin totals\"}",
+              "final_arguments": "{\"command\": \"$rev=1000+2000+3000+4000+5000+6000; $cost=700+1400+2100+2800+3500+4200; $profit=$rev-$cost; $margin=[math]::Round(($profit/$rev)*100,1); \\\"TOTAL=$rev COST=$cost PROFIT=$profit MARGIN=$margin%\\\"; \\\"monthly:\\\"; $r=@(1000,2000,3000,4000,5000,6000); $c=@(700,1400,2100,2800,3500,4200); for($i=0;$i -lt 6;$i++){\\\"M$($i+1): rev=$($r[$i]) cost=$($c[$i]) profit=$($r[$i]-$c[$i]) margin=$([math]::Round((($r[$i]-$c[$i])/$r[$i])*100,1))%\\\"}\", \"description\": \"Compute revenue, cost, profit and margin totals\"}",
+              "output_index": 1,
+              "item_id": "8924f3171ef57492",
+              "delta_matches_final": true
+            }
+          ],
+          "text_len": 0,
+          "usage": {
+            "input_tokens": 22604,
+            "input_tokens_details": {
+              "cached_tokens": 18176,
+              "input_tokens_per_turn": [],
+              "cached_tokens_per_turn": []
+            },
+            "output_tokens": 429,
+            "output_tokens_details": {
+              "reasoning_tokens": 0,
+              "tool_output_tokens": 0,
+              "output_tokens_per_turn": [],
+              "tool_output_tokens_per_turn": []
+            },
+            "total_tokens": 23033
+          },
+          "timings": {
+            "t_headers": 0.313,
+            "t_first_frame": 0.36,
+            "t_first_reasoning": 1.703,
+            "t_first_tool": 5.563,
+            "t_first_text": null,
+            "t_end": 5.875
+          },
+          "e2e": 5.875,
+          "_wire": "wire/00091-1-CAP_AGENT_3abd1a81756142959704ff1f80a61362.json"
+        },
+        {
+          "rid": 180,
+          "template_idx": 4,
+          "marker": "CAP_AGENT_3abd1a81756142959704ff1f80a61362",
+          "request_sha256": "4A45CB8DAF3DDFE6E47BB5C64C3C1689FE050DBCCD98C8E18FCDB89C64E9075D",
+          "request_len": 83791,
+          "http_status": 200,
+          "error_kind": null,
+          "is_event_stream": true,
+          "terminal": "completed",
+          "terminal_reason": "completed",
+          "protocol_ok": true,
+          "json_errors": [],
+          "tool_calls": [],
+          "text_len": 902,
+          "usage": {
+            "input_tokens": 23038,
+            "input_tokens_details": {
+              "cached_tokens": 22528,
+              "input_tokens_per_turn": [],
+              "cached_tokens_per_turn": []
+            },
+            "output_tokens": 504,
+            "output_tokens_details": {
+              "reasoning_tokens": 0,
+              "tool_output_tokens": 0,
+              "output_tokens_per_turn": [],
+              "tool_output_tokens_per_turn": []
+            },
+            "total_tokens": 23542
+          },
+          "timings": {
+            "t_headers": 0.344,
+            "t_first_frame": 0.375,
+            "t_first_reasoning": null,
+            "t_first_tool": null,
+            "t_first_text": 2.188,
+            "t_end": 7.75
+          },
+          "e2e": 7.75,
+          "_wire": "wire/00091-2-CAP_AGENT_3abd1a81756142959704ff1f80a61362.json"
+        }
+      ]
+    },
+    {
+      "task_id": 89,
+      "task_ok": true,
+      "checks": {
+        "first_completed": true,
+        "expected_tool": true,
+        "tool_arguments": true,
+        "second_completed": true,
+        "final_numbers": true,
+        "final_report": true
+      },
+      "attribution": "ok",
+      "first_feedback_s": 8.172,
+      "marker": "CAP_AGENT_f425e99be805434dabeb827cbe220a95",
+      "template_idx": 2,
+      "source_session": "session-34721e42-7172-406f-8536-84d795cf8970",
+      "llm_requests": 2,
+      "gateway_success": [
+        true,
+        true
+      ],
+      "e2e_s": 16.438,
+      "requests": [
+        {
+          "rid": 172,
+          "template_idx": 2,
+          "marker": "CAP_AGENT_f425e99be805434dabeb827cbe220a95",
+          "request_sha256": "3775237E180AD5CF1BED93D07B30E69CAC7CEA541DF08A5E95302C933230F620",
+          "request_len": 82723,
+          "http_status": 200,
+          "error_kind": null,
+          "is_event_stream": true,
+          "terminal": "completed",
+          "terminal_reason": "completed",
+          "protocol_ok": true,
+          "json_errors": [],
+          "tool_calls": [
+            {
+              "key": "99dc21e1c90a2d3e",
+              "call_id": "call_b5ae200823736a5c",
+              "name": "pwsh",
+              "arguments_from_deltas": "{\"command\": \"$rev=1000+2000+3000+4000+5000+6000; $cost=700+1400+2100+2800+3500+4200; $profit=$rev-$cost; $margin=[math]::Round($profit/$rev*100,1); \\\"REV=$rev COST=$cost PROFIT=$profit MARGIN=$margin%\\\"; $m=@((1000,700),(2000,1400),(3000,2100),(4000,2800),(5000,3500),(6000,4200)); for($i=0;$i -lt 6;$i++){ $r=$m[$i][0];$c=$m[$i][1]; $mm=[math]::Round(($r-$c)/$r*100,1); \\\"$($i+1)月: 收入$r 成本$c 利润$($r-$c) 利润率$mm%\\\" }\", \"description\": \"在内存中计算收入成本利润与利润率\"}",
+              "final_arguments": "{\"command\": \"$rev=1000+2000+3000+4000+5000+6000; $cost=700+1400+2100+2800+3500+4200; $profit=$rev-$cost; $margin=[math]::Round($profit/$rev*100,1); \\\"REV=$rev COST=$cost PROFIT=$profit MARGIN=$margin%\\\"; $m=@((1000,700),(2000,1400),(3000,2100),(4000,2800),(5000,3500),(6000,4200)); for($i=0;$i -lt 6;$i++){ $r=$m[$i][0];$c=$m[$i][1]; $mm=[math]::Round(($r-$c)/$r*100,1); \\\"$($i+1)月: 收入$r 成本$c 利润$($r-$c) 利润率$mm%\\\" }\", \"description\": \"在内存中计算收入成本利润与利润率\"}",
+              "output_index": 1,
+              "item_id": "99dc21e1c90a2d3e",
+              "delta_matches_final": true
+            }
+          ],
+          "text_len": 0,
+          "usage": {
+            "input_tokens": 22597,
+            "input_tokens_details": {
+              "cached_tokens": 18176,
+              "input_tokens_per_turn": [],
+              "cached_tokens_per_turn": []
+            },
+            "output_tokens": 542,
+            "output_tokens_details": {
+              "reasoning_tokens": 0,
+              "tool_output_tokens": 0,
+              "output_tokens_per_turn": [],
+              "tool_output_tokens_per_turn": []
+            },
+            "total_tokens": 23139
+          },
+          "timings": {
+            "t_headers": 0.313,
+            "t_first_frame": 0.36,
+            "t_first_reasoning": 2.875,
+            "t_first_tool": 8.172,
+            "t_first_text": null,
+            "t_end": 8.235
+          },
+          "e2e": 8.235,
+          "_wire": "wire/00089-1-CAP_AGENT_f425e99be805434dabeb827cbe220a95.json"
+        },
+        {
+          "rid": 183,
+          "template_idx": 2,
+          "marker": "CAP_AGENT_f425e99be805434dabeb827cbe220a95",
+          "request_sha256": "BFE4055004AC5C610D7875A91605A34CE1DE6E061D27FB51E8684A8B6C55A504",
+          "request_len": 83485,
+          "http_status": 200,
+          "error_kind": null,
+          "is_event_stream": true,
+          "terminal": "completed",
+          "terminal_reason": "completed",
+          "protocol_ok": true,
+          "json_errors": [],
+          "tool_calls": [],
+          "text_len": 976,
+          "usage": {
+            "input_tokens": 22911,
+            "input_tokens_details": {
+              "cached_tokens": 22528,
+              "input_tokens_per_turn": [],
+              "cached_tokens_per_turn": []
+            },
+            "output_tokens": 544,
+            "output_tokens_details": {
+              "reasoning_tokens": 0,
+              "tool_output_tokens": 0,
+              "output_tokens_per_turn": [],
+              "tool_output_tokens_per_turn": []
+            },
+            "total_tokens": 23455
+          },
+          "timings": {
+            "t_headers": 0.344,
+            "t_first_frame": 0.375,
+            "t_first_reasoning": 1.094,
+            "t_first_tool": null,
+            "t_first_text": 1.094,
+            "t_end": 7.016
+          },
+          "e2e": 7.016,
+          "_wire": "wire/00089-2-CAP_AGENT_f425e99be805434dabeb827cbe220a95.json"
+        }
+      ]
+    },
+    {
+      "task_id": 92,
+      "task_ok": true,
+      "checks": {
+        "first_completed": true,
+        "expected_tool": true,
+        "tool_arguments": true,
+        "second_completed": true,
+        "final_numbers": true,
+        "final_report": true
+      },
+      "attribution": "ok",
+      "first_feedback_s": 4.985,
+      "marker": "CAP_AGENT_f2b10fa47e86434eb36b7a6febfa7239",
+      "template_idx": 0,
+      "source_session": "session-0085a1a5-ea38-4831-92df-afed9df3ec8c",
+      "llm_requests": 2,
+      "gateway_success": [
+        true,
+        true
+      ],
+      "e2e_s": 11.797,
+      "requests": [
+        {
+          "rid": 179,
+          "template_idx": 0,
+          "marker": "CAP_AGENT_f2b10fa47e86434eb36b7a6febfa7239",
+          "request_sha256": "771EF32DF6AEC4F0087143C5E1639CE8593A9275BBA87E52655D1CAD5235D6CE",
+          "request_len": 82659,
+          "http_status": 200,
+          "error_kind": null,
+          "is_event_stream": true,
+          "terminal": "completed",
+          "terminal_reason": "completed",
+          "protocol_ok": true,
+          "json_errors": [],
+          "tool_calls": [
+            {
+              "key": "87bcf7716117a673",
+              "call_id": "call_8a50662d7eae3bab",
+              "name": "pwsh",
+              "arguments_from_deltas": "{\"command\": \"$rev = @(1000,2000,3000,4000,5000,6000); $cost = @(700,1400,2100,2800,3500,4200); $tr = ($rev | Measure-Object -Sum).Sum; $tc = ($cost | Measure-Object -Sum).Sum; $tp = $tr - $tc; $m = [math]::Round(100*$tp/$tr,1); \\\"TOTAL=$tr COST=$tc PROFIT=$tp MARGIN=$m%\\\"; 0..5 | ForEach-Object { \\\"M$($_+1) rev=$($rev[$_]) cost=$($cost[$_]) profit=$($rev[$_]-$cost[$_]) margin=$([math]::Round(100*($rev[$_]-$cost[$_])/$rev[$_],1))%\\\" }\", \"description\": \"Compute sales totals and monthly margins in memory\"}",
+              "final_arguments": "{\"command\": \"$rev = @(1000,2000,3000,4000,5000,6000); $cost = @(700,1400,2100,2800,3500,4200); $tr = ($rev | Measure-Object -Sum).Sum; $tc = ($cost | Measure-Object -Sum).Sum; $tp = $tr - $tc; $m = [math]::Round(100*$tp/$tr,1); \\\"TOTAL=$tr COST=$tc PROFIT=$tp MARGIN=$m%\\\"; 0..5 | ForEach-Object { \\\"M$($_+1) rev=$($rev[$_]) cost=$($cost[$_]) profit=$($rev[$_]-$cost[$_]) margin=$([math]::Round(100*($rev[$_]-$cost[$_])/$rev[$_],1))%\\\" }\", \"description\": \"Compute sales totals and monthly margins in memory\"}",
+              "output_index": 1,
+              "item_id": "87bcf7716117a673",
+              "delta_matches_final": true
+            }
+          ],
+          "text_len": 0,
+          "usage": {
+            "input_tokens": 22613,
+            "input_tokens_details": {
+              "cached_tokens": 18176,
+              "input_tokens_per_turn": [],
+              "cached_tokens_per_turn": []
+            },
+            "output_tokens": 322,
+            "output_tokens_details": {
+              "reasoning_tokens": 0,
+              "tool_output_tokens": 0,
+              "output_tokens_per_turn": [],
+              "tool_output_tokens_per_turn": []
+            },
+            "total_tokens": 22935
+          },
+          "timings": {
+            "t_headers": 0.297,
+            "t_first_frame": 0.344,
+            "t_first_reasoning": 2.36,
+            "t_first_tool": 4.985,
+            "t_first_text": null,
+            "t_end": 5.032
+          },
+          "e2e": 5.032,
+          "_wire": "wire/00092-1-CAP_AGENT_f2b10fa47e86434eb36b7a6febfa7239.json"
+        },
+        {
+          "rid": 185,
+          "template_idx": 0,
+          "marker": "CAP_AGENT_f2b10fa47e86434eb36b7a6febfa7239",
+          "request_sha256": "B744B3C29D757F24C7FDE8407EE89085A852C02941BB8FDAF385BC8D9B8FDFFF",
+          "request_len": 83774,
+          "http_status": 200,
+          "error_kind": null,
+          "is_event_stream": true,
+          "terminal": "completed",
+          "terminal_reason": "completed",
+          "protocol_ok": true,
+          "json_errors": [],
+          "tool_calls": [],
+          "text_len": 862,
+          "usage": {
+            "input_tokens": 23051,
+            "input_tokens_details": {
+              "cached_tokens": 22528,
+              "input_tokens_per_turn": [],
+              "cached_tokens_per_turn": []
+            },
+            "output_tokens": 495,
+            "output_tokens_details": {
+              "reasoning_tokens": 0,
+              "tool_output_tokens": 0,
+              "output_tokens_per_turn": [],
+              "tool_output_tokens_per_turn": []
+            },
+            "total_tokens": 23546
+          },
+          "timings": {
+            "t_headers": 0.343,
+            "t_first_frame": 0.39,
+            "t_first_reasoning": null,
+            "t_first_tool": null,
+            "t_first_text": 1.578,
+            "t_end": 5.75
+          },
+          "e2e": 5.765,
+          "_wire": "wire/00092-2-CAP_AGENT_f2b10fa47e86434eb36b7a6febfa7239.json"
+        }
+      ]
+    },
+    {
+      "task_id": 93,
+      "task_ok": true,
+      "checks": {
+        "first_completed": true,
+        "expected_tool": true,
+        "tool_arguments": true,
+        "second_completed": true,
+        "final_numbers": true,
+        "final_report": true
+      },
+      "attribution": "ok",
+      "first_feedback_s": 6.406,
+      "marker": "CAP_AGENT_b1ae21df2a5446cb87021a5de345da3b",
+      "template_idx": 9,
+      "source_session": "session-791db3c9-90d1-4147-8c01-364785803c00",
+      "llm_requests": 2,
+      "gateway_success": [
+        true,
+        true
+      ],
+      "e2e_s": 12.422,
+      "requests": [
+        {
+          "rid": 181,
+          "template_idx": 9,
+          "marker": "CAP_AGENT_b1ae21df2a5446cb87021a5de345da3b",
+          "request_sha256": "EA5C21DEBB83B59E973455446BF765ADB466CE0561A2481B526B6FCF5C685339",
+          "request_len": 82723,
+          "http_status": 200,
+          "error_kind": null,
+          "is_event_stream": true,
+          "terminal": "completed",
+          "terminal_reason": "completed",
+          "protocol_ok": true,
+          "json_errors": [],
+          "tool_calls": [
+            {
+              "key": "8c5c736cf972d484",
+              "call_id": "call_94bc26be73aec273",
+              "name": "pwsh",
+              "arguments_from_deltas": "{\"command\": \"$rev = 1000+2000+3000+4000+5000+6000\\n$cost = 700+1400+2100+2800+3500+4200\\n$profit = $rev - $cost\\n$margin = [math]::Round($profit / $rev * 100, 1)\\n\\\"TOTAL=$rev COST=$cost PROFIT=$profit MARGIN=$margin%\\\"\\n# 逐月利润率\\nfor ($m=1; $m -le 6; $m++) {\\n  $r = $m*1000; $c = $m*700\\n  $rt = if ($r -gt 0) { [math]::Round(($r-$c)/$r*100,1) } else { 0 }\\n  \\\"M$m rev=$r cost=$c profit=$($r-$c) margin=$rt%\\\"\\n}\", \"description\": \"计算销售数据合计与利润率\"}",
+              "final_arguments": "{\"command\": \"$rev = 1000+2000+3000+4000+5000+6000\\n$cost = 700+1400+2100+2800+3500+4200\\n$profit = $rev - $cost\\n$margin = [math]::Round($profit / $rev * 100, 1)\\n\\\"TOTAL=$rev COST=$cost PROFIT=$profit MARGIN=$margin%\\\"\\n# 逐月利润率\\nfor ($m=1; $m -le 6; $m++) {\\n  $r = $m*1000; $c = $m*700\\n  $rt = if ($r -gt 0) { [math]::Round(($r-$c)/$r*100,1) } else { 0 }\\n  \\\"M$m rev=$r cost=$c profit=$($r-$c) margin=$rt%\\\"\\n}\", \"description\": \"计算销售数据合计与利润率\"}",
+              "output_index": 1,
+              "item_id": "8c5c736cf972d484",
+              "delta_matches_final": true
+            }
+          ],
+          "text_len": 0,
+          "usage": {
+            "input_tokens": 22612,
+            "input_tokens_details": {
+              "cached_tokens": 18176,
+              "input_tokens_per_turn": [],
+              "cached_tokens_per_turn": []
+            },
+            "output_tokens": 417,
+            "output_tokens_details": {
+              "reasoning_tokens": 0,
+              "tool_output_tokens": 0,
+              "output_tokens_per_turn": [],
+              "tool_output_tokens_per_turn": []
+            },
+            "total_tokens": 23029
+          },
+          "timings": {
+            "t_headers": 0.312,
+            "t_first_frame": 0.344,
+            "t_first_reasoning": 1.781,
+            "t_first_tool": 6.406,
+            "t_first_text": null,
+            "t_end": 6.437
+          },
+          "e2e": 6.437,
+          "_wire": "wire/00093-1-CAP_AGENT_b1ae21df2a5446cb87021a5de345da3b.json"
+        },
+        {
+          "rid": 187,
+          "template_idx": 9,
+          "marker": "CAP_AGENT_b1ae21df2a5446cb87021a5de345da3b",
+          "request_sha256": "66CCD2175D4CAED56DAE355BB0E30C8E6661BD61A0C75C2224123B934E66E94F",
+          "request_len": 83743,
+          "http_status": 200,
+          "error_kind": null,
+          "is_event_stream": true,
+          "terminal": "completed",
+          "terminal_reason": "completed",
+          "protocol_ok": true,
+          "json_errors": [],
+          "tool_calls": [],
+          "text_len": 857,
+          "usage": {
+            "input_tokens": 23024,
+            "input_tokens_details": {
+              "cached_tokens": 22528,
+              "input_tokens_per_turn": [],
+              "cached_tokens_per_turn": []
+            },
+            "output_tokens": 468,
+            "output_tokens_details": {
+              "reasoning_tokens": 0,
+              "tool_output_tokens": 0,
+              "output_tokens_per_turn": [],
+              "tool_output_tokens_per_turn": []
+            },
+            "total_tokens": 23492
+          },
+          "timings": {
+            "t_headers": 0.328,
+            "t_first_frame": 0.375,
+            "t_first_reasoning": null,
+            "t_first_tool": null,
+            "t_first_text": 1.016,
+            "t_end": 4.828
+          },
+          "e2e": 4.828,
+          "_wire": "wire/00093-2-CAP_AGENT_b1ae21df2a5446cb87021a5de345da3b.json"
+        }
+      ]
+    },
+    {
+      "task_id": 94,
+      "task_ok": true,
+      "checks": {
+        "first_completed": true,
+        "expected_tool": true,
+        "tool_arguments": true,
+        "second_completed": true,
+        "final_numbers": true,
+        "final_report": true
+      },
+      "attribution": "ok",
+      "first_feedback_s": 5.125,
+      "marker": "CAP_AGENT_94346500b10c42f8ac1d0af506ab86a2",
+      "template_idx": 4,
+      "source_session": "session-d03e6b6e-72da-4a62-8368-5e42f90bb697",
+      "llm_requests": 2,
+      "gateway_success": [
+        true,
+        true
+      ],
+      "e2e_s": 10.672,
+      "requests": [
+        {
+          "rid": 184,
+          "template_idx": 4,
+          "marker": "CAP_AGENT_94346500b10c42f8ac1d0af506ab86a2",
+          "request_sha256": "A945BC5A148577035F95248E4FE2A656DC60CBE3721367EFA03B1F245E5138FA",
+          "request_len": 82723,
+          "http_status": 200,
+          "error_kind": null,
+          "is_event_stream": true,
+          "terminal": "completed",
+          "terminal_reason": "completed",
+          "protocol_ok": true,
+          "json_errors": [],
+          "tool_calls": [
+            {
+              "key": "a5e45a70e1e5c686",
+              "call_id": "call_8299172990c9b917",
+              "name": "pwsh",
+              "arguments_from_deltas": "{\"command\": \"$rev = 1000+2000+3000+4000+5000+6000; $cost=700+1400+2100+2800+3500+4200; $profit=$rev-$cost; $margin=[math]::Round(($profit/$rev)*100,1); \\\"TOTAL=$rev COST=$cost PROFIT=$profit MARGIN=$margin%\\\"\", \"description\": \"Compute totals, profit and margin\"}",
+              "final_arguments": "{\"command\": \"$rev = 1000+2000+3000+4000+5000+6000; $cost=700+1400+2100+2800+3500+4200; $profit=$rev-$cost; $margin=[math]::Round(($profit/$rev)*100,1); \\\"TOTAL=$rev COST=$cost PROFIT=$profit MARGIN=$margin%\\\"\", \"description\": \"Compute totals, profit and margin\"}",
+              "output_index": 1,
+              "item_id": "a5e45a70e1e5c686",
+              "delta_matches_final": true
+            }
+          ],
+          "text_len": 0,
+          "usage": {
+            "input_tokens": 22616,
+            "input_tokens_details": {
+              "cached_tokens": 18176,
+              "input_tokens_per_turn": [],
+              "cached_tokens_per_turn": []
+            },
+            "output_tokens": 387,
+            "output_tokens_details": {
+              "reasoning_tokens": 0,
+              "tool_output_tokens": 0,
+              "output_tokens_per_turn": [],
+              "tool_output_tokens_per_turn": []
+            },
+            "total_tokens": 23003
+          },
+          "timings": {
+            "t_headers": 0.312,
+            "t_first_frame": 0.391,
+            "t_first_reasoning": 1.391,
+            "t_first_tool": 5.125,
+            "t_first_text": null,
+            "t_end": 5.219
+          },
+          "e2e": 5.219,
+          "_wire": "wire/00094-1-CAP_AGENT_94346500b10c42f8ac1d0af506ab86a2.json"
+        },
+        {
+          "rid": 188,
+          "template_idx": 4,
+          "marker": "CAP_AGENT_94346500b10c42f8ac1d0af506ab86a2",
+          "request_sha256": "6D0AAB33403EE1A1B8724D1C58999C89E6932B5F0110DAED5B025288417553F9",
+          "request_len": 83534,
+          "http_status": 200,
+          "error_kind": null,
+          "is_event_stream": true,
+          "terminal": "completed",
+          "terminal_reason": "completed",
+          "protocol_ok": true,
+          "json_errors": [],
+          "tool_calls": [],
+          "text_len": 860,
+          "usage": {
+            "input_tokens": 22920,
+            "input_tokens_details": {
+              "cached_tokens": 22528,
+              "input_tokens_per_turn": [],
+              "cached_tokens_per_turn": []
+            },
+            "output_tokens": 477,
+            "output_tokens_details": {
+              "reasoning_tokens": 0,
+              "tool_output_tokens": 0,
+              "output_tokens_per_turn": [],
+              "tool_output_tokens_per_turn": []
+            },
+            "total_tokens": 23397
+          },
+          "timings": {
+            "t_headers": 0.312,
+            "t_first_frame": 0.359,
+            "t_first_reasoning": null,
+            "t_first_tool": null,
+            "t_first_text": 1.0,
+            "t_end": 4.453
+          },
+          "e2e": 4.453,
+          "_wire": "wire/00094-2-CAP_AGENT_94346500b10c42f8ac1d0af506ab86a2.json"
+        }
+      ]
+    },
+    {
+      "task_id": 95,
+      "task_ok": true,
+      "checks": {
+        "first_completed": true,
+        "expected_tool": true,
+        "tool_arguments": true,
+        "second_completed": true,
+        "final_numbers": true,
+        "final_report": true
+      },
+      "attribution": "ok",
+      "first_feedback_s": 5.344,
+      "marker": "CAP_AGENT_d3d0b24b60e6479a848d0ea2d233952c",
+      "template_idx": 8,
+      "source_session": "session-261a9fb1-f506-4589-bf4b-cec7f39076c6",
+      "llm_requests": 2,
+      "gateway_success": [
+        true,
+        true
+      ],
+      "e2e_s": 10.579,
+      "requests": [
+        {
+          "rid": 186,
+          "template_idx": 8,
+          "marker": "CAP_AGENT_d3d0b24b60e6479a848d0ea2d233952c",
+          "request_sha256": "88C0AE5AB4C44E22DB0780139B0E1CD00DB90150A2C8770029F2A0CC054DC7DC",
+          "request_len": 82723,
+          "http_status": 200,
+          "error_kind": null,
+          "is_event_stream": true,
+          "terminal": "completed",
+          "terminal_reason": "completed",
+          "protocol_ok": true,
+          "json_errors": [],
+          "tool_calls": [
+            {
+              "key": "af58ccd7c08f613f",
+              "call_id": "call_8a398c1c4a241049",
+              "name": "pwsh",
+              "arguments_from_deltas": "{\"command\": \"$rev = 1000,2000,3000,4000,5000,6000\\n$cost = 700,1400,2100,2800,3500,4200\\n$tr = ($rev | Measure-Object -Sum).Sum\\n$tc = ($cost | Measure-Object -Sum).Sum\\n$p = $tr - $tc\\n$m = [math]::Round(($p/$tr)*100,2)\\n\\\"TOTAL=$tr COST=$tc PROFIT=$p MARGIN=$m%\\\"\\nfor($i=0;$i -lt 6;$i++){ \\\"Month $($i+1): rev=$($rev[$i]) cost=$($cost[$i]) profit=$($rev[$i]-$cost[$i]) margin=$([math]::Round(($rev[$i]-$cost[$i])/$rev[$i]*100,1))%\\\" }\", \"description\": \"计算逐月及汇总收入成本利润\"}",
+              "final_arguments": "{\"command\": \"$rev = 1000,2000,3000,4000,5000,6000\\n$cost = 700,1400,2100,2800,3500,4200\\n$tr = ($rev | Measure-Object -Sum).Sum\\n$tc = ($cost | Measure-Object -Sum).Sum\\n$p = $tr - $tc\\n$m = [math]::Round(($p/$tr)*100,2)\\n\\\"TOTAL=$tr COST=$tc PROFIT=$p MARGIN=$m%\\\"\\nfor($i=0;$i -lt 6;$i++){ \\\"Month $($i+1): rev=$($rev[$i]) cost=$($cost[$i]) profit=$($rev[$i]-$cost[$i]) margin=$([math]::Round(($rev[$i]-$cost[$i])/$rev[$i]*100,1))%\\\" }\", \"description\": \"计算逐月及汇总收入成本利润\"}",
+              "output_index": 1,
+              "item_id": "af58ccd7c08f613f",
+              "delta_matches_final": true
+            }
+          ],
+          "text_len": 0,
+          "usage": {
+            "input_tokens": 22620,
+            "input_tokens_details": {
+              "cached_tokens": 18176,
+              "input_tokens_per_turn": [],
+              "cached_tokens_per_turn": []
+            },
+            "output_tokens": 456,
+            "output_tokens_details": {
+              "reasoning_tokens": 0,
+              "tool_output_tokens": 0,
+              "output_tokens_per_turn": [],
+              "tool_output_tokens_per_turn": []
+            },
+            "total_tokens": 23076
+          },
+          "timings": {
+            "t_headers": 0.344,
+            "t_first_frame": 0.391,
+            "t_first_reasoning": 1.579,
+            "t_first_tool": 5.344,
+            "t_first_text": null,
+            "t_end": 5.391
+          },
+          "e2e": 5.407,
+          "_wire": "wire/00095-1-CAP_AGENT_d3d0b24b60e6479a848d0ea2d233952c.json"
+        },
+        {
+          "rid": 189,
+          "template_idx": 8,
+          "marker": "CAP_AGENT_d3d0b24b60e6479a848d0ea2d233952c",
+          "request_sha256": "614943A0B5A42CB92340687946A1E4965EC9E041385E0A5DB6678C24CD796F7C",
+          "request_len": 83792,
+          "http_status": 200,
+          "error_kind": null,
+          "is_event_stream": true,
+          "terminal": "completed",
+          "terminal_reason": "completed",
+          "protocol_ok": true,
+          "json_errors": [],
+          "tool_calls": [],
+          "text_len": 859,
+          "usage": {
+            "input_tokens": 23032,
+            "input_tokens_details": {
+              "cached_tokens": 22528,
+              "input_tokens_per_turn": [],
+              "cached_tokens_per_turn": []
+            },
+            "output_tokens": 484,
+            "output_tokens_details": {
+              "reasoning_tokens": 0,
+              "tool_output_tokens": 0,
+              "output_tokens_per_turn": [],
+              "tool_output_tokens_per_turn": []
+            },
+            "total_tokens": 23516
+          },
+          "timings": {
+            "t_headers": 0.359,
+            "t_first_frame": 0.406,
+            "t_first_reasoning": null,
+            "t_first_tool": null,
+            "t_first_text": 1.015,
+            "t_end": 4.25
+          },
+          "e2e": 4.25,
+          "_wire": "wire/00095-2-CAP_AGENT_d3d0b24b60e6479a848d0ea2d233952c.json"
+        }
+      ]
+    }
+  ]
+}
