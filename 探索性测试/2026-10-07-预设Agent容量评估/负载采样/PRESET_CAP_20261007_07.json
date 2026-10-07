@@ -1,0 +1,120 @@
+{
+  "marker": "PRESET_CAP_20261007_07",
+  "preset": "standard",
+  "started_at": "2026-10-07T08:07:31.972Z",
+  "ended_at": "2026-10-07T08:08:05.197Z",
+  "prompt": "你是产品内置的标准工作Agent。本轮是虚构销售分析任务，标记PRESET_CAP_20261007_07。数据：1月收入1000成本700；2月收入2000成本1400；3月收入3000成本2100；4月收入4000成本2800；5月收入5000成本3500；6月收入6000成本4200。请先使用代码工作工具实际计算总收入、总成本、利润及利润率（只执行内存计算，不读写文件，不访问外网，不需要提问）。然后写一份约300字的业务分析，含一张逐月表格、趋势解读和两条建议。最后独立一行输出：PRESET_CAP_20261007_07 TOTAL=21000 COST=14700 PROFIT=6300 MARGIN=30%。",
+  "calls": [
+    {
+      "call_id": "CALL-85927dbc-8449-4d22-90a6-96b9a1379585",
+      "status": "returned",
+      "observations": {
+        "action_refs": [
+          "CALL-85927dbc-8449-4d22-90a6-96b9a1379585-2"
+        ],
+        "observations": {
+          "project": null,
+          "editor": {
+            "event_id": "CALL-85927dbc-8449-4d22-90a6-96b9a1379585-3",
+            "captured_at": "2026-10-07T08:07:39.584Z",
+            "environment_id": "preset-capacity-20261007",
+            "business_call_id": "CALL-85927dbc-8449-4d22-90a6-96b9a1379585",
+            "kind": "read",
+            "target": "新任务编辑器",
+            "object_id": "composer",
+            "source": {
+              "channel": "dom",
+              "scope": "composer 输入区",
+              "locator": "div[contenteditable=\"true\"][aria-label*=\"/ 调用指令\"]"
+            },
+            "value": true,
+            "raw": {
+              "count": 1,
+              "visible": true,
+              "editable": "true"
+            },
+            "derivation": "visible && contenteditable === 'true'"
+          },
+          "model": {
+            "event_id": "CALL-85927dbc-8449-4d22-90a6-96b9a1379585-4",
+            "captured_at": "2026-10-07T08:07:39.601Z",
+            "environment_id": "preset-capacity-20261007",
+            "business_call_id": "CALL-85927dbc-8449-4d22-90a6-96b9a1379585",
+            "kind": "read",
+            "target": "当前任务模型与推理等级",
+            "object_id": "model-trigger",
+            "source": {
+              "channel": "dom",
+              "scope": "composer 模型触发按钮",
+              "locator": "button[aria-label^=\"选择模型\"]"
+            },
+            "value": [
+              "标准",
+              "low"
+            ],
+            "raw": {
+              "ariaLabel": "选择模型，当前 标准，推理等级 low",
+              "text": "标准\nlow"
+            }
+          },
+          "session": {
+            "event_id": "CALL-85927dbc-8449-4d22-90a6-96b9a1379585-5",
+            "captured_at": "2026-10-07T08:07:39.611Z",
+            "environment_id": "preset-capacity-20261007",
+            "business_call_id": "CALL-85927dbc-8449-4d22-90a6-96b9a1379585",
+            "kind": "read",
+            "target": "本轮任务session身份",
+            "object_id": "session",
+            "source": {
+              "channel": "dom",
+              "scope": "主界面会话容器",
+              "locator": "[data-conversation-session]"
+            },
+            "value": "session-c4fd6ffd-a5ae-4d4c-93f3-b35d7063aaa5",
+            "raw": {
+              "attr": "data-conversation-session",
+              "value": "session-c4fd6ffd-a5ae-4d4c-93f3-b35d7063aaa5"
+            }
+          }
+        },
+        "args_echo": {
+          "model": "标准",
+          "reasoning": "low"
+        }
+      }
+    },
+    {
+      "call_id": "CALL-d4b8b33d-19dc-4c86-958e-a9865c2a2dda",
+      "status": "returned",
+      "observations": {
+        "action_refs": [
+          "CALL-d4b8b33d-19dc-4c86-958e-a9865c2a2dda-2"
+        ],
+        "observations": {
+          "wait": {
+            "waited_ms": 20953
+          },
+          "assistant": {
+            "event_id": "CALL-d4b8b33d-19dc-4c86-958e-a9865c2a2dda-3",
+            "captured_at": "2026-10-07T08:08:05.182Z",
+            "environment_id": "preset-capacity-20261007",
+            "business_call_id": "CALL-d4b8b33d-19dc-4c86-958e-a9865c2a2dda",
+            "kind": "read",
+            "target": "助手最终正文",
+            "object_id": "last-assistant-bubble",
+            "source": {
+              "channel": "dom",
+              "scope": "对话 助手气泡",
+              "locator": "[class*=\"hWmORq_body\"]"
+            },
+            "value": "已完成代码工具实算验证：总收入 21000，总成本 14700，利润 6300，利润率 30%。\n\n业务分析\n逐月经营数据\n月份\t收入\t成本\t利润\t利润率\n1月\t1000\t700\t300\t30%\n2月\t2000\t1400\t600\t30%\n3月\t3000\t2100\t900\t30%\n4月\t4000\t2800\t1200\t30%\n5月\t5000\t3500\t1500\t30%\n6月\t6000\t4200\t1800\t30%\n合计\t21000\t14700\t6300\t30%\n趋势解读\n\n1-6月销售额逐月线性增长，每月均为上月的 1000 增量，累计翻六倍，业务处于高速扩张期。成本与收入严格同步（让步 70%），利润率稳定锁定在 30%，说明成本结构健康且规模未带来明显摊薄效应，属于典型的稳定增长模式。前三个月贡献合计 6000，仅占总收入的 28.6%，增长动能明显集中在下半年冲刺阶段。\n\n建议\n提利润空间：当前利润率稳定在 30%，但收入翻倍过程中成本仍同比例扩张，建议引入规模采购和流程优化，把固定成本摊薄，在收入增长同时把利润率抬升到 32%-35%。\n保增长质量：增速强劲，应回补现金流与库存管理，避免后续月份增速放缓或回款滞后拖累扩张；同时预留产能，承接持续放量。\n\nPRESET_CAP_20261007_07 TOTAL=21000 COST=14700 PROFIT=6300 MARGIN=30%",
+            "raw": {
+              "count": 2,
+              "last": "已完成代码工具实算验证：总收入 21000，总成本 14700，利润 6300，利润率 30%。\n\n业务分析\n逐月经营数据\n月份\t收入\t成本\t利润\t利润率\n1月\t1000\t700\t300\t30%\n2月\t2000\t1400\t600\t30%\n3月\t3000\t2100\t900\t30%\n4月\t4000\t2800\t1200\t30%\n5月\t5000\t3500\t1500\t30%\n6月\t6000\t4200\t1800\t30%\n合计\t21000\t14700\t6300\t30%\n趋势解读\n\n1-6月销售额逐月线性增长，每月均为上月的 1000 增量，累计翻六倍，业务处于高速扩张期。成本与收入严格同步（让步 70%），利润率稳定锁定在 30%，说明成本结构健康且规模未带来明显摊薄效应，属于典型的稳定增长模式。前三个月贡献合计 6000，仅占总收入的 28.6%，增长动能明显集中在下半年冲刺阶段。\n\n建议\n提利润空间：当前利润率稳定在 30%，但收入翻倍过程中成本仍同比例扩张，建议引入规模采购和流程优化，把固定成本摊薄，在收入增长同时把利润率抬升到 32%-35%。\n保增长质量：增速强劲，应回补现金流与库存管理，避免后续月份增速放缓或回款滞后拖累扩张；同时预留产能，承接持续放量。\n\nPRESET_CAP_20261007_07 TOTAL=21000 COST=14700 PROFIT=6300 MARGIN=30%"
+            }
+          }
+        }
+      }
+    }
+  ]
+}
