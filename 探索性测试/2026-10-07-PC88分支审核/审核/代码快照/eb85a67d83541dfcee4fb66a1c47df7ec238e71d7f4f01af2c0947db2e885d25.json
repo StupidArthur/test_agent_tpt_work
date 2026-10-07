@@ -1,0 +1,44 @@
+{
+  "modules": [
+    {"name":"application","title":"接入与环境","keywords":["接入","连接","环境","CDP"]},
+    {"name":"conversation","title":"对话、任务、会话与权限","keywords":["对话","任务","会话","权限","搜索","链接"]},
+    {"name":"attachments","title":"附件","keywords":["附件","上传"]},
+    {"name":"skills","title":"技能","keywords":["技能","skill"]},
+    {"name":"experts","title":"专家","keywords":["专家","expert","agent"]},
+    {"name":"settings","title":"设置与插件","keywords":["设置","配置","插件"]},
+    {"name":"fixtures","title":"夹具、备份、文件与服务","keywords":["夹具","样本","备份","恢复","服务"]},
+    {"name":"smoke","title":"冒烟辅助","keywords":["冒烟","smoke"]}
+  ],
+  "contracts": {
+    "skills.useSkillDirect": {
+      "keywords":["快捷使用","新建会话","入口行为"],
+      "effects":"准备并打开一个已有会话后点击快捷使用；入口前后 session 独立读取。",
+      "evidence":["sessionBefore","sessionAfter","reference"],
+      "limits":"用于判定入口自身是否新建会话；不要拿调用前另一次读取的 session 代替 sessionBefore。"
+    },
+    "skills.useSkill": {
+      "keywords":["快捷使用","技能引用"],
+      "effects":"先主动新建任务，再选择技能。",
+      "evidence":["请查看实际返回及函数实现"],
+      "limits":"不能证明快捷使用入口自身新建了会话；该判据用 skills.useSkillDirect。"
+    },
+    "experts.scrollPromptToEnd": {
+      "keywords":["滚动","末尾可见","提示词"],
+      "effects":"滚动专家提示词预览并读取末尾标记的可见范围。",
+      "evidence":["实际返回中的滚动位置和末尾标记可见性事件"],
+      "limits":"全文包含标记不能代替可视范围验证。"
+    },
+    "conversation.setTaskPermission": {
+      "keywords":["当前任务权限","完全权限","访问模式"],
+      "effects":"修改当前任务权限；完全权限会执行产品确认，须显式 confirmFullPermission=true。",
+      "evidence":["before","after","after.raw.session"],
+      "limits":"不修改设置中的默认权限；调用者保存初值并恢复。"
+    },
+    "skills.toggleSwitchNoDetail": {
+      "keywords":["技能开关","切换","恢复"],
+      "effects":"切换技能开关，读取列表状态，再自动恢复。",
+      "evidence":["before","after","listState","restored"],
+      "limits":"在同次返回中比较变化和恢复，不比较两次调用的相同阶段。"
+    }
+  }
+}

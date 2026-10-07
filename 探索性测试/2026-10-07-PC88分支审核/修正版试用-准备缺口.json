@@ -1,0 +1,153 @@
+{
+  "results": [
+    {
+      "name": "fixtures.backupFile",
+      "args": {
+        "path": "C:\\Users\\Administrator\\.tpt-work\\dsh\\tpt-memory\\MEMORY.md"
+      },
+      "status": "returned",
+      "call_id": "CALL-40975cce-3174-4b2f-b5ba-3404e947b5e1"
+    },
+    {
+      "name": "fixtures.backupFile",
+      "args": {
+        "path": "C:\\Users\\Administrator\\.tpt-work\\dsh\\tpt-memory\\index.json"
+      },
+      "status": "returned",
+      "call_id": "CALL-3865d938-735c-4972-838d-042747f0ae6a"
+    },
+    {
+      "name": "mem.inspectSurfaces",
+      "args": {},
+      "status": "returned",
+      "call_id": "CALL-99abe707-07e8-4bba-bb2e-8d19361afb39"
+    },
+    {
+      "name": "mem.inspectSurfaces",
+      "args": {},
+      "status": "returned",
+      "call_id": "CALL-1429e514-a865-4d7e-8793-fc1c2bd1f667"
+    },
+    {
+      "name": "mem.probePanel",
+      "args": {
+        "action": "tabs"
+      },
+      "status": "returned",
+      "call_id": "CALL-6d5f5c9f-fd70-4da9-ba3f-7844082dd51c"
+    },
+    {
+      "name": "mem.probePanel",
+      "args": {
+        "action": "rows"
+      },
+      "status": "returned",
+      "call_id": "CALL-133bfda4-138e-4121-8180-0d7270da5179"
+    },
+    {
+      "name": "mem.probePanel",
+      "args": {
+        "action": "library"
+      },
+      "status": "returned",
+      "call_id": "CALL-cb391d34-353a-4c98-8a13-5d6fa7221735"
+    },
+    {
+      "name": "mem.probePanel",
+      "args": {
+        "action": "advanced"
+      },
+      "status": "returned",
+      "call_id": "CALL-2a846ca0-b2b6-4c4f-b1d3-d179cae1cb8d"
+    },
+    {
+      "name": "mem.probePanel",
+      "args": {
+        "action": "edit",
+        "index": 3
+      },
+      "status": "returned",
+      "call_id": "CALL-1ea0613f-deeb-413a-a3b6-f57562b96e31"
+    },
+    {
+      "name": "mem.readOverview",
+      "args": {},
+      "status": "returned",
+      "call_id": "CALL-9e78a71a-5b4d-405c-9bb0-221caa4d3323"
+    },
+    {
+      "name": "mem.readFiles",
+      "args": {},
+      "status": "returned",
+      "call_id": "CALL-6aefd242-49c8-40db-8274-206056b2576a"
+    },
+    {
+      "name": "mem.probePanel",
+      "args": {
+        "action": "delete-first"
+      },
+      "status": "error",
+      "error": {
+        "type": "Error",
+        "message": "Unsupported read-only probe action: delete-first"
+      },
+      "expected": "error",
+      "call_id": "CALL-dccafd9d-9737-47e5-a67b-db860b64dc8e"
+    },
+    {
+      "name": "mem.readFiles",
+      "args": {
+        "files": [
+          "../outside.txt"
+        ]
+      },
+      "status": "error",
+      "error": {
+        "type": "Error",
+        "message": "Memory file must be relative to root: ../outside.txt"
+      },
+      "expected": "error",
+      "call_id": "CALL-dcd1cb08-835b-459b-b82f-da3128f53d88"
+    },
+    {
+      "name": "fixtures.restoreFile",
+      "args": {
+        "path": "C:\\Users\\Administrator\\.tpt-work\\dsh\\tpt-memory\\MEMORY.md",
+        "backup": "D:\\code\\electron-ui\\探索性测试\\2026-10-07-PC88分支审核\\恢复备份\\e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.bin",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "status": "returned",
+      "call_id": "CALL-3e6e1305-e853-4b46-8858-6e6e6900c045"
+    },
+    {
+      "name": "fixtures.restoreFile",
+      "args": {
+        "path": "C:\\Users\\Administrator\\.tpt-work\\dsh\\tpt-memory\\index.json",
+        "backup": "D:\\code\\electron-ui\\探索性测试\\2026-10-07-PC88分支审核\\恢复备份\\6363d0856a5ea142d6fc1cf634861015c1b8bd3116051a52dfae353dec6dcb48.bin",
+        "sha256": "6363d0856a5ea142d6fc1cf634861015c1b8bd3116051a52dfae353dec6dcb48"
+      },
+      "status": "returned",
+      "call_id": "CALL-29e537a1-33a4-42d4-891c-6348013f7433"
+    }
+  ],
+  "failure": {
+    "message": "args.file unknown",
+    "stack": "Error: args.file unknown\n    at validate (file:///D:/code/electron-ui/tools/ui-operations/call.mjs:11:265)\n    at invoke (file:///D:/code/electron-ui/tools/ui-operations/call.mjs:16:126)\n    at file:///D:/code/electron-ui/%E6%8E%A2%E7%B4%A2%E6%80%A7%E6%B5%8B%E8%AF%95/2026-10-07-PC88%E5%88%86%E6%94%AF%E5%AE%A1%E6%A0%B8/code/try-revised.mjs:19:210"
+  },
+  "restored": [
+    {
+      "path": "C:\\Users\\Administrator\\.tpt-work\\dsh\\tpt-memory\\MEMORY.md",
+      "expected": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "actual": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\.tpt-work\\dsh\\tpt-memory\\index.json",
+      "expected": "6363d0856a5ea142d6fc1cf634861015c1b8bd3116051a52dfae353dec6dcb48",
+      "actual": "6363d0856a5ea142d6fc1cf634861015c1b8bd3116051a52dfae353dec6dcb48"
+    }
+  ],
+  "remainingNewFiles": [],
+  "auditBeforeBytes": 2517,
+  "auditAfterBytes": 2517,
+  "auditPrefixPreserved": true
+}

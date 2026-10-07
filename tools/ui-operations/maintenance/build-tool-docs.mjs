@@ -16,6 +16,7 @@ for(const [key,functions]of groups){const title=titles[key]||key;index.push(`| $
  if(key==='conversation')lines.push('','**选用提醒**：当前任务权限用 `readTaskPermissionOptions/setTaskPermission`，默认权限属于 settings。CDP 合成快捷键无响应不能直接推断原生快捷键坏。');
  if(key==='experts')lines.push('','**选用提醒**：末尾真实可见使用 `scrollPromptToEnd`；不要仅检查整段文字包含末尾标记。编辑要独立验证确认前不写入、确认后实际写入和文件恢复。');
  if(key==='settings')lines.push('','**选用提醒**：插件使用 `listPluginCards/setPluginExpanded`。设置按初值→改动→效果→重开→恢复取证；checkbox 保存失败反馈应在关闭前读取。');
+ if(key==='memory')lines.push('','**选用提醒**：先读 [记忆与进化](../记忆与进化.md)。本机环境提供 memory_root；编辑必需文件身份和初始哈希；写前备份、写后独立回读并恢复。MEM 操作计划标记 partial，不代表完整测试项覆盖。');
  if(key==='fixtures')lines.push('','**选用提醒**：服务 URL/端口/日志路径使用本次函数返回值。文件先备份，最后恢复并核验。夹具身份和各字段搜索词应本轮唯一。');
  const features=new Map();for(const f of functions){const feature=(f.feature_path||[title]).join(' → ');if(!features.has(feature))features.set(feature,[]);features.get(feature).push(f);}
  for(const [feature,items]of features){lines.push('',`## ${feature}`,'','| 函数 | 用途 | 必填参数 |','|---|---|---|');for(const f of items)lines.push(`| \`${f.name}\` | ${esc(f.description)} | ${esc((f.parameters?.required||[]).join(', ')||'无')} |`);}
@@ -69,6 +70,7 @@ status=returned 不表示 case 通过。优先调用现成函数；缺能力时�
 | 查看用例候选映射 | [用例映射](coverage/README.md)，通常优先单条 --plan |
 | 实际验证和已知缺口 | [全面回归验收](../../探索性测试/2026-10-07-全面回归验收/验收报告.md) |
 | 当前覆盖与效率评估 | [当前评估](docs/当前评估.md) |
+| 记忆面板、文件取证与添加/编辑 | [记忆与进化](docs/记忆与进化.md) |
 
 目录：tools/ui-operations 是唯一实现位置。旧 tools/tpt-work 只保留历史脚本转发入口；新任务统一使用新目录。
 

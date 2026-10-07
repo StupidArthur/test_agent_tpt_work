@@ -1,13 +1,13 @@
 {
-  "captured_at": "2026-10-07T03:03:47.437Z",
-  "functions": 173,
-  "cases": 152,
-  "scope": "140必跑回归+12冒烟；不包含旧355需求探索及可选时序/故障注入",
+  "captured_at": "2026-10-07T04:10:20.670Z",
+  "functions": 179,
+  "cases": 156,
+  "scope": "140必跑回归+12冒烟；不包含旧355需求探索及可选时序/故障注入；4个记忆部分操作计划（不等于18项记忆全覆盖）",
   "issues": [],
   "verification_levels": {
     "module_load": "all registered exports",
-    "case_mapping": "140 regression history action/read mappings + 12 explicit smoke plans",
-    "live_ui": "see exploratory review task; not all cases rerun"
+    "case_mapping": "all registered plans, including explicitly partial plans; not full business coverage",
+    "live_ui": "see exploratory case review and PC88 branch review; registration does not mean all functions exercised"
   },
   "checked": [
     {
@@ -1046,6 +1046,42 @@
       "name": "conversation.setTaskPermission",
       "file": "business/conversation/permissions.mjs",
       "sha256": "3d19627faa1a971f0e43ec586b482e1257ba175e28ee07fb9e8f03d8477defe9",
+      "status": "module-load-verified"
+    },
+    {
+      "name": "memory.inspectSurfaces",
+      "file": "business/memory/panel.mjs",
+      "sha256": "6b86129899f85130e9a39ace0a59b3d56418aa99308169748ee7ae371c7075fd",
+      "status": "module-load-verified"
+    },
+    {
+      "name": "memory.probePanel",
+      "file": "business/memory/panel.mjs",
+      "sha256": "6b86129899f85130e9a39ace0a59b3d56418aa99308169748ee7ae371c7075fd",
+      "status": "module-load-verified"
+    },
+    {
+      "name": "memory.readOverview",
+      "file": "business/memory/panel.mjs",
+      "sha256": "6b86129899f85130e9a39ace0a59b3d56418aa99308169748ee7ae371c7075fd",
+      "status": "module-load-verified"
+    },
+    {
+      "name": "memory.readFiles",
+      "file": "business/memory/panel.mjs",
+      "sha256": "6b86129899f85130e9a39ace0a59b3d56418aa99308169748ee7ae371c7075fd",
+      "status": "module-load-verified"
+    },
+    {
+      "name": "memory.addEntry",
+      "file": "business/memory/panel.mjs",
+      "sha256": "6b86129899f85130e9a39ace0a59b3d56418aa99308169748ee7ae371c7075fd",
+      "status": "module-load-verified"
+    },
+    {
+      "name": "memory.editLayerFile",
+      "file": "business/memory/panel.mjs",
+      "sha256": "6b86129899f85130e9a39ace0a59b3d56418aa99308169748ee7ae371c7075fd",
       "status": "module-load-verified"
     }
   ]

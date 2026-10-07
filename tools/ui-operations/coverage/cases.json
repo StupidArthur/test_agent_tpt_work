@@ -1,6 +1,6 @@
 {
-  "scope": "140必跑回归+12冒烟；不包含旧355需求探索及可选时序/故障注入",
-  "total": 152,
+  "scope": "140必跑回归+12冒烟；不包含旧355需求探索及可选时序/故障注入；4个记忆部分操作计划（不等于18项记忆全覆盖）",
+  "total": 156,
   "regression": 140,
   "smoke": 12,
   "unmapped_cases": [],
@@ -12910,6 +12910,119 @@
       "restore_rules": "仅恢复本case实际改动项；未调用备份不调用restoreFile。先读原值，保存恢复凭据，按原值调用set函数，最后独立回读。",
       "parameter_rules": "${...}由本轮环境/prepareSmokeFixtures返回值/真实初值/会话ID替换；布尔占位不能以字符串传入。",
       "mapping_basis": "完整业务动作/取值能力映射；历史调用顺序不是推荐顺序。步骤涉及的夹具写入、外部修改与恢复也通过 fixtures 函数完成。"
+    },
+    {
+      "case_id": "MEM-01",
+      "title": "记忆目录和初值",
+      "feature_path": [
+        "记忆与进化",
+        "记忆目录和初值"
+      ],
+      "source": "PC88 770dacd；本机修正试用",
+      "coverage_level": "partial",
+      "limits": "仅提供这些操作入口；不能据此宣称完整测试项通过。见记忆模块文档。",
+      "preparation": [],
+      "calls": [
+        {
+          "name": "memory.readFiles",
+          "args": {}
+        },
+        {
+          "name": "memory.readOverview",
+          "args": {}
+        }
+      ],
+      "corrections": []
+    },
+    {
+      "case_id": "MEM-02",
+      "title": "面板添加和分层编辑",
+      "feature_path": [
+        "记忆与进化",
+        "面板添加和分层编辑"
+      ],
+      "source": "PC88 770dacd；本机修正试用",
+      "coverage_level": "partial",
+      "limits": "仅提供这些操作入口；不能据此宣称完整测试项通过。见记忆模块文档。",
+      "preparation": [
+        "fixtures.backupFile"
+      ],
+      "calls": [
+        {
+          "name": "memory.addEntry",
+          "args": {
+            "type": "事实",
+            "content": "${memory_marker}"
+          }
+        },
+        {
+          "name": "memory.editLayerFile",
+          "args": {
+            "file": "MEMORY.md",
+            "content": "${memory_edit_content}",
+            "beforeSha256": "${memory_before_sha256}"
+          }
+        },
+        {
+          "name": "memory.readFiles",
+          "args": {
+            "files": [
+              "MEMORY.md",
+              "index.json"
+            ]
+          }
+        }
+      ],
+      "corrections": []
+    },
+    {
+      "case_id": "MEM-05",
+      "title": "面板与文件口径",
+      "feature_path": [
+        "记忆与进化",
+        "面板与文件口径"
+      ],
+      "source": "PC88 770dacd；本机修正试用",
+      "coverage_level": "partial",
+      "limits": "仅提供这些操作入口；不能据此宣称完整测试项通过。见记忆模块文档。",
+      "preparation": [],
+      "calls": [
+        {
+          "name": "memory.readOverview",
+          "args": {}
+        },
+        {
+          "name": "memory.readFiles",
+          "args": {
+            "files": [
+              "MEMORY.md",
+              "index.json",
+              ".entry-meta.json"
+            ]
+          }
+        }
+      ],
+      "corrections": []
+    },
+    {
+      "case_id": "MEM-16",
+      "title": "记忆配置读值",
+      "feature_path": [
+        "记忆与进化",
+        "记忆配置读值"
+      ],
+      "source": "PC88 770dacd；本机修正试用",
+      "coverage_level": "partial",
+      "limits": "仅提供这些操作入口；不能据此宣称完整测试项通过。见记忆模块文档。",
+      "preparation": [],
+      "calls": [
+        {
+          "name": "memory.readOverview",
+          "args": {}
+        }
+      ],
+      "corrections": []
     }
-  ]
+  ],
+  "memory_partial": 4
 }
