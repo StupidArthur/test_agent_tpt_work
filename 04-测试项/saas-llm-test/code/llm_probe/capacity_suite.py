@@ -12,11 +12,14 @@ import math
 import threading
 import time
 import uuid
+import hashlib
+from pathlib import Path
 
 from . import protocol as P
 from . import runner as R
 from .capacity import RequestAttempt, TurnResult
 from .stats import LevelResult, capacity_conclusion, evaluate_level, summarise
+from .window_evidence import WindowAttempt, PressureSampler, capacity_lines, failure_category, fingerprint, window_status
 
 
 class Budget:
@@ -38,6 +41,8 @@ class Budget:
 
 
 def validate(plan, execute=False):
+    if plan.get('load_isolation', 'unknown') not in ('declared_exclusive', 'observed_shared', 'unknown'):
+        raise ValueError('load_isolation must describe actual shared gateway/key traffic')
     if plan.get('workload') not in ('text', 'tool'):
         raise ValueError('workload must be text or tool')
     for k in ('max_requests', 'max_users', 'output_tokens', 'tool_output_tokens', 'baseline_turns'):
@@ -83,6 +88,8 @@ def validate(plan, execute=False):
             raise ValueError('boundary/stress windows need >=120s and >=30 turns')
     slo = plan.get('slo', {})
     if execute:
+        if any(s['item'] == 'CAP-04' for s in plan['stages']) and not plan.get('credential_id'):
+            raise ValueError('CAP-04 requires a non-secret credential_id for shared-load attribution')
         if plan.get('confirmed') is not True or not plan.get('approval_reference'):
             raise ValueError('plan is not confirmed; supply actual approval reference')
         if slo.get('confirmed') is not True:
@@ -128,15 +135,23 @@ def make_turn(target, store, plan, budget, instance, label):
 
         def send(body):
             rid, t0 = budget.request_id(), time.monotonic()
+            store.write_json(f'capacity-suite/{instance}/{label}/{rid}-{marker}-started.json',
+                             {'request': body, 'user': user, 'turn_index': index, 'started_monotonic': t0},
+                             instances=[instance], kind='capacity_request_started')
             res = R.http_request(target.responses_url(), method='POST', headers=target.headers(stream=True),
                                  body=json.dumps(body).encode(), stream=True,
                                  connect_timeout=timeout['connect'], idle_timeout=timeout['idle'],
                                  total_timeout=timeout['total'])
             ns = P.normalize(res, 'responses')
-            ok = res.http_status == 200 and ns.terminal == 'completed' and not ns.json_errors
+            ok = (res.http_status == 200 and res.error_kind is None and ns.terminal == 'completed'
+                  and not ns.json_errors and bool(ns.text.strip() or ns.tool_calls))
             reqs.append(RequestAttempt(rid, t0, time.monotonic(), ok, res.error_kind, str(res.http_status)))
             rec = store.write_json(f'capacity-suite/{instance}/{label}/{rid}-{marker}.json',
                                    {'request': body, 'response': R._attempt_record(res, ns),
+                                    'gateway_service_success': ok,
+                                    'primary_failure': failure_category({'gateway_service_success': ok,
+                                        'http_status': res.http_status, 'error_kind': res.error_kind,
+                                        'terminal': ns.terminal, 'empty_text': not bool(ns.text.strip() or ns.tool_calls)}),
                                     'body_text': getattr(res, 'body_text', ''),
                                     'frames': [{'t': f.t, 'event': f.event, 'data': f.data, 'raw': f.raw,
                                                 'json_ok': f.json_ok} for f in getattr(res, 'frames', [])],
@@ -178,20 +193,21 @@ def make_turn(target, store, plan, budget, instance, label):
                 checks['no_unresolved_tool'] = not ns.tool_calls
         else:
             checks['exact_marker'] = ns.text.strip() == marker
-        result = TurnResult(all(checks.values()), start, time.monotonic(), reqs,
+        # Text capacity measures gateway service, not exact model wording.
+        result = TurnResult(all(checks.values()) if tool else ok, start, time.monotonic(), reqs,
                             None if first is None else first - start, scenario=plan['workload'])
         result.checks, result.evidence = checks, refs
         return result
     return turn
 
 
-def window(turn, users, think_time, min_seconds, min_turns, max_seconds):
-    started, stop, lock, turns = time.monotonic(), threading.Event(), threading.Lock(), []
+def window(turn, users, think_time, min_seconds, min_turns, max_seconds, clock=time.monotonic):
+    started, stop, lock, turns = clock(), threading.Event(), threading.Lock(), []
     reason = ['']
 
     def worker(u):
         i = 0
-        while not stop.is_set() and time.monotonic() - started < max_seconds:
+        while not stop.is_set() and clock() - started < max_seconds:
             try:
                 t = turn(u, i)
             except BaseException:
@@ -203,7 +219,7 @@ def window(turn, users, think_time, min_seconds, min_turns, max_seconds):
                 break
             with lock:
                 turns.append(t)
-                elapsed = time.monotonic() - started
+                elapsed = clock() - started
                 if elapsed >= max_seconds:
                     if not reason[0]:
                         reason[0] = 'max_seconds'
@@ -222,7 +238,7 @@ def window(turn, users, think_time, min_seconds, min_turns, max_seconds):
         finally:
             stop.set()
     # Executor joins all requests before returning; drain included separately.
-    elapsed = time.monotonic() - started
+    elapsed = clock() - started
     return turns, {'elapsed_s': elapsed, 'stopped_by': reason[0] or 'max_seconds',
                    'enough_sample': len(turns) >= min_turns and elapsed >= min_seconds
                                     and reason[0] == 'sample_met', 'drained': True}
@@ -234,7 +250,7 @@ def level(users, turns, state, slo):
     lv = LevelResult(users=users, turns_attempted=len(turns), turns_succeeded=len(succeeded),
         requests_attempted=len(requests), requests_succeeded=sum(r.ok for r in requests),
         duration_s=state['elapsed_s'], enough_sample=state['enough_sample'],
-        turn_p95_s=summarise([t.end-t.start for t in succeeded]).p95,
+        turn_p95_s=summarise([t.end-t.start for t in turns]).p95,
         first_text_p95_s=summarise([t.first_text_wait for t in succeeded]).p95)
     # Peak is measured from actual overlapping HTTP attempts, not configured users.
     events = sorted([(r.start, 1) for r in requests] + [(r.end, -1) for r in requests])
@@ -281,11 +297,45 @@ def execute(target, store, plan):
             budget.limit -= plan['baseline_turns'] * (2 if plan['workload'] == 'tool' else 1)
         for users in stage['users']:
             for w in range(stage.get('windows', 1)):
-                turns, state = window(turn, users, plan['think_time'], stage['min_seconds'],
-                                      stage['min_turns'], stage['max_seconds'])
+                config = {'plan': plan, 'target': target.name, 'endpoint': target.responses_url(),
+                          'credential_id': plan.get('credential_id', 'unrecorded'),
+                          'users': users, 'window': w, 'min_seconds': stage['min_seconds'],
+                          'min_attempts': stage['min_turns'],
+                          'executor_sha256': fingerprint({p.name: hashlib.sha256(p.read_bytes()).hexdigest()
+                              for p in Path(__file__).parent.glob('*.py')})}
+                attempt = WindowAttempt(store, f'{instance}/u{users}/w{w}', config)
+                resource_path = Path(store.root) / store.prefix / attempt.prefix / 'resources.jsonl'
+                window_started = time.monotonic()
+                try:
+                    with PressureSampler(resource_path) as sampler:
+                        turns, state = window(turn, users, plan['think_time'], stage['min_seconds'],
+                                              stage['min_turns'], stage['max_seconds'])
+                except BaseException as exc:
+                    resource_record = store.index_existing(resource_path.relative_to(Path(store.root) / store.prefix).as_posix(),
+                        instances=[instance], kind='interrupted_pressure_resources') if resource_path.exists() else None
+                    attempt.finish({'complete': False, 'drained': False, 'error': str(exc),
+                                    'error_type': type(exc).__name__, 'resource_evidence': resource_record,
+                                    'elapsed_s': time.monotonic()-window_started, 'attempted': None})
+                    raise
                 lv = level(users, turns, state, slo)
+                resources = sampler.summary()
+                resource_record = store.index_existing(resource_path.relative_to(Path(store.root) / store.prefix).as_posix(),
+                    instances=[instance], kind='pressure_resources')
+                normalized = {'users': users, 'complete': state['enough_sample'],
+                    'drained': state.get('drained', False), 'elapsed_s': state['elapsed_s'],
+                    'attempted': len(turns), 'min_seconds': stage['min_seconds'], 'min_attempts': stage['min_turns'],
+                    'success_rate': lv.success_rate, 'e2e_p95': lv.turn_p95_s,
+                    'client_limited': (lv.client_bottleneck if plan.get('client_validation', {}).get('confirmed') is True
+                                       and plan.get('client_validation', {}).get('basis') else None),
+                    'resources_complete': resources['complete'],
+                    'load_isolation': plan.get('load_isolation', 'unknown')}
+                finished = attempt.finish({'complete': state['enough_sample'], 'drained': state.get('drained', False),
+                    'elapsed_s': state['elapsed_s'], 'attempted': len(turns), 'state': state,
+                    'metrics': lv.to_dict(), 'resources': resources, 'capacity_window': normalized})
                 rows.append(lv)
                 details.append({'users': users, 'window': w, 'state': state, 'metrics': lv.to_dict(),
+                    'attempt_finish': finished, 'resources': resources, 'resource_evidence': resource_record,
+                    'capacity_window': normalized,
                     'turns': [dataclasses.asdict(t) | {'checks': t.checks, 'evidence': t.evidence} for t in turns]})
                 if state['stopped_by'] == 'request_budget':
                     break
@@ -294,7 +344,11 @@ def execute(target, store, plan):
         budget.limit = original_limit
         recovery = health('recovery') if item == 'CAP-06' else None
         result.metrics.update({'windows': details, 'baseline': baseline, 'recovery': recovery,
-                               'requests_sent': budget.sent - initial, 'credential_mode': 'single key'})
+                               'requests_sent': budget.sent - initial, 'credential_mode': 'single key',
+                               'load_isolation': plan.get('load_isolation', 'unknown'),
+                               'credential_id': plan.get('credential_id', 'unrecorded'),
+                               'capacity_3way': capacity_lines([d['capacity_window'] for d in details])
+                                   if item == 'CAP-04' else None})
         result.add('all_windows_measured', True, len(rows),
                    len(rows) == len(stage['users']) * stage.get('windows', 1) and all(l.enough_sample for l in rows))
         if item == 'CAP-06':
@@ -317,6 +371,10 @@ def execute(target, store, plan):
                 if g.enough_sample:
                     grouped.append(g)  # budget/sample shortage is not an observed SLO failure boundary
         result.metrics['capacity_conclusion'] = capacity_conclusion(grouped, slo)
+        if any(window_status(d['capacity_window'], slo.turn_p95_s) == 'invalid' for d in details):
+            result.metrics['capacity_conclusion'].update(
+                statements=['experimental validity unconfirmed: samples, client validation, shared load or pressure resources; no verified capacity'],
+                verified_users=None, boundary=None, non_monotonic=False, max_unknown=True)
         if result.metrics['capacity_conclusion']['non_monotonic']:
             result.metrics['capacity_conclusion']['verified_users'] = None
             result.metrics['capacity_conclusion']['boundary'] = None

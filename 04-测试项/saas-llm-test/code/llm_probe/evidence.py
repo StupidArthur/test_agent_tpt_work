@@ -6,6 +6,7 @@ import json
 import os
 import re
 import threading
+from pathlib import Path
 from typing import Iterable, Optional
 
 _SECRET_RE = re.compile(r"(sk-[A-Za-z0-9_\-]{6,})")
@@ -83,3 +84,17 @@ class EvidenceStore:
 
     def write_json(self, rel_path: str, obj, *, instances, kind, note="") -> dict:
         return self.write(rel_path, obj, instances=instances, kind=kind, note=note)
+
+    def index_existing(self, rel_path: str, *, instances, kind, note="") -> dict:
+        """Index a closed incremental log without copying or rewriting its bytes."""
+        root = Path(self.root).resolve()
+        p = (root / self.prefix / rel_path).resolve()
+        relative = p.relative_to(root)
+        if not p.is_file():
+            raise ValueError('indexed evidence must be a regular file inside store')
+        rec = {'rel_path': relative.as_posix(), 'sha256': sha256_file(str(p)),
+               'instances': list(instances), 'kind': kind, 'note': note}
+        with self._lock:
+            with open(self.index_path, 'a', encoding='utf-8', newline='\n') as f:
+                f.write(json.dumps(rec, ensure_ascii=False) + '\n')
+        return rec

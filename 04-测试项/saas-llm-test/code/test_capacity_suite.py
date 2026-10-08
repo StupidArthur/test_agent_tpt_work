@@ -19,6 +19,8 @@ from llm_probe.transport import TransportResult, RawFrame
 
 
 PLAN = dict(confirmed=True, approval_reference='OFFLINE_TEST_ONLY', workload='tool', model='fake',
+    load_isolation='declared_exclusive', credential_id='offline-only',
+    client_validation={'confirmed':True,'basis':'offline injected transport and bounded workers only'},
     effort='low', max_requests=100, max_users=2, output_tokens=256, tool_output_tokens=128,
     baseline_turns=10, think_time=0, recovery_tolerance=.5,
     slo=dict(confirmed=True, success_rate=.99, turn_p95_s=10, first_text_p95_s=2),
@@ -94,16 +96,40 @@ class Tests(unittest.TestCase):
             self.assertIsNone(self.turn(b)(0,0))
         self.assertEqual(b.sent,0)
 
+    def test_text_marker_mismatch_does_not_fail_gateway(self):
+        p=copy.deepcopy(PLAN);p['workload']='text'
+        def mismatch(*a,**kw):
+            res=self.fake_request(*a,**kw);res.ns.text='marker with punctuation'
+            return res
+        a,b,c=self.transport()
+        with patch.object(C.R,'http_request',side_effect=mismatch),b,c:
+            t=self.turn(plan=p)(0,0)
+        self.assertTrue(t.ok)
+        self.assertFalse(t.checks['exact_marker'])
+
+    def test_empty_completed_text_is_gateway_failure(self):
+        p=copy.deepcopy(PLAN);p['workload']='text'
+        def empty(*a,**kw):
+            res=self.fake_request(*a,**kw);res.ns.text=''
+            return res
+        a,b,c=self.transport()
+        with patch.object(C.R,'http_request',side_effect=empty),b,c:
+            t=self.turn(plan=p)(0,0)
+        self.assertFalse(t.ok)
+        self.assertFalse(t.requests[0].ok)
+
     def test_missing_timing_not_pass(self):
         t=TurnResult(True,0,1,[RequestAttempt(1,0,1,True)],None)
         lv=C.level(1,[t],dict(elapsed_s=120,enough_sample=True),SLO(.99,10,2,True))
         self.assertFalse(lv.meets_slo)
 
     def test_drain_not_sample_window(self):
+        # Deterministic admission/drain timing, independent of thread startup latency.
+        now=[0.0]
         def slow(u,i):
-            start=time.monotonic();time.sleep(.025)
-            return TurnResult(True,start,time.monotonic())
-        got,state=C.window(slow,1,0,.002,1,.01)
+            start=now[0];now[0]+=.025
+            return TurnResult(True,start,now[0])
+        got,state=C.window(slow,1,0,.002,1,.01,clock=lambda:now[0])
         self.assertEqual(len(got),1)
         self.assertTrue(state['drained'])
         self.assertFalse(state['enough_sample'])
@@ -147,6 +173,21 @@ class Tests(unittest.TestCase):
         self.assertEqual(count[0],2)
         self.assertEqual(r['instances'][0]['status'],'失败')
         self.assertIsNone(r['instances'][0]['metrics']['capacity_conclusion']['verified_users'])
+
+    def test_valid_windows_expose_three_thresholds_and_attempt_evidence(self):
+        from llm_probe.window_evidence import PressureSampler
+        p=copy.deepcopy(PLAN)
+        p.update(workload='text',max_requests=300)
+        p['stages'][0].update(item='CAP-04',windows=2,min_seconds=600,min_turns=100,max_seconds=650)
+        def windows(turn,*args):
+            return [turn(0,i) for i in range(100)],dict(elapsed_s=600,stopped_by='sample_met',enough_sample=True,drained=True)
+        a,b,c=self.transport()
+        with a,b,c,patch.object(C,'window',side_effect=windows),patch.object(C,'PressureSampler',side_effect=lambda path:PressureSampler(path,reader=lambda:{'cpu_percent':1})):
+            r=C.execute(self.target,self.store,p)
+        metric=r['instances'][0]['metrics']
+        self.assertEqual(metric['capacity_3way']['10']['verified_users'],1)
+        self.assertEqual(metric['capacity_3way']['3']['verified_users'],1)
+        self.assertNotEqual(metric['windows'][0]['attempt_finish']['rel_path'],metric['windows'][1]['attempt_finish']['rel_path'])
 
     def test_open_arrival_enforces_real_inflight_and_queue(self):
         def slow(i):
