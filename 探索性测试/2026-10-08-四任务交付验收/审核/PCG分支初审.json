@@ -1,0 +1,1153 @@
+{
+  "branch": "origin/review/pcg-ui-dedup-night",
+  "commit": "dd04f0c4f87f7550ce89f67ba1fa42d3335629e2",
+  "changed_files": 566,
+  "changed_outside_task": [],
+  "recorded": 38,
+  "total": 150,
+  "statuses": {
+    "通过": 29,
+    "失败": 7,
+    "阻塞": 2
+  },
+  "remaining": [
+    "G13-01",
+    "G13-02",
+    "G13-03",
+    "G13-04",
+    "G13-05",
+    "G13-06",
+    "G13-07",
+    "G13-08",
+    "G13-09",
+    "G13-10",
+    "G13-11",
+    "G13-12",
+    "G13-13",
+    "G13-14",
+    "G2-01",
+    "G2-02",
+    "G2-03",
+    "G2-04",
+    "G2-05",
+    "G2-06",
+    "G2-07",
+    "G2-08",
+    "G3-01",
+    "G3-02",
+    "G3-03",
+    "G3-04",
+    "G3-05",
+    "G3-06",
+    "G3-07",
+    "G3-08",
+    "G4-01",
+    "G4-02",
+    "G4-03",
+    "G4-04",
+    "G4-05",
+    "G4-06",
+    "G4-07",
+    "G4-08",
+    "G5-01",
+    "G5-02",
+    "G5-03",
+    "G5-04",
+    "G5-05",
+    "G5-06",
+    "G5-07",
+    "G5-08",
+    "G7-01",
+    "G7-02",
+    "G7-03",
+    "G7-04",
+    "G7-05",
+    "G7-06",
+    "G7-07",
+    "G7-08",
+    "G7-09",
+    "G7-10",
+    "G7-11",
+    "G7-12",
+    "G7-13",
+    "G7-14",
+    "G9-01",
+    "G9-02",
+    "G9-03",
+    "G9-04",
+    "G9-05",
+    "G9-06",
+    "G9-07",
+    "G9-08",
+    "G9-09",
+    "G9-10",
+    "G9-11",
+    "G9-12",
+    "G9-13",
+    "G9-14",
+    "G9-15",
+    "G10-01",
+    "G10-02",
+    "G10-03",
+    "G10-04",
+    "G10-05",
+    "G10-06",
+    "G10-07",
+    "G10-08",
+    "G10-09",
+    "G11-01",
+    "G11-02",
+    "G11-03",
+    "G11-04",
+    "G11-05",
+    "G11-06",
+    "G11-07",
+    "G11-08",
+    "G11-09",
+    "G11-10",
+    "G11-11",
+    "G11-12",
+    "G14-01",
+    "G14-02",
+    "G14-03",
+    "G14-04",
+    "G14-05",
+    "G14-06",
+    "DEDUP-01",
+    "DEDUP-02",
+    "DEDUP-03",
+    "DEDUP-04",
+    "DEDUP-05",
+    "DEDUP-06",
+    "DEDUP-07",
+    "DEDUP-08",
+    "DEDUP-09",
+    "DEDUP-10"
+  ],
+  "comparisons_recorded": [],
+  "state": {
+    "machine": "PCG",
+    "status": "执行中",
+    "baseline": 140,
+    "comparisons": 10,
+    "started_at": "2026-10-08 00:07:58 +08:00",
+    "deadline_at": "2026-10-08 06:07:58 +08:00",
+    "progress": {
+      "recorded": 38,
+      "passed": 29,
+      "failed": 7,
+      "uncertain": 0,
+      "blocked": 2
+    },
+    "remaining": [
+      "G13-01",
+      "G13-02",
+      "G13-03",
+      "G13-04",
+      "G13-05",
+      "G13-06",
+      "G13-07",
+      "G13-08",
+      "G13-09",
+      "G13-10",
+      "G13-11",
+      "G13-12",
+      "G13-13",
+      "G13-14",
+      "G2-01",
+      "G2-02",
+      "G2-03",
+      "G2-04",
+      "G2-05",
+      "G2-06",
+      "G2-07",
+      "G2-08",
+      "G3-01",
+      "G3-02",
+      "G3-03",
+      "G3-04",
+      "G3-05",
+      "G3-06",
+      "G3-07",
+      "G3-08",
+      "G4-01",
+      "G4-02",
+      "G4-03",
+      "G4-04",
+      "G4-05",
+      "G4-06",
+      "G4-07",
+      "G4-08",
+      "G5-01",
+      "G5-02",
+      "G5-03",
+      "G5-04",
+      "G5-05",
+      "G5-06",
+      "G5-07",
+      "G5-08",
+      "G7-01",
+      "G7-02",
+      "G7-03",
+      "G7-04",
+      "G7-05",
+      "G7-06",
+      "G7-07",
+      "G7-08",
+      "G7-09",
+      "G7-10",
+      "G7-11",
+      "G7-12",
+      "G7-13",
+      "G7-14",
+      "G9-01",
+      "G9-02",
+      "G9-03",
+      "G9-04",
+      "G9-05",
+      "G9-06",
+      "G9-07",
+      "G9-08",
+      "G9-09",
+      "G9-10",
+      "G9-11",
+      "G9-12",
+      "G9-13",
+      "G9-14",
+      "G9-15",
+      "G10-01",
+      "G10-02",
+      "G10-03",
+      "G10-04",
+      "G10-05",
+      "G10-06",
+      "G10-07",
+      "G10-08",
+      "G10-09",
+      "G11-01",
+      "G11-02",
+      "G11-03",
+      "G11-04",
+      "G11-05",
+      "G11-06",
+      "G11-07",
+      "G11-08",
+      "G11-09",
+      "G11-10",
+      "G11-11",
+      "G11-12",
+      "G14-01",
+      "G14-02",
+      "G14-03",
+      "G14-04",
+      "G14-05",
+      "G14-06",
+      "DEDUP-01",
+      "DEDUP-02",
+      "DEDUP-03",
+      "DEDUP-04",
+      "DEDUP-05",
+      "DEDUP-06",
+      "DEDUP-07",
+      "DEDUP-08",
+      "DEDUP-09",
+      "DEDUP-10"
+    ]
+  },
+  "task_catalog": {
+    "functions": [
+      {
+        "name": "task.conversation.selectExistingProject",
+        "feature_path": [
+          "对话与任务",
+          "创建与配置",
+          "已有项目选择"
+        ],
+        "file": "code/business/task/conversation.mjs",
+        "export": "selectExistingProject",
+        "description": "在 composer 项目选择菜单内按项目完整路径标签精确选择已有项目，并回读项目控件原文与 aria-label",
+        "parameters": {
+          "type": "object",
+          "required": [
+            "name"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "name": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      {
+        "name": "task.conversation.ensureConversation",
+        "feature_path": [
+          "对话与任务",
+          "执行详情",
+          "视图切换"
+        ],
+        "file": "code/business/task/navigation.mjs",
+        "export": "ensureConversation",
+        "description": "把会话视图从“轨迹”切回“对话”标签（readToolTrace 会切到轨迹且库内无回归入口）",
+        "parameters": {
+          "type": "object",
+          "required": [],
+          "additionalProperties": false,
+          "properties": {}
+        }
+      }
+    ]
+  },
+  "new_function_list": {
+    "run": "PCG-dedup-night-20261008",
+    "entries": [
+      {
+        "name": "task.conversation.selectExistingProject",
+        "operation": "在当前新任务的 composer 项目选择菜单中精确选择一个已有项目，并回读项目控件原文/aria-label",
+        "search_terms": [
+          "项目 选择",
+          "project options",
+          "selectProject",
+          "已有项目"
+        ],
+        "candidates_reviewed": [
+          "conversation.newTask(projectPath)",
+          "smoke.conversation.selectProject(name)",
+          "conversation.readProjectOptions",
+          "conversation.readProjectControls"
+        ],
+        "why_not_applicable": "conversation.newTask 用 projectPath 最后一段（p1）匹配 menuitem 精确名，实际菜单项标签为完整路径 D:\\tpt-workspace\\0929\\p1，报 'Existing project label missing or ambiguous: p1'；smoke.conversation.selectProject 用 getByText(name,exact).first() 命中侧栏项目行而非 composer 菜单项，点击后 composer 项目控件仍为占位符“选择项目”，选择未生效；readProjectOptions/readProjectControls 仅读取不选择。",
+        "added_capability": "限定在可见 [role=\"menu\"] 内用 getByRole('menuitem',{name,exact:true}) 按完整路径标签精确选择，且返回项目控件文案与 aria-label 供断言。",
+        "verified": "待本轮回填实际调用 call_id 与读取值",
+        "candidate_for_library": "发现入口/定位修正候选：newTask 应按菜单真实标签（完整路径）匹配；selectProject 应限定在可见菜单内匹配。"
+      }
+    ]
+  },
+  "hashes_checked": 370,
+  "hash_issues": [],
+  "reference_issues": [],
+  "last_business_call": {
+    "call_id": "CALL-d35df5c6-5748-440f-9e96-e9fa2f171116",
+    "function_name": "settings.readSnapshot",
+    "started_at": "2026-10-07T16:49:02.627Z",
+    "ended_at": "2026-10-07T16:49:21.744Z",
+    "status": "returned"
+  },
+  "non_pass": [
+    {
+      "case_id": "G12-04",
+      "status": "失败",
+      "attempted": true,
+      "elapsed_seconds": 45,
+      "call_refs": [
+        "CALL-4627ac7d-e10c-4bbf-bb9a-e30c29c9f006",
+        "CALL-c8cbf999-576a-49ed-ac47-04b9daddafc7",
+        "CALL-795ba197-43d1-4ada-ae4c-505535bc68dd",
+        "CALL-76024ac3-9a8b-40cc-9bbe-4d47cccb2b8a",
+        "CALL-eedb03f9-2930-46ac-a65c-a55344c6fc06",
+        "CALL-b967e01f-80f3-48bb-8fbc-2627d69474c1",
+        "CALL-d45ce716-cc28-49ff-99f5-181a0fb54591",
+        "CALL-5fc7b3a2-264c-400b-a800-7b659fc63480"
+      ],
+      "assertions": [
+        {
+          "id": "G12-04-A1",
+          "expected": "$memory_changed = false",
+          "actual": true,
+          "event_refs": [
+            "CALL-795ba197-43d1-4ada-ae4c-505535bc68dd-1",
+            "CALL-5fc7b3a2-264c-400b-a800-7b659fc63480-1"
+          ],
+          "reason": "对 启用记忆 控件（checkbox, checked=true）执行点击后，改前/改后均为 checked=true，开关未变化；两次有依据重试（setRowToggle）结果一致。未编辑或删除记忆。"
+        },
+        {
+          "id": "G12-04-A2",
+          "expected": false,
+          "actual": false,
+          "event_refs": [
+            "CALL-76024ac3-9a8b-40cc-9bbe-4d47cccb2b8a-1",
+            "CALL-796e1db7-b8ec-4d32-9140-e03bb22bdc3c-1"
+          ],
+          "reason": "未出现保存失败提示"
+        },
+        {
+          "id": "G12-04-A3",
+          "expected": "$memory_initial = true",
+          "actual": true,
+          "event_refs": [
+            "CALL-b967e01f-80f3-48bb-8fbc-2627d69474c1-1"
+          ],
+          "reason": "独立回读 checked = true（与初值一致，因开关未变化）"
+        }
+      ],
+      "restore": "启用记忆保持初值 true，无残留。",
+      "notes": "候选问题 CAND-03（待审核）：设置内 启用记忆 开关经 setRowToggle 点击后 aria/checked 不变（checkbox 可读但点击无效）。与上一轮 2026-10-06 回归 G12-04 记录一致（A1 actual=true）。"
+    },
+    {
+      "case_id": "G12-05",
+      "status": "失败",
+      "attempted": true,
+      "elapsed_seconds": 40,
+      "call_refs": [
+        "CALL-eb6feaed-baed-40d9-8ef8-e6241e8da5c0",
+        "CALL-bea642ac-1ce7-409d-b8ef-cbaeb518d15d",
+        "CALL-f31dbefc-18f8-4087-87f6-a95135c0bb98",
+        "CALL-de77d21b-ea8d-4931-a31a-01f1e1eab4f0"
+      ],
+      "assertions": [
+        {
+          "id": "G12-05-A1",
+          "expected": "$evolution_changed = false",
+          "actual": true,
+          "event_refs": [
+            "CALL-f31dbefc-18f8-4087-87f6-a95135c0bb98-1",
+            "CALL-bea642ac-1ce7-409d-b8ef-cbaeb518d15d-3"
+          ],
+          "reason": "对 启用沉淀 执行 setRowToggle 后 checked 仍为 true，未变化；未执行任何沉淀任务。"
+        },
+        {
+          "id": "G12-05-A2",
+          "expected": false,
+          "actual": false,
+          "event_refs": [
+            "CALL-de77d21b-ea8d-4931-a31a-01f1e1eab4f0-1"
+          ],
+          "reason": "未出现保存失败提示"
+        },
+        {
+          "id": "G12-05-A3",
+          "expected": "$evolution_initial = true",
+          "actual": true,
+          "event_refs": [
+            "CALL-eb6feaed-baed-40d9-8ef8-e6241e8da5c0-1"
+          ],
+          "reason": "独立回读 checked = true（与初值一致，因开关未变化）"
+        }
+      ],
+      "restore": "启用沉淀保持初值 true，无残留。",
+      "notes": "与 G12-04 同源现象（设置内记忆相关 checkbox 点击不生效）；与上一轮 G12-05 记录一致。"
+    },
+    {
+      "case_id": "G12-09",
+      "status": "失败",
+      "attempted": true,
+      "elapsed_seconds": 20,
+      "call_refs": [
+        "CALL-ee3e8037-20d1-4107-bae3-12188459e5a1"
+      ],
+      "assertions": [
+        {
+          "id": "G12-09-A1",
+          "expected": true,
+          "actual": false,
+          "event_refs": [
+            "CALL-ee3e8037-20d1-4107-bae3-12188459e5a1-3"
+          ],
+          "reason": "按当前搜索快捷键（Ctrl+K）一次后，限定搜索面板读取可见状态 = false（raw.found=false），未重试。与上一轮 G12-09 记录一致。"
+        }
+      ],
+      "restore": "未改动设置；openSearchShortcut 内部已按 Esc 收尾。",
+      "notes": "候选问题（待审核）：配置的搜索会话快捷键按下后未观察到搜索入口可见。"
+    },
+    {
+      "case_id": "G12-12",
+      "status": "失败",
+      "attempted": true,
+      "elapsed_seconds": 90,
+      "call_refs": [
+        "CALL-64138067-dc12-41ed-ab58-d7def41a99e4",
+        "CALL-fcd9a65e-e3fd-4c5b-b3fb-c4663435f634",
+        "CALL-95e386fd-ef60-437c-b95d-1b03cc113a8f",
+        "CALL-0c8fbc63-796c-494c-bb2c-c07230360187",
+        "CALL-381cbb32-16b3-4036-99a3-6f5c91c7ecc0",
+        "CALL-48a9f714-0497-4bed-b8c4-d243de682a68",
+        "CALL-dff75c0a-876c-412c-8561-93c165501921",
+        "CALL-d46e45ed-f6c6-42a5-b7d6-cebe642e92b9"
+      ],
+      "assertions": [
+        {
+          "id": "G12-12-A1",
+          "expected": true,
+          "actual": true,
+          "event_refs": [
+            "CALL-dff75c0a-876c-412c-8561-93c165501921-1"
+          ],
+          "reason": "点击指向本轮 URL 的锚点后，应用内浏览器/侧栏面板存在可见候选（注意：本机另有既有 webview，需与入口归属区分）"
+        },
+        {
+          "id": "G12-12-A2",
+          "expected": "包含 $link_path (/fast-assert-PCG-dedup-night-20261008/sidebar)",
+          "actual": null,
+          "event_refs": [],
+          "reason": "夹具请求日志文件不存在（readLinkLog 抛 'Link log missing: ...links-PCG-dedup-night-20261008.jsonl'，CALL-d46e45ed），无法证明真实 GET 到本轮 URL；链接设置初值=应用内侧边栏。日志缺失，未编造请求。"
+        }
+      ],
+      "restore": "链接夹具已停止（CALL-a831330a）；链接设置保持 应用内侧边栏；本轮生成的会话保留待审。",
+      "notes": "启动的夹具服务 http://127.0.0.1:4884/fast-assert-PCG-dedup-night-20261008，日志 0 条。与上一轮 G12-12 A2 失败一致。"
+    },
+    {
+      "case_id": "G12-13",
+      "status": "失败",
+      "attempted": true,
+      "elapsed_seconds": 90,
+      "call_refs": [
+        "CALL-a68985dd-7f1d-4740-8000-8c72e241f6d0",
+        "CALL-76b990eb-7597-44b1-ab36-6ac509722263",
+        "CALL-2628449b-589c-40af-8f87-974c9530be73",
+        "CALL-5a9fbb30-2dd4-4498-b72e-f381ce456780",
+        "CALL-48545432-800b-4c64-8152-58ab3a48278a",
+        "CALL-b90dc956-450c-4b31-911e-f6b3d34677a2",
+        "CALL-80384c2a-1a97-4d4b-aaf8-d4a5aa0df665"
+      ],
+      "assertions": [
+        {
+          "id": "G12-13-A1",
+          "expected": true,
+          "actual": null,
+          "event_refs": [],
+          "reason": "切“默认浏览器”并点击另一唯一目标链接后，夹具请求日志文件不存在（readLinkLog 抛 'Link log missing'，CALL-48545432），无法读取匹配本轮 URL 的 GET UA；未能证明由 Chrome 且非 Electron 发起。"
+        },
+        {
+          "id": "G12-13-A2",
+          "expected": "$link_initial = 应用内侧边栏",
+          "actual": "应用内侧边栏",
+          "event_refs": [
+            "CALL-80384c2a-1a97-4d4b-aaf8-d4a5aa0df665-1"
+          ],
+          "reason": "恢复此设置后独立回读选中值 = 应用内侧边栏"
+        }
+      ],
+      "restore": "网页链接默认打开方式已恢复初值 应用内侧边栏（CALL-80384c2a 回读确认）。",
+      "notes": "因批次在 readLinkLog 报错即停，恢复动作单独补执行（CALL-b90dc956）。夹具日志全程 0 条。"
+    },
+    {
+      "case_id": "G6-06",
+      "status": "失败",
+      "attempted": true,
+      "elapsed_seconds": 150,
+      "call_refs": [
+        "CALL-01083395-cac4-47e3-b05b-85701f4f6cd5",
+        "CALL-45c81501-cc65-43b8-9f55-2c087dabcfb6",
+        "CALL-1bcd3a34-c211-4ce4-8185-977f24beec97",
+        "CALL-ee8b45a1-d6ee-49f8-95ac-2182a0c9e183",
+        "CALL-f928075b-080e-49dd-af22-0ec964886f5a",
+        "CALL-6c85d2a6-9ba9-4727-b6e8-f11d62578b1c",
+        "CALL-88b794b5-5855-4428-ba0f-8105811035fe",
+        "CALL-4b02d701-ee2b-4ba9-9d8f-9286a600e6a5",
+        "CALL-92ecf573-cf3f-465c-b9a4-55b6159c22a5",
+        "CALL-4dee66b6-2985-4459-ad03-4e693319696f",
+        "CALL-7fe8468c-4f54-48bc-a81c-af0221d3ec3a",
+        "CALL-4b6acff3-f481-4ef1-b148-907fb64d61fa",
+        "CALL-4864f5e7-c68a-4261-8937-9da76cc00a8e",
+        "CALL-5065fab1-d2ce-4110-9e4f-ffd9f1431ce8"
+      ],
+      "assertions": [
+        {
+          "id": "G6-06-A1",
+          "expected": "仅可查看",
+          "actual": "仅可查看",
+          "event_refs": [
+            "CALL-45c81501-cc65-43b8-9f55-2c087dabcfb6-1"
+          ],
+          "reason": "默认权限=仅可查看 时新建任务，composer 访问模式标签 = 仅可查看"
+        },
+        {
+          "id": "G6-06-A2",
+          "expected": "$permission_initial = 工作区内修改",
+          "actual": "工作区内修改",
+          "event_refs": [
+            "CALL-ee8b45a1-d6ee-49f8-95ac-2182a0c9e183-3"
+          ],
+          "reason": "恢复默认权限后 readGeneral.permission = 工作区内修改，设置本身已恢复"
+        },
+        {
+          "id": "G6-06-A3",
+          "expected": "$permission_initial = 工作区内修改",
+          "actual": "仅可查看",
+          "event_refs": [
+            "CALL-6c85d2a6-9ba9-4727-b6e8-f11d62578b1c-1",
+            "CALL-4dee66b6-2985-4459-ad03-4e693319696f-1",
+            "CALL-7fe8468c-4f54-48bc-a81c-af0221d3ec3a-1"
+          ],
+          "reason": "默认权限已恢复为 工作区内修改（readGeneral 确认），但恢复后新建的任务 composer 访问模式仍为 仅可查看。独立复核：readComposerLabels 与 readTaskPermissionOptions 均读出 仅可查看；访问模式菜单中 仅可查看 处于选中态。补充定位：显式把当前任务访问模式设为 工作区内修改 后，再新建任务方显示 工作区内修改（CALL-5065fab1），说明 composer 新任务采用“上一次任务访问模式”而非立即采用恢复后的设置默认值。"
+        }
+      ],
+      "restore": "默认权限已恢复初值 工作区内修改（readGeneral 确认）；当前任务访问模式亦已置为 工作区内修改。",
+      "notes": "候选问题 CAND-02（待审核）：恢复默认权限后新建任务未采用恢复后的默认值，composer 访问模式呈粘滞上一任务模式。原始失败 attempt 保留，未改弱判据。"
+    },
+    {
+      "case_id": "G8-02",
+      "status": "阻塞",
+      "attempted": true,
+      "elapsed_seconds": 180,
+      "call_refs": [
+        "CALL-ebea6fbe-ab70-4c47-8354-9d8d59b9fe27",
+        "CALL-25d0095a-746c-448b-851b-c47d5977b304",
+        "CALL-4e907451-27c5-428f-93fd-342a3d9949fc",
+        "CALL-d39515c2-12a8-4fe0-a76c-3b67f62801db",
+        "CALL-31505edf-6ed4-4853-9db4-dfb314a19bac",
+        "CALL-4f504a0d-0b2a-4083-a5d4-4b55082ba860",
+        "CALL-1b910f72-52fc-47b5-9737-30ced285c5c5",
+        "CALL-c0167eb8-a675-48b0-930a-fdbcc92d5424"
+      ],
+      "assertions": [
+        {
+          "id": "G8-02-A1",
+          "expected": 0,
+          "actual": null,
+          "event_refs": [],
+          "reason": "无法读取 A 行未读提醒数量：A（session-2a344cd8-711b-4337-871a-360e3f20be33）未出现在侧栏会话行列表中，markUnread 抛错 'Session must resolve exactly one sidebar row'（CALL-31505edf）。listSessionRows 仅返回 1 行无关会话 session-358a4f3c（CALL-d39515c2/CALL-c0167eb8）。选定项目 p1 后仍不出现（CALL-4f504a0d 已确认项目=D:\\tpt-workspace\\0929\\p1）。前置失败依赖：目标会话行缺失。"
+        },
+        {
+          "id": "G8-02-A2",
+          "expected": true,
+          "actual": null,
+          "event_refs": [
+            "CALL-25d0095a-746c-448b-851b-c47d5977b304-3"
+          ],
+          "reason": "未完成“进入 A 并查看最后回复”的复核：A 不在侧栏，openSession 不可用。创建时读取到最终正文 'G8A_ONLY'（CALL-25d0095a-746c-448b-851b-c47d5977b304-3），但未通过重新进入 A 读取历史正文，故记 null 而非 true。"
+        }
+      ],
+      "restore": "无持久改动。本轮创建的空白任务与消息保留待审。",
+      "notes": "环境/夹具阻塞：新建的会话未在侧栏“会话行”中呈现（当前侧栏仅显示所属项目的既有会话），导致未读标记类用例无法就位。属前置失败，非产品断言结论。"
+    },
+    {
+      "case_id": "G8-03",
+      "status": "阻塞",
+      "attempted": true,
+      "elapsed_seconds": 5,
+      "call_refs": [
+        "CALL-31505edf-6ed4-4853-9db4-dfb314a19bac",
+        "CALL-d39515c2-12a8-4fe0-a76c-3b67f62801db"
+      ],
+      "assertions": [
+        {
+          "id": "G8-03-A1",
+          "expected": 1,
+          "actual": null,
+          "event_refs": [],
+          "reason": "依赖 G8-02：A 不在侧栏会话行，无法标记未读，也无法读取 A 行完成未读提醒数量（markUnread 抛 'Session must resolve exactly one sidebar row'）。"
+        },
+        {
+          "id": "G8-03-A2",
+          "expected": 0,
+          "actual": null,
+          "event_refs": [],
+          "reason": "依赖 G8-02：无法定位 A 行，未读并列额外标记数量未观测。"
+        }
+      ],
+      "restore": "无持久改动。",
+      "notes": "依赖失败造成下游未观测；未伪造通过。"
+    },
+    {
+      "case_id": "G8-09",
+      "status": "失败",
+      "attempted": true,
+      "elapsed_seconds": 90,
+      "call_refs": [
+        "CALL-66378665-1f2b-460f-82a0-81cdd4236533",
+        "CALL-e05a04ca-d81d-448b-983c-db56a4aa6284",
+        "CALL-7f1bc453-7343-4831-b9be-ef5a7738b3bd",
+        "CALL-2885bd17-c927-4d62-936d-e5cdf68b9cf3",
+        "CALL-fe9a583b-3ab4-4d14-abb2-c040c2695212",
+        "CALL-3a723e08-0b83-4d8a-b089-d681a78c7861",
+        "CALL-1f13f065-2a09-4e21-8c69-272bd5f23f54"
+      ],
+      "assertions": [
+        {
+          "id": "G8-09-A1",
+          "expected": true,
+          "actual": true,
+          "event_refs": [
+            "CALL-66378665-1f2b-460f-82a0-81cdd4236533-1"
+          ],
+          "reason": "read 任务完成瞬间读取，工作步骤面板 aria-expanded='false'（count=1），默认折叠"
+        },
+        {
+          "id": "G8-09-A2",
+          "expected": true,
+          "actual": false,
+          "event_refs": [
+            "CALL-66378665-1f2b-460f-82a0-81cdd4236533-4",
+            "CALL-1f13f065-2a09-4e21-8c69-272bd5f23f54-4",
+            "CALL-7f1bc453-7343-4831-b9be-ef5a7738b3bd-1"
+          ],
+          "reason": "展开工作步骤面板后，可见执行记录 visibleRecords=0、panel textLen=12、maxDepth=1；readVisibleToolCalls（[data-chat-flow-kind=tool-call]）亦为 0。但同一会话“轨迹”视图读到 2 条 read 工具记录（CALL-e05a04ca-3）。故按本 case 的读取方式未取得可见工具记录，判失败；同时作为候选问题（工具选择器/视图差异 vs 产品未内联渲染）待审核。"
+        }
+      ],
+      "restore": "无改动；工作步骤面板可能处于展开态，不影响设置初值。",
+      "notes": "为实现重试新增任务函数 task.conversation.ensureConversation（readToolTrace 切到“轨迹”后库内无回归“对话”入口）。第一次 afterExpand 读取在“对话”视图内完成（CALL-66378665），非视图串扰。"
+    }
+  ],
+  "result_summary": [
+    {
+      "case_id": "G1-01",
+      "status": "通过",
+      "call_refs": [
+        "CALL-1492927e-aaa1-4292-bb50-d89bda342208"
+      ],
+      "null_assertions": []
+    },
+    {
+      "case_id": "G1-02",
+      "status": "通过",
+      "call_refs": [
+        "CALL-1492927e-aaa1-4292-bb50-d89bda342208"
+      ],
+      "null_assertions": []
+    },
+    {
+      "case_id": "G1-03",
+      "status": "通过",
+      "call_refs": [
+        "CALL-1492927e-aaa1-4292-bb50-d89bda342208",
+        "CALL-d511583d-2831-494c-a48c-b8fe3f8d3dc7",
+        "CALL-1b7a1fec-81df-43f3-a2e8-bbef0f9d8a94"
+      ],
+      "null_assertions": []
+    },
+    {
+      "case_id": "G1-04",
+      "status": "通过",
+      "call_refs": [
+        "CALL-597d6c65-a545-41ba-87e5-15c014861600"
+      ],
+      "null_assertions": []
+    },
+    {
+      "case_id": "G1-05",
+      "status": "通过",
+      "call_refs": [
+        "CALL-431ffafa-acb4-4553-9263-b77505d5990e"
+      ],
+      "null_assertions": []
+    },
+    {
+      "case_id": "G1-06",
+      "status": "通过",
+      "call_refs": [
+        "CALL-431ffafa-acb4-4553-9263-b77505d5990e"
+      ],
+      "null_assertions": []
+    },
+    {
+      "case_id": "G1-07",
+      "status": "通过",
+      "call_refs": [
+        "CALL-4f25f557-9458-4205-9929-2806005e564c",
+        "CALL-f3ee7120-bf4f-40db-8be6-bac42b41243f",
+        "CALL-61627a18-1894-469a-a633-63a56f19eb9c"
+      ],
+      "null_assertions": []
+    },
+    {
+      "case_id": "G1-08",
+      "status": "通过",
+      "call_refs": [
+        "CALL-61627a18-1894-469a-a633-63a56f19eb9c"
+      ],
+      "null_assertions": []
+    },
+    {
+      "case_id": "G12-01",
+      "status": "通过",
+      "call_refs": [
+        "CALL-25ef4a26-32e8-4747-af64-4b9dd0388f25",
+        "CALL-96b99d09-f76a-4579-bcbe-51de9d455791",
+        "CALL-50be955e-234b-4e15-9198-1e0cf9f3bde0",
+        "CALL-ebd423dc-3958-4934-9f19-e178e3959bd0"
+      ],
+      "null_assertions": []
+    },
+    {
+      "case_id": "G12-02",
+      "status": "通过",
+      "call_refs": [
+        "CALL-c6a424ff-59dc-412e-a475-2b1b186dfeb0",
+        "CALL-78c4253e-0beb-4878-944c-c1f1b2e789e6"
+      ],
+      "null_assertions": []
+    },
+    {
+      "case_id": "G12-03",
+      "status": "通过",
+      "call_refs": [
+        "CALL-25d19c18-118f-4c2f-932c-227dd1aa6498",
+        "CALL-fa016154-09cf-40a2-a950-97ccac1049d0",
+        "CALL-890f8760-47f6-48e1-aaab-07cce85528c4"
+      ],
+      "null_assertions": []
+    },
+    {
+      "case_id": "G12-04",
+      "status": "失败",
+      "call_refs": [
+        "CALL-4627ac7d-e10c-4bbf-bb9a-e30c29c9f006",
+        "CALL-c8cbf999-576a-49ed-ac47-04b9daddafc7",
+        "CALL-795ba197-43d1-4ada-ae4c-505535bc68dd",
+        "CALL-76024ac3-9a8b-40cc-9bbe-4d47cccb2b8a",
+        "CALL-eedb03f9-2930-46ac-a65c-a55344c6fc06",
+        "CALL-b967e01f-80f3-48bb-8fbc-2627d69474c1",
+        "CALL-d45ce716-cc28-49ff-99f5-181a0fb54591",
+        "CALL-5fc7b3a2-264c-400b-a800-7b659fc63480"
+      ],
+      "null_assertions": []
+    },
+    {
+      "case_id": "G12-05",
+      "status": "失败",
+      "call_refs": [
+        "CALL-eb6feaed-baed-40d9-8ef8-e6241e8da5c0",
+        "CALL-bea642ac-1ce7-409d-b8ef-cbaeb518d15d",
+        "CALL-f31dbefc-18f8-4087-87f6-a95135c0bb98",
+        "CALL-de77d21b-ea8d-4931-a31a-01f1e1eab4f0"
+      ],
+      "null_assertions": []
+    },
+    {
+      "case_id": "G12-06",
+      "status": "通过",
+      "call_refs": [
+        "CALL-ad6c7e48-d17a-4c7e-9e5f-66489d4edc34",
+        "CALL-8ce38b24-19f9-44f1-a7c7-6be1e6586d69",
+        "CALL-2b9beb72-7de0-4134-ba6f-31e57094ccce",
+        "CALL-b5468efd-8677-4a9b-89c7-49ebc31e0c38",
+        "CALL-08b99d06-b1f6-420b-9261-33d185eae3d3"
+      ],
+      "null_assertions": []
+    },
+    {
+      "case_id": "G12-07",
+      "status": "通过",
+      "call_refs": [
+        "CALL-34c4c636-f5a4-499c-9736-042a8974805c",
+        "CALL-c86735be-428d-40cb-b240-890b0d6978c9",
+        "CALL-65e2b594-1bfa-4908-9436-c07a762ab168",
+        "CALL-3d3bf8fd-01f3-4884-a08d-9e71efbf66f2",
+        "CALL-0a1f8826-43f7-4722-81c6-9d66bf527fe3"
+      ],
+      "null_assertions": []
+    },
+    {
+      "case_id": "G12-08",
+      "status": "通过",
+      "call_refs": [
+        "CALL-1d41e3df-dab6-40b6-90b4-70cd55ba5b87",
+        "CALL-8e09cc26-969f-42ce-b52d-6792fb2e2f0d",
+        "CALL-a549f3f5-b9a8-45c1-ab68-2ceb15332738",
+        "CALL-ded3aa07-b3ea-49f4-b12d-990c93205f10",
+        "CALL-8ff52c0d-70fb-443d-b336-8f6a207c0f27"
+      ],
+      "null_assertions": []
+    },
+    {
+      "case_id": "G12-09",
+      "status": "失败",
+      "call_refs": [
+        "CALL-ee3e8037-20d1-4107-bae3-12188459e5a1"
+      ],
+      "null_assertions": []
+    },
+    {
+      "case_id": "G12-10",
+      "status": "通过",
+      "call_refs": [
+        "CALL-532d3aa7-f725-4249-addc-8d6912b6dce9",
+        "CALL-6bfc786d-1451-4e3c-8305-f927c72a863e",
+        "CALL-fbed6843-9bd9-4906-b42a-346eec1670ef",
+        "CALL-e7256292-0d21-485a-adee-791e5f13c45f",
+        "CALL-6b8a222f-79d0-4923-852e-ebaec864e7f2",
+        "CALL-1e8f7803-71d8-4c06-9576-e331326bc818",
+        "CALL-7b5ff480-5898-4d31-a2a9-88229d5dd6b5"
+      ],
+      "null_assertions": []
+    },
+    {
+      "case_id": "G12-11",
+      "status": "通过",
+      "call_refs": [
+        "CALL-680cd85d-eb90-4bb3-866d-2b6196d924a0",
+        "CALL-cc3b0f1e-0a6c-4fe3-a558-67a4eba3ffa2",
+        "CALL-2311c457-212c-47b9-8141-14441928ac58",
+        "CALL-ed094d84-0f84-4ff3-94cb-07c232c8f007",
+        "CALL-a04bf0d7-1576-429b-905d-5dd764cb364f",
+        "CALL-b5766b28-afbb-459d-9486-904b14762de8",
+        "CALL-4304802e-8a3a-444c-bfbb-2e6fee2dd04e",
+        "CALL-f352f30b-03ef-4b1d-8514-86f5ba30eec4",
+        "CALL-2b592b7c-9143-4a72-a21d-67e6680f1ca4"
+      ],
+      "null_assertions": []
+    },
+    {
+      "case_id": "G12-12",
+      "status": "失败",
+      "call_refs": [
+        "CALL-64138067-dc12-41ed-ab58-d7def41a99e4",
+        "CALL-fcd9a65e-e3fd-4c5b-b3fb-c4663435f634",
+        "CALL-95e386fd-ef60-437c-b95d-1b03cc113a8f",
+        "CALL-0c8fbc63-796c-494c-bb2c-c07230360187",
+        "CALL-381cbb32-16b3-4036-99a3-6f5c91c7ecc0",
+        "CALL-48a9f714-0497-4bed-b8c4-d243de682a68",
+        "CALL-dff75c0a-876c-412c-8561-93c165501921",
+        "CALL-d46e45ed-f6c6-42a5-b7d6-cebe642e92b9"
+      ],
+      "null_assertions": [
+        {
+          "id": "G12-12-A2",
+          "expected": "包含 $link_path (/fast-assert-PCG-dedup-night-20261008/sidebar)",
+          "actual": null,
+          "event_refs": [],
+          "reason": "夹具请求日志文件不存在（readLinkLog 抛 'Link log missing: ...links-PCG-dedup-night-20261008.jsonl'，CALL-d46e45ed），无法证明真实 GET 到本轮 URL；链接设置初值=应用内侧边栏。日志缺失，未编造请求。"
+        }
+      ]
+    },
+    {
+      "case_id": "G12-13",
+      "status": "失败",
+      "call_refs": [
+        "CALL-a68985dd-7f1d-4740-8000-8c72e241f6d0",
+        "CALL-76b990eb-7597-44b1-ab36-6ac509722263",
+        "CALL-2628449b-589c-40af-8f87-974c9530be73",
+        "CALL-5a9fbb30-2dd4-4498-b72e-f381ce456780",
+        "CALL-48545432-800b-4c64-8152-58ab3a48278a",
+        "CALL-b90dc956-450c-4b31-911e-f6b3d34677a2",
+        "CALL-80384c2a-1a97-4d4b-aaf8-d4a5aa0df665"
+      ],
+      "null_assertions": [
+        {
+          "id": "G12-13-A1",
+          "expected": true,
+          "actual": null,
+          "event_refs": [],
+          "reason": "切“默认浏览器”并点击另一唯一目标链接后，夹具请求日志文件不存在（readLinkLog 抛 'Link log missing'，CALL-48545432），无法读取匹配本轮 URL 的 GET UA；未能证明由 Chrome 且非 Electron 发起。"
+        }
+      ]
+    },
+    {
+      "case_id": "G12-16",
+      "status": "通过",
+      "call_refs": [
+        "CALL-49bfcf49-d65b-4e73-b4d1-9bb9eb7485c4"
+      ],
+      "null_assertions": []
+    },
+    {
+      "case_id": "G12-17",
+      "status": "通过",
+      "call_refs": [
+        "CALL-a8d756c0-b9f4-459e-aed8-834ae871034f",
+        "CALL-d35df5c6-5748-440f-9e96-e9fa2f171116"
+      ],
+      "null_assertions": []
+    },
+    {
+      "case_id": "G6-01",
+      "status": "通过",
+      "call_refs": [
+        "CALL-dde10cb1-09c5-40f3-972c-8389e5867c99",
+        "CALL-75b1dd80-310c-4f1a-9ad9-2bb38c66a7ed",
+        "CALL-684b3e52-0755-4937-a93c-0e58887d4f01",
+        "CALL-8f6c7059-b456-4af0-9f9b-0f9fe3446bf3",
+        "CALL-8d3f687b-9a91-4add-8640-4ba03c0d4ac4",
+        "CALL-283802bd-f853-4b8d-959c-31ca3774c7a7"
+      ],
+      "null_assertions": []
+    },
+    {
+      "case_id": "G6-02",
+      "status": "通过",
+      "call_refs": [
+        "CALL-dfaa55bc-a034-47b0-baec-235f5f358335",
+        "CALL-0d0bfeb6-f486-4da6-bc7f-3ba706cea97e",
+        "CALL-818e66b9-385f-4f12-922e-2841bdcbbe6d",
+        "CALL-2715c797-119d-4d79-bec9-92533bb82ac0"
+      ],
+      "null_assertions": []
+    },
+    {
+      "case_id": "G6-03",
+      "status": "通过",
+      "call_refs": [
+        "CALL-58fcc7ed-6baf-408e-9db9-a2058d50257f",
+        "CALL-0fde1f50-84b6-455c-80cb-081ef204f263"
+      ],
+      "null_assertions": []
+    },
+    {
+      "case_id": "G6-04",
+      "status": "通过",
+      "call_refs": [
+        "CALL-58fcc7ed-6baf-408e-9db9-a2058d50257f",
+        "CALL-25d092b7-dc82-43fa-bd99-feffe5066ebb",
+        "CALL-462017ca-c844-4bb9-82c5-1a286cdc6085",
+        "CALL-9f2b08bb-6545-476d-84fc-173c18217c24",
+        "CALL-b77fc56d-28eb-475c-ac00-2f8f7faa37fe",
+        "CALL-72961a9f-5b97-46b2-9d1a-4f75c09d9cb9"
+      ],
+      "null_assertions": []
+    },
+    {
+      "case_id": "G6-05",
+      "status": "通过",
+      "call_refs": [
+        "CALL-b41d28a1-4838-4901-bdd7-cacbd47acc64",
+        "CALL-aa405195-3860-4c40-a58d-aa52cc2defc0"
+      ],
+      "null_assertions": []
+    },
+    {
+      "case_id": "G6-06",
+      "status": "失败",
+      "call_refs": [
+        "CALL-01083395-cac4-47e3-b05b-85701f4f6cd5",
+        "CALL-45c81501-cc65-43b8-9f55-2c087dabcfb6",
+        "CALL-1bcd3a34-c211-4ce4-8185-977f24beec97",
+        "CALL-ee8b45a1-d6ee-49f8-95ac-2182a0c9e183",
+        "CALL-f928075b-080e-49dd-af22-0ec964886f5a",
+        "CALL-6c85d2a6-9ba9-4727-b6e8-f11d62578b1c",
+        "CALL-88b794b5-5855-4428-ba0f-8105811035fe",
+        "CALL-4b02d701-ee2b-4ba9-9d8f-9286a600e6a5",
+        "CALL-92ecf573-cf3f-465c-b9a4-55b6159c22a5",
+        "CALL-4dee66b6-2985-4459-ad03-4e693319696f",
+        "CALL-7fe8468c-4f54-48bc-a81c-af0221d3ec3a",
+        "CALL-4b6acff3-f481-4ef1-b148-907fb64d61fa",
+        "CALL-4864f5e7-c68a-4261-8937-9da76cc00a8e",
+        "CALL-5065fab1-d2ce-4110-9e4f-ffd9f1431ce8"
+      ],
+      "null_assertions": []
+    },
+    {
+      "case_id": "G6-07",
+      "status": "通过",
+      "call_refs": [
+        "CALL-881f7725-6cd6-4eeb-a549-c4fdda843591",
+        "CALL-b613d2af-4e8b-4a9c-8a9c-8364b08a4441",
+        "CALL-4a68f228-5533-4768-8dd6-e01a8c3c934b"
+      ],
+      "null_assertions": []
+    },
+    {
+      "case_id": "G6-08",
+      "status": "通过",
+      "call_refs": [
+        "CALL-d9084163-0039-4d17-aee2-f97eb94ff757",
+        "CALL-44eebf75-41bd-48b0-bb45-cd9ecddb7c24",
+        "CALL-590dd119-7149-4bad-8f63-2b0e86f3c4af"
+      ],
+      "null_assertions": []
+    },
+    {
+      "case_id": "G8-02",
+      "status": "阻塞",
+      "call_refs": [
+        "CALL-ebea6fbe-ab70-4c47-8354-9d8d59b9fe27",
+        "CALL-25d0095a-746c-448b-851b-c47d5977b304",
+        "CALL-4e907451-27c5-428f-93fd-342a3d9949fc",
+        "CALL-d39515c2-12a8-4fe0-a76c-3b67f62801db",
+        "CALL-31505edf-6ed4-4853-9db4-dfb314a19bac",
+        "CALL-4f504a0d-0b2a-4083-a5d4-4b55082ba860",
+        "CALL-1b910f72-52fc-47b5-9737-30ced285c5c5",
+        "CALL-c0167eb8-a675-48b0-930a-fdbcc92d5424"
+      ],
+      "null_assertions": [
+        {
+          "id": "G8-02-A1",
+          "expected": 0,
+          "actual": null,
+          "event_refs": [],
+          "reason": "无法读取 A 行未读提醒数量：A（session-2a344cd8-711b-4337-871a-360e3f20be33）未出现在侧栏会话行列表中，markUnread 抛错 'Session must resolve exactly one sidebar row'（CALL-31505edf）。listSessionRows 仅返回 1 行无关会话 session-358a4f3c（CALL-d39515c2/CALL-c0167eb8）。选定项目 p1 后仍不出现（CALL-4f504a0d 已确认项目=D:\\tpt-workspace\\0929\\p1）。前置失败依赖：目标会话行缺失。"
+        },
+        {
+          "id": "G8-02-A2",
+          "expected": true,
+          "actual": null,
+          "event_refs": [
+            "CALL-25d0095a-746c-448b-851b-c47d5977b304-3"
+          ],
+          "reason": "未完成“进入 A 并查看最后回复”的复核：A 不在侧栏，openSession 不可用。创建时读取到最终正文 'G8A_ONLY'（CALL-25d0095a-746c-448b-851b-c47d5977b304-3），但未通过重新进入 A 读取历史正文，故记 null 而非 true。"
+        }
+      ]
+    },
+    {
+      "case_id": "G8-03",
+      "status": "阻塞",
+      "call_refs": [
+        "CALL-31505edf-6ed4-4853-9db4-dfb314a19bac",
+        "CALL-d39515c2-12a8-4fe0-a76c-3b67f62801db"
+      ],
+      "null_assertions": [
+        {
+          "id": "G8-03-A1",
+          "expected": 1,
+          "actual": null,
+          "event_refs": [],
+          "reason": "依赖 G8-02：A 不在侧栏会话行，无法标记未读，也无法读取 A 行完成未读提醒数量（markUnread 抛 'Session must resolve exactly one sidebar row'）。"
+        },
+        {
+          "id": "G8-03-A2",
+          "expected": 0,
+          "actual": null,
+          "event_refs": [],
+          "reason": "依赖 G8-02：无法定位 A 行，未读并列额外标记数量未观测。"
+        }
+      ]
+    },
+    {
+      "case_id": "G8-06",
+      "status": "通过",
+      "call_refs": [
+        "CALL-9e93ae06-0686-42e3-a19d-1fcbd2c3946e",
+        "CALL-7c5c1541-32d3-4d23-8199-c2e1363c7a5a",
+        "CALL-0b97fc45-4914-4520-bf88-f475d0c497e6",
+        "CALL-e05a04ca-d81d-448b-983c-db56a4aa6284"
+      ],
+      "null_assertions": []
+    },
+    {
+      "case_id": "G8-07",
+      "status": "通过",
+      "call_refs": [
+        "CALL-2a2d0a1e-b92a-401a-9a48-489724336637",
+        "CALL-1e74d0fa-fa60-493e-aa0f-991e18770bfc",
+        "CALL-da7dd7f4-dcc0-4a2a-b1ab-34e44f8bacff",
+        "CALL-06514d69-dbf9-4e58-83ee-ebf3e61c68b5"
+      ],
+      "null_assertions": []
+    },
+    {
+      "case_id": "G8-08",
+      "status": "通过",
+      "call_refs": [
+        "CALL-9f179d56-2066-4baa-9f49-2b0210d37f0f",
+        "CALL-33b2aa49-37a0-4348-ad13-232e17fd0a1d",
+        "CALL-53b72878-d3f3-4591-ac8f-eb0de0b46555",
+        "CALL-4912cb25-ea52-4f9a-9336-3c5b93e16e9c",
+        "CALL-544d43df-2e63-43c2-b89f-f6e08838f5bd"
+      ],
+      "null_assertions": []
+    },
+    {
+      "case_id": "G8-09",
+      "status": "失败",
+      "call_refs": [
+        "CALL-66378665-1f2b-460f-82a0-81cdd4236533",
+        "CALL-e05a04ca-d81d-448b-983c-db56a4aa6284",
+        "CALL-7f1bc453-7343-4831-b9be-ef5a7738b3bd",
+        "CALL-2885bd17-c927-4d62-936d-e5cdf68b9cf3",
+        "CALL-fe9a583b-3ab4-4d14-abb2-c040c2695212",
+        "CALL-3a723e08-0b83-4d8a-b089-d681a78c7861",
+        "CALL-1f13f065-2a09-4e21-8c69-272bd5f23f54"
+      ],
+      "null_assertions": []
+    },
+    {
+      "case_id": "G8-10",
+      "status": "通过",
+      "call_refs": [
+        "CALL-66378665-1f2b-460f-82a0-81cdd4236533",
+        "CALL-1f13f065-2a09-4e21-8c69-272bd5f23f54"
+      ],
+      "null_assertions": []
+    }
+  ]
+}
