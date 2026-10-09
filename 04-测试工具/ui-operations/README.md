@@ -30,7 +30,7 @@ node 04-测试工具/ui-operations/call.mjs --describe skills.useSkillRequest
 
 核对参数来源、对象、是否含准备或恢复，以及真正要读取的结果。按 [调用与记录](docs/调用与记录.md) 执行、比较实际值、恢复并引用本轮证据。
 
-status=returned 不表示 case 通过。优先调用现成函数；缺能力时读 [扩展与边界](docs/扩展与边界.md)，保留新增任务函数及实际调用，供收尾审核。
+status=returned 不表示 case 通过。优先调用现成函数；缺能力时先读 [测试代码开发技能](../../03-测试技能/test-automation-development/SKILL.md)，再按本库 [扩展与边界](docs/扩展与边界.md) 登记和实现；保留新增任务函数及实际调用，供收尾审核。
 
 ## 需要时再查
 
@@ -39,7 +39,7 @@ status=returned 不表示 case 通过。优先调用现成函数；缺能力时�
 | 找功能、选函数 | [功能索引](docs/功能索引.md) |
 | 批量操作、返回结构、记录与恢复 | [调用与记录](docs/调用与记录.md) |
 | 异常、读值矛盾、前置失败 | [补测规则](../../03-测试技能/exploratory-testing/references/retest.md) |
-| 没有合适函数、需留存新函数 | [扩展与边界](docs/扩展与边界.md) |
+| 没有合适函数、需留存新函数 | [代码开发技能](../../03-测试技能/test-automation-development/SKILL.md) → [本库扩展与边界](docs/扩展与边界.md) |
 | 查看用例候选映射 | [用例映射](coverage/README.md)，通常优先单条 --plan |
 | 实际验证和已知缺口 | [全面回归验收](../../05-探索性测试/2026-10-07-全面回归验收/验收报告.md) |
 | 当前覆盖与效率评估 | [当前评估](docs/当前评估.md) |
