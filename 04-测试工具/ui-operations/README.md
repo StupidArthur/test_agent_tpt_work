@@ -4,7 +4,7 @@
 
 ## 第一步：会接入、会调用
 
-首次使用读 [快速开始](docs/快速开始.md)，完成一次连接核验；已经接入的 Agent 可以跳过。任务规则来自本轮 README、根 AGENTS 和 [探索性测试技能](../../03-测试技能/exploratory-testing/SKILL.md)。
+首次使用先按 [TPT Work 接入技能](../../03-测试技能/tpt-work-access/SKILL.md) 核验产品实例与通道，再读 [快速开始](docs/快速开始.md) 完成一次连接核验；已经接入的 Agent 可以跳过接入步骤。任务规则来自本轮 README、根 AGENTS 和 [探索性测试技能](../../03-测试技能/exploratory-testing/SKILL.md)。
 
 ## 第二步：找到当前操作的函数
 

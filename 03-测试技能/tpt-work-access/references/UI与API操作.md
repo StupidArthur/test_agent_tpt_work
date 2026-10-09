@@ -1,4 +1,4 @@
-# 给 Agent 的 TPT Work 启动与测试实操指南
+# TPT Work UI 与 API 操作实操指南
 
 这份文档可单独复制到另一台 Windows 机器。它说明如何找到并启动 `tpt-work.exe`，如何操作真实 UI，如何启动 `--test` 网关做 API 测试，以及如何把探索变成可复跑的 case。运行文中的现有脚本和 case 还需同时复制本测试仓库。安装路径、端口、项目目录和模型配置都以目标机器的实际情况为准。
 
@@ -30,12 +30,12 @@
 
 ```powershell
 Set-Location '<测试仓库路径>'
-Test-Path -LiteralPath '.\tools\ui-operations\package.json'
+Test-Path -LiteralPath '.\04-测试工具\ui-operations\package.json'
 node --version
 npm.cmd --version
 # 使用本仓库的软件UI操作工具时，在仓库根目录执行：
-if (Test-Path -LiteralPath '.\tools\ui-operations\package.json') {
-  npm.cmd ci --prefix '.\tools\ui-operations'
+if (Test-Path -LiteralPath '.\04-测试工具\ui-operations\package.json') {
+  npm.cmd ci --prefix '.\04-测试工具\ui-operations'
 }
 # 使用独立配套测试工程时，另按该工程的package.json安装依赖。
 ```
@@ -184,7 +184,7 @@ if (loginVisible) {
 
 比较模型或推理等级时，每个组合使用独立新会话，避免前一组合的上下文影响结果。若某轮出现提供方或网关错误，不要在原会话直接切换模型后把下一条回复当成独立验证：本机探索中，失败消息之后切换配置，后续回复仍混入此前失败请求的标记。先保存失败证据，再在新会话重测。
 
-探索过程中出现的用例外异常也要记录为缺陷候选。按“前置状态、操作、实际结果、合理预期、复现情况、证据”描述，不因它超出当前用例范围就略过；先区分已知配置限制与产品恢复行为，并排查自动化和环境问题。根因未明时记录现象，不猜测实现原因。记录与审核按[测试技能](../SKILL.md#记录与审核)执行。
+探索过程中出现的用例外异常也要记录为缺陷候选。按“前置状态、操作、实际结果、合理预期、复现情况、证据”描述，不因它超出当前用例范围就略过；先区分已知配置限制与产品恢复行为，并排查自动化和环境问题。根因未明时记录现象，不猜测实现原因。记录与审核按[探索性测试技能](../../exploratory-testing/SKILL.md#记录与收尾)执行。
 
 ### 2.5 运行 UI case
 
