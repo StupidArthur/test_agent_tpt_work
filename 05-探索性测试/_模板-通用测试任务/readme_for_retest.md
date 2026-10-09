@@ -33,6 +33,6 @@
 
 ## 执行入口与完成标准
 
-先读 [测试技能](../../03-测试技能/exploratory-testing/SKILL.md)，再按配置的通道查工具或执行代码。根 [AGENTS.md](../../AGENTS.md) 的客观判定、工具复用和审核边界适用；记录字段不清时查 [记录契约](../../03-测试技能/exploratory-testing/references/records.md)，发生异常时查 [补测方法](../../03-测试技能/exploratory-testing/references/retest.md)。
+先读 [通用测试技能](../../03-测试技能/exploratory-testing/SKILL.md)；测试 TPT Work 且需要启动、连接或确认 UI/API 通道时再读 [TPT Work 接入技能](../../03-测试技能/tpt-work-access/SKILL.md)，已接入则按本轮通道直接查工具或执行代码。根 [AGENTS.md](../../AGENTS.md) 的客观判定、工具复用和审核边界适用；记录字段不清时查 [记录契约](../../03-测试技能/exploratory-testing/references/records.md)，发生异常时查 [补测方法](../../03-测试技能/exploratory-testing/references/retest.md)。
 
 完成本轮队列、逐条记录判据与实际值并核验恢复后交付。缺条件的项写明限制与补测条件，继续其他项；报告区分实际尝试、断言已观测与未验证，注明残留和待审核状态。产物留本任务目录。
