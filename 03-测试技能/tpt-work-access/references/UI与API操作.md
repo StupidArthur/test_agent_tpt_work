@@ -2,7 +2,7 @@
 
 这份文档可单独复制到另一台 Windows 机器。它说明如何找到并启动 `tpt-work.exe`，如何操作真实 UI，如何启动 `--test` 网关做 API 测试，以及如何把探索变成可复跑的 case。运行文中的现有脚本和 case 还需同时复制本测试仓库。安装路径、端口、项目目录和模型配置都以目标机器的实际情况为准。
 
-**本仓库的使用顺序：**先读任务与 [测试方法入口](../../接入参考.md)。已接入时调用 [软件 UI 操作工具](../../../04-测试工具/ui-operations/README.md)；本指南按需查启动、登录和API细节。文中 tests/ui、Playwright Test 与 npm run test:* 示例需要另有配套工程，不能仅复制本文就运行。本仓库现成函数的依赖在 04-测试工具/ui-operations/package.json。
+**本仓库的使用顺序：**先读任务与 [测试技能总入口](../../README.md)。已接入时调用 [软件 UI 操作工具](../../../04-测试工具/ui-operations/README.md)；本指南按需查启动、登录和API细节。文中 tests/ui、Playwright Test 与 npm run test:* 示例需要另有配套工程，不能仅复制本文就运行。本仓库现成函数的依赖在 04-测试工具/ui-operations/package.json。
 
 ## 先记住两条入口
 
