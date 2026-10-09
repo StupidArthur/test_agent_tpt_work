@@ -1,0 +1,47 @@
+{
+  "case_id": "G7-06",
+  "contract_version": "2.0",
+  "environment_id": "agent-oc-20261006-funcfull-01",
+  "attempt_id": "G7-06-A01",
+  "object_identity": "composer 草稿附件卡 attachment-a.txt",
+  "inputs": [
+    "添加 attachment-a.txt"
+  ],
+  "business_call_refs": [
+    "CALL-a160efd0-02c6-4d8c-ad4e-1f614472aec3",
+    "CALL-24c1c810-caae-4bf5-bb73-ab5150bea7df",
+    "CALL-746b04e9-8db6-4f83-a0f6-f2cc454d641a"
+  ],
+  "status": "通过",
+  "attempted_at": "2026-10-06T16:30:05.443Z",
+  "assertions": [
+    {
+      "id": "G7-06-A1",
+      "expected": "attachment-a.txt",
+      "actual": "attachment-a.txt",
+      "pass": true,
+      "read_refs": [
+        "CALL-24c1c810-caae-4bf5-bb73-ab5150bea7df-1"
+      ]
+    },
+    {
+      "id": "G7-06-A2",
+      "expected": true,
+      "actual": true,
+      "pass": true,
+      "read_refs": [
+        "CALL-746b04e9-8db6-4f83-a0f6-f2cc454d641a-1"
+      ],
+      "raw": {
+        "count": 2
+      }
+    }
+  ],
+  "restore": {
+    "status": "unchanged",
+    "description": "本case未改动设置/文件",
+    "read_refs": []
+  },
+  "residual": "",
+  "notes": ""
+}

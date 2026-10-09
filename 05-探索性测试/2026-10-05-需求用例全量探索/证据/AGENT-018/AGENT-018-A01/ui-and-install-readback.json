@@ -1,0 +1,137 @@
+{
+  "at": "2026-10-05T16:16:47.252Z",
+  "url": "dsh-app://app/",
+  "frame": "dsh-app://app/api/supcon-agents/ui?lang=zh",
+  "visibleText": "专家\n\n管理你的本地与云端专家\n\n把专业方法，封装成随时可调用的工业专家\n围绕工艺、设备、安全、能源与质量问题，按任务自动组织数据、知识、模型和验证步骤。\n我的专家\n4\n专家市场\n3\n导入专家\n新建专家\n全部来源\n全部运行位置\n本地已就绪 4 个专家，可在对话中直接调用\n本轮内嵌技能核验专家\n\n本轮专家包内嵌独立技能的隔离样本，只回答虚构标记问题，不读取文件、不联网、不操作设备。\n\n内嵌技能\n本轮导入\n隔离验证\n来源 我创建的 · 本地运行\nv1.0.0\n使用\n本轮长文核验专家\n\n本轮包导入与长提示词阅读样本，只按明确请求输出唯一标记，不读取文件、不访问网络，也不操作设备。\n\n本轮导入\n长文阅读\n嵌入技能\n来源 我创建的 · 本地运行\nv1.0.0\n使用\n本轮长文核验专家\n\n本轮包导入与长提示词阅读样本，只按明确请求输出唯一标记，不读取文件、不访问网络，也不操作设备。\n\n本轮导入\n长文阅读\n嵌入技能\n来源 我创建的 · 本地运行\nv1.0.0\n使用\n本轮导入测试专家\n\n仅用于本轮专家导入与查看功能验证，按明确请求回复固定测试标记，不访问网络，不操作现场设备，也不修改任何用户文件。\n\n导入验证\n固定标记\n无副作用\n来源 我创建的 · 本地运行\nv1.0.0\n使用",
+  "entries": [],
+  "installed": {
+    "round-agent-longread-20261005": {
+      "metadata": {
+        "name": "round-agent-longread-20261005",
+        "description": "A harmless round-owned long-prompt expert fixture that returns markers and never accesses external systems.",
+        "version": "1.0.0",
+        "author": "",
+        "category": "技术工程",
+        "profession": {
+          "zh": "本轮长文核验专家",
+          "en": "Round Long-Read Reviewer"
+        },
+        "displayDescription": {
+          "zh": "本轮包导入与长提示词阅读样本，只按明确请求输出唯一标记，不读取文件、不访问网络，也不操作设备。",
+          "en": "Round-owned import and long-prompt fixture that returns a marker only and never accesses files, networks, or devices."
+        },
+        "defaultInitPrompt": {
+          "zh": "请回复本轮长文样本标记 ROUND_AGENT_LONGREAD_OK。",
+          "en": "Reply with the round long-read sample marker ROUND_AGENT_LONGREAD_OK."
+        },
+        "quickPrompts": [
+          {
+            "zh": "请回复本轮长文样本标记 ROUND_AGENT_LONGREAD_OK。",
+            "en": "Reply with the round long-read sample marker ROUND_AGENT_LONGREAD_OK."
+          },
+          {
+            "zh": "请列出当前长提示词样本的范围。",
+            "en": "Summarize this fixture scope."
+          },
+          {
+            "zh": "请说明本轮嵌入技能的唯一标记。",
+            "en": "State the embedded skill unique marker."
+          }
+        ],
+        "tags": [
+          {
+            "zh": "本轮导入",
+            "en": "Round Import"
+          },
+          {
+            "zh": "长文阅读",
+            "en": "Long Prompt"
+          },
+          {
+            "zh": "嵌入技能",
+            "en": "Bundled Skill"
+          }
+        ],
+        "agents": [
+          "agent.md"
+        ],
+        "avatar": "",
+        "skills": [
+          "./skills/round-inline-skill"
+        ]
+      },
+      "metaHash": {
+        "sha256": "dd51af3ca71489e66bbd0fe7914924e3abdf5c0d7228a640af578364dbd867c5",
+        "bytes": 1608
+      },
+      "agentHash": {
+        "sha256": "858645b89620f06bc3054fbd56c328f8f018188e54597d0a4f62b24b69f133f3",
+        "bytes": 2332
+      }
+    },
+    "round-agent-longread-20261005-1": {
+      "metadata": {
+        "name": "round-agent-longread-20261005-1",
+        "description": "A harmless round-owned long-prompt expert fixture that returns markers and never accesses external systems.",
+        "version": "1.0.0",
+        "author": "",
+        "category": "技术工程",
+        "profession": {
+          "zh": "本轮长文核验专家",
+          "en": "Round Long-Read Reviewer"
+        },
+        "displayDescription": {
+          "zh": "本轮包导入与长提示词阅读样本，只按明确请求输出唯一标记，不读取文件、不访问网络，也不操作设备。",
+          "en": "Round-owned import and long-prompt fixture that returns a marker only and never accesses files, networks, or devices."
+        },
+        "defaultInitPrompt": {
+          "zh": "请回复本轮长文样本标记 ROUND_AGENT_LONGREAD_OK。",
+          "en": "Reply with the round long-read sample marker ROUND_AGENT_LONGREAD_OK."
+        },
+        "quickPrompts": [
+          {
+            "zh": "请回复本轮长文样本标记 ROUND_AGENT_LONGREAD_OK。",
+            "en": "Reply with the round long-read sample marker ROUND_AGENT_LONGREAD_OK."
+          },
+          {
+            "zh": "请列出当前长提示词样本的范围。",
+            "en": "Summarize this fixture scope."
+          },
+          {
+            "zh": "请说明本轮嵌入技能的唯一标记。",
+            "en": "State the embedded skill unique marker."
+          }
+        ],
+        "tags": [
+          {
+            "zh": "本轮导入",
+            "en": "Round Import"
+          },
+          {
+            "zh": "长文阅读",
+            "en": "Long Prompt"
+          },
+          {
+            "zh": "嵌入技能",
+            "en": "Bundled Skill"
+          }
+        ],
+        "agents": [
+          "agent.md"
+        ],
+        "avatar": "",
+        "skills": [
+          "./skills/round-inline-skill"
+        ]
+      },
+      "metaHash": {
+        "sha256": "c0bb7a51eb0eb5114ad0585c20eb0f0c77bad22cf95610dd76976ed2163c0f99",
+        "bytes": 1610
+      },
+      "agentHash": {
+        "sha256": "e10bf708f9c028c073e430572b46e76531eda93c8483242024baf64278e0839f",
+        "bytes": 2333
+      }
+    }
+  }
+}

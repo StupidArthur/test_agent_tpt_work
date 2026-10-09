@@ -1,0 +1,90 @@
+{
+  "observations": {
+    "observations": {
+      "title": {
+        "event_id": "business-cbf40a00-6d18-4423-8338-692693987b8b-1",
+        "captured_at": "2026-10-06T07:46:08.491Z",
+        "environment_id": "env-fn-20261006-agent2",
+        "kind": "read",
+        "target": "本轮专家标题",
+        "business_call_id": "CALL-304ee53f-0f5d-4133-9291-9f0923643cfc",
+        "object_id": "expert-card-title",
+        "source": {
+          "channel": "dom",
+          "scope": "专家页/我的专家卡片",
+          "locator": "h3"
+        },
+        "value": "本轮快速回归专家",
+        "raw": {
+          "title": "本轮快速回归专家"
+        }
+      },
+      "meta": {
+        "event_id": "business-cbf40a00-6d18-4423-8338-692693987b8b-2",
+        "captured_at": "2026-10-06T07:46:08.498Z",
+        "environment_id": "env-fn-20261006-agent2",
+        "kind": "read",
+        "target": "本轮专家名称与版本",
+        "business_call_id": "CALL-304ee53f-0f5d-4133-9291-9f0923643cfc",
+        "object_id": "expert-card-meta",
+        "source": {
+          "channel": "dom",
+          "scope": "专家页/我的专家卡片",
+          "locator": "div[class*=\"_card_\"]"
+        },
+        "value": [
+          "本轮快速回归专家",
+          "1.2.3"
+        ],
+        "raw": {
+          "title": "本轮快速回归专家",
+          "version": "1.2.3",
+          "text": "本轮快速回归专家 本轮无害回归测试专家，用于确认本地导入、详情展示和固定回复规则，不访问网络设备，不操作现场，也不改动用户文件。 回归验证 来源 我创建的 · 本地运行 v1.2.3 使用"
+        }
+      },
+      "fields": {
+        "event_id": "business-cbf40a00-6d18-4423-8338-692693987b8b-3",
+        "captured_at": "2026-10-06T07:46:08.499Z",
+        "environment_id": "env-fn-20261006-agent2",
+        "kind": "read",
+        "target": "本轮专家来源与运行类型",
+        "business_call_id": "CALL-304ee53f-0f5d-4133-9291-9f0923643cfc",
+        "object_id": "expert-card-fields",
+        "source": {
+          "channel": "dom",
+          "scope": "专家页/我的专家卡片",
+          "locator": "div[class*=\"_card_\"]"
+        },
+        "value": [
+          "我创建的",
+          "本地运行"
+        ],
+        "raw": {
+          "text": "本轮快速回归专家 本轮无害回归测试专家，用于确认本地导入、详情展示和固定回复规则，不访问网络设备，不操作现场，也不改动用户文件。 回归验证 来源 我创建的 · 本地运行 v1.2.3 使用",
+          "source": "我创建的",
+          "location": "本地运行"
+        }
+      },
+      "exists": {
+        "event_id": "business-cbf40a00-6d18-4423-8338-692693987b8b-4",
+        "captured_at": "2026-10-06T07:46:08.506Z",
+        "environment_id": "env-fn-20261006-agent2",
+        "kind": "read",
+        "target": "按内部name核对存在",
+        "business_call_id": "CALL-304ee53f-0f5d-4133-9291-9f0923643cfc",
+        "object_id": "expert-card-internal",
+        "source": {
+          "channel": "dom",
+          "scope": "专家页/我的专家卡片",
+          "locator": "div[class*=\"_card_\"]"
+        },
+        "value": true,
+        "raw": {
+          "count": 1,
+          "internalNameInDom": false
+        },
+        "derivation": "count > 0"
+      }
+    }
+  }
+}

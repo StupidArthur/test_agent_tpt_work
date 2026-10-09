@@ -1,0 +1,30 @@
+{
+  "case_id": "G3-04",
+  "status": "通过",
+  "started_at": "2026-10-06T10:03:20+08:00",
+  "ended_at": "2026-10-06T10:03:50+08:00",
+  "actual_steps": [
+    "在含技能引用的编辑器追加自然语句“请执行本轮回归技能的固定回复规则”",
+    "发送并等待终态",
+    "打开“轨迹”页签读取系统/上下文与技能装载记录"
+  ],
+  "observed": "轨迹中记录 <skill_content name=\"fast-reg-skill-20261006095332\">，含 skill_resources（base directory C:\\Users\\Administrator\\.tpt-work\\dsh\\skills\\fast-reg-skill-20261006095332）与 skill_instructions（规则文本 reply exactly FAST_SKILL_EXEC_OK）。本轮 skill 内容被成功加载/注入。请求文本不含预期输出串。",
+  "evidence": [
+    {
+      "path": "证据/G3-04-trace.png",
+      "sha256": "c8b662163bed28ffa9825abee87795d7eb21b48635eb0e732dff361460a317eb"
+    },
+    {
+      "path": "证据/G3-04-trace.txt",
+      "sha256": "8a045d24ddb93341faca3abe63f9ba47102b5c5258ec60bd41e1264ed6e55291"
+    }
+  ],
+  "cleanup": "无。",
+  "timings": {
+    "操作等待秒": 10,
+    "产品执行秒": 7,
+    "取证登记秒": 10,
+    "排障恢复秒": 0
+  },
+  "group": "G3"
+}

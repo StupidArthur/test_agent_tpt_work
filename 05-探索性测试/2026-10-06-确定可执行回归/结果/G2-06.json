@@ -1,0 +1,28 @@
+{
+  "case_id": "G2-06",
+  "status": "通过",
+  "started_at": "2026-10-06T09:56:00+08:00",
+  "ended_at": "2026-10-06T09:56:20+08:00",
+  "actual_steps": [
+    "读取卡片与详情版本"
+  ],
+  "observed": "卡片与详情均显示版本 1.2.3（v1.2.3），与源 SKILL.md 的 version 一致。",
+  "evidence": [
+    {
+      "path": "证据/G2-02-after-import.png",
+      "sha256": "ac29286886e507c9f47fb5d43449b147b79d2c3c0ff2b41ee0e4b4a4c6cfde10"
+    },
+    {
+      "path": "证据/G2-08-detail.png",
+      "sha256": "0444b5a55783d5fec3e4f0960ae722849300f552a9745357212c002084982ebf"
+    }
+  ],
+  "cleanup": "无。",
+  "timings": {
+    "操作等待秒": 5,
+    "产品执行秒": 0,
+    "取证登记秒": 5,
+    "排障恢复秒": 0
+  },
+  "group": "G2"
+}

@@ -1,0 +1,83 @@
+{
+  "sample_id": "3441a5283e8c441886f0c6f3d110f28e",
+  "request_index": 670,
+  "cases": [
+    "API-08"
+  ],
+  "group": "invalid-empty-model",
+  "warmup": false,
+  "target": "gateway-responses",
+  "protocol": "responses",
+  "request": {
+    "model": "",
+    "input": [
+      {
+        "role": "user",
+        "content": [
+          {
+            "type": "input_text",
+            "text": "只输出 ERROR_OK"
+          }
+        ]
+      }
+    ],
+    "stream": true,
+    "max_output_tokens": 256,
+    "reasoning": {
+      "effort": "low"
+    }
+  },
+  "expected": {
+    "nonempty": true,
+    "terminal_allowed": [
+      "completed"
+    ]
+  },
+  "checks": {
+    "http200": false,
+    "no_transport_error": true,
+    "valid_json": true,
+    "terminal": false,
+    "nonempty": false
+  },
+  "ok": false,
+  "fully_completed": false,
+  "request_sha256": "ff760938d3c6fbe7dfda4464297356b663e91285b0105e3d42054e5a7899c496",
+  "utc": "2026-10-07T06:22:59Z",
+  "start_monotonic": 222790.64,
+  "end_monotonic": 222790.781,
+  "http": 400,
+  "error_kind": null,
+  "error": null,
+  "body_text": "{\"error\":{\"code\":null,\"message\":\"model is required\",\"param\":null,\"type\":\"request_error\"}}",
+  "normalized": {
+    "protocol": "responses",
+    "text": "",
+    "reasoning": "",
+    "final_text": null,
+    "tool_calls": [],
+    "usage": null,
+    "terminal": null,
+    "terminal_reason": null,
+    "error_message": null,
+    "unknown_events": [],
+    "json_errors": []
+  },
+  "raw_frames": [],
+  "metrics": {
+    "e2e": 0.141,
+    "first_event": null,
+    "first_reasoning": null,
+    "first_text": null,
+    "first_tool": null,
+    "input_tokens": null,
+    "output_tokens": null,
+    "output_tokens_per_e2e": null,
+    "text_chars": 0,
+    "text_delta_count": 0,
+    "text_span": null,
+    "text_intervals_s": [],
+    "middle_text_chunks_per_s": null,
+    "stream_batch_observation": null
+  }
+}

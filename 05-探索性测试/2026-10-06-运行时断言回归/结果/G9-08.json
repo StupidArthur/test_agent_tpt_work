@@ -1,0 +1,169 @@
+{
+  "case_id": "G9-08",
+  "contract_version": "2.0",
+  "attempt_id": "G9-A01",
+  "environment_id": "env-20261006-oc1",
+  "object_identity": "missing-description包",
+  "inputs": [
+    "missing-description"
+  ],
+  "action_refs": [
+    "G9-2496a599-bef7-4cc5-a2aa-36facc1771c5-2",
+    "G9-2496a599-bef7-4cc5-a2aa-36facc1771c5-5",
+    "G9-2496a599-bef7-4cc5-a2aa-36facc1771c5-8",
+    "G9-2496a599-bef7-4cc5-a2aa-36facc1771c5-11",
+    "G9-2496a599-bef7-4cc5-a2aa-36facc1771c5-14",
+    "G9-2496a599-bef7-4cc5-a2aa-36facc1771c5-17",
+    "G9-2496a599-bef7-4cc5-a2aa-36facc1771c5-19",
+    "G9-2496a599-bef7-4cc5-a2aa-36facc1771c5-22",
+    "G9-2496a599-bef7-4cc5-a2aa-36facc1771c5-25",
+    "G9-2496a599-bef7-4cc5-a2aa-36facc1771c5-30",
+    "G9-2496a599-bef7-4cc5-a2aa-36facc1771c5-34",
+    "G9-2496a599-bef7-4cc5-a2aa-36facc1771c5-37",
+    "G9-2496a599-bef7-4cc5-a2aa-36facc1771c5-39",
+    "G9-2496a599-bef7-4cc5-a2aa-36facc1771c5-43",
+    "G9-2496a599-bef7-4cc5-a2aa-36facc1771c5-45",
+    "G9-2496a599-bef7-4cc5-a2aa-36facc1771c5-49",
+    "G9-2496a599-bef7-4cc5-a2aa-36facc1771c5-53",
+    "G9-2496a599-bef7-4cc5-a2aa-36facc1771c5-57",
+    "G9-2496a599-bef7-4cc5-a2aa-36facc1771c5-61"
+  ],
+  "status": "通过",
+  "started_at": "2026-10-06T05:47:30.127Z",
+  "ended_at": "2026-10-06T05:50:09.272Z",
+  "actual_steps": [
+    "导入并读反馈与注册表"
+  ],
+  "assertions": [
+    {
+      "id": "G9-08-A1",
+      "actual": true,
+      "read_refs": [
+        "G9-2496a599-bef7-4cc5-a2aa-36facc1771c5-31"
+      ]
+    },
+    {
+      "id": "G9-08-A2",
+      "actual": {
+        "before": [
+          "configure-connector",
+          "create-connector",
+          "create-skill",
+          "expert-manager",
+          "fast-assert-bad-png-20261006-oc1",
+          "fast-assert-cn-all-20261006-oc1",
+          "fast-assert-cn-en-20261006-oc1",
+          "fast-assert-cn-tech-20261006-oc1",
+          "fast-assert-declared-market-20261006-oc1",
+          "fast-assert-desc-en-20261006-oc1",
+          "fast-assert-desc-tech-20261006-oc1",
+          "fast-assert-en-cn-20261006-oc1",
+          "fast-assert-minimal-20261006-oc1",
+          "fast-assert-missing-description-20261006-oc1",
+          "fast-assert-missing-icon-20261006-oc1",
+          "fast-assert-network-icon-20261006-oc1",
+          "fast-assert-rich-20261006-oc1",
+          "fast-assert-skill-20261006-oc1",
+          "fast-reg-skill-20261006095332",
+          "find-skills",
+          "round-created-skill-20261006",
+          "round-description-fallback",
+          "round-forged-market-type",
+          "round-guided-create-20261006",
+          "round-import-probe-20261005",
+          "round-inflight-long-toggle-20261006",
+          "round-inflight-toggle-20261006",
+          "round-missing-description",
+          "round-name-cn-fallback",
+          "round-name-cn-priority",
+          "round-name-en-fallback",
+          "round-night-invalid-only-20261006",
+          "round-night-md-direct-20261006",
+          "round-night-root-20261006",
+          "round-night-trash-20261006",
+          "round-no-version",
+          "round-optional-fields",
+          "round-rich-skill-20261006",
+          "round-search-name-en-20261006",
+          "round-skill-absolute-20261006",
+          "round-skill-bad-png-20261006",
+          "round-skill-neighbor-20261006",
+          "round-skill-network-20261006",
+          "round-skill-no-icon-20261006",
+          "round-skill-traversal-20261006",
+          "uploaded-skill",
+          "valid-one"
+        ],
+        "after": [
+          "configure-connector",
+          "create-connector",
+          "create-skill",
+          "expert-manager",
+          "fast-assert-bad-png-20261006-oc1",
+          "fast-assert-cn-all-20261006-oc1",
+          "fast-assert-cn-en-20261006-oc1",
+          "fast-assert-cn-tech-20261006-oc1",
+          "fast-assert-declared-market-20261006-oc1",
+          "fast-assert-desc-en-20261006-oc1",
+          "fast-assert-desc-tech-20261006-oc1",
+          "fast-assert-en-cn-20261006-oc1",
+          "fast-assert-minimal-20261006-oc1",
+          "fast-assert-missing-description-20261006-oc1",
+          "fast-assert-missing-icon-20261006-oc1",
+          "fast-assert-network-icon-20261006-oc1",
+          "fast-assert-rich-20261006-oc1",
+          "fast-assert-skill-20261006-oc1",
+          "fast-reg-skill-20261006095332",
+          "find-skills",
+          "round-created-skill-20261006",
+          "round-description-fallback",
+          "round-forged-market-type",
+          "round-guided-create-20261006",
+          "round-import-probe-20261005",
+          "round-inflight-long-toggle-20261006",
+          "round-inflight-toggle-20261006",
+          "round-missing-description",
+          "round-name-cn-fallback",
+          "round-name-cn-priority",
+          "round-name-en-fallback",
+          "round-night-invalid-only-20261006",
+          "round-night-md-direct-20261006",
+          "round-night-root-20261006",
+          "round-night-trash-20261006",
+          "round-no-version",
+          "round-optional-fields",
+          "round-rich-skill-20261006",
+          "round-search-name-en-20261006",
+          "round-skill-absolute-20261006",
+          "round-skill-bad-png-20261006",
+          "round-skill-neighbor-20261006",
+          "round-skill-network-20261006",
+          "round-skill-no-icon-20261006",
+          "round-skill-traversal-20261006",
+          "uploaded-skill",
+          "valid-one"
+        ]
+      },
+      "read_refs": [
+        "G9-2496a599-bef7-4cc5-a2aa-36facc1771c5-28",
+        "G9-2496a599-bef7-4cc5-a2aa-36facc1771c5-32"
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "path": "运行日志/G9.jsonl",
+      "sha256": "c0cffefebd61207d53407ba956eb64c95c20cfb27eaebef09dcd1558fb00b24d"
+    },
+    {
+      "path": "tools/run/scratch/g9-run.json",
+      "sha256": "a31148f3e6c7c7847dcb90d8baa8357f7364c4b0f2f90a390cf77579064aaf4e"
+    }
+  ],
+  "cleanup": {
+    "status": "retained",
+    "description": "本轮技能保留并最终停用/保留待审",
+    "read_refs": []
+  },
+  "notes": "G9批量导入技能变体与图标包。"
+}

@@ -1,0 +1,65 @@
+{
+  "case_id": "G5-07",
+  "contract_version": "2.1",
+  "attempt_id": "fn-20261006-agent2-G5-07-A1",
+  "environment_id": "env-fn-20261006-agent2",
+  "object_identity": {
+    "fixture_dir": "F:/code_ai/test_agent_tpt_work/探索性测试/2026-10-06-业务函数复用回归/夹具/expert-missing-agent"
+  },
+  "inputs": [
+    "导入 expert-missing-agent 目录（缺 agent.md）"
+  ],
+  "action_refs": [
+    "business-d425b765-7387-4765-9c54-ffda37183ea9-2",
+    "business-d425b765-7387-4765-9c54-ffda37183ea9-5"
+  ],
+  "status": "通过",
+  "started_at": "2026-10-06T07:53:35.790Z",
+  "ended_at": "2026-10-06T07:53:41.433Z",
+  "actual_steps": [
+    "重开导入弹窗",
+    "提交缺 agent.md 目录",
+    "读取本次校验提示句与列表数量"
+  ],
+  "assertions": [
+    {
+      "id": "G5-07-A1",
+      "actual": true,
+      "read_refs": [
+        "business-d425b765-7387-4765-9c54-ffda37183ea9-6"
+      ]
+    },
+    {
+      "id": "G5-07-A2",
+      "actual": {
+        "before": 2,
+        "after": 2
+      },
+      "read_refs": [
+        "business-d425b765-7387-4765-9c54-ffda37183ea9-3",
+        "business-d425b765-7387-4765-9c54-ffda37183ea9-7"
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "path": "运行日志/business.jsonl",
+      "sha256": "6203703aeaf46ab5fd94d64c474b878c26f39b97bc4c3f7a3840f9ee9a48bdc5"
+    },
+    {
+      "path": "运行日志/业务调用.jsonl",
+      "sha256": "91fc9bb4b29ad5347770a9e5e5a21b38b9c414c04a2e484e84b5dd981db87bd7"
+    }
+  ],
+  "cleanup": {
+    "status": "unchanged",
+    "description": "坏包被拒绝，列表数量不变；未产生残留对象",
+    "read_refs": [
+      "business-d425b765-7387-4765-9c54-ffda37183ea9-7"
+    ]
+  },
+  "business_call_refs": [
+    "CALL-c85e5799-c6bd-4c68-96b8-b0a73e6e1168"
+  ],
+  "notes": "校验提示原文：所选内容不是有效的专家包：需要包含 agent.md 和 metadata.json；明确指出 agent.md 缺失"
+}

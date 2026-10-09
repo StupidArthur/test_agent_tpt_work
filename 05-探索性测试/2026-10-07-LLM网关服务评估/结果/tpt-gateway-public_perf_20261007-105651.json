@@ -1,0 +1,1012 @@
+{
+  "run": {
+    "target": "tpt-gateway-public",
+    "module": "perf",
+    "items": [
+      "PERF-01",
+      "PERF-03"
+    ],
+    "ts": "20261007-105651",
+    "est_requests": 120,
+    "seconds": 51.203,
+    "key_present": true,
+    "base_url": "https://tpt.supcon.com/tpt-work-router/v1"
+  },
+  "instances": [
+    {
+      "instance_id": "PERF-01/tpt-gateway-public/short",
+      "item": "PERF-01",
+      "status": "通过",
+      "assertions": [
+        {
+          "name": "attempts_counted",
+          "expected": "30",
+          "actual": "30",
+          "satisfied": true
+        },
+        {
+          "name": "all_have_result",
+          "expected": "True",
+          "actual": "30 success / 30",
+          "satisfied": true
+        }
+      ],
+      "attempts": [],
+      "evidence": [
+        "perf/PERF-01_tpt-gateway-public.json"
+      ],
+      "notes": [
+        "测量完成与 SLO 达标分别记录（SLO 未确认则只出测量）"
+      ],
+      "metrics": {
+        "samples": 30,
+        "success": 30,
+        "success_rate": 1.0,
+        "e2e_success": {
+          "n": 30,
+          "mean": 0.380767,
+          "p50": 0.359,
+          "p95": 0.422,
+          "min": 0.297,
+          "max": 1.203
+        },
+        "warmup": 1,
+        "per_sample": [
+          {
+            "i": 0,
+            "ok": true,
+            "http": 200,
+            "error_kind": null,
+            "e2e": 0.343,
+            "t_headers": 0.343,
+            "t_first_frame": 0.343,
+            "t_first_text": 0.343,
+            "terminal": "completed",
+            "usage": {
+              "input_tokens": 12,
+              "input_tokens_details": {
+                "cached_tokens": 0,
+                "input_tokens_per_turn": [],
+                "cached_tokens_per_turn": []
+              },
+              "output_tokens": 19,
+              "output_tokens_details": {
+                "reasoning_tokens": 0,
+                "tool_output_tokens": 0,
+                "output_tokens_per_turn": [],
+                "tool_output_tokens_per_turn": []
+              },
+              "total_tokens": 31
+            }
+          },
+          {
+            "i": 1,
+            "ok": true,
+            "http": 200,
+            "error_kind": null,
+            "e2e": 0.375,
+            "t_headers": 0.375,
+            "t_first_frame": 0.375,
+            "t_first_text": 0.375,
+            "terminal": "completed",
+            "usage": {
+              "input_tokens": 12,
+              "input_tokens_details": {
+                "cached_tokens": 0,
+                "input_tokens_per_turn": [],
+                "cached_tokens_per_turn": []
+              },
+              "output_tokens": 22,
+              "output_tokens_details": {
+                "reasoning_tokens": 0,
+                "tool_output_tokens": 0,
+                "output_tokens_per_turn": [],
+                "tool_output_tokens_per_turn": []
+              },
+              "total_tokens": 34
+            }
+          },
+          {
+            "i": 2,
+            "ok": true,
+            "http": 200,
+            "error_kind": null,
+            "e2e": 0.36,
+            "t_headers": 0.36,
+            "t_first_frame": 0.36,
+            "t_first_text": 0.36,
+            "terminal": "completed",
+            "usage": {
+              "input_tokens": 12,
+              "input_tokens_details": {
+                "cached_tokens": 0,
+                "input_tokens_per_turn": [],
+                "cached_tokens_per_turn": []
+              },
+              "output_tokens": 19,
+              "output_tokens_details": {
+                "reasoning_tokens": 0,
+                "tool_output_tokens": 0,
+                "output_tokens_per_turn": [],
+                "tool_output_tokens_per_turn": []
+              },
+              "total_tokens": 31
+            }
+          },
+          {
+            "i": 3,
+            "ok": true,
+            "http": 200,
+            "error_kind": null,
+            "e2e": 0.312,
+            "t_headers": 0.312,
+            "t_first_frame": 0.312,
+            "t_first_text": 0.312,
+            "terminal": "completed",
+            "usage": {
+              "input_tokens": 12,
+              "input_tokens_details": {
+                "cached_tokens": 0,
+                "input_tokens_per_turn": [],
+                "cached_tokens_per_turn": []
+              },
+              "output_tokens": 14,
+              "output_tokens_details": {
+                "reasoning_tokens": 0,
+                "tool_output_tokens": 0,
+                "output_tokens_per_turn": [],
+                "tool_output_tokens_per_turn": []
+              },
+              "total_tokens": 26
+            }
+          },
+          {
+            "i": 4,
+            "ok": true,
+            "http": 200,
+            "error_kind": null,
+            "e2e": 0.36,
+            "t_headers": 0.36,
+            "t_first_frame": 0.36,
+            "t_first_text": 0.36,
+            "terminal": "completed",
+            "usage": {
+              "input_tokens": 12,
+              "input_tokens_details": {
+                "cached_tokens": 0,
+                "input_tokens_per_turn": [],
+                "cached_tokens_per_turn": []
+              },
+              "output_tokens": 21,
+              "output_tokens_details": {
+                "reasoning_tokens": 0,
+                "tool_output_tokens": 0,
+                "output_tokens_per_turn": [],
+                "tool_output_tokens_per_turn": []
+              },
+              "total_tokens": 33
+            }
+          },
+          {
+            "i": 5,
+            "ok": true,
+            "http": 200,
+            "error_kind": null,
+            "e2e": 0.328,
+            "t_headers": 0.328,
+            "t_first_frame": 0.328,
+            "t_first_text": 0.328,
+            "terminal": "completed",
+            "usage": {
+              "input_tokens": 12,
+              "input_tokens_details": {
+                "cached_tokens": 0,
+                "input_tokens_per_turn": [],
+                "cached_tokens_per_turn": []
+              },
+              "output_tokens": 16,
+              "output_tokens_details": {
+                "reasoning_tokens": 0,
+                "tool_output_tokens": 0,
+                "output_tokens_per_turn": [],
+                "tool_output_tokens_per_turn": []
+              },
+              "total_tokens": 28
+            }
+          },
+          {
+            "i": 6,
+            "ok": true,
+            "http": 200,
+            "error_kind": null,
+            "e2e": 0.297,
+            "t_headers": 0.297,
+            "t_first_frame": 0.297,
+            "t_first_text": 0.297,
+            "terminal": "completed",
+            "usage": {
+              "input_tokens": 12,
+              "input_tokens_details": {
+                "cached_tokens": 0,
+                "input_tokens_per_turn": [],
+                "cached_tokens_per_turn": []
+              },
+              "output_tokens": 14,
+              "output_tokens_details": {
+                "reasoning_tokens": 0,
+                "tool_output_tokens": 0,
+                "output_tokens_per_turn": [],
+                "tool_output_tokens_per_turn": []
+              },
+              "total_tokens": 26
+            }
+          },
+          {
+            "i": 7,
+            "ok": true,
+            "http": 200,
+            "error_kind": null,
+            "e2e": 1.203,
+            "t_headers": 0.75,
+            "t_first_frame": 0.75,
+            "t_first_text": 1.203,
+            "terminal": "completed",
+            "usage": {
+              "input_tokens": 12,
+              "input_tokens_details": {
+                "cached_tokens": 0,
+                "input_tokens_per_turn": [],
+                "cached_tokens_per_turn": []
+              },
+              "output_tokens": 136,
+              "output_tokens_details": {
+                "reasoning_tokens": 0,
+                "tool_output_tokens": 0,
+                "output_tokens_per_turn": [],
+                "tool_output_tokens_per_turn": []
+              },
+              "total_tokens": 148
+            }
+          },
+          {
+            "i": 8,
+            "ok": true,
+            "http": 200,
+            "error_kind": null,
+            "e2e": 0.39,
+            "t_headers": 0.39,
+            "t_first_frame": 0.39,
+            "t_first_text": 0.39,
+            "terminal": "completed",
+            "usage": {
+              "input_tokens": 12,
+              "input_tokens_details": {
+                "cached_tokens": 0,
+                "input_tokens_per_turn": [],
+                "cached_tokens_per_turn": []
+              },
+              "output_tokens": 14,
+              "output_tokens_details": {
+                "reasoning_tokens": 0,
+                "tool_output_tokens": 0,
+                "output_tokens_per_turn": [],
+                "tool_output_tokens_per_turn": []
+              },
+              "total_tokens": 26
+            }
+          },
+          {
+            "i": 9,
+            "ok": true,
+            "http": 200,
+            "error_kind": null,
+            "e2e": 0.328,
+            "t_headers": 0.328,
+            "t_first_frame": 0.328,
+            "t_first_text": 0.328,
+            "terminal": "completed",
+            "usage": {
+              "input_tokens": 12,
+              "input_tokens_details": {
+                "cached_tokens": 0,
+                "input_tokens_per_turn": [],
+                "cached_tokens_per_turn": []
+              },
+              "output_tokens": 14,
+              "output_tokens_details": {
+                "reasoning_tokens": 0,
+                "tool_output_tokens": 0,
+                "output_tokens_per_turn": [],
+                "tool_output_tokens_per_turn": []
+              },
+              "total_tokens": 26
+            }
+          },
+          {
+            "i": 10,
+            "ok": true,
+            "http": 200,
+            "error_kind": null,
+            "e2e": 0.313,
+            "t_headers": 0.313,
+            "t_first_frame": 0.313,
+            "t_first_text": 0.313,
+            "terminal": "completed",
+            "usage": {
+              "input_tokens": 12,
+              "input_tokens_details": {
+                "cached_tokens": 0,
+                "input_tokens_per_turn": [],
+                "cached_tokens_per_turn": []
+              },
+              "output_tokens": 14,
+              "output_tokens_details": {
+                "reasoning_tokens": 0,
+                "tool_output_tokens": 0,
+                "output_tokens_per_turn": [],
+                "tool_output_tokens_per_turn": []
+              },
+              "total_tokens": 26
+            }
+          },
+          {
+            "i": 11,
+            "ok": true,
+            "http": 200,
+            "error_kind": null,
+            "e2e": 0.422,
+            "t_headers": 0.422,
+            "t_first_frame": 0.422,
+            "t_first_text": 0.422,
+            "terminal": "completed",
+            "usage": {
+              "input_tokens": 12,
+              "input_tokens_details": {
+                "cached_tokens": 0,
+                "input_tokens_per_turn": [],
+                "cached_tokens_per_turn": []
+              },
+              "output_tokens": 27,
+              "output_tokens_details": {
+                "reasoning_tokens": 0,
+                "tool_output_tokens": 0,
+                "output_tokens_per_turn": [],
+                "tool_output_tokens_per_turn": []
+              },
+              "total_tokens": 39
+            }
+          },
+          {
+            "i": 12,
+            "ok": true,
+            "http": 200,
+            "error_kind": null,
+            "e2e": 0.344,
+            "t_headers": 0.344,
+            "t_first_frame": 0.344,
+            "t_first_text": 0.344,
+            "terminal": "completed",
+            "usage": {
+              "input_tokens": 12,
+              "input_tokens_details": {
+                "cached_tokens": 0,
+                "input_tokens_per_turn": [],
+                "cached_tokens_per_turn": []
+              },
+              "output_tokens": 17,
+              "output_tokens_details": {
+                "reasoning_tokens": 0,
+                "tool_output_tokens": 0,
+                "output_tokens_per_turn": [],
+                "tool_output_tokens_per_turn": []
+              },
+              "total_tokens": 29
+            }
+          },
+          {
+            "i": 13,
+            "ok": true,
+            "http": 200,
+            "error_kind": null,
+            "e2e": 0.328,
+            "t_headers": 0.328,
+            "t_first_frame": 0.328,
+            "t_first_text": 0.328,
+            "terminal": "completed",
+            "usage": {
+              "input_tokens": 12,
+              "input_tokens_details": {
+                "cached_tokens": 0,
+                "input_tokens_per_turn": [],
+                "cached_tokens_per_turn": []
+              },
+              "output_tokens": 14,
+              "output_tokens_details": {
+                "reasoning_tokens": 0,
+                "tool_output_tokens": 0,
+                "output_tokens_per_turn": [],
+                "tool_output_tokens_per_turn": []
+              },
+              "total_tokens": 26
+            }
+          },
+          {
+            "i": 14,
+            "ok": true,
+            "http": 200,
+            "error_kind": null,
+            "e2e": 0.328,
+            "t_headers": 0.328,
+            "t_first_frame": 0.328,
+            "t_first_text": 0.328,
+            "terminal": "completed",
+            "usage": {
+              "input_tokens": 12,
+              "input_tokens_details": {
+                "cached_tokens": 0,
+                "input_tokens_per_turn": [],
+                "cached_tokens_per_turn": []
+              },
+              "output_tokens": 14,
+              "output_tokens_details": {
+                "reasoning_tokens": 0,
+                "tool_output_tokens": 0,
+                "output_tokens_per_turn": [],
+                "tool_output_tokens_per_turn": []
+              },
+              "total_tokens": 26
+            }
+          },
+          {
+            "i": 15,
+            "ok": true,
+            "http": 200,
+            "error_kind": null,
+            "e2e": 0.36,
+            "t_headers": 0.36,
+            "t_first_frame": 0.36,
+            "t_first_text": 0.36,
+            "terminal": "completed",
+            "usage": {
+              "input_tokens": 12,
+              "input_tokens_details": {
+                "cached_tokens": 0,
+                "input_tokens_per_turn": [],
+                "cached_tokens_per_turn": []
+              },
+              "output_tokens": 19,
+              "output_tokens_details": {
+                "reasoning_tokens": 0,
+                "tool_output_tokens": 0,
+                "output_tokens_per_turn": [],
+                "tool_output_tokens_per_turn": []
+              },
+              "total_tokens": 31
+            }
+          },
+          {
+            "i": 16,
+            "ok": true,
+            "http": 200,
+            "error_kind": null,
+            "e2e": 0.36,
+            "t_headers": 0.36,
+            "t_first_frame": 0.36,
+            "t_first_text": 0.36,
+            "terminal": "completed",
+            "usage": {
+              "input_tokens": 12,
+              "input_tokens_details": {
+                "cached_tokens": 0,
+                "input_tokens_per_turn": [],
+                "cached_tokens_per_turn": []
+              },
+              "output_tokens": 19,
+              "output_tokens_details": {
+                "reasoning_tokens": 0,
+                "tool_output_tokens": 0,
+                "output_tokens_per_turn": [],
+                "tool_output_tokens_per_turn": []
+              },
+              "total_tokens": 31
+            }
+          },
+          {
+            "i": 17,
+            "ok": true,
+            "http": 200,
+            "error_kind": null,
+            "e2e": 0.359,
+            "t_headers": 0.359,
+            "t_first_frame": 0.359,
+            "t_first_text": 0.359,
+            "terminal": "completed",
+            "usage": {
+              "input_tokens": 12,
+              "input_tokens_details": {
+                "cached_tokens": 0,
+                "input_tokens_per_turn": [],
+                "cached_tokens_per_turn": []
+              },
+              "output_tokens": 17,
+              "output_tokens_details": {
+                "reasoning_tokens": 0,
+                "tool_output_tokens": 0,
+                "output_tokens_per_turn": [],
+                "tool_output_tokens_per_turn": []
+              },
+              "total_tokens": 29
+            }
+          },
+          {
+            "i": 18,
+            "ok": true,
+            "http": 200,
+            "error_kind": null,
+            "e2e": 0.36,
+            "t_headers": 0.36,
+            "t_first_frame": 0.36,
+            "t_first_text": 0.36,
+            "terminal": "completed",
+            "usage": {
+              "input_tokens": 12,
+              "input_tokens_details": {
+                "cached_tokens": 0,
+                "input_tokens_per_turn": [],
+                "cached_tokens_per_turn": []
+              },
+              "output_tokens": 18,
+              "output_tokens_details": {
+                "reasoning_tokens": 0,
+                "tool_output_tokens": 0,
+                "output_tokens_per_turn": [],
+                "tool_output_tokens_per_turn": []
+              },
+              "total_tokens": 30
+            }
+          },
+          {
+            "i": 19,
+            "ok": true,
+            "http": 200,
+            "error_kind": null,
+            "e2e": 0.328,
+            "t_headers": 0.328,
+            "t_first_frame": 0.328,
+            "t_first_text": 0.328,
+            "terminal": "completed",
+            "usage": {
+              "input_tokens": 12,
+              "input_tokens_details": {
+                "cached_tokens": 0,
+                "input_tokens_per_turn": [],
+                "cached_tokens_per_turn": []
+              },
+              "output_tokens": 14,
+              "output_tokens_details": {
+                "reasoning_tokens": 0,
+                "tool_output_tokens": 0,
+                "output_tokens_per_turn": [],
+                "tool_output_tokens_per_turn": []
+              },
+              "total_tokens": 26
+            }
+          },
+          {
+            "i": 20,
+            "ok": true,
+            "http": 200,
+            "error_kind": null,
+            "e2e": 0.39,
+            "t_headers": 0.39,
+            "t_first_frame": 0.39,
+            "t_first_text": 0.39,
+            "terminal": "completed",
+            "usage": {
+              "input_tokens": 12,
+              "input_tokens_details": {
+                "cached_tokens": 0,
+                "input_tokens_per_turn": [],
+                "cached_tokens_per_turn": []
+              },
+              "output_tokens": 21,
+              "output_tokens_details": {
+                "reasoning_tokens": 0,
+                "tool_output_tokens": 0,
+                "output_tokens_per_turn": [],
+                "tool_output_tokens_per_turn": []
+              },
+              "total_tokens": 33
+            }
+          },
+          {
+            "i": 21,
+            "ok": true,
+            "http": 200,
+            "error_kind": null,
+            "e2e": 0.344,
+            "t_headers": 0.344,
+            "t_first_frame": 0.344,
+            "t_first_text": 0.344,
+            "terminal": "completed",
+            "usage": {
+              "input_tokens": 12,
+              "input_tokens_details": {
+                "cached_tokens": 0,
+                "input_tokens_per_turn": [],
+                "cached_tokens_per_turn": []
+              },
+              "output_tokens": 17,
+              "output_tokens_details": {
+                "reasoning_tokens": 0,
+                "tool_output_tokens": 0,
+                "output_tokens_per_turn": [],
+                "tool_output_tokens_per_turn": []
+              },
+              "total_tokens": 29
+            }
+          },
+          {
+            "i": 22,
+            "ok": true,
+            "http": 200,
+            "error_kind": null,
+            "e2e": 0.328,
+            "t_headers": 0.328,
+            "t_first_frame": 0.328,
+            "t_first_text": 0.328,
+            "terminal": "completed",
+            "usage": {
+              "input_tokens": 12,
+              "input_tokens_details": {
+                "cached_tokens": 0,
+                "input_tokens_per_turn": [],
+                "cached_tokens_per_turn": []
+              },
+              "output_tokens": 15,
+              "output_tokens_details": {
+                "reasoning_tokens": 0,
+                "tool_output_tokens": 0,
+                "output_tokens_per_turn": [],
+                "tool_output_tokens_per_turn": []
+              },
+              "total_tokens": 27
+            }
+          },
+          {
+            "i": 23,
+            "ok": true,
+            "http": 200,
+            "error_kind": null,
+            "e2e": 0.406,
+            "t_headers": 0.406,
+            "t_first_frame": 0.406,
+            "t_first_text": 0.406,
+            "terminal": "completed",
+            "usage": {
+              "input_tokens": 12,
+              "input_tokens_details": {
+                "cached_tokens": 0,
+                "input_tokens_per_turn": [],
+                "cached_tokens_per_turn": []
+              },
+              "output_tokens": 24,
+              "output_tokens_details": {
+                "reasoning_tokens": 0,
+                "tool_output_tokens": 0,
+                "output_tokens_per_turn": [],
+                "tool_output_tokens_per_turn": []
+              },
+              "total_tokens": 36
+            }
+          },
+          {
+            "i": 24,
+            "ok": true,
+            "http": 200,
+            "error_kind": null,
+            "e2e": 0.391,
+            "t_headers": 0.391,
+            "t_first_frame": 0.391,
+            "t_first_text": 0.391,
+            "terminal": "completed",
+            "usage": {
+              "input_tokens": 12,
+              "input_tokens_details": {
+                "cached_tokens": 0,
+                "input_tokens_per_turn": [],
+                "cached_tokens_per_turn": []
+              },
+              "output_tokens": 22,
+              "output_tokens_details": {
+                "reasoning_tokens": 0,
+                "tool_output_tokens": 0,
+                "output_tokens_per_turn": [],
+                "tool_output_tokens_per_turn": []
+              },
+              "total_tokens": 34
+            }
+          },
+          {
+            "i": 25,
+            "ok": true,
+            "http": 200,
+            "error_kind": null,
+            "e2e": 0.375,
+            "t_headers": 0.375,
+            "t_first_frame": 0.375,
+            "t_first_text": 0.375,
+            "terminal": "completed",
+            "usage": {
+              "input_tokens": 12,
+              "input_tokens_details": {
+                "cached_tokens": 0,
+                "input_tokens_per_turn": [],
+                "cached_tokens_per_turn": []
+              },
+              "output_tokens": 22,
+              "output_tokens_details": {
+                "reasoning_tokens": 0,
+                "tool_output_tokens": 0,
+                "output_tokens_per_turn": [],
+                "tool_output_tokens_per_turn": []
+              },
+              "total_tokens": 34
+            }
+          },
+          {
+            "i": 26,
+            "ok": true,
+            "http": 200,
+            "error_kind": null,
+            "e2e": 0.359,
+            "t_headers": 0.359,
+            "t_first_frame": 0.359,
+            "t_first_text": 0.359,
+            "terminal": "completed",
+            "usage": {
+              "input_tokens": 12,
+              "input_tokens_details": {
+                "cached_tokens": 0,
+                "input_tokens_per_turn": [],
+                "cached_tokens_per_turn": []
+              },
+              "output_tokens": 17,
+              "output_tokens_details": {
+                "reasoning_tokens": 0,
+                "tool_output_tokens": 0,
+                "output_tokens_per_turn": [],
+                "tool_output_tokens_per_turn": []
+              },
+              "total_tokens": 29
+            }
+          },
+          {
+            "i": 27,
+            "ok": true,
+            "http": 200,
+            "error_kind": null,
+            "e2e": 0.344,
+            "t_headers": 0.344,
+            "t_first_frame": 0.344,
+            "t_first_text": 0.344,
+            "terminal": "completed",
+            "usage": {
+              "input_tokens": 12,
+              "input_tokens_details": {
+                "cached_tokens": 0,
+                "input_tokens_per_turn": [],
+                "cached_tokens_per_turn": []
+              },
+              "output_tokens": 19,
+              "output_tokens_details": {
+                "reasoning_tokens": 0,
+                "tool_output_tokens": 0,
+                "output_tokens_per_turn": [],
+                "tool_output_tokens_per_turn": []
+              },
+              "total_tokens": 31
+            }
+          },
+          {
+            "i": 28,
+            "ok": true,
+            "http": 200,
+            "error_kind": null,
+            "e2e": 0.375,
+            "t_headers": 0.375,
+            "t_first_frame": 0.375,
+            "t_first_text": 0.375,
+            "terminal": "completed",
+            "usage": {
+              "input_tokens": 12,
+              "input_tokens_details": {
+                "cached_tokens": 0,
+                "input_tokens_per_turn": [],
+                "cached_tokens_per_turn": []
+              },
+              "output_tokens": 22,
+              "output_tokens_details": {
+                "reasoning_tokens": 0,
+                "tool_output_tokens": 0,
+                "output_tokens_per_turn": [],
+                "tool_output_tokens_per_turn": []
+              },
+              "total_tokens": 34
+            }
+          },
+          {
+            "i": 29,
+            "ok": true,
+            "http": 200,
+            "error_kind": null,
+            "e2e": 0.313,
+            "t_headers": 0.313,
+            "t_first_frame": 0.313,
+            "t_first_text": 0.313,
+            "terminal": "completed",
+            "usage": {
+              "input_tokens": 12,
+              "input_tokens_details": {
+                "cached_tokens": 0,
+                "input_tokens_per_turn": [],
+                "cached_tokens_per_turn": []
+              },
+              "output_tokens": 14,
+              "output_tokens_details": {
+                "reasoning_tokens": 0,
+                "tool_output_tokens": 0,
+                "output_tokens_per_turn": [],
+                "tool_output_tokens_per_turn": []
+              },
+              "total_tokens": 26
+            }
+          }
+        ]
+      },
+      "failure_attribution": null
+    },
+    {
+      "instance_id": "PERF-03/tpt-gateway-public/long",
+      "item": "PERF-03",
+      "status": "通过",
+      "assertions": [
+        {
+          "name": "attempts_counted",
+          "expected": "10",
+          "actual": "10",
+          "satisfied": true
+        }
+      ],
+      "attempts": [],
+      "evidence": [
+        "perf/PERF-03_tpt-gateway-public.json"
+      ],
+      "notes": [],
+      "metrics": {
+        "samples": 10,
+        "success": 10,
+        "success_rate": 1.0,
+        "e2e_all": {
+          "n": 10,
+          "mean": 3.9328,
+          "p50": 3.907,
+          "p95": 4.016,
+          "min": 3.875,
+          "max": 4.016
+        },
+        "output_tok_per_s": {
+          "n": 10,
+          "mean": 130.203967,
+          "p50": 130.04826,
+          "p95": 132.129032,
+          "min": 127.49004,
+          "max": 132.129032
+        },
+        "per_sample": [
+          {
+            "i": 0,
+            "ok": true,
+            "http": 200,
+            "error_kind": null,
+            "e2e": 3.937,
+            "terminal": "completed",
+            "output_tokens": 512,
+            "output_tok_per_s": 130.0483
+          },
+          {
+            "i": 1,
+            "ok": true,
+            "http": 200,
+            "error_kind": null,
+            "e2e": 3.969,
+            "terminal": "completed",
+            "output_tokens": 512,
+            "output_tok_per_s": 128.9997
+          },
+          {
+            "i": 2,
+            "ok": true,
+            "http": 200,
+            "error_kind": null,
+            "e2e": 3.953,
+            "terminal": "completed",
+            "output_tokens": 512,
+            "output_tok_per_s": 129.5219
+          },
+          {
+            "i": 3,
+            "ok": true,
+            "http": 200,
+            "error_kind": null,
+            "e2e": 3.984,
+            "terminal": "completed",
+            "output_tokens": 512,
+            "output_tok_per_s": 128.5141
+          },
+          {
+            "i": 4,
+            "ok": true,
+            "http": 200,
+            "error_kind": null,
+            "e2e": 4.016,
+            "terminal": "completed",
+            "output_tokens": 512,
+            "output_tok_per_s": 127.49
+          },
+          {
+            "i": 5,
+            "ok": true,
+            "http": 200,
+            "error_kind": null,
+            "e2e": 3.875,
+            "terminal": "completed",
+            "output_tokens": 512,
+            "output_tok_per_s": 132.129
+          },
+          {
+            "i": 6,
+            "ok": true,
+            "http": 200,
+            "error_kind": null,
+            "e2e": 3.906,
+            "terminal": "completed",
+            "output_tokens": 512,
+            "output_tok_per_s": 131.0804
+          },
+          {
+            "i": 7,
+            "ok": true,
+            "http": 200,
+            "error_kind": null,
+            "e2e": 3.875,
+            "terminal": "completed",
+            "output_tokens": 512,
+            "output_tok_per_s": 132.129
+          },
+          {
+            "i": 8,
+            "ok": true,
+            "http": 200,
+            "error_kind": null,
+            "e2e": 3.906,
+            "terminal": "completed",
+            "output_tokens": 512,
+            "output_tok_per_s": 131.0804
+          },
+          {
+            "i": 9,
+            "ok": true,
+            "http": 200,
+            "error_kind": null,
+            "e2e": 3.907,
+            "terminal": "completed",
+            "output_tokens": 512,
+            "output_tok_per_s": 131.0468
+          }
+        ]
+      },
+      "failure_attribution": null
+    }
+  ]
+}

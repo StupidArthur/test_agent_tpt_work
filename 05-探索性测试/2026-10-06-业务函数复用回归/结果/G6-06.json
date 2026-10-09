@@ -1,0 +1,74 @@
+{
+  "case_id": "G6-06",
+  "contract_version": "2.0",
+  "attempt_id": "fn-20261006-agent2-G6-06-A1",
+  "environment_id": "env-fn-20261006-agent2",
+  "object_identity": {
+    "permission_initial": "工作区内修改"
+  },
+  "inputs": [
+    "默认权限 仅可查看 下新建空白任务读权限标签；恢复默认后再建新任务读"
+  ],
+  "action_refs": [
+    "business-80c75424-8ee9-4910-8aaa-c51fdf86eb99-2",
+    "business-91738dcb-9dee-479b-8353-58203d1924d8-2",
+    "business-9b3232f4-b59f-48f7-94a1-0035c4529755-2"
+  ],
+  "status": "失败",
+  "started_at": "2026-10-06T08:16:51.038Z",
+  "ended_at": "2026-10-06T08:18:06.244Z",
+  "actual_steps": [
+    "默认权限=仅可查看 时新建空白任务读权限标签",
+    "恢复默认权限为 工作区内修改 并独立回读",
+    "再次新建空白任务读权限标签"
+  ],
+  "assertions": [
+    {
+      "id": "G6-06-A1",
+      "actual": "仅可查看",
+      "read_refs": [
+        "business-50aff7c0-006a-4356-892c-213ede1df20c-1"
+      ]
+    },
+    {
+      "id": "G6-06-A2",
+      "actual": "工作区内修改",
+      "read_refs": [
+        "business-330232b3-206f-49b4-a7f8-f663beb6b3b2-3"
+      ]
+    },
+    {
+      "id": "G6-06-A3",
+      "actual": "仅可查看",
+      "read_refs": [
+        "business-37a16057-840c-4ac3-bc3e-2b49e3c70ae0-1"
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "path": "运行日志/business.jsonl",
+      "sha256": "6203703aeaf46ab5fd94d64c474b878c26f39b97bc4c3f7a3840f9ee9a48bdc5"
+    },
+    {
+      "path": "运行日志/业务调用.jsonl",
+      "sha256": "91fc9bb4b29ad5347770a9e5e5a21b38b9c414c04a2e484e84b5dd981db87bd7"
+    }
+  ],
+  "cleanup": {
+    "status": "restored",
+    "description": "默认权限设置已恢复为初值 工作区内修改（A2 已独立回读）",
+    "read_refs": [
+      "business-330232b3-206f-49b4-a7f8-f663beb6b3b2-3"
+    ]
+  },
+  "business_call_refs": [
+    "CALL-e835ce1b-a094-49e3-98ae-49cba5882e92",
+    "CALL-3f0f6a39-fbd7-4583-8702-686068768a41",
+    "CALL-9ab0b71b-9afa-44fe-8702-6087be4885a4",
+    "CALL-27617d86-58c5-4894-8ab3-058fc07e9747",
+    "CALL-838ddba2-91d3-40af-9bf5-877f7ef1c437",
+    "CALL-97581fef-708b-4008-af69-9e14ca29f08b"
+  ],
+  "notes": "A3 判失败：设置项已恢复为 工作区内修改，但新建空白任务（新会话 session-22333ba5）权限标签仍为 仅可查看，默认权限未对该新任务生效。未手工更改任务权限。两次强制新建（CALL-1fea2dcd/CALL-5818bae4）结果一致"
+}

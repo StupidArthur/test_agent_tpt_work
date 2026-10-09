@@ -1,0 +1,368 @@
+{
+  "request": {
+    "model": "flash",
+    "input": [
+      {
+        "role": "user",
+        "content": [
+          {
+            "type": "input_text",
+            "text": "调用 add_numbers，参数 a=17 b=25。"
+          }
+        ]
+      }
+    ],
+    "stream": true,
+    "max_output_tokens": 1024,
+    "tools": [
+      {
+        "type": "function",
+        "name": "add_numbers",
+        "description": "Add two integers and return the sum.",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "a": {
+              "type": "integer"
+            },
+            "b": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "a",
+            "b"
+          ]
+        }
+      }
+    ],
+    "tool_choice": "required",
+    "reasoning": {
+      "effort": "low"
+    }
+  },
+  "response": {
+    "http_status": 200,
+    "error_kind": null,
+    "error": null,
+    "t_headers": 0.922,
+    "t_first_frame": 0.922,
+    "t_end": 0.922,
+    "is_event_stream": true,
+    "terminal": "completed",
+    "text": "",
+    "final_text": null,
+    "usage": {
+      "input_tokens": 330,
+      "input_tokens_details": {
+        "cached_tokens": 256,
+        "input_tokens_per_turn": [],
+        "cached_tokens_per_turn": []
+      },
+      "output_tokens": 80,
+      "output_tokens_details": {
+        "reasoning_tokens": 0,
+        "tool_output_tokens": 0,
+        "output_tokens_per_turn": [],
+        "tool_output_tokens_per_turn": []
+      },
+      "total_tokens": 410
+    }
+  },
+  "body_text": "",
+  "frames": [
+    {
+      "t": 223360.734,
+      "event": "response.created",
+      "data": "{\"response\":{\"id\":\"resp_a76ba3f59bb1494f\",\"created_at\":1791354751,\"incomplete_details\":null,\"instructions\":null,\"metadata\":null,\"model\":\"flash\",\"object\":\"response\",\"output\":[],\"parallel_tool_calls\":true,\"temperature\":1.0,\"tool_choice\":\"required\",\"tools\":[{\"name\":\"add_numbers\",\"parameters\":{\"properties\":{\"a\":{\"type\":\"integer\"},\"b\":{\"type\":\"integer\"}},\"required\":[\"a\",\"b\"],\"type\":\"object\"},\"strict\":null,\"type\":\"function\",\"allowed_callers\":null,\"defer_loading\":null,\"description\":\"Add two integers and return the sum.\",\"output_schema\":null}],\"top_p\":1.0,\"background\":false,\"max_output_tokens\":1024,\"max_tool_calls\":null,\"previous_response_id\":null,\"prompt\":null,\"reasoning\":{\"context\":null,\"effort\":\"low\",\"generate_summary\":null,\"mode\":null,\"summary\":null},\"service_tier\":\"auto\",\"status\":\"in_progress\",\"text\":null,\"top_logprobs\":null,\"truncation\":\"disabled\",\"usage\":null,\"user\":null,\"presence_penalty\":0.0,\"frequency_penalty\":0.0,\"kv_transfer_params\":null,\"ec_transfer_params\":null,\"input_messages\":null,\"output_messages\":null},\"sequence_number\":0,\"type\":\"response.created\"}",
+      "raw": "event: response.created\ndata: {\"response\":{\"id\":\"resp_a76ba3f59bb1494f\",\"created_at\":1791354751,\"incomplete_details\":null,\"instructions\":null,\"metadata\":null,\"model\":\"flash\",\"object\":\"response\",\"output\":[],\"parallel_tool_calls\":true,\"temperature\":1.0,\"tool_choice\":\"required\",\"tools\":[{\"name\":\"add_numbers\",\"parameters\":{\"properties\":{\"a\":{\"type\":\"integer\"},\"b\":{\"type\":\"integer\"}},\"required\":[\"a\",\"b\"],\"type\":\"object\"},\"strict\":null,\"type\":\"function\",\"allowed_callers\":null,\"defer_loading\":null,\"description\":\"Add two integers and return the sum.\",\"output_schema\":null}],\"top_p\":1.0,\"background\":false,\"max_output_tokens\":1024,\"max_tool_calls\":null,\"previous_response_id\":null,\"prompt\":null,\"reasoning\":{\"context\":null,\"effort\":\"low\",\"generate_summary\":null,\"mode\":null,\"summary\":null},\"service_tier\":\"auto\",\"status\":\"in_progress\",\"text\":null,\"top_logprobs\":null,\"truncation\":\"disabled\",\"usage\":null,\"user\":null,\"presence_penalty\":0.0,\"frequency_penalty\":0.0,\"kv_transfer_params\":null,\"ec_transfer_params\":null,\"input_messages\":null,\"output_messages\":null},\"sequence_number\":0,\"type\":\"response.created\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223360.734,
+      "event": "response.in_progress",
+      "data": "{\"response\":{\"id\":\"resp_a76ba3f59bb1494f\",\"created_at\":1791354751,\"incomplete_details\":null,\"instructions\":null,\"metadata\":null,\"model\":\"flash\",\"object\":\"response\",\"output\":[],\"parallel_tool_calls\":true,\"temperature\":1.0,\"tool_choice\":\"required\",\"tools\":[{\"name\":\"add_numbers\",\"parameters\":{\"properties\":{\"a\":{\"type\":\"integer\"},\"b\":{\"type\":\"integer\"}},\"required\":[\"a\",\"b\"],\"type\":\"object\"},\"strict\":null,\"type\":\"function\",\"allowed_callers\":null,\"defer_loading\":null,\"description\":\"Add two integers and return the sum.\",\"output_schema\":null}],\"top_p\":1.0,\"background\":false,\"max_output_tokens\":1024,\"max_tool_calls\":null,\"previous_response_id\":null,\"prompt\":null,\"reasoning\":{\"context\":null,\"effort\":\"low\",\"generate_summary\":null,\"mode\":null,\"summary\":null},\"service_tier\":\"auto\",\"status\":\"in_progress\",\"text\":null,\"top_logprobs\":null,\"truncation\":\"disabled\",\"usage\":null,\"user\":null,\"presence_penalty\":0.0,\"frequency_penalty\":0.0,\"kv_transfer_params\":null,\"ec_transfer_params\":null,\"input_messages\":null,\"output_messages\":null},\"sequence_number\":1,\"type\":\"response.in_progress\"}",
+      "raw": "event: response.in_progress\ndata: {\"response\":{\"id\":\"resp_a76ba3f59bb1494f\",\"created_at\":1791354751,\"incomplete_details\":null,\"instructions\":null,\"metadata\":null,\"model\":\"flash\",\"object\":\"response\",\"output\":[],\"parallel_tool_calls\":true,\"temperature\":1.0,\"tool_choice\":\"required\",\"tools\":[{\"name\":\"add_numbers\",\"parameters\":{\"properties\":{\"a\":{\"type\":\"integer\"},\"b\":{\"type\":\"integer\"}},\"required\":[\"a\",\"b\"],\"type\":\"object\"},\"strict\":null,\"type\":\"function\",\"allowed_callers\":null,\"defer_loading\":null,\"description\":\"Add two integers and return the sum.\",\"output_schema\":null}],\"top_p\":1.0,\"background\":false,\"max_output_tokens\":1024,\"max_tool_calls\":null,\"previous_response_id\":null,\"prompt\":null,\"reasoning\":{\"context\":null,\"effort\":\"low\",\"generate_summary\":null,\"mode\":null,\"summary\":null},\"service_tier\":\"auto\",\"status\":\"in_progress\",\"text\":null,\"top_logprobs\":null,\"truncation\":\"disabled\",\"usage\":null,\"user\":null,\"presence_penalty\":0.0,\"frequency_penalty\":0.0,\"kv_transfer_params\":null,\"ec_transfer_params\":null,\"input_messages\":null,\"output_messages\":null},\"sequence_number\":1,\"type\":\"response.in_progress\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223360.734,
+      "event": "response.output_item.added",
+      "data": "{\"item\":{\"id\":\"83a89877f31e13a3\",\"summary\":[],\"type\":\"reasoning\",\"content\":null,\"encrypted_content\":null,\"status\":\"in_progress\"},\"output_index\":0,\"sequence_number\":2,\"type\":\"response.output_item.added\"}",
+      "raw": "event: response.output_item.added\ndata: {\"item\":{\"id\":\"83a89877f31e13a3\",\"summary\":[],\"type\":\"reasoning\",\"content\":null,\"encrypted_content\":null,\"status\":\"in_progress\"},\"output_index\":0,\"sequence_number\":2,\"type\":\"response.output_item.added\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223360.734,
+      "event": "response.reasoning_part.added",
+      "data": "{\"content_index\":0,\"item_id\":\"83a89877f31e13a3\",\"output_index\":0,\"part\":{\"text\":\"\",\"type\":\"reasoning_text\"},\"sequence_number\":3,\"type\":\"response.reasoning_part.added\"}",
+      "raw": "event: response.reasoning_part.added\ndata: {\"content_index\":0,\"item_id\":\"83a89877f31e13a3\",\"output_index\":0,\"part\":{\"text\":\"\",\"type\":\"reasoning_text\"},\"sequence_number\":3,\"type\":\"response.reasoning_part.added\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223360.734,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"The\",\"item_id\":\"83a89877f31e13a3\",\"output_index\":0,\"sequence_number\":4,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"The\",\"item_id\":\"83a89877f31e13a3\",\"output_index\":0,\"sequence_number\":4,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223360.734,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\" user\",\"item_id\":\"83a89877f31e13a3\",\"output_index\":0,\"sequence_number\":5,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\" user\",\"item_id\":\"83a89877f31e13a3\",\"output_index\":0,\"sequence_number\":5,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223360.734,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\" wants\",\"item_id\":\"83a89877f31e13a3\",\"output_index\":0,\"sequence_number\":6,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\" wants\",\"item_id\":\"83a89877f31e13a3\",\"output_index\":0,\"sequence_number\":6,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223360.734,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\" me\",\"item_id\":\"83a89877f31e13a3\",\"output_index\":0,\"sequence_number\":7,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\" me\",\"item_id\":\"83a89877f31e13a3\",\"output_index\":0,\"sequence_number\":7,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223360.734,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\" to\",\"item_id\":\"83a89877f31e13a3\",\"output_index\":0,\"sequence_number\":8,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\" to\",\"item_id\":\"83a89877f31e13a3\",\"output_index\":0,\"sequence_number\":8,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223360.734,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\" call\",\"item_id\":\"83a89877f31e13a3\",\"output_index\":0,\"sequence_number\":9,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\" call\",\"item_id\":\"83a89877f31e13a3\",\"output_index\":0,\"sequence_number\":9,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223360.734,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\" add\",\"item_id\":\"83a89877f31e13a3\",\"output_index\":0,\"sequence_number\":10,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\" add\",\"item_id\":\"83a89877f31e13a3\",\"output_index\":0,\"sequence_number\":10,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223360.734,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"_numbers\",\"item_id\":\"83a89877f31e13a3\",\"output_index\":0,\"sequence_number\":11,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"_numbers\",\"item_id\":\"83a89877f31e13a3\",\"output_index\":0,\"sequence_number\":11,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223360.734,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\" with\",\"item_id\":\"83a89877f31e13a3\",\"output_index\":0,\"sequence_number\":12,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\" with\",\"item_id\":\"83a89877f31e13a3\",\"output_index\":0,\"sequence_number\":12,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223360.734,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\" a\",\"item_id\":\"83a89877f31e13a3\",\"output_index\":0,\"sequence_number\":13,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\" a\",\"item_id\":\"83a89877f31e13a3\",\"output_index\":0,\"sequence_number\":13,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223360.734,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"=\",\"item_id\":\"83a89877f31e13a3\",\"output_index\":0,\"sequence_number\":14,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"=\",\"item_id\":\"83a89877f31e13a3\",\"output_index\":0,\"sequence_number\":14,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223360.734,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"17\",\"item_id\":\"83a89877f31e13a3\",\"output_index\":0,\"sequence_number\":15,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"17\",\"item_id\":\"83a89877f31e13a3\",\"output_index\":0,\"sequence_number\":15,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223360.734,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\",\",\"item_id\":\"83a89877f31e13a3\",\"output_index\":0,\"sequence_number\":16,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\",\",\"item_id\":\"83a89877f31e13a3\",\"output_index\":0,\"sequence_number\":16,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223360.734,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\" b\",\"item_id\":\"83a89877f31e13a3\",\"output_index\":0,\"sequence_number\":17,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\" b\",\"item_id\":\"83a89877f31e13a3\",\"output_index\":0,\"sequence_number\":17,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223360.734,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"=\",\"item_id\":\"83a89877f31e13a3\",\"output_index\":0,\"sequence_number\":18,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"=\",\"item_id\":\"83a89877f31e13a3\",\"output_index\":0,\"sequence_number\":18,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223360.734,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"25\",\"item_id\":\"83a89877f31e13a3\",\"output_index\":0,\"sequence_number\":19,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"25\",\"item_id\":\"83a89877f31e13a3\",\"output_index\":0,\"sequence_number\":19,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223360.734,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\".\",\"item_id\":\"83a89877f31e13a3\",\"output_index\":0,\"sequence_number\":20,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\".\",\"item_id\":\"83a89877f31e13a3\",\"output_index\":0,\"sequence_number\":20,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223360.734,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\" Simple\",\"item_id\":\"83a89877f31e13a3\",\"output_index\":0,\"sequence_number\":21,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\" Simple\",\"item_id\":\"83a89877f31e13a3\",\"output_index\":0,\"sequence_number\":21,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223360.734,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\".\",\"item_id\":\"83a89877f31e13a3\",\"output_index\":0,\"sequence_number\":22,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\".\",\"item_id\":\"83a89877f31e13a3\",\"output_index\":0,\"sequence_number\":22,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223360.734,
+      "event": "response.reasoning_text.done",
+      "data": "{\"content_index\":0,\"item_id\":\"83a89877f31e13a3\",\"output_index\":0,\"sequence_number\":23,\"text\":\"The user wants me to call add_numbers with a=17, b=25. Simple.\",\"type\":\"response.reasoning_text.done\"}",
+      "raw": "event: response.reasoning_text.done\ndata: {\"content_index\":0,\"item_id\":\"83a89877f31e13a3\",\"output_index\":0,\"sequence_number\":23,\"text\":\"The user wants me to call add_numbers with a=17, b=25. Simple.\",\"type\":\"response.reasoning_text.done\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223360.734,
+      "event": "response.reasoning_part.done",
+      "data": "{\"content_index\":0,\"item_id\":\"83a89877f31e13a3\",\"output_index\":0,\"part\":{\"text\":\"The user wants me to call add_numbers with a=17, b=25. Simple.\",\"type\":\"reasoning_text\"},\"sequence_number\":24,\"type\":\"response.reasoning_part.done\"}",
+      "raw": "event: response.reasoning_part.done\ndata: {\"content_index\":0,\"item_id\":\"83a89877f31e13a3\",\"output_index\":0,\"part\":{\"text\":\"The user wants me to call add_numbers with a=17, b=25. Simple.\",\"type\":\"reasoning_text\"},\"sequence_number\":24,\"type\":\"response.reasoning_part.done\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223360.734,
+      "event": "response.output_item.done",
+      "data": "{\"item\":{\"id\":\"83a89877f31e13a3\",\"summary\":[],\"type\":\"reasoning\",\"content\":[{\"text\":\"The user wants me to call add_numbers with a=17, b=25. Simple.\",\"type\":\"reasoning_text\"}],\"encrypted_content\":null,\"status\":\"completed\"},\"output_index\":0,\"sequence_number\":25,\"type\":\"response.output_item.done\"}",
+      "raw": "event: response.output_item.done\ndata: {\"item\":{\"id\":\"83a89877f31e13a3\",\"summary\":[],\"type\":\"reasoning\",\"content\":[{\"text\":\"The user wants me to call add_numbers with a=17, b=25. Simple.\",\"type\":\"reasoning_text\"}],\"encrypted_content\":null,\"status\":\"completed\"},\"output_index\":0,\"sequence_number\":25,\"type\":\"response.output_item.done\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223360.734,
+      "event": "response.output_item.added",
+      "data": "{\"item\":{\"arguments\":\"\",\"call_id\":\"call_88d6e790889e6243\",\"name\":\"add_numbers\",\"type\":\"function_call\",\"id\":\"922d5f4929d4009f\",\"caller\":null,\"namespace\":null,\"status\":\"in_progress\"},\"output_index\":1,\"sequence_number\":26,\"type\":\"response.output_item.added\"}",
+      "raw": "event: response.output_item.added\ndata: {\"item\":{\"arguments\":\"\",\"call_id\":\"call_88d6e790889e6243\",\"name\":\"add_numbers\",\"type\":\"function_call\",\"id\":\"922d5f4929d4009f\",\"caller\":null,\"namespace\":null,\"status\":\"in_progress\"},\"output_index\":1,\"sequence_number\":26,\"type\":\"response.output_item.added\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223360.734,
+      "event": "response.function_call_arguments.delta",
+      "data": "{\"delta\":\"{\\\"a\\\": \",\"item_id\":\"922d5f4929d4009f\",\"output_index\":1,\"sequence_number\":27,\"type\":\"response.function_call_arguments.delta\"}",
+      "raw": "event: response.function_call_arguments.delta\ndata: {\"delta\":\"{\\\"a\\\": \",\"item_id\":\"922d5f4929d4009f\",\"output_index\":1,\"sequence_number\":27,\"type\":\"response.function_call_arguments.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223360.734,
+      "event": "response.function_call_arguments.delta",
+      "data": "{\"delta\":\"17, \\\"b\\\": \",\"item_id\":\"922d5f4929d4009f\",\"output_index\":1,\"sequence_number\":28,\"type\":\"response.function_call_arguments.delta\"}",
+      "raw": "event: response.function_call_arguments.delta\ndata: {\"delta\":\"17, \\\"b\\\": \",\"item_id\":\"922d5f4929d4009f\",\"output_index\":1,\"sequence_number\":28,\"type\":\"response.function_call_arguments.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223360.734,
+      "event": "response.function_call_arguments.delta",
+      "data": "{\"delta\":\"25}\",\"item_id\":\"922d5f4929d4009f\",\"output_index\":1,\"sequence_number\":29,\"type\":\"response.function_call_arguments.delta\"}",
+      "raw": "event: response.function_call_arguments.delta\ndata: {\"delta\":\"25}\",\"item_id\":\"922d5f4929d4009f\",\"output_index\":1,\"sequence_number\":29,\"type\":\"response.function_call_arguments.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223360.734,
+      "event": "response.function_call_arguments.done",
+      "data": "{\"arguments\":\"{\\\"a\\\": 17, \\\"b\\\": 25}\",\"item_id\":\"922d5f4929d4009f\",\"name\":\"add_numbers\",\"output_index\":1,\"sequence_number\":30,\"type\":\"response.function_call_arguments.done\"}",
+      "raw": "event: response.function_call_arguments.done\ndata: {\"arguments\":\"{\\\"a\\\": 17, \\\"b\\\": 25}\",\"item_id\":\"922d5f4929d4009f\",\"name\":\"add_numbers\",\"output_index\":1,\"sequence_number\":30,\"type\":\"response.function_call_arguments.done\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223360.734,
+      "event": "response.output_item.done",
+      "data": "{\"item\":{\"arguments\":\"{\\\"a\\\": 17, \\\"b\\\": 25}\",\"call_id\":\"call_88d6e790889e6243\",\"name\":\"add_numbers\",\"type\":\"function_call\",\"id\":\"922d5f4929d4009f\",\"caller\":null,\"namespace\":null,\"status\":\"completed\"},\"output_index\":1,\"sequence_number\":31,\"type\":\"response.output_item.done\"}",
+      "raw": "event: response.output_item.done\ndata: {\"item\":{\"arguments\":\"{\\\"a\\\": 17, \\\"b\\\": 25}\",\"call_id\":\"call_88d6e790889e6243\",\"name\":\"add_numbers\",\"type\":\"function_call\",\"id\":\"922d5f4929d4009f\",\"caller\":null,\"namespace\":null,\"status\":\"completed\"},\"output_index\":1,\"sequence_number\":31,\"type\":\"response.output_item.done\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223360.734,
+      "event": "response.completed",
+      "data": "{\"response\":{\"id\":\"resp_a76ba3f59bb1494f\",\"created_at\":1791354751,\"incomplete_details\":null,\"instructions\":null,\"metadata\":null,\"model\":\"flash\",\"object\":\"response\",\"output\":[{\"id\":\"rs_a0d855e148ea6339\",\"summary\":[],\"type\":\"reasoning\",\"content\":[{\"text\":\"The user wants me to call add_numbers with a=17, b=25. Simple.\",\"type\":\"reasoning_text\"}],\"encrypted_content\":null,\"status\":null},{\"arguments\":\"{\\\"a\\\": 17, \\\"b\\\": 25}\",\"call_id\":\"chatcmpl-tool-b600af2cebf113d3\",\"name\":\"add_numbers\",\"type\":\"function_call\",\"id\":\"fc_9f0c678ed06b6f4c\",\"caller\":null,\"namespace\":null,\"status\":\"completed\"}],\"parallel_tool_calls\":true,\"temperature\":1.0,\"tool_choice\":\"required\",\"tools\":[{\"name\":\"add_numbers\",\"parameters\":{\"properties\":{\"a\":{\"type\":\"integer\"},\"b\":{\"type\":\"integer\"}},\"required\":[\"a\",\"b\"],\"type\":\"object\"},\"strict\":null,\"type\":\"function\",\"allowed_callers\":null,\"defer_loading\":null,\"description\":\"Add two integers and return the sum.\",\"output_schema\":null}],\"top_p\":1.0,\"background\":false,\"max_output_tokens\":1024,\"max_tool_calls\":null,\"previous_response_id\":null,\"prompt\":null,\"reasoning\":{\"context\":null,\"effort\":\"low\",\"generate_summary\":null,\"mode\":null,\"summary\":null},\"service_tier\":\"auto\",\"status\":\"completed\",\"text\":null,\"top_logprobs\":null,\"truncation\":\"disabled\",\"usage\":{\"input_tokens\":330,\"input_tokens_details\":{\"cached_tokens\":256,\"input_tokens_per_turn\":[],\"cached_tokens_per_turn\":[]},\"output_tokens\":80,\"output_tokens_details\":{\"reasoning_tokens\":0,\"tool_output_tokens\":0,\"output_tokens_per_turn\":[],\"tool_output_tokens_per_turn\":[]},\"total_tokens\":410},\"user\":null,\"presence_penalty\":0.0,\"frequency_penalty\":0.0,\"kv_transfer_params\":null,\"ec_transfer_params\":null,\"input_messages\":null,\"output_messages\":null},\"sequence_number\":32,\"type\":\"response.completed\"}",
+      "raw": "event: response.completed\ndata: {\"response\":{\"id\":\"resp_a76ba3f59bb1494f\",\"created_at\":1791354751,\"incomplete_details\":null,\"instructions\":null,\"metadata\":null,\"model\":\"flash\",\"object\":\"response\",\"output\":[{\"id\":\"rs_a0d855e148ea6339\",\"summary\":[],\"type\":\"reasoning\",\"content\":[{\"text\":\"The user wants me to call add_numbers with a=17, b=25. Simple.\",\"type\":\"reasoning_text\"}],\"encrypted_content\":null,\"status\":null},{\"arguments\":\"{\\\"a\\\": 17, \\\"b\\\": 25}\",\"call_id\":\"chatcmpl-tool-b600af2cebf113d3\",\"name\":\"add_numbers\",\"type\":\"function_call\",\"id\":\"fc_9f0c678ed06b6f4c\",\"caller\":null,\"namespace\":null,\"status\":\"completed\"}],\"parallel_tool_calls\":true,\"temperature\":1.0,\"tool_choice\":\"required\",\"tools\":[{\"name\":\"add_numbers\",\"parameters\":{\"properties\":{\"a\":{\"type\":\"integer\"},\"b\":{\"type\":\"integer\"}},\"required\":[\"a\",\"b\"],\"type\":\"object\"},\"strict\":null,\"type\":\"function\",\"allowed_callers\":null,\"defer_loading\":null,\"description\":\"Add two integers and return the sum.\",\"output_schema\":null}],\"top_p\":1.0,\"background\":false,\"max_output_tokens\":1024,\"max_tool_calls\":null,\"previous_response_id\":null,\"prompt\":null,\"reasoning\":{\"context\":null,\"effort\":\"low\",\"generate_summary\":null,\"mode\":null,\"summary\":null},\"service_tier\":\"auto\",\"status\":\"completed\",\"text\":null,\"top_logprobs\":null,\"truncation\":\"disabled\",\"usage\":{\"input_tokens\":330,\"input_tokens_details\":{\"cached_tokens\":256,\"input_tokens_per_turn\":[],\"cached_tokens_per_turn\":[]},\"output_tokens\":80,\"output_tokens_details\":{\"reasoning_tokens\":0,\"tool_output_tokens\":0,\"output_tokens_per_turn\":[],\"tool_output_tokens_per_turn\":[]},\"total_tokens\":410},\"user\":null,\"presence_penalty\":0.0,\"frequency_penalty\":0.0,\"kv_transfer_params\":null,\"ec_transfer_params\":null,\"input_messages\":null,\"output_messages\":null},\"sequence_number\":32,\"type\":\"response.completed\"}",
+      "json_ok": true
+    }
+  ],
+  "normalized": {
+    "protocol": "responses",
+    "text": "",
+    "reasoning": "The user wants me to call add_numbers with a=17, b=25. Simple.",
+    "final_text": null,
+    "tool_calls": [
+      {
+        "key": "922d5f4929d4009f",
+        "call_id": "call_88d6e790889e6243",
+        "name": "add_numbers",
+        "arguments_from_deltas": "{\"a\": 17, \"b\": 25}",
+        "final_arguments": "{\"a\": 17, \"b\": 25}",
+        "output_index": 1,
+        "item_id": "922d5f4929d4009f",
+        "delta_matches_final": true
+      }
+    ],
+    "usage": {
+      "input_tokens": 330,
+      "input_tokens_details": {
+        "cached_tokens": 256,
+        "input_tokens_per_turn": [],
+        "cached_tokens_per_turn": []
+      },
+      "output_tokens": 80,
+      "output_tokens_details": {
+        "reasoning_tokens": 0,
+        "tool_output_tokens": 0,
+        "output_tokens_per_turn": [],
+        "tool_output_tokens_per_turn": []
+      },
+      "total_tokens": 410
+    },
+    "terminal": "completed",
+    "terminal_reason": "completed",
+    "error_message": null,
+    "unknown_events": [
+      {
+        "event": "response.created",
+        "data": "{\"response\":{\"id\":\"resp_a76ba3f59bb1494f\",\"created_at\":1791354751,\"incomplete_details\":null,\"instructions\":null,\"metadata\":null,\"model\":\"flash\",\"object\":\"response\",\"output\":[],\"parallel_tool_calls\":tr"
+      },
+      {
+        "event": "response.in_progress",
+        "data": "{\"response\":{\"id\":\"resp_a76ba3f59bb1494f\",\"created_at\":1791354751,\"incomplete_details\":null,\"instructions\":null,\"metadata\":null,\"model\":\"flash\",\"object\":\"response\",\"output\":[],\"parallel_tool_calls\":tr"
+      },
+      {
+        "event": "response.reasoning_part.added",
+        "data": "{\"content_index\":0,\"item_id\":\"83a89877f31e13a3\",\"output_index\":0,\"part\":{\"text\":\"\",\"type\":\"reasoning_text\"},\"sequence_number\":3,\"type\":\"response.reasoning_part.added\"}"
+      },
+      {
+        "event": "response.reasoning_text.done",
+        "data": "{\"content_index\":0,\"item_id\":\"83a89877f31e13a3\",\"output_index\":0,\"sequence_number\":23,\"text\":\"The user wants me to call add_numbers with a=17, b=25. Simple.\",\"type\":\"response.reasoning_text.done\"}"
+      },
+      {
+        "event": "response.reasoning_part.done",
+        "data": "{\"content_index\":0,\"item_id\":\"83a89877f31e13a3\",\"output_index\":0,\"part\":{\"text\":\"The user wants me to call add_numbers with a=17, b=25. Simple.\",\"type\":\"reasoning_text\"},\"sequence_number\":24,\"type\":\"r"
+      }
+    ],
+    "json_errors": []
+  },
+  "user": 0,
+  "turn_index": 23
+}

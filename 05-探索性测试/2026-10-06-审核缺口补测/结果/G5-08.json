@@ -1,0 +1,84 @@
+{
+  "case_id": "G5-08",
+  "contract_version": "retest-1.0",
+  "attempt_id": "G5-08-A02",
+  "environment_id": "env-20261006-agent2",
+  "object_identity": "坏metadata.json的专家目录（夹具/基础/20261006-agent2/expert-bad-json）",
+  "inputs": [
+    "expert-bad-json目录"
+  ],
+  "action_refs": [
+    "business-5ad6619c-cfca-449a-aa55-d29b03875421-9",
+    "business-5ad6619c-cfca-449a-aa55-d29b03875421-10"
+  ],
+  "status": "通过",
+  "started_at": "2026-10-06T08:34:53.164Z",
+  "ended_at": "2026-10-06T08:35:10.140Z",
+  "actual_steps": [
+    "记录源元数据哈希与提交前专家列表数量",
+    "选择坏metadata.json目录并点击提交",
+    "等待并读取本次可见错误反馈",
+    "关闭弹窗并读取列表数量与源文件哈希"
+  ],
+  "assertions": [
+    {
+      "id": "G5-08-A1",
+      "actual": true,
+      "read_refs": [
+        "business-4e818521-c775-4d47-a9a2-9699115349e3-2"
+      ]
+    },
+    {
+      "id": "G5-08-A2",
+      "actual": {
+        "before": 21,
+        "after": 21
+      },
+      "read_refs": [
+        "business-5ad6619c-cfca-449a-aa55-d29b03875421-8",
+        "business-5ad6619c-cfca-449a-aa55-d29b03875421-12"
+      ]
+    },
+    {
+      "id": "G5-08-A3",
+      "actual": {
+        "before": "a51aa382b49c92afe10e35fcfb33c27322ef9f46971cf2e3e1dcc9f5409688ed",
+        "after": "a51aa382b49c92afe10e35fcfb33c27322ef9f46971cf2e3e1dcc9f5409688ed"
+      },
+      "read_refs": [
+        "business-5ad6619c-cfca-449a-aa55-d29b03875421-6",
+        "business-5ad6619c-cfca-449a-aa55-d29b03875421-13"
+      ]
+    },
+    {
+      "id": "G5-08-A4",
+      "actual": {
+        "before": "f5797c7de10829e14bddccdef32e5e4d0c8841f7df898446b4290808df6731cf",
+        "after": "f5797c7de10829e14bddccdef32e5e4d0c8841f7df898446b4290808df6731cf"
+      },
+      "read_refs": [
+        "business-5ad6619c-cfca-449a-aa55-d29b03875421-7",
+        "business-5ad6619c-cfca-449a-aa55-d29b03875421-14"
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "path": "运行日志/business.jsonl",
+      "sha256": "aaadf0b2901d2cb69e298a41be0118017d9deadfdfefd5334328191063ed931f"
+    },
+    {
+      "path": "运行日志/业务调用.jsonl",
+      "sha256": "8d619b0d6f5da075d69128ea5b9bd89cdcf86f03cc59f16c18c2888bc01ece1e"
+    }
+  ],
+  "cleanup": {
+    "status": "retained",
+    "description": "坏包源文件哈希前后一致；未产生新正式对象",
+    "read_refs": []
+  },
+  "business_call_refs": [
+    "CALL-380f5d3a-eb64-4cdc-9691-25ea92fff0a9"
+  ],
+  "notes": "原问题：弹窗仍在加哈希未变不能证明格式拒绝。本轮读取到本次提交后的可见反馈原文（含 metadata.json 与结构校验），并回读源文件SHA256一致。反馈为通用结构校验文案而非JSON语法错误细节，原文见raw。"
+}

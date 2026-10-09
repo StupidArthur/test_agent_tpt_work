@@ -1,0 +1,845 @@
+{
+  "connections": {
+    "nopool": [
+      {
+        "label": "wave-1000-nopool",
+        "planned": 1000,
+        "complete": 1000,
+        "success_rate": 100.0,
+        "gateway_success_rate": 100.0,
+        "no_http_status": 0,
+        "conn_limit": 1000,
+        "headers_sent_peak": 876,
+        "http200_unfinished_peak": 1,
+        "peak_app_inflight": 1000,
+        "peak_conn_inflight": 870,
+        "duration": 38.16,
+        "statuses": {
+          "200": 1000
+        },
+        "client_errors": {},
+        "e2e": {
+          "n": 1000,
+          "mean": 20.041563,
+          "p50": 19.953603,
+          "p95": 35.906821,
+          "p99": 36.950464,
+          "min": 1.187604,
+          "max": 37.693737
+        },
+        "ttft": {
+          "n": 1000,
+          "mean": 20.075114,
+          "p50": 20.001516,
+          "p95": 35.933905,
+          "p99": 36.991857,
+          "min": 1.237193,
+          "max": 37.729377
+        },
+        "connect_send": {
+          "n": 1000,
+          "mean": 5.585458,
+          "p50": 5.716264,
+          "p95": 6.687941,
+          "p99": 6.810992,
+          "min": 0.769195,
+          "max": 7.014765
+        },
+        "hdr_wait": {
+          "n": 1000,
+          "mean": 14.4896,
+          "p50": 14.272731,
+          "p95": 29.305285,
+          "p99": 30.193507,
+          "min": 0.298229,
+          "max": 32.151754
+        },
+        "usage_median": {
+          "prompt_tokens": 13,
+          "completion_tokens": 16,
+          "n_usage": 1000
+        }
+      },
+      {
+        "label": "wave-1100-nopool",
+        "planned": 1100,
+        "complete": 46,
+        "success_rate": 4.182,
+        "gateway_success_rate": 100.0,
+        "no_http_status": 1054,
+        "conn_limit": 1100,
+        "headers_sent_peak": 851,
+        "http200_unfinished_peak": 1,
+        "peak_app_inflight": 1100,
+        "peak_conn_inflight": 851,
+        "duration": 61.382,
+        "statuses": {
+          "200": 46,
+          "no_http_status": 1054
+        },
+        "client_errors": {
+          "ClientConnectorError": 153,
+          "ClientOSError": 851,
+          "ConnectionTimeoutError": 50
+        },
+        "e2e": {
+          "n": 46,
+          "mean": 2.833377,
+          "p50": 2.565951,
+          "p95": 3.653604,
+          "p99": 4.021476,
+          "min": 1.71313,
+          "max": 4.021476
+        },
+        "ttft": {
+          "n": 46,
+          "mean": 2.861238,
+          "p50": 2.586797,
+          "p95": 3.684846,
+          "p99": 4.052046,
+          "min": 1.73956,
+          "max": 4.052046
+        },
+        "connect_send": {
+          "n": 46,
+          "mean": 1.936853,
+          "p50": 1.682787,
+          "p95": 2.576122,
+          "p99": 2.588737,
+          "min": 1.332026,
+          "max": 2.588737
+        },
+        "hdr_wait": {
+          "n": 46,
+          "mean": 0.924349,
+          "p50": 0.744754,
+          "p95": 1.993042,
+          "p99": 2.312619,
+          "min": 0.301657,
+          "max": 2.312619
+        },
+        "usage_median": {
+          "prompt_tokens": 13,
+          "completion_tokens": 16,
+          "n_usage": 46
+        }
+      },
+      {
+        "label": "wave-800-nopool",
+        "planned": 800,
+        "complete": 800,
+        "success_rate": 100.0,
+        "gateway_success_rate": 100.0,
+        "no_http_status": 0,
+        "conn_limit": 800,
+        "headers_sent_peak": 721,
+        "http200_unfinished_peak": 1,
+        "peak_app_inflight": 797,
+        "peak_conn_inflight": 708,
+        "duration": 36.246,
+        "statuses": {
+          "200": 800
+        },
+        "client_errors": {},
+        "e2e": {
+          "n": 800,
+          "mean": 16.625293,
+          "p50": 16.182288,
+          "p95": 33.192954,
+          "p99": 35.653186,
+          "min": 0.732531,
+          "max": 35.819178
+        },
+        "ttft": {
+          "n": 800,
+          "mean": 16.647028,
+          "p50": 16.219208,
+          "p95": 33.231849,
+          "p99": 35.684565,
+          "min": 0.736069,
+          "max": 35.825719
+        },
+        "connect_send": {
+          "n": 800,
+          "mean": 2.200952,
+          "p50": 2.148055,
+          "p95": 3.175466,
+          "p99": 3.428399,
+          "min": 0.170225,
+          "max": 4.136188
+        },
+        "hdr_wait": {
+          "n": 800,
+          "mean": 14.446018,
+          "p50": 14.115646,
+          "p95": 30.11172,
+          "p99": 32.288315,
+          "min": 0.451156,
+          "max": 33.673222
+        },
+        "usage_median": {
+          "prompt_tokens": 13,
+          "completion_tokens": 16,
+          "n_usage": 800
+        }
+      },
+      {
+        "label": "wave-900-nopool",
+        "planned": 900,
+        "complete": 900,
+        "success_rate": 100.0,
+        "gateway_success_rate": 100.0,
+        "no_http_status": 0,
+        "conn_limit": 900,
+        "headers_sent_peak": 804,
+        "http200_unfinished_peak": 1,
+        "peak_app_inflight": 897,
+        "peak_conn_inflight": 803,
+        "duration": 35.431,
+        "statuses": {
+          "200": 900
+        },
+        "client_errors": {},
+        "e2e": {
+          "n": 900,
+          "mean": 18.539838,
+          "p50": 18.785903,
+          "p95": 33.035232,
+          "p99": 34.762622,
+          "min": 0.658661,
+          "max": 34.97589
+        },
+        "ttft": {
+          "n": 900,
+          "mean": 18.570919,
+          "p50": 18.832865,
+          "p95": 33.064645,
+          "p99": 34.77826,
+          "min": 0.696445,
+          "max": 34.991471
+        },
+        "connect_send": {
+          "n": 900,
+          "mean": 3.733744,
+          "p50": 3.784077,
+          "p95": 4.799105,
+          "p99": 4.970202,
+          "min": 0.30155,
+          "max": 6.385074
+        },
+        "hdr_wait": {
+          "n": 900,
+          "mean": 14.837119,
+          "p50": 15.062835,
+          "p95": 28.124302,
+          "p99": 29.879916,
+          "min": 0.374643,
+          "max": 32.46822
+        },
+        "usage_median": {
+          "prompt_tokens": 13,
+          "completion_tokens": 16,
+          "n_usage": 900
+        }
+      }
+    ],
+    "pooled": [
+      {
+        "label": "wave-1600-pool200-1",
+        "planned": 1600,
+        "complete": 1595,
+        "success_rate": 99.688,
+        "gateway_success_rate": 100.0,
+        "no_http_status": 5,
+        "conn_limit": 200,
+        "headers_sent_peak": 200,
+        "http200_unfinished_peak": 1,
+        "peak_app_inflight": 1600,
+        "peak_conn_inflight": 200,
+        "duration": 129.594,
+        "statuses": {
+          "200": 1595,
+          "no_http_status": 5
+        },
+        "client_errors": {
+          "SocketTimeoutError": 5
+        },
+        "e2e": {
+          "n": 1595,
+          "mean": 29.240209,
+          "p50": 28.627807,
+          "p95": 56.079699,
+          "p99": 59.893406,
+          "min": 1.031897,
+          "max": 60.198736
+        },
+        "ttft": {
+          "n": 1595,
+          "mean": 29.283903,
+          "p50": 28.668573,
+          "p95": 56.157356,
+          "p99": 59.973284,
+          "min": 1.049033,
+          "max": 60.279655
+        },
+        "connect_send": {
+          "n": 1595,
+          "mean": 22.456057,
+          "p50": 21.580928,
+          "p95": 48.653395,
+          "p99": 51.048667,
+          "min": 0.368692,
+          "max": 51.686603
+        },
+        "hdr_wait": {
+          "n": 1595,
+          "mean": 6.82779,
+          "p50": 6.646811,
+          "p95": 9.688672,
+          "p99": 10.604823,
+          "min": 0.61433,
+          "max": 13.417567
+        },
+        "usage_median": {
+          "prompt_tokens": 13,
+          "completion_tokens": 16,
+          "n_usage": 1595
+        }
+      },
+      {
+        "label": "wave-1600-pool200-2",
+        "planned": 1600,
+        "complete": 1599,
+        "success_rate": 99.938,
+        "gateway_success_rate": 100.0,
+        "no_http_status": 1,
+        "conn_limit": 200,
+        "headers_sent_peak": 200,
+        "http200_unfinished_peak": 1,
+        "peak_app_inflight": 1592,
+        "peak_conn_inflight": 200,
+        "duration": 129.829,
+        "statuses": {
+          "200": 1599,
+          "no_http_status": 1
+        },
+        "client_errors": {
+          "SocketTimeoutError": 1
+        },
+        "e2e": {
+          "n": 1599,
+          "mean": 29.201606,
+          "p50": 29.35583,
+          "p95": 54.482633,
+          "p99": 56.793425,
+          "min": 0.51338,
+          "max": 75.453768
+        },
+        "ttft": {
+          "n": 1599,
+          "mean": 29.249676,
+          "p50": 29.394826,
+          "p95": 54.569392,
+          "p99": 56.883958,
+          "min": 0.520266,
+          "max": 75.534278
+        },
+        "connect_send": {
+          "n": 1599,
+          "mean": 22.551385,
+          "p50": 22.213262,
+          "p95": 47.757617,
+          "p99": 50.086021,
+          "min": 0.215212,
+          "max": 50.578191
+        },
+        "hdr_wait": {
+          "n": 1599,
+          "mean": 6.698235,
+          "p50": 6.887744,
+          "p95": 8.076536,
+          "p99": 8.986164,
+          "min": 0.305001,
+          "max": 38.384421
+        },
+        "usage_median": {
+          "prompt_tokens": 13,
+          "completion_tokens": 16,
+          "n_usage": 1599
+        }
+      },
+      {
+        "label": "wave-800-pool200-1",
+        "planned": 800,
+        "complete": 800,
+        "success_rate": 100.0,
+        "gateway_success_rate": 100.0,
+        "no_http_status": 0,
+        "conn_limit": 200,
+        "headers_sent_peak": 200,
+        "http200_unfinished_peak": 1,
+        "peak_app_inflight": 788,
+        "peak_conn_inflight": 200,
+        "duration": 30.141,
+        "statuses": {
+          "200": 800
+        },
+        "client_errors": {},
+        "e2e": {
+          "n": 800,
+          "mean": 15.105649,
+          "p50": 15.172217,
+          "p95": 27.753613,
+          "p99": 29.157549,
+          "min": 0.867014,
+          "max": 29.320915
+        },
+        "ttft": {
+          "n": 800,
+          "mean": 15.124278,
+          "p50": 15.188992,
+          "p95": 27.78884,
+          "p99": 29.193337,
+          "min": 0.875496,
+          "max": 29.355815
+        },
+        "connect_send": {
+          "n": 800,
+          "mean": 8.775851,
+          "p50": 7.874566,
+          "p95": 20.827619,
+          "p99": 22.114204,
+          "min": 0.280907,
+          "max": 22.398036
+        },
+        "hdr_wait": {
+          "n": 800,
+          "mean": 6.348381,
+          "p50": 6.583326,
+          "p95": 8.583706,
+          "p99": 9.021871,
+          "min": 0.594496,
+          "max": 11.579686
+        },
+        "usage_median": {
+          "prompt_tokens": 13,
+          "completion_tokens": 16,
+          "n_usage": 800
+        }
+      },
+      {
+        "label": "wave-800-pool200-2",
+        "planned": 800,
+        "complete": 800,
+        "success_rate": 100.0,
+        "gateway_success_rate": 100.0,
+        "no_http_status": 0,
+        "conn_limit": 200,
+        "headers_sent_peak": 200,
+        "http200_unfinished_peak": 1,
+        "peak_app_inflight": 784,
+        "peak_conn_inflight": 200,
+        "duration": 29.083,
+        "statuses": {
+          "200": 800
+        },
+        "client_errors": {},
+        "e2e": {
+          "n": 800,
+          "mean": 14.737806,
+          "p50": 14.748503,
+          "p95": 27.460134,
+          "p99": 28.560904,
+          "min": 0.69828,
+          "max": 28.699915
+        },
+        "ttft": {
+          "n": 800,
+          "mean": 14.754529,
+          "p50": 14.765953,
+          "p95": 27.488526,
+          "p99": 28.589667,
+          "min": 0.707757,
+          "max": 28.728549
+        },
+        "connect_send": {
+          "n": 800,
+          "mean": 8.50695,
+          "p50": 7.449377,
+          "p95": 20.653527,
+          "p99": 21.74486,
+          "min": 0.27135,
+          "max": 22.153322
+        },
+        "hdr_wait": {
+          "n": 800,
+          "mean": 6.247523,
+          "p50": 6.759302,
+          "p95": 8.285459,
+          "p99": 8.949558,
+          "min": 0.422352,
+          "max": 11.186941
+        },
+        "usage_median": {
+          "prompt_tokens": 13,
+          "completion_tokens": 16,
+          "n_usage": 800
+        }
+      }
+    ]
+  },
+  "long": {
+    "30": {
+      "reps": 3,
+      "p95_by_rep": [
+        11.897442,
+        6.575059,
+        6.486928
+      ],
+      "success_by_rep": [
+        100.0,
+        100.0,
+        100.0
+      ],
+      "gateway_success_by_rep": [
+        100.0,
+        100.0,
+        100.0
+      ],
+      "p95_median": 6.575059,
+      "latency_strict_all": false,
+      "latency_loose_all": true,
+      "literal_success_all": true,
+      "strict_candidate": false,
+      "loose_candidate": false
+    },
+    "50": {
+      "reps": 3,
+      "p95_by_rep": [
+        12.771454,
+        12.87816,
+        12.848309
+      ],
+      "success_by_rep": [
+        100.0,
+        100.0,
+        100.0
+      ],
+      "gateway_success_by_rep": [
+        100.0,
+        100.0,
+        100.0
+      ],
+      "p95_median": 12.848309,
+      "latency_strict_all": false,
+      "latency_loose_all": true,
+      "literal_success_all": true,
+      "strict_candidate": true,
+      "loose_candidate": false
+    },
+    "75": {
+      "reps": 3,
+      "p95_by_rep": [
+        18.225329,
+        18.070833,
+        19.138043
+      ],
+      "success_by_rep": [
+        100.0,
+        100.0,
+        100.0
+      ],
+      "gateway_success_by_rep": [
+        100.0,
+        100.0,
+        100.0
+      ],
+      "p95_median": 18.225329,
+      "latency_strict_all": false,
+      "latency_loose_all": true,
+      "literal_success_all": true,
+      "strict_candidate": true,
+      "loose_candidate": false
+    },
+    "100": {
+      "reps": 3,
+      "p95_by_rep": [
+        24.115553,
+        24.315879,
+        24.441736
+      ],
+      "success_by_rep": [
+        100.0,
+        100.0,
+        100.0
+      ],
+      "gateway_success_by_rep": [
+        100.0,
+        100.0,
+        100.0
+      ],
+      "p95_median": 24.315879,
+      "latency_strict_all": false,
+      "latency_loose_all": false,
+      "literal_success_all": true,
+      "strict_candidate": true,
+      "loose_candidate": true
+    },
+    "150": {
+      "reps": 3,
+      "p95_by_rep": [
+        31.967409,
+        31.582405,
+        31.647472
+      ],
+      "success_by_rep": [
+        99.333,
+        100.0,
+        100.0
+      ],
+      "gateway_success_by_rep": [
+        100.0,
+        100.0,
+        100.0
+      ],
+      "p95_median": 31.647472,
+      "latency_strict_all": false,
+      "latency_loose_all": false,
+      "literal_success_all": false,
+      "strict_candidate": true,
+      "loose_candidate": true
+    },
+    "200": {
+      "reps": 3,
+      "p95_by_rep": [
+        44.310761,
+        44.356472,
+        45.360482
+      ],
+      "success_by_rep": [
+        100.0,
+        100.0,
+        100.0
+      ],
+      "gateway_success_by_rep": [
+        100.0,
+        100.0,
+        100.0
+      ],
+      "p95_median": 44.356472,
+      "latency_strict_all": false,
+      "latency_loose_all": false,
+      "literal_success_all": true,
+      "strict_candidate": true,
+      "loose_candidate": true
+    }
+  },
+  "densify": {
+    "110": {
+      "reps": 5,
+      "p95_by_rep": [
+        3.983498,
+        3.699612,
+        3.653785,
+        3.519827,
+        3.353008
+      ],
+      "success_by_rep": [
+        100.0,
+        100.0,
+        100.0,
+        100.0,
+        100.0
+      ],
+      "gateway_success_by_rep": [
+        100.0,
+        100.0,
+        100.0,
+        100.0,
+        100.0
+      ],
+      "p95_median": 3.653785,
+      "latency_strict_all": true,
+      "latency_loose_all": true,
+      "literal_success_all": true,
+      "strict_candidate": false,
+      "loose_candidate": false
+    },
+    "115": {
+      "reps": 5,
+      "p95_by_rep": [
+        3.811582,
+        3.77996,
+        4.00886,
+        4.07919,
+        4.264192
+      ],
+      "success_by_rep": [
+        100.0,
+        100.0,
+        100.0,
+        100.0,
+        100.0
+      ],
+      "gateway_success_by_rep": [
+        100.0,
+        100.0,
+        100.0,
+        100.0,
+        100.0
+      ],
+      "p95_median": 4.00886,
+      "latency_strict_all": true,
+      "latency_loose_all": true,
+      "literal_success_all": true,
+      "strict_candidate": false,
+      "loose_candidate": false
+    },
+    "120": {
+      "reps": 5,
+      "p95_by_rep": [
+        4.162768,
+        4.326677,
+        4.149706,
+        3.886451,
+        3.736941
+      ],
+      "success_by_rep": [
+        100.0,
+        100.0,
+        100.0,
+        100.0,
+        100.0
+      ],
+      "gateway_success_by_rep": [
+        100.0,
+        100.0,
+        100.0,
+        100.0,
+        100.0
+      ],
+      "p95_median": 4.149706,
+      "latency_strict_all": true,
+      "latency_loose_all": true,
+      "literal_success_all": true,
+      "strict_candidate": false,
+      "loose_candidate": false
+    },
+    "245": {
+      "reps": 5,
+      "p95_by_rep": [
+        8.586023,
+        9.028963,
+        9.770825,
+        9.156174,
+        8.213881
+      ],
+      "success_by_rep": [
+        100.0,
+        100.0,
+        100.0,
+        100.0,
+        100.0
+      ],
+      "gateway_success_by_rep": [
+        100.0,
+        100.0,
+        100.0,
+        100.0,
+        100.0
+      ],
+      "p95_median": 9.028963,
+      "latency_strict_all": false,
+      "latency_loose_all": true,
+      "literal_success_all": true,
+      "strict_candidate": true,
+      "loose_candidate": false
+    },
+    "248": {
+      "reps": 5,
+      "p95_by_rep": [
+        8.743318,
+        8.156661,
+        8.699674,
+        9.19095,
+        9.191499
+      ],
+      "success_by_rep": [
+        100.0,
+        100.0,
+        100.0,
+        100.0,
+        100.0
+      ],
+      "gateway_success_by_rep": [
+        100.0,
+        100.0,
+        100.0,
+        100.0,
+        100.0
+      ],
+      "p95_median": 8.743318,
+      "latency_strict_all": false,
+      "latency_loose_all": true,
+      "literal_success_all": true,
+      "strict_candidate": true,
+      "loose_candidate": false
+    }
+  },
+  "long_strict_boundary": null,
+  "long_loose_boundary": 75,
+  "densify_strict_boundary": 120,
+  "densify_loose_boundary": 248,
+  "recovery": [
+    {
+      "label": "recovery-nopool-1100",
+      "planned": 1,
+      "complete": 1,
+      "success_rate": 100.0,
+      "gateway_success_rate": 100.0,
+      "no_http_status": 0,
+      "conn_limit": 1,
+      "headers_sent_peak": 1,
+      "http200_unfinished_peak": 1,
+      "peak_app_inflight": null,
+      "peak_conn_inflight": null,
+      "duration": 0.353,
+      "statuses": {
+        "200": 1
+      },
+      "client_errors": {},
+      "e2e": {
+        "n": 1,
+        "mean": 0.350668,
+        "p50": 0.350668,
+        "p95": 0.350668,
+        "p99": 0.350668,
+        "min": 0.350668,
+        "max": 0.350668
+      },
+      "ttft": {
+        "n": 1,
+        "mean": 0.350628,
+        "p50": 0.350628,
+        "p95": 0.350628,
+        "p99": 0.350628,
+        "min": 0.350628,
+        "max": 0.350628
+      },
+      "connect_send": null,
+      "hdr_wait": null,
+      "usage_median": {
+        "prompt_tokens": 13,
+        "completion_tokens": 14,
+        "n_usage": 1
+      }
+    }
+  ],
+  "resource_peaks": {
+    "cpu_percent_max": 57.5,
+    "rss_mb_max": 474.26,
+    "handles_max": 1319,
+    "tcp_conns_max": 1102,
+    "samples": 2764
+  }
+}

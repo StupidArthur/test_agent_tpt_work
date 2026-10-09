@@ -1,0 +1,52 @@
+{
+  "ok": false,
+  "start": 229742.25,
+  "end": 229751.546,
+  "requests": [
+    {
+      "request_id": 56,
+      "start": 229742.25,
+      "end": 229751.5,
+      "ok": true,
+      "error": null,
+      "status": "200"
+    }
+  ],
+  "first_text_wait": null,
+  "error": null,
+  "scenario": "standard-sales-analysis",
+  "metrics": [
+    {
+      "first_effective": 1.25,
+      "reasoning": 1.25,
+      "tool": null,
+      "text": 5.078,
+      "usage": {
+        "input_tokens": 22604,
+        "input_tokens_details": {
+          "cached_tokens": 18176,
+          "input_tokens_per_turn": [],
+          "cached_tokens_per_turn": []
+        },
+        "output_tokens": 1085,
+        "output_tokens_details": {
+          "reasoning_tokens": 0,
+          "tool_output_tokens": 0,
+          "output_tokens_per_turn": [],
+          "tool_output_tokens_per_turn": []
+        },
+        "total_tokens": 23689
+      },
+      "e2e": 9.25,
+      "ok": true
+    }
+  ],
+  "checks": {
+    "first_completed": true,
+    "expected_tool": false
+  },
+  "evidence": [
+    "wire/baseline-1user/00056-CAP_AGENT_e47567d105c947d2a207600790ea0bf0.json"
+  ],
+  "source_session": "session-a17ae506-8129-45cc-8ed9-8e35329c0de6"
+}

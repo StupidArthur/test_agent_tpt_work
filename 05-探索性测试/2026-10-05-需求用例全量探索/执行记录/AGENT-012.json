@@ -1,0 +1,31 @@
+{
+  "case_id": "AGENT-012",
+  "case_title": "云端配置不泄露",
+  "source_sha256": "c3cdc4c71c1746e9a647aa5190e0983229af9b41c22e2e6c9a9bc3da80727b66",
+  "status": "阻塞",
+  "review_status": "待双方审核",
+  "latest_attempt_id": null,
+  "attempts": [],
+  "product_observations": [],
+  "differences": [],
+  "finding_ids": [],
+  "blocker": {
+    "reason": "无法执行【云端配置不泄露（需要脱敏请求证据）】：需要云端专家及其请求证据；本机无云端已添加对象，也未抓取请求。本机「我的专家」为 0，且市场/云端/本地包的构造需要新增或导入 Agent。",
+    "missing_dependency": "需要云端专家及其请求证据；本机无云端已添加对象，也未抓取请求。",
+    "evidence": [
+      "证据/AGENT-003/AGENT-003-A01/专家市场.txt"
+    ],
+    "next_action": "需要本轮可用的 Agent 包夹具（完整包、缺必填/可选文件变体、同名副本）、一个已添加的市场来源样本，或授权执行导入（会打开原生目录选择器）。"
+  },
+  "applicability_reason": null,
+  "cleanup": {
+    "changes": [],
+    "remaining": []
+  },
+  "review": {
+    "assistant": null,
+    "user": null,
+    "approved_scope": [],
+    "final_decision": "待审核"
+  }
+}

@@ -1,3 +1,0 @@
-// MIGRATION_HISTORY_ONLY: not a runtime entry point.
-if(!process.argv.includes('--rebuild-migration'))throw Error('Historical migration script; do not run against the reviewed library. Use maintenance/verify.mjs.');
-const fs=require('fs'),path=require('path');const p=path.join(__dirname,'../business/settings/general.mjs');let s=fs.readFileSync(p,'utf8');s=s.replace('const fields = {};','const fields = {}, errors = [];').replaceAll('.catch(() => null)', '.catch(e => { errors.push({message:e.message}); return null; })').replace('value: fields, raw: { fields }, derivation:', 'value: fields, raw: { fields, errors }, derivation:');fs.writeFileSync(p,s);

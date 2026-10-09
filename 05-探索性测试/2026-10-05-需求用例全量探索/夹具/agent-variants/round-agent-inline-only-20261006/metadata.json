@@ -1,0 +1,54 @@
+{
+  "name": "round-agent-inline-only-20261006",
+  "description": "A harmless round-owned expert fixture for isolating embedded skill use from the agent prompt.",
+  "version": "1.0.0",
+  "author": "",
+  "category": "技术工程",
+  "profession": {
+    "zh": "本轮内嵌技能核验专家",
+    "en": "Round Bundled Skill Reviewer"
+  },
+  "displayDescription": {
+    "zh": "本轮专家包内嵌独立技能的隔离样本，只回答虚构标记问题，不读取文件、不联网、不操作设备。",
+    "en": "Round-owned expert with an isolated bundled skill; replies to fictional markers without files, network, or devices."
+  },
+  "defaultInitPrompt": {
+    "zh": "请介绍本轮内嵌技能样本的边界。",
+    "en": "Explain the scope of this bundled skill fixture."
+  },
+  "quickPrompts": [
+    {
+      "zh": "请介绍本轮内嵌技能样本的边界。",
+      "en": "Explain the scope of this bundled skill fixture."
+    },
+    {
+      "zh": "请回复专家自身标记 ROUND_AGENT_INLINE_ONLY_OK。",
+      "en": "Return the agent marker ROUND_AGENT_INLINE_ONLY_OK."
+    },
+    {
+      "zh": "请说明本轮虚构样本不访问什么。",
+      "en": "State which external actions this fixture avoids."
+    }
+  ],
+  "tags": [
+    {
+      "zh": "内嵌技能",
+      "en": "Bundled Skill"
+    },
+    {
+      "zh": "本轮导入",
+      "en": "Round Import"
+    },
+    {
+      "zh": "隔离验证",
+      "en": "Isolation Test"
+    }
+  ],
+  "agents": [
+    "agent.md"
+  ],
+  "avatar": "",
+  "skills": [
+    "./skills/round-inline-only-20261006"
+  ]
+}

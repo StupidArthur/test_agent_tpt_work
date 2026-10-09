@@ -1,0 +1,92 @@
+{
+  "call_id": "CALL-e3928e40-d775-4aae-84fb-5209e473fb1b",
+  "status": "returned",
+  "observations": {
+    "action_refs": [
+      "CALL-e3928e40-d775-4aae-84fb-5209e473fb1b-3",
+      "CALL-e3928e40-d775-4aae-84fb-5209e473fb1b-7"
+    ],
+    "observations": {
+      "before": {
+        "event_id": "CALL-e3928e40-d775-4aae-84fb-5209e473fb1b-1",
+        "captured_at": "2026-10-07T00:33:12.992Z",
+        "environment_id": "acceptance-20261007",
+        "business_call_id": "CALL-e3928e40-d775-4aae-84fb-5209e473fb1b",
+        "kind": "read",
+        "target": "技能列表开关状态",
+        "object_id": "skill-card-switch",
+        "source": {
+          "channel": "dom",
+          "scope": "技能页/本轮卡片开关",
+          "locator": "button[role=\"switch\"]"
+        },
+        "value": true,
+        "raw": {
+          "aria_checked": "true",
+          "matchText": "验收中文优先-audit-20261007"
+        },
+        "derivation": "aria_checked === 'true'"
+      },
+      "after": {
+        "event_id": "CALL-e3928e40-d775-4aae-84fb-5209e473fb1b-4",
+        "captured_at": "2026-10-07T00:33:14.532Z",
+        "environment_id": "acceptance-20261007",
+        "business_call_id": "CALL-e3928e40-d775-4aae-84fb-5209e473fb1b",
+        "kind": "read",
+        "target": "技能列表开关状态",
+        "object_id": "skill-card-switch",
+        "source": {
+          "channel": "dom",
+          "scope": "技能页/本轮卡片开关",
+          "locator": "button[role=\"switch\"]"
+        },
+        "value": false,
+        "raw": {
+          "aria_checked": "false",
+          "matchText": "验收中文优先-audit-20261007"
+        },
+        "derivation": "aria_checked === 'true'"
+      },
+      "listState": {
+        "event_id": "CALL-e3928e40-d775-4aae-84fb-5209e473fb1b-5",
+        "captured_at": "2026-10-07T00:33:14.535Z",
+        "environment_id": "acceptance-20261007",
+        "business_call_id": "CALL-e3928e40-d775-4aae-84fb-5209e473fb1b",
+        "kind": "read",
+        "target": "切换后列表可见且详情未打开",
+        "object_id": "skill-list-detail-state",
+        "source": {
+          "channel": "dom",
+          "scope": "技能页/列表与详情",
+          "locator": "[data-slot=\"card\"]"
+        },
+        "value": true,
+        "raw": {
+          "list": 1,
+          "detailOpen": false
+        },
+        "derivation": "列表卡可见且无 dir-preview 详情"
+      },
+      "restored": {
+        "event_id": "CALL-e3928e40-d775-4aae-84fb-5209e473fb1b-8",
+        "captured_at": "2026-10-07T00:33:16.070Z",
+        "environment_id": "acceptance-20261007",
+        "business_call_id": "CALL-e3928e40-d775-4aae-84fb-5209e473fb1b",
+        "kind": "read",
+        "target": "技能列表开关状态",
+        "object_id": "skill-card-switch",
+        "source": {
+          "channel": "dom",
+          "scope": "技能页/本轮卡片开关",
+          "locator": "button[role=\"switch\"]"
+        },
+        "value": true,
+        "raw": {
+          "aria_checked": "true",
+          "matchText": "验收中文优先-audit-20261007"
+        },
+        "derivation": "aria_checked === 'true'"
+      }
+    }
+  }
+}

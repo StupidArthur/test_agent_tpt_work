@@ -1,0 +1,48 @@
+{
+  "observations": {
+    "action_refs": [
+      "business-77fda63f-c90f-4885-b1be-20d3c605e981-2"
+    ],
+    "observations": {
+      "output": {
+        "event_id": "business-77fda63f-c90f-4885-b1be-20d3c605e981-3",
+        "captured_at": "2026-10-06T08:45:50.335Z",
+        "environment_id": "env-fn-20261006-agent2",
+        "kind": "read",
+        "target": "工具完整输出",
+        "business_call_id": "CALL-3d0d0d75-c3a5-43e2-9ea8-984502fda1c6",
+        "object_id": "tool-detail-output",
+        "source": {
+          "channel": "dom",
+          "scope": "工具详情弹窗",
+          "locator": "[role=\"dialog\"]"
+        },
+        "value": "知识试问可基于当前知识图谱、文件内容和实体关系快速发起询问收起试问范围全部知识覆盖 0 个文件、0 个知识片段新建对话正在准备对话…",
+        "raw": {
+          "length": 66
+        }
+      },
+      "scroll": {
+        "event_id": "business-77fda63f-c90f-4885-b1be-20d3c605e981-4",
+        "captured_at": "2026-10-06T08:45:50.338Z",
+        "environment_id": "env-fn-20261006-agent2",
+        "kind": "read",
+        "target": "工具输出容器可滚动",
+        "business_call_id": "CALL-3d0d0d75-c3a5-43e2-9ea8-984502fda1c6",
+        "object_id": "tool-detail-scroll",
+        "source": {
+          "channel": "dom",
+          "scope": "工具详情弹窗/结果区",
+          "locator": "[role=\"dialog\"]"
+        },
+        "value": false,
+        "raw": {
+          "found": true,
+          "scrollHeight": null,
+          "clientHeight": null
+        },
+        "derivation": "存在 scrollHeight>clientHeight 的同元素且允许滚动"
+      }
+    }
+  }
+}

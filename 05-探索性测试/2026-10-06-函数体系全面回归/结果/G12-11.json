@@ -1,0 +1,68 @@
+{
+  "case_id": "G12-11",
+  "contract_version": "2.0",
+  "environment_id": "agent-oc-20261006-funcfull-01",
+  "attempt_id": "G12-11-A01",
+  "object_identity": "D:/code/tpt-workspace/.fast-assert-agent-oc-20261006-funcfull-01/code-off.js",
+  "inputs": [
+    "关闭代码工具",
+    "请求把 code-off.js 改为 module.exports = 1;",
+    "恢复代码工具"
+  ],
+  "business_call_refs": [
+    "CALL-857527dd-f7ca-41fd-bddf-49dd530a63cc",
+    "CALL-39407be3-66cb-4454-a6d1-385f0b35f53f",
+    "CALL-fcbcc56d-7bb5-41e9-b505-b5684d07125f",
+    "CALL-183db367-8789-48c9-9802-be302abf4f28",
+    "CALL-c317d34a-54ca-4a22-86e1-2a3d2c2bbd8d",
+    "CALL-c22c52da-7014-4945-a90f-8a7eb1244140",
+    "CALL-30f6d3fa-ed01-49c8-b13d-7f965082abc3",
+    "CALL-0e91b039-837f-463d-b508-7418d93bbb93",
+    "CALL-51ef9015-1559-4eea-b77a-f81aa7e8ca08"
+  ],
+  "status": "通过",
+  "attempted_at": "2026-10-06T17:11:38.626Z",
+  "assertions": [
+    {
+      "id": "G12-11-A1",
+      "expected": false,
+      "actual": false,
+      "pass": true,
+      "read_refs": [
+        "CALL-c22c52da-7014-4945-a90f-8a7eb1244140-1"
+      ],
+      "raw": {
+        "visible": false
+      }
+    },
+    {
+      "id": "G12-11-A2",
+      "expected": "module.exports = 1;",
+      "actual": "module.exports = 1;",
+      "pass": true,
+      "read_refs": [
+        "CALL-30f6d3fa-ed01-49c8-b13d-7f965082abc3-1"
+      ],
+      "derivation": "关闭态下文件仍被改为 1（当前产品观察基线）"
+    },
+    {
+      "id": "G12-11-A3",
+      "expected": true,
+      "actual": true,
+      "pass": true,
+      "read_refs": [
+        "CALL-51ef9015-1559-4eea-b77a-f81aa7e8ca08-1"
+      ],
+      "raw": {
+        "aria_checked": "true"
+      }
+    }
+  ],
+  "restore": {
+    "status": "unchanged",
+    "description": "本case未改动设置/文件",
+    "read_refs": []
+  },
+  "residual": "code-off.js 保留为 module.exports = 1;",
+  "notes": "关闭代码工具后 Trace 入口不可见，但模型仍完成写盘（观察基线，不推定需求）。code_tools_initial=true。"
+}

@@ -1,0 +1,43 @@
+{
+  "case_id": "G6-01",
+  "status": "通过",
+  "started_at": "2026-10-06T10:14:00+08:00",
+  "ended_at": "2026-10-06T10:16:00+08:00",
+  "actual_steps": [
+    "打开 设置→常规，记录外观初值",
+    "切换“深色”观察页面颜色",
+    "关闭设置并重开回读",
+    "切回初值“跟随系统”并回读"
+  ],
+  "observed": "外观初值为“跟随系统”（系统浅色，body 背景 rgb(255,255,255)）；切“深色”后 body 背景变为 rgb(21,21,23)、深色卡片 aria-pressed=true；关闭并重开设置后仍为深色（保存可回读）；恢复初值“跟随系统”后背景回到白色、跟随系统 aria-pressed=true。",
+  "evidence": [
+    {
+      "path": "证据/G6-01-theme-initial.png",
+      "sha256": "af6cb2657a5495a9f2442fcba3d3bf6270c53691efa6703ff836730565a8246d"
+    },
+    {
+      "path": "证据/G6-01-theme-dark.png",
+      "sha256": "b5191dd5a4c572d84e6c3918866b7a211ff2b40b67fd9a39cb22949342b3ce55"
+    },
+    {
+      "path": "证据/G6-01-theme-reopen.png",
+      "sha256": "4461744ae4d9f6ea8675c0334ed6292920815b3276e88ba13091159162bd52f7"
+    },
+    {
+      "path": "证据/G6-01-theme-restored.png",
+      "sha256": "02bdab4d7a7158e97d1b8690975f7e590f295c4968923ca803a446c737ebbca4"
+    },
+    {
+      "path": "证据/G6-01-theme.txt",
+      "sha256": "0731482d9a378cf9163c892cdbcb3c9d67a352580f1ac027d0168a0069b8b7aa"
+    }
+  ],
+  "cleanup": "已恢复初值“跟随系统”。",
+  "timings": {
+    "操作等待秒": 40,
+    "产品执行秒": 10,
+    "取证登记秒": 15,
+    "排障恢复秒": 15
+  },
+  "group": "G6"
+}

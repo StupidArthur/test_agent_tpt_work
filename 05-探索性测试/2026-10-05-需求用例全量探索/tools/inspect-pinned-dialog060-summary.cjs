@@ -1,0 +1,23 @@
+const fs = require('fs');
+const { chromium } = require(process.env.TEMP + '/tpt-cdp/node_modules/playwright-core');
+(async () => {
+  const dir = '探索性测试/2026-10-05-需求用例全量探索/证据/DIALOG-049-NIGHT-20261006';
+  const browser = await chromium.connectOverCDP('http://127.0.0.1:9234');
+  const page = browser.contexts()[0].pages()[0];
+  await page.setViewportSize({ width: 1100, height: 800 });
+  const bodyBefore = await page.locator('body').innerText();
+  const pin = page.getByRole('button', { name: '置顶摘要', exact: true });
+  const pinCount = await pin.count();
+  const fileTextCount = await page.getByText('DIALOG060-round-owned/index.html', { exact: true }).count();
+  await page.screenshot({ path: `${dir}/answer-file-visible.png` });
+  if (pinCount !== 1) throw new Error(`置顶摘要 button count ${pinCount}`);
+  await pin.click({ force: true });
+  await page.waitForTimeout(250);
+  const bodyAfter = await page.locator('body').innerText();
+  await page.screenshot({ path: `${dir}/pin-summary-panel.png` });
+  fs.writeFileSync(`${dir}/summary-panel.txt`, bodyAfter.slice(-5000), 'utf8');
+  const data = { captured_at: new Date().toISOString(), page_title: await page.title(), pin_button_count: pinCount, answer_path_text_count: fileTextCount, before_tail: bodyBefore.slice(-1400), after_tail: bodyAfter.slice(-3500) };
+  fs.writeFileSync(`${dir}/summary-panel.json`, JSON.stringify(data, null, 2), 'utf8');
+  console.log(JSON.stringify(data));
+  await browser.close();
+})().catch(e => { console.error(e); process.exit(1); });

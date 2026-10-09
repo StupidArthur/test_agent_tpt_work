@@ -1,0 +1,16 @@
+{
+  "case_id": "SKILL-004",
+  "attempt_id": "SKILL-004-A02",
+  "captured_at": "2026-10-05T12:51:53.014Z",
+  "agent_search": {
+    "query": "Agent",
+    "excerpt": "技能\n\n管理本地技能，在对话和 Agent 中复用你的工作方法。\n\n让工业经验，成为随取随用的能力\n技能在厂级 Runtime 内受控运行，每一步都保留输入、依据、版本和执行记录。\n我的技能\n7\n技能市场\n1\n导入技能\n新建技能\n全部\n已启用\n未启用\n已启用 7 个 Skill，可在本地任务中自动调用。\nAgent 创建与修改\n\n在 TPT 桌面端新建或修改 Agent：收集信息 → 在数据根里初始化包 → 写 metadata.json 与 agent.md（可带内嵌 Skill）→ 校验 → 注册（写 .registry.json）→ 收尾。触发词：新建 Agent、创建 Agent、生成 Agent、做一个专家、把资料转成 Agent；修改 Agent、编辑 Agent、更新 Agent、改提示词、改简介、改标签；批量创建 Agent。\n\nagent\nexpert\ncreate\n+3\n来源 内置技能\nv1.0.0\n快捷使用",
+    "result": "Agent 创建与修改 appears in result title/tag; current interface does not expose separate name_en field."
+  },
+  "intended_round_name_search": {
+    "query": "RoundSkillExploration20261005",
+    "excerpt": "技能\n\n管理本地技能，在对话和 Agent 中复用你的工作方法。\n\n让工业经验，成为随取随用的能力\n技能在厂级 Runtime 内受控运行，每一步都保留输入、依据、版本和执行记录。\n我的技能\n7\n技能市场\n1\n导入技能\n新建技能\n全部\n已启用\n未启用\n已启用 7 个 Skill，可在本地任务中自动调用。\n没有匹配的技能。",
+    "result": "no matching skill; failed create left no sample"
+  },
+  "limitation": "A01 query Agent cannot prove a distinct name_en field because the matching word is in the visible bilingual title and tags. Round-owned sample creation failed before registration."
+}

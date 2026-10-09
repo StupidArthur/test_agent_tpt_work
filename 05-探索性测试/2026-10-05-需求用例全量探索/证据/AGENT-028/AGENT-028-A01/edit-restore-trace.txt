@@ -1,0 +1,61 @@
+applied. Let me verify the result.
+
+
+工具
+	
+read{"file_path": "[app-data-root]/round-agent-bundled-call-20261006/metadata.json", "offset": 11, "limit": 5}
+→
+<path>C:\Users\Administrator.tpt-work\agents\round-agent-bundled-call-20261006\metadata.json</path> <type>file</type> <content> 11: "displayDescription": { 12: "zh": "本轮无害专家样本，用于验证内嵌技能被真实调用。本轮编辑回读标记 EDIT_CHECK_20261006", 13: "en": "Harmless round-owned expert fixture for verifying an actual bundled skill call." 14: }, 15: "defaultInitPrompt": { (Showing lines 11-15 of 54. Use offset=16 to continue.) </content>
+
+
+助手
+	
+已完成，仅修改了你指定的 round-agent-bundled-call-20261006 的 metadata.json 中 displayDescription.zh 字段。 变更摘要 修改字段：displayDescription.zh 变更内容：在末尾新增文字「本轮编辑回读标记 EDIT_CHECK_20261006」（原内容原样保留，仅追加） 修改后："本轮无害专家样本，用于验证内嵌技能被真实调用。本轮编辑回读标记 EDIT_CHECK_20261006" 未改动项 displayDescription.en、profession、defaultInitPrompt、quickPrompts、tags、category、version、agents、skills 等其余字段全部原样保留 agent.md 与原样保留 内嵌 Skill ./skills/round-bundled-call-20261006/SKILL.md 未动 注册表 .registry.json 未做任何变更 返回路径 专家详情页/我的 Agent 入口：数据根下的包路径 C:\Users\Administrator\.tpt…
+
+
+第 2 轮
+#2
+用户
+	
+/expert-manager 立即恢复本轮Expert round-agent-bundled-call-20261006 的 metadata.json displayDescription.zh 为原值：“本轮无害专家样本，用于验证内嵌技能被真实调用。” 删除末尾测试标记 EDIT_CHECK_20261006。保留其他所有字段、agent.md、Skill与注册表不变。应用后报告恢复结果。
+
+
+上下文
+	
+<skill_content name="expert-manager"> <skill_resources> Base directory for this skill: C:\Users\Administrator.tpt-work\dsh\skills\expert-manager Resolve relative paths mentioned by this skill against the base directory before using them. Load referenced resources only as needed. </skill_resources> <skill_instructions> TPT Agent 创建与修改 ⚠️ 执行前必读：需要用到本技能时，先从头到尾读完本 SKILL.md（含全部铁律与 References 清单），再开始动手。禁止跳读，禁止只凭其中一段就开始落盘。 你是 TPT 桌面端的 Agent 管理器。一个 Agent 就是数据根里的一个目录： <数据根>/agents/<name>/ # 数据根 = --data-dir > TPT_HO…
+
+
+助手
+	
+I'll restore displayDescription.zh to its original value, removing the test marker, keeping everything else unchanged.
+
+
+工具
+	
+edit{"file_path": "[app-data-root]/round-agent-bundled-call-20261006/metadata.json", "new_string": " "zh": "本轮无害专家样本，用于验证内嵌技能被真实调用。",", "old_string": " "zh": "本轮无害专家样本，用于验证内嵌技能被真实调用。本轮编辑回读标记 EDIT_CHECK_20261006",", "sandbox_permissions": "danger-full-access", "justification": "按 expert-manager 技能要求恢复数据根内 Agent 的 metadata.json 展示描述原值，该文件位于会话工作区之外。"}
+→
+The file C:\Users\Administrator.tpt-work\agents\round-agent-bundled-call-20261006\metadata.json has been updated successfully.
+
+
+助手
+	
+（仅工具调用）
+
+
+工具
+	
+read{"file_path": "[app-data-root]/round-agent-bundled-call-20261006/metadata.json", "offset": 11, "limit": 5}
+→
+<path>C:\Users\Administrator.tpt-work\agents\round-agent-bundled-call-20261006\metadata.json</path> <type>file</type> <content> 11: "displayDescription": { 12: "zh": "本轮无害专家样本，用于验证内嵌技能被真实调用。", 13: "en": "Harmless round-owned expert fixture for verifying an actual bundled skill call." 14: }, 15: "defaultInitPrompt": { (Showing lines 11-15 of 54. Use offset=16 to continue.) </content>
+
+
+助手
+	
+已恢复完成。 恢复结果 字段：displayDescription.zh 已删除末尾测试标记「本轮编辑回读标记 EDIT_CHECK_20261006」 恢复后值："本轮无害专家样本，用于验证内嵌技能被真实调用。"（与最初原值一致） 未改动项 displayDescription.en 及其余所有字段（profession、defaultInitPrompt、quickPrompts、tags、category、version、agents、skills 等）均原样保留 agent.md、内嵌 Skill ./skills/round-bundled-call-20261006/SKILL.md 未动 注册表 .registry.json 未作任何变更 包路径：[app-data-root]/round-agent-bundled-call-20261006/；唤起方式：/agent-round-agent-bundled-call-20261006。
+发消息或创建任务, / 调用指令, @ 文件或对话
+工作区内修改
+标准
+low
+2 轮 11 步·188 tok/s
+346K tok·缓存命中 0%
+15%

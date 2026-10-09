@@ -1,0 +1,65 @@
+{
+  "case_id": "G6-02",
+  "contract_version": "2.0",
+  "attempt_id": "fn-20261006-agent2-G6-02-A1",
+  "environment_id": "env-fn-20261006-agent2",
+  "object_identity": {
+    "language_initial": "中文"
+  },
+  "inputs": [
+    "设置→常规→语言：切 English 观察常规项，再恢复中文"
+  ],
+  "action_refs": [
+    "business-4b51ade4-d8e1-4d3b-bddc-498af64881a3-2",
+    "business-5ac236cf-ae8c-40e2-824d-652667962e79-2"
+  ],
+  "status": "通过",
+  "started_at": "2026-10-06T08:12:37.358Z",
+  "ended_at": "2026-10-06T08:12:43.501Z",
+  "actual_steps": [
+    "切换语言为 English",
+    "读取设置左侧导航常规项显示",
+    "恢复语言为中文",
+    "重读语言选中值"
+  ],
+  "assertions": [
+    {
+      "id": "G6-02-A1",
+      "actual": "General",
+      "read_refs": [
+        "business-5ecbdb7f-35fa-4144-9e85-58433a2d5cf3-1"
+      ]
+    },
+    {
+      "id": "G6-02-A2",
+      "actual": "中文",
+      "read_refs": [
+        "business-9e08c05b-375b-433d-b523-831a304edb52-2"
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "path": "运行日志/business.jsonl",
+      "sha256": "6203703aeaf46ab5fd94d64c474b878c26f39b97bc4c3f7a3840f9ee9a48bdc5"
+    },
+    {
+      "path": "运行日志/业务调用.jsonl",
+      "sha256": "91fc9bb4b29ad5347770a9e5e5a21b38b9c414c04a2e484e84b5dd981db87bd7"
+    }
+  ],
+  "cleanup": {
+    "status": "restored",
+    "description": "语言已恢复为初值 中文并独立回读",
+    "read_refs": [
+      "business-9e08c05b-375b-433d-b523-831a304edb52-2"
+    ]
+  },
+  "business_call_refs": [
+    "CALL-75edff2c-8a0e-4127-9173-2e50b245808d",
+    "CALL-8fe7bf4d-a57e-4fe8-8d55-5e562acf5eef",
+    "CALL-25676ba7-cd1a-49dd-a0c0-261e5ffc0655",
+    "CALL-8bbc40fa-4854-4da6-b6bc-9839ad4545a0"
+  ],
+  "notes": "English 下常规项显示为 General；A2 raw.navTexts 记录导航文本列表"
+}

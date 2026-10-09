@@ -1,0 +1,50 @@
+{
+  "call_id": "CALL-7c48d03b-63b8-426f-bde9-6fc62f9dd96a",
+  "status": "returned",
+  "observations": {
+    "action_refs": [
+      "CALL-7c48d03b-63b8-426f-bde9-6fc62f9dd96a-2",
+      "CALL-7c48d03b-63b8-426f-bde9-6fc62f9dd96a-5"
+    ],
+    "observations": {
+      "expected": {
+        "event_id": "CALL-7c48d03b-63b8-426f-bde9-6fc62f9dd96a-3",
+        "captured_at": "2026-10-06T17:16:36.010Z",
+        "environment_id": "agent-oc-20261006-funcfull-01",
+        "business_call_id": "CALL-7c48d03b-63b8-426f-bde9-6fc62f9dd96a",
+        "kind": "read",
+        "target": "所选案例提示词",
+        "object_id": "automation-case-prompt",
+        "source": {
+          "channel": "dom",
+          "scope": "自动化任务页/案例卡",
+          "locator": "strong"
+        },
+        "value": "每天生成工业 AI、流程工业、Agent、Skill 和 MCP 最新动态。",
+        "raw": {
+          "promptText": "每天生成工业 AI、流程工业、Agent、Skill 和 MCP 最新动态。",
+          "title": "工业 AI 每日简报"
+        },
+        "derivation": "读取案例卡提示词字段（p），缺失则用完整标题"
+      },
+      "actual": {
+        "event_id": "CALL-7c48d03b-63b8-426f-bde9-6fc62f9dd96a-6",
+        "captured_at": "2026-10-06T17:16:38.552Z",
+        "environment_id": "agent-oc-20261006-funcfull-01",
+        "business_call_id": "CALL-7c48d03b-63b8-426f-bde9-6fc62f9dd96a",
+        "kind": "read",
+        "target": "composer 预填文本",
+        "object_id": "automation-composer",
+        "source": {
+          "channel": "dom",
+          "scope": "composer 输入区",
+          "locator": "div[contenteditable=\"true\"][aria-label*=\"/ 调用指令\"]"
+        },
+        "value": "每天生成工业 AI、流程工业、Agent、Skill 和 MCP 最新动态。",
+        "raw": {
+          "composer": "每天生成工业 AI、流程工业、Agent、Skill 和 MCP 最新动态。"
+        }
+      }
+    }
+  }
+}

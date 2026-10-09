@@ -1,0 +1,914 @@
+[
+  {
+    "id": "G1-01",
+    "group": "G1",
+    "group_title": "基础对话",
+    "title": "新任务入口",
+    "steps": [
+      "从新建任务进入，确认编辑器可见"
+    ],
+    "expected": [
+      "新任务可输入"
+    ],
+    "fixture": "本轮会话/初始设置",
+    "evidence_required": [
+      "限定被测表面的DOM或Trace；关键变化截图",
+      "本轮标记/对象归属；变化须恢复核验"
+    ],
+    "prior_case": "DIALOG-001",
+    "prior_attempt": "DIALOG-001-A03"
+  },
+  {
+    "id": "G1-02",
+    "group": "G1",
+    "group_title": "基础对话",
+    "title": "标准与low",
+    "steps": [
+      "观察当前任务模型与推理等级"
+    ],
+    "expected": [
+      "可使用标准/low，不调用高级模型"
+    ],
+    "fixture": "本轮会话/初始设置",
+    "evidence_required": [
+      "限定被测表面的DOM或Trace；关键变化截图",
+      "本轮标记/对象归属；变化须恢复核验"
+    ],
+    "prior_case": "DIALOG-044",
+    "prior_attempt": "DIALOG-044-A01"
+  },
+  {
+    "id": "G1-03",
+    "group": "G1",
+    "group_title": "基础对话",
+    "title": "已有项目选择",
+    "steps": [
+      "从项目选择器选择现有tpt-workspace或当前用户已有项目"
+    ],
+    "expected": [
+      "显示所选项目，无新增项目"
+    ],
+    "fixture": "本轮会话/初始设置",
+    "evidence_required": [
+      "限定被测表面的DOM或Trace；关键变化截图",
+      "本轮标记/对象归属；变化须恢复核验"
+    ],
+    "prior_case": "DIALOG-010",
+    "prior_attempt": "DIALOG-010-A02"
+  },
+  {
+    "id": "G1-04",
+    "group": "G1",
+    "group_title": "基础对话",
+    "title": "纯文本往返",
+    "steps": [
+      "发送FAST_CHAT_OK回显请求，等待终态"
+    ],
+    "expected": [
+      "助手准确回复标记"
+    ],
+    "fixture": "本轮会话/初始设置",
+    "evidence_required": [
+      "限定被测表面的DOM或Trace；关键变化截图",
+      "本轮标记/对象归属；变化须恢复核验"
+    ],
+    "prior_case": "DIALOG-044",
+    "prior_attempt": "DIALOG-044-A01"
+  },
+  {
+    "id": "G1-05",
+    "group": "G1",
+    "group_title": "基础对话",
+    "title": "完成态",
+    "steps": [
+      "读取上一任务完成状态"
+    ],
+    "expected": [
+      "终态不残留运行中"
+    ],
+    "fixture": "本轮会话/初始设置",
+    "evidence_required": [
+      "限定被测表面的DOM或Trace；关键变化截图",
+      "本轮标记/对象归属；变化须恢复核验"
+    ],
+    "prior_case": "DIALOG-035",
+    "prior_attempt": "DIALOG-035-A01"
+  },
+  {
+    "id": "G1-06",
+    "group": "G1",
+    "group_title": "基础对话",
+    "title": "纯文本无文件",
+    "steps": [
+      "检查纯文本任务是否有产物"
+    ],
+    "expected": [
+      "不生成文件产物"
+    ],
+    "fixture": "本轮会话/初始设置",
+    "evidence_required": [
+      "限定被测表面的DOM或Trace；关键变化截图",
+      "本轮标记/对象归属；变化须恢复核验"
+    ],
+    "prior_case": "DIALOG-044",
+    "prior_attempt": "DIALOG-044-A01"
+  },
+  {
+    "id": "G1-07",
+    "group": "G1",
+    "group_title": "基础对话",
+    "title": "代码块呈现",
+    "steps": [
+      "新会话请求代码块A/B两行"
+    ],
+    "expected": [
+      "代码块可见，内容正确"
+    ],
+    "fixture": "本轮会话/初始设置",
+    "evidence_required": [
+      "限定被测表面的DOM或Trace；关键变化截图",
+      "本轮标记/对象归属；变化须恢复核验"
+    ],
+    "prior_case": "DIALOG-045",
+    "prior_attempt": "DIALOG-045-A01"
+  },
+  {
+    "id": "G1-08",
+    "group": "G1",
+    "group_title": "基础对话",
+    "title": "代码块无产物",
+    "steps": [
+      "检查上一任务文件资源"
+    ],
+    "expected": [
+      "仅代码块，不生成文件"
+    ],
+    "fixture": "本轮会话/初始设置",
+    "evidence_required": [
+      "限定被测表面的DOM或Trace；关键变化截图",
+      "本轮标记/对象归属；变化须恢复核验"
+    ],
+    "prior_case": "DIALOG-045",
+    "prior_attempt": "DIALOG-045-A01"
+  },
+  {
+    "id": "G2-01",
+    "group": "G2",
+    "group_title": "技能导入与查看",
+    "title": "导入弹窗",
+    "steps": [
+      "点击导入技能，观察页面内弹窗与file input"
+    ],
+    "expected": [
+      "文件input存在，可直接setInputFiles"
+    ],
+    "fixture": "本轮skill-template",
+    "evidence_required": [
+      "限定被测表面的DOM或Trace；关键变化截图",
+      "本轮标记/对象归属；变化须恢复核验"
+    ],
+    "prior_case": "SKILL-069",
+    "prior_attempt": "SKILL-069-A01"
+  },
+  {
+    "id": "G2-02",
+    "group": "G2",
+    "group_title": "技能导入与查看",
+    "title": "单文件导入",
+    "steps": [
+      "提交本轮有效SKILL.md后点击导入"
+    ],
+    "expected": [
+      "导入成功，列表出现本轮对象"
+    ],
+    "fixture": "本轮skill-template",
+    "evidence_required": [
+      "限定被测表面的DOM或Trace；关键变化截图",
+      "本轮标记/对象归属；变化须恢复核验"
+    ],
+    "prior_case": "SKILL-075",
+    "prior_attempt": "SKILL-075-A03"
+  },
+  {
+    "id": "G2-03",
+    "group": "G2",
+    "group_title": "技能导入与查看",
+    "title": "中文展示名",
+    "steps": [
+      "定位新卡片"
+    ],
+    "expected": [
+      "展示name_cn对应本轮中文名称"
+    ],
+    "fixture": "本轮skill-template",
+    "evidence_required": [
+      "限定被测表面的DOM或Trace；关键变化截图",
+      "本轮标记/对象归属；变化须恢复核验"
+    ],
+    "prior_case": "SKILL-021",
+    "prior_attempt": "SKILL-021-A01"
+  },
+  {
+    "id": "G2-04",
+    "group": "G2",
+    "group_title": "技能导入与查看",
+    "title": "英文名称搜索",
+    "steps": [
+      "仅查询FastRegressionSkillUnique"
+    ],
+    "expected": [
+      "本轮技能命中"
+    ],
+    "fixture": "本轮skill-template",
+    "evidence_required": [
+      "限定被测表面的DOM或Trace；关键变化截图",
+      "本轮标记/对象归属；变化须恢复核验"
+    ],
+    "prior_case": "SKILL-004",
+    "prior_attempt": "SKILL-004-A03"
+  },
+  {
+    "id": "G2-05",
+    "group": "G2",
+    "group_title": "技能导入与查看",
+    "title": "描述字段搜索",
+    "steps": [
+      "清空名称查询，搜索regression-description-unique-token"
+    ],
+    "expected": [
+      "本轮技能命中且标题不含查询词"
+    ],
+    "fixture": "本轮skill-template",
+    "evidence_required": [
+      "限定被测表面的DOM或Trace；关键变化截图",
+      "本轮标记/对象归属；变化须恢复核验"
+    ],
+    "prior_case": "SKILL-006",
+    "prior_attempt": "SKILL-006-A02"
+  },
+  {
+    "id": "G2-06",
+    "group": "G2",
+    "group_title": "技能导入与查看",
+    "title": "版本展示",
+    "steps": [
+      "读取卡片或详情版本"
+    ],
+    "expected": [
+      "版本为1.2.3"
+    ],
+    "fixture": "本轮skill-template",
+    "evidence_required": [
+      "限定被测表面的DOM或Trace；关键变化截图",
+      "本轮标记/对象归属；变化须恢复核验"
+    ],
+    "prior_case": "SKILL-027",
+    "prior_attempt": "SKILL-027-A01"
+  },
+  {
+    "id": "G2-07",
+    "group": "G2",
+    "group_title": "技能导入与查看",
+    "title": "来源展示",
+    "steps": [
+      "读取导入卡片来源"
+    ],
+    "expected": [
+      "显示用户创建"
+    ],
+    "fixture": "本轮skill-template",
+    "evidence_required": [
+      "限定被测表面的DOM或Trace；关键变化截图",
+      "本轮标记/对象归属；变化须恢复核验"
+    ],
+    "prior_case": "SKILL-075",
+    "prior_attempt": "SKILL-075-A03"
+  },
+  {
+    "id": "G2-08",
+    "group": "G2",
+    "group_title": "技能导入与查看",
+    "title": "详情正文",
+    "steps": [
+      "打开本轮技能详情，读取SKILL.md"
+    ],
+    "expected": [
+      "展示与源文件规则一致"
+    ],
+    "fixture": "本轮skill-template",
+    "evidence_required": [
+      "限定被测表面的DOM或Trace；关键变化截图",
+      "本轮标记/对象归属；变化须恢复核验"
+    ],
+    "prior_case": "SKILL-039",
+    "prior_attempt": "SKILL-039-A01"
+  },
+  {
+    "id": "G3-01",
+    "group": "G3",
+    "group_title": "技能调用与启停",
+    "title": "导入默认状态",
+    "steps": [
+      "不操作开关先记录默认状态"
+    ],
+    "expected": [
+      "设计期望停用；启用时记录失败，继续后续并按需启用"
+    ],
+    "fixture": "本轮skill-template",
+    "evidence_required": [
+      "限定被测表面的DOM或Trace；关键变化截图",
+      "本轮标记/对象归属；变化须恢复核验"
+    ],
+    "prior_case": "SKILL-075",
+    "prior_attempt": "SKILL-075-A03"
+  },
+  {
+    "id": "G3-02",
+    "group": "G3",
+    "group_title": "技能调用与启停",
+    "title": "启用态",
+    "steps": [
+      "只对本轮技能设启用并回读"
+    ],
+    "expected": [
+      "开关显示启用"
+    ],
+    "fixture": "本轮skill-template",
+    "evidence_required": [
+      "限定被测表面的DOM或Trace；关键变化截图",
+      "本轮标记/对象归属；变化须恢复核验"
+    ],
+    "prior_case": "SKILL-016",
+    "prior_attempt": "SKILL-016-A02"
+  },
+  {
+    "id": "G3-03",
+    "group": "G3",
+    "group_title": "技能调用与启停",
+    "title": "显式使用入口",
+    "steps": [
+      "详情使用或快捷使用进入新会话"
+    ],
+    "expected": [
+      "编辑器有本轮技能引用"
+    ],
+    "fixture": "本轮skill-template",
+    "evidence_required": [
+      "限定被测表面的DOM或Trace；关键变化截图",
+      "本轮标记/对象归属；变化须恢复核验"
+    ],
+    "prior_case": "SKILL-012",
+    "prior_attempt": "SKILL-012-A04"
+  },
+  {
+    "id": "G3-04",
+    "group": "G3",
+    "group_title": "技能调用与启停",
+    "title": "调用资源装载",
+    "steps": [
+      "发送固定回复规则请求，读取Trace"
+    ],
+    "expected": [
+      "含本轮skill内容或工具成功加载记录"
+    ],
+    "fixture": "本轮skill-template",
+    "evidence_required": [
+      "限定被测表面的DOM或Trace；关键变化截图",
+      "本轮标记/对象归属；变化须恢复核验"
+    ],
+    "prior_case": "SKILL-012",
+    "prior_attempt": "SKILL-012-A04"
+  },
+  {
+    "id": "G3-05",
+    "group": "G3",
+    "group_title": "技能调用与启停",
+    "title": "调用输出",
+    "steps": [
+      "核对上一任务终态回复"
+    ],
+    "expected": [
+      "仅FAST_SKILL_EXEC_OK，不靠用户输入回显"
+    ],
+    "fixture": "本轮skill-template",
+    "evidence_required": [
+      "限定被测表面的DOM或Trace；关键变化截图",
+      "本轮标记/对象归属；变化须恢复核验"
+    ],
+    "prior_case": "SKILL-012",
+    "prior_attempt": "SKILL-012-A04"
+  },
+  {
+    "id": "G3-06",
+    "group": "G3",
+    "group_title": "技能调用与启停",
+    "title": "停用回读",
+    "steps": [
+      "停用本轮样本"
+    ],
+    "expected": [
+      "开关显示未启用"
+    ],
+    "fixture": "本轮skill-template",
+    "evidence_required": [
+      "限定被测表面的DOM或Trace；关键变化截图",
+      "本轮标记/对象归属；变化须恢复核验"
+    ],
+    "prior_case": "SKILL-017",
+    "prior_attempt": "SKILL-017-A02"
+  },
+  {
+    "id": "G3-07",
+    "group": "G3",
+    "group_title": "技能调用与启停",
+    "title": "搜索与停用交集",
+    "steps": [
+      "保留唯一搜索词，切未启用/已启用"
+    ],
+    "expected": [
+      "未启用命中本轮样本，已启用不含此样本"
+    ],
+    "fixture": "本轮skill-template",
+    "evidence_required": [
+      "限定被测表面的DOM或Trace；关键变化截图",
+      "本轮标记/对象归属；变化须恢复核验"
+    ],
+    "prior_case": "SKILL-009",
+    "prior_attempt": "SKILL-009-A03"
+  },
+  {
+    "id": "G3-08",
+    "group": "G3",
+    "group_title": "技能调用与启停",
+    "title": "筛选恢复",
+    "steps": [
+      "清空查询切全部，保持本轮技能停用"
+    ],
+    "expected": [
+      "查询清空、全部列表恢复、本轮对象仍存在"
+    ],
+    "fixture": "本轮skill-template",
+    "evidence_required": [
+      "限定被测表面的DOM或Trace；关键变化截图",
+      "本轮标记/对象归属；变化须恢复核验"
+    ],
+    "prior_case": "SKILL-009",
+    "prior_attempt": "SKILL-009-A03"
+  },
+  {
+    "id": "G4-01",
+    "group": "G4",
+    "group_title": "专家导入与查看",
+    "title": "专家导入入口",
+    "steps": [
+      "点击导入专家观察file/目录input"
+    ],
+    "expected": [
+      "页面内导入可用"
+    ],
+    "fixture": "本轮expert-template及坏包",
+    "evidence_required": [
+      "限定被测表面的DOM或Trace；关键变化截图",
+      "本轮标记/对象归属；变化须恢复核验"
+    ],
+    "prior_case": "AGENT-005",
+    "prior_attempt": "AGENT-005-A02"
+  },
+  {
+    "id": "G4-02",
+    "group": "G4",
+    "group_title": "专家导入与查看",
+    "title": "完整目录导入",
+    "steps": [
+      "提交本轮目录，点击提交"
+    ],
+    "expected": [
+      "列表出现本轮专家"
+    ],
+    "fixture": "本轮expert-template及坏包",
+    "evidence_required": [
+      "限定被测表面的DOM或Trace；关键变化截图",
+      "本轮标记/对象归属；变化须恢复核验"
+    ],
+    "prior_case": "AGENT-014",
+    "prior_attempt": "AGENT-014-A01"
+  },
+  {
+    "id": "G4-03",
+    "group": "G4",
+    "group_title": "专家导入与查看",
+    "title": "来源与位置",
+    "steps": [
+      "读取卡片来源位置"
+    ],
+    "expected": [
+      "我创建的、本地运行"
+    ],
+    "fixture": "本轮expert-template及坏包",
+    "evidence_required": [
+      "限定被测表面的DOM或Trace；关键变化截图",
+      "本轮标记/对象归属；变化须恢复核验"
+    ],
+    "prior_case": "AGENT-014",
+    "prior_attempt": "AGENT-014-A01"
+  },
+  {
+    "id": "G4-04",
+    "group": "G4",
+    "group_title": "专家导入与查看",
+    "title": "展示名与版本",
+    "steps": [
+      "读取本轮卡片"
+    ],
+    "expected": [
+      "中文名称正确、版本1.2.3"
+    ],
+    "fixture": "本轮expert-template及坏包",
+    "evidence_required": [
+      "限定被测表面的DOM或Trace；关键变化截图",
+      "本轮标记/对象归属；变化须恢复核验"
+    ],
+    "prior_case": "AGENT-014",
+    "prior_attempt": "AGENT-014-A01"
+  },
+  {
+    "id": "G4-05",
+    "group": "G4",
+    "group_title": "专家导入与查看",
+    "title": "完整提示词",
+    "steps": [
+      "打开详情读取agent.md"
+    ],
+    "expected": [
+      "固定回复规则可完整读取"
+    ],
+    "fixture": "本轮expert-template及坏包",
+    "evidence_required": [
+      "限定被测表面的DOM或Trace；关键变化截图",
+      "本轮标记/对象归属；变化须恢复核验"
+    ],
+    "prior_case": "AGENT-021",
+    "prior_attempt": "AGENT-021-A01"
+  },
+  {
+    "id": "G4-06",
+    "group": "G4",
+    "group_title": "专家导入与查看",
+    "title": "详情只读",
+    "steps": [
+      "观察提示词面板输入/编辑元素"
+    ],
+    "expected": [
+      "提示词面板只读"
+    ],
+    "fixture": "本轮expert-template及坏包",
+    "evidence_required": [
+      "限定被测表面的DOM或Trace；关键变化截图",
+      "本轮标记/对象归属；变化须恢复核验"
+    ],
+    "prior_case": "AGENT-023",
+    "prior_attempt": "AGENT-023-A01"
+  },
+  {
+    "id": "G4-07",
+    "group": "G4",
+    "group_title": "专家导入与查看",
+    "title": "推荐问题",
+    "steps": [
+      "读取详情推荐问题"
+    ],
+    "expected": [
+      "与quickPrompts对应"
+    ],
+    "fixture": "本轮expert-template及坏包",
+    "evidence_required": [
+      "限定被测表面的DOM或Trace；关键变化截图",
+      "本轮标记/对象归属；变化须恢复核验"
+    ],
+    "prior_case": "AGENT-009",
+    "prior_attempt": "AGENT-009-A02"
+  },
+  {
+    "id": "G4-08",
+    "group": "G4",
+    "group_title": "专家导入与查看",
+    "title": "目录入口",
+    "steps": [
+      "只读观察本地目录按钮，不点击原生目录"
+    ],
+    "expected": [
+      "存在打开文件夹入口"
+    ],
+    "fixture": "本轮expert-template及坏包",
+    "evidence_required": [
+      "限定被测表面的DOM或Trace；关键变化截图",
+      "本轮标记/对象归属；变化须恢复核验"
+    ],
+    "prior_case": "AGENT-024",
+    "prior_attempt": "AGENT-024-A01"
+  },
+  {
+    "id": "G5-01",
+    "group": "G5",
+    "group_title": "专家使用与校验",
+    "title": "专家使用选择",
+    "steps": [
+      "本轮详情使用进入新会话"
+    ],
+    "expected": [
+      "选中本轮专家引用"
+    ],
+    "fixture": "本轮expert-template及坏包",
+    "evidence_required": [
+      "限定被测表面的DOM或Trace；关键变化截图",
+      "本轮标记/对象归属；变化须恢复核验"
+    ],
+    "prior_case": "EXTRA-006",
+    "prior_attempt": "EXTRA-006-A02"
+  },
+  {
+    "id": "G5-02",
+    "group": "G5",
+    "group_title": "专家使用与校验",
+    "title": "专家资源注入",
+    "steps": [
+      "请求固定回复规则并读取Trace"
+    ],
+    "expected": [
+      "本轮专家正文被注入"
+    ],
+    "fixture": "本轮expert-template及坏包",
+    "evidence_required": [
+      "限定被测表面的DOM或Trace；关键变化截图",
+      "本轮标记/对象归属；变化须恢复核验"
+    ],
+    "prior_case": "EXTRA-006",
+    "prior_attempt": "EXTRA-006-A02"
+  },
+  {
+    "id": "G5-03",
+    "group": "G5",
+    "group_title": "专家使用与校验",
+    "title": "专家输出",
+    "steps": [
+      "核对上一终态回复"
+    ],
+    "expected": [
+      "精确FAST_EXPERT_EXEC_OK"
+    ],
+    "fixture": "本轮expert-template及坏包",
+    "evidence_required": [
+      "限定被测表面的DOM或Trace；关键变化截图",
+      "本轮标记/对象归属；变化须恢复核验"
+    ],
+    "prior_case": "EXTRA-006",
+    "prior_attempt": "EXTRA-006-A02"
+  },
+  {
+    "id": "G5-04",
+    "group": "G5",
+    "group_title": "专家使用与校验",
+    "title": "同名冲突入口",
+    "steps": [
+      "再次提交同一个本轮目录"
+    ],
+    "expected": [
+      "出现覆盖/副本选择，不覆盖"
+    ],
+    "fixture": "本轮expert-template及坏包",
+    "evidence_required": [
+      "限定被测表面的DOM或Trace；关键变化截图",
+      "本轮标记/对象归属；变化须恢复核验"
+    ],
+    "prior_case": "AGENT-017",
+    "prior_attempt": "AGENT-017-A01"
+  },
+  {
+    "id": "G5-05",
+    "group": "G5",
+    "group_title": "专家使用与校验",
+    "title": "副本导入",
+    "steps": [
+      "明确选择作为副本"
+    ],
+    "expected": [
+      "新增独立对象/目录"
+    ],
+    "fixture": "本轮expert-template及坏包",
+    "evidence_required": [
+      "限定被测表面的DOM或Trace；关键变化截图",
+      "本轮标记/对象归属；变化须恢复核验"
+    ],
+    "prior_case": "AGENT-018",
+    "prior_attempt": "AGENT-018-A02"
+  },
+  {
+    "id": "G5-06",
+    "group": "G5",
+    "group_title": "专家使用与校验",
+    "title": "原对象不变",
+    "steps": [
+      "回读原文件与导入前哈希"
+    ],
+    "expected": [
+      "原agent.md及metadata内容不被覆盖"
+    ],
+    "fixture": "本轮expert-template及坏包",
+    "evidence_required": [
+      "限定被测表面的DOM或Trace；关键变化截图",
+      "本轮标记/对象归属；变化须恢复核验"
+    ],
+    "prior_case": "AGENT-018",
+    "prior_attempt": "AGENT-018-A02"
+  },
+  {
+    "id": "G5-07",
+    "group": "G5",
+    "group_title": "专家使用与校验",
+    "title": "缺必填文件拒绝",
+    "steps": [
+      "导入expert-missing-agent目录"
+    ],
+    "expected": [
+      "被拒绝，不产生对象"
+    ],
+    "fixture": "本轮expert-template及坏包",
+    "evidence_required": [
+      "限定被测表面的DOM或Trace；关键变化截图",
+      "本轮标记/对象归属；变化须恢复核验"
+    ],
+    "prior_case": "AGENT-015",
+    "prior_attempt": "AGENT-015-A01"
+  },
+  {
+    "id": "G5-08",
+    "group": "G5",
+    "group_title": "专家使用与校验",
+    "title": "坏JSON拒绝",
+    "steps": [
+      "导入expert-bad-json目录"
+    ],
+    "expected": [
+      "被拒绝，源文件不变，列表无半成品"
+    ],
+    "fixture": "本轮expert-template及坏包",
+    "evidence_required": [
+      "限定被测表面的DOM或Trace；关键变化截图",
+      "本轮标记/对象归属；变化须恢复核验"
+    ],
+    "prior_case": "AGENT-030",
+    "prior_attempt": "AGENT-030-A01"
+  },
+  {
+    "id": "G6-01",
+    "group": "G6",
+    "group_title": "设置真实效果",
+    "title": "主题效果",
+    "steps": [
+      "记录初值，切不同主题观察颜色，重开回读后恢复"
+    ],
+    "expected": [
+      "页面颜色改变，保存可回读，恢复初值"
+    ],
+    "fixture": "本轮会话/初始设置",
+    "evidence_required": [
+      "限定被测表面的DOM或Trace；关键变化截图",
+      "本轮标记/对象归属；变化须恢复核验"
+    ],
+    "prior_case": "OTHER-019",
+    "prior_attempt": "OTHER-019-A08"
+  },
+  {
+    "id": "G6-02",
+    "group": "G6",
+    "group_title": "设置真实效果",
+    "title": "语言效果",
+    "steps": [
+      "记录初值，中文与English切换后恢复"
+    ],
+    "expected": [
+      "设置导航语言改变并恢复"
+    ],
+    "fixture": "本轮会话/初始设置",
+    "evidence_required": [
+      "限定被测表面的DOM或Trace；关键变化截图",
+      "本轮标记/对象归属；变化须恢复核验"
+    ],
+    "prior_case": "OTHER-019",
+    "prior_attempt": "OTHER-019-A08"
+  },
+  {
+    "id": "G6-03",
+    "group": "G6",
+    "group_title": "设置真实效果",
+    "title": "字号保存",
+    "steps": [
+      "记录字号，增1px关闭重开设置"
+    ],
+    "expected": [
+      "增量保存可回读"
+    ],
+    "fixture": "本轮会话/初始设置",
+    "evidence_required": [
+      "限定被测表面的DOM或Trace；关键变化截图",
+      "本轮标记/对象归属；变化须恢复核验"
+    ],
+    "prior_case": "OTHER-019",
+    "prior_attempt": "OTHER-019-A08"
+  },
+  {
+    "id": "G6-04",
+    "group": "G6",
+    "group_title": "设置真实效果",
+    "title": "字号行为与恢复",
+    "steps": [
+      "用本轮新会话短回答测computed font-size，恢复初值再读"
+    ],
+    "expected": [
+      "回答字号随配置变化并恢复"
+    ],
+    "fixture": "本轮会话/初始设置",
+    "evidence_required": [
+      "限定被测表面的DOM或Trace；关键变化截图",
+      "本轮标记/对象归属；变化须恢复核验"
+    ],
+    "prior_case": "OTHER-019",
+    "prior_attempt": "OTHER-019-A08"
+  },
+  {
+    "id": "G6-05",
+    "group": "G6",
+    "group_title": "设置真实效果",
+    "title": "默认权限保存",
+    "steps": [
+      "记录初值，切仅可查看，重开回读"
+    ],
+    "expected": [
+      "默认值保存成功"
+    ],
+    "fixture": "本轮会话/初始设置",
+    "evidence_required": [
+      "限定被测表面的DOM或Trace；关键变化截图",
+      "本轮标记/对象归属；变化须恢复核验"
+    ],
+    "prior_case": "OTHER-019",
+    "prior_attempt": "OTHER-019-A08"
+  },
+  {
+    "id": "G6-06",
+    "group": "G6",
+    "group_title": "设置真实效果",
+    "title": "默认权限新任务",
+    "steps": [
+      "新建本轮空白任务读权限标签，再恢复原默认"
+    ],
+    "expected": [
+      "新任务显示仅可查看，设置恢复初值"
+    ],
+    "fixture": "本轮会话/初始设置",
+    "evidence_required": [
+      "限定被测表面的DOM或Trace；关键变化截图",
+      "本轮标记/对象归属；变化须恢复核验"
+    ],
+    "prior_case": "OTHER-019",
+    "prior_attempt": "OTHER-019-A08"
+  },
+  {
+    "id": "G6-07",
+    "group": "G6",
+    "group_title": "设置真实效果",
+    "title": "场景默认行为",
+    "steps": [
+      "记录初值切PTC，新建空白任务"
+    ],
+    "expected": [
+      "新任务显示PTC，不发送现场请求"
+    ],
+    "fixture": "本轮会话/初始设置",
+    "evidence_required": [
+      "限定被测表面的DOM或Trace；关键变化截图",
+      "本轮标记/对象归属；变化须恢复核验"
+    ],
+    "prior_case": "OTHER-019",
+    "prior_attempt": "OTHER-019-A08"
+  },
+  {
+    "id": "G6-08",
+    "group": "G6",
+    "group_title": "设置真实效果",
+    "title": "场景恢复",
+    "steps": [
+      "恢复原场景，再新建空白任务核对"
+    ],
+    "expected": [
+      "新任务显示原场景"
+    ],
+    "fixture": "本轮会话/初始设置",
+    "evidence_required": [
+      "限定被测表面的DOM或Trace；关键变化截图",
+      "本轮标记/对象归属；变化须恢复核验"
+    ],
+    "prior_case": "OTHER-019",
+    "prior_attempt": "OTHER-019-A08"
+  }
+]

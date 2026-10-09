@@ -1,0 +1,52 @@
+{
+  "observations": {
+    "action_refs": [
+      "business-2c7a2231-7784-4ff9-ad58-3510b33b5202-2"
+    ],
+    "observations": {
+      "count": {
+        "event_id": "business-2c7a2231-7784-4ff9-ad58-3510b33b5202-3",
+        "captured_at": "2026-10-06T07:31:20.871Z",
+        "environment_id": "env-fn-20261006-agent2",
+        "kind": "read",
+        "target": "搜索结果卡片数量",
+        "business_call_id": "CALL-8d78c92e-ecef-4019-bae7-6af1c370e79b",
+        "object_id": "search-results",
+        "source": {
+          "channel": "dom",
+          "scope": "技能页/我的技能搜索结果",
+          "locator": "section.panel [data-slot=\"card\"]"
+        },
+        "value": 1,
+        "raw": {
+          "count": 1,
+          "titles": [
+            "本轮快速回归技能"
+          ]
+        }
+      },
+      "titleContains": {
+        "event_id": "business-2c7a2231-7784-4ff9-ad58-3510b33b5202-4",
+        "captured_at": "2026-10-06T07:31:20.873Z",
+        "environment_id": "env-fn-20261006-agent2",
+        "kind": "read",
+        "target": "搜索命中标题是否含搜索词",
+        "business_call_id": "CALL-8d78c92e-ecef-4019-bae7-6af1c370e79b",
+        "object_id": "search-title-contains",
+        "source": {
+          "channel": "dom",
+          "scope": "技能页/我的技能搜索结果",
+          "locator": ".card-title h3"
+        },
+        "value": false,
+        "raw": {
+          "term": "regression-description-unique-token",
+          "titles": [
+            "本轮快速回归技能"
+          ]
+        },
+        "derivation": "titles.some(t => t.includes(term))"
+      }
+    }
+  }
+}

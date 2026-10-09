@@ -1,0 +1,52 @@
+{
+  "observations": {
+    "action_refs": [
+      "business-9333549f-a4b8-476c-841d-4b742905e3b5-2"
+    ],
+    "observations": {
+      "toolText": {
+        "event_id": "business-9333549f-a4b8-476c-841d-4b742905e3b5-3",
+        "captured_at": "2026-10-06T08:44:53.599Z",
+        "environment_id": "env-fn-20261006-agent2",
+        "kind": "read",
+        "target": "轨迹工具记录",
+        "business_call_id": "CALL-a6ffdcc2-367e-427d-825d-ec6d57c1166f",
+        "object_id": "trace-tool-row",
+        "source": {
+          "channel": "dom",
+          "scope": "本轮会话/轨迹表格",
+          "locator": "tr[data-kind=\"tool\"]"
+        },
+        "value": "工具 read{\"file_path\": \"D:\\tpt-workspace\\0929\\p1\\.fast-assert-fn-20261006-agent2\\long.txt\"} → <path>D:\\tpt-workspace\\0929\\p1.fast-assert-fn-20261006-agent2\\long.txt</path> <type>file</type> <content> 1: FAST_LONG_LINE_001 2: FAST_LONG_LINE_002 3: FAST_LONG_LINE_003 4: FAST_LONG_LINE_004 5: FAST_LONG_LINE_005 6: FAST_LONG_LINE_006 7: FAST_LONG_LINE_007 8: FAST_LONG_LINE_008 9: FAST_LONG_LINE_009 10: FAST_LONG_LINE_010 11: FAST_LONG_LINE_011 12: FAST_LONG_LINE_012 13: FAST_LONG_LINE_013 14: FAST_LONG_LINE_014 15: FAST_LONG_LINE_015 16: FAST_LONG_LINE_016 17: FAST_LONG_LINE_017 18: FAST_LONG_LINE_018 1…",
+        "raw": {
+          "count": 1,
+          "texts": [
+            "工具 read{\"file_path\": \"D:\\tpt-workspace\\0929\\p1\\.fast-assert-fn-20261006-agent2\\long.txt\"} → <path>D:\\tpt-workspace\\0929\\p1.fast-assert-fn-20261006-agent2\\long.txt</path> <type>file</type> <content> 1: FAST_LONG_LINE_001 2: FAST_LONG_LINE_002 3: FAST_LONG_LINE_003 4: FAST_LONG_LINE_004 5: FAST_LONG_LINE_005 6: FAST_LONG_LINE_006 7: FAST_LONG_LINE_007 8: FAST_LONG_LINE_008 9: FAST_LONG_LINE_009 10: FAST_LONG_LINE_010 11: FAST_LONG_LINE_011 12: FAST_LONG_LINE_012 13: FAST_LONG_LINE_013 14: FAST_LONG_LINE_014 15: FAST_LONG_LINE_015 16: FAST_LONG_LINE_016 17: FAST_LONG_LINE_017 18: FAST_LONG_LINE_018 1…"
+          ]
+        }
+      },
+      "scroll": {
+        "event_id": "business-9333549f-a4b8-476c-841d-4b742905e3b5-4",
+        "captured_at": "2026-10-06T08:44:53.602Z",
+        "environment_id": "env-fn-20261006-agent2",
+        "kind": "read",
+        "target": "工具输出容器可滚动",
+        "business_call_id": "CALL-a6ffdcc2-367e-427d-825d-ec6d57c1166f",
+        "object_id": "trace-tool-scroll",
+        "source": {
+          "channel": "dom",
+          "scope": "本轮会话/轨迹工具输出单元",
+          "locator": "tr[data-kind=\"tool\"] td"
+        },
+        "value": false,
+        "raw": {
+          "found": true,
+          "scrollHeight": null,
+          "clientHeight": null,
+          "vert": false
+        },
+        "derivation": "某输出单元 scrollHeight>clientHeight 且允许纵向滚动"
+      }
+    }
+  }
+}

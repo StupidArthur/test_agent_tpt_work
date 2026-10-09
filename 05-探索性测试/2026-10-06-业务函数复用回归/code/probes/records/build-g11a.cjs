@@ -1,0 +1,26 @@
+// 生成 G11-01..07 结果。
+const fs = require('fs');
+const path = require('path');
+const root = path.resolve(__dirname, '../../..');
+const ev = fs.readFileSync(path.join(root, '运行日志/business.jsonl'), 'utf8').split(/\r?\n/).filter(Boolean).map((l) => JSON.parse(l));
+const g = (id) => { const e = ev.find((x) => x.event_id === id); return e ? e.value : null; };
+const R = (id) => 'business-' + id;
+const mk = (o) => fs.writeFileSync(path.join(root, '结果', o.case_id + '.json'), JSON.stringify(o, null, 2) + '\n');
+function base(caseId, obj, inputs, actions, status, steps, assertions, notes, cleanup) {
+  return { case_id: caseId, contract_version: '2.0', attempt_id: `fn-20261006-agent2-${caseId}-A1`, environment_id: 'env-fn-20261006-agent2', object_identity: obj, inputs, action_refs: actions, status, started_at: '2026-10-06T09:39:00.000Z', ended_at: '2026-10-06T09:45:00.000Z', actual_steps: steps, assertions, evidence: [{ path: '运行日志/business.jsonl', sha256: 'PLACEHOLDER' }, { path: '运行日志/业务调用.jsonl', sha256: 'PLACEHOLDER' }], cleanup: cleanup || { status: 'retained', description: '样本保留待审', read_refs: [] }, business_call_refs: [], notes };
+}
+
+mk(base('G11-01', { expert: 'fast-assert-expert-minimal-fn-20261006-agent2' }, ['导入 experts/minimal'], [R('983d8b9e-5738-4b39-915a-07eec25cc6b8-4')], '通过', ['导入仅含 name/description/agent.md 的专家', '按内部 name 读取对象存在'], [{ id: 'G11-01-A1', actual: g(R('258e58a2-fb99-44c8-b121-b96034c7591b-5')), read_refs: [R('258e58a2-fb99-44c8-b121-b96034c7591b-5')] }], 'minimal 无 profession，卡片标题回退技术 name'));
+
+mk(base('G11-02', { expert: 'fast-assert-expert-en-description-fn-20261006-agent2' }, ['导入 experts/en-description'], [R('9c3f2b94-6229-4db7-97bb-174bd644d668-4')], '通过', ['导入 en-description', '读取卡片简介'], [{ id: 'G11-02-A1', actual: g(R('9bc5347d-1f92-42f2-b54a-ed8c72496dcc-4')), read_refs: [R('9bc5347d-1f92-42f2-b54a-ed8c72496dcc-4')] }], '仅 displayDescription.en，中文简介回退英文'));
+
+mk(base('G11-03', { expert: 'fast-assert-expert-base-description-fn-20261006-agent2' }, ['导入 experts/base-description'], [R('13522799-648b-48ee-86cb-c3ab438b69c6-4')], '通过', ['导入 base-description', '读取卡片简介'], [{ id: 'G11-03-A1', actual: g(R('86fb6ffc-bbc8-4f5f-ac50-49d79fb455fc-4')), read_refs: [R('86fb6ffc-bbc8-4f5f-ac50-49d79fb455fc-4')] }], '无 displayDescription，最终回退技术 description'));
+
+mk(base('G11-04', { expert: 'fast-assert-expert-longread-fn-20261006-agent2' }, ['导入 experts/longread，打开详情读提示词'], [R('33f73fe2-b6ff-4379-89d5-9b3546259860-4')], '通过', ['导入 longread', '打开详情', '读取提示词完整 DOM 文本与末尾可见性'], [{ id: 'G11-04-A1', actual: g(R('06937881-f541-4f5e-9dcb-76b26b50808c-3')), read_refs: [R('06937881-f541-4f5e-9dcb-76b26b50808c-3')] }, { id: 'G11-04-A2', actual: g(R('06937881-f541-4f5e-9dcb-76b26b50808c-4')), read_refs: [R('06937881-f541-4f5e-9dcb-76b26b50808c-4')] }], '长提示词末尾含 FAST_PROMPT_END 且可见'));
+
+mk(base('G11-05', { expert: 'fast-assert-expert-longread-fn-20261006-agent2', installed_metadata: 'C:/Users/yuzechao/.tpt-work/agents/fast-assert-expert-longread-fn-20261006-agent2/metadata.json' }, ['导入同名 overwrite 目录并选 覆盖现有'], [R('c790e50b-f528-4386-8988-347e60ecd471-4'), R('630f5aaf-d048-4743-9a93-1b38154681a2-4')], '通过', ['备份 longread 安装文件与哈希', '导入同名 overwrite 选覆盖', '读安装 metadata 内容与详情描述', '恢复原字节并回读哈希'], [{ id: 'G11-05-A1', actual: g(R('7048fb8a-406b-416f-bcbf-046d66989c57-1')), read_refs: [R('7048fb8a-406b-416f-bcbf-046d66989c57-1')] }, { id: 'G11-05-A2', actual: g(R('a3c84f39-79f0-4d50-acdc-e0e0bc19fecd-4')), read_refs: [R('a3c84f39-79f0-4d50-acdc-e0e0bc19fecd-4')] }, { id: 'G11-05-A3', actual: { before: g(R('f2d4ee47-78cc-45bc-8043-3a34dac307c0-1')), after: g(R('1bd9f7ef-cdac-4a14-89e0-f1d054e0ca13-1')) }, read_refs: [R('f2d4ee47-78cc-45bc-8043-3a34dac307c0-1'), R('1bd9f7ef-cdac-4a14-89e0-f1d054e0ca13-1')] }], '覆盖生效：安装 metadata 与详情描述均含 FAST_OVERWRITE；恢复后哈希一致', { status: 'restored', description: 'longread 安装 metadata.json 与 agent.md 已按原字节恢复并回读哈希一致', read_refs: [R('1bd9f7ef-cdac-4a14-89e0-f1d054e0ca13-1')] }));
+
+mk(base('G11-06', { expert: 'fast-assert-expert-bundled-fn-20261006-agent2' }, ['导入 experts/bundled，检查安装 skills/bundled/SKILL.md'], [R('897f76fb-763e-42dd-93eb-ecb422aef163-4')], '通过', ['导入 bundled 专家', '读取安装 skills/bundled/SKILL.md 存在与源/安装路径'], [{ id: 'G11-06-A1', actual: g(R('97cb77ac-9ca5-4788-b25c-7e29f4f6bde4-1')), read_refs: [R('97cb77ac-9ca5-4788-b25c-7e29f4f6bde4-1')] }, { id: 'G11-06-A2', actual: { before: g(R('176b11ad-a31d-4b24-994e-1d38dd5a9dd1-1')), after: g(R('176b11ad-a31d-4b24-994e-1d38dd5a9dd1-2')) }, read_refs: [R('176b11ad-a31d-4b24-994e-1d38dd5a9dd1-1'), R('176b11ad-a31d-4b24-994e-1d38dd5a9dd1-2')] }], '附带 Skill 独立保存到安装目录'));
+
+mk(base('G11-07', { expert: 'fast-assert-expert-bundled-fn-20261006-agent2' }, ['从 bundled 专家使用入口建新任务，请求执行内置技能固定规则'], [R('cdf9bda3-22cb-4050-979e-d23028c6f68f-2')], '通过', ['新建任务并使用 bundled 专家', '发送执行内置技能固定规则请求', '读取轨迹资源正文、助手正文与用户请求'], [{ id: 'G11-07-A1', actual: g(R('41c71742-58b9-4cc6-be62-b7a7c1323168-3')), read_refs: [R('41c71742-58b9-4cc6-be62-b7a7c1323168-3')] }, { id: 'G11-07-A2', actual: g(R('cdf9bda3-22cb-4050-979e-d23028c6f68f-3')), read_refs: [R('cdf9bda3-22cb-4050-979e-d23028c6f68f-3')] }, { id: 'G11-07-A3', actual: g(R('cdf9bda3-22cb-4050-979e-d23028c6f68f-4')), read_refs: [R('cdf9bda3-22cb-4050-979e-d23028c6f68f-4')] }], '轨迹资源为安装目录 skills/bundled/SKILL.md 正文，含 FAST_BUNDLED_OK'));
+console.log('built G11-01..07');

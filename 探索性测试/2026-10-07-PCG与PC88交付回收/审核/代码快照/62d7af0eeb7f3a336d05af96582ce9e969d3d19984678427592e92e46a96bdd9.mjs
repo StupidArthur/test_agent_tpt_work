@@ -1,2 +1,0 @@
-import {connect} from '../../../../tools/ui-operations/automation/session.mjs';
-export async function inspectNavigation(ctx){const c=await connect(ctx);try{const read=await ctx.recorder.read('设置接入控件现场','navigation',{channel:'dom',scope:'可见按钮和菜单'},async()=>({value:await c.page.locator('button:visible,[role="menuitem"]:visible').evaluateAll(es=>es.map(e=>({text:e.innerText,aria:e.getAttribute('aria-label'),html:e.outerHTML.slice(0,700)}))),raw:{purpose:'设置入口定位失败，核对当前真实控件'}}));return {observations:{read}};}finally{await c.close();}}

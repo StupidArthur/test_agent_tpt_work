@@ -1,0 +1,49 @@
+{
+  "case_id": "G5-01",
+  "contract_version": "2.0",
+  "attempt_id": "G5-A01",
+  "environment_id": "env-20261006-oc1",
+  "object_identity": "本轮新会话专家引用",
+  "inputs": [
+    "使用入口"
+  ],
+  "action_refs": [
+    "G5-83a126fd-6115-4954-b5dc-1f8864d62532-3",
+    "G5-83a126fd-6115-4954-b5dc-1f8864d62532-6",
+    "G5-83a126fd-6115-4954-b5dc-1f8864d62532-11",
+    "G5-83a126fd-6115-4954-b5dc-1f8864d62532-16",
+    "G5-83a126fd-6115-4954-b5dc-1f8864d62532-19"
+  ],
+  "status": "通过",
+  "started_at": "2026-10-06T05:03:37.502Z",
+  "ended_at": "2026-10-06T05:04:19.278Z",
+  "actual_steps": [
+    "详情使用",
+    "读取composer chip"
+  ],
+  "assertions": [
+    {
+      "id": "G5-01-A1",
+      "actual": "agent-fast-assert-expert-20261006-oc1",
+      "read_refs": [
+        "G5-83a126fd-6115-4954-b5dc-1f8864d62532-4"
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "path": "运行日志/G5.jsonl",
+      "sha256": "6d1feacc1a71b295daa1a6a4245047aee88411e2f2d163147fb145d78f224426"
+    },
+    {
+      "path": "tools/run/scratch/g5-run.json",
+      "sha256": "93f06949cafae8f73c03adc23f049833ab193eff003fc14912ca4f1f1fdd667d"
+    }
+  ],
+  "cleanup": {
+    "status": "retained",
+    "description": "本轮专家与副本保留待审；坏包源文件不变",
+    "read_refs": []
+  },
+  "notes": "G5共享一次专家调用、同名副本导入与两个坏包提交。"
+}

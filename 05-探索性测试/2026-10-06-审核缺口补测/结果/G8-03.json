@@ -1,0 +1,57 @@
+{
+  "case_id": "G8-03",
+  "contract_version": "retest-1.0",
+  "attempt_id": "G8-03-A02",
+  "environment_id": "env-20261006-agent2",
+  "object_identity": "会话A（本轮新增）",
+  "inputs": [
+    "标记A为未读"
+  ],
+  "action_refs": [
+    "business-b712c2c5-5a19-454d-b94b-40ec8534d7c6-1",
+    "business-b712c2c5-5a19-454d-b94b-40ec8534d7c6-2"
+  ],
+  "status": "通过",
+  "started_at": "2026-10-06T09:10:05.446Z",
+  "ended_at": "2026-10-06T09:13:33.641Z",
+  "actual_steps": [
+    "对本轮会话A执行标记为未读",
+    "读取该行未读标记原文、属性与数量",
+    "按未读语义解码"
+  ],
+  "assertions": [
+    {
+      "id": "G8-03-A1",
+      "actual": 1,
+      "read_refs": [
+        "business-b712c2c5-5a19-454d-b94b-40ec8534d7c6-3"
+      ]
+    },
+    {
+      "id": "G8-03-A2",
+      "actual": 0,
+      "read_refs": [
+        "business-b712c2c5-5a19-454d-b94b-40ec8534d7c6-4"
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "path": "运行日志/business.jsonl",
+      "sha256": "aaadf0b2901d2cb69e298a41be0118017d9deadfdfefd5334328191063ed931f"
+    },
+    {
+      "path": "运行日志/业务调用.jsonl",
+      "sha256": "8d619b0d6f5da075d69128ea5b9bd89cdcf86f03cc59f16c18c2888bc01ece1e"
+    }
+  ],
+  "cleanup": {
+    "status": "retained",
+    "description": "会话保留；未读标记已由后续进入会话清除",
+    "read_refs": []
+  },
+  "business_call_refs": [
+    "CALL-bf9d474e-bb98-4503-a6ee-44345e1e98cd"
+  ],
+  "notes": "原问题：原文“未读：空闲”，dotState=idle被错算成0。本轮按行状态区语义解码：状态区含“未读”记1，dot元素数1且无并列额外标记记0。原始状态文本与data-state见raw。"
+}

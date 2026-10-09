@@ -1,0 +1,348 @@
+[
+  {
+    "case_id": "SM-02",
+    "started_at": "2026-10-06T14:26:59.676Z",
+    "ended_at": "2026-10-06T14:27:07.362Z",
+    "status": "通过",
+    "assertions": [
+      {
+        "id": "SM-02-A1",
+        "actual": true,
+        "expected": true,
+        "pass": true,
+        "read_refs": [
+          "CALL-c1ab868e-5492-4400-9634-e178f1dbabd8-6"
+        ]
+      },
+      {
+        "id": "SM-02-A2",
+        "actual": "tpt-workspace",
+        "expected": "tpt-workspace",
+        "pass": true,
+        "read_refs": [
+          "CALL-c1ab868e-5492-4400-9634-e178f1dbabd8-5"
+        ]
+      },
+      {
+        "id": "SM-02-A3",
+        "actual": "标准/low",
+        "expected": "标准/low",
+        "pass": true,
+        "read_refs": [
+          "CALL-c1ab868e-5492-4400-9634-e178f1dbabd8-7"
+        ]
+      }
+    ],
+    "business_call_refs": [
+      "CALL-6aeab57d-3a53-4c3b-b1b6-5e65bcfca6a0",
+      "CALL-c1ab868e-5492-4400-9634-e178f1dbabd8",
+      "CALL-85d59df8-c2ff-40ef-8435-c243587378b1"
+    ],
+    "tool_discovery": {
+      "feature_path": [
+        "对话",
+        "创建与配置"
+      ],
+      "plan_functions": [
+        "conversation.newTask",
+        "conversation.readComposer"
+      ],
+      "used": [
+        "conversation.newTask"
+      ],
+      "additional_functions": [],
+      "all_product_operations_via_functions": true
+    },
+    "error": null,
+    "attempt": "A04",
+    "supersedes": "历史/SM-02-A03.json",
+    "retest_reason": "项目控件按已观察的workspace定位；目标会话已打开时不强求侧栏再次选择"
+  },
+  {
+    "case_id": "SM-03",
+    "started_at": "2026-10-06T14:27:07.372Z",
+    "ended_at": "2026-10-06T14:27:19.938Z",
+    "status": "通过",
+    "assertions": [
+      {
+        "id": "SM-03-A1",
+        "actual": "SMOKE_CHAT_RETEST_tool-smoke-20261006-eval1",
+        "expected": "SMOKE_CHAT_RETEST_tool-smoke-20261006-eval1",
+        "pass": true,
+        "read_refs": [
+          "CALL-a8682e5a-49fc-4426-b26c-21bb3c12ca42-3"
+        ]
+      },
+      {
+        "id": "SM-03-A2",
+        "actual": true,
+        "expected": true,
+        "pass": true,
+        "read_refs": [
+          "CALL-2a2da870-9ed8-4970-a550-175ee6d6131b-1"
+        ]
+      }
+    ],
+    "business_call_refs": [
+      "CALL-a8682e5a-49fc-4426-b26c-21bb3c12ca42",
+      "CALL-2e181b43-e1af-4724-8663-4f74cba1b3a3",
+      "CALL-2a2da870-9ed8-4970-a550-175ee6d6131b"
+    ],
+    "tool_discovery": {
+      "feature_path": [
+        "对话",
+        "文本执行"
+      ],
+      "plan_functions": [
+        "conversation.sendMessage",
+        "conversation.readTaskState",
+        "conversation.readCompletion"
+      ],
+      "used": [
+        "conversation.sendMessage",
+        "conversation.readComposer"
+      ],
+      "additional_functions": [
+        "conversation.readComposer"
+      ],
+      "all_product_operations_via_functions": true
+    },
+    "error": null,
+    "attempt": "A04",
+    "supersedes": "历史/SM-03-A03.json",
+    "retest_reason": "项目控件按已观察的workspace定位；目标会话已打开时不强求侧栏再次选择"
+  },
+  {
+    "case_id": "SM-10",
+    "started_at": "2026-10-06T14:28:43.976Z",
+    "ended_at": "2026-10-06T14:28:59.610Z",
+    "status": "通过",
+    "assertions": [
+      {
+        "id": "SM-10-A1",
+        "actual": true,
+        "expected": true,
+        "pass": true,
+        "read_refs": [
+          "CALL-2e6b918b-e47b-4b9b-b195-d418024f8fd0-1",
+          "CALL-2e6b918b-e47b-4b9b-b195-d418024f8fd0-3",
+          "CALL-2e6b918b-e47b-4b9b-b195-d418024f8fd0-2"
+        ]
+      },
+      {
+        "id": "SM-10-A2",
+        "actual": true,
+        "expected": true,
+        "pass": true,
+        "read_refs": [
+          "CALL-931fc4b3-6f58-4c76-8e3a-b4023f3c7110-1"
+        ]
+      }
+    ],
+    "business_call_refs": [
+      "CALL-2e6b918b-e47b-4b9b-b195-d418024f8fd0",
+      "CALL-931fc4b3-6f58-4c76-8e3a-b4023f3c7110"
+    ],
+    "tool_discovery": {
+      "feature_path": [
+        "设置",
+        "入口"
+      ],
+      "plan_functions": [
+        "settings.readGeneral",
+        "settings.readShortcut"
+      ],
+      "used": [
+        "settings.readGeneral",
+        "settings.readShortcut"
+      ],
+      "additional_functions": [],
+      "all_product_operations_via_functions": true
+    },
+    "error": null,
+    "attempt": "A04",
+    "supersedes": "历史/SM-10-A03.json",
+    "retest_reason": "项目控件按已观察的workspace定位；目标会话已打开时不强求侧栏再次选择"
+  },
+  {
+    "case_id": "SM-11",
+    "started_at": "2026-10-06T14:28:59.612Z",
+    "ended_at": "2026-10-06T14:28:59.612Z",
+    "status": "通过",
+    "assertions": [
+      {
+        "id": "SM-11-A1",
+        "actual": "深色",
+        "expected": "深色",
+        "pass": true,
+        "read_refs": [
+          "CALL-1281b28d-0c9d-4c66-bae4-79d8d8268ff3-3"
+        ]
+      },
+      {
+        "id": "SM-11-A2",
+        "actual": true,
+        "expected": true,
+        "pass": true,
+        "read_refs": [
+          "CALL-e8287e0c-da96-47fc-99c9-bbdc37050f66-1",
+          "CALL-cd01e786-6547-4641-a6e4-4b5e980c8ea5-1"
+        ]
+      },
+      {
+        "id": "SM-11-A3",
+        "actual": "跟随系统",
+        "expected": "跟随系统",
+        "pass": true,
+        "read_refs": [
+          "CALL-6eff4e73-9b2e-49fa-bf59-2ff8a83ff71a-1"
+        ]
+      },
+      {
+        "id": "SM-11-A4",
+        "actual": [
+          "rgb(15, 17, 21)",
+          "rgba(0, 0, 0, 0)",
+          "rgb(15, 17, 21)",
+          "rgba(0, 0, 0, 0)"
+        ],
+        "expected": [
+          "rgb(15, 17, 21)",
+          "rgba(0, 0, 0, 0)",
+          "rgb(15, 17, 21)",
+          "rgba(0, 0, 0, 0)"
+        ],
+        "pass": true,
+        "read_refs": [
+          "CALL-56ab7edd-356c-447d-b592-517a358829fa-1",
+          "CALL-e8287e0c-da96-47fc-99c9-bbdc37050f66-1"
+        ]
+      }
+    ],
+    "business_call_refs": [
+      "CALL-2a56004a-16b6-4d95-86ec-e935d96284ce",
+      "CALL-e8287e0c-da96-47fc-99c9-bbdc37050f66",
+      "CALL-1281b28d-0c9d-4c66-bae4-79d8d8268ff3",
+      "CALL-cd01e786-6547-4641-a6e4-4b5e980c8ea5",
+      "CALL-8461bef0-41e2-4adc-a8f7-efe541c62177",
+      "CALL-6eff4e73-9b2e-49fa-bf59-2ff8a83ff71a",
+      "CALL-56ab7edd-356c-447d-b592-517a358829fa"
+    ],
+    "tool_discovery": {
+      "feature_path": [
+        "设置",
+        "主题效果"
+      ],
+      "plan_functions": [
+        "conversation.openSession",
+        "settings.readGeneral",
+        "settings.closeSettings",
+        "settings.readConversationAppearance",
+        "settings.setTheme"
+      ],
+      "used": [],
+      "additional_functions": [],
+      "all_product_operations_via_functions": true
+    },
+    "error": null,
+    "attempt": "A04",
+    "supersedes": "历史/SM-11-A03.json",
+    "retest_reason": "项目控件按已观察的workspace定位；目标会话已打开时不强求侧栏再次选择"
+  },
+  {
+    "case_id": "SM-12",
+    "started_at": "2026-10-06T14:28:59.613Z",
+    "ended_at": "2026-10-06T14:29:22.914Z",
+    "status": "通过",
+    "assertions": [
+      {
+        "id": "SM-12-A1",
+        "actual": false,
+        "expected": false,
+        "pass": true,
+        "read_refs": [
+          "CALL-9e468632-91fd-434e-b3eb-353e3cff026b-8"
+        ]
+      },
+      {
+        "id": "SM-12-A2",
+        "actual": "跟随系统",
+        "expected": "跟随系统",
+        "pass": true,
+        "read_refs": [
+          "CALL-d3022762-3007-4bd6-bfb0-8946f7910b10-1"
+        ]
+      },
+      {
+        "id": "SM-12-A3",
+        "actual": true,
+        "expected": true,
+        "pass": true,
+        "read_refs": [
+          "CALL-e8f5f7b3-2312-489c-a90e-bf6454ab52d0-2",
+          "CALL-ee348400-d417-48ed-9206-8ad864e544b5-1",
+          "CALL-b96d1511-f2fd-408f-a30a-617d5438e3bb-1"
+        ]
+      }
+    ],
+    "business_call_refs": [
+      "CALL-c107a952-d9bc-4324-9a84-d539acfbe6f1",
+      "CALL-daf6a34d-d223-4250-8ecc-f52df3ba9253",
+      "CALL-5f34da36-e1a6-4274-ad60-a182eb8612c8",
+      "CALL-341fe511-fb40-45c3-9a06-6040c447f955",
+      "CALL-9e468632-91fd-434e-b3eb-353e3cff026b",
+      "CALL-7a875da7-b01a-4d84-acb9-b0676688ebbc",
+      "CALL-1f7e3b4a-e79a-4c1d-826e-c2cd6d69c11a",
+      "CALL-d3022762-3007-4bd6-bfb0-8946f7910b10",
+      "CALL-d919d864-6a4a-4772-8562-3520e7e0d893",
+      "CALL-b0eb651e-d8b2-4465-8811-6401b8f2dce6",
+      "CALL-d86b8c23-d51f-4712-b9fb-e4f8a2ffec04",
+      "CALL-ee348400-d417-48ed-9206-8ad864e544b5",
+      "CALL-e8f5f7b3-2312-489c-a90e-bf6454ab52d0",
+      "CALL-b96d1511-f2fd-408f-a30a-617d5438e3bb"
+    ],
+    "tool_discovery": {
+      "feature_path": [
+        "收尾",
+        "恢复核验"
+      ],
+      "plan_functions": [
+        "skills.setSkillEnabled",
+        "settings.readGeneral",
+        "attachments.readDraftState",
+        "conversation.clearDraft",
+        "conversation.closeDialogs",
+        "conversation.readDialogs"
+      ],
+      "used": [
+        "skills.setSkillEnabled",
+        "smoke.skills.closeSkills",
+        "smoke.skills.openSkills",
+        "skills.readSkillCard",
+        "smoke.navigation.closeSidebarPanels",
+        "settings.setTheme",
+        "settings.readGeneral",
+        "conversation.newTask",
+        "conversation.clearDraft",
+        "conversation.closeDialogs",
+        "conversation.readDialogs",
+        "attachments.readDraftState",
+        "conversation.readComposer"
+      ],
+      "additional_functions": [
+        "smoke.skills.closeSkills",
+        "smoke.skills.openSkills",
+        "skills.readSkillCard",
+        "smoke.navigation.closeSidebarPanels",
+        "settings.setTheme",
+        "conversation.newTask",
+        "conversation.readComposer"
+      ],
+      "all_product_operations_via_functions": true
+    },
+    "attempt": "A04",
+    "supersedes": "历史/SM-12-A03.json",
+    "retest_reason": "项目控件按已观察的workspace定位；目标会话已打开时不强求侧栏再次选择",
+    "error": null
+  }
+]

@@ -1,0 +1,51 @@
+{
+  "case_id": "G2-02",
+  "contract_version": "retest-1.0",
+  "attempt_id": "G2-02-A02",
+  "environment_id": "env-20261006-agent2",
+  "object_identity": "fast-assert-skillc-20261006-agent2",
+  "inputs": [
+    "夹具/基础/20261006-agent2/skill-c/SKILL.md"
+  ],
+  "action_refs": [
+    "business-5f197c63-c31d-4b16-917f-70e392227dde-2",
+    "business-5f197c63-c31d-4b16-917f-70e392227dde-3"
+  ],
+  "status": "通过",
+  "started_at": "2026-10-06T08:31:55.323Z",
+  "ended_at": "2026-10-06T08:32:51.742Z",
+  "actual_steps": [
+    "提交前读取技能安装目录身份集合",
+    "选择单文件SKILL.md并点击导入",
+    "读取导入反馈",
+    "按内部name打开卡片详情核对身份"
+  ],
+  "assertions": [
+    {
+      "id": "G2-02-A1",
+      "actual": true,
+      "read_refs": [
+        "business-5f197c63-c31d-4b16-917f-70e392227dde-5"
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "path": "运行日志/business.jsonl",
+      "sha256": "aaadf0b2901d2cb69e298a41be0118017d9deadfdfefd5334328191063ed931f"
+    },
+    {
+      "path": "运行日志/业务调用.jsonl",
+      "sha256": "8d619b0d6f5da075d69128ea5b9bd89cdcf86f03cc59f16c18c2888bc01ece1e"
+    }
+  ],
+  "cleanup": {
+    "status": "retained",
+    "description": "本轮导入技能保留待审，未删除用户资产",
+    "read_refs": []
+  },
+  "business_call_refs": [
+    "CALL-e125498c-c82d-42fe-8ffd-a8103f527c4c"
+  ],
+  "notes": "原问题：对象已存在，同名跳过只能证明去重。本轮 preCheck 读数为 main_present=false，导入后详情内部name=fast-assert-skillc-20261006-agent2 且安装目录存在。"
+}

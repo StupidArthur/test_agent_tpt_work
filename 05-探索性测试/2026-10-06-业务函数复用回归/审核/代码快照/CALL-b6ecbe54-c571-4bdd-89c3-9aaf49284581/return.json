@@ -1,0 +1,69 @@
+{
+  "observations": {
+    "action_refs": [
+      "business-7d679415-61df-4513-a911-dbe6c42d448a-3"
+    ],
+    "observations": {
+      "collapsed": {
+        "event_id": "business-7d679415-61df-4513-a911-dbe6c42d448a-1",
+        "captured_at": "2026-10-06T08:51:23.822Z",
+        "environment_id": "env-fn-20261006-agent2",
+        "kind": "read",
+        "target": "完成工作步骤默认折叠",
+        "business_call_id": "CALL-b6ecbe54-c571-4bdd-89c3-9aaf49284581",
+        "object_id": "work-steps-collapsed",
+        "source": {
+          "channel": "dom",
+          "scope": "对话/已完成工作步骤面板",
+          "locator": "[data-chat-flow-kind=\"turn-process\"] [aria-expanded]"
+        },
+        "value": true,
+        "raw": {
+          "count": 1,
+          "ariaExpanded": "false"
+        },
+        "derivation": "ariaExpanded === 'false'"
+      },
+      "afterExpand": {
+        "event_id": "business-7d679415-61df-4513-a911-dbe6c42d448a-4",
+        "captured_at": "2026-10-06T08:51:25.405Z",
+        "environment_id": "env-fn-20261006-agent2",
+        "kind": "read",
+        "target": "展开后执行记录可见",
+        "business_call_id": "CALL-b6ecbe54-c571-4bdd-89c3-9aaf49284581",
+        "object_id": "work-steps-records",
+        "source": {
+          "channel": "dom",
+          "scope": "对话/已完成工作步骤面板",
+          "locator": "[data-chat-flow-kind=\"turn-process\"]"
+        },
+        "value": false,
+        "raw": {
+          "visibleRecords": 0,
+          "textLen": 12,
+          "maxDepth": 1
+        },
+        "derivation": "visibleRecords>0 && textLen>0"
+      },
+      "nesting": {
+        "event_id": "business-7d679415-61df-4513-a911-dbe6c42d448a-5",
+        "captured_at": "2026-10-06T08:51:25.410Z",
+        "environment_id": "env-fn-20261006-agent2",
+        "kind": "read",
+        "target": "单动作聚合层级",
+        "business_call_id": "CALL-b6ecbe54-c571-4bdd-89c3-9aaf49284581",
+        "object_id": "work-steps-nesting",
+        "source": {
+          "channel": "dom",
+          "scope": "对话/已完成工作步骤面板",
+          "locator": "[data-chat-flow-kind=\"turn-process\"]"
+        },
+        "value": false,
+        "raw": {
+          "maxDepth": 1
+        },
+        "derivation": "maxDepth >= 2"
+      }
+    }
+  }
+}

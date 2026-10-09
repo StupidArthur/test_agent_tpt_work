@@ -1,0 +1,50 @@
+{
+  "case_id": "G7-08",
+  "contract_version": "2.0",
+  "attempt_id": "fn-20261006-agent2-G7-08-A1",
+  "environment_id": "env-fn-20261006-agent2",
+  "object_identity": {
+    "attachment": "fast-assert-long-filename-for-layout-and-tooltip-complete-name-regression.txt"
+  },
+  "inputs": [
+    "独立空白草稿添加长文件名附件并悬停"
+  ],
+  "action_refs": [
+    "business-cedfc3ab-d4d1-4daf-8b7d-b546ea76ce4a-2"
+  ],
+  "status": "通过",
+  "started_at": "2026-10-06T08:29:58.802Z",
+  "ended_at": "2026-10-06T08:30:06.890Z",
+  "actual_steps": [
+    "新建任务添加长名附件",
+    "悬停卡片并读取 title/tooltip"
+  ],
+  "assertions": [
+    {
+      "id": "G7-08-A1",
+      "actual": "fast-assert-long-filename-for-layout-and-tooltip-complete-name-regression.txt",
+      "read_refs": [
+        "business-cedfc3ab-d4d1-4daf-8b7d-b546ea76ce4a-3"
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "path": "运行日志/business.jsonl",
+      "sha256": "6203703aeaf46ab5fd94d64c474b878c26f39b97bc4c3f7a3840f9ee9a48bdc5"
+    },
+    {
+      "path": "运行日志/业务调用.jsonl",
+      "sha256": "91fc9bb4b29ad5347770a9e5e5a21b38b9c414c04a2e484e84b5dd981db87bd7"
+    }
+  ],
+  "cleanup": {
+    "status": "retained",
+    "description": "草稿保留；后续清理",
+    "read_refs": []
+  },
+  "business_call_refs": [
+    "CALL-2b314a39-c429-4a3c-a2c6-5d7739f178c1"
+  ],
+  "notes": "title 完整回读与 $attachment_long_name 一致；无独立 tooltip 元素"
+}

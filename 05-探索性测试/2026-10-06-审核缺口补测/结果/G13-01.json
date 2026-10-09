@@ -1,0 +1,50 @@
+{
+  "case_id": "G13-01",
+  "contract_version": "retest-1.0",
+  "attempt_id": "G13-01-A02",
+  "environment_id": "env-20261006-agent2",
+  "object_identity": "composer @菜单",
+  "inputs": [
+    "@"
+  ],
+  "action_refs": [
+    "business-b5642545-0f94-4616-9ad5-6c330fa86db5-1",
+    "business-b5642545-0f94-4616-9ad5-6c330fa86db5-2"
+  ],
+  "status": "通过",
+  "started_at": "2026-10-06T08:53:17.953Z",
+  "ended_at": "2026-10-06T08:53:51.476Z",
+  "actual_steps": [
+    "新建任务并选择项目",
+    "在composer输入@",
+    "读取composer浮层完整内容"
+  ],
+  "assertions": [
+    {
+      "id": "G13-01-A1",
+      "actual": true,
+      "read_refs": [
+        "business-b5642545-0f94-4616-9ad5-6c330fa86db5-3"
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "path": "运行日志/business.jsonl",
+      "sha256": "aaadf0b2901d2cb69e298a41be0118017d9deadfdfefd5334328191063ed931f"
+    },
+    {
+      "path": "运行日志/业务调用.jsonl",
+      "sha256": "8d619b0d6f5da075d69128ea5b9bd89cdcf86f03cc59f16c18c2888bc01ece1e"
+    }
+  ],
+  "cleanup": {
+    "status": "unchanged",
+    "description": "@菜单已关闭，草稿清空，无设置/资产变更",
+    "read_refs": []
+  },
+  "business_call_refs": [
+    "CALL-47572456-411b-43d5-9d13-b919396495ec"
+  ],
+  "notes": "原问题：实际读到标准模式菜单。本轮限定composer刚输入的@浮层读取，内容含“文件与文件夹/对话”。原文见raw。"
+}

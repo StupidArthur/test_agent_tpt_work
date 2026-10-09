@@ -1,0 +1,69 @@
+{
+  "case_id": "G2-05",
+  "contract_version": "2.0",
+  "environment_id": "agent-oc-20261006-funcfull-01",
+  "attempt_id": "G2-05-A01",
+  "object_identity": "fast-assert-skill-agent-oc-20261006-funcfull-01",
+  "inputs": [
+    "搜索词 regression-description-unique-token"
+  ],
+  "business_call_refs": [
+    "CALL-973010f4-7bce-40d4-a6d2-5f7e5d8cad82"
+  ],
+  "status": "失败",
+  "attempted_at": "2026-10-06T16:06:56.922Z",
+  "assertions": [
+    {
+      "id": "G2-05-A1",
+      "expected": 1,
+      "actual": 8,
+      "pass": false,
+      "read_refs": [
+        "CALL-973010f4-7bce-40d4-a6d2-5f7e5d8cad82-3"
+      ],
+      "raw": {
+        "count": 8,
+        "titles": [
+          "本轮快速回归技能",
+          "本轮快速回归技能",
+          "本轮快速回归技能",
+          "本轮快速回归技能",
+          "本轮快速回归技能",
+          "本轮快速回归技能",
+          "本轮快速回归技能",
+          "本轮快速回归技能B"
+        ]
+      }
+    },
+    {
+      "id": "G2-05-A2",
+      "expected": false,
+      "actual": false,
+      "pass": true,
+      "read_refs": [
+        "CALL-973010f4-7bce-40d4-a6d2-5f7e5d8cad82-4"
+      ],
+      "raw": {
+        "term": "regression-description-unique-token",
+        "titles": [
+          "本轮快速回归技能",
+          "本轮快速回归技能",
+          "本轮快速回归技能",
+          "本轮快速回归技能",
+          "本轮快速回归技能",
+          "本轮快速回归技能",
+          "本轮快速回归技能",
+          "本轮快速回归技能B"
+        ]
+      },
+      "derivation": "titles.some(t => t.includes(term))"
+    }
+  ],
+  "restore": {
+    "status": "unchanged",
+    "description": "本case未改动设置/文件",
+    "read_refs": []
+  },
+  "residual": "",
+  "notes": "描述唯一词命中 8（同 G2-04，环境累积同名同描述历史夹具），A1 不成立；A2 标题确不含描述搜索词，成立。"
+}

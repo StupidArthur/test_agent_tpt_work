@@ -1,0 +1,58 @@
+{
+  "case_id": "G12-08",
+  "contract_version": "2.0",
+  "attempt_id": "G12-A03",
+  "environment_id": "env-20261006-oc1",
+  "object_identity": "设置快捷键",
+  "inputs": [
+    "Ctrl+Alt+Shift+F9"
+  ],
+  "action_refs": [
+    "G12c-0c6eff2f-c846-466a-8f9a-60b510efcd79-2",
+    "G12c-0c6eff2f-c846-466a-8f9a-60b510efcd79-4",
+    "G12c-0c6eff2f-c846-466a-8f9a-60b510efcd79-8",
+    "G12c-0c6eff2f-c846-466a-8f9a-60b510efcd79-11",
+    "G12c-0c6eff2f-c846-466a-8f9a-60b510efcd79-13",
+    "G12c-0c6eff2f-c846-466a-8f9a-60b510efcd79-17",
+    "G12c-0c6eff2f-c846-466a-8f9a-60b510efcd79-19",
+    "G12c-0c6eff2f-c846-466a-8f9a-60b510efcd79-22"
+  ],
+  "status": "失败",
+  "started_at": "2026-10-06T06:38:23.804Z",
+  "ended_at": "2026-10-06T06:42:25.433Z",
+  "actual_steps": [
+    "改并重开恢复"
+  ],
+  "assertions": [
+    {
+      "id": "G12-08-A1",
+      "actual": "",
+      "read_refs": [
+        "G12c-0c6eff2f-c846-466a-8f9a-60b510efcd79-5"
+      ]
+    },
+    {
+      "id": "G12-08-A2",
+      "actual": "",
+      "read_refs": [
+        "G12c-0c6eff2f-c846-466a-8f9a-60b510efcd79-6"
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "path": "运行日志/G12c.jsonl",
+      "sha256": "b9414babce1b54f883cd4f45e55c354b623da4e2d9a3bad67ea2d2f8dc1a42a5"
+    },
+    {
+      "path": "运行日志/link-requests.jsonl",
+      "sha256": "729c0810abc464361574aaaf0d38b11127adb7ab583f8f392ca2e927282519a6"
+    }
+  ],
+  "cleanup": {
+    "status": "restored",
+    "description": "快捷键/链接设置恢复；夹具服务待收尾",
+    "read_refs": []
+  },
+  "notes": "G12快捷键/链接。"
+}

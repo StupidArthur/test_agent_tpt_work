@@ -1,7 +1,0 @@
-2026-10-06T00:37:00Z 本轮UI输入操作记录
-
-- 现有round-owned夹具：DIALOG060-round-owned/fixture-one.txt（先前由DIALOG060-A01通过产品UI创建并读回；本次只选取，不改写）。
-- 新建任务 composer 显示 tpt-workspace 项目，标准/low，访问模式仅可查看。点击 composer 的“添加文件或调用指令”可见菜单项“添加本地文件”；DOM检查到此可见composer下的真实HTML input[type=file][multiple]（input本身hidden，父级为当前可见composer的tools区域）；另一个同名input所在composer rect为0x0。本次对与当前可见composer关联的input执行 setInputFiles('D:/code/tpt-workspace/DIALOG060-round-owned/fixture-one.txt')。
-- UI随后显示round-owned文件卡 fixture-one.txt / TXT 21B，并有“移除文件 fixture-one.txt”按钮。选择后input.files被应用重置为空数组；文件卡仍在UI。
-- 用户任务仅请求元数据固定标记，不读取文件，不调用工具。Trace用户节点显示“文件 ×1”及提示文本；助手用时7秒回复DIALOG012_METADATA_ONLY_OK；未见本轮工具调用节点。Trace不展示原始请求载荷，因此无法从当前可见证据判断底层附件是否携带文件正文。
-- 截图及Trace只保存界面可见的round-owned文件名、大小和固定标记；未捕获原始网络请求/请求正文。

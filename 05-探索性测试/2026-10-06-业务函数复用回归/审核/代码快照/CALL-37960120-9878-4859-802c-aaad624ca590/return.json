@@ -1,0 +1,47 @@
+{
+  "observations": {
+    "action_refs": [
+      "business-2e09ea4a-443b-4890-9f28-1521f3ad2791-3"
+    ],
+    "observations": {
+      "before": {
+        "event_id": "business-2e09ea4a-443b-4890-9f28-1521f3ad2791-1",
+        "captured_at": "2026-10-06T07:39:34.190Z",
+        "environment_id": "env-fn-20261006-agent2",
+        "kind": "read",
+        "target": "本轮技能开关(改前)",
+        "business_call_id": "CALL-37960120-9878-4859-802c-aaad624ca590",
+        "object_id": "skill-card-switch",
+        "source": {
+          "channel": "dom",
+          "scope": "技能页/我的技能卡片",
+          "locator": "[role=\"switch\"]"
+        },
+        "value": true,
+        "raw": {
+          "aria_checked": "true"
+        },
+        "derivation": "aria_checked === 'true'"
+      },
+      "after": {
+        "event_id": "business-2e09ea4a-443b-4890-9f28-1521f3ad2791-4",
+        "captured_at": "2026-10-06T07:39:35.452Z",
+        "environment_id": "env-fn-20261006-agent2",
+        "kind": "read",
+        "target": "本轮技能开关(改后)",
+        "business_call_id": "CALL-37960120-9878-4859-802c-aaad624ca590",
+        "object_id": "skill-card-switch",
+        "source": {
+          "channel": "dom",
+          "scope": "技能页/我的技能卡片",
+          "locator": "[role=\"switch\"]"
+        },
+        "value": false,
+        "raw": {
+          "aria_checked": "false"
+        },
+        "derivation": "aria_checked === 'true'"
+      }
+    }
+  }
+}

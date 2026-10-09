@@ -1,0 +1,38 @@
+{
+  "task": "2026-10-07-LLM网关最终容量验收 / 续跑-2026-10-08-TaskA",
+  "scope": "仅续跑 Task A：Responses 简单请求关键边界的持续窗口复核（55/60/80/85/200/210），并对未确认边界补 70/100，及对 200 补 1 个复核窗口。不触碰 Task B 结果。",
+  "endpoint": "https://tpt.supcon.com/tpt-work-router/v1",
+  "responses_path": "/responses",
+  "model": "flash",
+  "reasoning": "low",
+  "reasoning_field": "reasoning.effort=low",
+  "protocol": "Responses (stream, SSE)",
+  "credential_mode": "single key",
+  "credential_identifier": "flash-public-low (secret not stored)",
+  "max_output_tokens": 256,
+  "workload": "todo_2 简单唯一 marker 文本（只输出 CAP_<12hex>），复用 archive/v1/llm-bench-kit/config.json 的 flash-public-low target",
+  "client_host": "Windows, Python 3.11.9, 单进程多线程",
+  "client_libs": {"psutil": "7.2.2", "requests": "2.33.0"},
+  "network_egress": "configured client, trust_env=False (no proxy); IP not recorded",
+  "timeouts_s": {"connect": 15.0, "idle": 60.0, "total": 180.0},
+  "success_layers": {
+    "protocol": "HTTP/transport + Responses 可解析 + 有合法终态",
+    "gateway_service": "protocol + terminal=completed + 非空正文",
+    "model_quality": "严格逐字符回显 marker；否则 mismatch，不计入网关失败"
+  },
+  "runner_code": "code/run_task_a_round.py",
+  "runner_code_sha256": "38DD4ACB09317183180F51BC48EB9F167EA899EA463A345BBA4D94DAE9DA7720",
+  "builder_code": "code/build_report.py",
+  "builder_code_sha256": "2509AA624CF1547B0C41D65A0BE5F364B6FDEED4E8E59CCC0ECF67B07A6BC949",
+  "repo_commit": "bf34c43a181417d7586200b71e4fc8dd5579bb1a",
+  "utc_start": "2026-10-07T16:20:00+00:00",
+  "beijing_start": "2026-10-08T00:20:00+08:00",
+  "utc_end": "2026-10-08T01:51:56+00:00",
+  "beijing_end": "2026-10-08T09:51:56+08:00",
+  "windows": {
+    "core_tiers": "55/60/80/85/200/210，各 2 窗",
+    "added_tiers": "70（3s 线中间档）、100（5s 线相邻档），各 2 窗",
+    "recheck": "w200-win3（200 档复核窗口，README 4.4 允许 1 个）"
+  },
+  "note": "本子目录独立于上一轮，历史证据未修改；Task B 未重跑。执行器差异见 README 与 code/run_task_a_round.py 头注释。"
+}

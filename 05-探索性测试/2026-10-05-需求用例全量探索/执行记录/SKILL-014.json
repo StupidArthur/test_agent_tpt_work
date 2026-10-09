@@ -1,0 +1,97 @@
+{
+  "case_id": "SKILL-014",
+  "case_title": "三点菜单不跳详情",
+  "source_sha256": "92a6f4ecd2a5dffe0f1a2a60e73fa18b5fb98763b09cc56ce4cc22fd56e13f0e",
+  "status": "已执行-存在差异",
+  "review_status": "待双方审核",
+  "latest_attempt_id": "SKILL-014-A01",
+  "attempts": [
+    {
+      "attempt_id": "SKILL-014-A01",
+      "started_at": "2026-10-05T20:10:00+08:00",
+      "ended_at": "2026-10-05T20:40:00+08:00",
+      "environment_id": "ENV-001",
+      "surface": "UI/CDP（技能 iframe；枚举卡片内 button 与 svg）",
+      "actual_preconditions": {
+        "account_alias": "Arthur",
+        "workspace": "界面未暴露空间切换入口，本轮未验证",
+        "project": "tpt-workspace（已有项目）",
+        "session_id": "不适用",
+        "model": "标准 / low",
+        "permission": "工作区内修改",
+        "fixtures": []
+      },
+      "input": "无输入；只读枚举",
+      "actual_steps": [
+        "进入技能模块并定位首张卡片",
+        "枚举卡片内全部 button / [role=button] / svg",
+        "另按 aria-label 或 title 含「更多」「三点」定位"
+      ],
+      "wait_condition": "纯读取，无需等待。",
+      "checkpoints": [
+        {
+          "expected_index": 1,
+          "expected": "展开删除菜单",
+          "observed": "卡片内可交互控件仅两项：启用开关 button[role=\"switch\"]（title「内置技能不允许停用」）与一个无交互语义的装饰性 svg。按 aria-label/title 含「更多」「三点」定位返回 0 项。设计 v5 L307 要求右下角三点菜单展开后含「删除」，本机卡片上不存在该控件，删除菜单无法展开。",
+          "verdict": "差异",
+          "evidence": [
+            "证据/ROUND2-SKILL/SKILL-QUICKUSE-A01/快捷使用与更新与三点.txt"
+          ]
+        },
+        {
+          "expected_index": 2,
+          "expected": "不跳转完整页",
+          "observed": "因三点菜单不存在，未发生任何跳转；点击卡片主体才会进入完整页（见 SKILL-010）。「不跳转完整页」这一点本身符合，但缺少菜单可展开，故整条判为差异。",
+          "verdict": "差异",
+          "evidence": [
+            "证据/ROUND2-SKILL/SKILL-QUICKUSE-A01/快捷使用与更新与三点.txt"
+          ]
+        }
+      ],
+      "observed_result": "验证深度：入口盘点。未点击删除。",
+      "status": "已执行-存在差异",
+      "evidence": [
+        "证据/ROUND2-SKILL/SKILL-QUICKUSE-A01/快捷使用与更新与三点.txt"
+      ],
+      "difference_ids": [
+        "DIFF-014"
+      ]
+    }
+  ],
+  "product_observations": [
+    {
+      "feature_id": null,
+      "statement": "技能卡片内只有启用开关与一个装饰性 svg，不存在设计 v5 L307 要求的右下角三点菜单；因此「展开删除菜单」无法执行。删除入口仅在用户创建技能卡以 opacity=0 的独立图标按钮形式存在（见 DIFF-014）。",
+      "case_ids": [
+        "SKILL-014"
+      ],
+      "attempt_ids": [
+        "SKILL-014-A01"
+      ],
+      "environment_id": "ENV-001",
+      "verified_depth": "业务闭环",
+      "scope_and_limits": "账号 Arthur、app.asar SHA256 EF56656B…4CC2D9D、2026-10-05。",
+      "evidence": [
+        "证据/ROUND2-SKILL/SKILL-QUICKUSE-A01/快捷使用与更新与三点.txt"
+      ],
+      "relation_to_design": "有差异（DIFF-014：设计要求的右下角三点菜单在卡片上不存在）",
+      "review_status": "待双方审核"
+    }
+  ],
+  "differences": [
+    "DIFF-014"
+  ],
+  "finding_ids": [],
+  "blocker": null,
+  "applicability_reason": null,
+  "cleanup": {
+    "changes": [],
+    "remaining": []
+  },
+  "review": {
+    "assistant": null,
+    "user": null,
+    "approved_scope": [],
+    "final_decision": "待审核"
+  }
+}

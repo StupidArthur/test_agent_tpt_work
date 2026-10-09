@@ -1,0 +1,62 @@
+{
+  "case_id": "G11-09",
+  "contract_version": "2.0",
+  "environment_id": "agent-oc-20261006-funcfull-01",
+  "attempt_id": "G11-09-A01",
+  "object_identity": "fast-assert-expert-longread-agent-oc-20261006-funcfull-01",
+  "inputs": [
+    "编辑会话提交仅提方案不写盘请求"
+  ],
+  "business_call_refs": [
+    "CALL-b333c949-e2f2-44b4-8355-dae033487109",
+    "CALL-38ee9147-1cb5-4939-9efa-76f5e896973a",
+    "CALL-b0e1024c-c96c-43a7-b0fb-141397f731b3"
+  ],
+  "status": "通过",
+  "attempted_at": "2026-10-06T16:55:58.824Z",
+  "assertions": [
+    {
+      "id": "G11-09-A1",
+      "expected": "sha256_equal",
+      "actual": {
+        "before": "a9fde1748df9e001a83a6c9288c8c0a50714dd75c8f279a53ff46dd1168f06dd",
+        "after": "a9fde1748df9e001a83a6c9288c8c0a50714dd75c8f279a53ff46dd1168f06dd"
+      },
+      "pass": true,
+      "read_refs": [
+        "CALL-b333c949-e2f2-44b4-8355-dae033487109-2",
+        "CALL-b0e1024c-c96c-43a7-b0fb-141397f731b3-2"
+      ]
+    },
+    {
+      "id": "G11-09-A2",
+      "expected": "sha256_equal",
+      "actual": {
+        "before": "adebbd5bb803ffbc33728e550ee9521e5c0d1d8e29bb3ebc4d229fac2ad70e95",
+        "after": "adebbd5bb803ffbc33728e550ee9521e5c0d1d8e29bb3ebc4d229fac2ad70e95"
+      },
+      "pass": true,
+      "read_refs": [
+        "CALL-b333c949-e2f2-44b4-8355-dae033487109-1",
+        "CALL-b0e1024c-c96c-43a7-b0fb-141397f731b3-1"
+      ]
+    },
+    {
+      "id": "G11-09-A3",
+      "expected": "displayDescription.zh",
+      "actual": "已定位到专家包，读取了 metadata.json。按要求，仅提出修改方案，暂不写入任何文件，等你确认。 修改方案：… 改动点（只动 displayDescription.zh 一处） 字段 现值 改为 displayDescription.zh FAST_EXPERT_DESCRIPTION_INITIAL FAST_EDITED …",
+      "pass": true,
+      "read_refs": [
+        "CALL-38ee9147-1cb5-4939-9efa-76f5e896973a-3"
+      ],
+      "derivation": "助手摘要含 displayDescription.zh"
+    }
+  ],
+  "restore": {
+    "status": "unchanged",
+    "description": "本case未改动设置/文件",
+    "read_refs": []
+  },
+  "residual": "",
+  "notes": "提交方案未写盘，两个安装文件哈希不变。"
+}

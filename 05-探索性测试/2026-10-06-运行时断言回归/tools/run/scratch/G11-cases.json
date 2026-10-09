@@ -1,0 +1,362 @@
+[
+  {
+    "id": "G11-01",
+    "title": "缺可选字段兼容",
+    "steps": [
+      "导入minimal专家目录，只含name/description与agent.md。"
+    ],
+    "expected": [
+      "minimal专家存在：true"
+    ],
+    "fixture": "夹具/扩展/experts/minimal",
+    "assertions": [
+      {
+        "id": "G11-01-A1",
+        "target": "minimal专家存在",
+        "read": "按本轮内部name读取对象存在",
+        "operator": "equals",
+        "expected": true
+      }
+    ]
+  },
+  {
+    "id": "G11-02",
+    "title": "英文简介中文回退",
+    "steps": [
+      "中文下导入en-description专家，查看简介。"
+    ],
+    "expected": [
+      "en-description实际简介：\"FAST_EXPERT_DESCRIPTION_EN\""
+    ],
+    "fixture": "夹具/扩展/experts/en-description",
+    "assertions": [
+      {
+        "id": "G11-02-A1",
+        "target": "en-description实际简介",
+        "read": "读取详情简介纯文本",
+        "operator": "equals",
+        "expected": "FAST_EXPERT_DESCRIPTION_EN"
+      }
+    ]
+  },
+  {
+    "id": "G11-03",
+    "title": "技术简介最终回退",
+    "steps": [
+      "导入base-description专家，查看中文简介。"
+    ],
+    "expected": [
+      "base-description实际简介：\"FAST_EXPERT_DESCRIPTION_BASE\""
+    ],
+    "fixture": "夹具/扩展/experts/base-description",
+    "assertions": [
+      {
+        "id": "G11-03-A1",
+        "target": "base-description实际简介",
+        "read": "读取简介纯文本",
+        "operator": "equals",
+        "expected": "FAST_EXPERT_DESCRIPTION_BASE"
+      }
+    ]
+  },
+  {
+    "id": "G11-04",
+    "title": "长提示词末尾完整",
+    "steps": [
+      "导入longread，打开详情，滚动提示词至底部。"
+    ],
+    "expected": [
+      "长提示词完整正文：\"FAST_PROMPT_END\"",
+      "末尾标记可见：true"
+    ],
+    "fixture": "夹具/扩展/experts/longread",
+    "assertions": [
+      {
+        "id": "G11-04-A1",
+        "target": "长提示词完整正文",
+        "read": "读取该提示词完整DOM文本",
+        "operator": "contains",
+        "expected": "FAST_PROMPT_END"
+      },
+      {
+        "id": "G11-04-A2",
+        "target": "末尾标记可见",
+        "read": "滚到底后读取末尾标记可见",
+        "operator": "equals",
+        "expected": true
+      }
+    ]
+  },
+  {
+    "id": "G11-05",
+    "title": "覆盖本轮对象",
+    "steps": [
+      "备份本轮longread原安装文件；导入同name而描述带FAST_OVERWRITE的目录选覆盖；读详情及实际文件；结束恢复原字节并刷新。"
+    ],
+    "expected": [
+      "覆盖后实际metadata内容：\"FAST_OVERWRITE\"",
+      "覆盖后详情描述：\"FAST_OVERWRITE\"",
+      "本轮原安装metadata.json绝对路径：null"
+    ],
+    "fixture": "夹具/扩展/experts/overwrite",
+    "assertions": [
+      {
+        "id": "G11-05-A1",
+        "target": "覆盖后实际metadata内容",
+        "read": "读取安装metadata.json",
+        "operator": "contains",
+        "expected": "FAST_OVERWRITE"
+      },
+      {
+        "id": "G11-05-A2",
+        "target": "覆盖后详情描述",
+        "read": "读取本轮详情描述",
+        "operator": "contains",
+        "expected": "FAST_OVERWRITE"
+      },
+      {
+        "id": "G11-05-A3",
+        "target": "本轮原安装metadata.json绝对路径",
+        "read": "覆盖前与恢复后SHA256",
+        "operator": "sha256_equal",
+        "expected": null
+      }
+    ]
+  },
+  {
+    "id": "G11-06",
+    "title": "专家附带Skill独立保存",
+    "steps": [
+      "导入bundled专家目录；通过详情确定安装目录，检查实际skills文件，并记源文件哈希。"
+    ],
+    "expected": [
+      "实际安装附带SKILL.md：true",
+      "源包与安装附带Skill文件路径：null"
+    ],
+    "fixture": "夹具/扩展/experts/bundled",
+    "assertions": [
+      {
+        "id": "G11-06-A1",
+        "target": "实际安装附带SKILL.md",
+        "read": "读取本轮安装skills/bundled/SKILL.md存在",
+        "operator": "equals",
+        "expected": true
+      },
+      {
+        "id": "G11-06-A2",
+        "target": "源包与安装附带Skill文件路径",
+        "read": "分别读取两个完整绝对路径",
+        "operator": "different",
+        "expected": null
+      }
+    ]
+  },
+  {
+    "id": "G11-07",
+    "title": "附带Skill实际调用",
+    "steps": [
+      "从本轮bundled专家使用入口建新任务，请求执行内置技能固定规则，不含答案。"
+    ],
+    "expected": [
+      "本轮成功加载资源正文：\"FAST_BUNDLED_OK\"",
+      "本轮助手正文：\"FAST_BUNDLED_OK\"",
+      "请求含输出串：false"
+    ],
+    "fixture": "见扩展场景与夹具说明",
+    "assertions": [
+      {
+        "id": "G11-07-A1",
+        "target": "本轮成功加载资源正文",
+        "read": "读取Trace成功skill资源正文",
+        "operator": "contains",
+        "expected": "FAST_BUNDLED_OK"
+      },
+      {
+        "id": "G11-07-A2",
+        "target": "本轮助手正文",
+        "read": "读取最终正文trim",
+        "operator": "equals",
+        "expected": "FAST_BUNDLED_OK"
+      },
+      {
+        "id": "G11-07-A3",
+        "target": "请求含输出串",
+        "read": "读取实际用户请求是否含FAST_BUNDLED_OK",
+        "operator": "equals",
+        "expected": false
+      }
+    ]
+  },
+  {
+    "id": "G11-08",
+    "title": "编辑上下文",
+    "steps": [
+      "从longread详情点击对话编辑，仅观察不提交。"
+    ],
+    "expected": [
+      "专家编辑引用身份：true",
+      "专家编辑模式：true",
+      "左侧导航保留：true"
+    ],
+    "fixture": "见扩展场景与夹具说明",
+    "assertions": [
+      {
+        "id": "G11-08-A1",
+        "target": "专家编辑引用身份",
+        "read": "读取composer明确指向本轮longread对象",
+        "operator": "equals",
+        "expected": true
+      },
+      {
+        "id": "G11-08-A2",
+        "target": "专家编辑模式",
+        "read": "读取编辑模式语义标识存在",
+        "operator": "equals",
+        "expected": true
+      },
+      {
+        "id": "G11-08-A3",
+        "target": "左侧导航保留",
+        "read": "读取左侧导航可见",
+        "operator": "equals",
+        "expected": true
+      }
+    ]
+  },
+  {
+    "id": "G11-09",
+    "title": "确认前文件不变",
+    "steps": [
+      "在longread编辑会话发送：仅提出将此专家metadata.json的displayDescription.zh改为FAST_EDITED的方案，暂不写入任何文件，等待我确认。提交前读取两安装文件SHA256；终态后对同一路径读取SHA256和方案正文。"
+    ],
+    "expected": [
+      "本轮安装agent.md绝对路径：null",
+      "本轮安装metadata.json绝对路径：null",
+      "待确认摘要：true"
+    ],
+    "fixture": "见扩展场景与夹具说明",
+    "assertions": [
+      {
+        "id": "G11-09-A1",
+        "target": "本轮安装agent.md绝对路径",
+        "read": "提方案前后SHA256",
+        "operator": "sha256_equal",
+        "expected": null
+      },
+      {
+        "id": "G11-09-A2",
+        "target": "本轮安装metadata.json绝对路径",
+        "read": "提方案前后SHA256",
+        "operator": "sha256_equal",
+        "expected": null
+      },
+      {
+        "id": "G11-09-A3",
+        "target": "待确认摘要",
+        "read": "读取本轮助手摘要正文trim，不从用户气泡取值",
+        "operator": "contains",
+        "expected": "displayDescription.zh"
+      }
+    ]
+  },
+  {
+    "id": "G11-10",
+    "title": "确认后写盘与摘要",
+    "steps": [
+      "在G11-09会话明确确认：仅将本轮longread的displayDescription.zh改为FAST_EDITED，其他字段与文件不变。读取实际安装JSON字段和摘要。然后按同流程恢复已记录原描述，独立回读字段。"
+    ],
+    "expected": [
+      "修改后metadata.displayDescription.zh：\"FAST_EDITED\"",
+      "修改摘要字段正确：true",
+      "恢复后metadata描述：\"$expert_longread_description_initial\""
+    ],
+    "fixture": "见扩展场景与夹具说明",
+    "assertions": [
+      {
+        "id": "G11-10-A1",
+        "target": "修改后metadata.displayDescription.zh",
+        "read": "读取实际安装JSON字段",
+        "operator": "equals",
+        "expected": "FAST_EDITED"
+      },
+      {
+        "id": "G11-10-A2",
+        "target": "修改摘要字段正确",
+        "read": "读取本轮助手摘要正文trim，不从用户气泡取值",
+        "operator": "contains",
+        "expected": "displayDescription.zh"
+      },
+      {
+        "id": "G11-10-A3",
+        "target": "恢复后metadata描述",
+        "read": "读取同一字段",
+        "operator": "equals",
+        "expected": "$expert_longread_description_initial"
+      }
+    ]
+  },
+  {
+    "id": "G11-11",
+    "title": "外部修改刷新",
+    "steps": [
+      "备份longread安装agent.md；末尾追加FAST_EXTERNAL_REFRESH，重新打开详情/使用页面刷新入口；结束恢复。"
+    ],
+    "expected": [
+      "刷新后提示词正文：\"FAST_EXTERNAL_REFRESH\"",
+      "本轮安装agent.md绝对路径：null"
+    ],
+    "fixture": "见扩展场景与夹具说明",
+    "assertions": [
+      {
+        "id": "G11-11-A1",
+        "target": "刷新后提示词正文",
+        "read": "读取详情完整正文",
+        "operator": "contains",
+        "expected": "FAST_EXTERNAL_REFRESH"
+      },
+      {
+        "id": "G11-11-A2",
+        "target": "本轮安装agent.md绝对路径",
+        "read": "修改前与恢复后SHA256",
+        "operator": "sha256_equal",
+        "expected": null
+      }
+    ]
+  },
+  {
+    "id": "G11-12",
+    "title": "坏配置不被自动改写",
+    "steps": [
+      "备份longread安装metadata.json；写入明确无效JSON“{ invalid”；保存坏文件哈希，刷新详情；然后恢复原字节并重开确认。"
+    ],
+    "expected": [
+      "坏JSON校验提示：true",
+      "本轮坏metadata.json绝对路径：null",
+      "恢复后对象详情可访问：true"
+    ],
+    "fixture": "见扩展场景与夹具说明",
+    "assertions": [
+      {
+        "id": "G11-12-A1",
+        "target": "坏JSON校验提示",
+        "read": "读取详情明确格式/校验错误",
+        "operator": "equals",
+        "expected": true
+      },
+      {
+        "id": "G11-12-A2",
+        "target": "本轮坏metadata.json绝对路径",
+        "read": "刷新前后坏文件SHA256",
+        "operator": "sha256_equal",
+        "expected": null
+      },
+      {
+        "id": "G11-12-A3",
+        "target": "恢复后对象详情可访问",
+        "read": "读取有效对象详情存在",
+        "operator": "equals",
+        "expected": true
+      }
+    ]
+  }
+]

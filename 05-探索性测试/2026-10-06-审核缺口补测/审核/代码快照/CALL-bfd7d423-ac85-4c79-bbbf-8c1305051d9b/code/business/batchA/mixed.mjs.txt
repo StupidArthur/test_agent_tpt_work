@@ -1,0 +1,92 @@
+// Batch A correction: G14-06 partial success isolation with a fresh mixed ZIP (unique folder+declared names).
+import path from 'node:path';
+import fs from 'node:fs';
+import { withApp, sleep } from '../../automation/tpt.mjs';
+import { ensureList, openImportDialog, setFileAndConfirm, dialogInfo, skillDirNames } from '../../automation/skills.mjs';
+
+const REG = 'C:\\Users\\Administrator\\.tpt-work\\dsh\\skills-manager\\skill-registry.json';
+const regKeys = () => Object.keys(JSON.parse(fs.readFileSync(REG, 'utf8')).entries).sort();
+const RUN = '20261006-agent2';
+const DECLARED = { valid: 'fast-assert-mixed-valid-' + RUN, root: 'fast-assert-root-' + RUN, invalid: 'fast-assert-mixed-invalid-' + RUN };
+const FOLDERS = { dup: 'dup-root', valid: 'valid-src', invalid: 'invalid-src' };
+
+export async function batchMixed(ctx, args) {
+  const zip = path.join(ctx.taskRoot, '夹具', '本轮', RUN, 'zips', 'mixed2.zip');
+  return withApp(ctx, async (page) => {
+    const { recorder } = ctx;
+    const fileRead = (target, objectId, locator, fn) => recorder.read(target, objectId, { channel: 'file', scope: '正式技能注册表/技能目录', locator }, fn);
+
+    const preReg = await fileRead('提交前正式技能身份集合', 'mixed.registry.before', REG, async () => ({ value: regKeys(), raw: { keys: regKeys() } }));
+    const preDirs = await fileRead('提交前技能目录集合', 'mixed.dirs.before', 'C:\\Users\\Administrator\\.tpt-work\\dsh\\skills', async () => ({ value: skillDirNames(), raw: {} }));
+    const preCheck = await recorder.read('混合包前提核验', 'mixed.precheck', {
+      channel: 'derived', scope: '注册表与技能目录', locator: REG + ' + skills dir',
+    }, async () => {
+      const reg = regKeys();
+      const dirs = skillDirNames();
+      const raw = {
+        root_by_declared: reg.includes(DECLARED.root),
+        valid_by_declared: reg.includes(DECLARED.valid),
+        invalid_by_declared: reg.includes(DECLARED.invalid),
+        dup_by_folder: dirs.includes(FOLDERS.dup) || reg.includes(FOLDERS.dup),
+        valid_by_folder: dirs.includes(FOLDERS.valid) || reg.includes(FOLDERS.valid),
+        invalid_by_folder: dirs.includes(FOLDERS.invalid) || reg.includes(FOLDERS.invalid),
+      };
+      const ok = raw.root_by_declared && !raw.valid_by_declared && !raw.invalid_by_declared && !raw.valid_by_folder && !raw.invalid_by_folder && !raw.dup_by_folder;
+      return { value: ok, raw, derivation: 'only duplicate/root pre-exists, valid/invalid absent by declared and folder identity' };
+    });
+
+    const act = await recorder.action('提交mixed2.zip', 'setInputFiles+click', 'zips/mixed2.zip', async () => {
+      const f = await ensureList(page);
+      await openImportDialog(f);
+      args.__result = await setFileAndConfirm(f, zip);
+    });
+    const feedback = await recorder.read('混合导入反馈原文', 'mixed.feedback', {
+      channel: 'dom', scope: '技能iframe/导入弹窗', locator: '[role="dialog"]',
+    }, async () => {
+      const text = (args.__result && args.__result.after && args.__result.after.text) || '';
+      return { value: text, raw: { ...args.__result } };
+    });
+    const postReg = await fileRead('提交后正式技能身份集合', 'mixed.registry.after', REG, async () => ({ value: regKeys(), raw: {} }));
+    const postDirs = await fileRead('提交后技能目录集合', 'mixed.dirs.after', 'C:\\Users\\Administrator\\.tpt-work\\dsh\\skills', async () => ({ value: skillDirNames(), raw: {} }));
+
+    const status = await recorder.read('混合导入逐项结果', 'mixed.status', {
+      channel: 'derived', scope: '注册表/技能目录/导入反馈', locator: REG,
+    }, async () => {
+      const reg = regKeys();
+      const dirs = skillDirNames();
+      const text = ((args.__result && args.__result.after && args.__result.after.text) || '');
+      // explicit per-item feedback lines (avoid name-substring rejection heuristics)
+      const segs = text.split(/(?=已跳过同名技能|未导入|成功|导入成功|校验|拒绝|失败|不符合|缺少|必填)/).map((s) => s.trim());
+      const mentions = (name) => segs.filter((s) => s.includes(name));
+      const out = {};
+      for (const key of ['valid', 'root', 'invalid']) {
+        const declared = DECLARED[key];
+        const folder = key === 'root' ? FOLDERS.dup : FOLDERS[key];
+        const present = reg.includes(declared) || dirs.includes(declared) || reg.includes(folder) || dirs.includes(folder);
+        const seg = mentions(declared)[0] || mentions(folder)[0] || '';
+        let statusVal = null;
+        if (present) statusVal = '成功';
+        else if (/已跳过同名技能/.test(seg) || (/跳过/.test(seg) && seg.includes(declared))) statusVal = '跳过';
+        else if (/校验|拒绝|失败|无效|缺少|必填|不符合/.test(seg)) statusVal = '失败';
+        out[declared] = statusVal;
+      }
+      return { value: out, raw: { registry: reg, dirs, dialog: text.slice(0, 800), segments: segs.slice(0, 12) }, derivation: 'per declared name: registry/dir presence or explicit feedback segment' };
+    });
+    const invalidCount = await recorder.read('混合导入无坏包正式匹配数', 'mixed.invalid.count', {
+      channel: 'derived', scope: '正式技能注册表与技能目录', locator: REG,
+    }, async () => {
+      const reg = regKeys(); const dirs = skillDirNames();
+      const matches = reg.filter((k) => k === DECLARED.invalid).length + dirs.filter((d) => d === DECLARED.invalid).length;
+      return { value: matches, raw: { reg_matches: reg.filter((k) => k === DECLARED.invalid), dir_matches: dirs.filter((d) => d === DECLARED.invalid) }, derivation: 'declared invalid name appears in registry or skills dir' };
+    });
+
+    return {
+      G14_06: {
+        preRead: preReg.event_id, preDirs: preDirs.event_id, preCheck: preCheck.event_id, preOk: preCheck.value,
+        action: act.event_id, feedbackRead: feedback.event_id, feedback: feedback.value,
+        statusRead: status.event_id, status: status.value,
+        invalidCountRead: invalidCount.event_id, invalidCount: invalidCount.value,
+      },
+    };
+  });
+}

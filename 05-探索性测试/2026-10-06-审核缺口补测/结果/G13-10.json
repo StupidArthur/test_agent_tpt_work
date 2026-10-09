@@ -1,0 +1,53 @@
+{
+  "case_id": "G13-10",
+  "contract_version": "retest-1.0",
+  "attempt_id": "G13-10-A02",
+  "environment_id": "env-20261006-agent2",
+  "object_identity": "fast-assert-cn-all-20261006-agent2",
+  "inputs": [
+    "variants/cn-all/SKILL.md"
+  ],
+  "action_refs": [
+    "business-8878843d-d747-43ae-b9ae-42e64531c59e-1",
+    "business-8878843d-d747-43ae-b9ae-42e64531c59e-2"
+  ],
+  "status": "通过",
+  "started_at": "2026-10-06T10:12:19.954Z",
+  "ended_at": "2026-10-06T10:13:14.201Z",
+  "actual_steps": [
+    "导入cn-all单文件样本",
+    "按内部name定位本轮卡片并点击卡片主体",
+    "按YAML字段语义读取详情name并比较"
+  ],
+  "assertions": [
+    {
+      "id": "G13-10-A1",
+      "actual": true,
+      "read_refs": [
+        "business-8878843d-d747-43ae-b9ae-42e64531c59e-3"
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "path": "运行日志/business.jsonl",
+      "sha256": "aaadf0b2901d2cb69e298a41be0118017d9deadfdfefd5334328191063ed931f"
+    },
+    {
+      "path": "运行日志/业务调用.jsonl",
+      "sha256": "8d619b0d6f5da075d69128ea5b9bd89cdcf86f03cc59f16c18c2888bc01ece1e"
+    }
+  ],
+  "cleanup": {
+    "status": "retained",
+    "description": "本轮导入对象保留待审",
+    "read_refs": [
+      "business-1cd2b8af-311c-43b2-952c-bfcb0910d51a-3"
+    ]
+  },
+  "business_call_refs": [
+    "CALL-6efbc309-6802-41bb-8e81-82f729752bcc",
+    "CALL-46a150f5-ebae-4221-972e-09f75f2bd07f"
+  ],
+  "notes": "原问题：原始详情name带引号，严格比较未解析引号导致false。本轮遍历同标题卡片按内部name定位，再点击卡片主体打开详情，读取原始name字段并去引号后比较。"
+}

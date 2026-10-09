@@ -1,0 +1,54 @@
+{
+  "case_id": "G6-04",
+  "contract_version": "2.0",
+  "environment_id": "agent-oc-20261006-funcfull-01",
+  "attempt_id": "G6-04-A01",
+  "object_identity": "字号15的新会话助手正文",
+  "inputs": [
+    "请只回复 OK",
+    "setFontDelta -1"
+  ],
+  "business_call_refs": [
+    "CALL-6a817221-3c30-4c1e-b4dc-7bcb03b2dd1c",
+    "CALL-7df4764b-6cb5-4943-9cac-534ecf171f89",
+    "CALL-dfa2658d-4ec5-4cfe-b3ca-d003f46479fb",
+    "CALL-184b14ea-3f1b-43c1-9dfe-a1ffaf813a37",
+    "CALL-f72df57d-8be2-41ac-80ff-0fa7aa8c74b7"
+  ],
+  "status": "通过",
+  "attempted_at": "2026-10-06T16:22:03.469Z",
+  "assertions": [
+    {
+      "id": "G6-04-A1",
+      "expected": 15,
+      "actual": 15,
+      "pass": true,
+      "read_refs": [
+        "CALL-dfa2658d-4ec5-4cfe-b3ca-d003f46479fb-3"
+      ],
+      "raw": {
+        "fontSize": "15px"
+      },
+      "derivation": "助手正文 computed font-size 数字"
+    },
+    {
+      "id": "G6-04-A2",
+      "expected": 14,
+      "actual": 14,
+      "pass": true,
+      "read_refs": [
+        "CALL-f72df57d-8be2-41ac-80ff-0fa7aa8c74b7-3"
+      ],
+      "raw": {
+        "fontSize": "14px"
+      }
+    }
+  ],
+  "restore": {
+    "status": "unchanged",
+    "description": "本case未改动设置/文件",
+    "read_refs": []
+  },
+  "residual": "字号已恢复初值 14",
+  "notes": "首次 sendMessage 因当前表面无 composer 失败（CALL-67716ffb 报错），改用 newTask 进入会话后重试成功；以实际成功读取为准。"
+}

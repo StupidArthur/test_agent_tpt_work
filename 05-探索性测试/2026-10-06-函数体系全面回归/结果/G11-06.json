@@ -1,0 +1,48 @@
+{
+  "case_id": "G11-06",
+  "contract_version": "2.0",
+  "environment_id": "agent-oc-20261006-funcfull-01",
+  "attempt_id": "G11-06-A01",
+  "object_identity": "fast-assert-expert-bundled-agent-oc-20261006-funcfull-01",
+  "inputs": [
+    "导入 experts/bundled"
+  ],
+  "business_call_refs": [
+    "CALL-c041de22-8406-4e1f-819c-3a28f58dce44",
+    "CALL-bcec321e-20d3-484d-ba22-0f46787e3c2d",
+    "CALL-055d1367-07d3-49c6-8718-92faf9a295f3"
+  ],
+  "status": "通过",
+  "attempted_at": "2026-10-06T16:53:48.657Z",
+  "assertions": [
+    {
+      "id": "G11-06-A1",
+      "expected": true,
+      "actual": true,
+      "pass": true,
+      "read_refs": [
+        "CALL-bcec321e-20d3-484d-ba22-0f46787e3c2d-1"
+      ]
+    },
+    {
+      "id": "G11-06-A2",
+      "expected": "different",
+      "actual": {
+        "installed": "C:/Users/Administrator/.tpt-work/agents/fast-assert-expert-bundled-agent-oc-20261006-funcfull-01/skills/bundled/SKILL.md",
+        "source": "D:/code/electron-ui/探索性测试/2026-10-06-函数体系全面回归/夹具/本轮/agent-oc-20261006-funcfull-01/experts/bundled/skills/bundled/SKILL.md"
+      },
+      "pass": true,
+      "read_refs": [
+        "CALL-055d1367-07d3-49c6-8718-92faf9a295f3-1",
+        "CALL-055d1367-07d3-49c6-8718-92faf9a295f3-2"
+      ]
+    }
+  ],
+  "restore": {
+    "status": "unchanged",
+    "description": "本case未改动设置/文件",
+    "read_refs": []
+  },
+  "residual": "",
+  "notes": "附带 Skill 独立安装到专家目录。"
+}

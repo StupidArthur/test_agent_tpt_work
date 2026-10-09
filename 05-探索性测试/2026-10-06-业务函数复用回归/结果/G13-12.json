@@ -1,0 +1,60 @@
+{
+  "case_id": "G13-12",
+  "contract_version": "2.0",
+  "attempt_id": "fn-20261006-agent2-G13-12-A1",
+  "environment_id": "env-fn-20261006-agent2",
+  "object_identity": {
+    "page": "插件页"
+  },
+  "inputs": [
+    "打开插件页点击卡片读取 aria-expanded 与详情"
+  ],
+  "action_refs": [
+    "business-df803ad4-7c85-415e-b4f9-c21b80e78984-2"
+  ],
+  "status": "不确定",
+  "started_at": "2026-10-06T11:20:00.000Z",
+  "ended_at": "2026-10-06T11:38:00.000Z",
+  "actual_steps": [
+    "尝试打开插件页与卡片"
+  ],
+  "assertions": [
+    {
+      "id": "G13-12-A1",
+      "actual": null,
+      "reason": "无法定位插件页卡片详情展开控件（插件页未渲染含 aria-expanded 的详情卡，主表面无可见插件卡片）",
+      "failed_dependency": "插件页卡片/详情控件定位",
+      "read_refs": [
+        "business-df803ad4-7c85-415e-b4f9-c21b80e78984-3"
+      ]
+    },
+    {
+      "id": "G13-12-A2",
+      "actual": null,
+      "reason": "同上，未取到 aria-expanded 改前/恢复值",
+      "failed_dependency": "插件页卡片/详情控件定位",
+      "read_refs": [
+        "business-df803ad4-7c85-415e-b4f9-c21b80e78984-3"
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "path": "运行日志/business.jsonl",
+      "sha256": "6203703aeaf46ab5fd94d64c474b878c26f39b97bc4c3f7a3840f9ee9a48bdc5"
+    },
+    {
+      "path": "运行日志/业务调用.jsonl",
+      "sha256": "91fc9bb4b29ad5347770a9e5e5a21b38b9c414c04a2e484e84b5dd981db87bd7"
+    }
+  ],
+  "cleanup": {
+    "status": "retained",
+    "description": "样本保留待审",
+    "read_refs": []
+  },
+  "business_call_refs": [
+    "CALL-2c98ad78-bbaa-40f4-bf7d-d86f4c79994e"
+  ],
+  "notes": "未观测：插件页卡片未定位"
+}

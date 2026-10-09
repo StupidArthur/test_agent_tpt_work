@@ -1,0 +1,46 @@
+{
+  "case_id": "G7-14",
+  "contract_version": "2.0",
+  "environment_id": "agent-oc-20261006-funcfull-01",
+  "attempt_id": "G7-14-A01",
+  "object_identity": "当前 composer 草稿",
+  "inputs": [
+    "移除 b/c",
+    "读取附件数与文字"
+  ],
+  "business_call_refs": [
+    "CALL-0ab560a1-f04d-4c69-8d5c-5daf4d1f1f37",
+    "CALL-370ff032-fda2-4357-8bd5-2149706e801f",
+    "CALL-8a40857c-39b3-4e42-a5cc-4948d02e82ee",
+    "CALL-ba295c8d-b407-4855-afbf-44bde7821f7e"
+  ],
+  "status": "通过",
+  "attempted_at": "2026-10-06T16:31:03.997Z",
+  "assertions": [
+    {
+      "id": "G7-14-A1",
+      "expected": 0,
+      "actual": 0,
+      "pass": true,
+      "read_refs": [
+        "CALL-8a40857c-39b3-4e42-a5cc-4948d02e82ee-2"
+      ]
+    },
+    {
+      "id": "G7-14-A2",
+      "expected": "",
+      "actual": "",
+      "pass": true,
+      "read_refs": [
+        "CALL-ba295c8d-b407-4855-afbf-44bde7821f7e-1"
+      ]
+    }
+  ],
+  "restore": {
+    "status": "unchanged",
+    "description": "本case未改动设置/文件",
+    "read_refs": []
+  },
+  "residual": "草稿已清空",
+  "notes": ""
+}

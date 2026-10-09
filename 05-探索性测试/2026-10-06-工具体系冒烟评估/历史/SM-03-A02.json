@@ -1,0 +1,54 @@
+{
+  "case_id": "SM-03",
+  "started_at": "2026-10-06T14:27:07.372Z",
+  "ended_at": "2026-10-06T14:27:19.938Z",
+  "status": "通过",
+  "assertions": [
+    {
+      "id": "SM-03-A1",
+      "actual": "SMOKE_CHAT_RETEST_tool-smoke-20261006-eval1",
+      "expected": "SMOKE_CHAT_RETEST_tool-smoke-20261006-eval1",
+      "pass": true,
+      "read_refs": [
+        "CALL-9ab0424d-1071-4cff-8d67-dc58ef7f81bd-3"
+      ]
+    },
+    {
+      "id": "SM-03-A2",
+      "actual": true,
+      "expected": true,
+      "pass": true,
+      "read_refs": [
+        "CALL-232b4907-14ea-477d-b06e-c15f44ffc462-1"
+      ]
+    }
+  ],
+  "business_call_refs": [
+    "CALL-9ab0424d-1071-4cff-8d67-dc58ef7f81bd",
+    "CALL-ee63c353-39e7-4589-a54b-0f0f4d66335c",
+    "CALL-232b4907-14ea-477d-b06e-c15f44ffc462"
+  ],
+  "tool_discovery": {
+    "feature_path": [
+      "对话",
+      "文本执行"
+    ],
+    "plan_functions": [
+      "conversation.sendMessage",
+      "conversation.readTaskState",
+      "conversation.readCompletion"
+    ],
+    "used": [
+      "conversation.sendMessage",
+      "conversation.readComposer"
+    ],
+    "additional_functions": [
+      "conversation.readComposer"
+    ],
+    "all_product_operations_via_functions": true
+  },
+  "error": null,
+  "attempt": "A02",
+  "supersedes": "历史/SM-03-A01.json",
+  "retest_reason": "修正路径、项目控件状态、快捷键实际标签及会话绑定，复测受影响项"
+}

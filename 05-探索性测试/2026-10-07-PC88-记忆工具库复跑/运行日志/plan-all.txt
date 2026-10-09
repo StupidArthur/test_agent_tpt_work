@@ -1,0 +1,245 @@
+===== MEM-01 =====
+{
+  "case_id": "MEM-01",
+  "title": "记忆目录和初值",
+  "feature_path": [
+    "记忆与进化",
+    "记忆目录和初值"
+  ],
+  "source": "PC88 770dacd；本机修正试用",
+  "coverage_level": "partial",
+  "limits": "仅提供这些操作入口；不能据此宣称完整测试项通过。见记忆模块文档。",
+  "preparation": [],
+  "calls": [
+    {
+      "name": "memory.readFiles",
+      "args": {}
+    },
+    {
+      "name": "memory.readOverview",
+      "args": {}
+    }
+  ],
+  "corrections": []
+}
+
+===== MEM-02 =====
+{
+  "case_id": "MEM-02",
+  "title": "面板添加和分层编辑",
+  "feature_path": [
+    "记忆与进化",
+    "面板添加和分层编辑"
+  ],
+  "source": "PC88 770dacd；本机修正试用",
+  "coverage_level": "partial",
+  "limits": "仅提供这些操作入口；不能据此宣称完整测试项通过。见记忆模块文档。",
+  "preparation": [
+    "fixtures.backupFile"
+  ],
+  "calls": [
+    {
+      "name": "memory.addEntry",
+      "args": {
+        "type": "事实",
+        "content": "${memory_marker}"
+      }
+    },
+    {
+      "name": "memory.editLayerFile",
+      "args": {
+        "file": "MEMORY.md",
+        "content": "${memory_edit_content}",
+        "beforeSha256": "${memory_before_sha256}"
+      }
+    },
+    {
+      "name": "memory.readFiles",
+      "args": {
+        "files": [
+          "MEMORY.md",
+          "index.json"
+        ]
+      }
+    }
+  ],
+  "corrections": []
+}
+
+===== MEM-03 =====
+node : {"error":{"type":"Error","message":"Unknown case"}}
+所在位置 行:1 字符: 261
++ ... ="; $out += (node tools/ui-operations/call.mjs --plan $c 2>&1 | Out-S ...
++                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: ({"error":{"type...Unknown case"}}:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+
+===== MEM-04 =====
+node : {"error":{"type":"Error","message":"Unknown case"}}
+所在位置 行:1 字符: 261
++ ... ="; $out += (node tools/ui-operations/call.mjs --plan $c 2>&1 | Out-S ...
++                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: ({"error":{"type...Unknown case"}}:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+
+===== MEM-05 =====
+{
+  "case_id": "MEM-05",
+  "title": "面板与文件口径",
+  "feature_path": [
+    "记忆与进化",
+    "面板与文件口径"
+  ],
+  "source": "PC88 770dacd；本机修正试用",
+  "coverage_level": "partial",
+  "limits": "仅提供这些操作入口；不能据此宣称完整测试项通过。见记忆模块文档。",
+  "preparation": [],
+  "calls": [
+    {
+      "name": "memory.readOverview",
+      "args": {}
+    },
+    {
+      "name": "memory.readFiles",
+      "args": {
+        "files": [
+          "MEMORY.md",
+          "index.json",
+          ".entry-meta.json"
+        ]
+      }
+    }
+  ],
+  "corrections": []
+}
+
+===== MEM-06 =====
+node : {"error":{"type":"Error","message":"Unknown case"}}
+所在位置 行:1 字符: 261
++ ... ="; $out += (node tools/ui-operations/call.mjs --plan $c 2>&1 | Out-S ...
++                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: ({"error":{"type...Unknown case"}}:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+
+===== MEM-07 =====
+node : {"error":{"type":"Error","message":"Unknown case"}}
+所在位置 行:1 字符: 261
++ ... ="; $out += (node tools/ui-operations/call.mjs --plan $c 2>&1 | Out-S ...
++                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: ({"error":{"type...Unknown case"}}:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+
+===== MEM-08 =====
+node : {"error":{"type":"Error","message":"Unknown case"}}
+所在位置 行:1 字符: 261
++ ... ="; $out += (node tools/ui-operations/call.mjs --plan $c 2>&1 | Out-S ...
++                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: ({"error":{"type...Unknown case"}}:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+
+===== MEM-09 =====
+node : {"error":{"type":"Error","message":"Unknown case"}}
+所在位置 行:1 字符: 261
++ ... ="; $out += (node tools/ui-operations/call.mjs --plan $c 2>&1 | Out-S ...
++                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: ({"error":{"type...Unknown case"}}:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+
+===== MEM-10 =====
+node : {"error":{"type":"Error","message":"Unknown case"}}
+所在位置 行:1 字符: 261
++ ... ="; $out += (node tools/ui-operations/call.mjs --plan $c 2>&1 | Out-S ...
++                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: ({"error":{"type...Unknown case"}}:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+
+===== MEM-11 =====
+node : {"error":{"type":"Error","message":"Unknown case"}}
+所在位置 行:1 字符: 261
++ ... ="; $out += (node tools/ui-operations/call.mjs --plan $c 2>&1 | Out-S ...
++                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: ({"error":{"type...Unknown case"}}:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+
+===== MEM-12 =====
+node : {"error":{"type":"Error","message":"Unknown case"}}
+所在位置 行:1 字符: 261
++ ... ="; $out += (node tools/ui-operations/call.mjs --plan $c 2>&1 | Out-S ...
++                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: ({"error":{"type...Unknown case"}}:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+
+===== MEM-13 =====
+node : {"error":{"type":"Error","message":"Unknown case"}}
+所在位置 行:1 字符: 261
++ ... ="; $out += (node tools/ui-operations/call.mjs --plan $c 2>&1 | Out-S ...
++                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: ({"error":{"type...Unknown case"}}:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+
+===== MEM-14 =====
+node : {"error":{"type":"Error","message":"Unknown case"}}
+所在位置 行:1 字符: 261
++ ... ="; $out += (node tools/ui-operations/call.mjs --plan $c 2>&1 | Out-S ...
++                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: ({"error":{"type...Unknown case"}}:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+
+===== MEM-15 =====
+node : {"error":{"type":"Error","message":"Unknown case"}}
+所在位置 行:1 字符: 261
++ ... ="; $out += (node tools/ui-operations/call.mjs --plan $c 2>&1 | Out-S ...
++                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: ({"error":{"type...Unknown case"}}:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+
+===== MEM-16 =====
+{
+  "case_id": "MEM-16",
+  "title": "记忆配置读值",
+  "feature_path": [
+    "记忆与进化",
+    "记忆配置读值"
+  ],
+  "source": "PC88 770dacd；本机修正试用",
+  "coverage_level": "partial",
+  "limits": "仅提供这些操作入口；不能据此宣称完整测试项通过。见记忆模块文档。",
+  "preparation": [],
+  "calls": [
+    {
+      "name": "memory.readOverview",
+      "args": {}
+    }
+  ],
+  "corrections": []
+}
+
+===== MEM-17 =====
+node : {"error":{"type":"Error","message":"Unknown case"}}
+所在位置 行:1 字符: 261
++ ... ="; $out += (node tools/ui-operations/call.mjs --plan $c 2>&1 | Out-S ...
++                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: ({"error":{"type...Unknown case"}}:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+
+===== MEM-18 =====
+node : {"error":{"type":"Error","message":"Unknown case"}}
+所在位置 行:1 字符: 261
++ ... ="; $out += (node tools/ui-operations/call.mjs --plan $c 2>&1 | Out-S ...
++                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: ({"error":{"type...Unknown case"}}:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 

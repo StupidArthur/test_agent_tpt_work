@@ -1,0 +1,60 @@
+{
+  "case_id": "G7-12",
+  "contract_version": "retest-1.0",
+  "attempt_id": "G7-12-A02",
+  "environment_id": "env-20261006-agent2",
+  "object_identity": "本轮已发送用户消息附件区",
+  "inputs": [
+    "attachment-a.txt",
+    "确认附件已收到"
+  ],
+  "action_refs": [
+    "business-18714c49-f633-4b3f-b76d-2e8577cf73b2-1",
+    "business-18714c49-f633-4b3f-b76d-2e8577cf73b2-2",
+    "business-18714c49-f633-4b3f-b76d-2e8577cf73b2-3",
+    "business-18714c49-f633-4b3f-b76d-2e8577cf73b2-4"
+  ],
+  "status": "通过",
+  "started_at": "2026-10-06T10:13:42.913Z",
+  "ended_at": "2026-10-06T10:14:13.861Z",
+  "actual_steps": [
+    "添加attachment-a.txt",
+    "发送附件请求并等待终态",
+    "仅在该条已发送用户气泡内读取名称与删除控件"
+  ],
+  "assertions": [
+    {
+      "id": "G7-12-A1",
+      "actual": true,
+      "read_refs": [
+        "business-18714c49-f633-4b3f-b76d-2e8577cf73b2-5"
+      ]
+    },
+    {
+      "id": "G7-12-A2",
+      "actual": 0,
+      "read_refs": [
+        "business-18714c49-f633-4b3f-b76d-2e8577cf73b2-6"
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "path": "运行日志/business.jsonl",
+      "sha256": "aaadf0b2901d2cb69e298a41be0118017d9deadfdfefd5334328191063ed931f"
+    },
+    {
+      "path": "运行日志/业务调用.jsonl",
+      "sha256": "8d619b0d6f5da075d69128ea5b9bd89cdcf86f03cc59f16c18c2888bc01ece1e"
+    }
+  ],
+  "cleanup": {
+    "status": "unchanged",
+    "description": "已发送消息保留，无设置/资产变更",
+    "read_refs": []
+  },
+  "business_call_refs": [
+    "CALL-9da7443b-4109-4d16-bd69-d2c86a616936"
+  ],
+  "notes": "原问题：所谓用户气泡原文包含助手与编辑器。本轮限定本条已发送用户消息节点读取：含attachment-a.txt，且无移除/删除控件。"
+}

@@ -1,0 +1,43 @@
+{
+  "case_id": "G14-03",
+  "contract_version": "2.0",
+  "environment_id": "agent-oc-20261006-funcfull-01",
+  "attempt_id": "G14-03-A01",
+  "object_identity": "collection.zip 集合导入",
+  "inputs": [
+    "确认导入 collection.zip",
+    "查 collection-one 实际内部名"
+  ],
+  "business_call_refs": [
+    "CALL-2286468c-5513-489a-9467-3810ff746746",
+    "CALL-1bbf3cde-f45d-49e9-be6f-a8f8720828cd",
+    "CALL-d4d91125-b03f-41a0-916f-eb96bea1fc31"
+  ],
+  "status": "失败",
+  "attempted_at": "2026-10-06T17:21:59.145Z",
+  "assertions": [
+    {
+      "id": "G14-03-A1",
+      "expected": [
+        "fast-assert-collection-one-agent-oc-20261006-funcfull-01"
+      ],
+      "actual": [],
+      "pass": false,
+      "read_refs": [
+        "CALL-d4d91125-b03f-41a0-916f-eb96bea1fc31-2"
+      ],
+      "raw": {
+        "collectionImportResult": "未导入任何技能；已跳过同名技能：one",
+        "actualNames": []
+      },
+      "derivation": "注册表无 collection-one 对象"
+    }
+  ],
+  "restore": {
+    "status": "unchanged",
+    "description": "本case未改动设置/文件",
+    "read_refs": []
+  },
+  "residual": "",
+  "notes": "集合包被跳过：产品按一级目录名 'one' 判同名并跳过（本机已存在 'one'），未按 fast-assert-collection-one-<run> 扫描导入。登记候选问题。"
+}

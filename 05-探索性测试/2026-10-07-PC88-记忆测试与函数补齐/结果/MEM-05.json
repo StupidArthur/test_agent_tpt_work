@@ -1,0 +1,17 @@
+{
+  "id": "MEM-05",
+  "run": "PC88-20261007-memory01",
+  "machine_id": "PC88",
+  "status": "通过",
+  "assertions": {
+    "面板": "记忆条目 2 / 索引条目 1 / 事实 2",
+    "索引": "index.json entries=1(仅面板添加项) — 与面板“记忆条目”口径不同",
+    "元数据": ".entry-meta.json 仅 tool 条目 importance=1",
+    "审计": "audit.jsonl 7 条，含 host/tool memory_write",
+    "字符口径": "MEMORY.md 文件 152B 而面板显示 112 字符，条目数与字符数非同一指标"
+  },
+  "refs": [
+    "CALL-fcbfca42-3294-4594-887f-d8a984b104df"
+  ],
+  "notes": "空索引不自动判召回失效；来源不明字段不猜含义"
+}

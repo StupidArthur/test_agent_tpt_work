@@ -1,0 +1,38 @@
+{
+  "case_id": "G6-03",
+  "contract_version": "2.0",
+  "environment_id": "agent-oc-20261006-funcfull-01",
+  "attempt_id": "G6-03-A01",
+  "object_identity": "设置字号",
+  "inputs": [
+    "setFontDelta +1"
+  ],
+  "business_call_refs": [
+    "CALL-a763adf9-35af-4f1d-b275-98629d696f3e",
+    "CALL-7c10fccb-8c2b-44f4-a9f6-d55fd1765f61"
+  ],
+  "status": "通过",
+  "attempted_at": "2026-10-06T16:21:20.758Z",
+  "assertions": [
+    {
+      "id": "G6-03-A1",
+      "expected": 15,
+      "actual": 15,
+      "pass": true,
+      "read_refs": [
+        "CALL-7c10fccb-8c2b-44f4-a9f6-d55fd1765f61-4"
+      ],
+      "raw": {
+        "cssVar": "15px"
+      },
+      "derivation": "重开设置 readGeneral 读 --dsh-content-font-size=15px"
+    }
+  ],
+  "restore": {
+    "status": "unchanged",
+    "description": "本case未改动设置/文件",
+    "read_refs": []
+  },
+  "residual": "字号保持 15，供 G6-04 使用",
+  "notes": "font_initial=14；font_changed=15（初值+1）。"
+}

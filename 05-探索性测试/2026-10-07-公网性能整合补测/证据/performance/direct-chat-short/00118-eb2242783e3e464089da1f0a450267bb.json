@@ -1,0 +1,87 @@
+{
+  "sample_id": "eb2242783e3e464089da1f0a450267bb",
+  "request_index": 118,
+  "cases": [
+    "PERF-01",
+    "PERF-07"
+  ],
+  "group": "direct-chat-short",
+  "warmup": false,
+  "target": "direct-chat",
+  "protocol": "chat",
+  "request": {
+    "model": "deepseek-flash",
+    "messages": [
+      {
+        "role": "user",
+        "content": "用一句话介绍你自己"
+      }
+    ],
+    "stream": false,
+    "max_tokens": 256,
+    "effort": "low"
+  },
+  "expected": {
+    "nonempty": true,
+    "terminal_allowed": [
+      "completed"
+    ]
+  },
+  "checks": {
+    "http200": true,
+    "no_transport_error": true,
+    "valid_json": true,
+    "terminal": false,
+    "nonempty": true
+  },
+  "ok": false,
+  "fully_completed": false,
+  "request_sha256": "425f5794c4b4e0e8613bc0120f6aec1b169aeabdf74cef7b525e294c4c72a107",
+  "utc": "2026-10-07T05:27:17Z",
+  "http": 200,
+  "error_kind": null,
+  "error": null,
+  "body_text": "{\"id\":\"3459045d-0ca4-477e-8f45-7d3ca2017342\",\"object\":\"chat.completion\",\"created\":1791350838,\"model\":\"deepseek-flash\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"我是一个乐于助人的AI助手，可以陪你聊天\",\"reasoning_content\":\"我们需要回答用户中文请求：“用一句话介绍你自己”。需要一句话介绍自己。作为AI助手，应该用一句中文介绍自己。要简洁。可以：“我是一个由深度求索公司开发的AI助手，能够帮你解答问题、处理信息并完成各种任务。” 这是一句话。需要确保符合自己身份？ 当前模型是 AI assistant，可能由 DeepSeek? 系统没指定公司。通常可以说“我是一个乐于助人的AI助手，可以为你提供信息、解答问题和协助处理各类任务。” 一句话。需要不要提公司？ 用户只是要求一句话介绍自己。可以回答一句。注意不要用多于一句。最好直接回答。可以包含“DeepSeek”吗？ 我是DeepSeek？ 系统未明确，但根据常见身份可能是 DeepSeek。然而当前是 API assistant，可能不应假设。安全：不声称特定公司？ 但“由深度求索公司开发”是常见。系统无身份说明，所以最好通用： “我是一个乐于助人、知识丰富的AI助手，可以陪你聊天、解答问题并协助完成各种任务。” 这算一句话。使用中文。确保只有一个句子。可以。最终只输出一句。\"},\"logprobs\":null,\"finish_reason\":\"length\"}],\"usage\":{\"prompt_tokens\":34,\"completion_tokens\":256,\"total_tokens\":290,\"prompt_tokens_details\":{\"cached_tokens\":0},\"completion_tokens_details\":{\"reasoning_tokens\":245},\"prompt_cache_hit_tokens\":0,\"prompt_cache_miss_tokens\":34},\"system_fingerprint\":\"aeb56401ca74e127821c4f9126dcb669\"}",
+  "normalized": {
+    "protocol": "chat",
+    "text": "我是一个乐于助人的AI助手，可以陪你聊天",
+    "reasoning": "",
+    "final_text": null,
+    "tool_calls": [],
+    "usage": {
+      "prompt_tokens": 34,
+      "completion_tokens": 256,
+      "total_tokens": 290,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 245
+      },
+      "prompt_cache_hit_tokens": 0,
+      "prompt_cache_miss_tokens": 34
+    },
+    "terminal": "incomplete",
+    "terminal_reason": "length",
+    "error_message": null,
+    "unknown_events": [],
+    "json_errors": []
+  },
+  "raw_frames": [],
+  "metrics": {
+    "e2e": 1.734,
+    "first_event": null,
+    "first_reasoning": null,
+    "first_text": null,
+    "first_tool": null,
+    "input_tokens": 34,
+    "output_tokens": 256,
+    "output_tokens_per_e2e": 147.63552479815456,
+    "text_chars": 20,
+    "text_delta_count": 0,
+    "text_span": null,
+    "text_intervals_s": [],
+    "middle_text_chunks_per_s": null,
+    "stream_batch_observation": null
+  }
+}

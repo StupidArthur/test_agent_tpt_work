@@ -1,0 +1,52 @@
+{
+  "case_id": "G14-04",
+  "contract_version": "2.0",
+  "attempt_id": "fn-20261006-agent2-G14-04-A1",
+  "environment_id": "env-fn-20261006-agent2",
+  "object_identity": {
+    "zip": "trash.zip"
+  },
+  "inputs": [
+    "导入 trash.zip，读安装目录相对文件列表"
+  ],
+  "action_refs": [
+    "business-3757e675-2a99-49b7-9947-80951fffcca5-1"
+  ],
+  "status": "失败",
+  "started_at": "2026-10-06T11:43:00.000Z",
+  "ended_at": "2026-10-06T11:47:30.000Z",
+  "actual_steps": [
+    "确认导入 trash.zip",
+    "定位安装目录",
+    "递归读取相对文件列表"
+  ],
+  "assertions": [
+    {
+      "id": "G14-04-A1",
+      "actual": true,
+      "read_refs": [
+        "business-d4020ba2-54d3-47a6-a5a8-78674ede1362-2"
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "path": "运行日志/business.jsonl",
+      "sha256": "6203703aeaf46ab5fd94d64c474b878c26f39b97bc4c3f7a3840f9ee9a48bdc5"
+    },
+    {
+      "path": "运行日志/业务调用.jsonl",
+      "sha256": "91fc9bb4b29ad5347770a9e5e5a21b38b9c414c04a2e484e84b5dd981db87bd7"
+    }
+  ],
+  "cleanup": {
+    "status": "retained",
+    "description": "样本保留待审",
+    "read_refs": []
+  },
+  "business_call_refs": [
+    "CALL-272596a4-d7a9-4a47-bc8e-af0e052a1627",
+    "CALL-3a1365bc-69c7-41ea-b800-b4f9cc8c6138"
+  ],
+  "notes": "差异：安装目录含系统垃圾（.DS_Store、__MACOSX/. _SKILL.md），与“垃圾不落盘”预期相反。文件列表：.DS_Store|SKILL.md|__MACOSX|__MACOSX/._SKILL.md"
+}

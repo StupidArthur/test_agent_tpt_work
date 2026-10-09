@@ -1,0 +1,56 @@
+{
+  "id": "SM-10",
+  "contract_version": "smoke-1.0",
+  "machine_id": "PC-88",
+  "assertions": {
+    "SM-10-A1": {
+      "read": "settings dialog has 权限/语言/外观 labels",
+      "hasPerm": true,
+      "hasLang": true,
+      "hasAppear": true,
+      "expected": true,
+      "pass": true
+    },
+    "SM-10-A2": {
+      "read": "shortcut dialog 新会话 & 搜索会话 non-empty combos",
+      "newConversation": "Ctrl + N",
+      "searchConversation": "Ctrl + K",
+      "expected": true,
+      "pass": true
+    }
+  },
+  "raw": {
+    "setTextHead": "设置\n常规\n个人主页\n积分与订阅\n场景预设\n记忆与进化\n实验性功能\nBeta\n开发者模式\n内置插件\n关闭\n常规\n管理日常使用偏好\n权限\n选择新会话的默认权限模式\n工作区内修改\n语言\n中文\n外观\n浅色\n深色\n跟随系统\n字号大小\n仅影响会话内容的字号\n14\npx\n工作步骤展示\n选择希望看到多少工具调用细节\n标准\n性能与用量\n选择性能与用量信息展示的详细程度\n详细\n网页链接默认打开方式\n对话中网页链接的",
+    "rows": {
+      "快捷键速查": "Ctrl + /",
+      "新会话": "Ctrl + N",
+      "展开／收起左侧栏": "Ctrl + B",
+      "搜索会话": "Ctrl + K",
+      "添加工作区": "Ctrl + O",
+      "重命名会话": "Ctrl + Alt + R",
+      "分叉会话": "Ctrl + Alt + F",
+      "归档会话": "Ctrl + Shift + A",
+      "打开设置": "Ctrl + ,",
+      "在本地打开": "Ctrl + Alt + O",
+      "展开／收起右侧栏": "Ctrl + Alt + B",
+      "工作区文件": "Ctrl + P",
+      "浏览器": "Ctrl + T",
+      "新建终端": "Ctrl + `",
+      "分栏": "Ctrl + \\",
+      "面板全屏／退出全屏": "Ctrl + Alt + Enter",
+      "刷新当前页面": "Ctrl + R",
+      "关闭当前页面／窗口": "Ctrl + W",
+      "使用互补的 Queue／Steer 方式": "Ctrl + Enter",
+      "打开引用菜单": "@",
+      "换行": "Shift + Enter",
+      "发送消息": "Enter",
+      "打开命令菜单": "/",
+      "停止生成": "Esc Esc",
+      "关闭菜单或顶层弹窗": "Esc",
+      "移动菜单选择": "↑ ↓",
+      "选择菜单项": "Enter",
+      "允许一次": "Enter",
+      "拒绝": "Esc"
+    }
+  }
+}

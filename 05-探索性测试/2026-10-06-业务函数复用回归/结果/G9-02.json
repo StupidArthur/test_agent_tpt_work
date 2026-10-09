@@ -1,0 +1,51 @@
+{
+  "case_id": "G9-02",
+  "contract_version": "2.0",
+  "attempt_id": "fn-20261006-agent2-G9-02-A1",
+  "environment_id": "env-fn-20261006-agent2",
+  "object_identity": {
+    "skill": "fast-assert-cn-en-fn-20261006-agent2"
+  },
+  "inputs": [
+    "导入 variants/cn-en/SKILL.md，中文界面查看卡片"
+  ],
+  "action_refs": [
+    "business-4f0733d2-4f58-42d6-b8a5-a56ba0df89dc-4"
+  ],
+  "status": "通过",
+  "started_at": "2026-10-06T09:04:06.594Z",
+  "ended_at": "2026-10-06T09:05:00.000Z",
+  "actual_steps": [
+    "导入 cn-en 单文件",
+    "读取卡片标题"
+  ],
+  "assertions": [
+    {
+      "id": "G9-02-A1",
+      "actual": "Fast English Fallback",
+      "read_refs": [
+        "business-dc5caff6-5cb9-423e-ae76-d488e7e2ed1a-1"
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "path": "运行日志/business.jsonl",
+      "sha256": "6203703aeaf46ab5fd94d64c474b878c26f39b97bc4c3f7a3840f9ee9a48bdc5"
+    },
+    {
+      "path": "运行日志/业务调用.jsonl",
+      "sha256": "91fc9bb4b29ad5347770a9e5e5a21b38b9c414c04a2e484e84b5dd981db87bd7"
+    }
+  ],
+  "cleanup": {
+    "status": "retained",
+    "description": "样本保留",
+    "read_refs": []
+  },
+  "business_call_refs": [
+    "CALL-7643a268-1064-48fa-9649-b5cf3b3b53ab",
+    "CALL-dd9feea7-7238-45e2-9d8c-d23f23f8269a"
+  ],
+  "notes": "缺 name_cn，回落 name_en"
+}

@@ -1,0 +1,87 @@
+{
+  "sample_id": "cef44f3a3e8747efbac7ae929f17b01d",
+  "request_index": 99,
+  "cases": [
+    "PERF-01",
+    "PERF-07"
+  ],
+  "group": "direct-chat-short",
+  "warmup": false,
+  "target": "direct-chat",
+  "protocol": "chat",
+  "request": {
+    "model": "deepseek-flash",
+    "messages": [
+      {
+        "role": "user",
+        "content": "用一句话介绍你自己"
+      }
+    ],
+    "stream": false,
+    "max_tokens": 256,
+    "effort": "low"
+  },
+  "expected": {
+    "nonempty": true,
+    "terminal_allowed": [
+      "completed"
+    ]
+  },
+  "checks": {
+    "http200": true,
+    "no_transport_error": true,
+    "valid_json": true,
+    "terminal": true,
+    "nonempty": true
+  },
+  "ok": true,
+  "fully_completed": true,
+  "request_sha256": "425f5794c4b4e0e8613bc0120f6aec1b169aeabdf74cef7b525e294c4c72a107",
+  "utc": "2026-10-07T05:26:48Z",
+  "http": 200,
+  "error_kind": null,
+  "error": null,
+  "body_text": "{\"id\":\"567a3a69-4453-446c-b06c-e8394f77f71c\",\"object\":\"chat.completion\",\"created\":1791350810,\"model\":\"deepseek-flash\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"我是一个乐于帮你解答问题、处理信息并完成各类任务的AI助手。\",\"reasoning_content\":\"我们需要回答用户中文请求：“用一句话介绍你自己”。需要一句话介绍自己。应该简洁。作为AI助手，可以一句话：我是由深度求索公司开发的AI助手，能帮你解答问题、处理信息并完成各类任务。需要确保一句话。用户是中文。要一句话。可以包括名字？我是DeepSeek？ Actually system says I am AI assistant accessed via API. No need mention specific? We can say：我是DeepSeek，一个乐于帮你解答问题、处理信息和完成各类任务的AI助手。 This is one sentence. Need maybe not claim company? We can. Since \\\"介绍你自己\\\" likely wants a one-sentence intro. Let's final only. Ensure one sentence, Chinese, no extra. \"},\"logprobs\":null,\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":34,\"completion_tokens\":165,\"total_tokens\":199,\"prompt_tokens_details\":{\"cached_tokens\":0},\"completion_tokens_details\":{\"reasoning_tokens\":149},\"prompt_cache_hit_tokens\":0,\"prompt_cache_miss_tokens\":34},\"system_fingerprint\":\"aeb56401ca74e127821c4f9126dcb669\"}",
+  "normalized": {
+    "protocol": "chat",
+    "text": "我是一个乐于帮你解答问题、处理信息并完成各类任务的AI助手。",
+    "reasoning": "",
+    "final_text": null,
+    "tool_calls": [],
+    "usage": {
+      "prompt_tokens": 34,
+      "completion_tokens": 165,
+      "total_tokens": 199,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 149
+      },
+      "prompt_cache_hit_tokens": 0,
+      "prompt_cache_miss_tokens": 34
+    },
+    "terminal": "completed",
+    "terminal_reason": "stop",
+    "error_message": null,
+    "unknown_events": [],
+    "json_errors": []
+  },
+  "raw_frames": [],
+  "metrics": {
+    "e2e": 1.734,
+    "first_event": null,
+    "first_reasoning": null,
+    "first_text": null,
+    "first_tool": null,
+    "input_tokens": 34,
+    "output_tokens": 165,
+    "output_tokens_per_e2e": 95.15570934256056,
+    "text_chars": 30,
+    "text_delta_count": 0,
+    "text_span": null,
+    "text_intervals_s": [],
+    "middle_text_chunks_per_s": null,
+    "stream_batch_observation": null
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "http_status": 200,
+  "error_kind": null,
+  "t_headers": 0.0,
+  "t_first_frame": 0.0,
+  "t_end": 0.188,
+  "body_text": "",
+  "frames": [
+    {
+      "t": 0.0,
+      "event": "response.output_item.added",
+      "data": "{\"type\": \"response.output_item.added\", \"output_index\": 0, \"item\": {\"id\": \"rs_1\", \"type\": \"reasoning\"}}",
+      "json_ok": true
+    },
+    {
+      "t": 0.063,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"type\": \"response.reasoning_text.delta\", \"item_id\": \"rs_1\", \"output_index\": 0, \"delta\": \"思考中\"}",
+      "json_ok": true
+    },
+    {
+      "t": 0.11,
+      "event": null,
+      "data": "",
+      "json_ok": null
+    },
+    {
+      "t": 0.125,
+      "event": "response.output_text.delta",
+      "data": "{\"type\": \"response.output_text.delta\", \"item_id\": \"msg_1\", \"output_index\": 1, \"delta\": \"GW_CHECK_\"}",
+      "json_ok": true
+    },
+    {
+      "t": 0.172,
+      "event": "response.output_text.delta",
+      "data": "{\"type\":\"response.output_text.delta\",\n\"delta\":\"7c91\"}",
+      "json_ok": true
+    },
+    {
+      "t": 0.188,
+      "event": "response.output_item.done",
+      "data": "{\"type\": \"response.output_item.done\", \"output_index\": 1, \"item\": {\"id\": \"msg_1\", \"type\": \"message\", \"content\": [{\"type\": \"output_text\", \"text\": \"GW_CHECK_7c91\"}]}}",
+      "json_ok": true
+    },
+    {
+      "t": 0.188,
+      "event": "response.completed",
+      "data": "{\"type\": \"response.completed\", \"response\": {\"id\": \"resp_1\", \"status\": \"completed\", \"usage\": {\"input_tokens\": 12, \"output_tokens\": 5, \"total_tokens\": 17}}}",
+      "json_ok": true
+    }
+  ]
+}
