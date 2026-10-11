@@ -6,6 +6,7 @@
 
 | 需要做什么 | 入口 |
 |---|---|
+| 通过 HTTP 管理局域网 OpenCode（会话、派工、状态与事件） | [lan-opencode-manage-skill](lan-opencode-manage-skill/SKILL.md)；机器地址清单按技能说明保存在本地，不提交凭据 |
 | 设计、执行、续跑探索性测试 | [exploratory-testing](exploratory-testing/SKILL.md)：通用流程、断言、恢复和交付 |
 | TPT Work 尚未启动、CDP 不可用或不清楚如何接入 | [tpt-work-access](tpt-work-access/SKILL.md) → [启动与接入](tpt-work-access/references/启动与接入.md)；具体 EXE 命令、登录与界面操作见 [UI 与 API 操作指南](tpt-work-access/references/UI与API操作.md) |
 | TPT Work 已接入，准备操作界面 | [软件 UI 操作工具](../04-测试工具/ui-operations/README.md)：按用例查函数、参数、调用和实际读取 |
