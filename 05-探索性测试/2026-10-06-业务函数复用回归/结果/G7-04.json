@@ -1,0 +1,51 @@
+{
+  "case_id": "G7-04",
+  "contract_version": "2.0",
+  "attempt_id": "fn-20261006-agent2-G7-04-A1",
+  "environment_id": "env-fn-20261006-agent2",
+  "object_identity": {
+    "attachment": "preview.png"
+  },
+  "inputs": [
+    "空白任务添加 preview.png"
+  ],
+  "action_refs": [
+    "business-f79b030c-823f-4034-9df1-84424154c320-2"
+  ],
+  "status": "通过",
+  "started_at": "2026-10-06T08:25:18.404Z",
+  "ended_at": "2026-10-06T08:28:55.948Z",
+  "actual_steps": [
+    "添加 preview.png",
+    "读取附件卡内 img.complete 与 naturalWidth"
+  ],
+  "assertions": [
+    {
+      "id": "G7-04-A1",
+      "actual": true,
+      "read_refs": [
+        "business-4b4100e3-2d07-47f8-8f55-9e512de1e332-1"
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "path": "运行日志/business.jsonl",
+      "sha256": "6203703aeaf46ab5fd94d64c474b878c26f39b97bc4c3f7a3840f9ee9a48bdc5"
+    },
+    {
+      "path": "运行日志/业务调用.jsonl",
+      "sha256": "91fc9bb4b29ad5347770a9e5e5a21b38b9c414c04a2e484e84b5dd981db87bd7"
+    }
+  ],
+  "cleanup": {
+    "status": "retained",
+    "description": "草稿保留；G7-05 复用",
+    "read_refs": []
+  },
+  "business_call_refs": [
+    "CALL-0d9fec34-461b-4aff-bccc-dce18dd5810c",
+    "CALL-c082ae00-80e0-4929-84fe-307d715b0062"
+  ],
+  "notes": "raw{complete:true,naturalWidth:8}"
+}

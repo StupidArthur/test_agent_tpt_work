@@ -1,0 +1,31 @@
+{
+  "observations": {
+    "observations": {
+      "read": {
+        "event_id": "business-60c7cca6-4aaa-4d87-8c5d-8b4b4debc8f3-1",
+        "captured_at": "2026-10-06T11:11:29.010Z",
+        "environment_id": "env-fn-20261006-agent2",
+        "kind": "read",
+        "target": "应用内侧边栏可见",
+        "business_call_id": "CALL-8545b595-0044-4614-9ce1-964abad57941",
+        "object_id": "side-browser-panel",
+        "source": {
+          "channel": "dom",
+          "scope": "应用主表面/侧边浏览器",
+          "locator": "[class*=\"browser\"],[class*=\"webview\"],iframe"
+        },
+        "value": true,
+        "raw": {
+          "candidates": [
+            {
+              "tag": "WEBVIEW",
+              "cls": "SB_kFW_webview",
+              "src": "http://127.0.0.1:64900/fast-assert-fn-20261006-agent2/sidebar"
+            }
+          ]
+        },
+        "derivation": "存在可见的应用内浏览器/侧栏面板"
+      }
+    }
+  }
+}

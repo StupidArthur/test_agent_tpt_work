@@ -1,0 +1,1094 @@
+{
+  "captured_at": "2026-10-09T12:50:04.077Z",
+  "functions": 180,
+  "cases": 156,
+  "scope": "140必跑回归+12冒烟；不包含旧355需求探索及可选时序/故障注入；4个记忆部分操作计划（不等于18项记忆全覆盖）",
+  "issues": [],
+  "verification_levels": {
+    "module_load": "all registered exports",
+    "case_mapping": "all registered plans, including explicitly partial plans; not full business coverage",
+    "live_ui": "see exploratory case review and PC88 branch review; registration does not mean all functions exercised"
+  },
+  "checked": [
+    {
+      "name": "conversation.newTask",
+      "file": "business/conversation/tasks.mjs",
+      "sha256": "8599e4926d5b2afcd593d8c9714cc5954b9c271cc67653a6434ba784e071b74e",
+      "status": "module-load-verified"
+    },
+    {
+      "name": "conversation.sendMessage",
+      "file": "business/conversation/tasks.mjs",
+      "sha256": "8599e4926d5b2afcd593d8c9714cc5954b9c271cc67653a6434ba784e071b74e",
+      "status": "module-load-verified"
+    },
+    {
+      "name": "conversation.readTaskState",
+      "file": "business/conversation/tasks.mjs",
+      "sha256": "8599e4926d5b2afcd593d8c9714cc5954b9c271cc67653a6434ba784e071b74e",
+      "status": "module-load-verified"
+    },
+    {
+      "name": "conversation.readToolTrace",
+      "file": "business/conversation/tasks.mjs",
+      "sha256": "8599e4926d5b2afcd593d8c9714cc5954b9c271cc67653a6434ba784e071b74e",
+      "status": "module-load-verified"
+    },
+    {
+      "name": "conversation.readToolDetail",
+      "file": "business/conversation/tasks.mjs",
+      "sha256": "8599e4926d5b2afcd593d8c9714cc5954b9c271cc67653a6434ba784e071b74e",
+      "status": "module-load-verified"
+    },
+    {
+      "name": "conversation.readArtifact",
+      "file": "business/conversation/tasks.mjs",
+      "sha256": "8599e4926d5b2afcd593d8c9714cc5954b9c271cc67653a6434ba784e071b74e",
+      "status": "module-load-verified"
+    },
+    {
+      "name": "conversation.readWorkSteps",
+      "file": "business/conversation/tasks.mjs",
+      "sha256": "8599e4926d5b2afcd593d8c9714cc5954b9c271cc67653a6434ba784e071b74e",
+      "status": "module-load-verified"
+    },
+    {
+      "name": "conversation.readVisibleToolCalls",
+      "file": "business/conversation/tasks.mjs",
+      "sha256": "8599e4926d5b2afcd593d8c9714cc5954b9c271cc67653a6434ba784e071b74e",
+      "status": "module-load-verified"
+    },
+    {
+      "name": "conversation.markUnread",
+      "file": "business/conversation/tasks.mjs",
+      "sha256": "8599e4926d5b2afcd593d8c9714cc5954b9c271cc67653a6434ba784e071b74e",
+      "status": "module-load-verified"
+    },
+    {
+      "name": "conversation.readUnreadBadge",
+      "file": "business/conversation/tasks.mjs",
+      "sha256": "8599e4926d5b2afcd593d8c9714cc5954b9c271cc67653a6434ba784e071b74e",
+      "status": "module-load-verified"
+    },
+    {
+      "name": "conversation.openSession",
+      "file": "business/conversation/tasks.mjs",
+      "sha256": "8599e4926d5b2afcd593d8c9714cc5954b9c271cc67653a6434ba784e071b74e",
+      "status": "module-load-verified"
+    },
+    {
+      "name": "conversation.listSessionRows",
+      "file": "business/conversation/tasks.mjs",
+      "sha256": "8599e4926d5b2afcd593d8c9714cc5954b9c271cc67653a6434ba784e071b74e",
+      "status": "module-load-verified"
+    },
+    {
+      "name": "conversation.readUsageFooter",
+      "file": "business/conversation/tasks.mjs",
+      "sha256": "8599e4926d5b2afcd593d8c9714cc5954b9c271cc67653a6434ba784e071b74e",
+      "status": "module-load-verified"
+    },
+    {
+      "name": "conversation.openSearchShortcut",
+      "file": "business/conversation/tasks.mjs",
+      "sha256": "8599e4926d5b2afcd593d8c9714cc5954b9c271cc67653a6434ba784e071b74e",
+      "status": "module-load-verified"
+    },
+    {
+      "name": "conversation.readTraceVisible",
+      "file": "business/conversation/tasks.mjs",
+      "sha256": "8599e4926d5b2afcd593d8c9714cc5954b9c271cc67653a6434ba784e071b74e",
+      "status": "module-load-verified"
+    },
+    {
+      "name": "conversation.decideApproval",
+      "file": "business/conversation/tasks.mjs",
+      "sha256": "8599e4926d5b2afcd593d8c9714cc5954b9c271cc67653a6434ba784e071b74e",
+      "status": "module-load-verified"
+    },
+    {
+      "name": "conversation.openLinkInReply",
+      "file": "business/conversation/tasks.mjs",
+      "sha256": "8599e4926d5b2afcd593d8c9714cc5954b9c271cc67653a6434ba784e071b74e",
+      "status": "module-load-verified"
+    },
+    {
+      "name": "conversation.readSidePanelVisible",
+      "file": "business/conversation/tasks.mjs",
+      "sha256": "8599e4926d5b2afcd593d8c9714cc5954b9c271cc67653a6434ba784e071b74e",
+      "status": "module-load-verified"
+    },
+    {
+      "name": "conversation.readLinkLog",
+      "file": "business/conversation/tasks.mjs",
+      "sha256": "8599e4926d5b2afcd593d8c9714cc5954b9c271cc67653a6434ba784e071b74e",
+      "status": "module-load-verified"
+    },
+    {
+      "name": "conversation.readComposerMenu",
+      "file": "business/conversation/tasks.mjs",
+      "sha256": "8599e4926d5b2afcd593d8c9714cc5954b9c271cc67653a6434ba784e071b74e",
+      "status": "module-load-verified"
+    },
+    {
+      "name": "conversation.clickAutomationCase",
+      "file": "business/conversation/tasks.mjs",
+      "sha256": "8599e4926d5b2afcd593d8c9714cc5954b9c271cc67653a6434ba784e071b74e",
+      "status": "module-load-verified"
+    },
+    {
+      "name": "conversation.openHelpFeedback",
+      "file": "business/conversation/tasks.mjs",
+      "sha256": "8599e4926d5b2afcd593d8c9714cc5954b9c271cc67653a6434ba784e071b74e",
+      "status": "module-load-verified"
+    },
+    {
+      "name": "conversation.readSortMenu",
+      "file": "business/conversation/tasks.mjs",
+      "sha256": "8599e4926d5b2afcd593d8c9714cc5954b9c271cc67653a6434ba784e071b74e",
+      "status": "module-load-verified"
+    },
+    {
+      "name": "conversation.setSort",
+      "file": "business/conversation/tasks.mjs",
+      "sha256": "8599e4926d5b2afcd593d8c9714cc5954b9c271cc67653a6434ba784e071b74e",
+      "status": "module-load-verified"
+    },
+    {
+      "name": "conversation.searchSessions",
+      "file": "business/conversation/tasks.mjs",
+      "sha256": "8599e4926d5b2afcd593d8c9714cc5954b9c271cc67653a6434ba784e071b74e",
+      "status": "module-load-verified"
+    },
+    {
+      "name": "conversation.readPluginCard",
+      "file": "business/conversation/tasks.mjs",
+      "sha256": "8599e4926d5b2afcd593d8c9714cc5954b9c271cc67653a6434ba784e071b74e",
+      "status": "module-load-verified"
+    },
+    {
+      "name": "skills.readImportDialog",
+      "file": "business/skills/manage.mjs",
+      "sha256": "cc3d1aa922f303277d299655d8512619336b942ce7869fe055488caa7d3ea96c",
+      "status": "module-load-verified"
+    },
+    {
+      "name": "skills.importSingleFile",
+      "file": "business/skills/manage.mjs",
+      "sha256": "cc3d1aa922f303277d299655d8512619336b942ce7869fe055488caa7d3ea96c",
+      "status": "module-load-verified"
+    },
+    {
+      "name": "skills.searchSkills",
+      "file": "business/skills/manage.mjs",
+      "sha256": "cc3d1aa922f303277d299655d8512619336b942ce7869fe055488caa7d3ea96c",
+      "status": "module-load-verified"
+    },
+    {
+      "name": "skills.readSkillCard",
+      "file": "business/skills/manage.mjs",
+      "sha256": "cc3d1aa922f303277d299655d8512619336b942ce7869fe055488caa7d3ea96c",
+      "status": "module-load-verified"
+    },
+    {
+      "name": "skills.setSkillEnabled",
+      "file": "business/skills/manage.mjs",
+      "sha256": "cc3d1aa922f303277d299655d8512619336b942ce7869fe055488caa7d3ea96c",
+      "status": "module-load-verified"
+    },
+    {
+      "name": "skills.readSkillDetail",
+      "file": "business/skills/manage.mjs",
+      "sha256": "cc3d1aa922f303277d299655d8512619336b942ce7869fe055488caa7d3ea96c",
+      "status": "module-load-verified"
+    },
+    {
+      "name": "skills.filterSkills",
+      "file": "business/skills/manage.mjs",
+      "sha256": "cc3d1aa922f303277d299655d8512619336b942ce7869fe055488caa7d3ea96c",
+      "status": "module-load-verified"
+    },
+    {
+      "name": "skills.readSkillsListState",
+      "file": "business/skills/manage.mjs",
+      "sha256": "cc3d1aa922f303277d299655d8512619336b942ce7869fe055488caa7d3ea96c",
+      "status": "module-load-verified"
+    },
+    {
+      "name": "skills.useSkill",
+      "file": "business/skills/manage.mjs",
+      "sha256": "cc3d1aa922f303277d299655d8512619336b942ce7869fe055488caa7d3ea96c",
+      "status": "module-load-verified"
+    },
+    {
+      "name": "skills.useSkillRequest",
+      "file": "business/skills/manage.mjs",
+      "sha256": "cc3d1aa922f303277d299655d8512619336b942ce7869fe055488caa7d3ea96c",
+      "status": "module-load-verified"
+    },
+    {
+      "name": "skills.useSkillDirect",
+      "file": "business/skills/manage.mjs",
+      "sha256": "cc3d1aa922f303277d299655d8512619336b942ce7869fe055488caa7d3ea96c",
+      "status": "module-load-verified"
+    },
+    {
+      "name": "skills.readTraceSkillContent",
+      "file": "business/skills/manage.mjs",
+      "sha256": "cc3d1aa922f303277d299655d8512619336b942ce7869fe055488caa7d3ea96c",
+      "status": "module-load-verified"
+    },
+    {
+      "name": "skills.importPackage",
+      "file": "business/skills/manage.mjs",
+      "sha256": "cc3d1aa922f303277d299655d8512619336b942ce7869fe055488caa7d3ea96c",
+      "status": "module-load-verified"
+    },
+    {
+      "name": "skills.readListIdentity",
+      "file": "business/skills/manage.mjs",
+      "sha256": "cc3d1aa922f303277d299655d8512619336b942ce7869fe055488caa7d3ea96c",
+      "status": "module-load-verified"
+    },
+    {
+      "name": "skills.readIconState",
+      "file": "business/skills/manage.mjs",
+      "sha256": "cc3d1aa922f303277d299655d8512619336b942ce7869fe055488caa7d3ea96c",
+      "status": "module-load-verified"
+    },
+    {
+      "name": "skills.importPackageMonitored",
+      "file": "business/skills/manage.mjs",
+      "sha256": "cc3d1aa922f303277d299655d8512619336b942ce7869fe055488caa7d3ea96c",
+      "status": "module-load-verified"
+    },
+    {
+      "name": "skills.readDetailTree",
+      "file": "business/skills/manage.mjs",
+      "sha256": "cc3d1aa922f303277d299655d8512619336b942ce7869fe055488caa7d3ea96c",
+      "status": "module-load-verified"
+    },
+    {
+      "name": "skills.clickTreeNode",
+      "file": "business/skills/manage.mjs",
+      "sha256": "cc3d1aa922f303277d299655d8512619336b942ce7869fe055488caa7d3ea96c",
+      "status": "module-load-verified"
+    },
+    {
+      "name": "skills.toggleTreeFolder",
+      "file": "business/skills/manage.mjs",
+      "sha256": "cc3d1aa922f303277d299655d8512619336b942ce7869fe055488caa7d3ea96c",
+      "status": "module-load-verified"
+    },
+    {
+      "name": "skills.readTreeNodeVisible",
+      "file": "business/skills/manage.mjs",
+      "sha256": "cc3d1aa922f303277d299655d8512619336b942ce7869fe055488caa7d3ea96c",
+      "status": "module-load-verified"
+    },
+    {
+      "name": "skills.installedSkillFile",
+      "file": "business/skills/manage.mjs",
+      "sha256": "cc3d1aa922f303277d299655d8512619336b942ce7869fe055488caa7d3ea96c",
+      "status": "module-load-verified"
+    },
+    {
+      "name": "skills.quickUse",
+      "file": "business/skills/manage.mjs",
+      "sha256": "cc3d1aa922f303277d299655d8512619336b942ce7869fe055488caa7d3ea96c",
+      "status": "module-load-verified"
+    },
+    {
+      "name": "skills.readValidationFeedback",
+      "file": "business/skills/manage.mjs",
+      "sha256": "cc3d1aa922f303277d299655d8512619336b942ce7869fe055488caa7d3ea96c",
+      "status": "module-load-verified"
+    },
+    {
+      "name": "skills.readTabs",
+      "file": "business/skills/manage.mjs",
+      "sha256": "cc3d1aa922f303277d299655d8512619336b942ce7869fe055488caa7d3ea96c",
+      "status": "module-load-verified"
+    },
+    {
+      "name": "skills.searchSkill",
+      "file": "business/skills/manage.mjs",
+      "sha256": "cc3d1aa922f303277d299655d8512619336b942ce7869fe055488caa7d3ea96c",
+      "status": "module-load-verified"
+    },
+    {
+      "name": "skills.readFirstCardIdentity",
+      "file": "business/skills/manage.mjs",
+      "sha256": "cc3d1aa922f303277d299655d8512619336b942ce7869fe055488caa7d3ea96c",
+      "status": "module-load-verified"
+    },
+    {
+      "name": "skills.toggleSwitchNoDetail",
+      "file": "business/skills/manage.mjs",
+      "sha256": "cc3d1aa922f303277d299655d8512619336b942ce7869fe055488caa7d3ea96c",
+      "status": "module-load-verified"
+    },
+    {
+      "name": "skills.openCardDetail",
+      "file": "business/skills/manage.mjs",
+      "sha256": "cc3d1aa922f303277d299655d8512619336b942ce7869fe055488caa7d3ea96c",
+      "status": "module-load-verified"
+    },
+    {
+      "name": "skills.startCreate",
+      "file": "business/skills/manage.mjs",
+      "sha256": "cc3d1aa922f303277d299655d8512619336b942ce7869fe055488caa7d3ea96c",
+      "status": "module-load-verified"
+    },
+    {
+      "name": "skills.readImportCandidates",
+      "file": "business/skills/manage.mjs",
+      "sha256": "cc3d1aa922f303277d299655d8512619336b942ce7869fe055488caa7d3ea96c",
+      "status": "module-load-verified"
+    },
+    {
+      "name": "skills.confirmImport",
+      "file": "business/skills/manage.mjs",
+      "sha256": "cc3d1aa922f303277d299655d8512619336b942ce7869fe055488caa7d3ea96c",
+      "status": "module-load-verified"
+    },
+    {
+      "name": "skills.readSkillCount",
+      "file": "business/skills/manage.mjs",
+      "sha256": "cc3d1aa922f303277d299655d8512619336b942ce7869fe055488caa7d3ea96c",
+      "status": "module-load-verified"
+    },
+    {
+      "name": "skills.listInstalledFiles",
+      "file": "business/skills/manage.mjs",
+      "sha256": "cc3d1aa922f303277d299655d8512619336b942ce7869fe055488caa7d3ea96c",
+      "status": "module-load-verified"
+    },
+    {
+      "name": "skills.countDelta",
+      "file": "business/skills/manage.mjs",
+      "sha256": "cc3d1aa922f303277d299655d8512619336b942ce7869fe055488caa7d3ea96c",
+      "status": "module-load-verified"
+    },
+    {
+      "name": "skills.readSkillNames",
+      "file": "business/skills/manage.mjs",
+      "sha256": "cc3d1aa922f303277d299655d8512619336b942ce7869fe055488caa7d3ea96c",
+      "status": "module-load-verified"
+    },
+    {
+      "name": "experts.readImportDialog",
+      "file": "business/experts/manage.mjs",
+      "sha256": "a5b45c2f2f3f37c9ae9ec4d87e6ed0e700b28e08523c3d71312f81c1d5e07dcc",
+      "status": "module-load-verified"
+    },
+    {
+      "name": "experts.importDirectory",
+      "file": "business/experts/manage.mjs",
+      "sha256": "a5b45c2f2f3f37c9ae9ec4d87e6ed0e700b28e08523c3d71312f81c1d5e07dcc",
+      "status": "module-load-verified"
+    },
+    {
+      "name": "experts.readCard",
+      "file": "business/experts/manage.mjs",
+      "sha256": "a5b45c2f2f3f37c9ae9ec4d87e6ed0e700b28e08523c3d71312f81c1d5e07dcc",
+      "status": "module-load-verified"
+    },
+    {
+      "name": "experts.readDetail",
+      "file": "business/experts/manage.mjs",
+      "sha256": "a5b45c2f2f3f37c9ae9ec4d87e6ed0e700b28e08523c3d71312f81c1d5e07dcc",
+      "status": "module-load-verified"
+    },
+    {
+      "name": "experts.readInstalledFileHashes",
+      "file": "business/experts/manage.mjs",
+      "sha256": "a5b45c2f2f3f37c9ae9ec4d87e6ed0e700b28e08523c3d71312f81c1d5e07dcc",
+      "status": "module-load-verified"
+    },
+    {
+      "name": "experts.readFileContent",
+      "file": "business/experts/manage.mjs",
+      "sha256": "a5b45c2f2f3f37c9ae9ec4d87e6ed0e700b28e08523c3d71312f81c1d5e07dcc",
+      "status": "module-load-verified"
+    },
+    {
+      "name": "experts.readFileExists",
+      "file": "business/experts/manage.mjs",
+      "sha256": "a5b45c2f2f3f37c9ae9ec4d87e6ed0e700b28e08523c3d71312f81c1d5e07dcc",
+      "status": "module-load-verified"
+    },
+    {
+      "name": "experts.readMetadataField",
+      "file": "business/experts/manage.mjs",
+      "sha256": "a5b45c2f2f3f37c9ae9ec4d87e6ed0e700b28e08523c3d71312f81c1d5e07dcc",
+      "status": "module-load-verified"
+    },
+    {
+      "name": "experts.readValidationFeedback",
+      "file": "business/experts/manage.mjs",
+      "sha256": "a5b45c2f2f3f37c9ae9ec4d87e6ed0e700b28e08523c3d71312f81c1d5e07dcc",
+      "status": "module-load-verified"
+    },
+    {
+      "name": "experts.startCreate",
+      "file": "business/experts/manage.mjs",
+      "sha256": "a5b45c2f2f3f37c9ae9ec4d87e6ed0e700b28e08523c3d71312f81c1d5e07dcc",
+      "status": "module-load-verified"
+    },
+    {
+      "name": "experts.readImportDialogFolderInput",
+      "file": "business/experts/manage.mjs",
+      "sha256": "a5b45c2f2f3f37c9ae9ec4d87e6ed0e700b28e08523c3d71312f81c1d5e07dcc",
+      "status": "module-load-verified"
+    },
+    {
+      "name": "experts.readPaths",
+      "file": "business/experts/manage.mjs",
+      "sha256": "a5b45c2f2f3f37c9ae9ec4d87e6ed0e700b28e08523c3d71312f81c1d5e07dcc",
+      "status": "module-load-verified"
+    },
+    {
+      "name": "experts.startEdit",
+      "file": "business/experts/manage.mjs",
+      "sha256": "a5b45c2f2f3f37c9ae9ec4d87e6ed0e700b28e08523c3d71312f81c1d5e07dcc",
+      "status": "module-load-verified"
+    },
+    {
+      "name": "experts.editSend",
+      "file": "business/experts/manage.mjs",
+      "sha256": "a5b45c2f2f3f37c9ae9ec4d87e6ed0e700b28e08523c3d71312f81c1d5e07dcc",
+      "status": "module-load-verified"
+    },
+    {
+      "name": "experts.listAgentDirs",
+      "file": "business/experts/manage.mjs",
+      "sha256": "a5b45c2f2f3f37c9ae9ec4d87e6ed0e700b28e08523c3d71312f81c1d5e07dcc",
+      "status": "module-load-verified"
+    },
+    {
+      "name": "experts.submitImport",
+      "file": "business/experts/manage.mjs",
+      "sha256": "a5b45c2f2f3f37c9ae9ec4d87e6ed0e700b28e08523c3d71312f81c1d5e07dcc",
+      "status": "module-load-verified"
+    },
+    {
+      "name": "experts.chooseConflict",
+      "file": "business/experts/manage.mjs",
+      "sha256": "a5b45c2f2f3f37c9ae9ec4d87e6ed0e700b28e08523c3d71312f81c1d5e07dcc",
+      "status": "module-load-verified"
+    },
+    {
+      "name": "experts.useExpert",
+      "file": "business/experts/manage.mjs",
+      "sha256": "a5b45c2f2f3f37c9ae9ec4d87e6ed0e700b28e08523c3d71312f81c1d5e07dcc",
+      "status": "module-load-verified"
+    },
+    {
+      "name": "experts.useExpertRequest",
+      "file": "business/experts/manage.mjs",
+      "sha256": "a5b45c2f2f3f37c9ae9ec4d87e6ed0e700b28e08523c3d71312f81c1d5e07dcc",
+      "status": "module-load-verified"
+    },
+    {
+      "name": "experts.readTraceExpertContent",
+      "file": "business/experts/manage.mjs",
+      "sha256": "a5b45c2f2f3f37c9ae9ec4d87e6ed0e700b28e08523c3d71312f81c1d5e07dcc",
+      "status": "module-load-verified"
+    },
+    {
+      "name": "experts.readInstallPaths",
+      "file": "business/experts/manage.mjs",
+      "sha256": "a5b45c2f2f3f37c9ae9ec4d87e6ed0e700b28e08523c3d71312f81c1d5e07dcc",
+      "status": "module-load-verified"
+    },
+    {
+      "name": "experts.readAgentDirFiles",
+      "file": "business/experts/manage.mjs",
+      "sha256": "a5b45c2f2f3f37c9ae9ec4d87e6ed0e700b28e08523c3d71312f81c1d5e07dcc",
+      "status": "module-load-verified"
+    },
+    {
+      "name": "experts.submitAndReadFeedback",
+      "file": "business/experts/manage.mjs",
+      "sha256": "a5b45c2f2f3f37c9ae9ec4d87e6ed0e700b28e08523c3d71312f81c1d5e07dcc",
+      "status": "module-load-verified"
+    },
+    {
+      "name": "settings.readGeneral",
+      "file": "business/settings/general.mjs",
+      "sha256": "9102849bbd725558bbe51ddf2be7f61699ecd2231f8c67f34797c94e33822290",
+      "status": "module-load-verified"
+    },
+    {
+      "name": "settings.readSurfaceBg",
+      "file": "business/settings/general.mjs",
+      "sha256": "9102849bbd725558bbe51ddf2be7f61699ecd2231f8c67f34797c94e33822290",
+      "status": "module-load-verified"
+    },
+    {
+      "name": "settings.setTheme",
+      "file": "business/settings/general.mjs",
+      "sha256": "9102849bbd725558bbe51ddf2be7f61699ecd2231f8c67f34797c94e33822290",
+      "status": "module-load-verified"
+    },
+    {
+      "name": "settings.setLanguage",
+      "file": "business/settings/general.mjs",
+      "sha256": "9102849bbd725558bbe51ddf2be7f61699ecd2231f8c67f34797c94e33822290",
+      "status": "module-load-verified"
+    },
+    {
+      "name": "settings.readGeneralNav",
+      "file": "business/settings/general.mjs",
+      "sha256": "9102849bbd725558bbe51ddf2be7f61699ecd2231f8c67f34797c94e33822290",
+      "status": "module-load-verified"
+    },
+    {
+      "name": "settings.setPermission",
+      "file": "business/settings/general.mjs",
+      "sha256": "9102849bbd725558bbe51ddf2be7f61699ecd2231f8c67f34797c94e33822290",
+      "status": "module-load-verified"
+    },
+    {
+      "name": "settings.setFontDelta",
+      "file": "business/settings/general.mjs",
+      "sha256": "9102849bbd725558bbe51ddf2be7f61699ecd2231f8c67f34797c94e33822290",
+      "status": "module-load-verified"
+    },
+    {
+      "name": "settings.setScene",
+      "file": "business/settings/general.mjs",
+      "sha256": "9102849bbd725558bbe51ddf2be7f61699ecd2231f8c67f34797c94e33822290",
+      "status": "module-load-verified"
+    },
+    {
+      "name": "settings.closeSettings",
+      "file": "business/settings/general.mjs",
+      "sha256": "9102849bbd725558bbe51ddf2be7f61699ecd2231f8c67f34797c94e33822290",
+      "status": "module-load-verified"
+    },
+    {
+      "name": "settings.readComposerLabels",
+      "file": "business/settings/general.mjs",
+      "sha256": "9102849bbd725558bbe51ddf2be7f61699ecd2231f8c67f34797c94e33822290",
+      "status": "module-load-verified"
+    },
+    {
+      "name": "settings.readSwitch",
+      "file": "business/settings/general.mjs",
+      "sha256": "9102849bbd725558bbe51ddf2be7f61699ecd2231f8c67f34797c94e33822290",
+      "status": "module-load-verified"
+    },
+    {
+      "name": "settings.setSwitch",
+      "file": "business/settings/general.mjs",
+      "sha256": "9102849bbd725558bbe51ddf2be7f61699ecd2231f8c67f34797c94e33822290",
+      "status": "module-load-verified"
+    },
+    {
+      "name": "settings.readSelect",
+      "file": "business/settings/general.mjs",
+      "sha256": "9102849bbd725558bbe51ddf2be7f61699ecd2231f8c67f34797c94e33822290",
+      "status": "module-load-verified"
+    },
+    {
+      "name": "settings.setSelect",
+      "file": "business/settings/general.mjs",
+      "sha256": "9102849bbd725558bbe51ddf2be7f61699ecd2231f8c67f34797c94e33822290",
+      "status": "module-load-verified"
+    },
+    {
+      "name": "settings.readSwitchIndex",
+      "file": "business/settings/general.mjs",
+      "sha256": "9102849bbd725558bbe51ddf2be7f61699ecd2231f8c67f34797c94e33822290",
+      "status": "module-load-verified"
+    },
+    {
+      "name": "settings.setSwitchIndex",
+      "file": "business/settings/general.mjs",
+      "sha256": "9102849bbd725558bbe51ddf2be7f61699ecd2231f8c67f34797c94e33822290",
+      "status": "module-load-verified"
+    },
+    {
+      "name": "settings.readRowToggle",
+      "file": "business/settings/general.mjs",
+      "sha256": "9102849bbd725558bbe51ddf2be7f61699ecd2231f8c67f34797c94e33822290",
+      "status": "module-load-verified"
+    },
+    {
+      "name": "settings.setRowToggle",
+      "file": "business/settings/general.mjs",
+      "sha256": "9102849bbd725558bbe51ddf2be7f61699ecd2231f8c67f34797c94e33822290",
+      "status": "module-load-verified"
+    },
+    {
+      "name": "settings.readToastError",
+      "file": "business/settings/general.mjs",
+      "sha256": "9102849bbd725558bbe51ddf2be7f61699ecd2231f8c67f34797c94e33822290",
+      "status": "module-load-verified"
+    },
+    {
+      "name": "settings.readShortcut",
+      "file": "business/settings/general.mjs",
+      "sha256": "9102849bbd725558bbe51ddf2be7f61699ecd2231f8c67f34797c94e33822290",
+      "status": "module-load-verified"
+    },
+    {
+      "name": "settings.setShortcut",
+      "file": "business/settings/general.mjs",
+      "sha256": "9102849bbd725558bbe51ddf2be7f61699ecd2231f8c67f34797c94e33822290",
+      "status": "module-load-verified"
+    },
+    {
+      "name": "settings.readProfileIdentity",
+      "file": "business/settings/general.mjs",
+      "sha256": "9102849bbd725558bbe51ddf2be7f61699ecd2231f8c67f34797c94e33822290",
+      "status": "module-load-verified"
+    },
+    {
+      "name": "settings.readSnapshot",
+      "file": "business/settings/general.mjs",
+      "sha256": "9102849bbd725558bbe51ddf2be7f61699ecd2231f8c67f34797c94e33822290",
+      "status": "module-load-verified"
+    },
+    {
+      "name": "attachments.addLocalFiles",
+      "file": "business/attachments/manage.mjs",
+      "sha256": "0815c7a87611d1911e7a43a9cde9f6444c189210c9d7aadc782edd3c30f8d25d",
+      "status": "module-load-verified"
+    },
+    {
+      "name": "attachments.readDraftState",
+      "file": "business/attachments/manage.mjs",
+      "sha256": "0815c7a87611d1911e7a43a9cde9f6444c189210c9d7aadc782edd3c30f8d25d",
+      "status": "module-load-verified"
+    },
+    {
+      "name": "attachments.removeAttachment",
+      "file": "business/attachments/manage.mjs",
+      "sha256": "0815c7a87611d1911e7a43a9cde9f6444c189210c9d7aadc782edd3c30f8d25d",
+      "status": "module-load-verified"
+    },
+    {
+      "name": "attachments.clearAttachments",
+      "file": "business/attachments/manage.mjs",
+      "sha256": "0815c7a87611d1911e7a43a9cde9f6444c189210c9d7aadc782edd3c30f8d25d",
+      "status": "module-load-verified"
+    },
+    {
+      "name": "attachments.readImageState",
+      "file": "business/attachments/manage.mjs",
+      "sha256": "0815c7a87611d1911e7a43a9cde9f6444c189210c9d7aadc782edd3c30f8d25d",
+      "status": "module-load-verified"
+    },
+    {
+      "name": "attachments.togglePreview",
+      "file": "business/attachments/manage.mjs",
+      "sha256": "0815c7a87611d1911e7a43a9cde9f6444c189210c9d7aadc782edd3c30f8d25d",
+      "status": "module-load-verified"
+    },
+    {
+      "name": "attachments.scrollAttachments",
+      "file": "business/attachments/manage.mjs",
+      "sha256": "0815c7a87611d1911e7a43a9cde9f6444c189210c9d7aadc782edd3c30f8d25d",
+      "status": "module-load-verified"
+    },
+    {
+      "name": "attachments.readComposerText",
+      "file": "business/attachments/manage.mjs",
+      "sha256": "0815c7a87611d1911e7a43a9cde9f6444c189210c9d7aadc782edd3c30f8d25d",
+      "status": "module-load-verified"
+    },
+    {
+      "name": "attachments.readFeedback",
+      "file": "business/attachments/manage.mjs",
+      "sha256": "0815c7a87611d1911e7a43a9cde9f6444c189210c9d7aadc782edd3c30f8d25d",
+      "status": "module-load-verified"
+    },
+    {
+      "name": "attachments.readCardIcon",
+      "file": "business/attachments/manage.mjs",
+      "sha256": "0815c7a87611d1911e7a43a9cde9f6444c189210c9d7aadc782edd3c30f8d25d",
+      "status": "module-load-verified"
+    },
+    {
+      "name": "attachments.readCardText",
+      "file": "business/attachments/manage.mjs",
+      "sha256": "0815c7a87611d1911e7a43a9cde9f6444c189210c9d7aadc782edd3c30f8d25d",
+      "status": "module-load-verified"
+    },
+    {
+      "name": "attachments.readCardTitle",
+      "file": "business/attachments/manage.mjs",
+      "sha256": "0815c7a87611d1911e7a43a9cde9f6444c189210c9d7aadc782edd3c30f8d25d",
+      "status": "module-load-verified"
+    },
+    {
+      "name": "attachments.readSentBubble",
+      "file": "business/attachments/manage.mjs",
+      "sha256": "0815c7a87611d1911e7a43a9cde9f6444c189210c9d7aadc782edd3c30f8d25d",
+      "status": "module-load-verified"
+    },
+    {
+      "name": "attachments.readSingleName",
+      "file": "business/attachments/manage.mjs",
+      "sha256": "0815c7a87611d1911e7a43a9cde9f6444c189210c9d7aadc782edd3c30f8d25d",
+      "status": "module-load-verified"
+    },
+    {
+      "name": "smoke.navigation.skillsFrame",
+      "file": "business/smoke/compat.mjs",
+      "sha256": "b8ae2a9df15d74a990af598fdb103b41390bbf98c9c91c9856a53e8b571f0b7c",
+      "status": "module-load-verified"
+    },
+    {
+      "name": "smoke.navigation.expertsFrame",
+      "file": "business/smoke/compat.mjs",
+      "sha256": "b8ae2a9df15d74a990af598fdb103b41390bbf98c9c91c9856a53e8b571f0b7c",
+      "status": "module-load-verified"
+    },
+    {
+      "name": "smoke.navigation.closeDialogs",
+      "file": "business/smoke/compat.mjs",
+      "sha256": "b8ae2a9df15d74a990af598fdb103b41390bbf98c9c91c9856a53e8b571f0b7c",
+      "status": "module-load-verified"
+    },
+    {
+      "name": "smoke.navigation.ensureMoreMenu",
+      "file": "business/smoke/compat.mjs",
+      "sha256": "b8ae2a9df15d74a990af598fdb103b41390bbf98c9c91c9856a53e8b571f0b7c",
+      "status": "module-load-verified"
+    },
+    {
+      "name": "smoke.navigation.goHome",
+      "file": "business/smoke/compat.mjs",
+      "sha256": "b8ae2a9df15d74a990af598fdb103b41390bbf98c9c91c9856a53e8b571f0b7c",
+      "status": "module-load-verified"
+    },
+    {
+      "name": "smoke.navigation.openSkills",
+      "file": "business/smoke/compat.mjs",
+      "sha256": "b8ae2a9df15d74a990af598fdb103b41390bbf98c9c91c9856a53e8b571f0b7c",
+      "status": "module-load-verified"
+    },
+    {
+      "name": "smoke.navigation.openExperts",
+      "file": "business/smoke/compat.mjs",
+      "sha256": "b8ae2a9df15d74a990af598fdb103b41390bbf98c9c91c9856a53e8b571f0b7c",
+      "status": "module-load-verified"
+    },
+    {
+      "name": "smoke.navigation.closeSidebarPanels",
+      "file": "business/smoke/compat.mjs",
+      "sha256": "b8ae2a9df15d74a990af598fdb103b41390bbf98c9c91c9856a53e8b571f0b7c",
+      "status": "module-load-verified"
+    },
+    {
+      "name": "smoke.conversation.readComposerState",
+      "file": "business/smoke/compat.mjs",
+      "sha256": "b8ae2a9df15d74a990af598fdb103b41390bbf98c9c91c9856a53e8b571f0b7c",
+      "status": "module-load-verified"
+    },
+    {
+      "name": "smoke.conversation.selectProject",
+      "file": "business/smoke/compat.mjs",
+      "sha256": "b8ae2a9df15d74a990af598fdb103b41390bbf98c9c91c9856a53e8b571f0b7c",
+      "status": "module-load-verified"
+    },
+    {
+      "name": "smoke.conversation.setReasoning",
+      "file": "business/smoke/compat.mjs",
+      "sha256": "b8ae2a9df15d74a990af598fdb103b41390bbf98c9c91c9856a53e8b571f0b7c",
+      "status": "module-load-verified"
+    },
+    {
+      "name": "smoke.conversation.typeDraft",
+      "file": "business/smoke/compat.mjs",
+      "sha256": "b8ae2a9df15d74a990af598fdb103b41390bbf98c9c91c9856a53e8b571f0b7c",
+      "status": "module-load-verified"
+    },
+    {
+      "name": "smoke.conversation.send",
+      "file": "business/smoke/compat.mjs",
+      "sha256": "b8ae2a9df15d74a990af598fdb103b41390bbf98c9c91c9856a53e8b571f0b7c",
+      "status": "module-load-verified"
+    },
+    {
+      "name": "smoke.conversation.waitForIdle",
+      "file": "business/smoke/compat.mjs",
+      "sha256": "b8ae2a9df15d74a990af598fdb103b41390bbf98c9c91c9856a53e8b571f0b7c",
+      "status": "module-load-verified"
+    },
+    {
+      "name": "smoke.conversation.readAssistantMessages",
+      "file": "business/smoke/compat.mjs",
+      "sha256": "b8ae2a9df15d74a990af598fdb103b41390bbf98c9c91c9856a53e8b571f0b7c",
+      "status": "module-load-verified"
+    },
+    {
+      "name": "smoke.conversation.isCompleted",
+      "file": "business/smoke/compat.mjs",
+      "sha256": "b8ae2a9df15d74a990af598fdb103b41390bbf98c9c91c9856a53e8b571f0b7c",
+      "status": "module-load-verified"
+    },
+    {
+      "name": "smoke.skills.skillsFrame",
+      "file": "business/smoke/compat.mjs",
+      "sha256": "b8ae2a9df15d74a990af598fdb103b41390bbf98c9c91c9856a53e8b571f0b7c",
+      "status": "module-load-verified"
+    },
+    {
+      "name": "smoke.skills.ensureMenu",
+      "file": "business/smoke/compat.mjs",
+      "sha256": "b8ae2a9df15d74a990af598fdb103b41390bbf98c9c91c9856a53e8b571f0b7c",
+      "status": "module-load-verified"
+    },
+    {
+      "name": "smoke.skills.openSkills",
+      "file": "business/smoke/compat.mjs",
+      "sha256": "b8ae2a9df15d74a990af598fdb103b41390bbf98c9c91c9856a53e8b571f0b7c",
+      "status": "module-load-verified"
+    },
+    {
+      "name": "smoke.skills.closeSkills",
+      "file": "business/smoke/compat.mjs",
+      "sha256": "b8ae2a9df15d74a990af598fdb103b41390bbf98c9c91c9856a53e8b571f0b7c",
+      "status": "module-load-verified"
+    },
+    {
+      "name": "smoke.skills.importSkill",
+      "file": "business/smoke/compat.mjs",
+      "sha256": "b8ae2a9df15d74a990af598fdb103b41390bbf98c9c91c9856a53e8b571f0b7c",
+      "status": "module-load-verified"
+    },
+    {
+      "name": "smoke.skills.search",
+      "file": "business/smoke/compat.mjs",
+      "sha256": "b8ae2a9df15d74a990af598fdb103b41390bbf98c9c91c9856a53e8b571f0b7c",
+      "status": "module-load-verified"
+    },
+    {
+      "name": "smoke.skills.listCards",
+      "file": "business/smoke/compat.mjs",
+      "sha256": "b8ae2a9df15d74a990af598fdb103b41390bbf98c9c91c9856a53e8b571f0b7c",
+      "status": "module-load-verified"
+    },
+    {
+      "name": "smoke.skills.readSwitch",
+      "file": "business/smoke/compat.mjs",
+      "sha256": "b8ae2a9df15d74a990af598fdb103b41390bbf98c9c91c9856a53e8b571f0b7c",
+      "status": "module-load-verified"
+    },
+    {
+      "name": "smoke.skills.setSwitch",
+      "file": "business/smoke/compat.mjs",
+      "sha256": "b8ae2a9df15d74a990af598fdb103b41390bbf98c9c91c9856a53e8b571f0b7c",
+      "status": "module-load-verified"
+    },
+    {
+      "name": "smoke.skills.openAndReadDetail",
+      "file": "business/smoke/compat.mjs",
+      "sha256": "b8ae2a9df15d74a990af598fdb103b41390bbf98c9c91c9856a53e8b571f0b7c",
+      "status": "module-load-verified"
+    },
+    {
+      "name": "application.inspectConnection",
+      "file": "business/application/inspect.mjs",
+      "sha256": "d1ce1f988990640c9a0171dc4db7b7481d94e3da711598bb251ffac51b18ea57",
+      "status": "module-load-verified"
+    },
+    {
+      "name": "conversation.readComposer",
+      "file": "business/conversation/surfaces.mjs",
+      "sha256": "9e82435977e9bc6a02849749926cc186c2060c3f4277a18e162be9feb82c8b92",
+      "status": "module-load-verified"
+    },
+    {
+      "name": "conversation.clearDraft",
+      "file": "business/conversation/surfaces.mjs",
+      "sha256": "9e82435977e9bc6a02849749926cc186c2060c3f4277a18e162be9feb82c8b92",
+      "status": "module-load-verified"
+    },
+    {
+      "name": "conversation.readDialogs",
+      "file": "business/conversation/surfaces.mjs",
+      "sha256": "9e82435977e9bc6a02849749926cc186c2060c3f4277a18e162be9feb82c8b92",
+      "status": "module-load-verified"
+    },
+    {
+      "name": "conversation.closeDialogs",
+      "file": "business/conversation/surfaces.mjs",
+      "sha256": "9e82435977e9bc6a02849749926cc186c2060c3f4277a18e162be9feb82c8b92",
+      "status": "module-load-verified"
+    },
+    {
+      "name": "settings.readConversationAppearance",
+      "file": "business/settings/appearance.mjs",
+      "sha256": "027dc46430230ab7482e4d23fc34e10ed015d0b20c4f2196e1cdf0efc597b63f",
+      "status": "module-load-verified"
+    },
+    {
+      "name": "fixtures.prepareFixtures",
+      "file": "business/fixtures/files.mjs",
+      "sha256": "617584384d2fe887cd64bff44b4d9f399cb4011d620db597397d900ec5941294",
+      "status": "module-load-verified"
+    },
+    {
+      "name": "fixtures.backupFile",
+      "file": "business/fixtures/files.mjs",
+      "sha256": "617584384d2fe887cd64bff44b4d9f399cb4011d620db597397d900ec5941294",
+      "status": "module-load-verified"
+    },
+    {
+      "name": "fixtures.readFile",
+      "file": "business/fixtures/files.mjs",
+      "sha256": "617584384d2fe887cd64bff44b4d9f399cb4011d620db597397d900ec5941294",
+      "status": "module-load-verified"
+    },
+    {
+      "name": "fixtures.writeFile",
+      "file": "business/fixtures/files.mjs",
+      "sha256": "617584384d2fe887cd64bff44b4d9f399cb4011d620db597397d900ec5941294",
+      "status": "module-load-verified"
+    },
+    {
+      "name": "fixtures.restoreFile",
+      "file": "business/fixtures/files.mjs",
+      "sha256": "617584384d2fe887cd64bff44b4d9f399cb4011d620db597397d900ec5941294",
+      "status": "module-load-verified"
+    },
+    {
+      "name": "fixtures.prepareProjectFiles",
+      "file": "business/fixtures/files.mjs",
+      "sha256": "617584384d2fe887cd64bff44b4d9f399cb4011d620db597397d900ec5941294",
+      "status": "module-load-verified"
+    },
+    {
+      "name": "fixtures.identityDelta",
+      "file": "business/fixtures/files.mjs",
+      "sha256": "617584384d2fe887cd64bff44b4d9f399cb4011d620db597397d900ec5941294",
+      "status": "module-load-verified"
+    },
+    {
+      "name": "fixtures.startLinkServer",
+      "file": "business/fixtures/links.mjs",
+      "sha256": "24e82a25eb77260b699d46a604f5db45a17dfd188e2b1625620304469debf345",
+      "status": "module-load-verified"
+    },
+    {
+      "name": "fixtures.stopLinkServer",
+      "file": "business/fixtures/links.mjs",
+      "sha256": "24e82a25eb77260b699d46a604f5db45a17dfd188e2b1625620304469debf345",
+      "status": "module-load-verified"
+    },
+    {
+      "name": "fixtures.prepareSmokeFixtures",
+      "file": "business/fixtures/files.mjs",
+      "sha256": "617584384d2fe887cd64bff44b4d9f399cb4011d620db597397d900ec5941294",
+      "status": "module-load-verified"
+    },
+    {
+      "name": "experts.scrollPromptToEnd",
+      "file": "business/experts/scroll.mjs",
+      "sha256": "7a5afce411221df9cca784908dda86f28deb281b4d0180f83a2fc597efd5dd14",
+      "status": "module-load-verified"
+    },
+    {
+      "name": "settings.listPluginCards",
+      "file": "business/settings/plugins.mjs",
+      "sha256": "777b9c3d4b12a906b7b7d486c54fd7b3b7bc35e72aace0da23866055b1ad8ed3",
+      "status": "module-load-verified"
+    },
+    {
+      "name": "settings.setPluginExpanded",
+      "file": "business/settings/plugins.mjs",
+      "sha256": "777b9c3d4b12a906b7b7d486c54fd7b3b7bc35e72aace0da23866055b1ad8ed3",
+      "status": "module-load-verified"
+    },
+    {
+      "name": "application.readDetailIdentity",
+      "file": "business/application/observations.mjs",
+      "sha256": "1e49b02e37b02527360dccfe3f9372ce3df13136d9dc763c5aa4d5f5a18b54f0",
+      "status": "module-load-verified"
+    },
+    {
+      "name": "conversation.readCompletion",
+      "file": "business/application/observations.mjs",
+      "sha256": "1e49b02e37b02527360dccfe3f9372ce3df13136d9dc763c5aa4d5f5a18b54f0",
+      "status": "module-load-verified"
+    },
+    {
+      "name": "settings.listShortcuts",
+      "file": "business/settings/general.mjs",
+      "sha256": "9102849bbd725558bbe51ddf2be7f61699ecd2231f8c67f34797c94e33822290",
+      "status": "module-load-verified"
+    },
+    {
+      "name": "conversation.readProjectControls",
+      "file": "business/conversation/projects.mjs",
+      "sha256": "1b1fbea11ffcde8ce371b33414889e12f088fdb5da8a45438f5f797d96e817cc",
+      "status": "module-load-verified"
+    },
+    {
+      "name": "conversation.readProjectOptions",
+      "file": "business/conversation/projects.mjs",
+      "sha256": "1b1fbea11ffcde8ce371b33414889e12f088fdb5da8a45438f5f797d96e817cc",
+      "status": "module-load-verified"
+    },
+    {
+      "name": "conversation.readTaskPermissionOptions",
+      "file": "business/conversation/permissions.mjs",
+      "sha256": "3d19627faa1a971f0e43ec586b482e1257ba175e28ee07fb9e8f03d8477defe9",
+      "status": "module-load-verified"
+    },
+    {
+      "name": "conversation.setTaskPermission",
+      "file": "business/conversation/permissions.mjs",
+      "sha256": "3d19627faa1a971f0e43ec586b482e1257ba175e28ee07fb9e8f03d8477defe9",
+      "status": "module-load-verified"
+    },
+    {
+      "name": "memory.inspectSurfaces",
+      "file": "business/memory/panel.mjs",
+      "sha256": "6b86129899f85130e9a39ace0a59b3d56418aa99308169748ee7ae371c7075fd",
+      "status": "module-load-verified"
+    },
+    {
+      "name": "memory.probePanel",
+      "file": "business/memory/panel.mjs",
+      "sha256": "6b86129899f85130e9a39ace0a59b3d56418aa99308169748ee7ae371c7075fd",
+      "status": "module-load-verified"
+    },
+    {
+      "name": "memory.readOverview",
+      "file": "business/memory/panel.mjs",
+      "sha256": "6b86129899f85130e9a39ace0a59b3d56418aa99308169748ee7ae371c7075fd",
+      "status": "module-load-verified"
+    },
+    {
+      "name": "memory.readFiles",
+      "file": "business/memory/panel.mjs",
+      "sha256": "6b86129899f85130e9a39ace0a59b3d56418aa99308169748ee7ae371c7075fd",
+      "status": "module-load-verified"
+    },
+    {
+      "name": "memory.addEntry",
+      "file": "business/memory/panel.mjs",
+      "sha256": "6b86129899f85130e9a39ace0a59b3d56418aa99308169748ee7ae371c7075fd",
+      "status": "module-load-verified"
+    },
+    {
+      "name": "memory.editLayerFile",
+      "file": "business/memory/panel.mjs",
+      "sha256": "6b86129899f85130e9a39ace0a59b3d56418aa99308169748ee7ae371c7075fd",
+      "status": "module-load-verified"
+    },
+    {
+      "name": "fixtures.removeCreatedFile",
+      "file": "business/fixtures/cleanup.mjs",
+      "sha256": "f9d3f14ce1bf5e57690459d03caef8c957ec9694ca309af23cc126feeeb136f2",
+      "status": "module-load-verified"
+    }
+  ]
+}

@@ -1,0 +1,80 @@
+{
+  "observations": {
+    "observations": {
+      "running": {
+        "event_id": "business-7196a842-0ec1-4bf1-ac50-e6ba07c4cb01-1",
+        "captured_at": "2026-10-06T07:22:52.141Z",
+        "environment_id": "env-fn-20261006-agent2",
+        "kind": "read",
+        "target": "可见运行中指示数量",
+        "business_call_id": "CALL-ca468a37-d5eb-4483-9522-33b74597d4d8",
+        "object_id": "running-indicators",
+        "source": {
+          "channel": "dom",
+          "scope": "当前会话",
+          "locator": "text=进行中/探索中..."
+        },
+        "value": 0,
+        "raw": {
+          "count": 0
+        }
+      },
+      "assistant": {
+        "event_id": "business-7196a842-0ec1-4bf1-ac50-e6ba07c4cb01-2",
+        "captured_at": "2026-10-06T07:22:52.161Z",
+        "environment_id": "env-fn-20261006-agent2",
+        "kind": "read",
+        "target": "助手最终正文",
+        "business_call_id": "CALL-ca468a37-d5eb-4483-9522-33b74597d4d8",
+        "object_id": "last-assistant-bubble",
+        "source": {
+          "channel": "dom",
+          "scope": "对话 助手气泡",
+          "locator": "[class*=\"hWmORq_body\"]"
+        },
+        "value": "代码块\nA\nB",
+        "raw": {
+          "count": 2,
+          "last": "代码块\nA\nB"
+        }
+      },
+      "code": {
+        "event_id": "business-7196a842-0ec1-4bf1-ac50-e6ba07c4cb01-3",
+        "captured_at": "2026-10-06T07:22:52.165Z",
+        "environment_id": "env-fn-20261006-agent2",
+        "kind": "read",
+        "target": "本轮代码块",
+        "business_call_id": "CALL-ca468a37-d5eb-4483-9522-33b74597d4d8",
+        "object_id": "code-block",
+        "source": {
+          "channel": "dom",
+          "scope": "助手气泡内 pre/code",
+          "locator": "[class*=\"hWmORq_body\"] pre, [class*=\"hWmORq_body\"] code"
+        },
+        "value": "A\nB",
+        "raw": {
+          "count": 1,
+          "text": "A\nB"
+        }
+      },
+      "fileCards": {
+        "event_id": "business-7196a842-0ec1-4bf1-ac50-e6ba07c4cb01-4",
+        "captured_at": "2026-10-06T07:22:52.166Z",
+        "environment_id": "env-fn-20261006-agent2",
+        "kind": "read",
+        "target": "文件产物卡片数量",
+        "business_call_id": "CALL-ca468a37-d5eb-4483-9522-33b74597d4d8",
+        "object_id": "changed-file-cards",
+        "source": {
+          "channel": "dom",
+          "scope": "当前会话对话区 产物卡",
+          "locator": "[data-changed-files=\"true\"]"
+        },
+        "value": 0,
+        "raw": {
+          "count": 0
+        }
+      }
+    }
+  }
+}

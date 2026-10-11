@@ -1,0 +1,48 @@
+{
+  "case_id": "G13-11",
+  "contract_version": "2.0",
+  "environment_id": "agent-oc-20261006-funcfull-01",
+  "attempt_id": "G13-11-A01",
+  "object_identity": "技能创建模式",
+  "inputs": [
+    "点击新建技能"
+  ],
+  "business_call_refs": [
+    "CALL-97a2e908-541c-4f20-8e5d-1200accf86ab"
+  ],
+  "status": "通过",
+  "attempted_at": "2026-10-06T17:18:13.844Z",
+  "assertions": [
+    {
+      "id": "G13-11-A1",
+      "expected": true,
+      "actual": true,
+      "pass": true,
+      "read_refs": [
+        "CALL-97a2e908-541c-4f20-8e5d-1200accf86ab-3"
+      ],
+      "raw": {
+        "composer": "@\ncreate-skill\n "
+      }
+    },
+    {
+      "id": "G13-11-A2",
+      "expected": true,
+      "actual": true,
+      "pass": true,
+      "read_refs": [
+        "CALL-97a2e908-541c-4f20-8e5d-1200accf86ab-4"
+      ],
+      "raw": {
+        "visible": true
+      }
+    }
+  ],
+  "restore": {
+    "status": "unchanged",
+    "description": "本case未改动设置/文件",
+    "read_refs": []
+  },
+  "residual": "",
+  "notes": ""
+}

@@ -1,0 +1,35 @@
+{
+  "call_id": "CALL-232b4907-14ea-477d-b06e-c15f44ffc462",
+  "status": "returned",
+  "observations": {
+    "observations": {
+      "read": {
+        "event_id": "CALL-232b4907-14ea-477d-b06e-c15f44ffc462-1",
+        "captured_at": "2026-10-06T14:31:29.758Z",
+        "environment_id": "env-tool-smoke-eval1",
+        "business_call_id": "CALL-232b4907-14ea-477d-b06e-c15f44ffc462",
+        "kind": "read",
+        "target": "指定会话本轮回复和完成状态",
+        "object_id": "session-ff2bd4df-f70c-4883-8d72-b4199173e048",
+        "source": {
+          "channel": "dom",
+          "scope": "当前session对话面板"
+        },
+        "value": {
+          "sessionId": "session-ff2bd4df-f70c-4883-8d72-b4199173e048",
+          "replyMatches": 1,
+          "completed": true
+        },
+        "raw": {
+          "body": "只回复：SMOKE_CHAT_RETEST_tool-smoke-20261006-eval1。不要使用工具。\n22:31\n已完成工作\n用时 8秒\n\nSMOKE_CHAT_RETEST_tool-smoke-20261006-eval1\n\n用量 22.4K tok\n22:31\n发消息或创建任务, / 调用指令, @ 文件或对话\n工作区内修改\n标准\nlow\n1 轮 1 步·156 tok/s\n22.4K tok·缓存命中 0%\n9%",
+          "replies": [
+            "",
+            "SMOKE_CHAT_RETEST_tool-smoke-20261006-eval1"
+          ],
+          "running": 0,
+          "completionLabel": "已完成工作"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,104 @@
+{
+  "case_id": "EXTRA-002",
+  "case_title": "会话搜索及结果跳转",
+  "source_sha256": "b712acd3b204ebcfdd07129c4d993ea1beb184f9a2d0c3827745ee1fdf7a6677",
+  "status": "已执行-结论不确定",
+  "review_status": "待双方审核",
+  "latest_attempt_id": "EXTRA-002-A03",
+  "attempts": [
+    {
+      "attempt_id": "EXTRA-002-A03",
+      "started_at": "2026-10-05T20:50:00+08:00",
+      "ended_at": "2026-10-05T21:15:00+08:00",
+      "environment_id": "ENV-001",
+      "surface": "UI/CDP",
+      "actual_preconditions": {
+        "account_alias": "Arthur",
+        "workspace": "界面未暴露空间切换入口，本轮未验证",
+        "project": "tpt-workspace（已有项目）",
+        "session_id": "不适用",
+        "model": "标准 / low",
+        "permission": "工作区内修改",
+        "fixtures": []
+      },
+      "input": "在「搜索任务」输入框依次输入 hi / SMOKE / 你好 / ZZZ不存在XYZ",
+      "actual_steps": [
+        "进入新建任务页，点击侧栏「搜索」打开「搜索任务」弹层",
+        "定位输入框 input[aria-label=\"搜索任务\"]",
+        "依次输入四个检索词，每次等待 2.2 秒并读取弹层正文",
+        "尝试点击命中项以验证跳转"
+      ],
+      "wait_condition": "每次输入后等待 2.2 秒；本地检索，取得稳定结果。",
+      "checkpoints": [
+        {
+          "expected_index": 1,
+          "expected": "命中结果对应本轮会话，点击后打开正确会话",
+          "observed": "命中的是本轮与既有会话：检索「hi」得 1 个任务、检索「SMOKE」得 7 个任务、检索「你好」得 2 个任务，标题与命中词对应，说明搜索作用于会话标题或内容。**未能验证点击跳转**：命中项未以 role=option/menuitem 暴露，点击定位未成功，故「点击后打开正确会话」记未验证。",
+          "verdict": "未验证",
+          "evidence": [
+            "证据/ROUND1-ENTRY/ENTRY-搜索-A01/入口.png"
+          ]
+        },
+        {
+          "expected_index": 2,
+          "expected": "不命中有可理解反馈，清空后恢复可继续搜索",
+          "observed": "无匹配时有可理解反馈：检索「ZZZ不存在XYZ」显示「搜索到 0个任务」「没有匹配的结果」「试试其他关键词，或清空搜索内容」；清空后回到「搜索到 0个任务」的初始态，可继续检索。",
+          "verdict": "符合",
+          "evidence": [
+            "证据/ROUND1-ENTRY/ENTRY-搜索-A01/入口.png"
+          ]
+        },
+        {
+          "expected_index": 3,
+          "expected": "实际中文及匹配范围被记录；未明确承诺全文搜索或分词时不强判缺陷",
+          "observed": "已记录实际匹配范围：中文词「你好」可命中，英文词「hi」「SMOKE」可命中，说明至少按会话标题做子串匹配（未验证是否含正文全文或分词）。用例明确「未明确承诺全文搜索或分词时不强判缺陷」，故只记录行为。",
+          "verdict": "符合",
+          "evidence": [
+            "证据/ROUND1-ENTRY/ENTRY-搜索-A01/入口.png"
+          ]
+        }
+      ],
+      "observed_result": "验证深度：入口—检索—命中/无命中反馈—恢复。命中项点击跳转未验证，原因是命中项未暴露可定位的角色。",
+      "status": "已执行-结论不确定",
+      "evidence": [
+        "证据/EXTRA-002/EXTRA-002-A03/会话搜索.txt"
+      ],
+      "difference_ids": [],
+      "notes": "未点击命中项（定位失败），故跳转未验证。弹层内另有「知识试问」区块，与本 case 无关，未操作。"
+    }
+  ],
+  "product_observations": [
+    {
+      "feature_id": null,
+      "statement": "【EXTRA-002】验证深度：入口—检索—命中/无命中反馈—恢复。命中项点击跳转未验证，原因是命中项未暴露可定位的角色。",
+      "case_ids": [
+        "EXTRA-002"
+      ],
+      "attempt_ids": [
+        "EXTRA-002-A03"
+      ],
+      "environment_id": "ENV-001",
+      "verified_depth": "操作有反馈",
+      "scope_and_limits": "账号 Arthur、app.asar SHA256 EF56656B…4CC2D9D、2026-10-05。",
+      "evidence": [
+        "证据/EXTRA-002/EXTRA-002-A03/会话搜索.txt"
+      ],
+      "relation_to_design": "符合当前用例检查点",
+      "review_status": "待双方审核"
+    }
+  ],
+  "differences": [],
+  "finding_ids": [],
+  "blocker": null,
+  "applicability_reason": null,
+  "cleanup": {
+    "changes": [],
+    "remaining": []
+  },
+  "review": {
+    "assistant": null,
+    "user": null,
+    "approved_scope": [],
+    "final_decision": "待审核"
+  }
+}

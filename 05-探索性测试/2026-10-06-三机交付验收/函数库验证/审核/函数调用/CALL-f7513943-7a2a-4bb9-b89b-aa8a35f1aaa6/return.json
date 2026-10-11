@@ -1,0 +1,66 @@
+{
+  "call_id": "CALL-f7513943-7a2a-4bb9-b89b-aa8a35f1aaa6",
+  "status": "returned",
+  "observations": {
+    "action_refs": [
+      "CALL-f7513943-7a2a-4bb9-b89b-aa8a35f1aaa6-3",
+      "CALL-f7513943-7a2a-4bb9-b89b-aa8a35f1aaa6-5"
+    ],
+    "observations": {
+      "sessionBefore": {
+        "event_id": "CALL-f7513943-7a2a-4bb9-b89b-aa8a35f1aaa6-1",
+        "captured_at": "2026-10-06T14:15:41.499Z",
+        "environment_id": "env-tool-review-20261006",
+        "business_call_id": "CALL-f7513943-7a2a-4bb9-b89b-aa8a35f1aaa6",
+        "kind": "read",
+        "target": "专家调用会话身份(前)",
+        "object_id": "session",
+        "source": {
+          "channel": "dom",
+          "scope": "主界面会话容器",
+          "locator": "[data-conversation-session]"
+        },
+        "value": "session-db680763-f4a1-4944-8033-524c8491896f",
+        "raw": {
+          "value": "session-db680763-f4a1-4944-8033-524c8491896f"
+        }
+      },
+      "sessionAfter": {
+        "event_id": "CALL-f7513943-7a2a-4bb9-b89b-aa8a35f1aaa6-7",
+        "captured_at": "2026-10-06T14:15:49.437Z",
+        "environment_id": "env-tool-review-20261006",
+        "business_call_id": "CALL-f7513943-7a2a-4bb9-b89b-aa8a35f1aaa6",
+        "kind": "read",
+        "target": "专家调用会话身份(后)",
+        "object_id": "session",
+        "source": {
+          "channel": "dom",
+          "scope": "主界面会话容器",
+          "locator": "[data-conversation-session]"
+        },
+        "value": "session-53218300-449e-4ee4-bd65-e3c445d45ac0",
+        "raw": {
+          "value": "session-53218300-449e-4ee4-bd65-e3c445d45ac0"
+        }
+      },
+      "reference": {
+        "event_id": "CALL-f7513943-7a2a-4bb9-b89b-aa8a35f1aaa6-6",
+        "captured_at": "2026-10-06T14:15:49.433Z",
+        "environment_id": "env-tool-review-20261006",
+        "business_call_id": "CALL-f7513943-7a2a-4bb9-b89b-aa8a35f1aaa6",
+        "kind": "read",
+        "target": "新会话专家引用",
+        "object_id": "composer-expert-reference",
+        "source": {
+          "channel": "dom",
+          "scope": "composer 输入区",
+          "locator": "div[contenteditable=\"true\"][aria-label*=\"/ 调用指令\"]"
+        },
+        "value": "agent-smoke-expert-tools-20261006-smoke",
+        "raw": {
+          "composerText": "agent-smoke-expert-tools-20261006-smoke\n "
+        }
+      }
+    }
+  }
+}

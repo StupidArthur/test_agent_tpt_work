@@ -1,0 +1,14 @@
+/session-stop）。
+配置面：Loader entry 总数 232，状态含 tree / schema / inactive / absent；首页可见 include 树、插件管理器、HMR、会话标题、作业、LLM 重试等条目，其中 @deepseek-ai/dsh-plugin-manager、dsh-typert-loader、dsh-api-gateway、dsh-jobs-local、dsh-llm-retry、dsh-agent-default-model 为 schema 状态。
+客户端：client 侧存在 Slots / Theme / Builtin / Service / Event 五类只读 Provider，本次未对其发起查询。
+
+全程仅调用只读方法（含读取临时落盘文件的行数统计），未修改任何配置、文件或运行时状态。
+
+用量 165K tok
+15:59
+发消息或创建任务, / 调用指令, @ 文件或对话
+工作区内修改
+deepseek-v4.1-flash
+1 轮 5 步·169 tok/s
+165K tok·缓存命中 70%
+19%

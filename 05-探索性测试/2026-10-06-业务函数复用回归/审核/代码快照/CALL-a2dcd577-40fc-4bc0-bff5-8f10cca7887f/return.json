@@ -1,0 +1,105 @@
+{
+  "observations": {
+    "observations": {
+      "title": {
+        "event_id": "business-19fe971d-e1c0-476a-b7c6-917fc407a176-1",
+        "captured_at": "2026-10-06T07:31:14.621Z",
+        "environment_id": "env-fn-20261006-agent2",
+        "kind": "read",
+        "target": "本轮技能标题",
+        "business_call_id": "CALL-a2dcd577-40fc-4bc0-bff5-8f10cca7887f",
+        "object_id": "skill-card-title",
+        "source": {
+          "channel": "dom",
+          "scope": "技能页/我的技能卡片",
+          "locator": ".card-title h3"
+        },
+        "value": "本轮快速回归技能",
+        "raw": {
+          "title": "本轮快速回归技能"
+        }
+      },
+      "meta": {
+        "event_id": "business-19fe971d-e1c0-476a-b7c6-917fc407a176-2",
+        "captured_at": "2026-10-06T07:31:14.624Z",
+        "environment_id": "env-fn-20261006-agent2",
+        "kind": "read",
+        "target": "本轮技能来源与版本",
+        "business_call_id": "CALL-a2dcd577-40fc-4bc0-bff5-8f10cca7887f",
+        "object_id": "skill-card-meta",
+        "source": {
+          "channel": "dom",
+          "scope": "技能页/我的技能卡片",
+          "locator": "section.panel [data-slot=\"card\"]"
+        },
+        "value": {
+          "source": "用户创建",
+          "version": "1.2.3"
+        },
+        "raw": {
+          "text": "本轮快速回归技能 A harmless fixture for regression-description-unique-token search and fixed reply verification. 来源 用户创建 v1.2.3 快捷使用",
+          "source": "用户创建",
+          "version": "1.2.3"
+        }
+      },
+      "source": {
+        "event_id": "business-19fe971d-e1c0-476a-b7c6-917fc407a176-3",
+        "captured_at": "2026-10-06T07:31:14.627Z",
+        "environment_id": "env-fn-20261006-agent2",
+        "kind": "read",
+        "target": "本轮技能来源",
+        "business_call_id": "CALL-a2dcd577-40fc-4bc0-bff5-8f10cca7887f",
+        "object_id": "skill-card-source",
+        "source": {
+          "channel": "dom",
+          "scope": "技能页/我的技能卡片",
+          "locator": "section.panel [data-slot=\"card\"]"
+        },
+        "value": "用户创建",
+        "raw": {
+          "text": "本轮快速回归技能 A harmless fixture for regression-description-unique-token search and fixed reply verification. 来源 用户创建 v1.2.3 快捷使用",
+          "source": "用户创建"
+        }
+      },
+      "version": {
+        "event_id": "business-19fe971d-e1c0-476a-b7c6-917fc407a176-4",
+        "captured_at": "2026-10-06T07:31:14.630Z",
+        "environment_id": "env-fn-20261006-agent2",
+        "kind": "read",
+        "target": "本轮技能版本",
+        "business_call_id": "CALL-a2dcd577-40fc-4bc0-bff5-8f10cca7887f",
+        "object_id": "skill-card-version",
+        "source": {
+          "channel": "dom",
+          "scope": "技能页/我的技能卡片",
+          "locator": "section.panel [data-slot=\"card\"]"
+        },
+        "value": "1.2.3",
+        "raw": {
+          "text": "本轮快速回归技能 A harmless fixture for regression-description-unique-token search and fixed reply verification. 来源 用户创建 v1.2.3 快捷使用",
+          "version": "1.2.3"
+        }
+      },
+      "switch": {
+        "event_id": "business-19fe971d-e1c0-476a-b7c6-917fc407a176-5",
+        "captured_at": "2026-10-06T07:31:14.632Z",
+        "environment_id": "env-fn-20261006-agent2",
+        "kind": "read",
+        "target": "本轮技能开关",
+        "business_call_id": "CALL-a2dcd577-40fc-4bc0-bff5-8f10cca7887f",
+        "object_id": "skill-card-switch",
+        "source": {
+          "channel": "dom",
+          "scope": "技能页/我的技能卡片",
+          "locator": "[role=\"switch\"]"
+        },
+        "value": true,
+        "raw": {
+          "aria_checked": "true"
+        },
+        "derivation": "aria_checked === 'true'"
+      }
+    },
+    "switch_read_ref": "business-19fe971d-e1c0-476a-b7c6-917fc407a176-5"
+  }
+}

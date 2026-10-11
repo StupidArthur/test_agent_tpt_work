@@ -1,0 +1,54 @@
+{
+  "call_id": "CALL-084646e9-dbce-42a0-86d9-c103ad06fc45",
+  "status": "returned",
+  "observations": {
+    "action_refs": [
+      "CALL-084646e9-dbce-42a0-86d9-c103ad06fc45-2"
+    ],
+    "observations": {
+      "toolText": {
+        "event_id": "CALL-084646e9-dbce-42a0-86d9-c103ad06fc45-3",
+        "captured_at": "2026-10-06T16:38:27.767Z",
+        "environment_id": "agent-oc-20261006-funcfull-01",
+        "business_call_id": "CALL-084646e9-dbce-42a0-86d9-c103ad06fc45",
+        "kind": "read",
+        "target": "轨迹工具记录",
+        "object_id": "trace-tool-row",
+        "source": {
+          "channel": "dom",
+          "scope": "本轮会话/轨迹表格",
+          "locator": "tr[data-kind=\"tool\"]"
+        },
+        "value": "工具 read{\"file_path\": \"D:\\code\\tpt-workspace\\.tpt-tool-agent-oc-20261006-funcfull-01\\flow.txt\"} → <path>D:\\code\\tpt-workspace.tpt-tool-agent-oc-20261006-funcfull-01\\flow.txt</path> <type>file</type> <content> 1: FAST_FLOW_INPUT (End of file - total 1 lines) </content>",
+        "raw": {
+          "count": 1,
+          "texts": [
+            "工具 read{\"file_path\": \"D:\\code\\tpt-workspace\\.tpt-tool-agent-oc-20261006-funcfull-01\\flow.txt\"} → <path>D:\\code\\tpt-workspace.tpt-tool-agent-oc-20261006-funcfull-01\\flow.txt</path> <type>file</type> <content> 1: FAST_FLOW_INPUT (End of file - total 1 lines) </content>"
+          ]
+        }
+      },
+      "scroll": {
+        "event_id": "CALL-084646e9-dbce-42a0-86d9-c103ad06fc45-4",
+        "captured_at": "2026-10-06T16:38:27.769Z",
+        "environment_id": "agent-oc-20261006-funcfull-01",
+        "business_call_id": "CALL-084646e9-dbce-42a0-86d9-c103ad06fc45",
+        "kind": "read",
+        "target": "工具输出容器可滚动",
+        "object_id": "trace-tool-scroll",
+        "source": {
+          "channel": "dom",
+          "scope": "本轮会话/轨迹工具输出单元",
+          "locator": "tr[data-kind=\"tool\"] td"
+        },
+        "value": false,
+        "raw": {
+          "found": true,
+          "scrollHeight": null,
+          "clientHeight": null,
+          "vert": false
+        },
+        "derivation": "某输出单元 scrollHeight>clientHeight 且允许纵向滚动"
+      }
+    }
+  }
+}

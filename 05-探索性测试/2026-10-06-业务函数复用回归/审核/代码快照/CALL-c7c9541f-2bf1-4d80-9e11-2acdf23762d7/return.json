@@ -1,0 +1,47 @@
+{
+  "observations": {
+    "observations": {
+      "card": {
+        "event_id": "business-4b537bb0-3332-4990-a14c-5f4fc7dae73d-1",
+        "captured_at": "2026-10-06T08:49:38.872Z",
+        "environment_id": "env-fn-20261006-agent2",
+        "kind": "read",
+        "target": "产物卡实际资源路径",
+        "business_call_id": "CALL-c7c9541f-2bf1-4d80-9e11-2acdf23762d7",
+        "object_id": "artifact-resource-path",
+        "source": {
+          "channel": "dom",
+          "scope": "当前会话对话区 产物卡",
+          "locator": "[data-changed-files=\"true\"]"
+        },
+        "value": true,
+        "raw": {
+          "found": true,
+          "ariaLabel": "查看 .fast-assert-fn-20261006-agent2/deliver.txt 的改动",
+          "hidden": "D:\\tpt-workspace\\0929\\p1\\.fast-assert-fn-20261006-agent2/deliver.txt",
+          "comparedTo": "D:\\tpt-workspace\\0929\\p1\\.fast-assert-fn-20261006-agent2\\deliver.txt"
+        },
+        "derivation": "hidden 绝对路径 endsWith 目标路径"
+      },
+      "file": {
+        "event_id": "business-4b537bb0-3332-4990-a14c-5f4fc7dae73d-2",
+        "captured_at": "2026-10-06T08:49:38.873Z",
+        "environment_id": "env-fn-20261006-agent2",
+        "kind": "read",
+        "target": "实际交付文件内容",
+        "business_call_id": "CALL-c7c9541f-2bf1-4d80-9e11-2acdf23762d7",
+        "object_id": "artifact-file-content",
+        "source": {
+          "channel": "file",
+          "scope": "本轮工作目录",
+          "locator": "D:\\tpt-workspace\\0929\\p1\\.fast-assert-fn-20261006-agent2\\deliver.txt"
+        },
+        "value": "FAST_DELIVER_OK",
+        "raw": {
+          "path": "D:\\tpt-workspace\\0929\\p1\\.fast-assert-fn-20261006-agent2\\deliver.txt",
+          "exists": true
+        }
+      }
+    }
+  }
+}

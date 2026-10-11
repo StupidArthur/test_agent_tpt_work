@@ -1,0 +1,34 @@
+{
+  "case_id": "G6-04",
+  "status": "通过",
+  "started_at": "2026-10-06T10:20:00+08:00",
+  "ended_at": "2026-10-06T10:24:00+08:00",
+  "actual_steps": [
+    "新建本轮会话发送短回答（FONT15_OK/FONT14_OK）",
+    "分别读取会话正文 computed font-size",
+    "恢复初值 14 后再读"
+  ],
+  "observed": "字号设为 15 时，会话助手正文 .hWmORq_body 的 computed font-size 为 15px；恢复初值 14 后同一元素为 14px。回答字号随配置变化并可恢复。（15px 那轮模型因把“只回答：…”当成注入片段未按标记回显，但正文渲染与字号测量有效；不影响字号行为判定。）",
+  "evidence": [
+    {
+      "path": "证据/G6-04-live-15.png",
+      "sha256": "990dc33aeaa761e1ee17e06df5033e30be05a1fa3ff5ad03c1d8f687645fb545"
+    },
+    {
+      "path": "证据/G6-04-live-14.png",
+      "sha256": "50cc405c5a55f40daf00b0f5f235aef0f4e75d3fbb117b14e0a143a5d5b67213"
+    },
+    {
+      "path": "证据/G6-04-font-behavior.txt",
+      "sha256": "3cb864f13cdf7243be39f896b6cd289b68614f7c256ad93a51d2bb0b76077921"
+    }
+  ],
+  "cleanup": "字号已恢复初值 14 px。",
+  "timings": {
+    "操作等待秒": 60,
+    "产品执行秒": 20,
+    "取证登记秒": 15,
+    "排障恢复秒": 30
+  },
+  "group": "G6"
+}

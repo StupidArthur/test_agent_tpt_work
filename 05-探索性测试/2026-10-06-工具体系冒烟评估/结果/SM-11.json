@@ -1,0 +1,85 @@
+{
+  "case_id": "SM-11",
+  "started_at": "2026-10-06T14:28:59.612Z",
+  "ended_at": "2026-10-06T14:28:59.612Z",
+  "status": "通过",
+  "assertions": [
+    {
+      "id": "SM-11-A1",
+      "actual": "深色",
+      "expected": "深色",
+      "pass": true,
+      "read_refs": [
+        "CALL-1281b28d-0c9d-4c66-bae4-79d8d8268ff3-3"
+      ]
+    },
+    {
+      "id": "SM-11-A2",
+      "actual": true,
+      "expected": true,
+      "pass": true,
+      "read_refs": [
+        "CALL-e8287e0c-da96-47fc-99c9-bbdc37050f66-1",
+        "CALL-cd01e786-6547-4641-a6e4-4b5e980c8ea5-1"
+      ]
+    },
+    {
+      "id": "SM-11-A3",
+      "actual": "跟随系统",
+      "expected": "跟随系统",
+      "pass": true,
+      "read_refs": [
+        "CALL-6eff4e73-9b2e-49fa-bf59-2ff8a83ff71a-1"
+      ]
+    },
+    {
+      "id": "SM-11-A4",
+      "actual": [
+        "rgb(15, 17, 21)",
+        "rgba(0, 0, 0, 0)",
+        "rgb(15, 17, 21)",
+        "rgba(0, 0, 0, 0)"
+      ],
+      "expected": [
+        "rgb(15, 17, 21)",
+        "rgba(0, 0, 0, 0)",
+        "rgb(15, 17, 21)",
+        "rgba(0, 0, 0, 0)"
+      ],
+      "pass": true,
+      "read_refs": [
+        "CALL-56ab7edd-356c-447d-b592-517a358829fa-1",
+        "CALL-e8287e0c-da96-47fc-99c9-bbdc37050f66-1"
+      ]
+    }
+  ],
+  "business_call_refs": [
+    "CALL-2a56004a-16b6-4d95-86ec-e935d96284ce",
+    "CALL-e8287e0c-da96-47fc-99c9-bbdc37050f66",
+    "CALL-1281b28d-0c9d-4c66-bae4-79d8d8268ff3",
+    "CALL-cd01e786-6547-4641-a6e4-4b5e980c8ea5",
+    "CALL-8461bef0-41e2-4adc-a8f7-efe541c62177",
+    "CALL-6eff4e73-9b2e-49fa-bf59-2ff8a83ff71a",
+    "CALL-56ab7edd-356c-447d-b592-517a358829fa"
+  ],
+  "tool_discovery": {
+    "feature_path": [
+      "设置",
+      "主题效果"
+    ],
+    "plan_functions": [
+      "conversation.openSession",
+      "settings.readGeneral",
+      "settings.closeSettings",
+      "settings.readConversationAppearance",
+      "settings.setTheme"
+    ],
+    "used": [],
+    "additional_functions": [],
+    "all_product_operations_via_functions": true
+  },
+  "error": null,
+  "attempt": "A04",
+  "supersedes": "历史/SM-11-A03.json",
+  "retest_reason": "项目控件按已观察的workspace定位；目标会话已打开时不强求侧栏再次选择"
+}

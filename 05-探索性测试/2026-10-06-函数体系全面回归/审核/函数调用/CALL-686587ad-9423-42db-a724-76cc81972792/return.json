@@ -1,0 +1,107 @@
+{
+  "call_id": "CALL-686587ad-9423-42db-a724-76cc81972792",
+  "status": "returned",
+  "observations": {
+    "action_refs": [
+      "CALL-686587ad-9423-42db-a724-76cc81972792-2"
+    ],
+    "observations": {
+      "preview": {
+        "event_id": "CALL-686587ad-9423-42db-a724-76cc81972792-3",
+        "captured_at": "2026-10-06T16:47:59.113Z",
+        "environment_id": "agent-oc-20261006-funcfull-01",
+        "business_call_id": "CALL-686587ad-9423-42db-a724-76cc81972792",
+        "kind": "read",
+        "target": "文件预览正文",
+        "object_id": "skill-file-preview",
+        "source": {
+          "channel": "dom",
+          "scope": "技能页/技能详情/预览",
+          "locator": "[class*=\"dir-preview\"]"
+        },
+        "value": "",
+        "raw": {
+          "length": 0
+        }
+      },
+      "editable": {
+        "event_id": "CALL-686587ad-9423-42db-a724-76cc81972792-4",
+        "captured_at": "2026-10-06T16:47:59.114Z",
+        "environment_id": "agent-oc-20261006-funcfull-01",
+        "business_call_id": "CALL-686587ad-9423-42db-a724-76cc81972792",
+        "kind": "read",
+        "target": "文件预览可编辑控件数",
+        "object_id": "skill-file-editable",
+        "source": {
+          "channel": "dom",
+          "scope": "技能页/技能详情/预览",
+          "locator": "[class*=\"dir-preview\"]"
+        },
+        "value": 0,
+        "raw": {
+          "count": 0
+        }
+      },
+      "image": {
+        "event_id": "CALL-686587ad-9423-42db-a724-76cc81972792-5",
+        "captured_at": "2026-10-06T16:47:59.115Z",
+        "environment_id": "agent-oc-20261006-funcfull-01",
+        "business_call_id": "CALL-686587ad-9423-42db-a724-76cc81972792",
+        "kind": "read",
+        "target": "包内图片预览加载",
+        "object_id": "skill-file-image",
+        "source": {
+          "channel": "dom",
+          "scope": "技能页/技能详情/预览",
+          "locator": "[class*=\"dir-preview\"]"
+        },
+        "value": true,
+        "raw": {
+          "hasImg": true,
+          "src": "/api/supcon-skills/api/preview?root=dsh&name=fast-assert-rich-agent-oc-20261006-funcfull-01&file=assets%2Ficon.png",
+          "complete": true,
+          "naturalWidth": 8
+        },
+        "derivation": "hasImg && complete && naturalWidth>0"
+      },
+      "meta": {
+        "event_id": "CALL-686587ad-9423-42db-a724-76cc81972792-6",
+        "captured_at": "2026-10-06T16:47:59.116Z",
+        "environment_id": "agent-oc-20261006-funcfull-01",
+        "business_call_id": "CALL-686587ad-9423-42db-a724-76cc81972792",
+        "kind": "read",
+        "target": "文件预览元信息",
+        "object_id": "skill-file-meta",
+        "source": {
+          "channel": "dom",
+          "scope": "技能页/技能详情/预览",
+          "locator": "[class*=\"dir-preview\"]"
+        },
+        "value": false,
+        "raw": {
+          "text": ""
+        },
+        "derivation": "预览含名称/类型/大小说明"
+      },
+      "parseClaim": {
+        "event_id": "CALL-686587ad-9423-42db-a724-76cc81972792-7",
+        "captured_at": "2026-10-06T16:47:59.117Z",
+        "environment_id": "agent-oc-20261006-funcfull-01",
+        "business_call_id": "CALL-686587ad-9423-42db-a724-76cc81972792",
+        "kind": "read",
+        "target": "二进制解析声称",
+        "object_id": "skill-file-parse",
+        "source": {
+          "channel": "dom",
+          "scope": "技能页/技能详情/预览",
+          "locator": "[class*=\"dir-preview\"]"
+        },
+        "value": false,
+        "raw": {
+          "text": ""
+        },
+        "derivation": "含对文件业务内容的解析成功声明"
+      }
+    }
+  }
+}

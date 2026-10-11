@@ -1,0 +1,61 @@
+{
+  "case_id": "G13-04",
+  "contract_version": "2.0",
+  "environment_id": "agent-oc-20261006-funcfull-01",
+  "attempt_id": "G13-04-A01",
+  "object_identity": "专家创建与导入入口",
+  "inputs": [
+    "点击创建专家",
+    "打开导入专家 dialog"
+  ],
+  "business_call_refs": [
+    "CALL-f0995564-7a8f-4822-831a-c5ea8f684151",
+    "CALL-8eff2525-cd61-4c67-bfaa-b1c1995a15a8"
+  ],
+  "status": "通过",
+  "attempted_at": "2026-10-06T17:18:18.087Z",
+  "assertions": [
+    {
+      "id": "G13-04-A1",
+      "expected": true,
+      "actual": true,
+      "pass": true,
+      "read_refs": [
+        "CALL-f0995564-7a8f-4822-831a-c5ea8f684151-3"
+      ],
+      "raw": {
+        "composer": "/expert-manager 帮我创建一个 XXX 专家，擅长 XXXXX。…"
+      }
+    },
+    {
+      "id": "G13-04-A2",
+      "expected": true,
+      "actual": true,
+      "pass": true,
+      "read_refs": [
+        "CALL-8eff2525-cd61-4c67-bfaa-b1c1995a15a8-3"
+      ],
+      "raw": {
+        "inputs": [
+          {
+            "webkit": false,
+            "type": "file",
+            "inDialog": true
+          },
+          {
+            "webkit": true,
+            "type": "file",
+            "inDialog": true
+          }
+        ]
+      }
+    }
+  ],
+  "restore": {
+    "status": "unchanged",
+    "description": "本case未改动设置/文件",
+    "read_refs": []
+  },
+  "residual": "",
+  "notes": ""
+}

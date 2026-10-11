@@ -1,0 +1,40 @@
+{
+  "case_id": "G7-04",
+  "contract_version": "2.0",
+  "environment_id": "agent-oc-20261006-funcfull-01",
+  "attempt_id": "G7-04-A01",
+  "object_identity": "composer 草稿附件卡 preview.png",
+  "inputs": [
+    "添加 preview.png"
+  ],
+  "business_call_refs": [
+    "CALL-e56ef88a-08e8-4c95-8a92-b80b36bbc25d",
+    "CALL-b1a04e03-d1a0-4759-8511-f5c00bdfecdb"
+  ],
+  "status": "通过",
+  "attempted_at": "2026-10-06T16:29:38.305Z",
+  "assertions": [
+    {
+      "id": "G7-04-A1",
+      "expected": true,
+      "actual": true,
+      "pass": true,
+      "read_refs": [
+        "CALL-b1a04e03-d1a0-4759-8511-f5c00bdfecdb-1"
+      ],
+      "raw": {
+        "count": 1,
+        "complete": true,
+        "naturalWidth": 8
+      },
+      "derivation": "count>0 && complete && naturalWidth>0"
+    }
+  ],
+  "restore": {
+    "status": "unchanged",
+    "description": "本case未改动设置/文件",
+    "read_refs": []
+  },
+  "residual": "preview.png 随后移除",
+  "notes": ""
+}

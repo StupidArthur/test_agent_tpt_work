@@ -1,0 +1,530 @@
+{
+  "source_task": "2026-10-06-运行时断言回归",
+  "captured_at": "2026-10-06T04:16:23.930993+00:00",
+  "case_count": 140,
+  "assertion_count": 229,
+  "optional_count": 5,
+  "files": [
+    {
+      "path": "用例/cases.json",
+      "source_sha256": "42f0a00ac9e73038bc9b68e38cc30e0c6dd772098105a5c1a697de81f779696a",
+      "bytes": 450923
+    },
+    {
+      "path": "用例/可选-时序专项.json",
+      "source_sha256": "993cf424ada76650428ff878a0b0723b79b1be4d8488ef2dca474ce14d70bba6",
+      "bytes": 19656
+    },
+    {
+      "path": "用例/扩展夹具索引.json",
+      "source_sha256": "b797dc59928d3403c4bd51f0b90d5db0da8dca56ebf748ff1d8eef6bd44e5445",
+      "bytes": 12632
+    },
+    {
+      "path": "功能树.md",
+      "source_sha256": "a5e0b6b9ab8ca0db33c2614b028c49788ccdb264bd305018f1824ab7df824d9f",
+      "bytes": 5442
+    },
+    {
+      "path": "场景顺序.md",
+      "source_sha256": "965e3b143e0e8359a65d9ba23ee9f3388b2662dbbca96bc4318d6f94a0dc00c3",
+      "bytes": 1905
+    },
+    {
+      "path": "扩展场景与夹具.md",
+      "source_sha256": "74c0b7caef7848b8946d82a0797fadb3f91ce08b132a35a4c3cbb4daee589b94",
+      "bytes": 9057
+    },
+    {
+      "path": "结果格式.md",
+      "source_sha256": "00e806513dfe5186700e4c316a9acbe6cb177287e7b55b8f2625948fecda6914",
+      "bytes": 5827
+    },
+    {
+      "path": "执行契约.md",
+      "source_sha256": "765e7d38ab81598a1e4ec2491bc77e256fd4bfbddbf1ca1d6bc4726ff46a4300",
+      "bytes": 2652
+    },
+    {
+      "path": "审核指标.md",
+      "source_sha256": "9bec5230f8be5f2c5c2711e4b7e5a7c0d21c13fbd8bf513afbc91cc5ec10caa5",
+      "bytes": 1764
+    },
+    {
+      "path": "tools/compare.cjs",
+      "source_sha256": "72f13549069bc2b67e0c5caddca478e7c24c4d068266857eabde7324ec996f98",
+      "bytes": 664
+    },
+    {
+      "path": "tools/check-records.cjs",
+      "source_sha256": "f58fe3bc379aeb40b7b2c0b82a05668f1c3a530d002407548a5de63207bb5bc0",
+      "bytes": 7626
+    },
+    {
+      "path": "tools/record.cjs",
+      "source_sha256": "70cd81a4d881b55dd602095bc613a06adc6b3a4ae2df1b085d2a71373310c1f0",
+      "bytes": 1387
+    },
+    {
+      "path": "tools/prepare-fixtures.py",
+      "source_sha256": "2d640b1d17f34941d761874a4a4ec99c3df92055ee5a78a76b96da561b6ec202",
+      "bytes": 2624
+    },
+    {
+      "path": "tools/link_fixture.py",
+      "source_sha256": "b9b44f6202cb77182b825d6880c62d15d51b621cb8e1dc78b7e4bd31e74674eb",
+      "bytes": 1855
+    },
+    {
+      "path": "夹具/扩展/attachments/attachment-a.txt",
+      "source_sha256": "cbb66e4c6c4c017e1895cc07bd6169b5c641eda5b0de3adb54fd077b140dea94",
+      "bytes": 18
+    },
+    {
+      "path": "夹具/扩展/attachments/attachment-b.txt",
+      "source_sha256": "01a1f35200892d268506ec515c73c611b77f34065f6e150404726231fa111d3b",
+      "bytes": 18
+    },
+    {
+      "path": "夹具/扩展/attachments/attachment-c.md",
+      "source_sha256": "236b697b7aada33db4cce52b83dbdb53916f540420d878492a0336a93d1e2224",
+      "bytes": 20
+    },
+    {
+      "path": "夹具/扩展/attachments/count/count-01.txt",
+      "source_sha256": "6f49ecf2257d80370af98a03226d21d1d24dde13120031a998b21a98d0b9a724",
+      "bytes": 13
+    },
+    {
+      "path": "夹具/扩展/attachments/count/count-02.txt",
+      "source_sha256": "27fa305f7a8483c0e4a683c54e4221afa85776975527cb05b6e3e9588656236e",
+      "bytes": 13
+    },
+    {
+      "path": "夹具/扩展/attachments/count/count-03.txt",
+      "source_sha256": "cd306fa48f6aa773d87860242626067bd2503b0c1465d0bd8ddd4d4c21ad7d18",
+      "bytes": 13
+    },
+    {
+      "path": "夹具/扩展/attachments/count/count-04.txt",
+      "source_sha256": "dfac37ea4574b6a0f070e4db726fad77464bf8cb786506107af730ce39406d3f",
+      "bytes": 13
+    },
+    {
+      "path": "夹具/扩展/attachments/count/count-05.txt",
+      "source_sha256": "33abb33b9681a6d5b03f1925d37aabd1eae8ad0fccbed6e97725bc5765c9031b",
+      "bytes": 13
+    },
+    {
+      "path": "夹具/扩展/attachments/count/count-06.txt",
+      "source_sha256": "3241e95d15c0198c9b3b62ac3b7045d9d45c51b039545c5a542b22ea5fea94f6",
+      "bytes": 13
+    },
+    {
+      "path": "夹具/扩展/attachments/count/count-07.txt",
+      "source_sha256": "6d22784e0a2e6013e146806c1cc438e9db6ca43a131f94e83cebaf91aabbcb9c",
+      "bytes": 13
+    },
+    {
+      "path": "夹具/扩展/attachments/count/count-08.txt",
+      "source_sha256": "b55b807c26564d357869cd4bb3c6121f040e47aafee2fcc331a9b75d228cc4cd",
+      "bytes": 13
+    },
+    {
+      "path": "夹具/扩展/attachments/count/count-09.txt",
+      "source_sha256": "b63e291fb4ee3447e39f60091c46a4d43dc32651ea096f0abc87dba1e8ec1e8f",
+      "bytes": 13
+    },
+    {
+      "path": "夹具/扩展/attachments/count/count-10.txt",
+      "source_sha256": "31ad20599dbc96b2bac1f1861cf68b2ef8f0e4823d5fbe667747805563c6e62f",
+      "bytes": 14
+    },
+    {
+      "path": "夹具/扩展/attachments/count/count-11.txt",
+      "source_sha256": "27ccb1571e7f8eb9c01f9eec4cd50b25d81066bc1c60c081d4cd01f7dab73e3e",
+      "bytes": 14
+    },
+    {
+      "path": "夹具/扩展/attachments/count/count-12.txt",
+      "source_sha256": "caec89ad24145a5ddeb530b3ef65b6d3815ebee78b9ef6106522fea842edd6b0",
+      "bytes": 14
+    },
+    {
+      "path": "夹具/扩展/attachments/count/count-13.txt",
+      "source_sha256": "377113eedf21fbb895e6a58a52150404503818b02d9b145c99f13d723f5e2fbd",
+      "bytes": 14
+    },
+    {
+      "path": "夹具/扩展/attachments/count/count-14.txt",
+      "source_sha256": "dd534fe1f36bb760f43b91bdc1f0922ac2103d4f7e2a38a9c05f286693cbb216",
+      "bytes": 14
+    },
+    {
+      "path": "夹具/扩展/attachments/count/count-15.txt",
+      "source_sha256": "7746f5d767e76e2ab705dad0783b5150142001f08b2e819e4d30114593567409",
+      "bytes": 14
+    },
+    {
+      "path": "夹具/扩展/attachments/count/count-16.txt",
+      "source_sha256": "c37e65d74123b85517b5d46884ff3553133fd7ddea5f6ad8bfc65433be530de8",
+      "bytes": 14
+    },
+    {
+      "path": "夹具/扩展/attachments/count/count-17.txt",
+      "source_sha256": "57f47cfd1b1d0986eb285b49de8758bc397d3498ecf23d9562e93720dc883dc4",
+      "bytes": 14
+    },
+    {
+      "path": "夹具/扩展/attachments/count/count-18.txt",
+      "source_sha256": "c170f49a8753632279c080c51d3f0c432b5f163811da4b79aba2d8cf6b1346fe",
+      "bytes": 14
+    },
+    {
+      "path": "夹具/扩展/attachments/count/count-19.txt",
+      "source_sha256": "07d22bdec22ac22d24d74a3b8e838bc195016c8ab581adc814b826791f89ee0c",
+      "bytes": 14
+    },
+    {
+      "path": "夹具/扩展/attachments/count/count-20.txt",
+      "source_sha256": "75b50090ae854ff1fb19ce124eb99091a3cdff77970bda426f0ada96ac9ba2d6",
+      "bytes": 14
+    },
+    {
+      "path": "夹具/扩展/attachments/count/count-21.txt",
+      "source_sha256": "1c2add90edab3d44243107e39e0202a58688d67f7e0c7dce0dafe08a3b132bc7",
+      "bytes": 14
+    },
+    {
+      "path": "夹具/扩展/attachments/count/count-22.txt",
+      "source_sha256": "eb461b2f24bfd05710d3be352d4c37cd43405ec86486cefbaf2092850aed5036",
+      "bytes": 14
+    },
+    {
+      "path": "夹具/扩展/attachments/count/count-23.txt",
+      "source_sha256": "16c0214500b28eebc590f1e313881d7325ad65183a6e69e87bec7e2dde3ddcdf",
+      "bytes": 14
+    },
+    {
+      "path": "夹具/扩展/attachments/count/count-24.txt",
+      "source_sha256": "e6586757b94a92570012862246ba57ee935ee04b030165263037e48ac7d46d27",
+      "bytes": 14
+    },
+    {
+      "path": "夹具/扩展/attachments/count/count-25.txt",
+      "source_sha256": "5a43674033d51d289dcaa832d0c34216c765ab57e338f4dc5383688d816a06d2",
+      "bytes": 14
+    },
+    {
+      "path": "夹具/扩展/attachments/count/count-26.txt",
+      "source_sha256": "23d7200755061287904e7c0a99329970b436a1ddd87574527ca1f0af27593d53",
+      "bytes": 14
+    },
+    {
+      "path": "夹具/扩展/attachments/count/count-27.txt",
+      "source_sha256": "9f85650c82a5f89f288b6fb3d076714fa6c5a91d3d353e646d83ee5f6e5ebe87",
+      "bytes": 14
+    },
+    {
+      "path": "夹具/扩展/attachments/count/count-28.txt",
+      "source_sha256": "c5a06cd6657792462bc2d43e4afd6633cdc086ac780eb5b7bedc433469038158",
+      "bytes": 14
+    },
+    {
+      "path": "夹具/扩展/attachments/count/count-29.txt",
+      "source_sha256": "553955aea74d26080583cd9e3f42caa8ef947353a3658f4128efdf367c369769",
+      "bytes": 14
+    },
+    {
+      "path": "夹具/扩展/attachments/count/count-30.txt",
+      "source_sha256": "797e0c1350107b3f09dac02bb4c06991f5cd61bb26901ddab8d4d420b9e98b84",
+      "bytes": 14
+    },
+    {
+      "path": "夹具/扩展/attachments/count/count-31.txt",
+      "source_sha256": "4719b064ce3c6d8e70774487168f5bc695a1f820dd1abb73647e45e093f93c88",
+      "bytes": 14
+    },
+    {
+      "path": "夹具/扩展/attachments/count/count-32.txt",
+      "source_sha256": "1b498157a6e1c59087fa51610c1611d9c66816aec0cb7f04d97b295f3ec67646",
+      "bytes": 14
+    },
+    {
+      "path": "夹具/扩展/attachments/count/count-33.txt",
+      "source_sha256": "0b1f6b03c6a3c47efee6e002f092eb86004c33b7490a49ae1817298fe93434cf",
+      "bytes": 14
+    },
+    {
+      "path": "夹具/扩展/attachments/count/count-34.txt",
+      "source_sha256": "aa740765ff1deb560b9128700997388b4a6da6a301b751e04739d873925187cb",
+      "bytes": 14
+    },
+    {
+      "path": "夹具/扩展/attachments/count/count-35.txt",
+      "source_sha256": "c73fb88abfddd17897fdedf52daefd3e1fb9e614852c6615cf1c291495624092",
+      "bytes": 14
+    },
+    {
+      "path": "夹具/扩展/attachments/fast-assert-long-filename-for-layout-and-tooltip-complete-name-regression.txt",
+      "source_sha256": "8870fb684e0d7cf7f22f5cea1511e5ccd23b09b8510907c28eac2e4e4bd554ac",
+      "bytes": 21
+    },
+    {
+      "path": "夹具/扩展/attachments/fixture.unknown-fast",
+      "source_sha256": "d5f25139cdfd15a7d1d7c1f4ae6bb37d510a2c9fc4e563207db9d88093f2f85a",
+      "bytes": 21
+    },
+    {
+      "path": "夹具/扩展/attachments/preview.png",
+      "source_sha256": "fa9ccd642b26f68d1aa94459f1711411387152d3bcc2636a8daf0e697fe5a285",
+      "bytes": 74
+    },
+    {
+      "path": "夹具/扩展/experts/base-description/agent.md",
+      "source_sha256": "37fe85f9205c93c3f17fe7a1115a170ef43dd421663b1fda1079424b8e4b3add",
+      "bytes": 209
+    },
+    {
+      "path": "夹具/扩展/experts/base-description/metadata.json",
+      "source_sha256": "5506adccaf405cf21ecfbdb0c013a953dc52818963003dd0a89d1ba8184e5042",
+      "bytes": 739
+    },
+    {
+      "path": "夹具/扩展/experts/bundled/agent.md",
+      "source_sha256": "34e3b24cebb4b00152587f473f0f1d7684a49549587e3adb6104d640d5a05337",
+      "bytes": 240
+    },
+    {
+      "path": "夹具/扩展/experts/bundled/metadata.json",
+      "source_sha256": "7216f87a6394b4e5fc3a19eac2f038d48a59e453343201410cacf5e168e6129a",
+      "bytes": 902
+    },
+    {
+      "path": "夹具/扩展/experts/bundled/skills/bundled/SKILL.md",
+      "source_sha256": "77aa33df439d5a879ced25dd186153906ded7dc90a56efe389b3d9082d93ed8e",
+      "bytes": 178
+    },
+    {
+      "path": "夹具/扩展/experts/en-description/agent.md",
+      "source_sha256": "9846a4cf4a5c9ea536bd00a155752462a5c31827a5bd5dbb919fb28d29107106",
+      "bytes": 207
+    },
+    {
+      "path": "夹具/扩展/experts/en-description/metadata.json",
+      "source_sha256": "95099af2574da4ce02532751f28d78bc77063b6a59b5d379378810d8cbedbd0f",
+      "bytes": 852
+    },
+    {
+      "path": "夹具/扩展/experts/longread/agent.md",
+      "source_sha256": "34a4dbaebbec4fa3cd624f9e4fd503c73d050a7d5cd704a9d4bdccc901710a0c",
+      "bytes": 2809
+    },
+    {
+      "path": "夹具/扩展/experts/longread/metadata.json",
+      "source_sha256": "00035266dc37f56305adc96247c3286feb5b858842f52986e935a739462ae23c",
+      "bytes": 879
+    },
+    {
+      "path": "夹具/扩展/experts/minimal/agent.md",
+      "source_sha256": "bcb801efdfe0034847aadba7bc109b5397d2ebe4b52e4466c0bc0e721d119379",
+      "bytes": 200
+    },
+    {
+      "path": "夹具/扩展/experts/minimal/metadata.json",
+      "source_sha256": "343c5ebf2298489ad40c0478121ad41749e0ed5ddbd689faa90804d1d288fe63",
+      "bytes": 179
+    },
+    {
+      "path": "夹具/扩展/experts/overwrite/agent.md",
+      "source_sha256": "34a4dbaebbec4fa3cd624f9e4fd503c73d050a7d5cd704a9d4bdccc901710a0c",
+      "bytes": 2809
+    },
+    {
+      "path": "夹具/扩展/experts/overwrite/metadata.json",
+      "source_sha256": "b3763768fdf8e495f40ac2290c6ac8c5e6270573d9c595983271ffec40f4edb8",
+      "bytes": 852
+    },
+    {
+      "path": "夹具/扩展/packages/bad-png/assets/icon.png",
+      "source_sha256": "a4835d77c2c5b0fe4b5646b832403a86bdb06da088c5d1ae8d751e57d2413126",
+      "bytes": 18
+    },
+    {
+      "path": "夹具/扩展/packages/bad-png/SKILL.md",
+      "source_sha256": "1281500b9628f3740dd0b209f0f7f04d3d640d5184da5e9948ba395e1665dcac",
+      "bytes": 223
+    },
+    {
+      "path": "夹具/扩展/packages/collection/deep/two/SKILL.md",
+      "source_sha256": "ce26d9b566364a18b60487a25e7c174ade6c0157b21583b3f4a04d2c0d94d742",
+      "bytes": 207
+    },
+    {
+      "path": "夹具/扩展/packages/collection/one/SKILL.md",
+      "source_sha256": "cbae14797e9e2c48fe80886d485f01532d80a1fd405b294c8c5a802288b5c644",
+      "bytes": 206
+    },
+    {
+      "path": "夹具/扩展/packages/missing-icon/SKILL.md",
+      "source_sha256": "2fb8a5e3b112bd21469d7bf89e8cf45d8c71ac843b82460dd3145b9dfd663df9",
+      "bytes": 231
+    },
+    {
+      "path": "夹具/扩展/packages/mixed/duplicate/SKILL.md",
+      "source_sha256": "ef2199aafe8cf6370255fe7dfabddf01a248cf06d75aacfb5246dfdd29b7e634",
+      "bytes": 196
+    },
+    {
+      "path": "夹具/扩展/packages/mixed/invalid/SKILL.md",
+      "source_sha256": "6ac12e7b64939bc45be9fda42a61955196ac97af58f2b391f52a01527c4ba84b",
+      "bytes": 154
+    },
+    {
+      "path": "夹具/扩展/packages/mixed/valid/SKILL.md",
+      "source_sha256": "201078cb95a8d2fdf9346c524c754a3b8c47920d9f4dfc433cf4e12c446b8b00",
+      "bytes": 203
+    },
+    {
+      "path": "夹具/扩展/packages/network-icon/SKILL.md",
+      "source_sha256": "58707872c86603eb261a4805b189dd8fdf4c5d897629c91347cca9aead6eca4e",
+      "bytes": 256
+    },
+    {
+      "path": "夹具/扩展/packages/rich/assets/icon.png",
+      "source_sha256": "fa9ccd642b26f68d1aa94459f1711411387152d3bcc2636a8daf0e697fe5a285",
+      "bytes": 74
+    },
+    {
+      "path": "夹具/扩展/packages/rich/data/notes.txt",
+      "source_sha256": "e6cb150fe67a872027653118add7190cd8dfefee73c76ab0c320c9fe8476c977",
+      "bytes": 11
+    },
+    {
+      "path": "夹具/扩展/packages/rich/data/records.json",
+      "source_sha256": "bbfb73ffac465a082e3e8dee4968e2ad7144d041ab7d541578880a5c374e37f2",
+      "bytes": 23
+    },
+    {
+      "path": "夹具/扩展/packages/rich/data/sample.bin",
+      "source_sha256": "3d1f57c984978ef98a18378c8166c1cb8ede02c03eeb6aee7e2f121dfeee3e56",
+      "bytes": 4
+    },
+    {
+      "path": "夹具/扩展/packages/rich/references/handbook/advanced/checklist.md",
+      "source_sha256": "f4babb5b608985fe3e177625dd15a06a9a7071bc2ddaaa23ba77a9e1c3c7b366",
+      "bytes": 20
+    },
+    {
+      "path": "夹具/扩展/packages/rich/SKILL.md",
+      "source_sha256": "5bf157e48322f9adf14134c7efa3ee18b81f6c71bae230c9d0d1b16803a9bffa",
+      "bytes": 220
+    },
+    {
+      "path": "夹具/扩展/packages/root/nested/SKILL.md",
+      "source_sha256": "05c884d7c0adcf2d97e86272ac1c69f53248d63f69458b654b97d48aadd3f930",
+      "bytes": 198
+    },
+    {
+      "path": "夹具/扩展/packages/root/SKILL.md",
+      "source_sha256": "ef2199aafe8cf6370255fe7dfabddf01a248cf06d75aacfb5246dfdd29b7e634",
+      "bytes": 196
+    },
+    {
+      "path": "夹具/扩展/packages/trash/.DS_Store",
+      "source_sha256": "a3ea671b454eb9701927ebf87ad993ff154d2dd7d9babaf067a926944c2dd693",
+      "bytes": 9
+    },
+    {
+      "path": "夹具/扩展/packages/trash/__MACOSX/._SKILL.md",
+      "source_sha256": "a3ea671b454eb9701927ebf87ad993ff154d2dd7d9babaf067a926944c2dd693",
+      "bytes": 9
+    },
+    {
+      "path": "夹具/扩展/packages/trash/SKILL.md",
+      "source_sha256": "9026ba4978c84458f343e9f071b7f16f553893866c4856f49969faa635c66e29",
+      "bytes": 197
+    },
+    {
+      "path": "夹具/扩展/variants/cn-all/SKILL.md",
+      "source_sha256": "30f2a08964d8a3e519028e8623bd424a5ae57dd55d928a29e961f7fa8ce3438b",
+      "bytes": 260
+    },
+    {
+      "path": "夹具/扩展/variants/cn-en/SKILL.md",
+      "source_sha256": "988432b2d209be39895d4f24920c257722d39321149cbd15291760ac0ce4bd31",
+      "bytes": 203
+    },
+    {
+      "path": "夹具/扩展/variants/cn-tech/SKILL.md",
+      "source_sha256": "7c19fce9572a8e88736701cc59b227b996a71d7b343f97e7d51a0a6841992db1",
+      "bytes": 172
+    },
+    {
+      "path": "夹具/扩展/variants/declared-market/SKILL.md",
+      "source_sha256": "70fa7b1539172519fba5ddbe534c50cfd914dc9542c48769f2355bdcc7692183",
+      "bytes": 195
+    },
+    {
+      "path": "夹具/扩展/variants/desc-en/SKILL.md",
+      "source_sha256": "a2ffd08f8321a8a8a99d011f8e1c165b95ffd97100978c54a34c289d5530a730",
+      "bytes": 210
+    },
+    {
+      "path": "夹具/扩展/variants/desc-tech/SKILL.md",
+      "source_sha256": "4181c9fb879b3255be663d83fd490a42a09657302f717e076546e31494867f6e",
+      "bytes": 174
+    },
+    {
+      "path": "夹具/扩展/variants/en-cn/SKILL.md",
+      "source_sha256": "0258ba49f7a742da0817e01cbf9303c274ddf9bc28bd339a4c50e26e2fd20e9f",
+      "bytes": 200
+    },
+    {
+      "path": "夹具/扩展/variants/minimal/SKILL.md",
+      "source_sha256": "951c303b330977f0329cddf6c6fd76b93d85580f2a11307680ff26cfadb86107",
+      "bytes": 172
+    },
+    {
+      "path": "夹具/扩展/variants/missing-description/SKILL.md",
+      "source_sha256": "fafae288173821ed0e5eb316bdf36a6326351d8019cd812fbbcde752151c85be",
+      "bytes": 184
+    },
+    {
+      "path": "夹具/扩展/variants/missing-name/SKILL.md",
+      "source_sha256": "0ad6e5dd64bea757076d0fe7c9f60a5b97999233cc5bb3f3ddb3fc2b43348a22",
+      "bytes": 202
+    },
+    {
+      "path": "夹具/skill-template/SKILL.md",
+      "source_sha256": "91a68e595409d195480524f113114e616212d74770407be47b5bb98431eafc8c",
+      "bytes": 419
+    },
+    {
+      "path": "夹具/expert-template/agent.md",
+      "source_sha256": "4967d44e4be9bc5c31b19f13759c47e139d9f326309ffeb37be637e60c5dd764",
+      "bytes": 273
+    },
+    {
+      "path": "夹具/expert-template/metadata.json",
+      "source_sha256": "74fe167a3a4baab62f56dcc99f960196ad15511cde2f1db9b4d6546c87027f92",
+      "bytes": 967
+    },
+    {
+      "path": "夹具/expert-missing-agent/metadata.json",
+      "source_sha256": "d6270b4cff9e5a496d0e1b0b29591280ce3a26800872e174a238651b9482eb41",
+      "bytes": 110
+    },
+    {
+      "path": "夹具/expert-bad-json/agent.md",
+      "source_sha256": "f5797c7de10829e14bddccdef32e5e4d0c8841f7df898446b4290808df6731cf",
+      "bytes": 85
+    },
+    {
+      "path": "夹具/expert-bad-json/metadata.json",
+      "source_sha256": "a51aa382b49c92afe10e35fcfb33c27322ef9f46971cf2e3e1dcc9f5409688ed",
+      "bytes": 34
+    }
+  ],
+  "note": "冻结当前用例与模板；未复制结果、运行环境、运行上下文、已安装样本或正在开发的脚本。等待当前轮完成后复盘。"
+}

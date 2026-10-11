@@ -1,0 +1,50 @@
+{
+  "observations": {
+    "action_refs": [
+      "business-9650dc6e-bf3a-4dbe-a3a6-08fc973dda7c-2"
+    ],
+    "observations": {
+      "wait": {
+        "waited_ms": 15086
+      },
+      "assistant": {
+        "event_id": "business-9650dc6e-bf3a-4dbe-a3a6-08fc973dda7c-3",
+        "captured_at": "2026-10-06T07:37:05.758Z",
+        "environment_id": "env-fn-20261006-agent2",
+        "kind": "read",
+        "target": "技能调用助手气泡",
+        "business_call_id": "CALL-8a404be4-12d9-412a-bca3-e98f103739fd",
+        "object_id": "last-assistant-bubble",
+        "source": {
+          "channel": "dom",
+          "scope": "对话 助手气泡",
+          "locator": "[class*=\"hWmORq_body\"]"
+        },
+        "value": "FAST_SKILL_EXEC_OK",
+        "raw": {
+          "count": 1,
+          "last": "FAST_SKILL_EXEC_OK"
+        }
+      },
+      "userReq": {
+        "event_id": "business-9650dc6e-bf3a-4dbe-a3a6-08fc973dda7c-4",
+        "captured_at": "2026-10-06T07:37:05.762Z",
+        "environment_id": "env-fn-20261006-agent2",
+        "kind": "read",
+        "target": "本轮用户请求",
+        "business_call_id": "CALL-8a404be4-12d9-412a-bca3-e98f103739fd",
+        "object_id": "last-user-bubble",
+        "source": {
+          "channel": "dom",
+          "scope": "对话 用户气泡",
+          "locator": "[class*=\"wSkVaW_body\"], [class*=\"user\"]"
+        },
+        "value": true,
+        "raw": {
+          "last": "/fast-assert-skill-fn-20261006-agent2  请执行本轮回归技能的固定回复规则\n15:36\n已完成工作\n用时 15秒\n\nFAST_SKILL_EXEC_OK\n\n用量 20.4K tok\n15:37\n发消息或创建任务, / 调用指令, @ 文件或对话\n工作区内修改\n标准\nlow\n1 轮 1 步·909 tok/s\n20.4K tok·缓存命中 0%\n8%"
+        },
+        "derivation": "last.includes('FAST_SKILL_EXEC_OK')"
+      }
+    }
+  }
+}

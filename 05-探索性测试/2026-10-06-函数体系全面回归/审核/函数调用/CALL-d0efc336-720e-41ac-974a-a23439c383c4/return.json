@@ -1,0 +1,56 @@
+{
+  "call_id": "CALL-d0efc336-720e-41ac-974a-a23439c383c4",
+  "status": "returned",
+  "observations": {
+    "action_refs": [
+      "CALL-d0efc336-720e-41ac-974a-a23439c383c4-2"
+    ],
+    "observations": {
+      "wait": {
+        "waited_ms": 7050
+      },
+      "assistant": {
+        "event_id": "CALL-d0efc336-720e-41ac-974a-a23439c383c4-3",
+        "captured_at": "2026-10-06T16:16:06.042Z",
+        "environment_id": "agent-oc-20261006-funcfull-01",
+        "business_call_id": "CALL-d0efc336-720e-41ac-974a-a23439c383c4",
+        "kind": "read",
+        "target": "专家助手最终正文",
+        "object_id": "last-assistant-bubble",
+        "source": {
+          "channel": "dom",
+          "scope": "对话 助手气泡",
+          "locator": "[class*=\"hWmORq_body\"]"
+        },
+        "value": "FAST_EXPERT_EXEC_OK",
+        "raw": {
+          "count": 2,
+          "last": "FAST_EXPERT_EXEC_OK"
+        }
+      },
+      "userReq": {
+        "event_id": "CALL-d0efc336-720e-41ac-974a-a23439c383c4-4",
+        "captured_at": "2026-10-06T16:16:06.042Z",
+        "environment_id": "agent-oc-20261006-funcfull-01",
+        "business_call_id": "CALL-d0efc336-720e-41ac-974a-a23439c383c4",
+        "kind": "read",
+        "target": "本轮用户请求",
+        "object_id": "submitted-composer",
+        "source": {
+          "channel": "dom",
+          "scope": "本次提交前编辑区完整输入",
+          "locator": "div[contenteditable=\"true\"][aria-label*=\"/ 调用指令\"]"
+        },
+        "value": false,
+        "raw": {
+          "requestText": "agent-fast-assert-expert-agent-oc-20261006-funcfull-01\n 请执行你的本轮回归固定回复规则",
+          "session": "session-15023657-c6a0-4145-b698-81d22ce2bb3b",
+          "capturedAt": "2026-10-06T16:15:58.940Z",
+          "answer": "FAST_EXPERT_EXEC_OK",
+          "capturedBeforeSend": true
+        },
+        "derivation": "complete submitted composer text.includes(answer)"
+      }
+    }
+  }
+}

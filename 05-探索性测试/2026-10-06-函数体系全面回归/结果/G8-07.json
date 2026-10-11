@@ -1,0 +1,51 @@
+{
+  "case_id": "G8-07",
+  "contract_version": "2.0",
+  "environment_id": "agent-oc-20261006-funcfull-01",
+  "attempt_id": "G8-07-A01",
+  "object_identity": "session（读long.txt任务）+工具详情",
+  "inputs": [
+    "请只读取文件 ...\\long.txt 并原样回答文件内容"
+  ],
+  "business_call_refs": [
+    "CALL-c86b4a6c-2be9-43f0-8aa1-8ee7f3b1dc7c",
+    "CALL-33733770-5255-4575-b33e-e853ddf4a4e6",
+    "CALL-a2c3ed31-f480-4cbe-b39c-36a876ed4e46"
+  ],
+  "status": "通过",
+  "attempted_at": "2026-10-06T16:40:21.998Z",
+  "assertions": [
+    {
+      "id": "G8-07-A1",
+      "expected": true,
+      "actual": true,
+      "pass": true,
+      "read_refs": [
+        "CALL-a2c3ed31-f480-4cbe-b39c-36a876ed4e46-4"
+      ],
+      "raw": {
+        "scrollHeight": 4119,
+        "clientHeight": 547,
+        "overflowY": "auto"
+      },
+      "derivation": "scrollHeight>clientHeight 且允许纵向滚动"
+    },
+    {
+      "id": "G8-07-A2",
+      "expected": "FAST_LONG_LINE_200",
+      "actual": "FAST_LONG_LINE_200",
+      "pass": true,
+      "read_refs": [
+        "CALL-a2c3ed31-f480-4cbe-b39c-36a876ed4e46-3"
+      ],
+      "derivation": "工具完整输出含末行 FAST_LONG_LINE_200（共200行）"
+    }
+  ],
+  "restore": {
+    "status": "unchanged",
+    "description": "本case未改动设置/文件",
+    "read_refs": []
+  },
+  "residual": "工具详情已关闭",
+  "notes": "readToolDetail 读取完整输出长度 4885。"
+}

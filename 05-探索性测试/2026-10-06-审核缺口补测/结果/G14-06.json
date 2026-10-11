@@ -1,0 +1,62 @@
+{
+  "case_id": "G14-06",
+  "contract_version": "retest-1.0",
+  "attempt_id": "G14-06-A02",
+  "environment_id": "env-20261006-agent2",
+  "object_identity": "mixed2.zip：dup(已装root)/valid(新)/invalid(缺字段新)",
+  "inputs": [
+    "zips/mixed2.zip"
+  ],
+  "action_refs": [
+    "business-353a7a66-7a73-4255-80aa-7bb13684dd54-4",
+    "business-353a7a66-7a73-4255-80aa-7bb13684dd54-5"
+  ],
+  "status": "失败",
+  "started_at": "2026-10-06T10:23:48.778Z",
+  "ended_at": "2026-10-06T10:24:28.688Z",
+  "actual_steps": [
+    "制作目录名与声明名一致的mixed2.zip",
+    "提交前读取注册表与技能目录，确认仅重复项root存在",
+    "提交并确认导入",
+    "读取反馈与提交后注册表/目录逐项身份"
+  ],
+  "assertions": [
+    {
+      "id": "G14-06-A1",
+      "actual": {
+        "fast-assert-mixed-valid-20261006-agent2": "成功",
+        "fast-assert-root-20261006-agent2": null,
+        "fast-assert-mixed-invalid-20261006-agent2": "成功"
+      },
+      "read_refs": [
+        "business-f62b61bb-6934-4c75-b0aa-7f0d60c37c56-1"
+      ]
+    },
+    {
+      "id": "G14-06-A2",
+      "actual": 2,
+      "read_refs": [
+        "business-353a7a66-7a73-4255-80aa-7bb13684dd54-10"
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "path": "运行日志/business.jsonl",
+      "sha256": "aaadf0b2901d2cb69e298a41be0118017d9deadfdfefd5334328191063ed931f"
+    },
+    {
+      "path": "运行日志/业务调用.jsonl",
+      "sha256": "8d619b0d6f5da075d69128ea5b9bd89cdcf86f03cc59f16c18c2888bc01ece1e"
+    }
+  ],
+  "cleanup": {
+    "status": "retained",
+    "description": "本轮新增 valid/invalid 与已存在 root 保留待审",
+    "read_refs": []
+  },
+  "business_call_refs": [
+    "CALL-8817f6f7-ea91-4f9e-9213-4e171eadf00d"
+  ],
+  "notes": "原问题：duplicate/invalid/valid均被同名跳过，未测到部分成功隔离。本轮改用目录名与声明名一致的 ew mixed2.zip：提交前仅 fast-assert-root-20261006-agent2 存在；导入后 fast-assert-mixed-valid-20261006-agent2、fast-assert-mixed-invalid-20261006-agent2 均新增注册(判成功)，root 前后存在但本次无针对root的明确跳过反馈，按纠错要求不据前后存在推定跳过，记null。缺description的invalid未被拒绝，正式匹配数=2。"
+}

@@ -1,0 +1,73 @@
+{
+  "requests": 3111,
+  "statuses": {
+    "200": 872,
+    "429": 822,
+    "client_error": 1417
+  },
+  "usage": {
+    "prompt_tokens": 15889,
+    "completion_tokens": 566272,
+    "total_tokens": 582161,
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 15889
+  },
+  "error_messages": {
+    "Too many requests. Your current concurrency is 237, which exceeds your concurrency limit of 225 based on your remaining balance. Please top up your balance to restore your concurrency.": 112,
+    "Too many requests. Your current concurrency is 237, which exceeds your concurrency limit of 236 based on your remaining balance. Please top up your balance to restore your concurrency.": 151,
+    "Too many requests. Your current concurrency is 206, which exceeds your concurrency limit of 201 based on your remaining balance. Please top up your balance to restore your concurrency.": 90,
+    "Too many requests. Your current concurrency is 205, which exceeds your concurrency limit of 201 based on your remaining balance. Please top up your balance to restore your concurrency.": 56,
+    "Too many requests. Your current concurrency is 201, which exceeds your concurrency limit of 201 based on your remaining balance. Please top up your balance to restore your concurrency.": 84,
+    "Too many requests. Your current concurrency is 202, which exceeds your concurrency limit of 201 based on your remaining balance. Please top up your balance to restore your concurrency.": 41,
+    "Too many requests. Your current concurrency is 204, which exceeds your concurrency limit of 201 based on your remaining balance. Please top up your balance to restore your concurrency.": 3,
+    "Too many requests. Your current concurrency is 203, which exceeds your concurrency limit of 180 based on your remaining balance. Please top up your balance to restore your concurrency.": 2,
+    "Too many requests. Your current concurrency is 204, which exceeds your concurrency limit of 180 based on your remaining balance. Please top up your balance to restore your concurrency.": 5,
+    "Too many requests. Your current concurrency is 203, which exceeds your concurrency limit of 203 based on your remaining balance. Please top up your balance to restore your concurrency.": 257,
+    "Too many requests. Your current concurrency is 203, which exceeds your concurrency limit of 201 based on your remaining balance. Please top up your balance to restore your concurrency.": 21
+  },
+  "waves": [
+    {
+      "planned": 10,
+      "client_pending_peak": 10,
+      "http200_unfinished_peak": 10,
+      "duration": 6.126251699985005,
+      "statuses": {
+        "200": 10
+      },
+      "completed_sse": 10
+    },
+    {
+      "planned": 100,
+      "client_pending_peak": 100,
+      "http200_unfinished_peak": 100,
+      "duration": 6.111778000020422,
+      "statuses": {
+        "200": 100
+      },
+      "completed_sse": 100
+    },
+    {
+      "planned": 500,
+      "client_pending_peak": 500,
+      "http200_unfinished_peak": 237,
+      "duration": 6.441555099998368,
+      "statuses": {
+        "429": 263,
+        "200": 237
+      },
+      "completed_sse": 237
+    },
+    {
+      "planned": 2501,
+      "client_pending_peak": 2501,
+      "http200_unfinished_peak": 319,
+      "duration": 134.41948789998423,
+      "statuses": {
+        "client_error": 1417,
+        "429": 559,
+        "200": 525
+      },
+      "completed_sse": 206
+    }
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "call_id": "CALL-5600fca4-ddbd-43f2-a459-128a057f895c",
+  "status": "returned",
+  "observations": {
+    "action_refs": [
+      "CALL-5600fca4-ddbd-43f2-a459-128a057f895c-2"
+    ],
+    "observations": {
+      "selected": {
+        "event_id": "CALL-5600fca4-ddbd-43f2-a459-128a057f895c-3",
+        "captured_at": "2026-10-06T16:46:54.391Z",
+        "environment_id": "agent-oc-20261006-funcfull-01",
+        "business_call_id": "CALL-5600fca4-ddbd-43f2-a459-128a057f895c",
+        "kind": "read",
+        "target": "详情初始选中文件",
+        "object_id": "skill-detail-selected",
+        "source": {
+          "channel": "dom",
+          "scope": "技能页/技能详情/目录树",
+          "locator": "[class*=\"dir-tree\"]"
+        },
+        "value": "SKILL.md",
+        "raw": {
+          "found": true,
+          "selected": "SKILL.md",
+          "names": [
+            "assets",
+            "data",
+            "references",
+            "SKILL.md"
+          ]
+        }
+      },
+      "preview": {
+        "event_id": "CALL-5600fca4-ddbd-43f2-a459-128a057f895c-4",
+        "captured_at": "2026-10-06T16:46:54.393Z",
+        "environment_id": "agent-oc-20261006-funcfull-01",
+        "business_call_id": "CALL-5600fca4-ddbd-43f2-a459-128a057f895c",
+        "kind": "read",
+        "target": "默认预览完整正文",
+        "object_id": "skill-detail-preview",
+        "source": {
+          "channel": "dom",
+          "scope": "技能页/技能详情/预览",
+          "locator": "[class*=\"dir-preview\"]"
+        },
+        "value": "---\nname: \"fast-assert-rich-agent-oc-20261006-funcfull-01\"\ndescription: \"Harmless package regression fixture\"\nversion: \"1.0.0\"\nicon: \"assets/icon.png\"\n---\n\nWhen explicitly invoked, reply exactly FAST_RICH_BASE_OK. Do not access external systems.\n",
+        "raw": {
+          "length": 246
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "call_id": "CALL-b1a04e03-d1a0-4759-8511-f5c00bdfecdb",
+  "status": "returned",
+  "observations": {
+    "observations": {
+      "img": {
+        "event_id": "CALL-b1a04e03-d1a0-4759-8511-f5c00bdfecdb-1",
+        "captured_at": "2026-10-06T16:29:38.305Z",
+        "environment_id": "agent-oc-20261006-funcfull-01",
+        "business_call_id": "CALL-b1a04e03-d1a0-4759-8511-f5c00bdfecdb",
+        "kind": "read",
+        "target": "附件图像加载",
+        "object_id": "attachment-image",
+        "source": {
+          "channel": "dom",
+          "scope": "composer 附件卡",
+          "locator": "[data-slot=\"conversation.input.attachments\"] img[alt=\"preview.png\"]"
+        },
+        "value": true,
+        "raw": {
+          "count": 1,
+          "complete": true,
+          "naturalWidth": 8
+        },
+        "derivation": "count>0 && complete && naturalWidth>0"
+      }
+    }
+  }
+}

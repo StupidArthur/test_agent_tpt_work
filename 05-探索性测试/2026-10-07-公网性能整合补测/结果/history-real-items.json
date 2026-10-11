@@ -1,0 +1,335 @@
+{
+  "group": "history-real-items",
+  "summary": {
+    "attempted": 1,
+    "succeeded": 1,
+    "failed": 0,
+    "complete": 1,
+    "success_rate": 1.0,
+    "all_attempt_metrics": {
+      "e2e": {
+        "n": 1,
+        "mean": 1.266,
+        "p50": 1.266,
+        "p95": 1.266,
+        "min": 1.266,
+        "max": 1.266
+      },
+      "first_event": {
+        "n": 0,
+        "mean": null,
+        "p50": null,
+        "p95": null,
+        "min": null,
+        "max": null
+      },
+      "first_reasoning": {
+        "n": 0,
+        "mean": null,
+        "p50": null,
+        "p95": null,
+        "min": null,
+        "max": null
+      },
+      "first_text": {
+        "n": 0,
+        "mean": null,
+        "p50": null,
+        "p95": null,
+        "min": null,
+        "max": null
+      },
+      "first_tool": {
+        "n": 0,
+        "mean": null,
+        "p50": null,
+        "p95": null,
+        "min": null,
+        "max": null
+      },
+      "input_tokens": {
+        "n": 1,
+        "mean": 45.0,
+        "p50": 45,
+        "p95": 45,
+        "min": 45,
+        "max": 45
+      },
+      "output_tokens": {
+        "n": 1,
+        "mean": 137.0,
+        "p50": 137,
+        "p95": 137,
+        "min": 137,
+        "max": 137
+      },
+      "output_tokens_per_e2e": {
+        "n": 1,
+        "mean": 108.21485,
+        "p50": 108.21485,
+        "p95": 108.21485,
+        "min": 108.21485,
+        "max": 108.21485
+      },
+      "text_span": {
+        "n": 0,
+        "mean": null,
+        "p50": null,
+        "p95": null,
+        "min": null,
+        "max": null
+      },
+      "middle_text_chunks_per_s": {
+        "n": 0,
+        "mean": null,
+        "p50": null,
+        "p95": null,
+        "min": null,
+        "max": null
+      }
+    },
+    "success_metrics": {
+      "e2e": {
+        "n": 1,
+        "mean": 1.266,
+        "p50": 1.266,
+        "p95": 1.266,
+        "min": 1.266,
+        "max": 1.266
+      },
+      "first_event": {
+        "n": 0,
+        "mean": null,
+        "p50": null,
+        "p95": null,
+        "min": null,
+        "max": null
+      },
+      "first_reasoning": {
+        "n": 0,
+        "mean": null,
+        "p50": null,
+        "p95": null,
+        "min": null,
+        "max": null
+      },
+      "first_text": {
+        "n": 0,
+        "mean": null,
+        "p50": null,
+        "p95": null,
+        "min": null,
+        "max": null
+      },
+      "first_tool": {
+        "n": 0,
+        "mean": null,
+        "p50": null,
+        "p95": null,
+        "min": null,
+        "max": null
+      },
+      "input_tokens": {
+        "n": 1,
+        "mean": 45.0,
+        "p50": 45,
+        "p95": 45,
+        "min": 45,
+        "max": 45
+      },
+      "output_tokens": {
+        "n": 1,
+        "mean": 137.0,
+        "p50": 137,
+        "p95": 137,
+        "min": 137,
+        "max": 137
+      },
+      "output_tokens_per_e2e": {
+        "n": 1,
+        "mean": 108.21485,
+        "p50": 108.21485,
+        "p95": 108.21485,
+        "min": 108.21485,
+        "max": 108.21485
+      },
+      "text_span": {
+        "n": 0,
+        "mean": null,
+        "p50": null,
+        "p95": null,
+        "min": null,
+        "max": null
+      },
+      "middle_text_chunks_per_s": {
+        "n": 0,
+        "mean": null,
+        "p50": null,
+        "p95": null,
+        "min": null,
+        "max": null
+      }
+    },
+    "terminations": {
+      "completed": 1,
+      "incomplete": 0,
+      "failed": 0,
+      "error": 0,
+      "null": 0
+    },
+    "evidence": [
+      {
+        "rel_path": "performance/history-real-items/00645-4a7711a34d97496eb67774393a1c0d94.json",
+        "sha256": "3F404D1B1E52AD2444ED2654BBD7EA730CB6EBEDD9CBF5F4246729F901A997A6",
+        "instances": [
+          "TPT-07",
+          "DIFF-04"
+        ],
+        "kind": "performance_wire",
+        "note": ""
+      }
+    ],
+    "slo": "unconfirmed; measurement only"
+  },
+  "samples": [
+    {
+      "sample_id": "4a7711a34d97496eb67774393a1c0d94",
+      "request_index": 645,
+      "cases": [
+        "TPT-07",
+        "DIFF-04"
+      ],
+      "group": "history-real-items",
+      "warmup": false,
+      "target": "gateway-responses",
+      "protocol": "responses",
+      "request": {
+        "model": "flash",
+        "input": [
+          {
+            "role": "user",
+            "content": [
+              {
+                "type": "input_text",
+                "text": "记住 HISTORY_c5e6df8a768545d5b69a21ff2a371ff5，仅回答 OK"
+              }
+            ]
+          },
+          {
+            "id": "rs_91530349c3993101",
+            "summary": [],
+            "type": "reasoning",
+            "content": [
+              {
+                "text": "我们只需要按照指令回答OK。",
+                "type": "reasoning_text"
+              }
+            ],
+            "encrypted_content": null,
+            "status": null
+          },
+          {
+            "id": "msg_8a88383240a32530",
+            "content": [
+              {
+                "annotations": [],
+                "text": "OK",
+                "type": "output_text",
+                "logprobs": null
+              }
+            ],
+            "role": "assistant",
+            "status": "completed",
+            "type": "message",
+            "phase": null
+          },
+          {
+            "role": "user",
+            "content": "刚才的标记是什么？仅输出标记。"
+          }
+        ],
+        "stream": false,
+        "max_output_tokens": 1024,
+        "reasoning": {
+          "effort": "low"
+        }
+      },
+      "expected": {
+        "exact_text": "HISTORY_c5e6df8a768545d5b69a21ff2a371ff5"
+      },
+      "checks": {
+        "http200": true,
+        "no_transport_error": true,
+        "valid_json": true,
+        "terminal": true,
+        "exact_text": true
+      },
+      "ok": true,
+      "fully_completed": true,
+      "request_sha256": "23596378cb1d319758adb2f7ab4023fa943aaf5604422f4129e81cc87ff47fdf",
+      "utc": "2026-10-07T06:22:34Z",
+      "start_monotonic": 222765.343,
+      "end_monotonic": 222766.609,
+      "http": 200,
+      "error_kind": null,
+      "error": null,
+      "body_text": "{\"id\":\"resp_82e11742b100cb39\",\"created_at\":1791354156,\"incomplete_details\":null,\"instructions\":null,\"metadata\":null,\"model\":\"flash\",\"object\":\"response\",\"output\":[{\"id\":\"rs_b6a2efd82e34183e\",\"summary\":[],\"type\":\"reasoning\",\"content\":[{\"text\":\"1. 用户要求“记住 HISTORY_c5e6df8a768545d5b69a21ff2a371ff5，仅回答 OK”。我照做了，回复了“OK”。\\n2. 现在用户问“刚才的标记是什么？仅输出标记。”，要求只输出标记本身。\\n3. 标记是“HISTORY_c5e6df8a768545d5b69a21ff2a371ff5”。\\n4. 必须仅输出该标记，不加任何其他文字。\",\"type\":\"reasoning_text\"}],\"encrypted_content\":null,\"status\":null},{\"id\":\"msg_bd7b72f57939036f\",\"content\":[{\"annotations\":[],\"text\":\"HISTORY_c5e6df8a768545d5b69a21ff2a371ff5\",\"type\":\"output_text\",\"logprobs\":null}],\"role\":\"assistant\",\"status\":\"completed\",\"type\":\"message\",\"phase\":null}],\"parallel_tool_calls\":true,\"temperature\":1.0,\"tool_choice\":\"none\",\"tools\":[],\"top_p\":1.0,\"background\":false,\"max_output_tokens\":1024,\"max_tool_calls\":null,\"previous_response_id\":null,\"prompt\":null,\"reasoning\":{\"context\":null,\"effort\":\"low\",\"generate_summary\":null,\"mode\":null,\"summary\":null},\"service_tier\":\"auto\",\"status\":\"completed\",\"text\":null,\"top_logprobs\":null,\"truncation\":\"disabled\",\"usage\":{\"input_tokens\":45,\"input_tokens_details\":{\"cached_tokens\":0,\"input_tokens_per_turn\":[],\"cached_tokens_per_turn\":[]},\"output_tokens\":137,\"output_tokens_details\":{\"reasoning_tokens\":0,\"tool_output_tokens\":0,\"output_tokens_per_turn\":[],\"tool_output_tokens_per_turn\":[]},\"total_tokens\":182},\"user\":null,\"presence_penalty\":0.0,\"frequency_penalty\":0.0,\"kv_transfer_params\":null,\"ec_transfer_params\":null,\"input_messages\":null,\"output_messages\":null}",
+      "normalized": {
+        "protocol": "responses",
+        "text": "HISTORY_c5e6df8a768545d5b69a21ff2a371ff5",
+        "reasoning": "1. 用户要求“记住 HISTORY_c5e6df8a768545d5b69a21ff2a371ff5，仅回答 OK”。我照做了，回复了“OK”。\n2. 现在用户问“刚才的标记是什么？仅输出标记。”，要求只输出标记本身。\n3. 标记是“HISTORY_c5e6df8a768545d5b69a21ff2a371ff5”。\n4. 必须仅输出该标记，不加任何其他文字。",
+        "final_text": null,
+        "tool_calls": [],
+        "usage": {
+          "input_tokens": 45,
+          "input_tokens_details": {
+            "cached_tokens": 0,
+            "input_tokens_per_turn": [],
+            "cached_tokens_per_turn": []
+          },
+          "output_tokens": 137,
+          "output_tokens_details": {
+            "reasoning_tokens": 0,
+            "tool_output_tokens": 0,
+            "output_tokens_per_turn": [],
+            "tool_output_tokens_per_turn": []
+          },
+          "total_tokens": 182
+        },
+        "terminal": "completed",
+        "terminal_reason": "completed",
+        "error_message": null,
+        "unknown_events": [],
+        "json_errors": []
+      },
+      "raw_frames": [],
+      "metrics": {
+        "e2e": 1.266,
+        "first_event": null,
+        "first_reasoning": null,
+        "first_text": null,
+        "first_tool": null,
+        "input_tokens": 45,
+        "output_tokens": 137,
+        "output_tokens_per_e2e": 108.21484992101105,
+        "text_chars": 40,
+        "text_delta_count": 0,
+        "text_span": null,
+        "text_intervals_s": [],
+        "middle_text_chunks_per_s": null,
+        "stream_batch_observation": null
+      },
+      "evidence": {
+        "rel_path": "performance/history-real-items/00645-4a7711a34d97496eb67774393a1c0d94.json",
+        "sha256": "3F404D1B1E52AD2444ED2654BBD7EA730CB6EBEDD9CBF5F4246729F901A997A6",
+        "instances": [
+          "TPT-07",
+          "DIFF-04"
+        ],
+        "kind": "performance_wire",
+        "note": ""
+      },
+      "real_reasoning_items_present": true
+    }
+  ]
+}

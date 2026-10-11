@@ -1,0 +1,127 @@
+{
+  "case_id": "G7-03",
+  "contract_version": "2.0",
+  "attempt_id": "G7-A01",
+  "environment_id": "env-20261006-oc1",
+  "object_identity": "当前草稿附件",
+  "inputs": [
+    "01-20,21-35"
+  ],
+  "action_refs": [
+    "G7-c7de65e9-2ff9-49f3-9d69-19b3d94fc2c4-2",
+    "G7-c7de65e9-2ff9-49f3-9d69-19b3d94fc2c4-5",
+    "G7-c7de65e9-2ff9-49f3-9d69-19b3d94fc2c4-9",
+    "G7-c7de65e9-2ff9-49f3-9d69-19b3d94fc2c4-12",
+    "G7-c7de65e9-2ff9-49f3-9d69-19b3d94fc2c4-16",
+    "G7-c7de65e9-2ff9-49f3-9d69-19b3d94fc2c4-19",
+    "G7-c7de65e9-2ff9-49f3-9d69-19b3d94fc2c4-22",
+    "G7-c7de65e9-2ff9-49f3-9d69-19b3d94fc2c4-25",
+    "G7-c7de65e9-2ff9-49f3-9d69-19b3d94fc2c4-29",
+    "G7-c7de65e9-2ff9-49f3-9d69-19b3d94fc2c4-33",
+    "G7-c7de65e9-2ff9-49f3-9d69-19b3d94fc2c4-35",
+    "G7-c7de65e9-2ff9-49f3-9d69-19b3d94fc2c4-38",
+    "G7-c7de65e9-2ff9-49f3-9d69-19b3d94fc2c4-41",
+    "G7-c7de65e9-2ff9-49f3-9d69-19b3d94fc2c4-44",
+    "G7-c7de65e9-2ff9-49f3-9d69-19b3d94fc2c4-46",
+    "G7-c7de65e9-2ff9-49f3-9d69-19b3d94fc2c4-49",
+    "G7-c7de65e9-2ff9-49f3-9d69-19b3d94fc2c4-53",
+    "G7-c7de65e9-2ff9-49f3-9d69-19b3d94fc2c4-55",
+    "G7-c7de65e9-2ff9-49f3-9d69-19b3d94fc2c4-59",
+    "G7-c7de65e9-2ff9-49f3-9d69-19b3d94fc2c4-62"
+  ],
+  "status": "失败",
+  "started_at": "2026-10-06T05:16:38.131Z",
+  "ended_at": "2026-10-06T05:17:58.020Z",
+  "actual_steps": [
+    "先20再15"
+  ],
+  "assertions": [
+    {
+      "id": "G7-03-A1",
+      "actual": {
+        "before": [
+          "count-01.txt",
+          "count-02.txt",
+          "count-03.txt",
+          "count-04.txt",
+          "count-05.txt",
+          "count-06.txt",
+          "count-07.txt",
+          "count-08.txt",
+          "count-09.txt",
+          "count-10.txt",
+          "count-11.txt",
+          "count-12.txt",
+          "count-13.txt",
+          "count-14.txt",
+          "count-15.txt",
+          "count-16.txt",
+          "count-17.txt",
+          "count-18.txt",
+          "count-19.txt",
+          "count-20.txt"
+        ],
+        "after": [
+          "count-01.txt",
+          "count-02.txt",
+          "count-03.txt",
+          "count-04.txt",
+          "count-05.txt",
+          "count-06.txt",
+          "count-07.txt",
+          "count-08.txt",
+          "count-09.txt",
+          "count-10.txt",
+          "count-11.txt",
+          "count-12.txt",
+          "count-13.txt",
+          "count-14.txt",
+          "count-15.txt",
+          "count-16.txt",
+          "count-17.txt",
+          "count-18.txt",
+          "count-19.txt",
+          "count-20.txt",
+          "count-21.txt",
+          "count-22.txt",
+          "count-23.txt",
+          "count-24.txt",
+          "count-25.txt",
+          "count-26.txt",
+          "count-27.txt",
+          "count-28.txt",
+          "count-29.txt",
+          "count-30.txt",
+          "count-31.txt",
+          "count-32.txt",
+          "count-33.txt",
+          "count-34.txt",
+          "count-35.txt"
+        ]
+      },
+      "read_refs": [
+        "G7-c7de65e9-2ff9-49f3-9d69-19b3d94fc2c4-10",
+        "G7-c7de65e9-2ff9-49f3-9d69-19b3d94fc2c4-13"
+      ]
+    },
+    {
+      "id": "G7-03-A2",
+      "actual": false,
+      "read_refs": [
+        "G7-c7de65e9-2ff9-49f3-9d69-19b3d94fc2c4-14"
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "path": "运行日志/G7.jsonl",
+      "sha256": "027a4e95175f61de6b2b25f6032a61f2fccdfe00a5bbb0f861ff028a60723536"
+    }
+  ],
+  "cleanup": {
+    "status": "restored",
+    "description": "附件草稿清空",
+    "read_refs": []
+  },
+  "notes": "G7共享附件草稿与已发送任务。"
+}

@@ -1,0 +1,30 @@
+{
+  "case_id": "G3-06",
+  "status": "通过",
+  "started_at": "2026-10-06T10:04:40+08:00",
+  "ended_at": "2026-10-06T10:05:10+08:00",
+  "actual_steps": [
+    "搜索定位本轮技能",
+    "点击启停开关停用",
+    "回读 aria-checked"
+  ],
+  "observed": "点击停用后开关 aria-checked=false，卡片显示未启用。",
+  "evidence": [
+    {
+      "path": "证据/G3-06-disabled.png",
+      "sha256": "9fc6cbf2b03cdb8cd73672f1771114d780be25d3ec3cfe42aebe0786ed499737"
+    },
+    {
+      "path": "证据/G3-filters.txt",
+      "sha256": "451e53803f3d50be9cedb81482a858d20ffdc0bc849cbad8dfe0d3e8c53ff604"
+    }
+  ],
+  "cleanup": "本轮技能保持停用。",
+  "timings": {
+    "操作等待秒": 20,
+    "产品执行秒": 5,
+    "取证登记秒": 10,
+    "排障恢复秒": 0
+  },
+  "group": "G3"
+}

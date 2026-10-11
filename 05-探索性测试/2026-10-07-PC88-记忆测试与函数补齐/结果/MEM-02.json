@@ -1,0 +1,17 @@
+{
+  "id": "MEM-02",
+  "run": "PC88-20261007-memory01",
+  "machine_id": "PC88",
+  "status": "通过",
+  "assertions": {
+    "添加": "记忆库选类型=事实, 内容唯一标记 → 面板“已写入 #1”; MEMORY.md 写入 - [F] <标记>",
+    "编辑": "MEMORY.md 编辑弹窗改前=旧值 → 保存后旧值消失/新值出现; index.json 条目与关键词随编辑更新(id 变更)",
+    "审计": "编辑产生 actor=host type=memory_write",
+    "默认类型": "新增类型下拉默认首个选项=偏好(未显式选择时)"
+  },
+  "refs": [
+    "CALL-af7181ff-426b-4f7e-9a80-0add68c35492",
+    "CALL-0b7c55a3-7ed2-4cc5-821d-d8fe61056f8d"
+  ],
+  "notes": "面板“添加”未产生 audit; 文件“编辑”产生 audit"
+}

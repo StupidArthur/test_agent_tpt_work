@@ -1,0 +1,50 @@
+{
+  "run": "PC88-20261007-r2-01",
+  "case_id": "MEM-04",
+  "title": "外部改写、感知与备份",
+  "attempts": [
+    {
+      "attempt_id": "MEM-04-A1",
+      "started_at": "2026-10-07T04:52:45Z",
+      "ended_at": "2026-10-07T04:56:00Z",
+      "precondition": "USER.md、AGENTS.md 起始均为 0B（已备份）；audit 基线 2026B/sha 8da88a68…（含 MEM-02 编辑）",
+      "inputs": [
+        "USER.md ← 『外部改写样本 MEM88R2-PC88-20261007-r2-01-MEM-04-user1』",
+        "AGENTS.md ← 『外部改写样本 MEM88R2-PC88-20261007-r2-01-MEM-04-agents1』"
+      ],
+      "steps": ["fixtures.writeFile(USER.md)", "等待8s", "memory.readFiles + memory.readOverview", "fixtures.writeFile(AGENTS.md)", "等待8s", "memory.readFiles + memory.readOverview"],
+      "subchecks": [
+        {
+          "id": "MEM-04-S1",
+          "name": "USER.md 同条件外部改写",
+          "expected": "记录修改前字节、审计/备份基线、修改方式、等待、宿主感知、新增备份",
+          "actual": {"file": "USER.md", "before_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855(0B)", "write": "fixtures.writeFile（外部直接改写）", "after": "133B sha f856a6503194cb2fbe08ea788141ca7b7d53d3a6b473f61726dec5feacb55179", "等待": "8s", "既有备份基线": "无 USER.md.bak", "audit增量": "无（2026B→2026B，sha 8da88a68… 未变）", "新增备份": "无", "宿主感知": "面板 USER.md 显示 0 条 73 字符（打开面板后读到外部内容）"},
+          "verdict": "符合",
+          "source": "CALL-fa91fbd5-7238-4eb4-b75e-591fb095eff0-3；CALL-5ed2ae84-…-1,-5；CALL-3bef6870 后续 readOverview"
+        },
+        {
+          "id": "MEM-04-S2",
+          "name": "AGENTS.md 同条件外部改写",
+          "expected": "与 USER.md 同条件，比较是否一致",
+          "actual": {"file": "AGENTS.md", "before_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855(0B)", "write": "fixtures.writeFile", "after": "135B sha 1222b66916df8d156d22840532a8e5fd1d33df7084a225328161d1fed253a5b8", "等待": "8s", "audit增量": "无", "新增备份": "无", "宿主感知": "面板 AGENTS.md 显示 75 字符"},
+          "verdict": "符合",
+          "source": "CALL-mem04-agents write；后续 readOverview"
+        },
+        {
+          "id": "MEM-04-S3",
+          "name": "备份承诺",
+          "expected": "若有写前备份承诺，备份字节=被覆盖前版本",
+          "actual": {"外部改写": "未观察到写前备份（无 .bak，无 audit）；历史仅对 UI 编辑 MEMORY.md 生成 .bak（MEM-02 观察到）"},
+          "verdict": "未验证",
+          "source": "CALL-5ed2ae84-…-1",
+          "note": "外部直接改写无备份承诺证据；按“没有备份承诺时只记录观察”处理，不判产品失败。与历史 CMP-004 一致：不同文件/修改方式不可直接比较。"
+        }
+      ],
+      "verdict": "通过（备份子项未验证）",
+      "restore": "USER.md/AGENTS.md 由 MEM-18 恢复为 0B 基线"
+    }
+  ],
+  "status": "通过",
+  "unverified": ["MEM-04-S3 外部改写写前备份未观察到"],
+  "evidence_refs": ["CALL-fa91fbd5", "CALL-5ed2ae84"]
+}

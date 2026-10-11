@@ -1,0 +1,53 @@
+{
+  "case_id": "G6-03",
+  "contract_version": "2.0",
+  "attempt_id": "fn-20261006-agent2-G6-03-A1",
+  "environment_id": "env-fn-20261006-agent2",
+  "object_identity": {
+    "font_initial": 14,
+    "font_changed": 15
+  },
+  "inputs": [
+    "设置→常规→字号：增大 1px，关闭重开设置读取"
+  ],
+  "action_refs": [
+    "business-142bd623-0c20-43ba-8cfd-48ba1201dc6a-2"
+  ],
+  "status": "通过",
+  "started_at": "2026-10-06T08:12:54.161Z",
+  "ended_at": "2026-10-06T08:13:01.133Z",
+  "actual_steps": [
+    "点击 增大字号 一次",
+    "关闭设置重开",
+    "读取字号数值（body --dsh-content-font-size）"
+  ],
+  "assertions": [
+    {
+      "id": "G6-03-A1",
+      "actual": 15,
+      "read_refs": [
+        "business-e72650d9-e82b-4010-a408-bf69c0e89fef-4"
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "path": "运行日志/business.jsonl",
+      "sha256": "6203703aeaf46ab5fd94d64c474b878c26f39b97bc4c3f7a3840f9ee9a48bdc5"
+    },
+    {
+      "path": "运行日志/业务调用.jsonl",
+      "sha256": "91fc9bb4b29ad5347770a9e5e5a21b38b9c414c04a2e484e84b5dd981db87bd7"
+    }
+  ],
+  "cleanup": {
+    "status": "retained",
+    "description": "字号在本组 G6-04 用完后恢复为初值 14",
+    "read_refs": []
+  },
+  "business_call_refs": [
+    "CALL-5c30f747-bac7-423d-85dc-f2603e546fe6",
+    "CALL-c223026f-300d-4a2e-a5f3-7b16b7ef2253"
+  ],
+  "notes": "改后数值与夹具绑定 font_changed=15 一致；原值为 14"
+}

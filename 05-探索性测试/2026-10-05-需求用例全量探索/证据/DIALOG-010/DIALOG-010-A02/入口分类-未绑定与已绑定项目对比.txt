@@ -1,0 +1,92 @@
+# DIALOG-010/011 入口分类（菜单范围限定）
+# captured_at: 2026-10-05T10:42:32.026Z
+
+本文件只对菜单/列表框元素自身文本做分类，不含侧栏，避免侧栏文字造成误判。
+
+对照维度：项目未绑定 vs 已绑定 tpt-workspace。
+{
+  "unbound": {
+    "project": "选择项目",
+    "at_menuText": "对话 请只回复 SMOKE_20261005_179119311245 D:\\code\\tpt-workspace · 1小时 请只回复 LOW_SMOKE_OK，不要调用 D:\\code\\tpt-workspace · 3小时 hi D:\\code\\tpt-workspace · 4小时 请只回复字符串：MODEL_SMOKE_高 C:\\Users\\Administrator\\.tpt-work\\tasks\\t-20261005-142912-e1f7 · 4小时 请只回复字符串：MODEL_SMOKE_高 C:\\Users\\Administrator\\.tpt-work\\tasks\\t-20261005-142901-1ca0 · 4小时 请只回复字符串：MODEL_SMOKE_高 C:\\Users\\Administrator\\.tpt-work\\tasks\\t-20261005-142850-9ea0 · 4小时 请只回复字符串：MODEL_SMOKE_高 C:\\Users\\Administrator\\.tpt-work\\tasks\\t-20261005-142817-f4e1 · 4小时 你好，请只回复“收到”，用 C:\\Users\\Administrator\\.tpt-work\\tasks\\t-20261005-101947-af41 · 4小时",
+    "at_items": [
+      "请只回复 SMOKE_20261005_179119311245 D:\\code\\tpt-workspace · 1小时",
+      "请只回复 LOW_SMOKE_OK，不要调用 D:\\code\\tpt-workspace · 3小时",
+      "hi D:\\code\\tpt-workspace · 4小时",
+      "请只回复字符串：MODEL_SMOKE_高 C:\\Users\\Administrator\\.tpt-work\\tasks\\t-20261005-142912-e",
+      "请只回复字符串：MODEL_SMOKE_高 C:\\Users\\Administrator\\.tpt-work\\tasks\\t-20261005-142901-1",
+      "请只回复字符串：MODEL_SMOKE_高 C:\\Users\\Administrator\\.tpt-work\\tasks\\t-20261005-142850-9",
+      "请只回复字符串：MODEL_SMOKE_高 C:\\Users\\Administrator\\.tpt-work\\tasks\\t-20261005-142817-f",
+      "你好，请只回复“收到”，用 C:\\Users\\Administrator\\.tpt-work\\tasks\\t-20261005-101947-af41 · 4小"
+    ],
+    "at_classified": {
+      "添加本地文件": false,
+      "我的文件": false,
+      "资料库": false,
+      "连接器": false,
+      "技能": false,
+      "模式": false,
+      "Agent或专家": false,
+      "对话引用组": true
+    },
+    "plus_menuText": "添加本地文件 从我的资料库添加 连接器 技能 模式",
+    "plus_items": [
+      "添加本地文件",
+      "从我的资料库添加",
+      "连接器",
+      "技能",
+      "模式"
+    ],
+    "plus_classified": {
+      "添加本地文件": true,
+      "我的文件": false,
+      "资料库": true,
+      "连接器": true,
+      "技能": true,
+      "模式": true,
+      "Agent或专家": false,
+      "对话引用组": false
+    }
+  },
+  "bound": {
+    "project": "tpt-workspace",
+    "at_menuText": "对话 请只回复 SMOKE_20261005_179119311245 1小时 请只回复 LOW_SMOKE_OK，不要调用 3小时 hi 4小时 请只回复字符串：MODEL_SMOKE_高 C:\\Users\\Administrator\\.tpt-work\\tasks\\t-20261005-142912-e1f7 · 4小时 请只回复字符串：MODEL_SMOKE_高 C:\\Users\\Administrator\\.tpt-work\\tasks\\t-20261005-142901-1ca0 · 4小时 请只回复字符串：MODEL_SMOKE_高 C:\\Users\\Administrator\\.tpt-work\\tasks\\t-20261005-142850-9ea0 · 4小时 请只回复字符串：MODEL_SMOKE_高 C:\\Users\\Administrator\\.tpt-work\\tasks\\t-20261005-142817-f4e1 · 4小时 你好，请只回复“收到”，用 C:\\Users\\Administrator\\.tpt-work\\tasks\\t-20261005-101947-af41 · 4小时",
+    "at_items": [
+      "请只回复 SMOKE_20261005_179119311245 1小时",
+      "请只回复 LOW_SMOKE_OK，不要调用 3小时",
+      "hi 4小时",
+      "请只回复字符串：MODEL_SMOKE_高 C:\\Users\\Administrator\\.tpt-work\\tasks\\t-20261005-142912-e",
+      "请只回复字符串：MODEL_SMOKE_高 C:\\Users\\Administrator\\.tpt-work\\tasks\\t-20261005-142901-1",
+      "请只回复字符串：MODEL_SMOKE_高 C:\\Users\\Administrator\\.tpt-work\\tasks\\t-20261005-142850-9",
+      "请只回复字符串：MODEL_SMOKE_高 C:\\Users\\Administrator\\.tpt-work\\tasks\\t-20261005-142817-f",
+      "你好，请只回复“收到”，用 C:\\Users\\Administrator\\.tpt-work\\tasks\\t-20261005-101947-af41 · 4小"
+    ],
+    "at_classified": {
+      "添加本地文件": false,
+      "我的文件": false,
+      "资料库": false,
+      "连接器": false,
+      "技能": false,
+      "模式": false,
+      "Agent或专家": false,
+      "对话引用组": true
+    },
+    "plus_menuText": "添加本地文件 从我的资料库添加 连接器 技能 模式",
+    "plus_items": [
+      "添加本地文件",
+      "从我的资料库添加",
+      "连接器",
+      "技能",
+      "模式"
+    ],
+    "plus_classified": {
+      "添加本地文件": true,
+      "我的文件": false,
+      "资料库": true,
+      "连接器": true,
+      "技能": true,
+      "模式": true,
+      "Agent或专家": false,
+      "对话引用组": false
+    }
+  }
+}

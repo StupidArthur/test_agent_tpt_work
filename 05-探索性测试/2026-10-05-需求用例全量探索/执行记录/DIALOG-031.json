@@ -1,0 +1,91 @@
+{
+  "case_id": "DIALOG-031",
+  "case_title": "\\u8fc7\\u7a0b\\u6309\\u5b9e\\u9645\\u987a\\u5e8f",
+  "source_sha256": "b712acd3b204ebcfdd07129c4d993ea1beb184f9a2d0c3827745ee1fdf7a6677",
+  "status": "已执行-符合预期",
+  "review_status": "待双方审核",
+  "latest_attempt_id": "DIALOG-031-A01",
+  "attempts": [
+    {
+      "attempt_id": "DIALOG-031-A01",
+      "started_at": "2026-10-05T20:03:58+08:00",
+      "ended_at": "2026-10-05T20:04:19+08:00",
+      "environment_id": "ENV-001",
+      "surface": "Electron UI via CDP 9234 + Playwright, dsh-app://app/ top frame; trace tab",
+      "actual_preconditions": {
+        "project": "existing tpt-workspace project",
+        "fixture": "only round-owned file from DIALOG-030",
+        "model": "standard / low",
+        "permission": "workspace edits"
+      },
+      "input": "In the task workspace, create one file named DIALOG031-round-owned.txt with exactly two lines in this order: FIRST_STEP then SECOND_STEP. Then read that same file once and report the two lines in order. Do not modify any other files.",
+      "actual_steps": [
+        "Submitted the two-operation task through the visible new-task UI in existing project tpt-workspace.",
+        "Observed in the rendered trace: write of the round-owned file followed by read of that same file.",
+        "Observed the resulting two lines in order in the trace and final conversation."
+      ],
+      "wait_condition": "Observed running status and terminal completion in the conversation UI; task UI reported 21 seconds.",
+      "checkpoints": [
+        {
+          "expected_index": 1,
+          "expected": "按发生顺序展示",
+          "observed": "Rendered trace showed write before read, matching the actual operation order.",
+          "verdict": "符合",
+          "evidence": [
+            "证据/DIALOG-031/DIALOG-031-A01/trace.json"
+          ]
+        },
+        {
+          "expected_index": 2,
+          "expected": "不混入其他轮次",
+          "observed": "Trace and conversation are for this one task round; both calls refer to DIALOG031-round-owned.txt, with no other round data included.",
+          "verdict": "符合",
+          "evidence": [
+            "证据/DIALOG-031/DIALOG-031-A01/trace.json",
+            "证据/DIALOG-031/DIALOG-031-A01/result.json",
+            "证据/DIALOG-031/DIALOG-031-A01/result.png"
+          ]
+        }
+      ],
+      "observed_result": "The trace UI showed one write followed by one read of the same round-owned file. The read returned FIRST_STEP then SECOND_STEP; the final response reported the same order.",
+      "status": "已执行-符合预期",
+      "evidence": [
+        "证据/DIALOG-031/DIALOG-031-A01/trace.json",
+        "证据/DIALOG-031/DIALOG-031-A01/result.json",
+        "证据/DIALOG-031/DIALOG-031-A01/result.png"
+      ],
+      "difference_ids": [],
+      "notes": "One temporary file and one task session created for this round; no other file was requested.",
+      "cleanup": {}
+    }
+  ],
+  "product_observations": [
+    {
+      "observation": "Observed trace sequence: write DIALOG031-round-owned.txt, then read the same file; both lines returned in the requested order.",
+      "scope": "One low standard-model task in existing project tpt-workspace",
+      "depth": "Rendered trace and final conversation",
+      "evidence": [
+        "证据/DIALOG-031/DIALOG-031-A01/trace.json",
+        "证据/DIALOG-031/DIALOG-031-A01/result.json",
+        "证据/DIALOG-031/DIALOG-031-A01/result.png"
+      ],
+      "additional_feature": false
+    }
+  ],
+  "differences": [],
+  "finding_ids": [],
+  "blocker": null,
+  "applicability_reason": null,
+  "cleanup": {
+    "changes": [],
+    "remaining": [
+      "DIALOG-031 task session and its round-owned file retained for review"
+    ]
+  },
+  "review": {
+    "assistant": null,
+    "user": null,
+    "approved_scope": [],
+    "final_decision": "待审核"
+  }
+}

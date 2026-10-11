@@ -1,0 +1,54 @@
+{
+  "case_id": "G3-04",
+  "contract_version": "retest-1.0",
+  "attempt_id": "G3-04-A03",
+  "environment_id": "env-20261006-agent2",
+  "object_identity": "fast-assert-skillc-20261006-agent2 + 调用session",
+  "inputs": [
+    "请执行本技能的固定回复规则"
+  ],
+  "action_refs": [
+    "business-af76232a-3c8e-4c39-babb-8247b80e9531-6",
+    "business-af76232a-3c8e-4c39-babb-8247b80e9531-7"
+  ],
+  "status": "不确定",
+  "started_at": "2026-10-06T10:06:59.633Z",
+  "ended_at": "2026-10-06T10:08:10.818Z",
+  "actual_steps": [
+    "使用技能后发送无害请求并等待终态",
+    "在本轮轨迹读取引用该技能的技能调用记录",
+    "助手正文单独读取"
+  ],
+  "assertions": [
+    {
+      "id": "G3-04-A1",
+      "actual": null,
+      "read_refs": [
+        "business-af76232a-3c8e-4c39-babb-8247b80e9531-10"
+      ],
+      "reason": "未在当前会话轨迹中判读到技能加载记录",
+      "failed_dependency": "技能加载记录可见性"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "运行日志/business.jsonl",
+      "sha256": "3a73914d4316507abaaecf65619c9e529b2b72788b6ac8381644850334ef973e"
+    },
+    {
+      "path": "运行日志/业务调用.jsonl",
+      "sha256": "85a2b7b4e7bbe2e1193d69b549996c53db0bae5b7ff44c9c09f60a1761ada8de"
+    }
+  ],
+  "cleanup": {
+    "status": "retained",
+    "description": "本轮会话保留待审；助手正文 FAST_SKILL_EXEC_OK 见raw",
+    "read_refs": [
+      "business-af76232a-3c8e-4c39-babb-8247b80e9531-9"
+    ]
+  },
+  "business_call_refs": [
+    "CALL-13192a93-3c59-4ac5-8e3f-5e93875a08de"
+  ],
+  "notes": "原问题：全页名称不等于资源注入。本轮在当前会话轨迹内读到引用技能内部name并引用技能指令正文的记录（assistant thinking/summary）；助手正文单独读取为 FAST_SKILL_EXEC_OK。"
+}

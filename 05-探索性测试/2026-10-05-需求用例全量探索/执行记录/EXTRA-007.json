@@ -1,0 +1,123 @@
+{
+  "case_id": "EXTRA-007",
+  "case_title": "本轮Expert内嵌Skill真实调用与Trace校验",
+  "source_sha256": "c3cdc4c71c1746e9a647aa5190e0983229af9b41c22e2e6c9a9bc3da80727b66",
+  "status": "已执行-存在差异",
+  "review_status": "待双方审核",
+  "latest_attempt_id": "EXTRA-007-A01",
+  "attempts": [
+    {
+      "attempt_id": "EXTRA-007-A01",
+      "started_at": "2026-10-06T02:51:00+08:00",
+      "ended_at": "2026-10-06T02:51:00+08:00",
+      "environment_id": "ENV-001",
+      "surface": "专家管理页面内目录导入→“我的专家”卡片使用入口→主对话Trace；CDP 9234 + Playwright",
+      "actual_preconditions": {
+        "account_alias": "Arthur",
+        "workspace": "tpt-workspace",
+        "project": "未新增项目",
+        "session_id": "round-agent-bundled-call-20261006 本轮使用任务",
+        "model": "标准 / low",
+        "permission": "工作区内修改",
+        "fixtures": [
+          "夹具/agent-variants/round-agent-bundled-call-20261006"
+        ]
+      },
+      "input": "先请求 ROUND_AGENT_BUNDLE_20261006_OK；随后明确请求调用包内Skill并只返回 ROUND_BUNDLED_SKILL_20261006_OK。",
+      "actual_steps": [
+        "在专家页面内弹窗选择本轮目录包并点击提交；列表从5增至6，显示本轮卡片、来源“我创建的 · 本地运行”。",
+        "点击本轮卡片“使用”；composer显示已选agent-round-agent-bundled-call-20261006。",
+        "标准/low发送Expert唯一标记请求，等待终态；可见ROUND_AGENT_BUNDLE_20261006_OK。",
+        "同一任务发送内嵌Skill唯一标记请求并等待终态；可见ROUND_BUNDLED_SKILL_20261006_OK。",
+        "切换Trace：第2轮上下文包含<skill_content name=\"agent-round-agent-bundled-call-20261006\">和skill_instructions；模型发起skill工具调用round-bundled-call-20261006，结果为error；随后助手仍输出唯一标记。"
+      ],
+      "wait_condition": "等待两条消息各自显示完成；在Trace中检查第2轮的实际调用事件。",
+      "checkpoints": [
+        {
+          "expected_index": 1,
+          "expected": "经专家管理页“导入→使用”选择本轮Expert后，Trace显示实际加载的Expert与内嵌Skill资源。",
+          "observed": "目录导入成功；“我的专家”出现本轮专家卡片（我创建的·本地运行）；使用入口打开的新任务Trace显示<skill_content name=\"agent-round-agent-bundled-call-20261006\">及专家说明，确认Expert实际进入上下文。",
+          "verdict": "符合",
+          "evidence": [
+            "证据/EXTRA-007/EXTRA-007-A01/trace.png",
+            "证据/EXTRA-007/EXTRA-007-A01/trace-extract.txt"
+          ]
+        },
+        {
+          "expected_index": 2,
+          "expected": "明确要求调用内嵌Skill时，执行轨迹显示该Skill调用成功，并且结果与唯一标记一致。",
+          "observed": "Trace确实尝试skill{name:\"round-bundled-call-20261006\"}，但工具结果为error；之后助手回复ROUND_BUNDLED_SKILL_20261006_OK。标记与文本规则一致，但工具调用失败，不能判定内嵌Skill被成功加载/执行。",
+          "verdict": "差异",
+          "evidence": [
+            "证据/EXTRA-007/EXTRA-007-A01/trace.png",
+            "证据/EXTRA-007/EXTRA-007-A01/trace-extract.txt"
+          ]
+        }
+      ],
+      "observed_result": "Expert被真实选择并在Trace加载；嵌入Skill指令内容出现在Expert上下文，但模型尝试的skill工具调用报error，随后仍回出包内唯一标记。Skill调用能力未证实，答案可能由注入文本指导生成。",
+      "status": "已执行-存在差异",
+      "evidence": [
+        "证据/EXTRA-007/EXTRA-007-A01/trace.png",
+        "证据/EXTRA-007/EXTRA-007-A01/trace-extract.txt"
+      ],
+      "difference_ids": [
+        "DIFF-036"
+      ],
+      "notes": "仅限当前版本、当前round-owned包和标准/low单次对话；待双方审核，不外推所有Agent/Skill包。"
+    }
+  ],
+  "product_observations": [
+    {
+      "observation_id": "OBS-199",
+      "feature_id": null,
+      "statement": "本轮导入的Expert Trace显示包内Skill内容，但模型对该Skill发起的skill工具调用返回error，仍随后输出唯一标记。",
+      "case_ids": [
+        "EXTRA-007"
+      ],
+      "attempt_ids": [
+        "EXTRA-007-A01"
+      ],
+      "environment_id": "ENV-001",
+      "verified_depth": "一个本轮Expert、一次标准/low任务、一个内嵌Skill的skill工具调用事件",
+      "scope_and_limits": "Trace文本只覆盖本轮样本和这次任务；不判断其他导入形式或所有内嵌技能；待双方审核。",
+      "evidence": [
+        "证据/EXTRA-007/EXTRA-007-A01/trace.png",
+        "证据/EXTRA-007/EXTRA-007-A01/trace-extract.txt"
+      ]
+    }
+  ],
+  "differences": [
+    {
+      "difference_id": "DIFF-036",
+      "checkpoint": 2,
+      "description": "内嵌技能调用轨迹结果为error；虽然回答匹配标记，不能据此证明Skill被实际调用。",
+      "candidate_status": "待双方审核",
+      "impact": "调用来源与成功状态不可由答案标记单独确认；若产品设计要求内嵌Skill可作为工具调用，该路径需要进一步核对。",
+      "evidence": [
+        "证据/EXTRA-007/EXTRA-007-A01/trace.png",
+        "证据/EXTRA-007/EXTRA-007-A01/trace-extract.txt"
+      ]
+    }
+  ],
+  "finding_ids": [],
+  "blocker": null,
+  "applicability_reason": null,
+  "cleanup": {
+    "changes": [],
+    "remaining": [
+      "round-agent-bundled-call-20261006是本轮授权创建并导入的样本，保留待审核/复测；无既有用户资产变更。"
+    ]
+  },
+  "review": {
+    "assistant": null,
+    "user": null,
+    "approved_scope": [],
+    "final_decision": "待审核"
+  },
+  "audit_history": [
+    {
+      "at": "2026-10-06T02:51:00+08:00",
+      "event": "新增开放探索用例；真实UI导入与使用本轮专家包，发现Trace中的内嵌Skill工具调用失败。"
+    }
+  ]
+}

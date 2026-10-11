@@ -1,0 +1,361 @@
+# surface state: 设置/内置插件
+# captured_at: 2026-10-05T09:26:48.796Z
+# url: dsh-app://app/
+
+## dialogs: 1
+设置
+常规
+个人主页
+积分与订阅
+场景预设
+记忆与进化
+实验性功能
+Beta
+开发者模式
+内置插件
+关闭
+内置插件
+
+查看内置部署的插件列表
+
+搜索插件
+会话插件
+标准模式（默认）
+
+由 Agent 预设按会话组成
+29 个
+
+persona
+Composition-authored deployment persona section for the DeepSeek Harness
+agent-instructions
+Workspace context loader for AGENTS.md/CLAUDE.md instruction files
+tool-bash
+已停用
+Model-facing bash tool with optional generic background-job and sandbox-escalation support
+tool-pwsh
+Model-facing pwsh tool over the bash executor seam
+tool-fs
+Model-facing filesystem tools (read, write, edit) over the DeepSeek Harness filesystem seam (ctx.fs)
+tool-fs-search
+Model-facing filesystem discovery tools (glob, grep) backed by the packaged ripgrep binary (@vscode/ripgrep)
+tool-jobs
+Model-facing background job control tools (job_output, job_list, job_kill) over the ctx.jobs registry
+skill-filesystem
+Local filesystem skill provider for the DeepSeek Harness
+tool-skill
+Model-facing skill loading tool for the DeepSeek Harness
+command-goal
+Human-facing slash command for persisted same-session goals
+tool-goal
+Model-facing same-session goal tools with execution-time authority checks
+tool-ask-user
+Model-facing ask_user_question tool over the ctx.userQuestions seam
+tool-todo
+Model-facing todo_write tool over the DeepSeek Harness event-sourced session log
+tool-web
+Model-facing web tools (web_search, web_fetch) over the DeepSeek Harness web capability seam (ctx.web)
+tool-present
+Explicit workspace file delivery declarations for the DeepSeek Harness
+present
+plugin-manager/tools
+已停用
+tool-plugin-manager
+plan-mode
+Logged per-agent plan mode with deployment guidance, a direct slash command, and a user-reviewed exit
+compaction-basic
+Token-meter-driven compaction policy and LLM summarization backend for the DeepSeek Harness
+command-compact
+Human-facing slash command for explicit session compaction
+compaction-tool-result-pruner
+Replay-safe model-free head/middle/tail pruning for tool-result surface nodes
+tool-result-pruner
+tool-subagent-control
+Globally named send_message, interrupt_agent, and list_agents tools over ctx.subagents continuations
+tool-subagent-control/list-agents
+tool-subagent-list-agents
+tool-subagent
+Model-facing subagent delegation tool over the ctx.subagents seam
+tool-subagent
+Model-facing subagent delegation tool over the ctx.subagents seam
+tool-subagent-fork
+tool-subagent
+已停用
+Model-facing subagent delegation tool over the ctx.subagents seam
+tool-subagent-codex
+tool-subagent
+已停用
+Model-facing subagent delegation tool over the ctx.subagents seam
+tool-subagent-claude-code
+workflow-ptc
+Workflow orchestration in the shared sandboxed Node PTC runtime
+tool-workflow
+Model-facing workflow tool: run a JavaScript orchestration script over ctx.workflowEngine
+tool-ralph
+已停用
+Model-facing fresh-agent Ralph loop over the workflow and subagent seams
+全局插件
+
+系统与所有会话共用
+234 个
+
+## body
+TPT
+WORK
+新建任务
+自动化任务
+更多
+IM 频道
+技能
+连接器
+数据资产
+专家
+插件
+任务
+IM 频道
+项目
+tpt-workspace
+请只回复 LOW_SMOKE_OK，不要调用
+hi
+最近
+请只回复字符串：MODEL_SMOKE_高
+请只回复字符串：MODEL_SMOKE_高
+请只回复字符串：MODEL_SMOKE_高
+请只回复字符串：MODEL_SMOKE_高
+你好，请只回复“收到”，用
+A
+Arthur
+重试更新
+自动化任务
+
+让 TPT 在指定时间或满足条件时，自动执行工业任务。
+
+通过对话创建
+新建任务
+i
+自动化任务仅在电脑保持唤醒时运行
+自动化任务
+全部运行记录
+0
+全部任务
+0
+开启
+—
+近 7 天成功率
+0
+今日已执行
+全部触发方式
+定时触发
+条件触发
+全部状态
+开启
+已停用
+全部 Agent
+全部任务
+按 Agent
+还没有自动化任务——点「新建任务」创建第一个。
+推荐案例
+
+点击案例，提示词将自动填入对话；确认并发送后继续创建任务。
+
+工业 AI 每日简报
+
+每天生成工业 AI、流程工业、Agent、Skill 和 MCP 最新动态。
+
+每天
+每日跟踪 MCP 变化
+
+周期性跟踪 MCP 及钉钉、企业微信接口变化并分析影响。
+
+周期性
+每日重点报警简报
+
+每天汇总报警概况、重点位号和响应质量。
+
+每天
+设备异常趋势
+
+关键设备指标满足异常条件后生成证据卡。
+
+条件触发
+设置
+常规
+个人主页
+积分与订阅
+场景预设
+记忆与进化
+实验性功能
+Beta
+开发者模式
+内置插件
+关闭
+内置插件
+
+查看内置部署的插件列表
+
+搜索插件
+会话插件
+标准模式（默认）
+
+由 Agent 预设按会话组成
+29 个
+
+persona
+Composition-authored deployment persona section for the DeepSeek Harness
+agent-instructions
+Workspace context loader for AGENTS.md/CLAUDE.md instruction files
+tool-bash
+已停用
+Model-facing bash tool with optional generic background-job and sandbox-escalation support
+tool-pwsh
+Model-facing pwsh tool over the bash executor seam
+tool-fs
+Model-facing filesystem tools (read, write, edit) over the DeepSeek Harness filesystem seam (ctx.fs)
+tool-fs-search
+Model-facing filesystem discovery tools (glob, grep) backed by the packaged ripgrep binary (@vscode/ripgrep)
+tool-jobs
+Model-facing background job control tools (job_output, job_list, job_kill) over the ctx.jobs registry
+skill-filesystem
+Local filesystem skill provider for the DeepSeek Harness
+tool-skill
+Model-facing skill loading tool for the DeepSeek Harness
+command-goal
+Human-facing slash command for persisted same-session goals
+tool-goal
+Model-facing same-session goal tools with execution-time authority checks
+tool-ask-user
+Model-facing ask_user_question tool over the ctx.userQuestions seam
+tool-todo
+Model-facing todo_write tool over the DeepSeek Harness event-sourced session log
+tool-web
+Model-facing web tools (web_search, web_fetch) over the DeepSeek Harness web capability seam (ctx.web)
+tool-present
+Explicit workspace file delivery declarations for the DeepSeek Harness
+present
+plugin-manager/tools
+已停用
+tool-plugin-manager
+plan-mode
+Logged per-agent plan mode with deployment guidance, a direct slash command, and a user-reviewed exit
+compaction-basic
+Token-meter-driven compaction policy and LLM summarization backend for the DeepSeek Harness
+command-compact
+Human-facing slash command for explicit session compaction
+compaction-tool-result-pruner
+Replay-safe model-free head/middle/tail pruning for tool-result surface nodes
+tool-result-pruner
+tool-subagent-control
+Globally named send_message, interrupt_agent, and list_agents tools over ctx.subagents continuations
+tool-subagent-control/list-agents
+tool-subagent-list-agents
+tool-subagent
+Model-facing subagent delegation tool over the ctx.subagents seam
+tool-subagent
+Model-facing subagent delegation tool over the ctx.subagents seam
+tool-subagent-fork
+tool-subagent
+已停用
+Model-facing subagent delegation tool over the ctx.subagents seam
+tool-subagent-codex
+tool-subagent
+已停用
+Model-facing subagent delegation tool over the ctx.subagents seam
+tool-subagent-claude-code
+workflow-ptc
+Workflow orchestration in the shared sandboxed Node PTC runtime
+tool-workflow
+Model-facing workflow tool: run a JavaScript orchestration script over ctx.workflowEngine
+tool-ralph
+已停用
+Model-facing fresh-agent Ralph loop over the workflow and subagent seams
+全局插件
+
+系统与所有会话共用
+234 个
+
+## controls (84)
+#0 [button] "新建会话"
+#1 [button] "收起侧边栏"
+#2 [button] "搜索"
+#3 [button] "新建任务"
+#4 [button] "自动化任务"
+#5 [button] "更多"
+#6 [button] "IM 频道"
+#7 [button] "技能"
+#8 [button] "连接器"
+#9 [button] "数据资产"
+#10 [button] "专家"
+#11 [button] "插件"
+#12 [tab] "任务"
+#13 [tab] "IM 频道"
+#14 [button] "排序方式"
+#15 [button] "折叠项目"
+#16 [button] "新建项目"
+#17 [treeitem] "tpt-workspace"
+#18 [treeitem] "请只回复 LOW_SMOKE_OK，不要调用"
+#19 [treeitem] "hi"
+#20 [button] "最近"
+#21 [button] "请只回复字符串：MODEL_SMOKE_高"
+#22 [button] "请只回复字符串：MODEL_SMOKE_高"
+#23 [button] "请只回复字符串：MODEL_SMOKE_高"
+#24 [button] "请只回复字符串：MODEL_SMOKE_高"
+#25 [button] "你好，请只回复“收到”，用"
+#26 [button] "AArthur"
+#27 [button] "重试更新"
+#28 [button] "通过对话创建"
+#29 [button] "新建任务"
+#30 [tab] "自动化任务"
+#31 [tab] "全部运行记录"
+#32 [input] ""
+#33 [button] "全部任务"
+#34 [button] "按 Agent"
+#35 [button] "推荐案例"
+#36 [button] "工业 AI 每日简报每天生成工业 AI、流程工业、Agent、Skill 和 MCP 最新动态。每天"
+#37 [button] "每日跟踪 MCP 变化周期性跟踪 MCP 及钉钉、企业微信接口变化并分析影响。周期性"
+#38 [button] "每日重点报警简报每天汇总报警概况、重点位号和响应质量。每天"
+#39 [button] "设备异常趋势关键设备指标满足异常条件后生成证据卡。条件触发"
+#40 [menuitem] "TPT Work" title="TPT Work"
+#41 [button] "常规"
+#42 [button] "个人主页"
+#43 [button] "积分与订阅"
+#44 [button] "场景预设"
+#45 [button] "记忆与进化"
+#46 [button] "实验性功能Beta"
+#47 [button] "开发者模式"
+#48 [button] "内置插件"
+#49 [button] "打开配置文件" title="打开配置文件"
+#50 [button] "关闭"
+#51 [input] "搜索插件"
+#52 [button] "会话插件"
+#53 [button] "选择要查看的 Agent 预设"
+#54 [button] "persona, 已启用"
+#55 [button] "agent-instructions, 已启用"
+#56 [button] "tool-bash, 已停用"
+#57 [button] "tool-pwsh, 已启用"
+#58 [button] "tool-fs, 已启用"
+#59 [button] "tool-fs-search, 已启用"
+#60 [button] "tool-jobs, 已启用"
+#61 [button] "skill-filesystem, 已启用"
+#62 [button] "tool-skill, 已启用"
+#63 [button] "command-goal, 已启用"
+#64 [button] "tool-goal, 已启用"
+#65 [button] "tool-ask-user, 已启用"
+#66 [button] "tool-todo, 已启用"
+#67 [button] "tool-web, 已启用"
+#68 [button] "tool-present, present, 已启用"
+#69 [button] "plugin-manager/tools, tool-plugin-manager, 已停用"
+#70 [button] "plan-mode, 已启用"
+#71 [button] "compaction-basic, 已启用"
+#72 [button] "command-compact, 已启用"
+#73 [button] "compaction-tool-result-pruner, tool-result-pruner, 已启用"
+#74 [button] "tool-subagent-control, 已启用"
+#75 [button] "tool-subagent-control/list-agents, tool-subagent-list-agents, 已启用"
+#76 [button] "tool-subagent, 已启用"
+#77 [button] "tool-subagent, tool-subagent-fork, 已启用"
+#78 [button] "tool-subagent, tool-subagent-codex, 已停用"
+#79 [button] "tool-subagent, tool-subagent-claude-code, 已停用"
+#80 [button] "workflow-ptc, 已启用"
+#81 [button] "tool-workflow, 已启用"
+#82 [button] "tool-ralph, 已停用"
+#83 [button] "全局插件"
+
+## frames (0)

@@ -1,0 +1,4039 @@
+{
+  "machine": "本机",
+  "commit": "working-tree",
+  "root": "D:/code/electron-ui/探索性测试/2026-10-06-审核缺口补测",
+  "counts": {
+    "通过": 30,
+    "失败": 15,
+    "不确定": 4
+  },
+  "records": [
+    {
+      "file": "结果\\G1-03.json",
+      "sha256": "e1e0c9ea16285d942a2fabac2641d99bf8eee4c5147693a3c75e365c7bafed69",
+      "record": {
+        "case_id": "G1-03",
+        "contract_version": "retest-1.0",
+        "attempt_id": "G1-03-A02",
+        "environment_id": "env-20261006-agent2",
+        "object_identity": "本轮任务session id与composer项目控件",
+        "inputs": [
+          "从已有项目列表选择 tpt-workspace"
+        ],
+        "action_refs": [
+          "business-5ab39283-9c6f-4c6f-801e-7d8bf64b077c-2"
+        ],
+        "status": "通过",
+        "started_at": "2026-10-06T08:16:56.436Z",
+        "ended_at": "2026-10-06T08:17:26.051Z",
+        "actual_steps": [
+          "新建任务",
+          "点击composer项目选择器",
+          "从已有项目菜单选择tpt-workspace",
+          "回读项目控件"
+        ],
+        "assertions": [
+          {
+            "id": "G1-03-A1",
+            "actual": "tpt-workspace",
+            "read_refs": [
+              "business-5ab39283-9c6f-4c6f-801e-7d8bf64b077c-3"
+            ]
+          }
+        ],
+        "evidence": [
+          {
+            "path": "运行日志/business.jsonl",
+            "sha256": "aaadf0b2901d2cb69e298a41be0118017d9deadfdfefd5334328191063ed931f"
+          },
+          {
+            "path": "运行日志/业务调用.jsonl",
+            "sha256": "8d619b0d6f5da075d69128ea5b9bd89cdcf86f03cc59f16c18c2888bc01ece1e"
+          }
+        ],
+        "cleanup": {
+          "status": "unchanged",
+          "description": "仅选择已有项目，未新增或修改项目",
+          "read_refs": []
+        },
+        "business_call_refs": [
+          "CALL-dac552e6-620d-429f-906d-a0925f38e8f3"
+        ],
+        "notes": "原问题：只读项目标题未执行选择。本轮实际点击项目选择器并从已有项目菜单选择，回读控件文本。菜单项含 tpt-workspace 与「新建项目…」。"
+      },
+      "evidence_checks": [
+        {
+          "path": "运行日志/business.jsonl",
+          "exists": true,
+          "hash_matches": true
+        },
+        {
+          "path": "运行日志/业务调用.jsonl",
+          "exists": true,
+          "hash_matches": true
+        }
+      ]
+    },
+    {
+      "file": "结果\\G1-06.json",
+      "sha256": "ea3e0e60f93f5ebf2ebe7a8c27e86b1341a179a691791808c68bcd9d261b1fe1",
+      "record": {
+        "case_id": "G1-06",
+        "contract_version": "retest-1.0",
+        "attempt_id": "G1-06-A02",
+        "environment_id": "env-20261006-agent2",
+        "object_identity": "session-333f2e2d-3f3f-450d-8011-251b7de6efd4",
+        "inputs": [
+          "只回答：FAST_CHAT_OK"
+        ],
+        "action_refs": [
+          "business-5ab39283-9c6f-4c6f-801e-7d8bf64b077c-5"
+        ],
+        "status": "通过",
+        "started_at": "2026-10-06T08:16:56.436Z",
+        "ended_at": "2026-10-06T08:17:26.051Z",
+        "actual_steps": [
+          "选择已有项目",
+          "发送纯文本请求并等待终态",
+          "确认目标会话chat区域存在",
+          "在目标会话范围内统计文件产物元素"
+        ],
+        "assertions": [
+          {
+            "id": "G1-06-A1",
+            "actual": 0,
+            "read_refs": [
+              "business-5ab39283-9c6f-4c6f-801e-7d8bf64b077c-8"
+            ]
+          }
+        ],
+        "evidence": [
+          {
+            "path": "运行日志/business.jsonl",
+            "sha256": "aaadf0b2901d2cb69e298a41be0118017d9deadfdfefd5334328191063ed931f"
+          },
+          {
+            "path": "运行日志/业务调用.jsonl",
+            "sha256": "8d619b0d6f5da075d69128ea5b9bd89cdcf86f03cc59f16c18c2888bc01ece1e"
+          }
+        ],
+        "cleanup": {
+          "status": "retained",
+          "description": "本轮新增纯文本会话保留待审，无设置或资产变更",
+          "read_refs": []
+        },
+        "business_call_refs": [
+          "CALL-dac552e6-620d-429f-906d-a0925f38e8f3"
+        ],
+        "notes": "原问题：全页启发式计数不能证明目标会话无产物。本轮先读取目标会话chat区域存在(count=1)，再限定该区域统计文件产物元素；助手正文为 FAST_CHAT_OK，读取值见日志。"
+      },
+      "evidence_checks": [
+        {
+          "path": "运行日志/business.jsonl",
+          "exists": true,
+          "hash_matches": true
+        },
+        {
+          "path": "运行日志/业务调用.jsonl",
+          "exists": true,
+          "hash_matches": true
+        }
+      ]
+    },
+    {
+      "file": "结果\\G1-08.json",
+      "sha256": "0e44e2193dfaf44b64bb99f6c29d2c74e8453ff2fd658db171100844b2eca822",
+      "record": {
+        "case_id": "G1-08",
+        "contract_version": "retest-1.0",
+        "attempt_id": "G1-08-A02",
+        "environment_id": "env-20261006-agent2",
+        "object_identity": "session-6282bf58-12ec-47cf-a0c0-c6320a7fd190",
+        "inputs": [
+          "用一个代码块输出字母A和B，每行一个，不要其他内容。"
+        ],
+        "action_refs": [
+          "business-5ab39283-9c6f-4c6f-801e-7d8bf64b077c-12"
+        ],
+        "status": "通过",
+        "started_at": "2026-10-06T08:16:56.436Z",
+        "ended_at": "2026-10-06T08:17:26.051Z",
+        "actual_steps": [
+          "新建任务并选择已有项目",
+          "发送代码块请求并等待终态",
+          "读取目标会话chat区域内文件产物元素"
+        ],
+        "assertions": [
+          {
+            "id": "G1-08-A1",
+            "actual": 0,
+            "read_refs": [
+              "business-5ab39283-9c6f-4c6f-801e-7d8bf64b077c-14"
+            ]
+          }
+        ],
+        "evidence": [
+          {
+            "path": "运行日志/business.jsonl",
+            "sha256": "aaadf0b2901d2cb69e298a41be0118017d9deadfdfefd5334328191063ed931f"
+          },
+          {
+            "path": "运行日志/业务调用.jsonl",
+            "sha256": "8d619b0d6f5da075d69128ea5b9bd89cdcf86f03cc59f16c18c2888bc01ece1e"
+          }
+        ],
+        "cleanup": {
+          "status": "retained",
+          "description": "本轮新增代码块会话保留待审，无设置或资产变更",
+          "read_refs": []
+        },
+        "business_call_refs": [
+          "CALL-dac552e6-620d-429f-906d-a0925f38e8f3"
+        ],
+        "notes": "原问题：产物计数来自未经验证的全页启发式选择器。本轮目标会话代码块读取为 A\\nB（见日志-13），产物统计限定该会话 chat 区域。"
+      },
+      "evidence_checks": [
+        {
+          "path": "运行日志/business.jsonl",
+          "exists": true,
+          "hash_matches": true
+        },
+        {
+          "path": "运行日志/业务调用.jsonl",
+          "exists": true,
+          "hash_matches": true
+        }
+      ]
+    },
+    {
+      "file": "结果\\G10-03.json",
+      "sha256": "9fc0819d95827454af42afcb14129592a0fdc51c1a17f903621548498f5cfe80",
+      "record": {
+        "case_id": "G10-03",
+        "contract_version": "retest-1.0",
+        "attempt_id": "G10-03-A02",
+        "environment_id": "env-20261006-agent2",
+        "object_identity": "fast-assert-rich-20261006-agent2 详情文件树",
+        "inputs": [],
+        "action_refs": [
+          "business-89b78902-33e1-4fd2-9501-1353123cd635-1",
+          "business-89b78902-33e1-4fd2-9501-1353123cd635-2",
+          "business-89b78902-33e1-4fd2-9501-1353123cd635-3",
+          "business-89b78902-33e1-4fd2-9501-1353123cd635-4",
+          "business-89b78902-33e1-4fd2-9501-1353123cd635-6",
+          "business-89b78902-33e1-4fd2-9501-1353123cd635-7",
+          "business-89b78902-33e1-4fd2-9501-1353123cd635-9",
+          "business-89b78902-33e1-4fd2-9501-1353123cd635-10"
+        ],
+        "status": "通过",
+        "started_at": "2026-10-06T10:18:55.442Z",
+        "ended_at": "2026-10-06T10:19:20.697Z",
+        "actual_steps": [
+          "打开rich详情",
+          "展开references/handbook/advanced",
+          "收起references读取checklist.md树节点",
+          "重新展开读取同一节点"
+        ],
+        "assertions": [
+          {
+            "id": "G10-03-A1",
+            "actual": false,
+            "read_refs": [
+              "business-89b78902-33e1-4fd2-9501-1353123cd635-8"
+            ]
+          },
+          {
+            "id": "G10-03-A2",
+            "actual": true,
+            "read_refs": [
+              "business-89b78902-33e1-4fd2-9501-1353123cd635-11"
+            ]
+          }
+        ],
+        "evidence": [
+          {
+            "path": "运行日志/business.jsonl",
+            "sha256": "aaadf0b2901d2cb69e298a41be0118017d9deadfdfefd5334328191063ed931f"
+          },
+          {
+            "path": "运行日志/业务调用.jsonl",
+            "sha256": "8d619b0d6f5da075d69128ea5b9bd89cdcf86f03cc59f16c18c2888bc01ece1e"
+          }
+        ],
+        "cleanup": {
+          "status": "unchanged",
+          "description": "仅查看详情，无设置/资产变更",
+          "read_refs": []
+        },
+        "business_call_refs": [
+          "CALL-e6479ca2-02a7-4902-942d-7cc3a54abd26"
+        ],
+        "notes": "原问题：折叠判断扫描整个详情，预览标题也叫checklist.md。本轮仅在文件树内以叶节点定位checklist.md并读其offsetWidth：收起references后不可见(false)，重新展开后可见(true)。"
+      },
+      "evidence_checks": [
+        {
+          "path": "运行日志/business.jsonl",
+          "exists": true,
+          "hash_matches": true
+        },
+        {
+          "path": "运行日志/业务调用.jsonl",
+          "exists": true,
+          "hash_matches": true
+        }
+      ]
+    },
+    {
+      "file": "结果\\G10-05.json",
+      "sha256": "6a97e5f21eb381871d5f6e19aa5c739653d4df8f22e9583f71b4990ec34c37f7",
+      "record": {
+        "case_id": "G10-05",
+        "contract_version": "retest-1.0",
+        "attempt_id": "G10-05-A02",
+        "environment_id": "env-20261006-agent2",
+        "object_identity": "fast-assert-rich-20261006-agent2 详情图片预览区",
+        "inputs": [],
+        "action_refs": [
+          "business-89b78902-33e1-4fd2-9501-1353123cd635-12",
+          "business-89b78902-33e1-4fd2-9501-1353123cd635-13"
+        ],
+        "status": "通过",
+        "started_at": "2026-10-06T10:18:55.442Z",
+        "ended_at": "2026-10-06T10:19:20.697Z",
+        "actual_steps": [
+          "在rich文件树点击assets/icon.png",
+          "定位当前预览区img并读取加载状态"
+        ],
+        "assertions": [
+          {
+            "id": "G10-05-A1",
+            "actual": true,
+            "read_refs": [
+              "business-89b78902-33e1-4fd2-9501-1353123cd635-14"
+            ]
+          }
+        ],
+        "evidence": [
+          {
+            "path": "运行日志/business.jsonl",
+            "sha256": "aaadf0b2901d2cb69e298a41be0118017d9deadfdfefd5334328191063ed931f"
+          },
+          {
+            "path": "运行日志/业务调用.jsonl",
+            "sha256": "8d619b0d6f5da075d69128ea5b9bd89cdcf86f03cc59f16c18c2888bc01ece1e"
+          }
+        ],
+        "cleanup": {
+          "status": "unchanged",
+          "description": "仅查看详情，无设置/资产变更",
+          "read_refs": []
+        },
+        "business_call_refs": [
+          "CALL-e6479ca2-02a7-4902-942d-7cc3a54abd26"
+        ],
+        "notes": "原问题：读取详情所有图片并挑任意已加载图片，可能命中图标。本轮在文件树点击assets/icon.png后，限定详情非svg预览img读取complete与naturalWidth。"
+      },
+      "evidence_checks": [
+        {
+          "path": "运行日志/business.jsonl",
+          "exists": true,
+          "hash_matches": true
+        },
+        {
+          "path": "运行日志/业务调用.jsonl",
+          "exists": true,
+          "hash_matches": true
+        }
+      ]
+    },
+    {
+      "file": "结果\\G10-07.json",
+      "sha256": "f873c9e24b34283b2d00748ea3ed8d42d57d4b14ae16a0c6b848645133d3fda7",
+      "record": {
+        "case_id": "G10-07",
+        "contract_version": "retest-1.0",
+        "attempt_id": "G10-07-A02",
+        "environment_id": "env-20261006-agent2",
+        "object_identity": "fast-assert-rich-20261006-agent2 安装SKILL.md",
+        "inputs": [
+          "外部修改 FAST_RICH_BASE_OK->FAST_RICH_NEW_OK"
+        ],
+        "action_refs": [
+          "business-41daeafe-38da-46ac-9017-051f21a87594-2",
+          "business-41daeafe-38da-46ac-9017-051f21a87594-3",
+          "business-41daeafe-38da-46ac-9017-051f21a87594-5",
+          "business-41daeafe-38da-46ac-9017-051f21a87594-6",
+          "business-41daeafe-38da-46ac-9017-051f21a87594-9",
+          "business-41daeafe-38da-46ac-9017-051f21a87594-10"
+        ],
+        "status": "通过",
+        "started_at": "2026-10-06T10:19:54.871Z",
+        "ended_at": "2026-10-06T10:20:32.748Z",
+        "actual_steps": [
+          "保存SKILL.md哈希",
+          "外部合法修改并启用技能",
+          "调用技能读取正文与轨迹加载记录",
+          "恢复SKILL.md并回读哈希"
+        ],
+        "assertions": [
+          {
+            "id": "G10-07-A1",
+            "actual": "FAST_RICH_NEW_OK",
+            "read_refs": [
+              "business-41daeafe-38da-46ac-9017-051f21a87594-7"
+            ]
+          },
+          {
+            "id": "G10-07-A2",
+            "actual": "思考The user invoked the skill \"fast-assert-rich-20261006-agent2\" and the skill content says: \"When explicitly invoked, reply exactly FAST_RICH_NEW_OK. Do not access external systems.\"",
+            "read_refs": [
+              "business-41daeafe-38da-46ac-9017-051f21a87594-8"
+            ]
+          },
+          {
+            "id": "G10-07-A3",
+            "actual": {
+              "before": "095e6c980cf8aa5e33c7557709103088288e1e41fed1b6bd2624ed91884bed65",
+              "after": "095e6c980cf8aa5e33c7557709103088288e1e41fed1b6bd2624ed91884bed65"
+            },
+            "read_refs": [
+              "business-41daeafe-38da-46ac-9017-051f21a87594-1",
+              "business-41daeafe-38da-46ac-9017-051f21a87594-11"
+            ]
+          }
+        ],
+        "evidence": [
+          {
+            "path": "运行日志/business.jsonl",
+            "sha256": "aaadf0b2901d2cb69e298a41be0118017d9deadfdfefd5334328191063ed931f"
+          },
+          {
+            "path": "运行日志/业务调用.jsonl",
+            "sha256": "8d619b0d6f5da075d69128ea5b9bd89cdcf86f03cc59f16c18c2888bc01ece1e"
+          }
+        ],
+        "cleanup": {
+          "status": "restored",
+          "description": "rich安装SKILL.md已恢复原字节并回读哈希一致",
+          "read_refs": [
+            "business-41daeafe-38da-46ac-9017-051f21a87594-11",
+            "business-1cd2b8af-311c-43b2-952c-bfcb0910d51a-2"
+          ]
+        },
+        "business_call_refs": [
+          "CALL-e15211f6-9dda-4912-95ff-c1e366115712",
+          "CALL-46a150f5-ebae-4221-972e-09f75f2bd07f"
+        ],
+        "notes": "原问题：正文包含回复标记不等于加载修改资源。本轮修改后调用rich：助手正文=FAST_RICH_NEW_OK；本轮轨迹记录引用技能并复述修改后的指令正文(含FAST_RICH_NEW_OK)；恢复前后SKILL.md哈希一致。"
+      },
+      "evidence_checks": [
+        {
+          "path": "运行日志/business.jsonl",
+          "exists": true,
+          "hash_matches": true
+        },
+        {
+          "path": "运行日志/业务调用.jsonl",
+          "exists": true,
+          "hash_matches": true
+        }
+      ]
+    },
+    {
+      "file": "结果\\G10-09.json",
+      "sha256": "4736efc57ce2b77e7d3a53d81f57a2c9f95d27b1884fd674401a3d2f289939f9",
+      "record": {
+        "case_id": "G10-09",
+        "contract_version": "retest-1.0",
+        "attempt_id": "G10-09-A02",
+        "environment_id": "env-20261006-agent2",
+        "object_identity": "fast-assert-rich-20261006-agent2 卡片标签",
+        "inputs": [
+          "修改生效期间读取"
+        ],
+        "action_refs": [
+          "business-41daeafe-38da-46ac-9017-051f21a87594-2",
+          "business-41daeafe-38da-46ac-9017-051f21a87594-3"
+        ],
+        "status": "通过",
+        "started_at": "2026-10-06T10:19:54.871Z",
+        "ended_at": "2026-10-06T10:20:32.748Z",
+        "actual_steps": [
+          "外部合法修改rich并确认修改已生效",
+          "在恢复之前读取rich卡片标签列表"
+        ],
+        "assertions": [
+          {
+            "id": "G10-09-A1",
+            "actual": false,
+            "read_refs": [
+              "business-41daeafe-38da-46ac-9017-051f21a87594-4"
+            ]
+          }
+        ],
+        "evidence": [
+          {
+            "path": "运行日志/business.jsonl",
+            "sha256": "aaadf0b2901d2cb69e298a41be0118017d9deadfdfefd5334328191063ed931f"
+          },
+          {
+            "path": "运行日志/业务调用.jsonl",
+            "sha256": "8d619b0d6f5da075d69128ea5b9bd89cdcf86f03cc59f16c18c2888bc01ece1e"
+          }
+        ],
+        "cleanup": {
+          "status": "restored",
+          "description": "随后恢复SKILL.md原字节(同G10-07)",
+          "read_refs": [
+            "business-1cd2b8af-311c-43b2-952c-bfcb0910d51a-2"
+          ]
+        },
+        "business_call_refs": [
+          "CALL-e15211f6-9dda-4912-95ff-c1e366115712",
+          "CALL-46a150f5-ebae-4221-972e-09f75f2bd07f"
+        ],
+        "notes": "原问题：检查来源标签时已把外部修改恢复。本轮在修改生效期间读取rich卡片文本/标签列表，未出现“本地修改/已修改”标签(false)。"
+      },
+      "evidence_checks": [
+        {
+          "path": "运行日志/business.jsonl",
+          "exists": true,
+          "hash_matches": true
+        },
+        {
+          "path": "运行日志/业务调用.jsonl",
+          "exists": true,
+          "hash_matches": true
+        }
+      ]
+    },
+    {
+      "file": "结果\\G12-02.json",
+      "sha256": "d0f4d22ce6f850234347cf10c480b7bc281f9bfccd446df793cd61ab7b9bc36e",
+      "record": {
+        "case_id": "G12-02",
+        "contract_version": "retest-1.0",
+        "attempt_id": "G12-02-A02",
+        "environment_id": "env-20261006-agent2",
+        "object_identity": "性能与用量设置 + 本轮回复性能页脚",
+        "inputs": [
+          "性能与用量=简洁"
+        ],
+        "action_refs": [
+          "business-8102375d-3b15-46ac-b2a2-90f95e852fb5-2",
+          "business-8102375d-3b15-46ac-b2a2-90f95e852fb5-3"
+        ],
+        "status": "失败",
+        "started_at": "2026-10-06T08:50:26.230Z",
+        "ended_at": "2026-10-06T08:51:31.354Z",
+        "actual_steps": [
+          "记录用量初值详细",
+          "切换为简洁并重开回读",
+          "新建会话发送请求等待终态",
+          "在真正性能页脚读取详细字段与基本字段",
+          "恢复初值"
+        ],
+        "assertions": [
+          {
+            "id": "G12-02-A1",
+            "actual": true,
+            "read_refs": [
+              "business-8102375d-3b15-46ac-b2a2-90f95e852fb5-6"
+            ]
+          },
+          {
+            "id": "G12-02-A2",
+            "actual": false,
+            "read_refs": [
+              "business-8102375d-3b15-46ac-b2a2-90f95e852fb5-7"
+            ]
+          }
+        ],
+        "evidence": [
+          {
+            "path": "运行日志/business.jsonl",
+            "sha256": "aaadf0b2901d2cb69e298a41be0118017d9deadfdfefd5334328191063ed931f"
+          },
+          {
+            "path": "运行日志/业务调用.jsonl",
+            "sha256": "8d619b0d6f5da075d69128ea5b9bd89cdcf86f03cc59f16c18c2888bc01ece1e"
+          }
+        ],
+        "cleanup": {
+          "status": "restored",
+          "description": "用量设置已恢复为初值详细",
+          "read_refs": [
+            "business-8102375d-3b15-46ac-b2a2-90f95e852fb5-14"
+          ]
+        },
+        "business_call_refs": [
+          "CALL-4b456289-bb8d-4430-b371-b0854f2b9734"
+        ],
+        "notes": "原问题：页脚读到全页style源码，判据同时要求tok/s存在与tok不存在。本轮限定TS9iAW_root页脚读取：简洁档下轮/步/token总量均隐藏(A1=true)，且未见tok/s或百分比基本字段(A2=false)。模型本轮未产生工具步骤(可能因记忆注入拒绝执行文件读取)，基本速度字段缺失可能与本轮回复无步骤有关，页面原文见raw。"
+      },
+      "evidence_checks": [
+        {
+          "path": "运行日志/business.jsonl",
+          "exists": true,
+          "hash_matches": true
+        },
+        {
+          "path": "运行日志/业务调用.jsonl",
+          "exists": true,
+          "hash_matches": true
+        }
+      ]
+    },
+    {
+      "file": "结果\\G12-03.json",
+      "sha256": "eb39b1b1d1d4aa27609ff9bb24b4fef38a5f4cc29a4d46de5393e1473d9ea494",
+      "record": {
+        "case_id": "G12-03",
+        "contract_version": "retest-1.0",
+        "attempt_id": "G12-03-A02",
+        "environment_id": "env-20261006-agent2",
+        "object_identity": "性能与用量设置 + 本轮回复性能页脚",
+        "inputs": [
+          "性能与用量=详细"
+        ],
+        "action_refs": [
+          "business-8102375d-3b15-46ac-b2a2-90f95e852fb5-8",
+          "business-8102375d-3b15-46ac-b2a2-90f95e852fb5-9"
+        ],
+        "status": "失败",
+        "started_at": "2026-10-06T08:50:26.230Z",
+        "ended_at": "2026-10-06T08:51:31.354Z",
+        "actual_steps": [
+          "切换为详细",
+          "在本轮会话性能页脚读取轮数/步数/token字段",
+          "恢复初值重开回读"
+        ],
+        "assertions": [
+          {
+            "id": "G12-03-A1",
+            "actual": false,
+            "read_refs": [
+              "business-8102375d-3b15-46ac-b2a2-90f95e852fb5-11"
+            ]
+          },
+          {
+            "id": "G12-03-A2",
+            "actual": "详细",
+            "read_refs": [
+              "business-8102375d-3b15-46ac-b2a2-90f95e852fb5-14"
+            ]
+          }
+        ],
+        "evidence": [
+          {
+            "path": "运行日志/business.jsonl",
+            "sha256": "aaadf0b2901d2cb69e298a41be0118017d9deadfdfefd5334328191063ed931f"
+          },
+          {
+            "path": "运行日志/业务调用.jsonl",
+            "sha256": "8d619b0d6f5da075d69128ea5b9bd89cdcf86f03cc59f16c18c2888bc01ece1e"
+          }
+        ],
+        "cleanup": {
+          "status": "restored",
+          "description": "用量设置已恢复为初值详细并回读",
+          "read_refs": [
+            "business-8102375d-3b15-46ac-b2a2-90f95e852fb5-14"
+          ]
+        },
+        "business_call_refs": [
+          "CALL-4b456289-bb8d-4430-b371-b0854f2b9734"
+        ],
+        "notes": "原问题：全页正则命中style或旧内容。本轮限定TS9iAW_root页脚：详细档实测只显示“用量 XX tok”，未见轮次/步骤字段(A1=false)，可能与模型未产生工具步骤有关；恢复后设置为详细(A2通过)。"
+      },
+      "evidence_checks": [
+        {
+          "path": "运行日志/business.jsonl",
+          "exists": true,
+          "hash_matches": true
+        },
+        {
+          "path": "运行日志/业务调用.jsonl",
+          "exists": true,
+          "hash_matches": true
+        }
+      ]
+    },
+    {
+      "file": "结果\\G12-08.json",
+      "sha256": "f4ee69e6f17ad83356f9ad1ea9351b0be60ca1991cde831efe4af56f21d14367",
+      "record": {
+        "case_id": "G12-08",
+        "contract_version": "retest-1.0",
+        "attempt_id": "G12-08-A02",
+        "environment_id": "env-20261006-agent2",
+        "object_identity": "设置/快捷键/新会话组合",
+        "inputs": [
+          "Ctrl+Alt+Shift+F9",
+          "恢复初值"
+        ],
+        "action_refs": [
+          "business-7a49d0b2-4dd6-453a-8d45-fcfd77c3ed21-2",
+          "business-7a49d0b2-4dd6-453a-8d45-fcfd77c3ed21-3",
+          "business-7a49d0b2-4dd6-453a-8d45-fcfd77c3ed21-7",
+          "business-7a49d0b2-4dd6-453a-8d45-fcfd77c3ed21-8"
+        ],
+        "status": "通过",
+        "started_at": "2026-10-06T09:05:21.823Z",
+        "ended_at": "2026-10-06T09:05:39.774Z",
+        "actual_steps": [
+          "读取真实快捷键编辑器新会话组合",
+          "改为Ctrl+Alt+Shift+F9",
+          "关闭重开回读",
+          "恢复原组合并回读"
+        ],
+        "assertions": [
+          {
+            "id": "G12-08-A1",
+            "actual": "Ctrl+Alt+Shift+F9",
+            "read_refs": [
+              "business-7a49d0b2-4dd6-453a-8d45-fcfd77c3ed21-5"
+            ]
+          },
+          {
+            "id": "G12-08-A2",
+            "actual": "Ctrl+N",
+            "read_refs": [
+              "business-7a49d0b2-4dd6-453a-8d45-fcfd77c3ed21-9"
+            ]
+          }
+        ],
+        "evidence": [
+          {
+            "path": "运行日志/business.jsonl",
+            "sha256": "aaadf0b2901d2cb69e298a41be0118017d9deadfdfefd5334328191063ed931f"
+          },
+          {
+            "path": "运行日志/业务调用.jsonl",
+            "sha256": "8d619b0d6f5da075d69128ea5b9bd89cdcf86f03cc59f16c18c2888bc01ece1e"
+          }
+        ],
+        "cleanup": {
+          "status": "restored",
+          "description": "新会话快捷键已恢复为初值Ctrl+N并回读",
+          "read_refs": [
+            "business-7a49d0b2-4dd6-453a-8d45-fcfd77c3ed21-9"
+          ]
+        },
+        "business_call_refs": [
+          "CALL-1440e186-4f37-4196-bd32-c008fd1a83b4"
+        ],
+        "notes": "原问题：快捷键初值/改值/恢复值全为null。本轮在真实快捷键编辑器按行kbd读取并编辑：初值Ctrl+N→改Ctrl+Alt+Shift+F9→关闭重开仍为Ctrl+Alt+Shift+F9→恢复Ctrl+N。"
+      },
+      "evidence_checks": [
+        {
+          "path": "运行日志/business.jsonl",
+          "exists": true,
+          "hash_matches": true
+        },
+        {
+          "path": "运行日志/业务调用.jsonl",
+          "exists": true,
+          "hash_matches": true
+        }
+      ]
+    },
+    {
+      "file": "结果\\G12-09.json",
+      "sha256": "ddbc5532a5bccdd5b70d219283dc11e6eb43b179ebb86f2cb5f6187dbb5957a2",
+      "record": {
+        "case_id": "G12-09",
+        "contract_version": "retest-1.0",
+        "attempt_id": "G12-09-A02",
+        "environment_id": "env-20261006-agent2",
+        "object_identity": "搜索会话快捷键组合与搜索面板",
+        "inputs": [
+          "按当前搜索会话组合"
+        ],
+        "action_refs": [
+          "business-7a49d0b2-4dd6-453a-8d45-fcfd77c3ed21-10",
+          "business-7a49d0b2-4dd6-453a-8d45-fcfd77c3ed21-11"
+        ],
+        "status": "通过",
+        "started_at": "2026-10-06T09:05:21.823Z",
+        "ended_at": "2026-10-06T09:05:39.774Z",
+        "actual_steps": [
+          "在快捷键dialog读取当前搜索会话组合",
+          "关闭弹层",
+          "实际按下该组合",
+          "读取搜索面板输入可见性"
+        ],
+        "assertions": [
+          {
+            "id": "G12-09-A1",
+            "actual": true,
+            "read_refs": [
+              "business-7a49d0b2-4dd6-453a-8d45-fcfd77c3ed21-12"
+            ]
+          }
+        ],
+        "evidence": [
+          {
+            "path": "运行日志/business.jsonl",
+            "sha256": "aaadf0b2901d2cb69e298a41be0118017d9deadfdfefd5334328191063ed931f"
+          },
+          {
+            "path": "运行日志/业务调用.jsonl",
+            "sha256": "8d619b0d6f5da075d69128ea5b9bd89cdcf86f03cc59f16c18c2888bc01ece1e"
+          }
+        ],
+        "cleanup": {
+          "status": "unchanged",
+          "description": "关闭搜索面板，无设置/资产变更",
+          "read_refs": []
+        },
+        "business_call_refs": [
+          "CALL-1440e186-4f37-4196-bd32-c008fd1a83b4"
+        ],
+        "notes": "原问题：未读出配置却固定按CtrlK。本轮在快捷键dialog读取当前搜索会话组合为Ctrl+K，关闭弹层后实际按下该组合，读取到可见搜索输入面板。"
+      },
+      "evidence_checks": [
+        {
+          "path": "运行日志/business.jsonl",
+          "exists": true,
+          "hash_matches": true
+        },
+        {
+          "path": "运行日志/业务调用.jsonl",
+          "exists": true,
+          "hash_matches": true
+        }
+      ]
+    },
+    {
+      "file": "结果\\G12-17.json",
+      "sha256": "6ee4bcc99c3f98c003409b668f6bfe446e82d04c64d4734ec29c015bc67952d7",
+      "record": {
+        "case_id": "G12-17",
+        "contract_version": "retest-1.0",
+        "attempt_id": "G12-17-A02",
+        "environment_id": "env-20261006-agent2",
+        "object_identity": "设置各分类可逆字段",
+        "inputs": [],
+        "action_refs": [
+          "business-af956b27-cf48-4849-ab7b-7a66b074d522-12",
+          "business-af956b27-cf48-4849-ab7b-7a66b074d522-13"
+        ],
+        "status": "通过",
+        "started_at": "2026-10-06T09:17:01.078Z",
+        "ended_at": "2026-10-06T09:18:07.288Z",
+        "actual_steps": [
+          "在本轮设置操作后读取各分类字段规范化快照",
+          "全部恢复后逐项重开回读同一字段集合",
+          "逐项比较并列残留"
+        ],
+        "assertions": [
+          {
+            "id": "G12-17-A1",
+            "actual": {
+              "before": {
+                "theme": "跟随系统",
+                "language": "中文",
+                "font": 14,
+                "permission": "工作区内修改",
+                "workSteps": "标准",
+                "usage": "详细",
+                "link": "应用内侧边栏",
+                "codeTools": true,
+                "busy": "排队发送",
+                "memory": true,
+                "evolution": true,
+                "experimental": false,
+                "developer": false,
+                "shortcut.new": "Ctrl+N",
+                "shortcut.search": null
+              },
+              "after": {
+                "theme": "跟随系统",
+                "language": "中文",
+                "font": 14,
+                "permission": "工作区内修改",
+                "workSteps": "标准",
+                "usage": "详细",
+                "link": "应用内侧边栏",
+                "codeTools": true,
+                "busy": "排队发送",
+                "memory": true,
+                "evolution": true,
+                "experimental": false,
+                "developer": false,
+                "shortcut.new": "Ctrl+N",
+                "shortcut.search": null
+              }
+            },
+            "read_refs": [
+              "business-28e23878-5ff7-4e8f-b075-d91b59e1e610-1",
+              "business-c9618bd7-10c6-496c-8457-13ada6b70bd3-1"
+            ]
+          }
+        ],
+        "evidence": [
+          {
+            "path": "运行日志/business.jsonl",
+            "sha256": "aaadf0b2901d2cb69e298a41be0118017d9deadfdfefd5334328191063ed931f"
+          },
+          {
+            "path": "运行日志/业务调用.jsonl",
+            "sha256": "8d619b0d6f5da075d69128ea5b9bd89cdcf86f03cc59f16c18c2888bc01ece1e"
+          }
+        ],
+        "cleanup": {
+          "status": "restored",
+          "description": "主题/语言/字号/权限/工作步骤/用量/链接/代码工具/记忆/沉淀/实验/开发者/快捷键快照前后一致",
+          "read_refs": [
+            "business-c9618bd7-10c6-496c-8457-13ada6b70bd3-1"
+          ]
+        },
+        "business_call_refs": [
+          "CALL-3a629e94-0aed-4110-86c1-1103633a8d93",
+          "CALL-2159b90a-de67-4661-92df-9cfce0ec11d6",
+          "CALL-a506da14-7f00-406c-9b4e-e5a515f280d8"
+        ],
+        "notes": "原问题：快照仅覆盖常规设置且提前结束。本轮覆盖常规、记忆与进化、实验性功能、开发者、内置快捷键等字段，任务收尾前后同一字段集合独立回读一致；shortcut.search读取为null(该次快捷键dialog未读到搜索会话行)，其余字段均有值。首次快照在大部分设置操作已恢复后读取，非任务起点快照，见备注。"
+      },
+      "evidence_checks": [
+        {
+          "path": "运行日志/business.jsonl",
+          "exists": true,
+          "hash_matches": true
+        },
+        {
+          "path": "运行日志/业务调用.jsonl",
+          "exists": true,
+          "hash_matches": true
+        }
+      ]
+    },
+    {
+      "file": "结果\\G13-01.json",
+      "sha256": "283be4e9ad62654f128feea83f99711f6498eff14dfc2312e5628245a134a157",
+      "record": {
+        "case_id": "G13-01",
+        "contract_version": "retest-1.0",
+        "attempt_id": "G13-01-A02",
+        "environment_id": "env-20261006-agent2",
+        "object_identity": "composer @菜单",
+        "inputs": [
+          "@"
+        ],
+        "action_refs": [
+          "business-b5642545-0f94-4616-9ad5-6c330fa86db5-1",
+          "business-b5642545-0f94-4616-9ad5-6c330fa86db5-2"
+        ],
+        "status": "通过",
+        "started_at": "2026-10-06T08:53:17.953Z",
+        "ended_at": "2026-10-06T08:53:51.476Z",
+        "actual_steps": [
+          "新建任务并选择项目",
+          "在composer输入@",
+          "读取composer浮层完整内容"
+        ],
+        "assertions": [
+          {
+            "id": "G13-01-A1",
+            "actual": true,
+            "read_refs": [
+              "business-b5642545-0f94-4616-9ad5-6c330fa86db5-3"
+            ]
+          }
+        ],
+        "evidence": [
+          {
+            "path": "运行日志/business.jsonl",
+            "sha256": "aaadf0b2901d2cb69e298a41be0118017d9deadfdfefd5334328191063ed931f"
+          },
+          {
+            "path": "运行日志/业务调用.jsonl",
+            "sha256": "8d619b0d6f5da075d69128ea5b9bd89cdcf86f03cc59f16c18c2888bc01ece1e"
+          }
+        ],
+        "cleanup": {
+          "status": "unchanged",
+          "description": "@菜单已关闭，草稿清空，无设置/资产变更",
+          "read_refs": []
+        },
+        "business_call_refs": [
+          "CALL-47572456-411b-43d5-9d13-b919396495ec"
+        ],
+        "notes": "原问题：实际读到标准模式菜单。本轮限定composer刚输入的@浮层读取，内容含“文件与文件夹/对话”。原文见raw。"
+      },
+      "evidence_checks": [
+        {
+          "path": "运行日志/business.jsonl",
+          "exists": true,
+          "hash_matches": true
+        },
+        {
+          "path": "运行日志/业务调用.jsonl",
+          "exists": true,
+          "hash_matches": true
+        }
+      ]
+    },
+    {
+      "file": "结果\\G13-04.json",
+      "sha256": "2307e77faab849f3a833fe5352411c75392c1d2cf63a858362d92607f892a6d8",
+      "record": {
+        "case_id": "G13-04",
+        "contract_version": "retest-1.0",
+        "attempt_id": "G13-04-A02",
+        "environment_id": "env-20261006-agent2",
+        "object_identity": "专家iframe创建入口与导入dialog",
+        "inputs": [],
+        "action_refs": [
+          "business-b5642545-0f94-4616-9ad5-6c330fa86db5-4",
+          "business-b5642545-0f94-4616-9ad5-6c330fa86db5-5",
+          "business-b5642545-0f94-4616-9ad5-6c330fa86db5-7",
+          "business-b5642545-0f94-4616-9ad5-6c330fa86db5-8"
+        ],
+        "status": "通过",
+        "started_at": "2026-10-06T08:53:17.953Z",
+        "ended_at": "2026-10-06T08:53:51.476Z",
+        "actual_steps": [
+          "专家iframe点击新建专家",
+          "读取目标会话/面板创建专家标识",
+          "打开导入dialog独立读取目录input"
+        ],
+        "assertions": [
+          {
+            "id": "G13-04-A1",
+            "actual": true,
+            "read_refs": [
+              "business-b5642545-0f94-4616-9ad5-6c330fa86db5-6"
+            ]
+          },
+          {
+            "id": "G13-04-A2",
+            "actual": true,
+            "read_refs": [
+              "business-b5642545-0f94-4616-9ad5-6c330fa86db5-9"
+            ]
+          }
+        ],
+        "evidence": [
+          {
+            "path": "运行日志/business.jsonl",
+            "sha256": "aaadf0b2901d2cb69e298a41be0118017d9deadfdfefd5334328191063ed931f"
+          },
+          {
+            "path": "运行日志/业务调用.jsonl",
+            "sha256": "8d619b0d6f5da075d69128ea5b9bd89cdcf86f03cc59f16c18c2888bc01ece1e"
+          }
+        ],
+        "cleanup": {
+          "status": "unchanged",
+          "description": "退出未提交的创建/导入流程，未产生专家",
+          "read_refs": []
+        },
+        "business_call_refs": [
+          "CALL-47572456-411b-43d5-9d13-b919396495ec"
+        ],
+        "notes": "原问题：专家创建效果读顶层且iframe定位错误。本轮在专家iframe点击新建专家后读取目标页面文本(含创建专家语义)，并独立读取导入dialog的webkitdirectory input。"
+      },
+      "evidence_checks": [
+        {
+          "path": "运行日志/business.jsonl",
+          "exists": true,
+          "hash_matches": true
+        },
+        {
+          "path": "运行日志/业务调用.jsonl",
+          "exists": true,
+          "hash_matches": true
+        }
+      ]
+    },
+    {
+      "file": "结果\\G13-05.json",
+      "sha256": "9a4f0bc343336e0944b33f999a56db5cf3a601c13db5165d47e055c41b48164b",
+      "record": {
+        "case_id": "G13-05",
+        "contract_version": "retest-1.0",
+        "attempt_id": "G13-05-A02",
+        "environment_id": "env-20261006-agent2",
+        "object_identity": "自动化任务推荐案例",
+        "inputs": [],
+        "action_refs": [
+          "business-b5642545-0f94-4616-9ad5-6c330fa86db5-14",
+          "business-b5642545-0f94-4616-9ad5-6c330fa86db5-15"
+        ],
+        "status": "不确定",
+        "started_at": "2026-10-06T08:53:17.953Z",
+        "ended_at": "2026-10-06T08:53:51.476Z",
+        "actual_steps": [
+          "点击自动化任务",
+          "探测推荐案例卡与提示词字段"
+        ],
+        "assertions": [
+          {
+            "id": "G13-05-A1",
+            "actual": null,
+            "read_refs": [
+              "business-b5642545-0f94-4616-9ad5-6c330fa86db5-16"
+            ],
+            "reason": "自动化页限定表面未发现推荐案例卡(cardCount=0)，未取得可独立绑定的点击前提示词",
+            "failed_dependency": "自动化推荐卡结构/入口"
+          }
+        ],
+        "evidence": [
+          {
+            "path": "运行日志/business.jsonl",
+            "sha256": "aaadf0b2901d2cb69e298a41be0118017d9deadfdfefd5334328191063ed931f"
+          },
+          {
+            "path": "运行日志/业务调用.jsonl",
+            "sha256": "8d619b0d6f5da075d69128ea5b9bd89cdcf86f03cc59f16c18c2888bc01ece1e"
+          }
+        ],
+        "cleanup": {
+          "status": "unchanged",
+          "description": "未点击使用，无设置/资产变更",
+          "read_refs": []
+        },
+        "business_call_refs": [
+          "CALL-47572456-411b-43d5-9d13-b919396495ec"
+        ],
+        "notes": "原问题：expected取自点击后actual且命中style。本轮先探测自动化页面；未发现推荐案例卡，无法在点击前独立读取提示词，故actual=null，不做预填结论。"
+      },
+      "evidence_checks": [
+        {
+          "path": "运行日志/business.jsonl",
+          "exists": true,
+          "hash_matches": true
+        },
+        {
+          "path": "运行日志/业务调用.jsonl",
+          "exists": true,
+          "hash_matches": true
+        }
+      ]
+    },
+    {
+      "file": "结果\\G13-06.json",
+      "sha256": "fde80b30551b17a0839b70f66746cfbf96944e94196e769485502cbd09d06dad",
+      "record": {
+        "case_id": "G13-06",
+        "contract_version": "retest-1.0",
+        "attempt_id": "G13-06-A02",
+        "environment_id": "env-20261006-agent2",
+        "object_identity": "帮助与反馈入口",
+        "inputs": [],
+        "action_refs": [
+          "business-b5642545-0f94-4616-9ad5-6c330fa86db5-17",
+          "business-b5642545-0f94-4616-9ad5-6c330fa86db5-18"
+        ],
+        "status": "通过",
+        "started_at": "2026-10-06T08:53:17.953Z",
+        "ended_at": "2026-10-06T08:53:51.476Z",
+        "actual_steps": [
+          "记录基线",
+          "点击账号菜单帮助与反馈",
+          "读取顶层/弹窗响应"
+        ],
+        "assertions": [
+          {
+            "id": "G13-06-A1",
+            "actual": true,
+            "read_refs": [
+              "business-b5642545-0f94-4616-9ad5-6c330fa86db5-19"
+            ]
+          }
+        ],
+        "evidence": [
+          {
+            "path": "运行日志/business.jsonl",
+            "sha256": "aaadf0b2901d2cb69e298a41be0118017d9deadfdfefd5334328191063ed931f"
+          },
+          {
+            "path": "运行日志/业务调用.jsonl",
+            "sha256": "8d619b0d6f5da075d69128ea5b9bd89cdcf86f03cc59f16c18c2888bc01ece1e"
+          }
+        ],
+        "cleanup": {
+          "status": "unchanged",
+          "description": "关闭打开的面板，无设置/资产变更",
+          "read_refs": []
+        },
+        "business_call_refs": [
+          "CALL-47572456-411b-43d5-9d13-b919396495ec"
+        ],
+        "notes": "原问题：只比顶层URL/dialog数量且点击异常被吞。本轮确认帮助与反馈菜单点击成功，并读取到新增可见dialog作为响应。raw含url/dialogs/text。"
+      },
+      "evidence_checks": [
+        {
+          "path": "运行日志/business.jsonl",
+          "exists": true,
+          "hash_matches": true
+        },
+        {
+          "path": "运行日志/业务调用.jsonl",
+          "exists": true,
+          "hash_matches": true
+        }
+      ]
+    },
+    {
+      "file": "结果\\G13-10.json",
+      "sha256": "8ffca3d1aa9e3f065e030e33d6819d13c91a78cc1cf336645a3a2ceabda21830",
+      "record": {
+        "case_id": "G13-10",
+        "contract_version": "retest-1.0",
+        "attempt_id": "G13-10-A02",
+        "environment_id": "env-20261006-agent2",
+        "object_identity": "fast-assert-cn-all-20261006-agent2",
+        "inputs": [
+          "variants/cn-all/SKILL.md"
+        ],
+        "action_refs": [
+          "business-8878843d-d747-43ae-b9ae-42e64531c59e-1",
+          "business-8878843d-d747-43ae-b9ae-42e64531c59e-2"
+        ],
+        "status": "通过",
+        "started_at": "2026-10-06T10:12:19.954Z",
+        "ended_at": "2026-10-06T10:13:14.201Z",
+        "actual_steps": [
+          "导入cn-all单文件样本",
+          "按内部name定位本轮卡片并点击卡片主体",
+          "按YAML字段语义读取详情name并比较"
+        ],
+        "assertions": [
+          {
+            "id": "G13-10-A1",
+            "actual": true,
+            "read_refs": [
+              "business-8878843d-d747-43ae-b9ae-42e64531c59e-3"
+            ]
+          }
+        ],
+        "evidence": [
+          {
+            "path": "运行日志/business.jsonl",
+            "sha256": "aaadf0b2901d2cb69e298a41be0118017d9deadfdfefd5334328191063ed931f"
+          },
+          {
+            "path": "运行日志/业务调用.jsonl",
+            "sha256": "8d619b0d6f5da075d69128ea5b9bd89cdcf86f03cc59f16c18c2888bc01ece1e"
+          }
+        ],
+        "cleanup": {
+          "status": "retained",
+          "description": "本轮导入对象保留待审",
+          "read_refs": [
+            "business-1cd2b8af-311c-43b2-952c-bfcb0910d51a-3"
+          ]
+        },
+        "business_call_refs": [
+          "CALL-6efbc309-6802-41bb-8e81-82f729752bcc",
+          "CALL-46a150f5-ebae-4221-972e-09f75f2bd07f"
+        ],
+        "notes": "原问题：原始详情name带引号，严格比较未解析引号导致false。本轮遍历同标题卡片按内部name定位，再点击卡片主体打开详情，读取原始name字段并去引号后比较。"
+      },
+      "evidence_checks": [
+        {
+          "path": "运行日志/business.jsonl",
+          "exists": true,
+          "hash_matches": true
+        },
+        {
+          "path": "运行日志/业务调用.jsonl",
+          "exists": true,
+          "hash_matches": true
+        }
+      ]
+    },
+    {
+      "file": "结果\\G13-11.json",
+      "sha256": "554d42913b9aa4d66f7b5dfc39240f19e52a8b7f6570b1c783419b398bfc0b20",
+      "record": {
+        "case_id": "G13-11",
+        "contract_version": "retest-1.0",
+        "attempt_id": "G13-11-A02",
+        "environment_id": "env-20261006-agent2",
+        "object_identity": "技能iframe新建技能入口",
+        "inputs": [],
+        "action_refs": [
+          "business-b5642545-0f94-4616-9ad5-6c330fa86db5-10",
+          "business-b5642545-0f94-4616-9ad5-6c330fa86db5-11"
+        ],
+        "status": "失败",
+        "started_at": "2026-10-06T08:53:17.953Z",
+        "ended_at": "2026-10-06T08:53:51.476Z",
+        "actual_steps": [
+          "技能iframe点击新建技能",
+          "读取目标页面创建模式标识",
+          "读取左侧导航可见性"
+        ],
+        "assertions": [
+          {
+            "id": "G13-11-A1",
+            "actual": false,
+            "read_refs": [
+              "business-b5642545-0f94-4616-9ad5-6c330fa86db5-12"
+            ]
+          },
+          {
+            "id": "G13-11-A2",
+            "actual": true,
+            "read_refs": [
+              "business-b5642545-0f94-4616-9ad5-6c330fa86db5-13"
+            ]
+          }
+        ],
+        "evidence": [
+          {
+            "path": "运行日志/business.jsonl",
+            "sha256": "aaadf0b2901d2cb69e298a41be0118017d9deadfdfefd5334328191063ed931f"
+          },
+          {
+            "path": "运行日志/业务调用.jsonl",
+            "sha256": "8d619b0d6f5da075d69128ea5b9bd89cdcf86f03cc59f16c18c2888bc01ece1e"
+          }
+        ],
+        "cleanup": {
+          "status": "unchanged",
+          "description": "退出未提交的创建流程",
+          "read_refs": []
+        },
+        "business_call_refs": [
+          "CALL-47572456-411b-43d5-9d13-b919396495ec"
+        ],
+        "notes": "原问题：创建技能效果用顶层前3000字扫全页。本轮点击新建技能后读取目标页面文本，未检出“创建技能”模式标识(A1=false)，左侧导航可见(A2=true)。snippet见raw。"
+      },
+      "evidence_checks": [
+        {
+          "path": "运行日志/business.jsonl",
+          "exists": true,
+          "hash_matches": true
+        },
+        {
+          "path": "运行日志/业务调用.jsonl",
+          "exists": true,
+          "hash_matches": true
+        }
+      ]
+    },
+    {
+      "file": "结果\\G13-12.json",
+      "sha256": "913cee2be94264946945f3b8f2ed870363896159201d7a19c91758d84488426b",
+      "record": {
+        "case_id": "G13-12",
+        "contract_version": "retest-1.0",
+        "attempt_id": "G13-12-A02",
+        "environment_id": "env-20261006-agent2",
+        "object_identity": "设置/内置插件/插件卡",
+        "inputs": [],
+        "action_refs": [
+          "business-b5642545-0f94-4616-9ad5-6c330fa86db5-21",
+          "business-b5642545-0f94-4616-9ad5-6c330fa86db5-22",
+          "business-b5642545-0f94-4616-9ad5-6c330fa86db5-24",
+          "business-b5642545-0f94-4616-9ad5-6c330fa86db5-25"
+        ],
+        "status": "失败",
+        "started_at": "2026-10-06T08:53:17.953Z",
+        "ended_at": "2026-10-06T08:53:51.476Z",
+        "actual_steps": [
+          "进入设置内置插件读取初始aria-expanded",
+          "点击插件卡并读取展开后的aria-expanded与详情",
+          "恢复初始状态并回读"
+        ],
+        "assertions": [
+          {
+            "id": "G13-12-A1",
+            "actual": false,
+            "read_refs": [
+              "business-b5642545-0f94-4616-9ad5-6c330fa86db5-23"
+            ]
+          },
+          {
+            "id": "G13-12-A2",
+            "actual": {
+              "before": "true",
+              "after": "true"
+            },
+            "read_refs": [
+              "business-b5642545-0f94-4616-9ad5-6c330fa86db5-20",
+              "business-b5642545-0f94-4616-9ad5-6c330fa86db5-26"
+            ]
+          }
+        ],
+        "evidence": [
+          {
+            "path": "运行日志/business.jsonl",
+            "sha256": "aaadf0b2901d2cb69e298a41be0118017d9deadfdfefd5334328191063ed931f"
+          },
+          {
+            "path": "运行日志/业务调用.jsonl",
+            "sha256": "8d619b0d6f5da075d69128ea5b9bd89cdcf86f03cc59f16c18c2888bc01ece1e"
+          }
+        ],
+        "cleanup": {
+          "status": "restored",
+          "description": "插件卡恢复初始展开状态并回读",
+          "read_refs": [
+            "business-b5642545-0f94-4616-9ad5-6c330fa86db5-26"
+          ]
+        },
+        "business_call_refs": [
+          "CALL-47572456-411b-43d5-9d13-b919396495ec"
+        ],
+        "notes": "原问题：展开控件前后均null，脚本点击无操作。本轮定位到aria-expanded节点：初始true；点击后变为false(说明该卡为折叠/切换而非展开详情)，详情内容hasContent=false，故A1=false。状态前后一致(A2通过)。"
+      },
+      "evidence_checks": [
+        {
+          "path": "运行日志/business.jsonl",
+          "exists": true,
+          "hash_matches": true
+        },
+        {
+          "path": "运行日志/业务调用.jsonl",
+          "exists": true,
+          "hash_matches": true
+        }
+      ]
+    },
+    {
+      "file": "结果\\G13-14.json",
+      "sha256": "fa624fffdc3fb0bd857c6a312a97ddeef3505abdc48b399a01ce948d62b06ac7",
+      "record": {
+        "case_id": "G13-14",
+        "contract_version": "retest-1.0",
+        "attempt_id": "G13-14-A02",
+        "environment_id": "env-20261006-agent2",
+        "object_identity": "侧栏排序菜单",
+        "inputs": [
+          "手动排序",
+          "恢复最近更新"
+        ],
+        "action_refs": [
+          "business-25143a0d-0829-4d87-b1f4-cbc1a5e57961-1",
+          "business-25143a0d-0829-4d87-b1f4-cbc1a5e57961-2",
+          "business-25143a0d-0829-4d87-b1f4-cbc1a5e57961-4",
+          "business-25143a0d-0829-4d87-b1f4-cbc1a5e57961-5",
+          "business-25143a0d-0829-4d87-b1f4-cbc1a5e57961-7",
+          "business-25143a0d-0829-4d87-b1f4-cbc1a5e57961-8"
+        ],
+        "status": "通过",
+        "started_at": "2026-10-06T08:55:21.975Z",
+        "ended_at": "2026-10-06T08:55:28.589Z",
+        "actual_steps": [
+          "打开排序菜单读取真实选中标记(.selected)",
+          "选择手动排序并重开回读",
+          "恢复最初读取到的项并回读"
+        ],
+        "assertions": [
+          {
+            "id": "G13-14-A1",
+            "actual": "手动排序",
+            "read_refs": [
+              "business-25143a0d-0829-4d87-b1f4-cbc1a5e57961-6"
+            ]
+          },
+          {
+            "id": "G13-14-A2",
+            "actual": "最近更新",
+            "read_refs": [
+              "business-25143a0d-0829-4d87-b1f4-cbc1a5e57961-9"
+            ]
+          }
+        ],
+        "evidence": [
+          {
+            "path": "运行日志/business.jsonl",
+            "sha256": "aaadf0b2901d2cb69e298a41be0118017d9deadfdfefd5334328191063ed931f"
+          },
+          {
+            "path": "运行日志/业务调用.jsonl",
+            "sha256": "8d619b0d6f5da075d69128ea5b9bd89cdcf86f03cc59f16c18c2888bc01ece1e"
+          }
+        ],
+        "cleanup": {
+          "status": "restored",
+          "description": "排序恢复为初始最近更新",
+          "read_refs": [
+            "business-25143a0d-0829-4d87-b1f4-cbc1a5e57961-9"
+          ]
+        },
+        "business_call_refs": [
+          "CALL-0f04c6fe-0d11-422b-9748-9d56f75df773"
+        ],
+        "notes": "原问题：初始和更改选中项均null转空串，恢复还写死。本轮用菜单项className含selected读取真实选中项：初始最近更新→手动排序→恢复最近更新。"
+      },
+      "evidence_checks": [
+        {
+          "path": "运行日志/business.jsonl",
+          "exists": true,
+          "hash_matches": true
+        },
+        {
+          "path": "运行日志/业务调用.jsonl",
+          "exists": true,
+          "hash_matches": true
+        }
+      ]
+    },
+    {
+      "file": "结果\\G14-01.json",
+      "sha256": "26fd20b072c56cbaa2d346331050ef2d7e0da2030735d9d88fcc3ba4955d666c",
+      "record": {
+        "case_id": "G14-01",
+        "contract_version": "retest-1.0",
+        "attempt_id": "G14-01-A02",
+        "environment_id": "env-20261006-agent2",
+        "object_identity": "root.zip导入弹窗",
+        "inputs": [
+          "zips/root.zip（选择不确认）"
+        ],
+        "action_refs": [
+          "business-2aa99608-e7b5-44c5-a5d6-9d5d7bedd4b2-2",
+          "business-2aa99608-e7b5-44c5-a5d6-9d5d7bedd4b2-3"
+        ],
+        "status": "通过",
+        "started_at": "2026-10-06T09:22:41.557Z",
+        "ended_at": "2026-10-06T09:23:51.915Z",
+        "actual_steps": [
+          "提交前读取正式身份集合",
+          "在导入dialog选择root.zip且不点确认",
+          "读取所选ZIP文件名",
+          "读取正式身份集合"
+        ],
+        "assertions": [
+          {
+            "id": "G14-01-A1",
+            "actual": true,
+            "read_refs": [
+              "business-2aa99608-e7b5-44c5-a5d6-9d5d7bedd4b2-4"
+            ]
+          },
+          {
+            "id": "G14-01-A2",
+            "actual": {
+              "before": [
+                "configure-connector",
+                "create-connector",
+                "create-skill",
+                "duplicate",
+                "expert-manager",
+                "fast-assert-bad-png-20261006-oc1",
+                "fast-assert-cn-all-20261006-oc1",
+                "fast-assert-cn-en-20261006-oc1",
+                "fast-assert-cn-tech-20261006-oc1",
+                "fast-assert-declared-market-20261006-oc1",
+                "fast-assert-default-20261006-agent2",
+                "fast-assert-desc-en-20261006-oc1",
+                "fast-assert-desc-tech-20261006-oc1",
+                "fast-assert-en-cn-20261006-oc1",
+                "fast-assert-minimal-20261006-oc1",
+                "fast-assert-missing-description-20261006-agent2",
+                "fast-assert-missing-description-20261006-oc1",
+                "fast-assert-missing-icon-20261006-oc1",
+                "fast-assert-network-icon-20261006-oc1",
+                "fast-assert-rich-20261006-oc1",
+                "fast-assert-root-20261006-agent2",
+                "fast-assert-root-20261006-oc1",
+                "fast-assert-skill-20261006-agent2",
+                "fast-assert-skill-20261006-oc1",
+                "fast-assert-skillb-20261006-agent2",
+                "fast-assert-skillc-20261006-agent2",
+                "fast-assert-trash-20261006-agent2",
+                "fast-assert-trash-20261006-oc1",
+                "fast-reg-skill-20261006095332",
+                "find-skills",
+                "invalid",
+                "missing-name-dir",
+                "one",
+                "round-created-skill-20261006",
+                "round-description-fallback",
+                "round-forged-market-type",
+                "round-guided-create-20261006",
+                "round-import-probe-20261005",
+                "round-inflight-long-toggle-20261006",
+                "round-inflight-toggle-20261006",
+                "round-missing-description",
+                "round-name-cn-fallback",
+                "round-name-cn-priority",
+                "round-name-en-fallback",
+                "round-night-invalid-only-20261006",
+                "round-night-md-direct-20261006",
+                "round-night-root-20261006",
+                "round-night-trash-20261006",
+                "round-no-version",
+                "round-optional-fields",
+                "round-rich-skill-20261006",
+                "round-search-name-en-20261006",
+                "round-skill-absolute-20261006",
+                "round-skill-bad-png-20261006",
+                "round-skill-neighbor-20261006",
+                "round-skill-network-20261006",
+                "round-skill-no-icon-20261006",
+                "round-skill-traversal-20261006",
+                "uploaded-skill",
+                "valid",
+                "valid-one"
+              ],
+              "after": [
+                "configure-connector",
+                "create-connector",
+                "create-skill",
+                "duplicate",
+                "expert-manager",
+                "fast-assert-bad-png-20261006-oc1",
+                "fast-assert-cn-all-20261006-oc1",
+                "fast-assert-cn-en-20261006-oc1",
+                "fast-assert-cn-tech-20261006-oc1",
+                "fast-assert-declared-market-20261006-oc1",
+                "fast-assert-default-20261006-agent2",
+                "fast-assert-desc-en-20261006-oc1",
+                "fast-assert-desc-tech-20261006-oc1",
+                "fast-assert-en-cn-20261006-oc1",
+                "fast-assert-minimal-20261006-oc1",
+                "fast-assert-missing-description-20261006-agent2",
+                "fast-assert-missing-description-20261006-oc1",
+                "fast-assert-missing-icon-20261006-oc1",
+                "fast-assert-network-icon-20261006-oc1",
+                "fast-assert-rich-20261006-oc1",
+                "fast-assert-root-20261006-agent2",
+                "fast-assert-root-20261006-oc1",
+                "fast-assert-skill-20261006-agent2",
+                "fast-assert-skill-20261006-oc1",
+                "fast-assert-skillb-20261006-agent2",
+                "fast-assert-skillc-20261006-agent2",
+                "fast-assert-trash-20261006-agent2",
+                "fast-assert-trash-20261006-oc1",
+                "fast-reg-skill-20261006095332",
+                "find-skills",
+                "invalid",
+                "missing-name-dir",
+                "one",
+                "round-created-skill-20261006",
+                "round-description-fallback",
+                "round-forged-market-type",
+                "round-guided-create-20261006",
+                "round-import-probe-20261005",
+                "round-inflight-long-toggle-20261006",
+                "round-inflight-toggle-20261006",
+                "round-missing-description",
+                "round-name-cn-fallback",
+                "round-name-cn-priority",
+                "round-name-en-fallback",
+                "round-night-invalid-only-20261006",
+                "round-night-md-direct-20261006",
+                "round-night-root-20261006",
+                "round-night-trash-20261006",
+                "round-no-version",
+                "round-optional-fields",
+                "round-rich-skill-20261006",
+                "round-search-name-en-20261006",
+                "round-skill-absolute-20261006",
+                "round-skill-bad-png-20261006",
+                "round-skill-neighbor-20261006",
+                "round-skill-network-20261006",
+                "round-skill-no-icon-20261006",
+                "round-skill-traversal-20261006",
+                "uploaded-skill",
+                "valid",
+                "valid-one"
+              ]
+            },
+            "read_refs": [
+              "business-2aa99608-e7b5-44c5-a5d6-9d5d7bedd4b2-1",
+              "business-2aa99608-e7b5-44c5-a5d6-9d5d7bedd4b2-5"
+            ]
+          }
+        ],
+        "evidence": [
+          {
+            "path": "运行日志/business.jsonl",
+            "sha256": "aaadf0b2901d2cb69e298a41be0118017d9deadfdfefd5334328191063ed931f"
+          },
+          {
+            "path": "运行日志/业务调用.jsonl",
+            "sha256": "8d619b0d6f5da075d69128ea5b9bd89cdcf86f03cc59f16c18c2888bc01ece1e"
+          }
+        ],
+        "cleanup": {
+          "status": "unchanged",
+          "description": "仅选择未确认，取消弹窗；正式注册表未变",
+          "read_refs": []
+        },
+        "business_call_refs": [
+          "CALL-b13b7062-0c80-4826-b939-050f58c58780"
+        ],
+        "notes": "原问题：选文件后无候选列表，正式注册表未变。本轮读取所选ZIP文件名为root.zip，并前后读取正式注册表键集合一致；候选列表是否展示另见raw。"
+      },
+      "evidence_checks": [
+        {
+          "path": "运行日志/business.jsonl",
+          "exists": true,
+          "hash_matches": true
+        },
+        {
+          "path": "运行日志/业务调用.jsonl",
+          "exists": true,
+          "hash_matches": true
+        }
+      ]
+    },
+    {
+      "file": "结果\\G14-02.json",
+      "sha256": "62ffd846fa6678827e0ce68f4e49bc9acbde1856cde0a12d76637c6a1f8196d3",
+      "record": {
+        "case_id": "G14-02",
+        "contract_version": "retest-1.0",
+        "attempt_id": "G14-02-A02",
+        "environment_id": "env-20261006-agent2",
+        "object_identity": "fast-assert-root-20261006-agent2",
+        "inputs": [
+          "zips/root.zip"
+        ],
+        "action_refs": [
+          "business-bd39a311-6423-43c1-a8ea-0ece0855ca9f-7",
+          "business-bd39a311-6423-43c1-a8ea-0ece0855ca9f-8"
+        ],
+        "status": "通过",
+        "started_at": "2026-10-06T08:40:10.547Z",
+        "ended_at": "2026-10-06T08:42:11.630Z",
+        "actual_steps": [
+          "提交前读取注册表确认root不存在",
+          "确认导入root.zip",
+          "读取root对象增量",
+          "读取嵌套技术名全局匹配数"
+        ],
+        "assertions": [
+          {
+            "id": "G14-02-A1",
+            "actual": 1,
+            "read_refs": [
+              "business-bd39a311-6423-43c1-a8ea-0ece0855ca9f-10"
+            ]
+          },
+          {
+            "id": "G14-02-A2",
+            "actual": 0,
+            "read_refs": [
+              "business-bd39a311-6423-43c1-a8ea-0ece0855ca9f-11"
+            ]
+          }
+        ],
+        "evidence": [
+          {
+            "path": "运行日志/business.jsonl",
+            "sha256": "aaadf0b2901d2cb69e298a41be0118017d9deadfdfefd5334328191063ed931f"
+          },
+          {
+            "path": "运行日志/业务调用.jsonl",
+            "sha256": "8d619b0d6f5da075d69128ea5b9bd89cdcf86f03cc59f16c18c2888bc01ece1e"
+          }
+        ],
+        "cleanup": {
+          "status": "retained",
+          "description": "本轮root技能保留待审",
+          "read_refs": []
+        },
+        "business_call_refs": [
+          "CALL-c82a3c3a-6e92-4426-9a8c-d70025396034"
+        ],
+        "notes": "原问题：提交前root身份已存在，0增量与同名跳过正常。本轮提交前root不存在，导入后增量=1；嵌套技术名全局匹配数=0。"
+      },
+      "evidence_checks": [
+        {
+          "path": "运行日志/business.jsonl",
+          "exists": true,
+          "hash_matches": true
+        },
+        {
+          "path": "运行日志/业务调用.jsonl",
+          "exists": true,
+          "hash_matches": true
+        }
+      ]
+    },
+    {
+      "file": "结果\\G14-03.json",
+      "sha256": "363b060c1ad323c74682beddc3e94af3c8012eaee03cbc1d3e1e9cfe1b51288d",
+      "record": {
+        "case_id": "G14-03",
+        "contract_version": "retest-1.0",
+        "attempt_id": "G14-03-A02",
+        "environment_id": "env-20261006-agent2",
+        "object_identity": "collection.zip新导入对象内部名",
+        "inputs": [
+          "zips/collection.zip"
+        ],
+        "action_refs": [
+          "business-bd39a311-6423-43c1-a8ea-0ece0855ca9f-13",
+          "business-bd39a311-6423-43c1-a8ea-0ece0855ca9f-14"
+        ],
+        "status": "失败",
+        "started_at": "2026-10-06T08:40:10.547Z",
+        "ended_at": "2026-10-06T08:42:11.630Z",
+        "actual_steps": [
+          "提交前记录相关身份不存在",
+          "确认导入collection.zip",
+          "读取本包新增正式对象内部名并排序"
+        ],
+        "assertions": [
+          {
+            "id": "G14-03-A1",
+            "actual": [
+              "one"
+            ],
+            "read_refs": [
+              "business-bd39a311-6423-43c1-a8ea-0ece0855ca9f-15"
+            ]
+          }
+        ],
+        "evidence": [
+          {
+            "path": "运行日志/business.jsonl",
+            "sha256": "aaadf0b2901d2cb69e298a41be0118017d9deadfdfefd5334328191063ed931f"
+          },
+          {
+            "path": "运行日志/业务调用.jsonl",
+            "sha256": "8d619b0d6f5da075d69128ea5b9bd89cdcf86f03cc59f16c18c2888bc01ece1e"
+          }
+        ],
+        "cleanup": {
+          "status": "retained",
+          "description": "本轮导入对象保留待审",
+          "read_refs": []
+        },
+        "business_call_refs": [
+          "CALL-c82a3c3a-6e92-4426-9a8c-d70025396034"
+        ],
+        "notes": "原问题：确认前弹窗只展示ZIP文件，不展示内部候选。本轮读取最终确认后的新增正式内部名。实际新增为[\"one\"]（包内文件夹名），与期望的YAML技术名不一致；deep二级样本未导入（见raw）。"
+      },
+      "evidence_checks": [
+        {
+          "path": "运行日志/business.jsonl",
+          "exists": true,
+          "hash_matches": true
+        },
+        {
+          "path": "运行日志/业务调用.jsonl",
+          "exists": true,
+          "hash_matches": true
+        }
+      ]
+    },
+    {
+      "file": "结果\\G14-04.json",
+      "sha256": "85d91e1db271038d2b56e5775b25d431a42b1f2dc646365ffe35ac4c048a4626",
+      "record": {
+        "case_id": "G14-04",
+        "contract_version": "retest-1.0",
+        "attempt_id": "G14-04-A02",
+        "environment_id": "env-20261006-agent2",
+        "object_identity": "fast-assert-trash-20261006-agent2安装目录",
+        "inputs": [
+          "zips/trash.zip"
+        ],
+        "action_refs": [
+          "business-bd39a311-6423-43c1-a8ea-0ece0855ca9f-16",
+          "business-bd39a311-6423-43c1-a8ea-0ece0855ca9f-17"
+        ],
+        "status": "失败",
+        "started_at": "2026-10-06T08:40:10.547Z",
+        "ended_at": "2026-10-06T08:42:11.630Z",
+        "actual_steps": [
+          "确认导入trash.zip",
+          "递归列安装目录检查.DS_Store与__MACOSX"
+        ],
+        "assertions": [
+          {
+            "id": "G14-04-A1",
+            "actual": true,
+            "read_refs": [
+              "business-bd39a311-6423-43c1-a8ea-0ece0855ca9f-18"
+            ]
+          }
+        ],
+        "evidence": [
+          {
+            "path": "运行日志/business.jsonl",
+            "sha256": "aaadf0b2901d2cb69e298a41be0118017d9deadfdfefd5334328191063ed931f"
+          },
+          {
+            "path": "运行日志/业务调用.jsonl",
+            "sha256": "8d619b0d6f5da075d69128ea5b9bd89cdcf86f03cc59f16c18c2888bc01ece1e"
+          }
+        ],
+        "cleanup": {
+          "status": "retained",
+          "description": "本轮导入对象保留待审（含垃圾文件）",
+          "read_refs": []
+        },
+        "business_call_refs": [
+          "CALL-c82a3c3a-6e92-4426-9a8c-d70025396034"
+        ],
+        "notes": "原问题：安装目录确有.DS_Store和__MACOSX文件。本轮新垃圾包导入后递归列目录，实测仍含垃圾文件（true），文件清单见raw。"
+      },
+      "evidence_checks": [
+        {
+          "path": "运行日志/business.jsonl",
+          "exists": true,
+          "hash_matches": true
+        },
+        {
+          "path": "运行日志/业务调用.jsonl",
+          "exists": true,
+          "hash_matches": true
+        }
+      ]
+    },
+    {
+      "file": "结果\\G14-05.json",
+      "sha256": "e906b6aa60b0249805253c946fc9049a991e7cf6d20b54f1acfc7074e2764189",
+      "record": {
+        "case_id": "G14-05",
+        "contract_version": "retest-1.0",
+        "attempt_id": "G14-05-A02",
+        "environment_id": "env-20261006-agent2",
+        "object_identity": "已安装root技能重新导入",
+        "inputs": [
+          "zips/root.zip（重复，默认确认）"
+        ],
+        "action_refs": [
+          "business-bd39a311-6423-43c1-a8ea-0ece0855ca9f-20",
+          "business-bd39a311-6423-43c1-a8ea-0ece0855ca9f-21"
+        ],
+        "status": "通过",
+        "started_at": "2026-10-06T08:40:10.547Z",
+        "ended_at": "2026-10-06T08:42:11.630Z",
+        "actual_steps": [
+          "保存已安装root SKILL.md哈希",
+          "再次提交root.zip并点默认确认不覆盖",
+          "读取确认后同名处理结果",
+          "回读SKILL.md哈希"
+        ],
+        "assertions": [
+          {
+            "id": "G14-05-A1",
+            "actual": "跳过",
+            "read_refs": [
+              "business-bd39a311-6423-43c1-a8ea-0ece0855ca9f-22"
+            ]
+          },
+          {
+            "id": "G14-05-A2",
+            "actual": {
+              "before": "3964f168d7805c4d0041d83797a2e8add0a1677a84afd6cdfca622a0802c3304",
+              "after": "3964f168d7805c4d0041d83797a2e8add0a1677a84afd6cdfca622a0802c3304"
+            },
+            "read_refs": [
+              "business-bd39a311-6423-43c1-a8ea-0ece0855ca9f-19",
+              "business-bd39a311-6423-43c1-a8ea-0ece0855ca9f-23"
+            ]
+          }
+        ],
+        "evidence": [
+          {
+            "path": "运行日志/business.jsonl",
+            "sha256": "aaadf0b2901d2cb69e298a41be0118017d9deadfdfefd5334328191063ed931f"
+          },
+          {
+            "path": "运行日志/业务调用.jsonl",
+            "sha256": "8d619b0d6f5da075d69128ea5b9bd89cdcf86f03cc59f16c18c2888bc01ece1e"
+          }
+        ],
+        "cleanup": {
+          "status": "retained",
+          "description": "已安装root技能保持原样",
+          "read_refs": []
+        },
+        "business_call_refs": [
+          "CALL-c82a3c3a-6e92-4426-9a8c-d70025396034"
+        ],
+        "notes": "原问题：确认前读取跳过字样阶段错误。本轮最终确认后读到反馈“已跳过同名技能”，并回读原SKILL.md哈希一致。"
+      },
+      "evidence_checks": [
+        {
+          "path": "运行日志/business.jsonl",
+          "exists": true,
+          "hash_matches": true
+        },
+        {
+          "path": "运行日志/业务调用.jsonl",
+          "exists": true,
+          "hash_matches": true
+        }
+      ]
+    },
+    {
+      "file": "结果\\G14-06.json",
+      "sha256": "d5c470c944f318009718a6ba6e3b6e12f1b258e47d75056fd85a4cf59280929d",
+      "record": {
+        "case_id": "G14-06",
+        "contract_version": "retest-1.0",
+        "attempt_id": "G14-06-A02",
+        "environment_id": "env-20261006-agent2",
+        "object_identity": "mixed2.zip：dup(已装root)/valid(新)/invalid(缺字段新)",
+        "inputs": [
+          "zips/mixed2.zip"
+        ],
+        "action_refs": [
+          "business-353a7a66-7a73-4255-80aa-7bb13684dd54-4",
+          "business-353a7a66-7a73-4255-80aa-7bb13684dd54-5"
+        ],
+        "status": "失败",
+        "started_at": "2026-10-06T10:23:48.778Z",
+        "ended_at": "2026-10-06T10:24:28.688Z",
+        "actual_steps": [
+          "制作目录名与声明名一致的mixed2.zip",
+          "提交前读取注册表与技能目录，确认仅重复项root存在",
+          "提交并确认导入",
+          "读取反馈与提交后注册表/目录逐项身份"
+        ],
+        "assertions": [
+          {
+            "id": "G14-06-A1",
+            "actual": {
+              "fast-assert-mixed-valid-20261006-agent2": "成功",
+              "fast-assert-root-20261006-agent2": null,
+              "fast-assert-mixed-invalid-20261006-agent2": "成功"
+            },
+            "read_refs": [
+              "business-f62b61bb-6934-4c75-b0aa-7f0d60c37c56-1"
+            ]
+          },
+          {
+            "id": "G14-06-A2",
+            "actual": 2,
+            "read_refs": [
+              "business-353a7a66-7a73-4255-80aa-7bb13684dd54-10"
+            ]
+          }
+        ],
+        "evidence": [
+          {
+            "path": "运行日志/business.jsonl",
+            "sha256": "aaadf0b2901d2cb69e298a41be0118017d9deadfdfefd5334328191063ed931f"
+          },
+          {
+            "path": "运行日志/业务调用.jsonl",
+            "sha256": "8d619b0d6f5da075d69128ea5b9bd89cdcf86f03cc59f16c18c2888bc01ece1e"
+          }
+        ],
+        "cleanup": {
+          "status": "retained",
+          "description": "本轮新增 valid/invalid 与已存在 root 保留待审",
+          "read_refs": []
+        },
+        "business_call_refs": [
+          "CALL-8817f6f7-ea91-4f9e-9213-4e171eadf00d"
+        ],
+        "notes": "原问题：duplicate/invalid/valid均被同名跳过，未测到部分成功隔离。本轮改用目录名与声明名一致的 ew mixed2.zip：提交前仅 fast-assert-root-20261006-agent2 存在；导入后 fast-assert-mixed-valid-20261006-agent2、fast-assert-mixed-invalid-20261006-agent2 均新增注册(判成功)，root 前后存在但本次无针对root的明确跳过反馈，按纠错要求不据前后存在推定跳过，记null。缺description的invalid未被拒绝，正式匹配数=2。"
+      },
+      "evidence_checks": [
+        {
+          "path": "运行日志/business.jsonl",
+          "exists": true,
+          "hash_matches": true
+        },
+        {
+          "path": "运行日志/业务调用.jsonl",
+          "exists": true,
+          "hash_matches": true
+        }
+      ]
+    },
+    {
+      "file": "结果\\G2-02.json",
+      "sha256": "8ca16de18ff5491caf77b8c1b4a4e1dd738b69228c81e5655b1e81bbe2d9982b",
+      "record": {
+        "case_id": "G2-02",
+        "contract_version": "retest-1.0",
+        "attempt_id": "G2-02-A02",
+        "environment_id": "env-20261006-agent2",
+        "object_identity": "fast-assert-skillc-20261006-agent2",
+        "inputs": [
+          "夹具/基础/20261006-agent2/skill-c/SKILL.md"
+        ],
+        "action_refs": [
+          "business-5f197c63-c31d-4b16-917f-70e392227dde-2",
+          "business-5f197c63-c31d-4b16-917f-70e392227dde-3"
+        ],
+        "status": "通过",
+        "started_at": "2026-10-06T08:31:55.323Z",
+        "ended_at": "2026-10-06T08:32:51.742Z",
+        "actual_steps": [
+          "提交前读取技能安装目录身份集合",
+          "选择单文件SKILL.md并点击导入",
+          "读取导入反馈",
+          "按内部name打开卡片详情核对身份"
+        ],
+        "assertions": [
+          {
+            "id": "G2-02-A1",
+            "actual": true,
+            "read_refs": [
+              "business-5f197c63-c31d-4b16-917f-70e392227dde-5"
+            ]
+          }
+        ],
+        "evidence": [
+          {
+            "path": "运行日志/business.jsonl",
+            "sha256": "aaadf0b2901d2cb69e298a41be0118017d9deadfdfefd5334328191063ed931f"
+          },
+          {
+            "path": "运行日志/业务调用.jsonl",
+            "sha256": "8d619b0d6f5da075d69128ea5b9bd89cdcf86f03cc59f16c18c2888bc01ece1e"
+          }
+        ],
+        "cleanup": {
+          "status": "retained",
+          "description": "本轮导入技能保留待审，未删除用户资产",
+          "read_refs": []
+        },
+        "business_call_refs": [
+          "CALL-e125498c-c82d-42fe-8ffd-a8103f527c4c"
+        ],
+        "notes": "原问题：对象已存在，同名跳过只能证明去重。本轮 preCheck 读数为 main_present=false，导入后详情内部name=fast-assert-skillc-20261006-agent2 且安装目录存在。"
+      },
+      "evidence_checks": [
+        {
+          "path": "运行日志/business.jsonl",
+          "exists": true,
+          "hash_matches": true
+        },
+        {
+          "path": "运行日志/业务调用.jsonl",
+          "exists": true,
+          "hash_matches": true
+        }
+      ]
+    },
+    {
+      "file": "结果\\G2-03.json",
+      "sha256": "cfae036fe5894af897fe89bcf8d12945491ec5653e0ef3bd43c30f885bc067bb",
+      "record": {
+        "case_id": "G2-03",
+        "contract_version": "retest-1.0",
+        "attempt_id": "G2-03-A02",
+        "environment_id": "env-20261006-agent2",
+        "object_identity": "fast-assert-skillc-20261006-agent2",
+        "inputs": [],
+        "action_refs": [
+          "business-5f197c63-c31d-4b16-917f-70e392227dde-2",
+          "business-5f197c63-c31d-4b16-917f-70e392227dde-3"
+        ],
+        "status": "通过",
+        "started_at": "2026-10-06T08:31:55.323Z",
+        "ended_at": "2026-10-06T08:32:51.742Z",
+        "actual_steps": [
+          "按内部name定位唯一卡片",
+          "进入详情核对内部name后返回列表",
+          "读取该卡片展示标题"
+        ],
+        "assertions": [
+          {
+            "id": "G2-03-A1",
+            "actual": "本轮快速回归技能",
+            "read_refs": [
+              "business-5f197c63-c31d-4b16-917f-70e392227dde-6"
+            ]
+          }
+        ],
+        "evidence": [
+          {
+            "path": "运行日志/business.jsonl",
+            "sha256": "aaadf0b2901d2cb69e298a41be0118017d9deadfdfefd5334328191063ed931f"
+          },
+          {
+            "path": "运行日志/业务调用.jsonl",
+            "sha256": "8d619b0d6f5da075d69128ea5b9bd89cdcf86f03cc59f16c18c2888bc01ece1e"
+          }
+        ],
+        "cleanup": {
+          "status": "retained",
+          "description": "本轮导入技能保留待审",
+          "read_refs": []
+        },
+        "business_call_refs": [
+          "CALL-e125498c-c82d-42fe-8ffd-a8103f527c4c"
+        ],
+        "notes": "原问题：同名展示卡重复，first卡片未绑定内部身份。本轮遍历同标题卡片，逐张进入详情比对内部name后再读该卡片标题。"
+      },
+      "evidence_checks": [
+        {
+          "path": "运行日志/business.jsonl",
+          "exists": true,
+          "hash_matches": true
+        },
+        {
+          "path": "运行日志/业务调用.jsonl",
+          "exists": true,
+          "hash_matches": true
+        }
+      ]
+    },
+    {
+      "file": "结果\\G3-01.json",
+      "sha256": "5988adf5cfbbbddaa79712155c8c19855c8db68af19df3751100b51fd4b5d59f",
+      "record": {
+        "case_id": "G3-01",
+        "contract_version": "retest-1.0",
+        "attempt_id": "G3-01-A02",
+        "environment_id": "env-20261006-agent2",
+        "object_identity": "fast-assert-default-20261006-agent2",
+        "inputs": [
+          "夹具/基础/20261006-agent2/skill-default/SKILL.md"
+        ],
+        "action_refs": [
+          "business-3e2ccb48-45e5-48d8-b9e4-e5aa0c911968-7",
+          "business-3e2ccb48-45e5-48d8-b9e4-e5aa0c911968-8"
+        ],
+        "status": "失败",
+        "started_at": "2026-10-06T08:29:56.893Z",
+        "ended_at": "2026-10-06T08:31:15.181Z",
+        "actual_steps": [
+          "导入新的合法技能",
+          "不点击任何开关，首次读取该技能卡片 aria-checked"
+        ],
+        "assertions": [
+          {
+            "id": "G3-01-A1",
+            "actual": true,
+            "read_refs": [
+              "business-3e2ccb48-45e5-48d8-b9e4-e5aa0c911968-9"
+            ]
+          }
+        ],
+        "evidence": [
+          {
+            "path": "运行日志/business.jsonl",
+            "sha256": "aaadf0b2901d2cb69e298a41be0118017d9deadfdfefd5334328191063ed931f"
+          },
+          {
+            "path": "运行日志/业务调用.jsonl",
+            "sha256": "8d619b0d6f5da075d69128ea5b9bd89cdcf86f03cc59f16c18c2888bc01ece1e"
+          }
+        ],
+        "cleanup": {
+          "status": "retained",
+          "description": "次轮导入技能保留待审（未停用，按计划G3后续处理）",
+          "read_refs": []
+        },
+        "business_call_refs": [
+          "CALL-7588ecf0-4872-4b54-950b-f445e6273b27"
+        ],
+        "notes": "原问题：读取前可能主动归一化且复用了已有技能。本轮使用全新身份 fast-assert-default-20261006-agent2，导入后不做任何切换立即读取 aria-checked=true（原始值见raw）。设计期望停用，此处按实测记录。"
+      },
+      "evidence_checks": [
+        {
+          "path": "运行日志/business.jsonl",
+          "exists": true,
+          "hash_matches": true
+        },
+        {
+          "path": "运行日志/业务调用.jsonl",
+          "exists": true,
+          "hash_matches": true
+        }
+      ]
+    },
+    {
+      "file": "结果\\G3-03.json",
+      "sha256": "9878ef1f4445b00e9e93d979b3352984c33bed091dd9ec83304b606e2f92d1b1",
+      "record": {
+        "case_id": "G3-03",
+        "contract_version": "retest-1.0",
+        "attempt_id": "G3-03-A03",
+        "environment_id": "env-20261006-agent2",
+        "object_identity": "fast-assert-skillc-20261006-agent2 + 调用session",
+        "inputs": [
+          "技能详情点击使用",
+          "请执行本技能的固定回复规则"
+        ],
+        "action_refs": [
+          "business-037e50f4-9ad4-4b26-a045-334d80a2e1db-2",
+          "business-037e50f4-9ad4-4b26-a045-334d80a2e1db-3"
+        ],
+        "status": "失败",
+        "started_at": "2026-10-06T10:10:20.707Z",
+        "ended_at": "2026-10-06T10:11:31.950Z",
+        "actual_steps": [
+          "新建空任务作为当前活动会话",
+          "在技能详情点击使用",
+          "读取composer技能chip内部name",
+          "发送无害请求并回读会话身份"
+        ],
+        "assertions": [
+          {
+            "id": "G3-03-A1",
+            "actual": "fast-assert-skillc-20261006-agent2",
+            "read_refs": [
+              "business-037e50f4-9ad4-4b26-a045-334d80a2e1db-4"
+            ]
+          },
+          {
+            "id": "G3-03-A2",
+            "actual": {
+              "before": "session-b236bf77-44ee-417b-9d19-38502da74d92",
+              "after": "session-b236bf77-44ee-417b-9d19-38502da74d92"
+            },
+            "read_refs": [
+              "business-037e50f4-9ad4-4b26-a045-334d80a2e1db-1",
+              "business-037e50f4-9ad4-4b26-a045-334d80a2e1db-5"
+            ]
+          }
+        ],
+        "evidence": [
+          {
+            "path": "运行日志/business.jsonl",
+            "sha256": "aaadf0b2901d2cb69e298a41be0118017d9deadfdfefd5334328191063ed931f"
+          },
+          {
+            "path": "运行日志/业务调用.jsonl",
+            "sha256": "8d619b0d6f5da075d69128ea5b9bd89cdcf86f03cc59f16c18c2888bc01ece1e"
+          }
+        ],
+        "cleanup": {
+          "status": "retained",
+          "description": "本轮会话与技能引用保留待审；技能随后停用",
+          "read_refs": [
+            "business-1cd2b8af-311c-43b2-952c-bfcb0910d51a-1"
+          ]
+        },
+        "business_call_refs": [
+          "CALL-a22589a3-c185-4cc1-b215-97c9ca0ea67c",
+          "CALL-46a150f5-ebae-4221-972e-09f75f2bd07f"
+        ],
+        "notes": "原问题：点击使用后又手动newTask并输入斜杠文本覆盖入口效果。本轮只点击使用并读取chip与session：chip=fast-assert-skillc-20261006-agent2(A1通过)；入口把技能引用加入当前任务，发送后会话身份仍等于使用前会话(A2 different=false)。"
+      },
+      "evidence_checks": [
+        {
+          "path": "运行日志/business.jsonl",
+          "exists": true,
+          "hash_matches": true
+        },
+        {
+          "path": "运行日志/业务调用.jsonl",
+          "exists": true,
+          "hash_matches": true
+        }
+      ]
+    },
+    {
+      "file": "结果\\G3-04.json",
+      "sha256": "7ecb2808e1bd8fba3d93bbef6391435bdb00ffced93b0267127a0219c07a3b72",
+      "record": {
+        "case_id": "G3-04",
+        "contract_version": "retest-1.0",
+        "attempt_id": "G3-04-A03",
+        "environment_id": "env-20261006-agent2",
+        "object_identity": "fast-assert-skillc-20261006-agent2 + 调用session",
+        "inputs": [
+          "请执行本技能的固定回复规则"
+        ],
+        "action_refs": [
+          "business-037e50f4-9ad4-4b26-a045-334d80a2e1db-6",
+          "business-037e50f4-9ad4-4b26-a045-334d80a2e1db-7"
+        ],
+        "status": "通过",
+        "started_at": "2026-10-06T10:10:20.707Z",
+        "ended_at": "2026-10-06T10:11:31.950Z",
+        "actual_steps": [
+          "使用技能后发送无害请求并等待终态",
+          "在本轮轨迹读取引用该技能及其指令正文的记录",
+          "助手正文单独读取"
+        ],
+        "assertions": [
+          {
+            "id": "G3-04-A1",
+            "actual": "思考The user invoked the skill `fast-assert-skillc-20261006-agent2` and asked to execute its fixed reply rule. The skill instructions say: when explicitly requested to execute this regression skill's fixed reply rule, reply exactly FAST_SKILL_EXEC_OK.",
+            "read_refs": [
+              "business-037e50f4-9ad4-4b26-a045-334d80a2e1db-10"
+            ]
+          }
+        ],
+        "evidence": [
+          {
+            "path": "运行日志/business.jsonl",
+            "sha256": "aaadf0b2901d2cb69e298a41be0118017d9deadfdfefd5334328191063ed931f"
+          },
+          {
+            "path": "运行日志/业务调用.jsonl",
+            "sha256": "8d619b0d6f5da075d69128ea5b9bd89cdcf86f03cc59f16c18c2888bc01ece1e"
+          }
+        ],
+        "cleanup": {
+          "status": "retained",
+          "description": "本轮会话保留待审；助手正文 FAST_SKILL_EXEC_OK 见raw",
+          "read_refs": [
+            "business-037e50f4-9ad4-4b26-a045-334d80a2e1db-9",
+            "business-1cd2b8af-311c-43b2-952c-bfcb0910d51a-1"
+          ]
+        },
+        "business_call_refs": [
+          "CALL-a22589a3-c185-4cc1-b215-97c9ca0ea67c",
+          "CALL-46a150f5-ebae-4221-972e-09f75f2bd07f"
+        ],
+        "notes": "原问题：全页名称不等于资源注入。本轮限定本轮session轨迹读取到引用技能内部name并复述技能指令正文的记录；助手正文单独读取为 FAST_SKILL_EXEC_OK。"
+      },
+      "evidence_checks": [
+        {
+          "path": "运行日志/business.jsonl",
+          "exists": true,
+          "hash_matches": true
+        },
+        {
+          "path": "运行日志/业务调用.jsonl",
+          "exists": true,
+          "hash_matches": true
+        }
+      ]
+    },
+    {
+      "file": "结果\\G5-07.json",
+      "sha256": "c4ab2fd6ad7829da9c7ce287e097778e925f0a5e74390d082ce26750f34f9d53",
+      "record": {
+        "case_id": "G5-07",
+        "contract_version": "retest-1.0",
+        "attempt_id": "G5-07-A02",
+        "environment_id": "env-20261006-agent2",
+        "object_identity": "缺agent.md的专家目录（夹具/基础/20261006-agent2/expert-missing-agent）",
+        "inputs": [
+          "expert-missing-agent目录"
+        ],
+        "action_refs": [
+          "business-5ad6619c-cfca-449a-aa55-d29b03875421-2",
+          "business-5ad6619c-cfca-449a-aa55-d29b03875421-3"
+        ],
+        "status": "通过",
+        "started_at": "2026-10-06T08:34:53.164Z",
+        "ended_at": "2026-10-06T08:35:10.140Z",
+        "actual_steps": [
+          "记录提交前专家列表数量",
+          "选择缺agent.md目录并点击提交",
+          "等待并读取本次可见错误反馈",
+          "关闭弹窗并读取提交后列表数量"
+        ],
+        "assertions": [
+          {
+            "id": "G5-07-A1",
+            "actual": true,
+            "read_refs": [
+              "business-4e818521-c775-4d47-a9a2-9699115349e3-1"
+            ]
+          },
+          {
+            "id": "G5-07-A2",
+            "actual": {
+              "before": 21,
+              "after": 21
+            },
+            "read_refs": [
+              "business-5ad6619c-cfca-449a-aa55-d29b03875421-1",
+              "business-5ad6619c-cfca-449a-aa55-d29b03875421-5"
+            ]
+          }
+        ],
+        "evidence": [
+          {
+            "path": "运行日志/business.jsonl",
+            "sha256": "aaadf0b2901d2cb69e298a41be0118017d9deadfdfefd5334328191063ed931f"
+          },
+          {
+            "path": "运行日志/业务调用.jsonl",
+            "sha256": "8d619b0d6f5da075d69128ea5b9bd89cdcf86f03cc59f16c18c2888bc01ece1e"
+          }
+        ],
+        "cleanup": {
+          "status": "retained",
+          "description": "坏包源目录只读未变；未产生新正式对象",
+          "read_refs": []
+        },
+        "business_call_refs": [
+          "CALL-380f5d3a-eb64-4cdc-9691-25ea92fff0a9"
+        ],
+        "notes": "原问题：弹窗未关闭与列表未变不是明确拒绝。本轮读取到本次提交后的可见反馈原文：“所选内容不是有效的专家包：需要包含 agent.md 与 metadata.json。”，明确指出缺 agent.md。"
+      },
+      "evidence_checks": [
+        {
+          "path": "运行日志/business.jsonl",
+          "exists": true,
+          "hash_matches": true
+        },
+        {
+          "path": "运行日志/业务调用.jsonl",
+          "exists": true,
+          "hash_matches": true
+        }
+      ]
+    },
+    {
+      "file": "结果\\G5-08.json",
+      "sha256": "6b6e4a82a666616f4f2367e46fbf60efe6d07d9e3c1fce341c2c467799fe1dbd",
+      "record": {
+        "case_id": "G5-08",
+        "contract_version": "retest-1.0",
+        "attempt_id": "G5-08-A02",
+        "environment_id": "env-20261006-agent2",
+        "object_identity": "坏metadata.json的专家目录（夹具/基础/20261006-agent2/expert-bad-json）",
+        "inputs": [
+          "expert-bad-json目录"
+        ],
+        "action_refs": [
+          "business-5ad6619c-cfca-449a-aa55-d29b03875421-9",
+          "business-5ad6619c-cfca-449a-aa55-d29b03875421-10"
+        ],
+        "status": "通过",
+        "started_at": "2026-10-06T08:34:53.164Z",
+        "ended_at": "2026-10-06T08:35:10.140Z",
+        "actual_steps": [
+          "记录源元数据哈希与提交前专家列表数量",
+          "选择坏metadata.json目录并点击提交",
+          "等待并读取本次可见错误反馈",
+          "关闭弹窗并读取列表数量与源文件哈希"
+        ],
+        "assertions": [
+          {
+            "id": "G5-08-A1",
+            "actual": true,
+            "read_refs": [
+              "business-4e818521-c775-4d47-a9a2-9699115349e3-2"
+            ]
+          },
+          {
+            "id": "G5-08-A2",
+            "actual": {
+              "before": 21,
+              "after": 21
+            },
+            "read_refs": [
+              "business-5ad6619c-cfca-449a-aa55-d29b03875421-8",
+              "business-5ad6619c-cfca-449a-aa55-d29b03875421-12"
+            ]
+          },
+          {
+            "id": "G5-08-A3",
+            "actual": {
+              "before": "a51aa382b49c92afe10e35fcfb33c27322ef9f46971cf2e3e1dcc9f5409688ed",
+              "after": "a51aa382b49c92afe10e35fcfb33c27322ef9f46971cf2e3e1dcc9f5409688ed"
+            },
+            "read_refs": [
+              "business-5ad6619c-cfca-449a-aa55-d29b03875421-6",
+              "business-5ad6619c-cfca-449a-aa55-d29b03875421-13"
+            ]
+          },
+          {
+            "id": "G5-08-A4",
+            "actual": {
+              "before": "f5797c7de10829e14bddccdef32e5e4d0c8841f7df898446b4290808df6731cf",
+              "after": "f5797c7de10829e14bddccdef32e5e4d0c8841f7df898446b4290808df6731cf"
+            },
+            "read_refs": [
+              "business-5ad6619c-cfca-449a-aa55-d29b03875421-7",
+              "business-5ad6619c-cfca-449a-aa55-d29b03875421-14"
+            ]
+          }
+        ],
+        "evidence": [
+          {
+            "path": "运行日志/business.jsonl",
+            "sha256": "aaadf0b2901d2cb69e298a41be0118017d9deadfdfefd5334328191063ed931f"
+          },
+          {
+            "path": "运行日志/业务调用.jsonl",
+            "sha256": "8d619b0d6f5da075d69128ea5b9bd89cdcf86f03cc59f16c18c2888bc01ece1e"
+          }
+        ],
+        "cleanup": {
+          "status": "retained",
+          "description": "坏包源文件哈希前后一致；未产生新正式对象",
+          "read_refs": []
+        },
+        "business_call_refs": [
+          "CALL-380f5d3a-eb64-4cdc-9691-25ea92fff0a9"
+        ],
+        "notes": "原问题：弹窗仍在加哈希未变不能证明格式拒绝。本轮读取到本次提交后的可见反馈原文（含 metadata.json 与结构校验），并回读源文件SHA256一致。反馈为通用结构校验文案而非JSON语法错误细节，原文见raw。"
+      },
+      "evidence_checks": [
+        {
+          "path": "运行日志/business.jsonl",
+          "exists": true,
+          "hash_matches": true
+        },
+        {
+          "path": "运行日志/业务调用.jsonl",
+          "exists": true,
+          "hash_matches": true
+        }
+      ]
+    },
+    {
+      "file": "结果\\G6-06.json",
+      "sha256": "c60f469adaea7d6779db5d4517a01c7b40e6b508300ef480941bd8d5df44028d",
+      "record": {
+        "case_id": "G6-06",
+        "contract_version": "retest-1.0",
+        "attempt_id": "G6-06-A02",
+        "environment_id": "env-20261006-agent2",
+        "object_identity": "默认权限设置 + 新建任务composer权限控件",
+        "inputs": [
+          "默认权限=工作区内修改",
+          "恢复为初值"
+        ],
+        "action_refs": [
+          "business-f2066c12-386e-4ae1-b161-d9246d149baf-2",
+          "business-f2066c12-386e-4ae1-b161-d9246d149baf-3",
+          "business-f2066c12-386e-4ae1-b161-d9246d149baf-5",
+          "business-f2066c12-386e-4ae1-b161-d9246d149baf-6",
+          "business-f2066c12-386e-4ae1-b161-d9246d149baf-8",
+          "business-f2066c12-386e-4ae1-b161-d9246d149baf-9",
+          "business-f2066c12-386e-4ae1-b161-d9246d149baf-11",
+          "business-f2066c12-386e-4ae1-b161-d9246d149baf-12"
+        ],
+        "status": "失败",
+        "started_at": "2026-10-06T08:47:01.557Z",
+        "ended_at": "2026-10-06T08:47:23.437Z",
+        "actual_steps": [
+          "读取默认权限初值",
+          "设为工作区内修改并重开回读",
+          "从新建入口创建独立新会话并读取composer权限",
+          "恢复初值重开回读",
+          "再创建新会话读取composer权限"
+        ],
+        "assertions": [
+          {
+            "id": "G6-06-A1",
+            "actual": "工作区内修改",
+            "read_refs": [
+              "business-f2066c12-386e-4ae1-b161-d9246d149baf-7"
+            ]
+          },
+          {
+            "id": "G6-06-A2",
+            "actual": "工作区内修改",
+            "read_refs": [
+              "business-f2066c12-386e-4ae1-b161-d9246d149baf-10"
+            ]
+          },
+          {
+            "id": "G6-06-A3",
+            "actual": "工作区内修改",
+            "read_refs": [
+              "business-f2066c12-386e-4ae1-b161-d9246d149baf-13"
+            ]
+          }
+        ],
+        "evidence": [
+          {
+            "path": "运行日志/business.jsonl",
+            "sha256": "aaadf0b2901d2cb69e298a41be0118017d9deadfdfefd5334328191063ed931f"
+          },
+          {
+            "path": "运行日志/业务调用.jsonl",
+            "sha256": "8d619b0d6f5da075d69128ea5b9bd89cdcf86f03cc59f16c18c2888bc01ece1e"
+          }
+        ],
+        "cleanup": {
+          "status": "restored",
+          "description": "默认权限已恢复并重开回读为初值工作区内修改",
+          "read_refs": [
+            "business-f2066c12-386e-4ae1-b161-d9246d149baf-10"
+          ]
+        },
+        "business_call_refs": [
+          "CALL-b36dadf0-d69e-4ca2-8051-6bd25d102046"
+        ],
+        "notes": "原问题：设置恢复为工作区内修改后新建界面显示仅可查看，保留继承差异候选。本轮在同一包(0.2.0-rc.1)下：初值=工作区内修改，设为工作区内修改并重开确认，改后新任务composer权限实测=工作区内修改（未复现“仅可查看”），恢复后另一新任务=工作区内修改。未在同一环境复现旧差异，不做“已修复”结论。"
+      },
+      "evidence_checks": [
+        {
+          "path": "运行日志/business.jsonl",
+          "exists": true,
+          "hash_matches": true
+        },
+        {
+          "path": "运行日志/业务调用.jsonl",
+          "exists": true,
+          "hash_matches": true
+        }
+      ]
+    },
+    {
+      "file": "结果\\G7-09.json",
+      "sha256": "cc6caba00791c97abdf1e7cc93ebedf9b8bc26705e66b96ed49ee43bc7bb5029",
+      "record": {
+        "case_id": "G7-09",
+        "contract_version": "retest-1.0",
+        "attempt_id": "G7-09-A02",
+        "environment_id": "env-20261006-agent2",
+        "object_identity": "30附件草稿的附件容器",
+        "inputs": [
+          "count-01..count-30.txt"
+        ],
+        "action_refs": [
+          "business-08db2645-5fe9-459e-a9fc-01306a364deb-1",
+          "business-08db2645-5fe9-459e-a9fc-01306a364deb-2"
+        ],
+        "status": "通过",
+        "started_at": "2026-10-06T09:20:50.137Z",
+        "ended_at": "2026-10-06T09:22:03.481Z",
+        "actual_steps": [
+          "添加30份附件",
+          "读取附件容器横纵scroll/client与computed overflow",
+          "沿成立的轴滚动到末端",
+          "读取count-30.txt可见性"
+        ],
+        "assertions": [
+          {
+            "id": "G7-09-A1",
+            "actual": true,
+            "read_refs": [
+              "business-08db2645-5fe9-459e-a9fc-01306a364deb-3"
+            ]
+          },
+          {
+            "id": "G7-09-A2",
+            "actual": true,
+            "read_refs": [
+              "business-08db2645-5fe9-459e-a9fc-01306a364deb-4"
+            ]
+          }
+        ],
+        "evidence": [
+          {
+            "path": "运行日志/business.jsonl",
+            "sha256": "aaadf0b2901d2cb69e298a41be0118017d9deadfdfefd5334328191063ed931f"
+          },
+          {
+            "path": "运行日志/业务调用.jsonl",
+            "sha256": "8d619b0d6f5da075d69128ea5b9bd89cdcf86f03cc59f16c18c2888bc01ece1e"
+          }
+        ],
+        "cleanup": {
+          "status": "unchanged",
+          "description": "附件清理，未发送；无设置/资产变更",
+          "read_refs": []
+        },
+        "business_call_refs": [
+          "CALL-e4f47231-1e95-4086-9c2d-c9e48fd9fc62"
+        ],
+        "notes": "原问题：容器实际横向滚动而用例断言纵向高度。本轮读取横纵尺寸与computed overflow，按实际可滚轴滚动到末端，再验证count-30.txt可见。raw见日志。"
+      },
+      "evidence_checks": [
+        {
+          "path": "运行日志/business.jsonl",
+          "exists": true,
+          "hash_matches": true
+        },
+        {
+          "path": "运行日志/业务调用.jsonl",
+          "exists": true,
+          "hash_matches": true
+        }
+      ]
+    },
+    {
+      "file": "结果\\G7-11.json",
+      "sha256": "9a2cbf11a5951f3e2b37a835dbdef597cb3ce1aecd71e11c98936dd3dc45d429",
+      "record": {
+        "case_id": "G7-11",
+        "contract_version": "retest-1.0",
+        "attempt_id": "G7-11-A02",
+        "environment_id": "env-20261006-agent2",
+        "object_identity": "3附件草稿的附件工具区",
+        "inputs": [
+          "attachment-a.txt",
+          "attachment-b.txt",
+          "attachment-c.md"
+        ],
+        "action_refs": [
+          "business-c623e9e1-2967-4bb1-b7a9-8622335c4812-5",
+          "business-c623e9e1-2967-4bb1-b7a9-8622335c4812-6"
+        ],
+        "status": "失败",
+        "started_at": "2026-10-06T09:08:33.574Z",
+        "ended_at": "2026-10-06T09:08:47.172Z",
+        "actual_steps": [
+          "添加3份附件",
+          "读取附件工具区全部可见控件确认是否有批量清空",
+          "无入口故未执行清空"
+        ],
+        "assertions": [
+          {
+            "id": "G7-11-A1",
+            "actual": false,
+            "read_refs": [
+              "business-dd666df4-9bce-4263-a7b7-d361038cb652-1"
+            ]
+          },
+          {
+            "id": "G7-11-A2",
+            "actual": null,
+            "read_refs": [
+              "business-c623e9e1-2967-4bb1-b7a9-8622335c4812-7"
+            ],
+            "reason": "附件工具区未发现批量清空入口，未执行清空，故不清空后数量",
+            "failed_dependency": "G7-11-A1 清空入口"
+          }
+        ],
+        "evidence": [
+          {
+            "path": "运行日志/business.jsonl",
+            "sha256": "aaadf0b2901d2cb69e298a41be0118017d9deadfdfefd5334328191063ed931f"
+          },
+          {
+            "path": "运行日志/业务调用.jsonl",
+            "sha256": "8d619b0d6f5da075d69128ea5b9bd89cdcf86f03cc59f16c18c2888bc01ece1e"
+          }
+        ],
+        "cleanup": {
+          "status": "unchanged",
+          "description": "附件未发送，草稿保留；无设置/资产变更",
+          "read_refs": []
+        },
+        "business_call_refs": [
+          "CALL-bcf91292-b909-43fa-8399-71e236cd179d"
+        ],
+        "notes": "原问题：当前附件控件只有逐个删除，没有清空入口；未执行清空时的缓存数量3不是清空失败后的新读取。本轮读取附件工具区全部可见控件，未发现批量清空入口(A1=false)，故A2记为未观测(null)并说明依赖。控件清单见raw。"
+      },
+      "evidence_checks": [
+        {
+          "path": "运行日志/business.jsonl",
+          "exists": true,
+          "hash_matches": true
+        },
+        {
+          "path": "运行日志/业务调用.jsonl",
+          "exists": true,
+          "hash_matches": true
+        }
+      ]
+    },
+    {
+      "file": "结果\\G7-12.json",
+      "sha256": "44a9b593d119d154dc62190340cb7af1c5caa0c386a7909380c65c4f5cbda539",
+      "record": {
+        "case_id": "G7-12",
+        "contract_version": "retest-1.0",
+        "attempt_id": "G7-12-A02",
+        "environment_id": "env-20261006-agent2",
+        "object_identity": "本轮已发送用户消息附件区",
+        "inputs": [
+          "attachment-a.txt",
+          "确认附件已收到"
+        ],
+        "action_refs": [
+          "business-18714c49-f633-4b3f-b76d-2e8577cf73b2-1",
+          "business-18714c49-f633-4b3f-b76d-2e8577cf73b2-2",
+          "business-18714c49-f633-4b3f-b76d-2e8577cf73b2-3",
+          "business-18714c49-f633-4b3f-b76d-2e8577cf73b2-4"
+        ],
+        "status": "通过",
+        "started_at": "2026-10-06T10:13:42.913Z",
+        "ended_at": "2026-10-06T10:14:13.861Z",
+        "actual_steps": [
+          "添加attachment-a.txt",
+          "发送附件请求并等待终态",
+          "仅在该条已发送用户气泡内读取名称与删除控件"
+        ],
+        "assertions": [
+          {
+            "id": "G7-12-A1",
+            "actual": true,
+            "read_refs": [
+              "business-18714c49-f633-4b3f-b76d-2e8577cf73b2-5"
+            ]
+          },
+          {
+            "id": "G7-12-A2",
+            "actual": 0,
+            "read_refs": [
+              "business-18714c49-f633-4b3f-b76d-2e8577cf73b2-6"
+            ]
+          }
+        ],
+        "evidence": [
+          {
+            "path": "运行日志/business.jsonl",
+            "sha256": "aaadf0b2901d2cb69e298a41be0118017d9deadfdfefd5334328191063ed931f"
+          },
+          {
+            "path": "运行日志/业务调用.jsonl",
+            "sha256": "8d619b0d6f5da075d69128ea5b9bd89cdcf86f03cc59f16c18c2888bc01ece1e"
+          }
+        ],
+        "cleanup": {
+          "status": "unchanged",
+          "description": "已发送消息保留，无设置/资产变更",
+          "read_refs": []
+        },
+        "business_call_refs": [
+          "CALL-9da7443b-4109-4d16-bd69-d2c86a616936"
+        ],
+        "notes": "原问题：所谓用户气泡原文包含助手与编辑器。本轮限定本条已发送用户消息节点读取：含attachment-a.txt，且无移除/删除控件。"
+      },
+      "evidence_checks": [
+        {
+          "path": "运行日志/business.jsonl",
+          "exists": true,
+          "hash_matches": true
+        },
+        {
+          "path": "运行日志/业务调用.jsonl",
+          "exists": true,
+          "hash_matches": true
+        }
+      ]
+    },
+    {
+      "file": "结果\\G8-02.json",
+      "sha256": "849cb9b4b61be08bca0777b11be3331b25cc1dbb1bb8f5fef9e41020848226db",
+      "record": {
+        "case_id": "G8-02",
+        "contract_version": "retest-1.0",
+        "attempt_id": "G8-02-A02",
+        "environment_id": "env-20261006-agent2",
+        "object_identity": "会话A（本轮新增）",
+        "inputs": [
+          "只回答：UNREAD_OK"
+        ],
+        "action_refs": [
+          "business-b712c2c5-5a19-454d-b94b-40ec8534d7c6-5",
+          "business-b712c2c5-5a19-454d-b94b-40ec8534d7c6-6"
+        ],
+        "status": "通过",
+        "started_at": "2026-10-06T09:10:05.446Z",
+        "ended_at": "2026-10-06T09:13:33.641Z",
+        "actual_steps": [
+          "创建会话A与对照B",
+          "为A建立明确未读标记",
+          "进入同一A",
+          "回读A未读提醒与历史正文"
+        ],
+        "assertions": [
+          {
+            "id": "G8-02-A1",
+            "actual": 0,
+            "read_refs": [
+              "business-b712c2c5-5a19-454d-b94b-40ec8534d7c6-7"
+            ]
+          },
+          {
+            "id": "G8-02-A2",
+            "actual": true,
+            "read_refs": [
+              "business-b712c2c5-5a19-454d-b94b-40ec8534d7c6-8"
+            ]
+          }
+        ],
+        "evidence": [
+          {
+            "path": "运行日志/business.jsonl",
+            "sha256": "aaadf0b2901d2cb69e298a41be0118017d9deadfdfefd5334328191063ed931f"
+          },
+          {
+            "path": "运行日志/业务调用.jsonl",
+            "sha256": "8d619b0d6f5da075d69128ea5b9bd89cdcf86f03cc59f16c18c2888bc01ece1e"
+          }
+        ],
+        "cleanup": {
+          "status": "retained",
+          "description": "本轮新增会话保留待审；未删除消息",
+          "read_refs": []
+        },
+        "business_call_refs": [
+          "CALL-bf9d474e-bb98-4503-a6ee-44345e1e98cd"
+        ],
+        "notes": "原问题：进入前没有可靠未读基线，dotState为null被算成0。本轮先标记A为未读，进入A后回读该行状态：未读提醒数量=0，历史助手正文非空。"
+      },
+      "evidence_checks": [
+        {
+          "path": "运行日志/business.jsonl",
+          "exists": true,
+          "hash_matches": true
+        },
+        {
+          "path": "运行日志/业务调用.jsonl",
+          "exists": true,
+          "hash_matches": true
+        }
+      ]
+    },
+    {
+      "file": "结果\\G8-03.json",
+      "sha256": "81f196537c533f9adc569c39a5f2e3f8ced73a41a544099d72ea0106ee2f3008",
+      "record": {
+        "case_id": "G8-03",
+        "contract_version": "retest-1.0",
+        "attempt_id": "G8-03-A02",
+        "environment_id": "env-20261006-agent2",
+        "object_identity": "会话A（本轮新增）",
+        "inputs": [
+          "标记A为未读"
+        ],
+        "action_refs": [
+          "business-b712c2c5-5a19-454d-b94b-40ec8534d7c6-1",
+          "business-b712c2c5-5a19-454d-b94b-40ec8534d7c6-2"
+        ],
+        "status": "通过",
+        "started_at": "2026-10-06T09:10:05.446Z",
+        "ended_at": "2026-10-06T09:13:33.641Z",
+        "actual_steps": [
+          "对本轮会话A执行标记为未读",
+          "读取该行未读标记原文、属性与数量",
+          "按未读语义解码"
+        ],
+        "assertions": [
+          {
+            "id": "G8-03-A1",
+            "actual": 1,
+            "read_refs": [
+              "business-b712c2c5-5a19-454d-b94b-40ec8534d7c6-3"
+            ]
+          },
+          {
+            "id": "G8-03-A2",
+            "actual": 0,
+            "read_refs": [
+              "business-b712c2c5-5a19-454d-b94b-40ec8534d7c6-4"
+            ]
+          }
+        ],
+        "evidence": [
+          {
+            "path": "运行日志/business.jsonl",
+            "sha256": "aaadf0b2901d2cb69e298a41be0118017d9deadfdfefd5334328191063ed931f"
+          },
+          {
+            "path": "运行日志/业务调用.jsonl",
+            "sha256": "8d619b0d6f5da075d69128ea5b9bd89cdcf86f03cc59f16c18c2888bc01ece1e"
+          }
+        ],
+        "cleanup": {
+          "status": "retained",
+          "description": "会话保留；未读标记已由后续进入会话清除",
+          "read_refs": []
+        },
+        "business_call_refs": [
+          "CALL-bf9d474e-bb98-4503-a6ee-44345e1e98cd"
+        ],
+        "notes": "原问题：原文“未读：空闲”，dotState=idle被错算成0。本轮按行状态区语义解码：状态区含“未读”记1，dot元素数1且无并列额外标记记0。原始状态文本与data-state见raw。"
+      },
+      "evidence_checks": [
+        {
+          "path": "运行日志/business.jsonl",
+          "exists": true,
+          "hash_matches": true
+        },
+        {
+          "path": "运行日志/业务调用.jsonl",
+          "exists": true,
+          "hash_matches": true
+        }
+      ]
+    },
+    {
+      "file": "结果\\G8-06.json",
+      "sha256": "d895169fa42f9cd44cec511a87d3e4481a64c866f35d881bf516170f8b227c40",
+      "record": {
+        "case_id": "G8-06",
+        "contract_version": "retest-1.0",
+        "attempt_id": "G8-06-A02",
+        "environment_id": "env-20261006-agent2",
+        "object_identity": "本轮会话成功read工具步骤",
+        "inputs": [
+          "请在目录 .fast-assert-20261006-agent2 中读取 flow.txt"
+        ],
+        "action_refs": [
+          "business-5a01b2d8-a503-4ead-bb4e-c9710a7f0f38-1",
+          "business-5a01b2d8-a503-4ead-bb4e-c9710a7f0f38-2"
+        ],
+        "status": "不确定",
+        "started_at": "2026-10-06T09:35:51.581Z",
+        "ended_at": "2026-10-06T09:36:21.135Z",
+        "actual_steps": [
+          "发起本轮文件读取并等待终态",
+          "定位工具调用步骤节点",
+          "尝试读取该步骤参数与输出"
+        ],
+        "assertions": [
+          {
+            "id": "G8-06-A1",
+            "actual": null,
+            "read_refs": [
+              "business-5a01b2d8-a503-4ead-bb4e-c9710a7f0f38-7"
+            ],
+            "reason": "展开后工具步骤节点文本为空，未定位到实际参数路径",
+            "failed_dependency": "工具步骤详情渲染/定位"
+          },
+          {
+            "id": "G8-06-A2",
+            "actual": null,
+            "read_refs": [
+              "business-5a01b2d8-a503-4ead-bb4e-c9710a7f0f38-8"
+            ],
+            "reason": "展开后工具步骤节点文本为空，未定位到实际输出",
+            "failed_dependency": "工具步骤详情渲染/定位"
+          }
+        ],
+        "evidence": [
+          {
+            "path": "运行日志/business.jsonl",
+            "sha256": "aaadf0b2901d2cb69e298a41be0118017d9deadfdfefd5334328191063ed931f"
+          },
+          {
+            "path": "运行日志/业务调用.jsonl",
+            "sha256": "8d619b0d6f5da075d69128ea5b9bd89cdcf86f03cc59f16c18c2888bc01ece1e"
+          }
+        ],
+        "cleanup": {
+          "status": "retained",
+          "description": "本轮会话保留待审；无设置/资产变更",
+          "read_refs": []
+        },
+        "business_call_refs": [
+          "CALL-3ce9c8f1-39d6-4699-b1a1-56e615fc66dc"
+        ],
+        "notes": "原问题：整页包含工具路径与用户请求，不证明参数输出已显示。本轮定位到 [data-slot=\"tool.call.toolview\"] 步骤节点，但其 innerText 为空，未取到参数/输出，故两项记未观测。"
+      },
+      "evidence_checks": [
+        {
+          "path": "运行日志/business.jsonl",
+          "exists": true,
+          "hash_matches": true
+        },
+        {
+          "path": "运行日志/业务调用.jsonl",
+          "exists": true,
+          "hash_matches": true
+        }
+      ]
+    },
+    {
+      "file": "结果\\G8-07.json",
+      "sha256": "720bc2bf7a248c7101cb7ffb60c1dece5d5698526b0fa352de14fa7792d4e7dc",
+      "record": {
+        "case_id": "G8-07",
+        "contract_version": "retest-1.0",
+        "attempt_id": "G8-07-A02",
+        "environment_id": "env-20261006-agent2",
+        "object_identity": "本轮长行文件读取工具步骤输出容器",
+        "inputs": [
+          "读取 long.txt"
+        ],
+        "action_refs": [
+          "business-8a6f3080-1b55-48c5-9b1e-3ceaf55b9772-1",
+          "business-8a6f3080-1b55-48c5-9b1e-3ceaf55b9772-2"
+        ],
+        "status": "失败",
+        "started_at": "2026-10-06T10:14:46.948Z",
+        "ended_at": "2026-10-06T10:15:44.372Z",
+        "actual_steps": [
+          "发起long.txt读取并等待终态",
+          "展开该工具步骤",
+          "读取输出容器尺寸与overflow",
+          "读取完整输出文本"
+        ],
+        "assertions": [
+          {
+            "id": "G8-07-A1",
+            "actual": false,
+            "read_refs": [
+              "business-8a6f3080-1b55-48c5-9b1e-3ceaf55b9772-3"
+            ]
+          },
+          {
+            "id": "G8-07-A2",
+            "actual": "代码块.fast-assert-20261006-agent2\\long.txt1FAST_LONG_LINE_0012FAST_LONG_LINE_0023FAST_LONG_LINE_0034FAST_LONG_LINE_004… 其余 192 行197FAST_LONG_LINE_197198FAST_LONG_LINE_198199FAST_LONG_LINE_199200FAST_LONG_LINE_200",
+            "read_refs": [
+              "business-8a6f3080-1b55-48c5-9b1e-3ceaf55b9772-4"
+            ]
+          }
+        ],
+        "evidence": [
+          {
+            "path": "运行日志/business.jsonl",
+            "sha256": "aaadf0b2901d2cb69e298a41be0118017d9deadfdfefd5334328191063ed931f"
+          },
+          {
+            "path": "运行日志/业务调用.jsonl",
+            "sha256": "8d619b0d6f5da075d69128ea5b9bd89cdcf86f03cc59f16c18c2888bc01ece1e"
+          }
+        ],
+        "cleanup": {
+          "status": "unchanged",
+          "description": "本轮会话保留，无设置/资产变更",
+          "read_refs": []
+        },
+        "business_call_refs": [
+          "CALL-092e8893-0154-4c9a-a5c0-40f06c0f0061"
+        ],
+        "notes": "原问题：输出选择器没有找到对象。本轮定位到 [data-slot=\"tool.call.toolview\"] 内 [class*=\"readBody\"] 输出容器：scrollHeight=clientHeight=239、overflow visible，未产生内部滚动(A1=false)；但存在“展开其余 192 行”控件说明是按行折叠而非滚动容器。完整输出含 FAST_LONG_LINE_200(A2通过)。"
+      },
+      "evidence_checks": [
+        {
+          "path": "运行日志/business.jsonl",
+          "exists": true,
+          "hash_matches": true
+        },
+        {
+          "path": "运行日志/业务调用.jsonl",
+          "exists": true,
+          "hash_matches": true
+        }
+      ]
+    },
+    {
+      "file": "结果\\G8-08.json",
+      "sha256": "a35bb802be46878d4f9f268259da67f02833acbfb115b98a8c379b4847f67efe",
+      "record": {
+        "case_id": "G8-08",
+        "contract_version": "retest-1.0",
+        "attempt_id": "G8-08-A02",
+        "environment_id": "env-20261006-agent2",
+        "object_identity": "本轮工作目录deliver.txt + 会话产物文件卡",
+        "inputs": [
+          "创建 deliver.txt=FAST_DELIVER_OK"
+        ],
+        "action_refs": [
+          "business-536c0ba8-c0fe-4e31-8dcd-dedd659983aa-1",
+          "business-536c0ba8-c0fe-4e31-8dcd-dedd659983aa-2"
+        ],
+        "status": "不确定",
+        "started_at": "2026-10-06T10:25:31.337Z",
+        "ended_at": "2026-10-06T10:26:03.279Z",
+        "actual_steps": [
+          "选定已有项目并请求生成本轮文件",
+          "读取执行终态与助手回复",
+          "独立读取目标文件内容",
+          "在会话产物文件卡核对资源绝对路径"
+        ],
+        "assertions": [
+          {
+            "id": "G8-08-A1",
+            "actual": "FAST_DELIVER_OK",
+            "read_refs": [
+              "business-536c0ba8-c0fe-4e31-8dcd-dedd659983aa-4"
+            ]
+          },
+          {
+            "id": "G8-08-A2",
+            "actual": null,
+            "read_refs": [
+              "business-76fbe719-6a3c-40bd-a2c2-fadbd9341f97-1"
+            ],
+            "reason": "未找到带实际资源绝对路径的产物卡，仅有工具步骤内相对路径fileLink(deliver.txt)，无法与绝对路径比较",
+            "failed_dependency": "产物卡资源路径可见性"
+          }
+        ],
+        "evidence": [
+          {
+            "path": "运行日志/business.jsonl",
+            "sha256": "aaadf0b2901d2cb69e298a41be0118017d9deadfdfefd5334328191063ed931f"
+          },
+          {
+            "path": "运行日志/业务调用.jsonl",
+            "sha256": "8d619b0d6f5da075d69128ea5b9bd89cdcf86f03cc59f16c18c2888bc01ece1e"
+          }
+        ],
+        "cleanup": {
+          "status": "retained",
+          "description": "deliver.txt 与本轮会话保留待审",
+          "read_refs": []
+        },
+        "business_call_refs": [
+          "CALL-15f2ab8b-f222-442c-8a5d-a87526f06263"
+        ],
+        "notes": "原问题：文件确实未生成，产物卡读数来自用户请求文字。本轮文件实际生成内容=FAST_DELIVER_OK(A1通过)；会话内仅见工具步骤fileLink(相对路径)而无独立产物卡及绝对资源路径，A2无法比较记未观测。"
+      },
+      "evidence_checks": [
+        {
+          "path": "运行日志/business.jsonl",
+          "exists": true,
+          "hash_matches": true
+        },
+        {
+          "path": "运行日志/业务调用.jsonl",
+          "exists": true,
+          "hash_matches": true
+        }
+      ]
+    },
+    {
+      "file": "结果\\G8-09.json",
+      "sha256": "b8c919e1a0ee3d9f5c9ccb488b2e4886e8afc984609a01fa7f95e9aee4667eca",
+      "record": {
+        "case_id": "G8-09",
+        "contract_version": "retest-1.0",
+        "attempt_id": "G8-09-A02",
+        "environment_id": "env-20261006-agent2",
+        "object_identity": "本轮会话工具调用组合步骤",
+        "inputs": [
+          "请在目录 .fast-assert-20261006-agent2 中读取 flow.txt"
+        ],
+        "action_refs": [
+          "business-5a01b2d8-a503-4ead-bb4e-c9710a7f0f38-1",
+          "business-5a01b2d8-a503-4ead-bb4e-c9710a7f0f38-2",
+          "business-5a01b2d8-a503-4ead-bb4e-c9710a7f0f38-4",
+          "business-5a01b2d8-a503-4ead-bb4e-c9710a7f0f38-5"
+        ],
+        "status": "不确定",
+        "started_at": "2026-10-06T09:35:51.581Z",
+        "ended_at": "2026-10-06T09:36:21.135Z",
+        "actual_steps": [
+          "发起本轮文件读取并等待终态",
+          "读取工具步骤面板aria-expanded",
+          "实际展开并读取子步骤记录"
+        ],
+        "assertions": [
+          {
+            "id": "G8-09-A1",
+            "actual": true,
+            "read_refs": [
+              "business-5a01b2d8-a503-4ead-bb4e-c9710a7f0f38-3"
+            ]
+          },
+          {
+            "id": "G8-09-A2",
+            "actual": null,
+            "read_refs": [
+              "business-5a01b2d8-a503-4ead-bb4e-c9710a7f0f38-6"
+            ],
+            "reason": "展开后工具步骤节点文本为空，未读到实际执行记录",
+            "failed_dependency": "工具步骤详情渲染/定位"
+          }
+        ],
+        "evidence": [
+          {
+            "path": "运行日志/business.jsonl",
+            "sha256": "aaadf0b2901d2cb69e298a41be0118017d9deadfdfefd5334328191063ed931f"
+          },
+          {
+            "path": "运行日志/业务调用.jsonl",
+            "sha256": "8d619b0d6f5da075d69128ea5b9bd89cdcf86f03cc59f16c18c2888bc01ece1e"
+          }
+        ],
+        "cleanup": {
+          "status": "retained",
+          "description": "本轮会话保留待审；无设置/资产变更",
+          "read_refs": []
+        },
+        "business_call_refs": [
+          "CALL-3ce9c8f1-39d6-4699-b1a1-56e615fc66dc"
+        ],
+        "notes": "原问题：泛化aria-expanded与整页文字没有绑定目标组合工具组。本轮定位到 tool.call.toolview 步骤的 [aria-expanded]：默认 false(A1=true)；点击展开后节点文本仍为空，A2未观测。"
+      },
+      "evidence_checks": [
+        {
+          "path": "运行日志/business.jsonl",
+          "exists": true,
+          "hash_matches": true
+        },
+        {
+          "path": "运行日志/业务调用.jsonl",
+          "exists": true,
+          "hash_matches": true
+        }
+      ]
+    },
+    {
+      "file": "结果\\G8-10.json",
+      "sha256": "1aa972afbd0ee83a1108588bf7a4bf431337163fde390fd1fe6e39eb98aaccad",
+      "record": {
+        "case_id": "G8-10",
+        "contract_version": "retest-1.0",
+        "attempt_id": "G8-10-A02",
+        "environment_id": "env-20261006-agent2",
+        "object_identity": "本轮单次read工具记录",
+        "inputs": [
+          "单次读取 flow.txt"
+        ],
+        "action_refs": [
+          "business-8a6f3080-1b55-48c5-9b1e-3ceaf55b9772-5",
+          "business-8a6f3080-1b55-48c5-9b1e-3ceaf55b9772-6"
+        ],
+        "status": "通过",
+        "started_at": "2026-10-06T10:14:46.948Z",
+        "ended_at": "2026-10-06T10:15:44.372Z",
+        "actual_steps": [
+          "另建独立任务只成功读取一次文件",
+          "在该次工具记录检查父子节点是否有多层同类聚合嵌套"
+        ],
+        "assertions": [
+          {
+            "id": "G8-10-A1",
+            "actual": false,
+            "read_refs": [
+              "business-8a6f3080-1b55-48c5-9b1e-3ceaf55b9772-7"
+            ]
+          }
+        ],
+        "evidence": [
+          {
+            "path": "运行日志/business.jsonl",
+            "sha256": "aaadf0b2901d2cb69e298a41be0118017d9deadfdfefd5334328191063ed931f"
+          },
+          {
+            "path": "运行日志/业务调用.jsonl",
+            "sha256": "8d619b0d6f5da075d69128ea5b9bd89cdcf86f03cc59f16c18c2888bc01ece1e"
+          }
+        ],
+        "cleanup": {
+          "status": "unchanged",
+          "description": "本轮会话保留，无设置/资产变更",
+          "read_refs": []
+        },
+        "business_call_refs": [
+          "CALL-092e8893-0154-4c9a-a5c0-40f06c0f0061"
+        ],
+        "notes": "原问题：复用写盘任务且只数全页group数量。本轮独立单次读取：tool view 数=1、无嵌套 tool view、disclosure 深度=1，未出现至少两层同类聚合嵌套。"
+      },
+      "evidence_checks": [
+        {
+          "path": "运行日志/business.jsonl",
+          "exists": true,
+          "hash_matches": true
+        },
+        {
+          "path": "运行日志/业务调用.jsonl",
+          "exists": true,
+          "hash_matches": true
+        }
+      ]
+    },
+    {
+      "file": "结果\\G9-07.json",
+      "sha256": "fa96e1ce32f2f910509ebb7ddfb6fb31d764601ecbcfb252df7f3f6c64c65bb8",
+      "record": {
+        "case_id": "G9-07",
+        "contract_version": "retest-1.0",
+        "attempt_id": "G9-07-A02",
+        "environment_id": "env-20261006-agent2",
+        "object_identity": "唯一目录名缺name技能（variants/missing-name-dir）",
+        "inputs": [
+          "夹具/本轮/20261006-agent2/variants/missing-name-dir"
+        ],
+        "action_refs": [
+          "business-0626ea23-4434-4d27-bae4-252a1e811ece-2",
+          "business-0626ea23-4434-4d27-bae4-252a1e811ece-3"
+        ],
+        "status": "失败",
+        "started_at": "2026-10-06T08:37:36.889Z",
+        "ended_at": "2026-10-06T08:38:15.711Z",
+        "actual_steps": [
+          "提交前读取技能安装目录身份集合",
+          "导入唯一目录名的缺name样本",
+          "读取本次导入反馈",
+          "提交后回读身份集合"
+        ],
+        "assertions": [
+          {
+            "id": "G9-07-A1",
+            "actual": false,
+            "read_refs": [
+              "business-4e818521-c775-4d47-a9a2-9699115349e3-3"
+            ]
+          },
+          {
+            "id": "G9-07-A2",
+            "actual": {
+              "before": [
+                "configure-connector",
+                "create-connector",
+                "create-skill",
+                "duplicate",
+                "expert-manager",
+                "fast-assert-bad-png-20261006-oc1",
+                "fast-assert-cn-all-20261006-oc1",
+                "fast-assert-cn-en-20261006-oc1",
+                "fast-assert-cn-tech-20261006-oc1",
+                "fast-assert-declared-market-20261006-oc1",
+                "fast-assert-default-20261006-agent2",
+                "fast-assert-desc-en-20261006-oc1",
+                "fast-assert-desc-tech-20261006-oc1",
+                "fast-assert-en-cn-20261006-oc1",
+                "fast-assert-minimal-20261006-oc1",
+                "fast-assert-missing-description-20261006-agent2",
+                "fast-assert-missing-description-20261006-oc1",
+                "fast-assert-missing-icon-20261006-oc1",
+                "fast-assert-network-icon-20261006-oc1",
+                "fast-assert-rich-20261006-oc1",
+                "fast-assert-root-20261006-oc1",
+                "fast-assert-skill-20261006-agent2",
+                "fast-assert-skill-20261006-oc1",
+                "fast-assert-skillb-20261006-agent2",
+                "fast-assert-skillc-20261006-agent2",
+                "fast-assert-trash-20261006-oc1",
+                "fast-reg-skill-20261006095332",
+                "find-skills",
+                "indicator-data-query",
+                "indicator-info-query",
+                "invalid",
+                "lims-report-analysis",
+                "lims-report-query",
+                "mes-production-query",
+                "round-created-skill-20261006",
+                "round-description-fallback",
+                "round-forged-market-type",
+                "round-guided-create-20261006",
+                "round-import-probe-20261005",
+                "round-inflight-long-toggle-20261006",
+                "round-inflight-toggle-20261006",
+                "round-missing-description",
+                "round-name-cn-fallback",
+                "round-name-cn-priority",
+                "round-name-en-fallback",
+                "round-night-invalid-only-20261006",
+                "round-night-md-direct-20261006",
+                "round-night-root-20261006",
+                "round-night-trash-20261006",
+                "round-no-version",
+                "round-optional-fields",
+                "round-rich-skill-20261006",
+                "round-search-name-en-20261006",
+                "round-skill-absolute-20261006",
+                "round-skill-bad-png-20261006",
+                "round-skill-neighbor-20261006",
+                "round-skill-network-20261006",
+                "round-skill-no-icon-20261006",
+                "round-skill-traversal-20261006",
+                "tpt-internal-system",
+                "uploaded-skill",
+                "valid",
+                "valid-one"
+              ],
+              "after": [
+                "configure-connector",
+                "create-connector",
+                "create-skill",
+                "duplicate",
+                "expert-manager",
+                "fast-assert-bad-png-20261006-oc1",
+                "fast-assert-cn-all-20261006-oc1",
+                "fast-assert-cn-en-20261006-oc1",
+                "fast-assert-cn-tech-20261006-oc1",
+                "fast-assert-declared-market-20261006-oc1",
+                "fast-assert-default-20261006-agent2",
+                "fast-assert-desc-en-20261006-oc1",
+                "fast-assert-desc-tech-20261006-oc1",
+                "fast-assert-en-cn-20261006-oc1",
+                "fast-assert-minimal-20261006-oc1",
+                "fast-assert-missing-description-20261006-agent2",
+                "fast-assert-missing-description-20261006-oc1",
+                "fast-assert-missing-icon-20261006-oc1",
+                "fast-assert-network-icon-20261006-oc1",
+                "fast-assert-rich-20261006-oc1",
+                "fast-assert-root-20261006-oc1",
+                "fast-assert-skill-20261006-agent2",
+                "fast-assert-skill-20261006-oc1",
+                "fast-assert-skillb-20261006-agent2",
+                "fast-assert-skillc-20261006-agent2",
+                "fast-assert-trash-20261006-oc1",
+                "fast-reg-skill-20261006095332",
+                "find-skills",
+                "indicator-data-query",
+                "indicator-info-query",
+                "invalid",
+                "lims-report-analysis",
+                "lims-report-query",
+                "mes-production-query",
+                "missing-name-dir",
+                "round-created-skill-20261006",
+                "round-description-fallback",
+                "round-forged-market-type",
+                "round-guided-create-20261006",
+                "round-import-probe-20261005",
+                "round-inflight-long-toggle-20261006",
+                "round-inflight-toggle-20261006",
+                "round-missing-description",
+                "round-name-cn-fallback",
+                "round-name-cn-priority",
+                "round-name-en-fallback",
+                "round-night-invalid-only-20261006",
+                "round-night-md-direct-20261006",
+                "round-night-root-20261006",
+                "round-night-trash-20261006",
+                "round-no-version",
+                "round-optional-fields",
+                "round-rich-skill-20261006",
+                "round-search-name-en-20261006",
+                "round-skill-absolute-20261006",
+                "round-skill-bad-png-20261006",
+                "round-skill-neighbor-20261006",
+                "round-skill-network-20261006",
+                "round-skill-no-icon-20261006",
+                "round-skill-traversal-20261006",
+                "tpt-internal-system",
+                "uploaded-skill",
+                "valid",
+                "valid-one"
+              ]
+            },
+            "read_refs": [
+              "business-0626ea23-4434-4d27-bae4-252a1e811ece-1",
+              "business-0626ea23-4434-4d27-bae4-252a1e811ece-5"
+            ]
+          }
+        ],
+        "evidence": [
+          {
+            "path": "运行日志/business.jsonl",
+            "sha256": "aaadf0b2901d2cb69e298a41be0118017d9deadfdfefd5334328191063ed931f"
+          },
+          {
+            "path": "运行日志/业务调用.jsonl",
+            "sha256": "8d619b0d6f5da075d69128ea5b9bd89cdcf86f03cc59f16c18c2888bc01ece1e"
+          }
+        ],
+        "cleanup": {
+          "status": "retained",
+          "description": "本轮导入对象保留待审",
+          "read_refs": []
+        },
+        "business_call_refs": [
+          "CALL-a8d274aa-52e9-4458-ab8c-ff07e371f1fd"
+        ],
+        "notes": "原问题：此前反馈为“已跳过同名uploaded-skill”，未测到缺name校验。本轮用唯一目录名 missing-name-dir 保留 name 缺失；导入弹窗关闭且安装目录多出一项（63→64），未出现缺name拒绝反馈。上一attempt（单文件 SKILL.md 缺name）反馈为“已跳过同名技能：uploaded-skill”，仅作对照，保留在历史。"
+      },
+      "evidence_checks": [
+        {
+          "path": "运行日志/business.jsonl",
+          "exists": true,
+          "hash_matches": true
+        },
+        {
+          "path": "运行日志/业务调用.jsonl",
+          "exists": true,
+          "hash_matches": true
+        }
+      ]
+    },
+    {
+      "file": "结果\\G9-08.json",
+      "sha256": "d3ec38a6579faedd4dd1d81cd285268e673859510bae16e681c6bfc9d83047c1",
+      "record": {
+        "case_id": "G9-08",
+        "contract_version": "retest-1.0",
+        "attempt_id": "G9-08-A02",
+        "environment_id": "env-20261006-agent2",
+        "object_identity": "缺description技能（variants/missing-description）",
+        "inputs": [
+          "夹具/本轮/20261006-agent2/variants/missing-description/SKILL.md"
+        ],
+        "action_refs": [
+          "business-70e10507-2350-49c9-8975-f6605ddb229c-7",
+          "business-70e10507-2350-49c9-8975-f6605ddb229c-8"
+        ],
+        "status": "失败",
+        "started_at": "2026-10-06T08:36:09.885Z",
+        "ended_at": "2026-10-06T08:36:50.538Z",
+        "actual_steps": [
+          "提交前读取技能安装目录身份集合",
+          "导入缺技术description的新身份样本",
+          "读取本次导入反馈",
+          "提交后回读身份集合"
+        ],
+        "assertions": [
+          {
+            "id": "G9-08-A1",
+            "actual": false,
+            "read_refs": [
+              "business-4e818521-c775-4d47-a9a2-9699115349e3-4"
+            ]
+          },
+          {
+            "id": "G9-08-A2",
+            "actual": {
+              "before": [
+                "configure-connector",
+                "create-connector",
+                "create-skill",
+                "duplicate",
+                "expert-manager",
+                "fast-assert-bad-png-20261006-oc1",
+                "fast-assert-cn-all-20261006-oc1",
+                "fast-assert-cn-en-20261006-oc1",
+                "fast-assert-cn-tech-20261006-oc1",
+                "fast-assert-declared-market-20261006-oc1",
+                "fast-assert-default-20261006-agent2",
+                "fast-assert-desc-en-20261006-oc1",
+                "fast-assert-desc-tech-20261006-oc1",
+                "fast-assert-en-cn-20261006-oc1",
+                "fast-assert-minimal-20261006-oc1",
+                "fast-assert-missing-description-20261006-oc1",
+                "fast-assert-missing-icon-20261006-oc1",
+                "fast-assert-network-icon-20261006-oc1",
+                "fast-assert-rich-20261006-oc1",
+                "fast-assert-root-20261006-oc1",
+                "fast-assert-skill-20261006-agent2",
+                "fast-assert-skill-20261006-oc1",
+                "fast-assert-skillb-20261006-agent2",
+                "fast-assert-skillc-20261006-agent2",
+                "fast-assert-trash-20261006-oc1",
+                "fast-reg-skill-20261006095332",
+                "find-skills",
+                "indicator-data-query",
+                "indicator-info-query",
+                "invalid",
+                "lims-report-analysis",
+                "lims-report-query",
+                "mes-production-query",
+                "round-created-skill-20261006",
+                "round-description-fallback",
+                "round-forged-market-type",
+                "round-guided-create-20261006",
+                "round-import-probe-20261005",
+                "round-inflight-long-toggle-20261006",
+                "round-inflight-toggle-20261006",
+                "round-missing-description",
+                "round-name-cn-fallback",
+                "round-name-cn-priority",
+                "round-name-en-fallback",
+                "round-night-invalid-only-20261006",
+                "round-night-md-direct-20261006",
+                "round-night-root-20261006",
+                "round-night-trash-20261006",
+                "round-no-version",
+                "round-optional-fields",
+                "round-rich-skill-20261006",
+                "round-search-name-en-20261006",
+                "round-skill-absolute-20261006",
+                "round-skill-bad-png-20261006",
+                "round-skill-neighbor-20261006",
+                "round-skill-network-20261006",
+                "round-skill-no-icon-20261006",
+                "round-skill-traversal-20261006",
+                "tpt-internal-system",
+                "uploaded-skill",
+                "valid",
+                "valid-one"
+              ],
+              "after": [
+                "configure-connector",
+                "create-connector",
+                "create-skill",
+                "duplicate",
+                "expert-manager",
+                "fast-assert-bad-png-20261006-oc1",
+                "fast-assert-cn-all-20261006-oc1",
+                "fast-assert-cn-en-20261006-oc1",
+                "fast-assert-cn-tech-20261006-oc1",
+                "fast-assert-declared-market-20261006-oc1",
+                "fast-assert-default-20261006-agent2",
+                "fast-assert-desc-en-20261006-oc1",
+                "fast-assert-desc-tech-20261006-oc1",
+                "fast-assert-en-cn-20261006-oc1",
+                "fast-assert-minimal-20261006-oc1",
+                "fast-assert-missing-description-20261006-agent2",
+                "fast-assert-missing-description-20261006-oc1",
+                "fast-assert-missing-icon-20261006-oc1",
+                "fast-assert-network-icon-20261006-oc1",
+                "fast-assert-rich-20261006-oc1",
+                "fast-assert-root-20261006-oc1",
+                "fast-assert-skill-20261006-agent2",
+                "fast-assert-skill-20261006-oc1",
+                "fast-assert-skillb-20261006-agent2",
+                "fast-assert-skillc-20261006-agent2",
+                "fast-assert-trash-20261006-oc1",
+                "fast-reg-skill-20261006095332",
+                "find-skills",
+                "indicator-data-query",
+                "indicator-info-query",
+                "invalid",
+                "lims-report-analysis",
+                "lims-report-query",
+                "mes-production-query",
+                "round-created-skill-20261006",
+                "round-description-fallback",
+                "round-forged-market-type",
+                "round-guided-create-20261006",
+                "round-import-probe-20261005",
+                "round-inflight-long-toggle-20261006",
+                "round-inflight-toggle-20261006",
+                "round-missing-description",
+                "round-name-cn-fallback",
+                "round-name-cn-priority",
+                "round-name-en-fallback",
+                "round-night-invalid-only-20261006",
+                "round-night-md-direct-20261006",
+                "round-night-root-20261006",
+                "round-night-trash-20261006",
+                "round-no-version",
+                "round-optional-fields",
+                "round-rich-skill-20261006",
+                "round-search-name-en-20261006",
+                "round-skill-absolute-20261006",
+                "round-skill-bad-png-20261006",
+                "round-skill-neighbor-20261006",
+                "round-skill-network-20261006",
+                "round-skill-no-icon-20261006",
+                "round-skill-traversal-20261006",
+                "tpt-internal-system",
+                "uploaded-skill",
+                "valid",
+                "valid-one"
+              ]
+            },
+            "read_refs": [
+              "business-70e10507-2350-49c9-8975-f6605ddb229c-6",
+              "business-70e10507-2350-49c9-8975-f6605ddb229c-10"
+            ]
+          }
+        ],
+        "evidence": [
+          {
+            "path": "运行日志/business.jsonl",
+            "sha256": "aaadf0b2901d2cb69e298a41be0118017d9deadfdfefd5334328191063ed931f"
+          },
+          {
+            "path": "运行日志/业务调用.jsonl",
+            "sha256": "8d619b0d6f5da075d69128ea5b9bd89cdcf86f03cc59f16c18c2888bc01ece1e"
+          }
+        ],
+        "cleanup": {
+          "status": "retained",
+          "description": "本轮导入对象保留待审",
+          "read_refs": []
+        },
+        "business_call_refs": [
+          "CALL-1656feb7-cdc1-4fdb-98a6-10244e2cfd26"
+        ],
+        "notes": "原问题：样本提交前已存在且被同名跳过。本轮使用尚未安装的新身份 fast-assert-missing-description-20261006-agent2，导入后弹窗关闭、身份集合 62→63（新增正式对象），未出现缺description拒绝反馈。后续attempt因同名跳过，仅作对照。"
+      },
+      "evidence_checks": [
+        {
+          "path": "运行日志/business.jsonl",
+          "exists": true,
+          "hash_matches": true
+        },
+        {
+          "path": "运行日志/业务调用.jsonl",
+          "exists": true,
+          "hash_matches": true
+        }
+      ]
+    },
+    {
+      "file": "结果\\G9-12.json",
+      "sha256": "7aa294c297610b0dadc8bfc1a0c351b4fcfe2468b0d85af3b6ee15588b5df263",
+      "record": {
+        "case_id": "G9-12",
+        "contract_version": "retest-1.0",
+        "attempt_id": "G9-12-A02",
+        "environment_id": "env-20261006-agent2",
+        "object_identity": "fast-assert-rich-20261006-agent2 卡片图标",
+        "inputs": [
+          "zips/rich.zip"
+        ],
+        "action_refs": [
+          "business-174c18f6-29c0-44d8-80b3-f4e8d1c55ec5-1",
+          "business-174c18f6-29c0-44d8-80b3-f4e8d1c55ec5-2"
+        ],
+        "status": "失败",
+        "started_at": "2026-10-06T09:28:43.280Z",
+        "ended_at": "2026-10-06T09:31:56.685Z",
+        "actual_steps": [
+          "导入rich.zip",
+          "按内部名定位本轮卡片",
+          "读取该卡片图标img的complete/naturalWidth与src",
+          "核对src资源是否属于本轮安装包"
+        ],
+        "assertions": [
+          {
+            "id": "G9-12-A1",
+            "actual": true,
+            "read_refs": [
+              "business-174c18f6-29c0-44d8-80b3-f4e8d1c55ec5-3"
+            ]
+          },
+          {
+            "id": "G9-12-A2",
+            "actual": false,
+            "read_refs": [
+              "business-174c18f6-29c0-44d8-80b3-f4e8d1c55ec5-4"
+            ]
+          }
+        ],
+        "evidence": [
+          {
+            "path": "运行日志/business.jsonl",
+            "sha256": "aaadf0b2901d2cb69e298a41be0118017d9deadfdfefd5334328191063ed931f"
+          },
+          {
+            "path": "运行日志/业务调用.jsonl",
+            "sha256": "8d619b0d6f5da075d69128ea5b9bd89cdcf86f03cc59f16c18c2888bc01ece1e"
+          }
+        ],
+        "cleanup": {
+          "status": "retained",
+          "description": "本轮导入对象保留待审",
+          "read_refs": []
+        },
+        "business_call_refs": [
+          "CALL-3ddc3c4b-fde7-46b6-a627-f789ccc339be"
+        ],
+        "notes": "原问题：显示img仍是默认SVG，安装目录存在文件不证明自定义PNG被展示。本轮按内部名定位卡片读取img：complete=true且naturalWidth=48(A1通过)，但src为data:image/svg+xml默认SVG而非安装包assets/icon.png(A2=false)。"
+      },
+      "evidence_checks": [
+        {
+          "path": "运行日志/business.jsonl",
+          "exists": true,
+          "hash_matches": true
+        },
+        {
+          "path": "运行日志/业务调用.jsonl",
+          "exists": true,
+          "hash_matches": true
+        }
+      ]
+    },
+    {
+      "file": "结果\\G9-13.json",
+      "sha256": "8280704b67edc385b70a8fff747653db5c9fa6afc3fb316e7926b1779b775607",
+      "record": {
+        "case_id": "G9-13",
+        "contract_version": "retest-1.0",
+        "attempt_id": "G9-13-A02",
+        "environment_id": "env-20261006-agent2",
+        "object_identity": "fast-assert-missing-icon-20261006-agent2 卡片图标",
+        "inputs": [
+          "zips/missing-icon.zip"
+        ],
+        "action_refs": [
+          "business-174c18f6-29c0-44d8-80b3-f4e8d1c55ec5-5",
+          "business-174c18f6-29c0-44d8-80b3-f4e8d1c55ec5-6"
+        ],
+        "status": "通过",
+        "started_at": "2026-10-06T09:28:43.280Z",
+        "ended_at": "2026-10-06T09:31:56.685Z",
+        "actual_steps": [
+          "导入missing-icon.zip",
+          "按内部名定位本轮卡片",
+          "读取图标节点资源URI与加载状态"
+        ],
+        "assertions": [
+          {
+            "id": "G9-13-A1",
+            "actual": true,
+            "read_refs": [
+              "business-174c18f6-29c0-44d8-80b3-f4e8d1c55ec5-7"
+            ]
+          },
+          {
+            "id": "G9-13-A2",
+            "actual": true,
+            "read_refs": [
+              "business-174c18f6-29c0-44d8-80b3-f4e8d1c55ec5-8"
+            ]
+          }
+        ],
+        "evidence": [
+          {
+            "path": "运行日志/business.jsonl",
+            "sha256": "aaadf0b2901d2cb69e298a41be0118017d9deadfdfefd5334328191063ed931f"
+          },
+          {
+            "path": "运行日志/业务调用.jsonl",
+            "sha256": "8d619b0d6f5da075d69128ea5b9bd89cdcf86f03cc59f16c18c2888bc01ece1e"
+          }
+        ],
+        "cleanup": {
+          "status": "retained",
+          "description": "本轮导入对象保留待审",
+          "read_refs": []
+        },
+        "business_call_refs": [
+          "CALL-3ddc3c4b-fde7-46b6-a627-f789ccc339be"
+        ],
+        "notes": "原问题：hasSVG可能来自其他图标。本轮按内部名定位卡片图标节点：产品默认SVG图标显示且无broken img。raw含src。"
+      },
+      "evidence_checks": [
+        {
+          "path": "运行日志/business.jsonl",
+          "exists": true,
+          "hash_matches": true
+        },
+        {
+          "path": "运行日志/业务调用.jsonl",
+          "exists": true,
+          "hash_matches": true
+        }
+      ]
+    },
+    {
+      "file": "结果\\G9-14.json",
+      "sha256": "16d756881eb5da868ab22ae79dee8e1c33d7dbdbf56452e465101f23c3bd48d3",
+      "record": {
+        "case_id": "G9-14",
+        "contract_version": "retest-1.0",
+        "attempt_id": "G9-14-A02",
+        "environment_id": "env-20261006-agent2",
+        "object_identity": "fast-assert-bad-png-20261006-agent2 卡片图标",
+        "inputs": [
+          "zips/bad-png.zip"
+        ],
+        "action_refs": [
+          "business-174c18f6-29c0-44d8-80b3-f4e8d1c55ec5-9",
+          "business-174c18f6-29c0-44d8-80b3-f4e8d1c55ec5-10"
+        ],
+        "status": "通过",
+        "started_at": "2026-10-06T09:28:43.280Z",
+        "ended_at": "2026-10-06T09:31:56.685Z",
+        "actual_steps": [
+          "导入bad-png.zip",
+          "按内部名定位本轮卡片",
+          "读取图标src/资源身份判断是否为本轮伪PNG",
+          "读取默认图标降级"
+        ],
+        "assertions": [
+          {
+            "id": "G9-14-A1",
+            "actual": false,
+            "read_refs": [
+              "business-174c18f6-29c0-44d8-80b3-f4e8d1c55ec5-11"
+            ]
+          },
+          {
+            "id": "G9-14-A2",
+            "actual": true,
+            "read_refs": [
+              "business-174c18f6-29c0-44d8-80b3-f4e8d1c55ec5-12"
+            ]
+          }
+        ],
+        "evidence": [
+          {
+            "path": "运行日志/business.jsonl",
+            "sha256": "aaadf0b2901d2cb69e298a41be0118017d9deadfdfefd5334328191063ed931f"
+          },
+          {
+            "path": "运行日志/业务调用.jsonl",
+            "sha256": "8d619b0d6f5da075d69128ea5b9bd89cdcf86f03cc59f16c18c2888bc01ece1e"
+          }
+        ],
+        "cleanup": {
+          "status": "retained",
+          "description": "本轮导入对象保留待审",
+          "read_refs": []
+        },
+        "business_call_refs": [
+          "CALL-3ddc3c4b-fde7-46b6-a627-f789ccc339be"
+        ],
+        "notes": "原问题：原始img是已加载默认SVG被误判为坏PNG渲染。本轮核对src：图标为产品默认SVG(data:image/svg+xml)，src不指向安装包伪PNG，A1=false(未被当有效图像)，A2=true(默认降级)。"
+      },
+      "evidence_checks": [
+        {
+          "path": "运行日志/business.jsonl",
+          "exists": true,
+          "hash_matches": true
+        },
+        {
+          "path": "运行日志/业务调用.jsonl",
+          "exists": true,
+          "hash_matches": true
+        }
+      ]
+    }
+  ],
+  "file_count": 814
+}

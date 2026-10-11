@@ -1,0 +1,34 @@
+{
+  "case_id": "G5-08",
+  "status": "通过",
+  "started_at": "2026-10-06T10:12:30+08:00",
+  "ended_at": "2026-10-06T10:13:30+08:00",
+  "actual_steps": [
+    "打开导入专家弹窗",
+    "选择 expert-bad-json 目录并提交",
+    "观察校验结果、列表与源文件"
+  ],
+  "observed": "提交后提示“所选内容不是有效的专家包：需要包含 agent.md 与 metadata.json。”及“import package expert-bad-json missing valid metadata.json”。我的专家计数保持 13，无半成品对象；源夹具文件哈希与导入前一致（G5-06-source-hash.txt）。导入被拒绝且源文件不变。",
+  "evidence": [
+    {
+      "path": "证据/G5-08-bad-json.png",
+      "sha256": "a5926203a8cc0fbb73366ffcd6bbf2da976fa4474d6f7f0adb97c51d2027b405"
+    },
+    {
+      "path": "证据/G5-bad-packages.txt",
+      "sha256": "b584eff10bf268901ead918981c8bfecde97a9cbe54f6c915887c729ca4460eb"
+    },
+    {
+      "path": "证据/G5-06-source-hash.txt",
+      "sha256": "bcb0c305be67a6e862d7153255c26571436731a08d259103caccfedfdec7d264"
+    }
+  ],
+  "cleanup": "关闭弹窗（×）。",
+  "timings": {
+    "操作等待秒": 30,
+    "产品执行秒": 10,
+    "取证登记秒": 10,
+    "排障恢复秒": 0
+  },
+  "group": "G5"
+}

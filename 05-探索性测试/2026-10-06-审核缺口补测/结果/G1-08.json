@@ -1,0 +1,49 @@
+{
+  "case_id": "G1-08",
+  "contract_version": "retest-1.0",
+  "attempt_id": "G1-08-A02",
+  "environment_id": "env-20261006-agent2",
+  "object_identity": "session-6282bf58-12ec-47cf-a0c0-c6320a7fd190",
+  "inputs": [
+    "用一个代码块输出字母A和B，每行一个，不要其他内容。"
+  ],
+  "action_refs": [
+    "business-5ab39283-9c6f-4c6f-801e-7d8bf64b077c-12"
+  ],
+  "status": "通过",
+  "started_at": "2026-10-06T08:16:56.436Z",
+  "ended_at": "2026-10-06T08:17:26.051Z",
+  "actual_steps": [
+    "新建任务并选择已有项目",
+    "发送代码块请求并等待终态",
+    "读取目标会话chat区域内文件产物元素"
+  ],
+  "assertions": [
+    {
+      "id": "G1-08-A1",
+      "actual": 0,
+      "read_refs": [
+        "business-5ab39283-9c6f-4c6f-801e-7d8bf64b077c-14"
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "path": "运行日志/business.jsonl",
+      "sha256": "aaadf0b2901d2cb69e298a41be0118017d9deadfdfefd5334328191063ed931f"
+    },
+    {
+      "path": "运行日志/业务调用.jsonl",
+      "sha256": "8d619b0d6f5da075d69128ea5b9bd89cdcf86f03cc59f16c18c2888bc01ece1e"
+    }
+  ],
+  "cleanup": {
+    "status": "retained",
+    "description": "本轮新增代码块会话保留待审，无设置或资产变更",
+    "read_refs": []
+  },
+  "business_call_refs": [
+    "CALL-dac552e6-620d-429f-906d-a0925f38e8f3"
+  ],
+  "notes": "原问题：产物计数来自未经验证的全页启发式选择器。本轮目标会话代码块读取为 A\\nB（见日志-13），产物统计限定该会话 chat 区域。"
+}

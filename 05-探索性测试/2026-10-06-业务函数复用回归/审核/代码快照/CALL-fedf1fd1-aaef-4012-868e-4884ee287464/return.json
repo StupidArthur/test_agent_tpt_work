@@ -1,0 +1,67 @@
+{
+  "observations": {
+    "action_refs": [
+      "business-bceca958-bfa3-4a5c-af30-05d62870e2e8-3",
+      "business-bceca958-bfa3-4a5c-af30-05d62870e2e8-7"
+    ],
+    "observations": {
+      "before": {
+        "event_id": "business-bceca958-bfa3-4a5c-af30-05d62870e2e8-1",
+        "captured_at": "2026-10-06T11:43:38.000Z",
+        "environment_id": "env-fn-20261006-agent2",
+        "kind": "read",
+        "target": "技能列表(上传前)",
+        "business_call_id": "CALL-fedf1fd1-aaef-4012-868e-4884ee287464",
+        "object_id": "skill-list-count",
+        "source": {
+          "channel": "dom",
+          "scope": "技能页/我的技能列表",
+          "locator": "[data-slot=\"card\"]"
+        },
+        "value": 39,
+        "raw": {
+          "count": 39
+        },
+        "derivation": "卡片计数"
+      },
+      "beforeConfirm": {
+        "event_id": "business-bceca958-bfa3-4a5c-af30-05d62870e2e8-4",
+        "captured_at": "2026-10-06T11:43:40.906Z",
+        "environment_id": "env-fn-20261006-agent2",
+        "kind": "read",
+        "target": "技能列表(确认前)",
+        "business_call_id": "CALL-fedf1fd1-aaef-4012-868e-4884ee287464",
+        "object_id": "skill-list-count",
+        "source": {
+          "channel": "dom",
+          "scope": "技能页/我的技能列表",
+          "locator": "[data-slot=\"card\"]"
+        },
+        "value": 39,
+        "raw": {
+          "count": 39
+        },
+        "derivation": "卡片计数"
+      },
+      "candidates": {
+        "event_id": "business-bceca958-bfa3-4a5c-af30-05d62870e2e8-5",
+        "captured_at": "2026-10-06T11:43:40.912Z",
+        "environment_id": "env-fn-20261006-agent2",
+        "kind": "read",
+        "target": "导入候选",
+        "business_call_id": "CALL-fedf1fd1-aaef-4012-868e-4884ee287464",
+        "object_id": "skill-import-candidates",
+        "source": {
+          "channel": "dom",
+          "scope": "技能页/导入弹窗",
+          "locator": "[role=\"dialog\"]"
+        },
+        "value": "导入技能 每次导入一个技能：选择 ZIP、SKILL.md 或 Skill 文件夹。 选择文件 选择文件夹 ZIP root.zip 1 个文件 · 578 B × 文件要求 压缩包或文件夹需包含 SKILL.md SKILL.md 需包含 YAML 格式的技能名称和描述 导入时复制完整内容，不修改原始来源 取消 导入",
+        "raw": {
+          "text": "导入技能 每次导入一个技能：选择 ZIP、SKILL.md 或 Skill 文件夹。 选择文件 选择文件夹 ZIP root.zip 1 个文件 · 578 B × 文件要求 压缩包或文件夹需包含 SKILL.md SKILL.md 需包含 YAML 格式的技能名称和描述 导入时复制完整内容，不修改原始来源 取消 导入"
+        },
+        "derivation": "导入弹窗文本（候选）"
+      }
+    }
+  }
+}

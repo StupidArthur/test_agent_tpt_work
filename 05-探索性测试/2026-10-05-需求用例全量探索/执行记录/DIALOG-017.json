@@ -1,0 +1,125 @@
+{
+  "case_id": "DIALOG-017",
+  "case_title": "跨轮附件上限独立",
+  "source_sha256": "b712acd3b204ebcfdd07129c4d993ea1beb184f9a2d0c3827745ee1fdf7a6677",
+  "status": "已执行-符合预期",
+  "review_status": "待双方审核",
+  "latest_attempt_id": "DIALOG-017-A01",
+  "attempts": [
+    {
+      "attempt_id": "DIALOG-017-A01",
+      "started_at": "2026-10-06T06:23:00+08:00",
+      "ended_at": "2026-10-05T22:27:02.755Z",
+      "environment_id": "ENV-001",
+      "surface": "Unified conversation composer and sent-message history UI via Electron CDP + Playwright",
+      "actual_preconditions": {
+        "account": "Arthur",
+        "project": "existing tpt-workspace",
+        "model": "standard / low",
+        "fixture": "35 tiny round-owned text files; task conversation created for this test"
+      },
+      "input": "Sent first message with attachments count-01 through count-20 and second message with count-21 through count-35; both prompts requested a fixed text-only response.",
+      "actual_steps": [
+        "In a new round-owned task, attached count-01.txt through count-20.txt and sent a harmless fixed-response request in Standard/low mode.",
+        "Observed the first user message with its 20 attachments and the assistant response.",
+        "In the next pending message, attached count-21.txt through count-35.txt; the UI showed exactly 15 cards.",
+        "Sent a second harmless fixed-response request; the second user message retained all 15 attachments.",
+        "No attachments were removed from message history; the round-owned task remains for review."
+      ],
+      "wait_condition": "Waited for each assistant fixed-text response and read back the corresponding sent user-message attachment state.",
+      "checkpoints": [
+        {
+          "expected_index": 1,
+          "expected": "按当前待发送轮次计数",
+          "observed": "After the first sent turn carried 20 attachments, the next turn’s pending composer contained exactly the 15 new attachments count-21.txt through count-35.txt.",
+          "verdict": "符合",
+          "evidence": [
+            "证据/DIALOG-017/DIALOG-017-A01/first-turn-20-message.png",
+            "证据/DIALOG-017/DIALOG-017-A01/first-turn-20-message.txt",
+            "证据/DIALOG-017/DIALOG-017-A01/second-turn-15-pending.png",
+            "证据/DIALOG-017/DIALOG-017-A01/second-turn-15-pending.json",
+            "证据/DIALOG-017/DIALOG-017-A01/second-turn-15-message.png",
+            "证据/DIALOG-017/DIALOG-017-A01/second-turn-15-message.txt",
+            "证据/DIALOG-017/DIALOG-017-A01/fixture-manifest.json"
+          ]
+        },
+        {
+          "expected_index": 2,
+          "expected": "不按历史累计限制",
+          "observed": "Both turns completed with 20 and 15 attachments respectively (35 total across the conversation); the second turn accepted all 15, showing the current-turn set was not limited by the earlier 20.",
+          "verdict": "符合",
+          "evidence": [
+            "证据/DIALOG-017/DIALOG-017-A01/first-turn-20-message.png",
+            "证据/DIALOG-017/DIALOG-017-A01/first-turn-20-message.txt",
+            "证据/DIALOG-017/DIALOG-017-A01/second-turn-15-pending.png",
+            "证据/DIALOG-017/DIALOG-017-A01/second-turn-15-pending.json",
+            "证据/DIALOG-017/DIALOG-017-A01/second-turn-15-message.png",
+            "证据/DIALOG-017/DIALOG-017-A01/second-turn-15-message.txt",
+            "证据/DIALOG-017/DIALOG-017-A01/fixture-manifest.json"
+          ]
+        }
+      ],
+      "observed_result": "The first sent round held 20 round-owned attachments; the next turn accepted a fresh 15 and sent them as a second message. All 35 attachments appeared across the two turns without applying the prior turn count to the new pending turn.",
+      "status": "已执行-符合预期",
+      "evidence": [
+        "证据/DIALOG-017/DIALOG-017-A01/first-turn-20-message.png",
+        "证据/DIALOG-017/DIALOG-017-A01/first-turn-20-message.txt",
+        "证据/DIALOG-017/DIALOG-017-A01/second-turn-15-pending.png",
+        "证据/DIALOG-017/DIALOG-017-A01/second-turn-15-pending.json",
+        "证据/DIALOG-017/DIALOG-017-A01/second-turn-15-message.png",
+        "证据/DIALOG-017/DIALOG-017-A01/second-turn-15-message.txt",
+        "证据/DIALOG-017/DIALOG-017-A01/fixture-manifest.json"
+      ],
+      "notes": "Only the round-owned test conversation and harmless fixture files were used. No real IM or external message was sent. The conversation is intentionally retained as round-owned test evidence; pending bilateral review.",
+      "cleanup": {
+        "changes": [],
+        "remaining": [
+          "The round-owned conversation and its 20/15 attached fixture references remain in task history for review. Source fixtures remain in the task fixture folder."
+        ]
+      }
+    }
+  ],
+  "product_observations": [
+    {
+      "observation_id": "OBS-244",
+      "feature_id": null,
+      "statement": "The first sent round held 20 round-owned attachments; the next turn accepted a fresh 15 and sent them as a second message. All 35 attachments appeared across the two turns without applying the prior turn count to the new pending turn.",
+      "case_ids": [
+        "DIALOG-017"
+      ],
+      "attempt_ids": [
+        "DIALOG-017-A01"
+      ],
+      "environment_id": "ENV-001",
+      "verified_depth": "Twenty attachments in the first sent round followed by a fresh fifteen in the next pending/sent round",
+      "scope_and_limits": "Two user turns in one round-owned test conversation; all 35 files are tiny harmless text fixtures. No external message was sent.",
+      "evidence": [
+        "证据/DIALOG-017/DIALOG-017-A01/first-turn-20-message.png",
+        "证据/DIALOG-017/DIALOG-017-A01/first-turn-20-message.txt",
+        "证据/DIALOG-017/DIALOG-017-A01/second-turn-15-pending.png",
+        "证据/DIALOG-017/DIALOG-017-A01/second-turn-15-pending.json",
+        "证据/DIALOG-017/DIALOG-017-A01/second-turn-15-message.png",
+        "证据/DIALOG-017/DIALOG-017-A01/second-turn-15-message.txt",
+        "证据/DIALOG-017/DIALOG-017-A01/fixture-manifest.json"
+      ],
+      "relation_to_design": "Pending bilateral review; scoped to this round-owned local chat session.",
+      "review_status": "待双方审核"
+    }
+  ],
+  "differences": [],
+  "finding_ids": [],
+  "blocker": null,
+  "applicability_reason": null,
+  "cleanup": {
+    "changes": [],
+    "remaining": [
+      "The round-owned conversation and its 20/15 attached fixture references remain in task history for review. Source fixtures remain in the task fixture folder."
+    ]
+  },
+  "review": {
+    "assistant": null,
+    "user": null,
+    "approved_scope": [],
+    "final_decision": "待审核"
+  }
+}

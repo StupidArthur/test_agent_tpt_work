@@ -1,0 +1,36 @@
+{
+  "case_id": "G13-10",
+  "contract_version": "2.0",
+  "environment_id": "agent-oc-20261006-funcfull-01",
+  "attempt_id": "G13-10-A01",
+  "object_identity": "cn-all 技能详情",
+  "inputs": [
+    "点击卡片主体打开详情"
+  ],
+  "business_call_refs": [
+    "CALL-e76997b9-a801-44c9-b465-e1d7ded51722"
+  ],
+  "status": "通过",
+  "attempted_at": "2026-10-06T17:17:12.911Z",
+  "assertions": [
+    {
+      "id": "G13-10-A1",
+      "expected": true,
+      "actual": true,
+      "pass": true,
+      "read_refs": [
+        "CALL-e76997b9-a801-44c9-b465-e1d7ded51722-3"
+      ],
+      "raw": {
+        "actualName": "fast-assert-cn-all-agent-oc-20261006-funcfull-01"
+      }
+    }
+  ],
+  "restore": {
+    "status": "unchanged",
+    "description": "本case未改动设置/文件",
+    "read_refs": []
+  },
+  "residual": "",
+  "notes": ""
+}

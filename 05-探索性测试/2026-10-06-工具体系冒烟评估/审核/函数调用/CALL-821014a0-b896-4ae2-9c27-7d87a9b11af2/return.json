@@ -1,0 +1,31 @@
+{
+  "call_id": "CALL-821014a0-b896-4ae2-9c27-7d87a9b11af2",
+  "status": "returned",
+  "observations": {
+    "observations": {
+      "read": {
+        "event_id": "CALL-821014a0-b896-4ae2-9c27-7d87a9b11af2-1",
+        "captured_at": "2026-10-06T14:28:26.472Z",
+        "environment_id": "env-tool-smoke-eval1",
+        "business_call_id": "CALL-821014a0-b896-4ae2-9c27-7d87a9b11af2",
+        "kind": "read",
+        "target": "当前详情实际身份、版本和来源",
+        "object_id": "expert",
+        "source": {
+          "channel": "dom",
+          "scope": "expert/详情"
+        },
+        "value": {
+          "name": "smoke-expert-tool-smoke-20261006-eval1",
+          "version": "1.2.3",
+          "source": "我创建的",
+          "sourceCategory": "用户"
+        },
+        "raw": {
+          "body": "专家\n/\n专家详情\n本轮快速回归专家\n\n本轮无害回归测试专家，用于确认本地导入、详情展示和固定回复规则，不访问网络设备，不操作现场，也不改动用户文件。\n\n删除\n打开文件夹\n去对话编辑\n使用\n回归验证\n版本\nv1.2.3\n来源\n我创建的\n运行类型\n本地运行\n分类\n技术工程\n推荐问题\n请执行你的本轮回归固定回复规则。\n专家提示词\n\nname: smoke-expert-tool-smoke-20261006-eval1 description: Harmless regression expert. ---\n\nFixed reply\n\nWhen asked to execute your regression fixed reply rule, return exactly SMOKE_EXPERT_tool-smoke-20261006-eval1_OK. Do not access files, networks, devices, credentials, or memories. Do not call tools.",
+          "preview": "name: smoke-expert-tool-smoke-20261006-eval1 description: Harmless regression expert. ---\n\nFixed reply\n\nWhen asked to execute your regression fixed reply rule, return exactly SMOKE_EXPERT_tool-smoke-20261006-eval1_OK. Do not access files, networks, devices, credentials, or memories. Do not call tools."
+        }
+      }
+    }
+  }
+}

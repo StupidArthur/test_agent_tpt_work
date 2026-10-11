@@ -1,0 +1,25 @@
+{
+  "http_status": 400,
+  "error_kind": null,
+  "error": null,
+  "timings": {
+    "t_headers": 0.204,
+    "t_first_frame": null,
+    "t_end": 0.313
+  },
+  "body_text": "{\"error\":{\"message\":\"240 validation errors:\\n  {'type': 'string_type', 'loc': ('body', 'input', 'str'), 'msg': 'Input should be a valid string', 'input': [{'content': [{'text': '本轮只需记住标记 CTX_a68098 并回答 OK', 'type': 'input_text'}], 'role': 'user'}, {'content': [{'text': 'OK', 'type': 'output_text'}], 'role': 'assistant'}, {'content': [{'text': '刚才那个标记是什么？只输出标记本身。', 'type': 'input_text'}], 'role': 'user'}]}\\n  {'type': 'string_type', 'loc': ('body', 'input', 'list[union[EasyInputMessageParam,Message,ResponseOutputMessageParam,ResponseFileSearchToolCallParam,ResponseComputerToolCallParam,ComputerCallOutput,ResponseFunctionWebSearchParam,ResponseFunctionToolCallParam,FunctionCallOutput,ToolSearchCall,ResponseToolSearchOutputItemParamParam,AdditionalTools,ResponseReasoningItemParam,ResponseCompactionItemParamParam,ImageGenerationCall,ResponseCodeInterpreterToolCallParam,LocalShellCall,LocalShellCallOutput,ShellCall,ShellCallOutput,ApplyPatchCall,ApplyPatchCallOutput,McpListTools,McpApprovalRequest,McpApprovalResponse,McpCall,ResponseCustomToolCallOutputParam,ResponseCustomToolCallParam,CompactionTrigger,ItemReference,Program,ProgramOutput,union[ResponseOutputMessage,ResponseFileSearchToolCall,ResponseFunctionToolCall,ResponseFunctionToolCallOutputItem,ResponseFunctionWebSearch,ResponseComputerToolCall,ResponseComputerToolCallOutputItem,ResponseReasoningItem,Program,ProgramOutput,ResponseToolSearchCall,ResponseToolSearchOutputItem,AdditionalTools,ResponseCompactionItem,ImageGenerationCall,ResponseCodeInterpreterToolCall,LocalShellCall,LocalShellCallOutput,ResponseFunctionShellToolCall,ResponseFunctionShellToolCallOutput,ResponseApplyPatchToolCall,ResponseApplyPatchToolCallOutput,McpCall,McpListTools,McpApprovalRequest,McpApprovalResponse,ResponseCustomToolCall,ResponseCustomToolCallOutputItem]]]', 1, 'EasyInputMessageParam', 'content', 'str'), 'msg': 'Input should be a valid string', 'input': [{'text': 'OK', 'type': 'output_text'}]}\\n  {'type': 'literal_error', 'loc': ('body', 'input', 'list[union[EasyInputMessageParam,Message,ResponseOutputMessageParam,ResponseFileSearchToolCallParam,ResponseComputerToolCallParam,ComputerCallOutput,ResponseFunctionWebSearchParam,ResponseFunctionToolCallParam,FunctionCallOutput,ToolSearchCall,ResponseToolSearchOutputItemParamParam,AdditionalTools,ResponseReasoningItemParam,ResponseCompactionItemParamParam,ImageGenerationCall,ResponseCodeInterpreterToolCallParam,LocalShellCall,LocalShellCallOutput,ShellCall,ShellCallOutput,ApplyPatchCall,ApplyPatchCallOutput,McpListTools,McpApprovalRequest,McpApprovalResponse,McpCall,ResponseCustomToolCallOutputParam,ResponseCustomToolCallParam,CompactionTrigger,ItemReference,Program,ProgramOutput,union[ResponseOutputMessage,ResponseFileSearchToolCall,ResponseFunctionToolCall,ResponseFunctionToolCallOutputItem,ResponseFunctionWebSearch,ResponseComputerToolCall,ResponseComputerToolCallOutputItem,ResponseReasoningItem,Program,ProgramOutput,ResponseToolSearchCall,ResponseToolSearchOutputItem,AdditionalTools,ResponseCompactionItem,ImageGenerationCall,ResponseCodeInterpreterToolCall,LocalShellCall,LocalShellCallOutput,ResponseFunctionShellToolCall,ResponseFunctionShellToolCallOutput,ResponseApplyPatchToolCall,ResponseApplyPatchToolCallOutput,McpCall,McpListTools,McpApprovalRequest,McpApprovalResponse,ResponseCustomToolCall,ResponseCustomToolCallOutputItem]]]', 1, 'EasyInputMessageParam', 'content', 'list[union[...,...,...]]', 0, 'ResponseInputTextParam', 'type'), 'msg': \\\"Input should be 'input_text'\\\", 'input': 'output_text', 'ctx': {'expected': \\\"'input_text'\\\"}}\\n  {'type': 'missing', 'loc': ('body', 'input', 'list[union[EasyInputMessageParam,Message,ResponseOutputMessageParam,ResponseFileSearchToolCallParam,ResponseComputerToolCallParam,ComputerCallOutput,ResponseFunctionWebSearchParam,ResponseFunctionToolCallParam,FunctionCallOutput,ToolSearchCall,ResponseToolSearchOutputItemParamParam,AdditionalTools,ResponseReasoningItemParam,ResponseCompactionItemParamParam,ImageG",
+  "frames": [],
+  "normalized": {
+    "protocol": "responses",
+    "text": "",
+    "reasoning": "",
+    "final_text": null,
+    "tool_calls": [],
+    "usage": null,
+    "terminal": null,
+    "terminal_reason": null,
+    "error_message": null,
+    "unknown_events": [],
+    "json_errors": []
+  }
+}

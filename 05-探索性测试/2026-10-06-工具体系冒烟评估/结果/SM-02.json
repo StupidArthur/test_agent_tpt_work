@@ -1,0 +1,59 @@
+{
+  "case_id": "SM-02",
+  "started_at": "2026-10-06T14:26:59.676Z",
+  "ended_at": "2026-10-06T14:27:07.362Z",
+  "status": "通过",
+  "assertions": [
+    {
+      "id": "SM-02-A1",
+      "actual": true,
+      "expected": true,
+      "pass": true,
+      "read_refs": [
+        "CALL-c1ab868e-5492-4400-9634-e178f1dbabd8-6"
+      ]
+    },
+    {
+      "id": "SM-02-A2",
+      "actual": "tpt-workspace",
+      "expected": "tpt-workspace",
+      "pass": true,
+      "read_refs": [
+        "CALL-c1ab868e-5492-4400-9634-e178f1dbabd8-5"
+      ]
+    },
+    {
+      "id": "SM-02-A3",
+      "actual": "标准/low",
+      "expected": "标准/low",
+      "pass": true,
+      "read_refs": [
+        "CALL-c1ab868e-5492-4400-9634-e178f1dbabd8-7"
+      ]
+    }
+  ],
+  "business_call_refs": [
+    "CALL-6aeab57d-3a53-4c3b-b1b6-5e65bcfca6a0",
+    "CALL-c1ab868e-5492-4400-9634-e178f1dbabd8",
+    "CALL-85d59df8-c2ff-40ef-8435-c243587378b1"
+  ],
+  "tool_discovery": {
+    "feature_path": [
+      "对话",
+      "创建与配置"
+    ],
+    "plan_functions": [
+      "conversation.newTask",
+      "conversation.readComposer"
+    ],
+    "used": [
+      "conversation.newTask"
+    ],
+    "additional_functions": [],
+    "all_product_operations_via_functions": true
+  },
+  "error": null,
+  "attempt": "A04",
+  "supersedes": "历史/SM-02-A03.json",
+  "retest_reason": "项目控件按已观察的workspace定位；目标会话已打开时不强求侧栏再次选择"
+}

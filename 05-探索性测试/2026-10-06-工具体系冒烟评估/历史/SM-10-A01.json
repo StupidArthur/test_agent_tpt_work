@@ -1,0 +1,43 @@
+{
+  "case_id": "SM-10",
+  "started_at": "2026-10-06T14:28:43.976Z",
+  "ended_at": "2026-10-06T14:28:59.610Z",
+  "status": "不确定",
+  "assertions": [
+    {
+      "id": "SM-10-A1",
+      "actual": null,
+      "expected": true,
+      "pass": false,
+      "reason": "settings.readShortcut: locator.innerText: Timeout 5000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('[data-shortcut-modal=\"shortcuts\"] li').filter({ hasText: '新建会话' }).first().locator('[class*=\"binding\"]').first()\u001b[22m\n"
+    },
+    {
+      "id": "SM-10-A2",
+      "actual": null,
+      "expected": true,
+      "pass": false,
+      "reason": "settings.readShortcut: locator.innerText: Timeout 5000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('[data-shortcut-modal=\"shortcuts\"] li').filter({ hasText: '新建会话' }).first().locator('[class*=\"binding\"]').first()\u001b[22m\n"
+    }
+  ],
+  "business_call_refs": [
+    "CALL-d8f57228-1a5b-4bde-ae18-cb2eb35994e5",
+    "CALL-287f22de-d18b-4022-874b-367cc5745aff"
+  ],
+  "tool_discovery": {
+    "feature_path": [
+      "设置",
+      "入口"
+    ],
+    "plan_functions": [
+      "settings.readGeneral",
+      "settings.readShortcut"
+    ],
+    "used": [
+      "settings.readGeneral",
+      "settings.readShortcut"
+    ],
+    "additional_functions": [],
+    "all_product_operations_via_functions": true
+  },
+  "error": "settings.readShortcut: locator.innerText: Timeout 5000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('[data-shortcut-modal=\"shortcuts\"] li').filter({ hasText: '新建会话' }).first().locator('[class*=\"binding\"]').first()\u001b[22m\n"
+}

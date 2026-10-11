@@ -1,0 +1,14 @@
+// Reusable logger for Playwright scripts; readFn must read real DOM/files.
+const fs=require('fs'),path=require('path'),crypto=require('crypto');
+function createRecorder(taskRoot,{environment_id,group,business_call_id}){
+ const root=path.resolve(taskRoot),file=path.join(root,'运行日志',group+'.jsonl');
+ if(!/^[A-Za-z0-9_-]+$/.test(group))throw Error('invalid group');
+ fs.mkdirSync(path.dirname(file),{recursive:true});let sequence=0;const attempt=crypto.randomUUID();
+ function append(kind,target,data){const e={event_id:group+'-'+attempt+'-'+(++sequence),captured_at:new Date().toISOString(),environment_id,kind,target,...(business_call_id?{business_call_id}:{}),...data};fs.appendFileSync(file,JSON.stringify(e)+'\n','utf8');return e;}
+ return {
+  async read(target,object_id,source,readFn){if(typeof readFn!=='function')throw Error('read requires live function');const result=await readFn();return append('read',target,{object_id,source,...result});},
+  async action(target,action,input,actionFn){append('action',target,{action,input,outcome:'attempted'});try{await actionFn();return append('action',target,{action,input,outcome:'completed'});}catch(error){append('action',target,{action,outcome:'failed',error_type:error.name});throw error;}},
+  evidence(){return {path:path.relative(root,file).replaceAll('\\','/'),sha256:crypto.createHash('sha256').update(fs.readFileSync(file)).digest('hex')};}
+ };
+}
+module.exports={createRecorder};

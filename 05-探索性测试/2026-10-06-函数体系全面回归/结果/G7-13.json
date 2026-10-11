@@ -1,0 +1,40 @@
+{
+  "case_id": "G7-13",
+  "contract_version": "2.0",
+  "environment_id": "agent-oc-20261006-funcfull-01",
+  "attempt_id": "G7-13-A01",
+  "object_identity": "第二轮 composer 草稿",
+  "inputs": [
+    "第二轮添加 attachment-b.txt/attachment-c.md"
+  ],
+  "business_call_refs": [
+    "CALL-acfe9a15-a2f2-408c-839c-83c5ec7d27ff",
+    "CALL-527bba69-b7d6-411c-9fee-d48582a0bf25"
+  ],
+  "status": "通过",
+  "attempted_at": "2026-10-06T16:31:01.879Z",
+  "assertions": [
+    {
+      "id": "G7-13-A1",
+      "expected": [
+        "attachment-b.txt",
+        "attachment-c.md"
+      ],
+      "actual": [
+        "attachment-b.txt",
+        "attachment-c.md"
+      ],
+      "pass": true,
+      "read_refs": [
+        "CALL-527bba69-b7d6-411c-9fee-d48582a0bf25-3"
+      ]
+    }
+  ],
+  "restore": {
+    "status": "unchanged",
+    "description": "本case未改动设置/文件",
+    "read_refs": []
+  },
+  "residual": "",
+  "notes": "发送后草稿为空（CALL-acfe9a15 读 count=0），新轮附件独立。"
+}

@@ -1,0 +1,52 @@
+{
+  "case_id": "G12-09",
+  "contract_version": "2.0",
+  "attempt_id": "fn-20261006-agent2-G12-09-A1",
+  "environment_id": "env-fn-20261006-agent2",
+  "object_identity": {
+    "shortcut": "搜索会话 Ctrl+K"
+  },
+  "inputs": [
+    "在新任务上按 Ctrl+K 观察搜索面板"
+  ],
+  "action_refs": [
+    "business-36beb9ed-5cee-4572-aa07-9dca10e4de9a-1"
+  ],
+  "status": "不确定",
+  "started_at": "2026-10-06T10:28:00.000Z",
+  "ended_at": "2026-10-06T11:08:00.000Z",
+  "actual_steps": [
+    "按 Ctrl+K",
+    "读取搜索输入/面板可见状态"
+  ],
+  "assertions": [
+    {
+      "id": "G12-09-A1",
+      "actual": null,
+      "read_refs": [
+        "business-36beb9ed-5cee-4572-aa07-9dca10e4de9a-3"
+      ],
+      "reason": "合成 Ctrl+K 键事件未触发应用级快捷键，未出现任何输入/面板（inputs=0，dialogs=0，焦点仍在 BODY），无法判定产品搜索面板行为",
+      "failed_dependency": "应用级快捷键触发（合成键事件未送达）"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "运行日志/business.jsonl",
+      "sha256": "6203703aeaf46ab5fd94d64c474b878c26f39b97bc4c3f7a3840f9ee9a48bdc5"
+    },
+    {
+      "path": "运行日志/业务调用.jsonl",
+      "sha256": "91fc9bb4b29ad5347770a9e5e5a21b38b9c414c04a2e484e84b5dd981db87bd7"
+    }
+  ],
+  "cleanup": {
+    "status": "retained",
+    "description": "样本保留待审",
+    "read_refs": []
+  },
+  "business_call_refs": [
+    "CALL-6c58f5cd-ba59-40d8-ad60-355be5b51a12"
+  ],
+  "notes": "无法可靠观测：CDP 合成按键未触发 Electron 应用级 Ctrl+K"
+}

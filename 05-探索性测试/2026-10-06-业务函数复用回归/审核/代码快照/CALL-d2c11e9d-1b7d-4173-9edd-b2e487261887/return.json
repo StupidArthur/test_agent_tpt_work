@@ -1,0 +1,41 @@
+{
+  "observations": {
+    "action_refs": [
+      "business-a5403b6a-44b2-4a93-8611-8ecca22c6773-2"
+    ],
+    "observations": {
+      "read": {
+        "event_id": "business-a5403b6a-44b2-4a93-8611-8ecca22c6773-3",
+        "captured_at": "2026-10-06T11:38:46.770Z",
+        "environment_id": "env-fn-20261006-agent2",
+        "kind": "read",
+        "target": "技能页双页签可见可点击",
+        "business_call_id": "CALL-d2c11e9d-1b7d-4173-9edd-b2e487261887",
+        "object_id": "skill-tabs",
+        "source": {
+          "channel": "dom",
+          "scope": "技能页/顶部页签",
+          "locator": "[role=\"tab\"]"
+        },
+        "value": true,
+        "raw": {
+          "tabs": [
+            {
+              "text": "我的技能 36",
+              "disabled": false
+            },
+            {
+              "text": "技能市场 1",
+              "disabled": false
+            }
+          ],
+          "labels": [
+            "我的技能 36",
+            "技能市场 1"
+          ]
+        },
+        "derivation": "我的技能与技能市场页签均可见可点击"
+      }
+    }
+  }
+}

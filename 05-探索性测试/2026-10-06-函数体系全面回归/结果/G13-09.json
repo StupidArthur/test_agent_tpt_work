@@ -1,0 +1,52 @@
+{
+  "case_id": "G13-09",
+  "contract_version": "2.0",
+  "environment_id": "agent-oc-20261006-funcfull-01",
+  "attempt_id": "G13-09-A01",
+  "object_identity": "cn-all 技能列表开关",
+  "inputs": [
+    "切换 cn-all 开关（不打开详情）",
+    "恢复"
+  ],
+  "business_call_refs": [
+    "CALL-a7e1efb2-1834-4f8d-bc47-de879fbc44a1",
+    "CALL-802e0006-2ead-408c-b133-ceabf61c1f23"
+  ],
+  "status": "通过",
+  "attempted_at": "2026-10-06T17:17:06.230Z",
+  "assertions": [
+    {
+      "id": "G13-09-A1",
+      "expected": true,
+      "actual": true,
+      "pass": true,
+      "read_refs": [
+        "CALL-a7e1efb2-1834-4f8d-bc47-de879fbc44a1-5"
+      ],
+      "raw": {
+        "list": 3,
+        "detailOpen": false
+      }
+    },
+    {
+      "id": "G13-09-A2",
+      "expected": "same_value",
+      "actual": {
+        "before": false,
+        "after": false
+      },
+      "pass": true,
+      "read_refs": [
+        "CALL-a7e1efb2-1834-4f8d-bc47-de879fbc44a1-1",
+        "CALL-a7e1efb2-1834-4f8d-bc47-de879fbc44a1-8"
+      ]
+    }
+  ],
+  "restore": {
+    "status": "unchanged",
+    "description": "本case未改动设置/文件",
+    "read_refs": []
+  },
+  "residual": "",
+  "notes": ""
+}

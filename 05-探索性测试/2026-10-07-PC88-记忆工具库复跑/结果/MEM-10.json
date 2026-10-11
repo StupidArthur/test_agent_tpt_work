@@ -1,0 +1,57 @@
+{
+  "run": "PC88-20261007-r2-01",
+  "case_id": "MEM-10",
+  "title": "频率闸与静默跳过",
+  "attempts": [
+    {
+      "attempt_id": "MEM-10-A1",
+      "started_at": "2026-10-07T05:45:51Z",
+      "ended_at": "2026-10-07T06:19:30Z",
+      "precondition": "沉淀冷却（分）=30，沉淀最小字符=240，每日上限=8；落盘文件 2026-10-07.md",
+      "inputs": [
+        "第1次（窗外/首次成功）：session-664db833，标记 MEM-09-auto1（05:45:51）",
+        "窗内再次触发：session-f7627d50（05:46:53）、session-6fedba6b（05:56:16，距首次约10.4分钟）",
+        "窗外再次触发：session-79060af3，标记 MEM-10-auto3（06:19:26，距首次约33.6分钟）"
+      ],
+      "steps": ["conversation.newTask+sendMessage（三次及以上）", "每次后 memory.readFiles(2026-10-07.md) 比对字节/哈希/mtime"],
+      "subchecks": [
+        {
+          "id": "MEM-10-S1",
+          "name": "第一次满足条件并成功触发",
+          "expected": "首次真实触发产生沉淀产物",
+          "actual": {"05:45:51": "2026-10-07.md 322B→1065B，新增 session-664db833 段落含 MEM-09-auto1"},
+          "verdict": "符合",
+          "source": "MEM-09 的 CALL-<readFiles log>"
+        },
+        {
+          "id": "MEM-10-S2",
+          "name": "窗口内同等条件再次触发被跳过",
+          "expected": "窗内跳过不产生额外沉淀",
+          "actual": {"05:46:53（+1.0min）": "文件不变（1065B sha c51b76ba）", "05:56:16（+10.4min）": "文件不变（1065B sha c51b76ba）", "更早 05:30:46（+17.5min from 05:13）": "文件不变（322B）"},
+          "verdict": "符合",
+          "source": "CALL-<readFiles log 各次>"
+        },
+        {
+          "id": "MEM-10-S3",
+          "name": "窗口外再次触发产生沉淀",
+          "expected": "窗外满足条件才产生",
+          "actual": {"06:19:26（+33.6min）": "1065B→1433B sha cef6ed96，新增 session-79060af3 段落含 MEM-10-auto3 与 MEM-11-pref1"},
+          "verdict": "符合",
+          "source": "CALL-<readFiles log out-window>"
+        },
+        {
+          "id": "MEM-10-S4",
+          "name": "时间窗范围估计",
+          "expected": "记录原始时间与动作可核对",
+          "actual": {"上界": "10.4 分钟窗内仍跳过", "下界": "33.6 分钟窗外成功", "配置": "沉淀冷却 30 分钟", "结论": "实测窗口落在 (10.4, 33.6] 分钟，与配置 30 分钟相容"},
+          "verdict": "符合",
+          "source": "各次 sendMessage captured_at 与 log mtime"
+        }
+      ],
+      "verdict": "通过",
+      "restore": "2026-10-07.md 由 MEM-18 删除；审计无 auto 行，无需额外恢复"
+    }
+  ],
+  "status": "通过",
+  "evidence_refs": []
+}

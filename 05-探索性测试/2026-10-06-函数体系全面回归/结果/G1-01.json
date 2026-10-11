@@ -1,0 +1,41 @@
+{
+  "case_id": "G1-01",
+  "contract_version": "2.0",
+  "environment_id": "agent-oc-20261006-funcfull-01",
+  "attempt_id": "G1-01-A01",
+  "object_identity": "session-9c8be6fd-0bb0-4054-bb33-e5ae4667964f",
+  "inputs": [
+    "新建任务",
+    "选择已有项目 D:/code/tpt-workspace",
+    "标准/low"
+  ],
+  "business_call_refs": [
+    "CALL-e022d95c-14b8-42e2-b50b-144a4bbcd21f"
+  ],
+  "status": "通过",
+  "attempted_at": "2026-10-06T16:01:43.930Z",
+  "assertions": [
+    {
+      "id": "G1-01-A1",
+      "expected": true,
+      "actual": true,
+      "pass": true,
+      "read_refs": [
+        "CALL-e022d95c-14b8-42e2-b50b-144a4bbcd21f-6"
+      ],
+      "raw": {
+        "count": 1,
+        "visible": true,
+        "editable": "true"
+      },
+      "derivation": "visible && contenteditable === 'true'"
+    }
+  ],
+  "restore": {
+    "status": "unchanged",
+    "description": "本case未改动设置/文件",
+    "read_refs": []
+  },
+  "residual": "本轮任务会话保留",
+  "notes": "editor.value 即断言 actual；会话身份为同调用 session read。"
+}

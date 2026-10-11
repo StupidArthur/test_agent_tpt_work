@@ -1,0 +1,49 @@
+{
+  "call_id": "CALL-a1efc754-73d5-4f46-90b5-00243497809c",
+  "status": "returned",
+  "observations": {
+    "action_refs": [
+      "CALL-a1efc754-73d5-4f46-90b5-00243497809c-2"
+    ],
+    "observations": {
+      "detail": {
+        "event_id": "CALL-a1efc754-73d5-4f46-90b5-00243497809c-3",
+        "captured_at": "2026-10-06T14:27:36.709Z",
+        "environment_id": "env-tool-smoke-eval1",
+        "business_call_id": "CALL-a1efc754-73d5-4f46-90b5-00243497809c",
+        "kind": "read",
+        "target": "技能详情SKILL.md正文",
+        "object_id": "skill-detail-body",
+        "source": {
+          "channel": "dom",
+          "scope": "技能页/技能详情整页",
+          "locator": "[class*=\"dir-preview\"]"
+        },
+        "value": "---\nname: smoke-skill-tool-smoke-20261006-eval1\nname_cn: 本轮快速回归技能\nname_en: FastRegressionSkillUnique\ndescription: A harmless fixture for regression-description-unique-token search and fixed reply verification.\nversion: 1.2.3\n---\n\n# Fixed reply\nWhen explicitly requested to execute this regression skill's fixed reply rule, reply exactly SMOKE_SKILL_tool-smoke-20261006-eval1_OK. Do not call other tools, access networks, or modify files.\n",
+        "raw": {
+          "length": 438,
+          "breadcrumb": "技能 / 详情"
+        }
+      },
+      "emptyFields": {
+        "event_id": "CALL-a1efc754-73d5-4f46-90b5-00243497809c-4",
+        "captured_at": "2026-10-06T14:27:36.711Z",
+        "environment_id": "env-tool-smoke-eval1",
+        "business_call_id": "CALL-a1efc754-73d5-4f46-90b5-00243497809c",
+        "kind": "read",
+        "target": "空可选字段占位",
+        "object_id": "skill-empty-fields",
+        "source": {
+          "channel": "dom",
+          "scope": "技能页/技能详情元数据区",
+          "locator": "[class*=\"page-body\"]"
+        },
+        "value": false,
+        "raw": {
+          "text": "Skill 目录 1个文件 SKILL.md SKILL.md 只读查看 --- name: smoke-skill-tool-smoke-20261006-eval1 name_cn: 本轮快速回归技能 name_en: FastRegressionSkillUnique description: A harmless fixture for regression-description-unique-token search and fixed reply verification. version: 1.2.3 --- # Fixed reply When explicitly requ"
+        },
+        "derivation": "空字段行正则命中"
+      }
+    }
+  }
+}

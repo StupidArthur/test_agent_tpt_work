@@ -1,0 +1,31 @@
+{
+  "case_id": "SKILL-057",
+  "case_title": "已安装离线使用",
+  "source_sha256": "92a6f4ecd2a5dffe0f1a2a60e73fa18b5fb98763b09cc56ce4cc22fd56e13f0e",
+  "status": "阻塞",
+  "review_status": "待双方审核",
+  "latest_attempt_id": null,
+  "attempts": [],
+  "product_observations": [],
+  "differences": [],
+  "finding_ids": [],
+  "blocker": {
+    "reason": "无法执行【已安装离线使用（隔离网络控制）】：需要安装市场来源技能；本机技能市场仅 1 项「报告模板生成」，且安装会真实新增本机技能数据，超出「不新增外部依赖、不改用户数据」的默认边界。更新类检查点还需要同一市场 ID 的 v1/v2 两个版本。",
+    "missing_dependency": "需要安装市场来源技能；本机技能市场仅 1 项「报告模板生成」，且安装会真实新增本机技能数据，超出「不新增外部依赖、不改用户数据」的默认边界。更新类检查点还需要同一市场 ID 的 v1/v2 两个版本。",
+    "evidence": [
+      "证据/SKILL-057/SKILL-057-A01/技能详情页-摘录.txt"
+    ],
+    "next_action": "需要授权安装一个可控的市场技能样本，并由测试市场提供 v1/v2 更新包。"
+  },
+  "applicability_reason": null,
+  "cleanup": {
+    "changes": [],
+    "remaining": []
+  },
+  "review": {
+    "assistant": null,
+    "user": null,
+    "approved_scope": [],
+    "final_decision": "待审核"
+  }
+}

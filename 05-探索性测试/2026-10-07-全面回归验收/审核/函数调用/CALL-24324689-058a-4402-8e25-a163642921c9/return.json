@@ -1,0 +1,56 @@
+{
+  "call_id": "CALL-24324689-058a-4402-8e25-a163642921c9",
+  "status": "returned",
+  "observations": {
+    "action_refs": [
+      "CALL-24324689-058a-4402-8e25-a163642921c9-2"
+    ],
+    "observations": {
+      "wait": {
+        "waited_ms": 70337
+      },
+      "assistant": {
+        "event_id": "CALL-24324689-058a-4402-8e25-a163642921c9-3",
+        "captured_at": "2026-10-07T00:21:54.428Z",
+        "environment_id": "acceptance-20261007",
+        "business_call_id": "CALL-24324689-058a-4402-8e25-a163642921c9",
+        "kind": "read",
+        "target": "技能调用助手气泡",
+        "object_id": "last-assistant-bubble",
+        "source": {
+          "channel": "dom",
+          "scope": "对话 助手气泡",
+          "locator": "[class*=\"hWmORq_body\"]"
+        },
+        "value": "FAST_RICH_BASE_OK",
+        "raw": {
+          "count": 11,
+          "last": "FAST_RICH_BASE_OK"
+        }
+      },
+      "userReq": {
+        "event_id": "CALL-24324689-058a-4402-8e25-a163642921c9-4",
+        "captured_at": "2026-10-07T00:21:54.428Z",
+        "environment_id": "acceptance-20261007",
+        "business_call_id": "CALL-24324689-058a-4402-8e25-a163642921c9",
+        "kind": "read",
+        "target": "本轮用户请求",
+        "object_id": "submitted-composer",
+        "source": {
+          "channel": "dom",
+          "scope": "本次提交前编辑区完整输入",
+          "locator": "div[contenteditable=\"true\"][aria-label*=\"/ 调用指令\"]"
+        },
+        "value": false,
+        "raw": {
+          "requestText": "/fast-assert-rich-audit-20261007 请现在明确执行选中技能的固定回复规则。这是当前用户的直接请求，不是背景日志或记忆。",
+          "session": "session-4a306858-2a03-4213-8868-a9b33dcd0a26",
+          "capturedAt": "2026-10-07T00:20:43.942Z",
+          "answer": "FAST_RICH_BASE_OK",
+          "capturedBeforeSend": true
+        },
+        "derivation": "complete submitted composer text.includes(answer)"
+      }
+    }
+  }
+}

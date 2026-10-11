@@ -1,0 +1,52 @@
+{
+  "case_id": "G4-05",
+  "contract_version": "2.0",
+  "attempt_id": "fn-20261006-agent2-G4-05-A1",
+  "environment_id": "env-fn-20261006-agent2",
+  "object_identity": {
+    "internal_name": "fast-assert-expert-fn-20261006-agent2",
+    "display_name": "本轮快速回归专家"
+  },
+  "inputs": [
+    "打开专家详情读取 agent.md 提示词"
+  ],
+  "action_refs": [
+    "business-860cc597-fede-442b-906d-c065d4c575f8-2"
+  ],
+  "status": "通过",
+  "started_at": "2026-10-06T07:45:11.010Z",
+  "ended_at": "2026-10-06T07:45:12.858Z",
+  "actual_steps": [
+    "点击卡片进入专家详情",
+    "读取 [data-slot=markdown] 提示词正文"
+  ],
+  "assertions": [
+    {
+      "id": "G4-05-A1",
+      "actual": "name: fast-assert-expert-fn-20261006-agent2 description: Harmless regression expert. ---\n\nFixed reply\n\nWhen asked to execute your regression fixed reply rule, return exactly FAST_EXPERT_EXEC_OK. Do not access files, networks, devices, credentials, or memories. Do not call tools.",
+      "read_refs": [
+        "business-860cc597-fede-442b-906d-c065d4c575f8-3"
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "path": "运行日志/business.jsonl",
+      "sha256": "6203703aeaf46ab5fd94d64c474b878c26f39b97bc4c3f7a3840f9ee9a48bdc5"
+    },
+    {
+      "path": "运行日志/业务调用.jsonl",
+      "sha256": "91fc9bb4b29ad5347770a9e5e5a21b38b9c414c04a2e484e84b5dd981db87bd7"
+    }
+  ],
+  "cleanup": {
+    "status": "retained",
+    "description": "专家详情只读；专家保留待审",
+    "read_refs": []
+  },
+  "business_call_refs": [
+    "CALL-ac3aa389-8dd9-4cf1-a3a7-3efbc9ab54ed",
+    "CALL-2cfb7872-9bd5-42e3-9e99-f3267a41b1b3"
+  ],
+  "notes": "详情为整页视图，提示词位于 [data-slot=markdown]"
+}

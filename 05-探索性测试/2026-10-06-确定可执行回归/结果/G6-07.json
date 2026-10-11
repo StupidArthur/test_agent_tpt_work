@@ -1,0 +1,38 @@
+{
+  "case_id": "G6-07",
+  "status": "通过",
+  "started_at": "2026-10-06T10:29:00+08:00",
+  "ended_at": "2026-10-06T10:31:00+08:00",
+  "actual_steps": [
+    "记录场景初值",
+    "在 设置→场景预设 将“新任务默认”切到 PTC 模式",
+    "新建空白任务读取场景标签"
+  ],
+  "observed": "场景预设初值为“标准模式（新任务默认）”；切到“PTC 模式”后其卡片显示“新任务默认”；新建空白任务编辑器场景标签显示“PTC 模式”，未发送任何现场请求。",
+  "evidence": [
+    {
+      "path": "证据/G6-07-scene-before.png",
+      "sha256": "0eeb9aa12e6a4db10b42a68b9d9429d1a548fba974f6f36b3eae10273cd8be88"
+    },
+    {
+      "path": "证据/G6-07-scene-ptc.png",
+      "sha256": "e63b772075fdc6e14c7844bb0fdc18e4785a8d87a7f304e11299a725ffdfd0f6"
+    },
+    {
+      "path": "证据/G6-07-newtask-ptc.png",
+      "sha256": "5c44d28bd7560e9d5e7bb8a1796850646e50a44f4d5b8bdc441baaf54ed91b70"
+    },
+    {
+      "path": "证据/G6-07-scene.txt",
+      "sha256": "00b8cf006c7ea037d497f893ccf5d7ed73ab1e652d86688f8d5e6f1874e22ac3"
+    }
+  ],
+  "cleanup": "在 G6-08 恢复为“标准模式”。",
+  "timings": {
+    "操作等待秒": 40,
+    "产品执行秒": 10,
+    "取证登记秒": 15,
+    "排障恢复秒": 10
+  },
+  "group": "G6"
+}

@@ -1,0 +1,75 @@
+{
+  "case_id": "G11-05",
+  "contract_version": "2.0",
+  "attempt_id": "G11-A01",
+  "environment_id": "env-20261006-oc1",
+  "object_identity": "longread安装metadata.json",
+  "inputs": [
+    "overwrite"
+  ],
+  "action_refs": [
+    "G11-b224fb3a-86bc-4320-8ca2-344e111af082-2",
+    "G11-b224fb3a-86bc-4320-8ca2-344e111af082-5",
+    "G11-b224fb3a-86bc-4320-8ca2-344e111af082-8",
+    "G11-b224fb3a-86bc-4320-8ca2-344e111af082-11",
+    "G11-b224fb3a-86bc-4320-8ca2-344e111af082-14",
+    "G11-b224fb3a-86bc-4320-8ca2-344e111af082-18",
+    "G11-b224fb3a-86bc-4320-8ca2-344e111af082-22",
+    "G11-b224fb3a-86bc-4320-8ca2-344e111af082-25",
+    "G11-b224fb3a-86bc-4320-8ca2-344e111af082-30",
+    "G11-b224fb3a-86bc-4320-8ca2-344e111af082-32",
+    "G11-b224fb3a-86bc-4320-8ca2-344e111af082-37",
+    "G11-b224fb3a-86bc-4320-8ca2-344e111af082-44",
+    "G11-b224fb3a-86bc-4320-8ca2-344e111af082-49",
+    "G11-b224fb3a-86bc-4320-8ca2-344e111af082-53",
+    "G11-b224fb3a-86bc-4320-8ca2-344e111af082-57",
+    "G11-b224fb3a-86bc-4320-8ca2-344e111af082-60",
+    "G11-b224fb3a-86bc-4320-8ca2-344e111af082-64",
+    "G11-b224fb3a-86bc-4320-8ca2-344e111af082-69"
+  ],
+  "status": "通过",
+  "started_at": "2026-10-06T06:18:30.020Z",
+  "ended_at": "2026-10-06T06:25:39.081Z",
+  "actual_steps": [
+    "覆盖导入并恢复"
+  ],
+  "assertions": [
+    {
+      "id": "G11-05-A1",
+      "actual": "{\n  \"name\": \"fast-assert-expert-longread-20261006-oc1\",\n  \"description\": \"Harmless regression fixture with a fixed response and no external operations.\",\n  \"version\": \"1.2.3\",\n  \"author\": \"\",\n  \"category\": \"技术工程\",\n  \"profession\": {\n    \"zh\": \"本轮扩展专家-overwrite\",\n    \"en\": \"Fast Extended overwrite\"\n  },\n  \"displayDescription\": {\n    \"zh\": \"FAST_OVERWRITE\",\n    \"en\": \"FAST_OVERWRITE\"\n  },\n  \"defaultInitPrompt\": {\n    \"zh\": \"请执行你的本轮回归固定回复规则。\",\n    \"en\": \"Execute your regression fixed reply rule.\"\n  },\n  \"quickPrompts\": [\n    {\n      \"zh\": \"请执行你的本轮回归固定回复规则。\",\n      \"en\": \"Execute your regression fixed reply rule.\"\n    }\n  ],\n  \"tags\": [\n    {\n      \"zh\": \"回归验证\",\n      \"en\": \"Regression\"\n    }\n  ],\n  \"agents\": [\n    \"agent.md\"\n  ],\n  \"avatar\": \"\",\n  \"skills\": []\n}\n",
+      "read_refs": [
+        "G11-b224fb3a-86bc-4320-8ca2-344e111af082-19"
+      ]
+    },
+    {
+      "id": "G11-05-A2",
+      "actual": "FAST_OVERWRITE",
+      "read_refs": [
+        "G11-b224fb3a-86bc-4320-8ca2-344e111af082-20"
+      ]
+    },
+    {
+      "id": "G11-05-A3",
+      "actual": {
+        "before": "4eec2b939476deb99bc05894b4147aede15afe567100e6a3a3100309109ee6db",
+        "after": "4eec2b939476deb99bc05894b4147aede15afe567100e6a3a3100309109ee6db"
+      },
+      "read_refs": [
+        "G11-b224fb3a-86bc-4320-8ca2-344e111af082-16",
+        "G11-b224fb3a-86bc-4320-8ca2-344e111af082-23"
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "path": "运行日志/G11.jsonl",
+      "sha256": "2eca1f2a8436da8d4a1cc76506776cef7f641f2f6dcfe50961e816ee58acaea0"
+    }
+  ],
+  "cleanup": {
+    "status": "restored",
+    "description": "专家安装文件已恢复原字节",
+    "read_refs": []
+  },
+  "notes": "G11基于本轮专家样本。"
+}

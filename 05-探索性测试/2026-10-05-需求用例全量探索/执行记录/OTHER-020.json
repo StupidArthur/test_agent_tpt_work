@@ -1,0 +1,31 @@
+{
+  "case_id": "OTHER-020",
+  "case_title": "工作流一级入口盘点",
+  "source_sha256": "284aad27b53013b656177722cbbbc52039a665d9f1d2443c5a3fade9624d8780",
+  "status": "阻塞",
+  "review_status": "待双方审核",
+  "latest_attempt_id": null,
+  "attempts": [],
+  "product_observations": [],
+  "differences": [],
+  "finding_ids": [],
+  "blocker": {
+    "reason": "无法执行【工作流一级入口盘点】：工作流模块在可见导航中未发现独立入口（侧栏仅有 新建任务/自动化任务/更多(IM频道/技能/连接器/数据资产/专家/插件)）；按规则记录\"目前没有发现入口\"。",
+    "missing_dependency": "工作流模块在可见导航中未发现独立入口（侧栏仅有 新建任务/自动化任务/更多(IM频道/技能/连接器/数据资产/专家/插件)）；按规则记录\"目前没有发现入口\"。",
+    "evidence": [
+      "证据/OTHER-020/OTHER-020-A01/专家市场-摘录.txt"
+    ],
+    "next_action": "需补充上述依赖；无入口的条目按任务 README 记为\"目前没有发现入口\"。"
+  },
+  "applicability_reason": null,
+  "cleanup": {
+    "changes": [],
+    "remaining": []
+  },
+  "review": {
+    "assistant": null,
+    "user": null,
+    "approved_scope": [],
+    "final_decision": "待审核"
+  }
+}

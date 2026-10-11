@@ -1,0 +1,49 @@
+{
+  "case_id": "G14-04",
+  "contract_version": "2.0",
+  "environment_id": "agent-oc-20261006-funcfull-01",
+  "attempt_id": "G14-04-A01",
+  "object_identity": "trash.zip 安装目录",
+  "inputs": [
+    "确认导入 trash.zip",
+    "列安装目录文件"
+  ],
+  "business_call_refs": [
+    "CALL-046bd0c5-0781-45c1-9e67-4a3ef222b75c",
+    "CALL-d09b3e6a-0112-4956-a65c-45f4d1abf1ba"
+  ],
+  "status": "失败",
+  "attempted_at": "2026-10-06T17:22:05.682Z",
+  "assertions": [
+    {
+      "id": "G14-04-A1",
+      "expected": false,
+      "actual": true,
+      "pass": false,
+      "read_refs": [
+        "CALL-d09b3e6a-0112-4956-a65c-45f4d1abf1ba-2"
+      ],
+      "raw": {
+        "files": [
+          ".DS_Store",
+          "SKILL.md",
+          "__MACOSX",
+          "__MACOSX/._SKILL.md"
+        ],
+        "hit": [
+          ".DS_Store",
+          "__MACOSX",
+          "__MACOSX/._SKILL.md"
+        ]
+      },
+      "derivation": "存在 __MACOSX/.DS_Store 垃圾文件"
+    }
+  ],
+  "restore": {
+    "status": "unchanged",
+    "description": "本case未改动设置/文件",
+    "read_refs": []
+  },
+  "residual": "trash 技能目录含垃圾文件，保留待审",
+  "notes": "系统垃圾文件落盘（未过滤）。登记候选问题。"
+}

@@ -1,0 +1,56 @@
+{
+  "case_id": "G12-13",
+  "contract_version": "2.0",
+  "environment_id": "agent-oc-20261006-funcfull-01",
+  "attempt_id": "G12-13-A01",
+  "object_identity": "链接夹具 127.0.0.1:8781 + 默认浏览器",
+  "inputs": [
+    "设 默认浏览器",
+    "生成并点击本轮链接",
+    "恢复设置"
+  ],
+  "business_call_refs": [
+    "CALL-8aec7898-e290-499d-9ef7-1d0e6202d2af",
+    "CALL-599acc97-efbc-469a-82e1-95381938f1da",
+    "CALL-2d642b72-06eb-4bfa-9b24-330efb05f7e0",
+    "CALL-9841e6d2-de0f-4c6a-95cf-5da56b5105b5",
+    "CALL-adaea2c1-bc45-4512-b7fe-b17bbb9ab906",
+    "CALL-3a4b4006-b04b-44e9-b4ec-4b61b7fe3f6f",
+    "CALL-0d1b70ad-e5d6-4825-92de-91978b89f08d"
+  ],
+  "status": "失败",
+  "attempted_at": "2026-10-06T17:13:56.252Z",
+  "assertions": [
+    {
+      "id": "G12-13-A1",
+      "expected": true,
+      "actual": false,
+      "pass": false,
+      "read_refs": [
+        "CALL-3a4b4006-b04b-44e9-b4ec-4b61b7fe3f6f-1"
+      ],
+      "raw": {
+        "ua": "",
+        "path": null,
+        "total": 0
+      },
+      "derivation": "夹具日志无匹配本轮 URL 的 GET"
+    },
+    {
+      "id": "G12-13-A2",
+      "expected": "应用内侧边栏",
+      "actual": "应用内侧边栏",
+      "pass": true,
+      "read_refs": [
+        "CALL-0d1b70ad-e5d6-4825-92de-91978b89f08d-1"
+      ]
+    }
+  ],
+  "restore": {
+    "status": "unchanged",
+    "description": "本case未改动设置/文件",
+    "read_refs": []
+  },
+  "residual": "",
+  "notes": "link_initial=应用内侧边栏；默认浏览器模式下夹具仍未收到请求，A1 不成立。"
+}

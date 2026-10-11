@@ -1,0 +1,35 @@
+{
+  "call_id": "CALL-e76997b9-a801-44c9-b465-e1d7ded51722",
+  "status": "returned",
+  "observations": {
+    "action_refs": [
+      "CALL-e76997b9-a801-44c9-b465-e1d7ded51722-2"
+    ],
+    "observations": {
+      "read": {
+        "event_id": "CALL-e76997b9-a801-44c9-b465-e1d7ded51722-3",
+        "captured_at": "2026-10-06T17:17:12.911Z",
+        "environment_id": "agent-oc-20261006-funcfull-01",
+        "business_call_id": "CALL-e76997b9-a801-44c9-b465-e1d7ded51722",
+        "kind": "read",
+        "target": "详情身份为本轮技能",
+        "object_id": "skill-detail-identity",
+        "source": {
+          "channel": "dom",
+          "scope": "技能页/详情",
+          "locator": "[class*=\"dir-preview\"]"
+        },
+        "value": true,
+        "raw": {
+          "detailText": "---\nname: \"fast-assert-cn-all-agent-oc-20261006-funcfull-01\"\ndescription: \"FAST_DESCRIPTION_BASE\"\nname_cn: \"本轮中文优先\"\nname_en: \"Fast English Priority\"\ntags: [\"FAST_SEARCH_TAG\"]\n---\n\nWhen explicitly invoked, reply exactly FAST_MINIMAL_OK. Do not use tools or external systems.\n",
+          "actualName": "fast-assert-cn-all-agent-oc-20261006-funcfull-01",
+          "hasInternal": true,
+          "hasDisplay": true,
+          "internalName": "fast-assert-cn-all-agent-oc-20261006-funcfull-01",
+          "matchText": "本轮中文优先"
+        },
+        "derivation": "详情文本含内部名或本轮显示名"
+      }
+    }
+  }
+}

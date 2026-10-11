@@ -1,0 +1,206 @@
+{
+  "case_id": "AGENT-003",
+  "case_title": "市场对象来源归类",
+  "source_sha256": "c3cdc4c71c1746e9a647aa5190e0983229af9b41c22e2e6c9a9bc3da80727b66",
+  "status": "已执行-结论不确定",
+  "review_status": "待双方审核",
+  "latest_attempt_id": "AGENT-003-A03",
+  "attempts": [
+    {
+      "attempt_id": "AGENT-003-A01",
+      "started_at": "2026-10-05T20:05:00+08:00",
+      "ended_at": "2026-10-05T21:30:00+08:00",
+      "environment_id": "ENV-001",
+      "surface": "UI/CDP",
+      "actual_preconditions": {
+        "account_alias": "Arthur",
+        "workspace": "界面未暴露空间切换入口，本轮未验证",
+        "project": "tpt-workspace（已有项目）",
+        "session_id": "不适用",
+        "model": "标准 / low",
+        "permission": "工作区内修改",
+        "fixtures": []
+      },
+      "input": "无输入；只读浏览",
+      "actual_steps": [
+        "按用例前置确认当前入口、账号、项目与测试对象",
+        "执行该用例需要的操作并等待可观察终态",
+        "回读页面/数据/产物并记录实际结果"
+      ],
+      "wait_condition": "按用例等待可观察终态；未达到终态时按实际停止点记录。",
+      "checkpoints": [
+        {
+          "expected_index": 1,
+          "expected": "两者归类市场添加",
+          "observed": "专家市场 3 项均标注来源：TPT建模变量分析专家的详情弹窗显示「来源 市场添加」「作者 WorkBuddy User」「版本 v1.0.0」；市场卡片作者分别为 WorkBuddy User、zhangyongjun1、TPT 官方。市场对象统一以「市场添加」作为来源，与设计 §4.1「市场本地 Agent 和已添加的云端 Agent 统一显示为市场添加」一致。",
+          "verdict": "符合",
+          "evidence": [
+            "证据/AGENT-003/AGENT-003-A01/专家市场-摘录.txt"
+          ]
+        }
+      ],
+      "observed_result": "专家市场 3 项均标注来源：TPT建模变量分析专家的详情弹窗显示「来源 市场添加」「作者 WorkBuddy User」「版本 v1.0.0」；市场卡片作者分别为 WorkBuddy User、zhangyongjun1、TPT 官方。市场对象统一以「市场添加」作为来源，与设计 §4.1「市场本地 Agent 和已添加的云端 Agent 统一显示为市场添加」一致。 来源归类与卡片/详情两处一致：市场卡片显示作者与版本，详情弹窗进一步给出「来源 市场添加」。未观察到与「我创建的」混淆的对象（我的专家为 0）。",
+      "status": "已执行-符合预期",
+      "evidence": [
+        "证据/AGENT-003/AGENT-003-A01/专家市场-摘录.txt"
+      ],
+      "difference_ids": [],
+      "notes": "只读打开市场与简介弹窗，未点击「添加」，未新增任何专家。"
+    },
+    {
+      "attempt_id": "AGENT-003-A02",
+      "started_at": "2026-10-05T21:02:00+08:00",
+      "ended_at": "2026-10-05T21:04:00+08:00",
+      "environment_id": "ENV-001",
+      "surface": "Expert management iframe, My experts and unadded market detail",
+      "actual_preconditions": {
+        "project": "existing tpt-workspace project",
+        "fixture": "only round-owned file from DIALOG-030",
+        "model": "standard / low",
+        "permission": "workspace edits"
+      },
+      "input": "Inspect source classification on My experts and compare against a market item. Do not add market items.",
+      "actual_steps": [
+        "Opened My experts and observed count zero/local-ready zero.",
+        "Opened Experts market and a read-only unadded market detail.",
+        "Observed detail field 来源 市场添加; did not click 添加."
+      ],
+      "wait_condition": "Waited for details panel to render.",
+      "checkpoints": [
+        {
+          "expected_index": 1,
+          "expected": "两者归类市场添加",
+          "observed": "My experts is empty (0); the 市场添加 label appears only in the unadded market detail. This does not verify source categories for a local or added cloud expert in My experts.",
+          "verdict": "未验证",
+          "evidence": [
+            "证据/AGENT-003/AGENT-003-A02/source-scope.json",
+            "证据/AGENT-003/AGENT-003-A02/my-experts-empty.png",
+            "证据/AGENT-003/AGENT-003-A02/unadded-market-detail.png"
+          ]
+        }
+      ],
+      "observed_result": "Source wording was observed on an unadded market listing only. No local or added cloud Experts existed to verify the expected category in My experts.",
+      "status": "已执行-结论不确定",
+      "evidence": [
+        "证据/AGENT-003/AGENT-003-A02/source-scope.json",
+        "证据/AGENT-003/AGENT-003-A02/my-experts-empty.png",
+        "证据/AGENT-003/AGENT-003-A02/unadded-market-detail.png"
+      ],
+      "difference_ids": [],
+      "notes": "A01 retained. No market asset added because no price or restore details were visible and the task requires safe isolation.",
+      "cleanup": {}
+    },
+    {
+      "attempt_id": "AGENT-003-A03",
+      "started_at": "2026-10-06T07:24:10+08:00",
+      "ended_at": "2026-10-05T23:24:30.634Z",
+      "environment_id": "ENV-001",
+      "surface": "Expert manager UI within visible dsh-app://app/api/supcon-agents/ui iframe; CDP + Playwright at 900x700 viewport",
+      "actual_preconditions": {
+        "account": "Arthur",
+        "manager": "我的专家",
+        "existing_expert_count": "10",
+        "fixtures": "existing imported round-owned local Expert round-agent-complete-20261006; no new package imported in this attempt",
+        "model": "not used"
+      },
+      "input": "在我的专家页观察来源筛选，查看“我创建的”与“市场添加”筛选，并打开已导入的本轮本地专家详情；不安装市场条目。",
+      "actual_steps": [
+        "读取来源筛选：全部来源、我创建的、市场添加。",
+        "在“我创建的”筛选下读取10张round-owned用户创建专家卡，包含样本“本轮夜间导入验证专家”；卡片标注来源我创建的·本地运行。",
+        "切到“市场添加”筛选；没有匹配卡片，空态为“未找到符合条件的专家，请调整搜索词或筛选条件”；页头显示10个本地就绪是总数，不作筛选结果数。",
+        "恢复全部来源后打开round-owned专家详情，读取来源“我创建的”、运行类型“本地运行”、版本、分类、推荐问题与提示词。",
+        "只读切到专家市场，观察3个未添加目录项的作者/版本；未看到价格与round-owned标记，未安装。",
+        "回到我的专家并恢复全部来源、全部运行位置。"
+      ],
+      "wait_condition": "等待每次来源筛选、详情路由和市场列表切换后页面稳定，再读取可见DOM并截取iframe范围截图。",
+      "checkpoints": [
+        {
+          "expected_index": 1,
+          "expected": "两者归类市场添加",
+          "observed": "本轮“我创建的”筛选显示10个round-owned本地样本，“市场添加”筛选为0并显示未找到符合条件的专家。详情显示“我创建的 / 本地运行”。本轮没有本地市场与云端市场已添加样本，故原检查点不能验证。",
+          "evidence": [
+            "证据/AGENT-003/AGENT-003-A03/source-and-detail.json",
+            "证据/AGENT-003/AGENT-003-A03/all-source-initial.png",
+            "证据/AGENT-003/AGENT-003-A03/created-source.png",
+            "证据/AGENT-003/AGENT-003-A03/market-added-source.png",
+            "证据/AGENT-003/AGENT-003-A03/round-local-expert-detail.png",
+            "证据/AGENT-003/AGENT-003-A03/unadded-expert-market.png"
+          ],
+          "verdict": "未验证"
+        }
+      ],
+      "observed_result": "已核验round-owned已导入本地专家的来源分类与完整详情；未找到可安全添加的round-owned市场样本，也没有本地市场/云端样本加入我的专家，故无法验证市场添加后的页面转换或本地/云端市场对象的共同归类。",
+      "status": "已执行-结论不确定",
+      "evidence": [
+        "证据/AGENT-003/AGENT-003-A03/source-and-detail.json",
+        "证据/AGENT-003/AGENT-003-A03/all-source-initial.png",
+        "证据/AGENT-003/AGENT-003-A03/created-source.png",
+        "证据/AGENT-003/AGENT-003-A03/market-added-source.png",
+        "证据/AGENT-003/AGENT-003-A03/round-local-expert-detail.png",
+        "证据/AGENT-003/AGENT-003-A03/unadded-expert-market.png"
+      ],
+      "difference_ids": [],
+      "notes": "保留A01/A02原始尝试。专家市场三条是WorkBuddy User、zhangyongjun1、TPT官方，页面未显示价格或round-owned标识；按用户授权边界未安装。未把10这个页头总数当作市场筛选结果数。"
+    }
+  ],
+  "product_observations": [
+    {
+      "feature_id": null,
+      "statement": "专家市场 3 项均标注来源：TPT建模变量分析专家的详情弹窗显示「来源 市场添加」「作者 WorkBuddy User」「版本 v1.0.0」；市场卡片作者分别为 WorkBuddy User、zhangyongjun1、TPT 官方。市场对象统一以「市场添加」作为来源，与设计 §4.1「市场本地 Agent 和已添加的云端 Agent 统一显示为市场添加」一致。 来源归类与卡片/详情两处一致：市场卡片显示作者与版本，详情弹窗进一步给出「来源 市场添加」。未观察到与「我创建的」混淆的对象（我的专家为 0）。",
+      "case_ids": [
+        "AGENT-003"
+      ],
+      "attempt_ids": [
+        "AGENT-003-A01"
+      ],
+      "environment_id": "ENV-001",
+      "verified_depth": "操作有反馈",
+      "scope_and_limits": "账号 Arthur、app.asar SHA256 EF56656B…4CC2D9D、2026-10-05。",
+      "evidence": [
+        "证据/AGENT-003/AGENT-003-A01/专家市场-摘录.txt"
+      ],
+      "relation_to_design": "符合当前用例检查点",
+      "review_status": "待双方审核"
+    },
+    {
+      "observation": "My experts has zero entries. The unadded market detail alone shows 来源 市场添加, so it cannot prove source categorization for listed local/cloud experts.",
+      "scope": "One unadded market listing and empty My experts list",
+      "depth": "My experts summary and market detail observed",
+      "evidence": [
+        "证据/AGENT-003/AGENT-003-A02/source-scope.json",
+        "证据/AGENT-003/AGENT-003-A02/my-experts-empty.png",
+        "证据/AGENT-003/AGENT-003-A02/unadded-market-detail.png"
+      ],
+      "additional_feature": false
+    },
+    {
+      "observation_id": "OBS-249",
+      "behavior": "“我的专家”来源筛选提供全部来源/我创建的/市场添加；当前round-owned样本位于我创建的本地运行分类，市场添加筛选为空。已导入样本详情可显示完整提示词与分类。",
+      "scope": "当前10个专家列表与指定round-owned本地导入样本；3个市场目录项仅只读",
+      "verified_depth": "来源筛选与本地详情页观察；市场添加后的本地/云端对象未添加",
+      "evidence": [
+        "证据/AGENT-003/AGENT-003-A03/source-and-detail.json",
+        "证据/AGENT-003/AGENT-003-A03/all-source-initial.png",
+        "证据/AGENT-003/AGENT-003-A03/created-source.png",
+        "证据/AGENT-003/AGENT-003-A03/market-added-source.png",
+        "证据/AGENT-003/AGENT-003-A03/round-local-expert-detail.png",
+        "证据/AGENT-003/AGENT-003-A03/unadded-expert-market.png"
+      ],
+      "extra_feature": false,
+      "review_status": "待双方审核"
+    }
+  ],
+  "differences": [],
+  "finding_ids": [],
+  "applicability_reason": null,
+  "cleanup": {
+    "changes": [],
+    "remaining": []
+  },
+  "review": {
+    "assistant": null,
+    "user": null,
+    "approved_scope": [],
+    "final_decision": "待审核"
+  }
+}

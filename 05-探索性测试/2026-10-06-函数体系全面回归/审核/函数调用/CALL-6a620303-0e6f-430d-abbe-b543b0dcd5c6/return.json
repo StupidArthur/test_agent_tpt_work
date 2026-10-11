@@ -1,0 +1,37 @@
+{
+  "call_id": "CALL-6a620303-0e6f-430d-abbe-b543b0dcd5c6",
+  "status": "returned",
+  "observations": {
+    "action_refs": [
+      "CALL-6a620303-0e6f-430d-abbe-b543b0dcd5c6-2"
+    ],
+    "observations": {
+      "result": {
+        "event_id": "CALL-6a620303-0e6f-430d-abbe-b543b0dcd5c6-3",
+        "captured_at": "2026-10-06T17:23:04.503Z",
+        "environment_id": "agent-oc-20261006-funcfull-01",
+        "business_call_id": "CALL-6a620303-0e6f-430d-abbe-b543b0dcd5c6",
+        "kind": "read",
+        "target": "搜索结果命中数",
+        "object_id": "skill-search-count",
+        "source": {
+          "channel": "dom",
+          "scope": "技能页/结果列表",
+          "locator": "section.panel [data-slot=\"card\"]"
+        },
+        "value": 0,
+        "raw": {
+          "matched": 0,
+          "titles": [
+            "fast-assert-mixed-invalid-20261006-agent2",
+            "fast-assert-mixed-invalid-20261006-agent2",
+            "fast-assert-mixed-invalid-20261006-oc1"
+          ],
+          "query": "fast-assert-mixed-invalid",
+          "matchText": "fast-assert-mixed-invalid-agent-oc-20261006-funcfull-01"
+        },
+        "derivation": "结果卡片标题等于本轮身份文本的计数"
+      }
+    }
+  }
+}

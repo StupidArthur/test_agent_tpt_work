@@ -1,0 +1,107 @@
+{
+  "call_id": "CALL-47814f57-07ff-420a-820c-75962425689f",
+  "status": "returned",
+  "observations": {
+    "action_refs": [
+      "CALL-47814f57-07ff-420a-820c-75962425689f-2"
+    ],
+    "observations": {
+      "prompt": {
+        "event_id": "CALL-47814f57-07ff-420a-820c-75962425689f-3",
+        "captured_at": "2026-10-06T13:57:27.421Z",
+        "environment_id": "env-tool-review-20261006",
+        "business_call_id": "CALL-47814f57-07ff-420a-820c-75962425689f",
+        "kind": "read",
+        "target": "本轮专家提示词正文",
+        "object_id": "expert-prompt-body",
+        "source": {
+          "channel": "dom",
+          "scope": "专家页/专家详情/提示词",
+          "locator": "[data-slot=\"markdown\"]"
+        },
+        "value": "name: smoke-expert-tools-20261006-smoke description: Harmless regression expert. ---\n\nFixed reply\n\nWhen asked to execute your regression fixed reply rule, return exactly SMOKE_EXPERT_tools-20261006-smoke_OK. Do not access files, networks, devices, credentials, or memories. Do not call tools.",
+        "raw": {
+          "length": 292
+        }
+      },
+      "endVisible": {
+        "event_id": "CALL-47814f57-07ff-420a-820c-75962425689f-4",
+        "captured_at": "2026-10-06T13:57:27.425Z",
+        "environment_id": "env-tool-review-20261006",
+        "business_call_id": "CALL-47814f57-07ff-420a-820c-75962425689f",
+        "kind": "read",
+        "target": "末尾标记可见",
+        "object_id": "expert-prompt-end",
+        "source": {
+          "channel": "dom",
+          "scope": "专家页/专家详情/提示词",
+          "locator": "[data-slot=\"markdown\"]"
+        },
+        "value": null,
+        "raw": {
+          "hasEnd": null,
+          "visible": true
+        },
+        "derivation": "hasEnd && visible"
+      },
+      "editable": {
+        "event_id": "CALL-47814f57-07ff-420a-820c-75962425689f-5",
+        "captured_at": "2026-10-06T13:57:27.428Z",
+        "environment_id": "env-tool-review-20261006",
+        "business_call_id": "CALL-47814f57-07ff-420a-820c-75962425689f",
+        "kind": "read",
+        "target": "专家提示词面板可编辑元素数量",
+        "object_id": "expert-prompt-editable",
+        "source": {
+          "channel": "dom",
+          "scope": "专家页/专家详情",
+          "locator": "textarea,[contenteditable=\"true\"]"
+        },
+        "value": 0,
+        "raw": {
+          "count": 0
+        }
+      },
+      "quick": {
+        "event_id": "CALL-47814f57-07ff-420a-820c-75962425689f-6",
+        "captured_at": "2026-10-06T13:57:27.446Z",
+        "environment_id": "env-tool-review-20261006",
+        "business_call_id": "CALL-47814f57-07ff-420a-820c-75962425689f",
+        "kind": "read",
+        "target": "专家推荐问题",
+        "object_id": "expert-quick-prompts",
+        "source": {
+          "channel": "dom",
+          "scope": "专家页/专家详情",
+          "locator": "button"
+        },
+        "value": [
+          "请执行你的本轮回归固定回复规则。"
+        ],
+        "raw": {
+          "texts": [
+            "请执行你的本轮回归固定回复规则。"
+          ]
+        }
+      },
+      "folder": {
+        "event_id": "CALL-47814f57-07ff-420a-820c-75962425689f-7",
+        "captured_at": "2026-10-06T13:57:27.448Z",
+        "environment_id": "env-tool-review-20261006",
+        "business_call_id": "CALL-47814f57-07ff-420a-820c-75962425689f",
+        "kind": "read",
+        "target": "详情目录入口数量",
+        "object_id": "expert-folder-buttons",
+        "source": {
+          "channel": "dom",
+          "scope": "专家页/专家详情",
+          "locator": "button"
+        },
+        "value": 1,
+        "raw": {
+          "count": 1
+        }
+      }
+    }
+  }
+}

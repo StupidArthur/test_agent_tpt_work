@@ -1,0 +1,87 @@
+{
+  "functions": [
+    {
+      "name": "mem.inspectSurfaces",
+      "file": "code/business/memory.mjs",
+      "export": "inspectSurfaces",
+      "feature_path": ["记忆与进化", "探针", "结构枚举"],
+      "description": "枚举记忆与进化面板与设置记忆分区的文本与控件（本轮定位用）",
+      "version": "task-local-1.0",
+      "parameters": { "type": "object", "properties": {}, "required": [], "additionalProperties": false }
+    },
+    {
+      "name": "mem.probePanel",
+      "file": "code/business/memory.mjs",
+      "export": "probePanel",
+      "feature_path": ["记忆与进化", "探针", "面板"],
+      "description": "切记忆面板 tab / 打开编辑弹窗 / 高级设置并读取结构",
+      "version": "task-local-1.0",
+      "parameters": {
+        "type": "object", "additionalProperties": false,
+        "properties": { "action": { "type": "string", "enum": ["tabs", "library", "advanced", "edit", "rows"] }, "index": { "type": "integer" } },
+        "required": ["action"]
+      }
+    },
+    {
+      "name": "mem.readOverview",
+      "file": "code/business/memory.mjs",
+      "export": "readOverview",
+      "feature_path": ["记忆与进化", "概览与参数"],
+      "description": "读取概览计数/开关与高级设置实际参数值",
+      "version": "task-local-1.0",
+      "parameters": { "type": "object", "properties": {}, "required": [], "additionalProperties": false }
+    },
+    {
+      "name": "mem.readFiles",
+      "file": "code/business/memory.mjs",
+      "export": "readFiles",
+      "feature_path": ["记忆与进化", "文件取证"],
+      "description": "枚举记忆目录并读取各文件内容与哈希",
+      "version": "task-local-1.0",
+      "parameters": {
+        "type": "object", "additionalProperties": false,
+        "properties": { "path": { "type": "string" }, "files": { "type": "array", "items": { "type": "string" } } },
+        "required": []
+      }
+    },
+    {
+      "name": "mem.addEntry",
+      "file": "code/business/memory.mjs",
+      "export": "addEntry",
+      "feature_path": ["记忆与进化", "面板添加"],
+      "description": "在记忆库按类型添加自定义记忆条目并回读",
+      "version": "task-local-1.0",
+      "parameters": {
+        "type": "object", "additionalProperties": false,
+        "properties": { "type": { "type": "string" }, "content": { "type": "string" } },
+        "required": ["content"]
+      }
+    },
+    {
+      "name": "mem.editLayerFile",
+      "file": "code/business/memory.mjs",
+      "export": "editLayerFile",
+      "feature_path": ["记忆与进化", "分层文件编辑"],
+      "description": "编辑分层记忆文件（SOUL/AGENTS/USER/MEMORY）并保存",
+      "version": "task-local-1.0",
+      "parameters": {
+        "type": "object", "additionalProperties": false,
+        "properties": { "index": { "type": "integer" }, "content": { "type": "string" } },
+        "required": ["content"]
+      }
+    },
+    {
+      "name": "mem.setAdvanced",
+      "file": "code/business/memory.mjs",
+      "export": "setAdvanced",
+      "feature_path": ["记忆与进化", "高级设置修改"],
+      "description": "修改高级设置某参数并保存回读",
+      "version": "task-local-1.0",
+      "parameters": {
+        "type": "object", "additionalProperties": false,
+        "properties": { "label": { "type": "string" }, "value": {} },
+        "required": ["label", "value"]
+      }
+    }
+  ]
+}

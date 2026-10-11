@@ -1,0 +1,67 @@
+{
+  "observations": {
+    "action_refs": [
+      "business-a35c2273-a486-4ded-b778-afceb46ceae6-2"
+    ],
+    "observations": {
+      "preview": {
+        "event_id": "business-a35c2273-a486-4ded-b778-afceb46ceae6-3",
+        "captured_at": "2026-10-06T09:20:07.919Z",
+        "environment_id": "env-fn-20261006-agent2",
+        "kind": "read",
+        "target": "文件预览正文",
+        "business_call_id": "CALL-6a4c9e2c-ad94-4852-b92f-228b0aeb72d5",
+        "object_id": "skill-file-preview",
+        "source": {
+          "channel": "dom",
+          "scope": "技能页/技能详情/预览",
+          "locator": "[class*=\"dir-preview\"]"
+        },
+        "value": "",
+        "raw": {
+          "length": 0
+        }
+      },
+      "editable": {
+        "event_id": "business-a35c2273-a486-4ded-b778-afceb46ceae6-4",
+        "captured_at": "2026-10-06T09:20:07.922Z",
+        "environment_id": "env-fn-20261006-agent2",
+        "kind": "read",
+        "target": "文件预览可编辑控件数",
+        "business_call_id": "CALL-6a4c9e2c-ad94-4852-b92f-228b0aeb72d5",
+        "object_id": "skill-file-editable",
+        "source": {
+          "channel": "dom",
+          "scope": "技能页/技能详情/预览",
+          "locator": "[class*=\"dir-preview\"]"
+        },
+        "value": 0,
+        "raw": {
+          "count": 0
+        }
+      },
+      "image": {
+        "event_id": "business-a35c2273-a486-4ded-b778-afceb46ceae6-5",
+        "captured_at": "2026-10-06T09:20:07.923Z",
+        "environment_id": "env-fn-20261006-agent2",
+        "kind": "read",
+        "target": "包内图片预览加载",
+        "business_call_id": "CALL-6a4c9e2c-ad94-4852-b92f-228b0aeb72d5",
+        "object_id": "skill-file-image",
+        "source": {
+          "channel": "dom",
+          "scope": "技能页/技能详情/预览",
+          "locator": "[class*=\"dir-preview\"]"
+        },
+        "value": true,
+        "raw": {
+          "hasImg": true,
+          "src": "/api/supcon-skills/api/preview?root=dsh&name=fast-assert-rich-fn-20261006-agent2&file=assets%2Ficon.png",
+          "complete": true,
+          "naturalWidth": 8
+        },
+        "derivation": "hasImg && complete && naturalWidth>0"
+      }
+    }
+  }
+}

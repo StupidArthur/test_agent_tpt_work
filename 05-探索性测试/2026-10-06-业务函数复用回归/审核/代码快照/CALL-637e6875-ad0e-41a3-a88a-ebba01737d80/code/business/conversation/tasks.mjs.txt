@@ -1,0 +1,549 @@
+// 业务函数层：对话与任务（新建、选项目、发送、读取终态）。
+// 前置：CDP 实例已启动（环境记录.json）。副作用：UI 操作、可能产生模型调用。
+import { withPage, SEL, runningIndicatorCount, waitTerminal } from '../../automation/conversation.mjs';
+
+async function readSessionIdentity(page) {
+  return page.evaluate(() => {
+    const el = document.querySelector('[data-conversation-session]');
+    if (el) return { attr: 'data-conversation-session', value: el.getAttribute('data-conversation-session') };
+    const attrs = ['data-session-id', 'data-task-id', 'data-conversation-id', 'data-id'];
+    for (const a of attrs) {
+      const e = document.querySelector(`[${a}]`);
+      if (e) return { attr: a, value: e.getAttribute(a) };
+    }
+    const active = document.querySelector('[aria-current="page"],[aria-selected="true"]');
+    return { attr: null, value: active ? (active.innerText || '').trim() : null };
+  });
+}
+
+// 新建任务；可选选择已有项目与模型。返回编辑器、模型、项目、会话身份的真实观察。
+export async function newTask(ctx, args = {}) {
+  const { projectPath = null, model = '标准', reasoning = 'low', forceNew = false } = args;
+  return withPage(ctx, async (page) => {
+    const rec = ctx.recorder;
+    const actionRefs = [];
+    if (forceNew) {
+      // 先挂载一个非空会话，保证随后 新建任务 产生真正的新空白会话。
+      const rows = page.locator('[data-row-key^="session:"]');
+      const mount = (await rows.filter({ hasText: '请只输出一个代码块' }).first().count()) ? rows.filter({ hasText: '请只输出一个代码块' }).first() : rows.first();
+      if (await mount.count()) { await mount.click().catch(() => {}); await page.waitForTimeout(1500); }
+    }
+    const newAct = await rec.action('新建任务', 'click', null, async () => {
+      await page.locator(SEL.newTask).first().click();
+      await page.waitForTimeout(1800);
+    });
+    actionRefs.push(newAct.event_id);
+
+    let project = null;
+    if (projectPath) {
+      const selAct = await rec.action('选择项目', 'open-and-select', { projectPath }, async () => {
+        await page.locator(SEL.project).first().click();
+        await page.waitForTimeout(800);
+        await page.locator('[role="menu"]:visible').getByText(projectPath, { exact: true }).first().click();
+        await page.waitForTimeout(1000);
+      });
+      actionRefs.push(selAct.event_id);
+      project = await rec.read('当前任务项目', projectPath, { channel: 'dom', scope: 'composer 项目选择按钮', locator: SEL.project }, async () => {
+        const text = (await page.locator(SEL.project).first().innerText()).trim();
+        return { value: text, raw: { text }, derivation: 'text=项目按钮实际显示名' };
+      });
+    }
+
+    const editor = await rec.read('新任务编辑器', 'composer', { channel: 'dom', scope: 'composer 输入区', locator: SEL.composer }, async () => {
+      const el = page.locator(SEL.composer).first();
+      const count = await el.count();
+      const visible = count ? await el.isVisible() : false;
+      const editable = count ? await el.getAttribute('contenteditable') : null;
+      const raw = { count, visible, editable };
+      return { value: visible && editable === 'true', raw, derivation: "visible && contenteditable === 'true'" };
+    });
+
+    const modelObs = await rec.read('当前任务模型与推理等级', 'model-trigger', { channel: 'dom', scope: 'composer 模型触发按钮', locator: SEL.model }, async () => {
+      const el = page.locator(SEL.model).first();
+      const ariaLabel = await el.getAttribute('aria-label');
+      const text = (await el.innerText()).trim();
+      const m = /当前\s*([^，,]+)/.exec(ariaLabel || '');
+      const r = /推理等级\s*([^，,]+)/.exec(ariaLabel || '');
+      const raw = { ariaLabel, text };
+      return { value: [m ? m[1].trim() : null, r ? r[1].trim() : null], raw };
+    });
+
+    const session = await rec.read('本轮任务session身份', 'session', { channel: 'dom', scope: '主界面会话容器', locator: '[data-conversation-session]' }, async () => {
+      const s = await readSessionIdentity(page);
+      return { value: s.value, raw: s };
+    });
+
+    return { action_refs: actionRefs, observations: { project, editor, model: modelObs, session }, args_echo: { model, reasoning } };
+  });
+}
+
+// 填写并发送消息，等待终态，返回助手最终正文。
+export async function sendMessage(ctx, args = {}) {
+  const { text, timeoutMs = 90000 } = args;
+  if (typeof text !== 'string' || !text.length) throw new Error('text 必填');
+  return withPage(ctx, async (page) => {
+    const rec = ctx.recorder;
+    let preCount = 0;
+    const act = await rec.action('composer 发送消息', 'fill-and-send', { chars: text.length }, async () => {
+      preCount = await page.locator(SEL.assistantBody).count();
+      const c = page.locator(SEL.composer).first();
+      await c.click();
+      await c.fill(text);
+      await page.waitForTimeout(400);
+      await page.locator(SEL.send).first().click();
+    });
+    let wait;
+    try { wait = await waitTerminal(page, { timeoutMs, minBubbles: preCount + 1 }); }
+    catch (e) { wait = { error: String(e.message), timed_out: true }; }
+    const assistant = await rec.read('助手最终正文', 'last-assistant-bubble', { channel: 'dom', scope: '对话 助手气泡', locator: SEL.assistantBody }, async () => {
+      const bubbles = page.locator(SEL.assistantBody);
+      const n = await bubbles.count();
+      const last = n ? (await bubbles.nth(n - 1).innerText()).trim() : null;
+      return { value: last, raw: { count: n, last } };
+    });
+    return { action_refs: [act.event_id], observations: { wait, assistant } };
+  });
+}
+
+// 读取当前会话终态相关值：运行指示数量、代码块、助手正文。
+export async function readTaskState(ctx, args = {}) {
+  return withPage(ctx, async (page) => {
+    const rec = ctx.recorder;
+    const running = await rec.read('可见运行中指示数量', 'running-indicators', { channel: 'dom', scope: '当前会话', locator: 'text=进行中/探索中...' }, async () => {
+      const n = await runningIndicatorCount(page);
+      return { value: n, raw: { count: n } };
+    });
+    const assistant = await rec.read('助手最终正文', 'last-assistant-bubble', { channel: 'dom', scope: '对话 助手气泡', locator: SEL.assistantBody }, async () => {
+      const bubbles = page.locator(SEL.assistantBody);
+      const n = await bubbles.count();
+      const last = n ? (await bubbles.nth(n - 1).innerText()).trim() : null;
+      return { value: last, raw: { count: n, last } };
+    });
+    const code = await rec.read('本轮代码块', 'code-block', { channel: 'dom', scope: '助手气泡内 pre/code', locator: `${SEL.assistantBody} pre, ${SEL.assistantBody} code` }, async () => {
+      const els = page.locator(`${SEL.assistantBody} pre`).last();
+      const n = await els.count();
+      let text = n ? await els.textContent() : null;
+      if (text != null) text = text.replace(/\r\n/g, '\n').replace(/\r/g, '\n').replace(/\n+$/, '');
+      return { value: text, raw: { count: n, text } };
+    });
+    const fileCards = await rec.read('文件产物卡片数量', 'changed-file-cards', { channel: 'dom', scope: '当前会话对话区 产物卡', locator: '[data-changed-files="true"]' }, async () => {
+      const n = await page.locator('[data-changed-files="true"]').count();
+      return { value: n, raw: { count: n } };
+    });
+    return { observations: { running, assistant, code, fileCards } };
+  });
+}
+
+// 读取本轮轨迹中的工具记录文本与输出容器可滚动性。
+export async function readToolTrace(ctx) {
+  return withPage(ctx, async (page) => {
+    const rec = ctx.recorder;
+    const act = await rec.action('打开轨迹标签', 'click', null, async () => {
+      await page.getByText('轨迹', { exact: true }).first().click();
+      await page.waitForTimeout(2000);
+    });
+    const toolText = await rec.read('轨迹工具记录', 'trace-tool-row', { channel: 'dom', scope: '本轮会话/轨迹表格', locator: 'tr[data-kind="tool"]' }, async () => {
+      const rows = page.locator('tr[data-kind="tool"]');
+      const n = await rows.count();
+      const texts = [];
+      for (let i = 0; i < n; i++) texts.push((await rows.nth(i).innerText()).replace(/\s+/g, ' ').trim());
+      return { value: texts.length ? texts[texts.length - 1] : null, raw: { count: n, texts } };
+    });
+    const scroll = await rec.read('工具输出容器可滚动', 'trace-tool-scroll', { channel: 'dom', scope: '本轮会话/轨迹工具输出单元', locator: 'tr[data-kind="tool"] td' }, async () => {
+      const info = await page.evaluate(() => {
+        const rows = [...document.querySelectorAll('tr[data-kind="tool"]')];
+        if (!rows.length) return { found: false };
+        const row = rows[rows.length - 1];
+        let best = null;
+        for (const c of row.querySelectorAll('td,div,pre')) {
+          const cs = getComputedStyle(c);
+          if (c.scrollHeight > c.clientHeight && /auto|scroll/.test(cs.overflowY)) best = { scrollHeight: c.scrollHeight, clientHeight: c.clientHeight, overflowY: cs.overflowY };
+        }
+        return best ? { found: true, ...best, vert: true } : { found: true, scrollHeight: null, clientHeight: null, vert: false };
+      });
+      return { value: info.found ? !!info.vert : null, raw: info, derivation: '某输出单元 scrollHeight>clientHeight 且允许纵向滚动' };
+    });
+    return { action_refs: [act.event_id], observations: { toolText, scroll } };
+  });
+}
+
+// 打开工具详情弹窗，读取完整结果输出与其容器可滚动性；结束时关闭弹窗。
+export async function readToolDetail(ctx) {
+  return withPage(ctx, async (page) => {
+    const rec = ctx.recorder;
+    const actionRefs = [];
+    const openAct = await rec.action('打开工具详情', 'click-tool-row', null, async () => {
+      const tab = page.getByText('轨迹', { exact: true }).first();
+      if (await tab.count()) { await tab.click(); await page.waitForTimeout(1500); }
+      await page.locator('tr[data-kind="tool"]').last().click();
+      await page.waitForTimeout(1500);
+    });
+    actionRefs.push(openAct.event_id);
+    const resultTab = page.locator('aside[aria-label="事件详情"]').last().getByText('结果', { exact: true }).first();
+    if (await resultTab.count()) { await resultTab.click(); await page.waitForTimeout(800); }
+    const output = await rec.read('工具完整输出', 'tool-detail-output', { channel: 'dom', scope: '工具详情弹窗', locator: 'aside[aria-label="事件详情"]' }, async () => {
+      const dlg = page.locator('aside[aria-label="事件详情"]').last();
+      const text = await dlg.innerText();
+      return { value: text, raw: { length: text.length } };
+    });
+    const scroll = await rec.read('工具输出容器可滚动', 'tool-detail-scroll', { channel: 'dom', scope: '工具详情弹窗/结果区', locator: 'aside[aria-label="事件详情"]' }, async () => {
+      const info = await page.evaluate(() => {
+        const dlg = document.querySelectorAll('aside[aria-label="事件详情"]');
+        const root = dlg[dlg.length - 1];
+        if (!root) return { found: false };
+        let best = null;
+        for (const el of root.querySelectorAll('*')) {
+          const cs = getComputedStyle(el);
+          if (el.scrollHeight > el.clientHeight && el.clientHeight > 20 && /auto|scroll/.test(cs.overflowY)) best = { scrollHeight: el.scrollHeight, clientHeight: el.clientHeight, overflowY: cs.overflowY };
+        }
+        return best ? { found: true, ...best } : { found: true, scrollHeight: null, clientHeight: null };
+      });
+      const value = info.found ? !!(info.scrollHeight && info.scrollHeight > info.clientHeight) : null;
+      return { value, raw: info, derivation: '存在 scrollHeight>clientHeight 的同元素且允许滚动' };
+    });
+    await rec.action('关闭工具详情', 'escape', null, async () => { await page.keyboard.press('Escape'); await page.waitForTimeout(800); });
+    return { action_refs: actionRefs, observations: { output, scroll } };
+  });
+}
+
+// 读取本轮产物卡的实际资源路径，并可与目标文件绝对路径比较；同时读取磁盘文件内容。
+export async function readArtifact(ctx, args = {}) {
+  const { deliverPath, deliverKeyword } = args;
+  return withPage(ctx, async (page) => {
+    const rec = ctx.recorder;
+    const card = await rec.read('产物卡实际资源路径', 'artifact-resource-path', { channel: 'dom', scope: '当前会话对话区 产物卡', locator: '[data-changed-files="true"]' }, async () => {
+      const info = await page.evaluate(() => {
+        const el = document.querySelector('[data-changed-files="true"]');
+        if (!el) return { found: false };
+        const btn = el.querySelector('button[aria-label]');
+        const descId = btn ? btn.getAttribute('aria-describedby') : null;
+        const span = descId ? document.getElementById(descId) : null;
+        return { found: true, ariaLabel: btn ? btn.getAttribute('aria-label') : null, hidden: span ? span.textContent : null };
+      });
+      if (!info.found) return { value: null, raw: info, reason: '未找到产物卡' };
+      const abs = info.hidden || null;
+      const match = abs && typeof abs === 'string' ? abs.replaceAll('\\', '/').toLowerCase().endsWith(deliverPath.replaceAll('\\', '/').toLowerCase()) : false;
+      return { value: match, raw: { ...info, comparedTo: deliverPath }, derivation: 'hidden 绝对路径 endsWith 目标路径' };
+    });
+    let file = null;
+    if (deliverPath) {
+      const fs = await import('node:fs');
+      const p = deliverPath;
+      const value = fs.existsSync(p) ? fs.readFileSync(p, 'utf8').trim() : null;
+      file = await rec.read('实际交付文件内容', 'artifact-file-content', { channel: 'file', scope: '本轮工作目录', locator: p }, async () => ({ value, raw: { path: p, exists: fs.existsSync(p) } }));
+    }
+    return { observations: { card, file, deliverKeyword } };
+  });
+}
+
+// 读取执行详情（已完成工作步骤）默认折叠状态；展开后读取可见工具记录数与嵌套聚合层级。
+export async function readWorkSteps(ctx, args = {}) {
+  return withPage(ctx, async (page) => {
+    const rec = ctx.recorder;
+    const collapsed = await rec.read('完成工作步骤默认折叠', 'work-steps-collapsed', { channel: 'dom', scope: '对话/已完成工作步骤面板', locator: '[data-chat-flow-kind="turn-process"] [aria-expanded]' }, async () => {
+      const el = page.locator('[data-chat-flow-kind="turn-process"] [aria-expanded]').last();
+      const n = await el.count();
+      const aria = n ? await el.getAttribute('aria-expanded') : null;
+      const value = aria === 'false';
+      return { value, raw: { count: n, ariaExpanded: aria }, derivation: "ariaExpanded === 'false'" };
+    });
+    const expandAct = await rec.action('展开工作步骤面板', 'click', null, async () => {
+      await page.locator('[data-chat-flow-kind="turn-process"] [aria-expanded]').last().click();
+      await page.waitForTimeout(1500);
+    });
+    const afterExpand = await rec.read('展开后执行记录可见', 'work-steps-records', { channel: 'dom', scope: '对话/已完成工作步骤面板', locator: '[data-chat-flow-kind="turn-process"]' }, async () => {
+      const panel = page.locator('[data-chat-flow-kind="turn-process"]').last();
+      const info = await panel.evaluate((root) => {
+        const vis = (el) => !!(el.offsetWidth || el.offsetHeight || el.getClientRects().length);
+        const rows = [...root.querySelectorAll('[data-chat-flow-kind="tool"], [class*="tool"], [class*="step"]')].filter(vis);
+        const text = (root.innerText || '').replace(/\s+/g, ' ').trim();
+        // 嵌套同类聚合层级：统计 class 前缀相同的祖先链最大深度
+        let maxDepth = 0;
+        for (const el of root.querySelectorAll('[class*="_root"],[class*="_group"],[class*="_step"]')) {
+          let d = 0; let cur = el;
+          while (cur && cur !== root) { const c = (cur.className || '').toString(); if (/(_root|_group|_step)/.test(c)) d++; cur = cur.parentElement; }
+          if (d > maxDepth) maxDepth = d;
+        }
+        return { visibleRecords: rows.length, textLen: text.length, maxDepth };
+      });
+      const value = info.visibleRecords > 0 && info.textLen > 0;
+      return { value, raw: info, derivation: 'visibleRecords>0 && textLen>0' };
+    });
+    const nesting = await rec.read('单动作聚合层级', 'work-steps-nesting', { channel: 'dom', scope: '对话/已完成工作步骤面板', locator: '[data-chat-flow-kind="turn-process"]' }, async () => {
+      const info = await page.locator('[data-chat-flow-kind="turn-process"]').last().evaluate((root) => {
+        let maxDepth = 0;
+        for (const el of root.querySelectorAll('[class*="_root"],[class*="_group"],[class*="_step"]')) {
+          let d = 0; let cur = el;
+          while (cur && cur !== root) { const c = (cur.className || '').toString(); if (/(_root|_group|_step)/.test(c)) d++; cur = cur.parentElement; }
+          if (d > maxDepth) maxDepth = d;
+        }
+        return { maxDepth };
+      });
+      const value = info.maxDepth >= 2;
+      return { value, raw: { ...info }, derivation: 'maxDepth >= 2' };
+    });
+    return { action_refs: [expandAct.event_id], observations: { collapsed, afterExpand, nesting } };
+  });
+}
+
+// 读取当前会话中可见的工具调用记录数量。
+export async function readVisibleToolCalls(ctx) {
+  return withPage(ctx, async (page) => {
+    const rec = ctx.recorder;
+    const read = await rec.read('展开后执行记录可见', 'work-steps-records', { channel: 'dom', scope: '对话/已完成工作步骤', locator: '[data-chat-flow-kind="tool-call"]' }, async () => {
+      const info = await page.evaluate(() => {
+        const vis = (el) => !!(el.offsetWidth || el.offsetHeight || el.getClientRects().length);
+        const els = [...document.querySelectorAll('[data-chat-flow-kind="tool-call"]')];
+        return { count: els.length, visible: els.filter(vis).length };
+      });
+      return { value: info.visible > 0, raw: info, derivation: 'visible > 0' };
+    });
+    return { observations: { read } };
+  });
+}
+
+// 通过会话行菜单标记为未读。
+export async function markUnread(ctx, args = {}) {
+  return withPage(ctx, async (page) => {
+    const rec = ctx.recorder;
+    const row = args.sessionId ? page.locator(`[data-row-key="session:${args.sessionId}"]`).first() : page.locator('[data-row-key^="session:"]').filter({ hasText: args.title }).first();
+    const act = await rec.action('标记会话为未读', 'menu-click', { sessionId: args.sessionId || null }, async () => {
+      await row.scrollIntoViewIfNeeded();
+      await row.hover();
+      await page.waitForTimeout(400);
+      await row.locator('button[aria-label*="的操作"]').first().click();
+      await page.waitForTimeout(800);
+      await page.getByText('标记为未读', { exact: true }).last().click();
+      await page.waitForTimeout(1000);
+    });
+    return { action_refs: [act.event_id], observations: {} };
+  });
+}
+
+// 读取会话行的未读标记数量。
+export async function readUnreadBadge(ctx, args = {}) {
+  return withPage(ctx, async (page) => {
+    const rec = ctx.recorder;
+    const row = args.sessionId ? page.locator(`[data-row-key="session:${args.sessionId}"]`).first() : page.locator('[data-row-key^="session:"]').filter({ hasText: args.title }).first();
+    const badge = await rec.read('会话行未读提醒数量', 'session-unread-badge', { channel: 'dom', scope: '侧栏会话行', locator: '[data-row-key^="session:"]' }, async () => {
+      const info = await row.evaluate((r) => {
+        const vis = (el) => !!(el.offsetWidth || el.offsetHeight || el.getClientRects().length);
+        const cands = [...r.querySelectorAll('*')].filter((e) => vis(e) && e.children.length === 0);
+        const badges = [];
+        for (const e of cands) {
+          const cls = (e.className || '').toString();
+          const t = (e.innerText || '').trim();
+          const aria = e.getAttribute('aria-label') || '';
+          if (/badge|unread|dot/i.test(cls) || /未读/.test(aria)) badges.push({ cls: cls.split(' ')[0], text: t, aria });
+        }
+        return { badges, rowText: (r.innerText || '').replace(/\s+/g, ' ').slice(0, 80) };
+      });
+      const count = info.badges.reduce((n, b) => n + (parseInt(b.text, 10) || (b.text || b.aria ? 1 : 0)), 0);
+      return { value: count, raw: info, derivation: 'badge 文本数字求和，无数字按存在计 1' };
+    });
+    const extra = await rec.read('会话行并列额外标记数量', 'session-unread-extra', { channel: 'dom', scope: '侧栏会话行', locator: '[data-row-key^="session:"]' }, async () => {
+      const info = await row.evaluate((r) => {
+        const vis = (el) => !!(el.offsetWidth || el.offsetHeight || el.getClientRects().length);
+        const badges = [...r.querySelectorAll('*')].filter((e) => vis(e) && e.children.length === 0 && (/badge|unread|dot/i.test((e.className || '').toString()) || /未读/.test(e.getAttribute('aria-label') || '')));
+        return { badgeCount: badges.length };
+      });
+      const value = Math.max(0, info.badgeCount - 1);
+      return { value, raw: info, derivation: 'max(0, badgeCount - 1)' };
+    });
+    return { observations: { badge, extra } };
+  });
+}
+
+// 进入指定会话（点击其侧栏行）。
+export async function openSession(ctx, args = {}) {  return withPage(ctx, async (page) => {
+    const rec = ctx.recorder;
+    const row = args.sessionId ? page.locator(`[data-row-key="session:${args.sessionId}"]`).first() : page.locator('[data-row-key^="session:"]').filter({ hasText: args.title }).first();
+    const act = await rec.action('进入会话', 'click-row', { sessionId: args.sessionId || null }, async () => {
+      await row.scrollIntoViewIfNeeded();
+      await row.click();
+      await page.waitForTimeout(1500);
+    });
+    return { action_refs: [act.event_id], observations: {} };
+  });
+}
+
+// 读取侧栏会话行列表（用于确认目标会话行是否可定位）。
+export async function listSessionRows(ctx) {
+  return withPage(ctx, async (page) => {
+    const rec = ctx.recorder;
+    const rows = await rec.read('侧栏会话行列表', 'session-rows', { channel: 'dom', scope: '侧栏会话列表', locator: '[data-row-key^="session:"]' }, async () => {
+      const list = await page.$$eval('[data-row-key^="session:"]', (els) => els.map((e) => ({ key: e.getAttribute('data-row-key'), text: (e.innerText || '').replace(/\s+/g, ' ').slice(0, 40) })));
+      return { value: list, raw: { count: list.length, list } };
+    });
+    return { observations: { rows } };
+  });
+}
+
+// 读取 composer 页脚用量展示文本及详细字段可见性。
+export async function readUsageFooter(ctx) {
+  return withPage(ctx, async (page) => {
+    const rec = ctx.recorder;
+    const text = await rec.read('用量页脚文本', 'usage-footer', { channel: 'dom', scope: 'composer 页脚用量区', locator: 'body' }, async () => {
+      const t = await page.evaluate(() => {
+        const b = document.body.innerText || '';
+        const i = b.indexOf('tok/s');
+        if (i >= 0) return b.slice(Math.max(0, i - 60), i + 140).replace(/\n+/g, ' | ').trim();
+        // 简洁模式可能无 tok/s，取包含 缓存命中 的片段
+        const j = b.indexOf('缓存命中');
+        return j >= 0 ? b.slice(Math.max(0, j - 60), j + 60).replace(/\n+/g, ' | ').trim() : '';
+      });
+      return { value: t, raw: { text: t } };
+    });
+    const t = String(text.value || '');
+    const detailedHidden = await rec.read('简洁页脚详细字段全隐藏', 'usage-footer-detailed-hidden', { channel: 'derived', scope: 'composer 页脚用量区', locator: 'usage-footer' }, async () => {
+      const hasRounds = /\d+\s*轮/.test(t); const hasSteps = /\d+\s*步/.test(t); const hasTotal = /[\d.]+K?\s*tok(?!\/s)/.test(t);
+      const value = !hasRounds && !hasSteps && !hasTotal;
+      return { value, raw: { text: t, hasRounds, hasSteps, hasTotal }, derivation: '!hasRounds && !hasSteps && !hasTotal' };
+    });
+    const basicPresent = await rec.read('简洁页脚基本用量存在', 'usage-footer-basic', { channel: 'derived', scope: 'composer 页脚用量区', locator: 'usage-footer' }, async () => {
+      const value = /tok\/s/.test(t) || /\d+%/.test(t);
+      return { value, raw: { text: t }, derivation: 'tok/s 或百分比存在' };
+    });
+    const detailedShown = await rec.read('详细页脚字段显示', 'usage-footer-detailed', { channel: 'derived', scope: 'composer 页脚用量区', locator: 'usage-footer' }, async () => {
+      const value = /\d+\s*轮/.test(t) && /\d+\s*步/.test(t) && /[\d.]+K?\s*tok(?!\/s)/.test(t);
+      return { value, raw: { text: t }, derivation: '轮/步/token总量均显示' };
+    });
+    return { observations: { text, detailedHidden, basicPresent, detailedShown } };
+  });
+}
+
+// 按下搜索会话快捷键并读取搜索面板可见状态。
+export async function openSearchShortcut(ctx) {
+  return withPage(ctx, async (page) => {
+    const rec = ctx.recorder;
+    const act = await rec.action('按搜索会话快捷键', 'press-keys', { combo: 'Control+K' }, async () => {
+      await page.keyboard.press('Control+K');
+      await page.waitForTimeout(1500);
+    });
+    const panel = await rec.read('搜索面板可见', 'search-panel', { channel: 'dom', scope: '搜索弹窗/面板', locator: 'input[placeholder*="搜索"],input[type="search"],[class*="search"]' }, async () => {
+      const info = await page.evaluate(() => {
+        const vis = (el) => !!(el.offsetWidth || el.offsetHeight || el.getClientRects().length);
+        const el = [...document.querySelectorAll('input[placeholder*="搜索"],input[type="search"],[class*="search"]')].find(vis);
+        return el ? { found: true, placeholder: el.getAttribute('placeholder') || '', cls: (el.className || '').toString().slice(0, 60) } : { found: false };
+      });
+      return { value: info.found, raw: info, derivation: '搜索输入/面板可见' };
+    });
+    await page.keyboard.press('Escape').catch(() => {});
+    return { action_refs: [act.event_id], observations: { panel } };
+  });
+}
+
+// 读取当前任务“轨迹/Trace”入口是否可见。
+export async function readTraceVisible(ctx) {  return withPage(ctx, async (page) => {
+    const rec = ctx.recorder;
+    const read = await rec.read('当前任务Trace入口可见', 'trace-entry', { channel: 'dom', scope: '会话主表面/轨迹入口', locator: 'text=轨迹' }, async () => {
+      const visible = await page.evaluate(() => {
+        const vis = (el) => !!(el.offsetWidth || el.offsetHeight || el.getClientRects().length);
+        const els = [...document.querySelectorAll('button,[role="tab"],[class*="tab"]')].filter(vis).filter((e) => (e.innerText || '').trim() === '轨迹');
+        return els.length > 0;
+      });
+      return { value: visible, raw: { visible }, derivation: '存在可见的“轨迹”入口' };
+    });
+    return { observations: { read } };
+  });
+}
+
+// 处理对话内权限审批（允许一次 / 拒绝）。
+export async function decideApproval(ctx, args = {}) {
+  const { decision = 'allow' } = args;
+  return withPage(ctx, async (page) => {
+    const rec = ctx.recorder;
+    const label = decision === 'allow' ? '允许一次' : '拒绝';
+    const act = await rec.action('处理权限审批', 'click', { decision }, async () => {
+      await page.getByText(label, { exact: true }).first().click();
+      await page.waitForTimeout(2000);
+    });
+    return { action_refs: [act.event_id], observations: { decision } };
+  });
+}
+
+// 点击助手回复中的真实锚点（href 含指定片段）。
+export async function openLinkInReply(ctx, args = {}) {
+  const { hrefPart } = args;
+  return withPage(ctx, async (page) => {
+    const rec = ctx.recorder;
+    const act = await rec.action('点击回复中的链接', 'click', { hrefPart }, async () => {
+      const anchor = page.locator('a[href]').filter({ has: page.locator(`:scope`) }).first();
+      const target = page.locator('a[href]').filter({ hasText: /.*/ });
+      const n = await target.count();
+      let clicked = false;
+      for (let i = 0; i < n; i++) {
+        const href = await target.nth(i).getAttribute('href');
+        if (href && href.includes(hrefPart)) { await target.nth(i).click(); clicked = true; break; }
+      }
+      if (!clicked) throw new Error('anchor with hrefPart not found: ' + hrefPart);
+      await page.waitForTimeout(3000);
+    });
+    return { action_refs: [act.event_id], observations: {} };
+  });
+}
+
+// 读取应用内侧边栏/浏览器面板是否可见。
+export async function readSidePanelVisible(ctx) {
+  return withPage(ctx, async (page) => {
+    const rec = ctx.recorder;
+    const read = await rec.read('应用内侧边栏可见', 'side-browser-panel', { channel: 'dom', scope: '应用主表面/侧边浏览器', locator: '[class*="browser"],[class*="webview"],iframe' }, async () => {
+      const info = await page.evaluate(() => {
+        const vis = (el) => !!(el.offsetWidth || el.offsetHeight || el.getClientRects().length);
+        const cands = [...document.querySelectorAll('iframe,webview,[class*="browser"],[class*="Browser"],[class*="sidePanel"],[class*="webview"]')].filter(vis);
+        return cands.map((e) => ({ tag: e.tagName, cls: (e.className || '').toString().slice(0, 50), src: e.getAttribute && e.getAttribute('src') }));
+      });
+      return { value: info.length > 0, raw: { candidates: info }, derivation: '存在可见的应用内浏览器/侧栏面板' };
+    });
+    return { observations: { read } };
+  });
+}
+
+// 读取链接夹具日志：paths=GET 路径串；ua=命中 hrefPart 的请求 UA 是否 Chrome 且非 Electron。
+export async function readLinkLog(ctx, args = {}) {
+  const fs = await import('node:fs');
+  const { file, mode, hrefPart } = args;
+  const p = file;
+  const rec = ctx.recorder;
+  const read = await rec.read('链接夹具请求日志', p, { channel: 'file', scope: '链接夹具 JSONL', locator: p }, async () => {
+    const rows = fs.existsSync(p) ? fs.readFileSync(p, 'utf8').split(/\r?\n/).filter(Boolean).map((l) => { try { return JSON.parse(l); } catch { return null; } }).filter(Boolean) : [];
+    if (mode === 'ua') {
+      const hit = rows.filter((r) => (r.path || '').includes(hrefPart)).slice(-1)[0];
+      const ua = hit ? (hit.user_agent || '') : '';
+      const value = /Chrome\//.test(ua) && !/Electron/i.test(ua);
+      return { value, raw: { ua, path: hit ? hit.path : null, total: rows.length }, derivation: 'UA 含 Chrome 且不含 Electron' };
+    }
+    const paths = rows.map((r) => r.path);
+    return { value: paths.join(' | '), raw: { paths, total: rows.length } };
+  });
+  return { observations: { read } };
+}
+
+// 在 composer 输入触发符（@ 或 +）并读取弹出菜单项。
+export async function readComposerMenu(ctx, args = {}) {
+  const { trigger, wantPattern } = args;
+  return withPage(ctx, async (page) => {
+    const rec = ctx.recorder;
+    const act = await rec.action('打开 composer 菜单', 'type-trigger', { trigger }, async () => {
+      const c = page.locator(SEL.composer).first();
+      await c.click();
+      await page.keyboard.press('End');
+      await page.keyboard.insertText(trigger);
+      await page.waitForTimeout(1500);
+    });
+    const menu = await rec.read('composer 菜单项', 'composer-menu', { channel: 'dom', scope: 'composer 弹出菜单', locator: '[role="menu"],[class*="menu"],[class*="popover"]' }, async () => {
+      const re = new RegExp(wantPattern);
+      const info = await page.evaluate(() => {
+        const vis = (el) => !!(el.offsetWidth || el.offsetHeight || el.getClientRects().length);
+        const m = [...document.querySelectorAll('[role="menu"],[role="listbox"],[class*="menu"],[class*="popover"],[class*="dropdown"]')].filter(vis);
+        const items = m.flatMap((el) => [...el.querySelectorAll('[role="menuitem"],[role="option"],li,button')]).filter(vis).map((e) => (e.innerText || '').replace(/\s+/g, ' ').trim()).filter(Boolean);
+        return { items: [...new Set(items)].slice(0, 30) };
+      });
+      const value = info.items.some((t) => re.test(t));
+      return { value, raw: { items: info.items, wantPattern }, derivation: `菜单项匹配 /${wantPattern}/` };
+    });
+    await page.keyboard.press('Escape').catch(() => {});
+    await page.keyboard.press('Escape').catch(() => {});
+    return { action_refs: [act.event_id], observations: { menu } };
+  });
+}

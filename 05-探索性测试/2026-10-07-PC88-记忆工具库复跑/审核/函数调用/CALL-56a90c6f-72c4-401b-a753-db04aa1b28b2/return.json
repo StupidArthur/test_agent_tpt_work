@@ -1,0 +1,49 @@
+{
+  "call_id": "CALL-56a90c6f-72c4-401b-a753-db04aa1b28b2",
+  "status": "returned",
+  "observations": {
+    "action_refs": [
+      "CALL-56a90c6f-72c4-401b-a753-db04aa1b28b2-2"
+    ],
+    "observations": {
+      "toolText": {
+        "event_id": "CALL-56a90c6f-72c4-401b-a753-db04aa1b28b2-3",
+        "captured_at": "2026-10-07T05:21:59.138Z",
+        "environment_id": "PC88-20261007-memlib-r2-01",
+        "business_call_id": "CALL-56a90c6f-72c4-401b-a753-db04aa1b28b2",
+        "kind": "read",
+        "target": "轨迹工具记录",
+        "object_id": "trace-tool-row",
+        "source": {
+          "channel": "dom",
+          "scope": "本轮会话/轨迹表格",
+          "locator": "tr[data-kind=\"tool\"]"
+        },
+        "value": null,
+        "raw": {
+          "count": 0,
+          "texts": []
+        }
+      },
+      "scroll": {
+        "event_id": "CALL-56a90c6f-72c4-401b-a753-db04aa1b28b2-4",
+        "captured_at": "2026-10-07T05:21:59.144Z",
+        "environment_id": "PC88-20261007-memlib-r2-01",
+        "business_call_id": "CALL-56a90c6f-72c4-401b-a753-db04aa1b28b2",
+        "kind": "read",
+        "target": "工具输出容器可滚动",
+        "object_id": "trace-tool-scroll",
+        "source": {
+          "channel": "dom",
+          "scope": "本轮会话/轨迹工具输出单元",
+          "locator": "tr[data-kind=\"tool\"] td"
+        },
+        "value": null,
+        "raw": {
+          "found": false
+        },
+        "derivation": "某输出单元 scrollHeight>clientHeight 且允许纵向滚动"
+      }
+    }
+  }
+}

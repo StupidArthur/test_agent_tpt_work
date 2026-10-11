@@ -1,0 +1,93 @@
+{
+  "case_id": "AGENT-011",
+  "case_title": "本地完整页添加边界",
+  "source_sha256": "c3cdc4c71c1746e9a647aa5190e0983229af9b41c22e2e6c9a9bc3da80727b66",
+  "status": "已执行-结论不确定",
+  "review_status": "待双方审核",
+  "latest_attempt_id": "AGENT-011-A01",
+  "attempts": [
+    {
+      "attempt_id": "AGENT-011-A01",
+      "started_at": "2026-10-06T07:24:10+08:00",
+      "ended_at": "2026-10-05T23:24:30.634Z",
+      "environment_id": "ENV-001",
+      "surface": "Expert manager UI within visible dsh-app://app/api/supcon-agents/ui iframe; CDP + Playwright at 900x700 viewport",
+      "actual_preconditions": {
+        "account": "Arthur",
+        "manager": "我的专家",
+        "existing_expert_count": "10",
+        "fixtures": "existing imported round-owned local Expert round-agent-complete-20261006; no new package imported in this attempt",
+        "model": "not used"
+      },
+      "input": "在我的专家页观察来源筛选，查看“我创建的”与“市场添加”筛选，并打开已导入的本轮本地专家详情；不安装市场条目。",
+      "actual_steps": [
+        "读取来源筛选：全部来源、我创建的、市场添加。",
+        "在“我创建的”筛选下读取10张round-owned用户创建专家卡，包含样本“本轮夜间导入验证专家”；卡片标注来源我创建的·本地运行。",
+        "切到“市场添加”筛选；没有匹配卡片，空态为“未找到符合条件的专家，请调整搜索词或筛选条件”；页头显示10个本地就绪是总数，不作筛选结果数。",
+        "恢复全部来源后打开round-owned专家详情，读取来源“我创建的”、运行类型“本地运行”、版本、分类、推荐问题与提示词。",
+        "只读切到专家市场，观察3个未添加目录项的作者/版本；未看到价格与round-owned标记，未安装。",
+        "回到我的专家并恢复全部来源、全部运行位置。"
+      ],
+      "wait_condition": "等待每次来源筛选、详情路由和市场列表切换后页面稳定，再读取可见DOM并截取iframe范围截图。",
+      "checkpoints": [
+        {
+          "expected_index": 1,
+          "expected": "添加后才进入本地完整查看页",
+          "observed": "已添加的round-owned样本可从“我创建的”列表打开完整详情，显示来源我创建的、运行类型本地运行、版本/分类/推荐问题/提示词；但该样本在本attempt开始前已导入，没有观察本轮从未添加到添加的转换。",
+          "evidence": [
+            "证据/AGENT-011/AGENT-011-A01/source-and-detail.json",
+            "证据/AGENT-011/AGENT-011-A01/all-source-initial.png",
+            "证据/AGENT-011/AGENT-011-A01/created-source.png",
+            "证据/AGENT-011/AGENT-011-A01/market-added-source.png",
+            "证据/AGENT-011/AGENT-011-A01/round-local-expert-detail.png",
+            "证据/AGENT-011/AGENT-011-A01/unadded-expert-market.png"
+          ],
+          "verdict": "未验证"
+        }
+      ],
+      "observed_result": "已核验round-owned已导入本地专家的来源分类与完整详情；未找到可安全添加的round-owned市场样本，也没有本地市场/云端样本加入我的专家，故无法验证市场添加后的页面转换或本地/云端市场对象的共同归类。",
+      "status": "已执行-结论不确定",
+      "evidence": [
+        "证据/AGENT-011/AGENT-011-A01/source-and-detail.json",
+        "证据/AGENT-011/AGENT-011-A01/all-source-initial.png",
+        "证据/AGENT-011/AGENT-011-A01/created-source.png",
+        "证据/AGENT-011/AGENT-011-A01/market-added-source.png",
+        "证据/AGENT-011/AGENT-011-A01/round-local-expert-detail.png",
+        "证据/AGENT-011/AGENT-011-A01/unadded-expert-market.png"
+      ],
+      "difference_ids": [],
+      "notes": "该attempt只补本地用户创建样本的全详情；不代表本地市场卡已添加。专家市场只有3个未添加非round-owned条目，价格与本地/云端归属不明；未安装。市场样本是缺失依赖，不重复泛找入口。"
+    }
+  ],
+  "product_observations": [
+    {
+      "observation_id": "OBS-250",
+      "behavior": "“我的专家”来源筛选提供全部来源/我创建的/市场添加；当前round-owned样本位于我创建的本地运行分类，市场添加筛选为空。已导入样本详情可显示完整提示词与分类。",
+      "scope": "当前10个专家列表与指定round-owned本地导入样本；3个市场目录项仅只读",
+      "verified_depth": "来源筛选与本地详情页观察；市场添加后的本地/云端对象未添加",
+      "evidence": [
+        "证据/AGENT-011/AGENT-011-A01/source-and-detail.json",
+        "证据/AGENT-011/AGENT-011-A01/all-source-initial.png",
+        "证据/AGENT-011/AGENT-011-A01/created-source.png",
+        "证据/AGENT-011/AGENT-011-A01/market-added-source.png",
+        "证据/AGENT-011/AGENT-011-A01/round-local-expert-detail.png",
+        "证据/AGENT-011/AGENT-011-A01/unadded-expert-market.png"
+      ],
+      "extra_feature": false,
+      "review_status": "待双方审核"
+    }
+  ],
+  "differences": [],
+  "finding_ids": [],
+  "applicability_reason": null,
+  "cleanup": {
+    "changes": [],
+    "remaining": []
+  },
+  "review": {
+    "assistant": null,
+    "user": null,
+    "approved_scope": [],
+    "final_decision": "待审核"
+  }
+}

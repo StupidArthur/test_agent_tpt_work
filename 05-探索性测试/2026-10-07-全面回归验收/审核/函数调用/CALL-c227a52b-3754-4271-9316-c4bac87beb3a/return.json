@@ -1,0 +1,51 @@
+{
+  "call_id": "CALL-c227a52b-3754-4271-9316-c4bac87beb3a",
+  "status": "returned",
+  "observations": {
+    "action_refs": [
+      "CALL-c227a52b-3754-4271-9316-c4bac87beb3a-2"
+    ],
+    "observations": {
+      "result": {
+        "event_id": "CALL-c227a52b-3754-4271-9316-c4bac87beb3a-3",
+        "captured_at": "2026-10-07T00:16:53.852Z",
+        "environment_id": "acceptance-20261007",
+        "business_call_id": "CALL-c227a52b-3754-4271-9316-c4bac87beb3a",
+        "kind": "read",
+        "target": "导入结果",
+        "object_id": "skill-import-result",
+        "source": {
+          "channel": "dom",
+          "scope": "技能页/导入弹窗或列表",
+          "locator": "[role=\"dialog\"]"
+        },
+        "value": null,
+        "raw": {
+          "dialogCount": 0,
+          "text": "",
+          "listCount": 102
+        },
+        "derivation": "导入结果文本或列表数"
+      },
+      "conflictDefault": {
+        "event_id": "CALL-c227a52b-3754-4271-9316-c4bac87beb3a-4",
+        "captured_at": "2026-10-07T00:16:53.854Z",
+        "environment_id": "acceptance-20261007",
+        "business_call_id": "CALL-c227a52b-3754-4271-9316-c4bac87beb3a",
+        "kind": "read",
+        "target": "候选默认选项",
+        "object_id": "skill-import-conflict-default",
+        "source": {
+          "channel": "dom",
+          "scope": "技能页/导入弹窗",
+          "locator": "[role=\"dialog\"]"
+        },
+        "value": null,
+        "raw": {
+          "text": ""
+        },
+        "derivation": "结果文本含 跳过/覆盖"
+      }
+    }
+  }
+}

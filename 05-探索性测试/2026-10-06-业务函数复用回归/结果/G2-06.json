@@ -1,0 +1,54 @@
+{
+  "case_id": "G2-06",
+  "contract_version": "2.0",
+  "attempt_id": "fn-20261006-agent2-G2-06-A1",
+  "environment_id": "env-fn-20261006-agent2",
+  "object_identity": {
+    "internal_name": "fast-assert-skill-fn-20261006-agent2",
+    "display_name": "本轮快速回归技能"
+  },
+  "inputs": [
+    "读取导入后本轮技能卡片版本"
+  ],
+  "action_refs": [
+    "business-9aae0cbf-78b5-4793-831d-1061de7fce35-5"
+  ],
+  "status": "通过",
+  "started_at": "2026-10-06T07:27:37.064Z",
+  "ended_at": "2026-10-06T07:31:14.630Z",
+  "actual_steps": [
+    "读取卡片文本中的 v 前缀版本并去掉前缀"
+  ],
+  "assertions": [
+    {
+      "id": "G2-06-A1",
+      "actual": "1.2.3",
+      "read_refs": [
+        "business-19fe971d-e1c0-476a-b7c6-917fc407a176-4"
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "path": "运行日志/business.jsonl",
+      "sha256": "6203703aeaf46ab5fd94d64c474b878c26f39b97bc4c3f7a3840f9ee9a48bdc5"
+    },
+    {
+      "path": "运行日志/业务调用.jsonl",
+      "sha256": "91fc9bb4b29ad5347770a9e5e5a21b38b9c414c04a2e484e84b5dd981db87bd7"
+    }
+  ],
+  "cleanup": {
+    "status": "retained",
+    "description": "本轮技能保留供 G3；搜索已清空",
+    "read_refs": [
+      "business-6b6721dc-d6db-4622-a0ce-1f43b1723a99-3"
+    ]
+  },
+  "business_call_refs": [
+    "CALL-a2dcd577-40fc-4bc0-bff5-8f10cca7887f",
+    "CALL-94da6f38-82fe-4e1a-a320-483ee185e97c",
+    "CALL-03b04a3d-a0ec-4935-813f-36de89fd20f5"
+  ],
+  "notes": "卡片显示 v1.2.3，读取时去掉 v 前缀"
+}

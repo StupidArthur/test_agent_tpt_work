@@ -1,0 +1,422 @@
+[
+  {
+    "id": "G12-01",
+    "title": "工作步骤偏好保存",
+    "steps": [
+      "保存工作步骤初值，改另一值；关闭重开设置回读；恢复。"
+    ],
+    "expected": [
+      "重开后的工作步骤设置：\"$work_steps_changed\"",
+      "恢复后的工作步骤设置：\"$work_steps_initial\""
+    ],
+    "fixture": "见扩展场景与夹具说明",
+    "assertions": [
+      {
+        "id": "G12-01-A1",
+        "target": "重开后的工作步骤设置",
+        "read": "读取选中值",
+        "operator": "equals",
+        "expected": "$work_steps_changed"
+      },
+      {
+        "id": "G12-01-A2",
+        "target": "恢复后的工作步骤设置",
+        "read": "独立回读",
+        "operator": "equals",
+        "expected": "$work_steps_initial"
+      }
+    ]
+  },
+  {
+    "id": "G12-02",
+    "title": "用量简洁实际效果",
+    "steps": [
+      "准备已完成对话；保存用量初值切简洁，关设置看同一任务页脚。"
+    ],
+    "expected": [
+      "简洁页脚轮次步骤token总量：true",
+      "简洁页脚基本用量：true"
+    ],
+    "fixture": "见扩展场景与夹具说明",
+    "assertions": [
+      {
+        "id": "G12-02-A1",
+        "target": "简洁页脚轮次步骤token总量",
+        "read": "限定该页脚读取三类详细字段是否全隐藏",
+        "operator": "equals",
+        "expected": true
+      },
+      {
+        "id": "G12-02-A2",
+        "target": "简洁页脚基本用量",
+        "read": "读取tok/s或上下文百分比至少一项仍存在",
+        "operator": "equals",
+        "expected": true
+      }
+    ]
+  },
+  {
+    "id": "G12-03",
+    "title": "用量详细与恢复",
+    "steps": [
+      "切详细并读同一页脚；恢复原值且重开设置。"
+    ],
+    "expected": [
+      "详细页脚字段：true",
+      "恢复后的用量设置：\"$usage_initial\""
+    ],
+    "fixture": "见扩展场景与夹具说明",
+    "assertions": [
+      {
+        "id": "G12-03-A1",
+        "target": "详细页脚字段",
+        "read": "读取轮次/步骤/token总量均显示",
+        "operator": "equals",
+        "expected": true
+      },
+      {
+        "id": "G12-03-A2",
+        "target": "恢复后的用量设置",
+        "read": "独立回读选中值",
+        "operator": "equals",
+        "expected": "$usage_initial"
+      }
+    ]
+  },
+  {
+    "id": "G12-04",
+    "title": "记忆开关保存",
+    "steps": [
+      "只在设置中保存启用记忆初值，点击反值一次；等待保存完成/明确失败；关设置重开读取并恢复。不得编辑或删除记忆。"
+    ],
+    "expected": [
+      "重开后的启用记忆：\"$memory_changed\"",
+      "记忆开关保存错误：false",
+      "恢复后的启用记忆：\"$memory_initial\""
+    ],
+    "fixture": "见扩展场景与夹具说明",
+    "assertions": [
+      {
+        "id": "G12-04-A1",
+        "target": "重开后的启用记忆",
+        "read": "读取checked布尔值",
+        "operator": "equals",
+        "expected": "$memory_changed"
+      },
+      {
+        "id": "G12-04-A2",
+        "target": "记忆开关保存错误",
+        "read": "读取是否出现保存失败提示",
+        "operator": "equals",
+        "expected": false
+      },
+      {
+        "id": "G12-04-A3",
+        "target": "恢复后的启用记忆",
+        "read": "独立读取checked",
+        "operator": "equals",
+        "expected": "$memory_initial"
+      }
+    ]
+  },
+  {
+    "id": "G12-05",
+    "title": "沉淀开关保存",
+    "steps": [
+      "同样仅切启用沉淀一次；独立回读并恢复，不执行沉淀任务。"
+    ],
+    "expected": [
+      "重开后的启用沉淀：\"$evolution_changed\"",
+      "沉淀开关保存错误：false",
+      "恢复后的启用沉淀：\"$evolution_initial\""
+    ],
+    "fixture": "见扩展场景与夹具说明",
+    "assertions": [
+      {
+        "id": "G12-05-A1",
+        "target": "重开后的启用沉淀",
+        "read": "读取checked",
+        "operator": "equals",
+        "expected": "$evolution_changed"
+      },
+      {
+        "id": "G12-05-A2",
+        "target": "沉淀开关保存错误",
+        "read": "读取是否出现保存失败提示",
+        "operator": "equals",
+        "expected": false
+      },
+      {
+        "id": "G12-05-A3",
+        "target": "恢复后的启用沉淀",
+        "read": "独立读取checked",
+        "operator": "equals",
+        "expected": "$evolution_initial"
+      }
+    ]
+  },
+  {
+    "id": "G12-06",
+    "title": "实验总开关保存恢复",
+    "steps": [
+      "保存初值，切反值，关闭重开设置，恢复；不切体验优化计划。"
+    ],
+    "expected": [
+      "重开后的实验总开关：\"$experimental_changed\"",
+      "恢复后的实验总开关：\"$experimental_initial\""
+    ],
+    "fixture": "见扩展场景与夹具说明",
+    "assertions": [
+      {
+        "id": "G12-06-A1",
+        "target": "重开后的实验总开关",
+        "read": "读取checked",
+        "operator": "equals",
+        "expected": "$experimental_changed"
+      },
+      {
+        "id": "G12-06-A2",
+        "target": "恢复后的实验总开关",
+        "read": "独立回读",
+        "operator": "equals",
+        "expected": "$experimental_initial"
+      }
+    ]
+  },
+  {
+    "id": "G12-07",
+    "title": "开发者模式保存恢复",
+    "steps": [
+      "保存初值，切反值，关闭重开设置，恢复；不调用额外调试业务。"
+    ],
+    "expected": [
+      "重开后的开发者模式：\"$developer_changed\"",
+      "恢复后的开发者模式：\"$developer_initial\""
+    ],
+    "fixture": "见扩展场景与夹具说明",
+    "assertions": [
+      {
+        "id": "G12-07-A1",
+        "target": "重开后的开发者模式",
+        "read": "读取checked",
+        "operator": "equals",
+        "expected": "$developer_changed"
+      },
+      {
+        "id": "G12-07-A2",
+        "target": "恢复后的开发者模式",
+        "read": "独立回读",
+        "operator": "equals",
+        "expected": "$developer_initial"
+      }
+    ]
+  },
+  {
+    "id": "G12-08",
+    "title": "新建快捷键自定义保存",
+    "steps": [
+      "保存当前快捷键，改Ctrl+Alt+Shift+F9；关设置重开读取；恢复原组合而非一律恢复默认。"
+    ],
+    "expected": [
+      "重开后的新建快捷键：\"Ctrl+Alt+Shift+F9\"",
+      "恢复后新建快捷键：\"$shortcut_new_initial\""
+    ],
+    "fixture": "见扩展场景与夹具说明",
+    "assertions": [
+      {
+        "id": "G12-08-A1",
+        "target": "重开后的新建快捷键",
+        "read": "读取规范化组合",
+        "operator": "equals",
+        "expected": "Ctrl+Alt+Shift+F9"
+      },
+      {
+        "id": "G12-08-A2",
+        "target": "恢复后新建快捷键",
+        "read": "独立回读",
+        "operator": "equals",
+        "expected": "$shortcut_new_initial"
+      }
+    ]
+  },
+  {
+    "id": "G12-09",
+    "title": "搜索快捷键运行效果",
+    "steps": [
+      "保存搜索快捷键值；关闭设置和菜单，焦点BODY；用Playwright按当前配置一次，不重试；读搜索入口；Esc收尾。"
+    ],
+    "expected": [
+      "快捷键后的搜索会话输入：true"
+    ],
+    "fixture": "见扩展场景与夹具说明",
+    "assertions": [
+      {
+        "id": "G12-09-A1",
+        "target": "快捷键后的搜索会话输入",
+        "read": "限定搜索面板读可见状态",
+        "operator": "equals",
+        "expected": true
+      }
+    ]
+  },
+  {
+    "id": "G12-10",
+    "title": "代码工具开启实际执行",
+    "steps": [
+      "先记录代码工具初值，再开启并等待保存。创建本轮code-on.js字节为module.exports = 0;；新任务输入“只把此绝对路径文件完整内容改为module.exports = 1;（可带末尾换行），随后读取确认；不改其他文件”。读取实际文件UTF8 trim和当前任务Trace入口。"
+    ],
+    "expected": [
+      "开启态code-on.js实际内容：\"module.exports = 1;\"",
+      "开启态Trace入口：true"
+    ],
+    "fixture": "见扩展场景与夹具说明",
+    "assertions": [
+      {
+        "id": "G12-10-A1",
+        "target": "开启态code-on.js实际内容",
+        "read": "读取UTF8 trim",
+        "operator": "equals",
+        "expected": "module.exports = 1;"
+      },
+      {
+        "id": "G12-10-A2",
+        "target": "开启态Trace入口",
+        "read": "读取任务Trace可见",
+        "operator": "equals",
+        "expected": true
+      }
+    ]
+  },
+  {
+    "id": "G12-11",
+    "title": "代码工具关闭对照",
+    "steps": [
+      "关闭代码工具并等待保存；另一新任务对code-off.js执行G12-10相同精确请求。读取实际文件与Trace；按初值恢复代码工具并重开读取。写入行为按当前待审观察基线比较，不擅自推定关闭应禁止全部写入。"
+    ],
+    "expected": [
+      "关闭态Trace入口：false",
+      "关闭态code-off.js实际内容：\"module.exports = 1;\"",
+      "恢复后代码工具设置：\"$code_tools_initial\""
+    ],
+    "fixture": "见扩展场景与夹具说明",
+    "assertions": [
+      {
+        "id": "G12-11-A1",
+        "target": "关闭态Trace入口",
+        "read": "读取当前任务Trace可见",
+        "operator": "equals",
+        "expected": false
+      },
+      {
+        "id": "G12-11-A2",
+        "target": "关闭态code-off.js实际内容",
+        "read": "读取UTF8 trim；这是当前产品观察基线，不代表需求已批准",
+        "operator": "equals",
+        "expected": "module.exports = 1;"
+      },
+      {
+        "id": "G12-11-A3",
+        "target": "恢复后代码工具设置",
+        "read": "独立读取checked",
+        "operator": "equals",
+        "expected": "$code_tools_initial"
+      }
+    ]
+  },
+  {
+    "id": "G12-12",
+    "title": "侧栏链接实际路径",
+    "steps": [
+      "启动tools/link_fixture.py；保存链接设置初值，选应用内侧边栏；任务生成指向本轮URL的Markdown链接；点真实锚点。"
+    ],
+    "expected": [
+      "本轮侧栏浏览器：true",
+      "本轮URL请求日志：\"$link_path\""
+    ],
+    "fixture": "tools/link_fixture.py + 本轮唯一URL",
+    "assertions": [
+      {
+        "id": "G12-12-A1",
+        "target": "本轮侧栏浏览器",
+        "read": "读取应用内浏览器/侧栏面板可见",
+        "operator": "equals",
+        "expected": true
+      },
+      {
+        "id": "G12-12-A2",
+        "target": "本轮URL请求日志",
+        "read": "读取夹具真实GET路径列表",
+        "operator": "contains",
+        "expected": "$link_path"
+      }
+    ]
+  },
+  {
+    "id": "G12-13",
+    "title": "默认浏览器实际路径",
+    "steps": [
+      "切默认浏览器；点击另一唯一目标链接；读夹具请求日志User-Agent及进程/窗口观察；恢复设置、关闭应用内本轮页、停止夹具。"
+    ],
+    "expected": [
+      "默认浏览器User-Agent：true",
+      "恢复后网页链接设置：\"$link_initial\""
+    ],
+    "fixture": "见扩展场景与夹具说明",
+    "assertions": [
+      {
+        "id": "G12-13-A1",
+        "target": "默认浏览器User-Agent",
+        "read": "读取匹配本轮URL的GET UA是否Chrome且不含Electron",
+        "operator": "equals",
+        "expected": true
+      },
+      {
+        "id": "G12-13-A2",
+        "target": "恢复后网页链接设置",
+        "read": "独立读取选中值",
+        "operator": "equals",
+        "expected": "$link_initial"
+      }
+    ]
+  },
+  {
+    "id": "G12-16",
+    "title": "个人主页只读身份",
+    "steps": [
+      "打开个人主页；读取用户名/用户类型可编辑状态，不更换身份。"
+    ],
+    "expected": [
+      "个人身份字段只读：true"
+    ],
+    "fixture": "见扩展场景与夹具说明",
+    "assertions": [
+      {
+        "id": "G12-16-A1",
+        "target": "个人身份字段只读",
+        "read": "读取用户名与用户类型均disabled/readonly",
+        "operator": "equals",
+        "expected": true
+      }
+    ]
+  },
+  {
+    "id": "G12-17",
+    "title": "设置全项恢复核验",
+    "steps": [
+      "独立重开设置，逐项回读本轮调整过的设置；与运行初值快照比较；不要只复制恢复动作日志。"
+    ],
+    "expected": [
+      "本轮可逆设置规范化快照：null"
+    ],
+    "fixture": "见扩展场景与夹具说明",
+    "assertions": [
+      {
+        "id": "G12-17-A1",
+        "target": "本轮可逆设置规范化快照",
+        "read": "任务开始与全部恢复后读取同一字段集合",
+        "operator": "same_value",
+        "expected": null
+      }
+    ]
+  }
+]

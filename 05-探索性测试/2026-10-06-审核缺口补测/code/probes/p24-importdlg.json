@@ -1,0 +1,48 @@
+{
+  "text": "导入技能 每次导入一个技能：选择 ZIP、SKILL.md 或 Skill 文件夹。 选择文件 选择文件夹 文件要求 压缩包或文件夹需包含 SKILL.md SKILL.md 需包含 YAML 格式的技能名称和描述 导入时复制完整内容，不修改原始来源 取消 导入",
+  "inputs": [
+    {
+      "type": "file",
+      "accept": ".zip,.md",
+      "webkitdirectory": false,
+      "hidden": true,
+      "cls": ""
+    },
+    {
+      "type": "file",
+      "accept": "",
+      "webkitdirectory": true,
+      "hidden": true,
+      "cls": ""
+    }
+  ],
+  "btns": [
+    {
+      "t": "",
+      "disabled": false,
+      "aria": "关闭"
+    },
+    {
+      "t": "选择文件",
+      "disabled": false,
+      "aria": null
+    },
+    {
+      "t": "选择文件夹",
+      "disabled": false,
+      "aria": null
+    },
+    {
+      "t": "取消",
+      "disabled": false,
+      "aria": null
+    },
+    {
+      "t": "导入",
+      "disabled": true,
+      "aria": null
+    }
+  ],
+  "tabs": [],
+  "html": "<div role=\"dialog\" id=\"radix-_r_9_\" data-state=\"open\" data-slot=\"dialog-content\" class=\"fixed top-[50%] left-[50%] z-50 flex w-full max-w-[calc(100%-2rem)] flex-col translate-x-[-50%] translate-y-[-50%] gap-0 max-h-[90vh] overflow-hidden rounded-[16px] bg-card p-0 shadow-[0_14px_42px_rgba(27,35,53,0.13)] data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 duration-200 sm:max-w-[520px]\" tabindex=\"-1\" aria-labelledby=\"radix-_r_a_\" style=\"pointer-events: auto;\"><div class=\"modal-head\"><h2 id=\"importTitle\" data-slot=\"dialog-title\" class=\"font-semibold tracking-tight\">导入技能</h2><button type=\"button\" class=\"close\" aria-label=\"关闭\"><svg viewBox=\"0 0 24 24\" xmlns=\"http://w"
+}

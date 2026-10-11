@@ -1,0 +1,95 @@
+{
+  "observations": {
+    "action_refs": [
+      "business-b8061870-4c36-4146-b91d-80a8da70863a-2",
+      "business-b8061870-4c36-4146-b91d-80a8da70863a-4"
+    ],
+    "observations": {
+      "project": {
+        "event_id": "business-b8061870-4c36-4146-b91d-80a8da70863a-5",
+        "captured_at": "2026-10-06T08:44:17.827Z",
+        "environment_id": "env-fn-20261006-agent2",
+        "kind": "read",
+        "target": "当前任务项目",
+        "business_call_id": "CALL-ad3ca1c7-e6b9-4cd6-88ca-664915eed153",
+        "object_id": "D:\\tpt-workspace\\0929\\p1",
+        "source": {
+          "channel": "dom",
+          "scope": "composer 项目选择按钮",
+          "locator": "button[aria-label=\"选择项目\"]"
+        },
+        "value": "D:\\tpt-workspace\\0929\\p1",
+        "raw": {
+          "text": "D:\\tpt-workspace\\0929\\p1"
+        },
+        "derivation": "text=项目按钮实际显示名"
+      },
+      "editor": {
+        "event_id": "business-b8061870-4c36-4146-b91d-80a8da70863a-6",
+        "captured_at": "2026-10-06T08:44:17.832Z",
+        "environment_id": "env-fn-20261006-agent2",
+        "kind": "read",
+        "target": "新任务编辑器",
+        "business_call_id": "CALL-ad3ca1c7-e6b9-4cd6-88ca-664915eed153",
+        "object_id": "composer",
+        "source": {
+          "channel": "dom",
+          "scope": "composer 输入区",
+          "locator": "div[contenteditable=\"true\"][aria-label*=\"/ 调用指令\"]"
+        },
+        "value": true,
+        "raw": {
+          "count": 1,
+          "visible": true,
+          "editable": "true"
+        },
+        "derivation": "visible && contenteditable === 'true'"
+      },
+      "model": {
+        "event_id": "business-b8061870-4c36-4146-b91d-80a8da70863a-7",
+        "captured_at": "2026-10-06T08:44:17.836Z",
+        "environment_id": "env-fn-20261006-agent2",
+        "kind": "read",
+        "target": "当前任务模型与推理等级",
+        "business_call_id": "CALL-ad3ca1c7-e6b9-4cd6-88ca-664915eed153",
+        "object_id": "model-trigger",
+        "source": {
+          "channel": "dom",
+          "scope": "composer 模型触发按钮",
+          "locator": "button[aria-label^=\"选择模型\"]"
+        },
+        "value": [
+          "标准",
+          "low"
+        ],
+        "raw": {
+          "ariaLabel": "选择模型，当前 标准，推理等级 low",
+          "text": "标准\nlow"
+        }
+      },
+      "session": {
+        "event_id": "business-b8061870-4c36-4146-b91d-80a8da70863a-8",
+        "captured_at": "2026-10-06T08:44:17.838Z",
+        "environment_id": "env-fn-20261006-agent2",
+        "kind": "read",
+        "target": "本轮任务session身份",
+        "business_call_id": "CALL-ad3ca1c7-e6b9-4cd6-88ca-664915eed153",
+        "object_id": "session",
+        "source": {
+          "channel": "dom",
+          "scope": "主界面会话容器",
+          "locator": "[data-conversation-session]"
+        },
+        "value": "session-1db83666-7151-433f-9392-4125c2ca5c01",
+        "raw": {
+          "attr": "data-conversation-session",
+          "value": "session-1db83666-7151-433f-9392-4125c2ca5c01"
+        }
+      }
+    },
+    "args_echo": {
+      "model": "标准",
+      "reasoning": "low"
+    }
+  }
+}

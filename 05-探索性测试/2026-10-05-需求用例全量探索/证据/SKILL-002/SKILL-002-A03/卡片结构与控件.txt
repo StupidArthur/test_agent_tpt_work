@@ -1,0 +1,193 @@
+# SKILL-002 卡片结构、控件与设计符合性核对
+# captured_at: 2026-10-05T10:37:46.947Z
+
+## 卡片外层 class
+bg-card text-card-foreground flex flex-col border group min-h-[170px] h-full gap-0 overflow-hidden rounded-[13px] shadow-none _card_kwdbw_3
+
+## 首卡 innerHTML（前 3000 字符）
+<div data-slot="card-content" class="cursor-pointer p-0"><div class="card-main"><div class="card-head"><span class="skill-icon tone-orange"><img class="skill-icon-fallback" alt="" src="data:image/svg+xml,%3csvg%20width='48'%20height='48'%20viewBox='0%200%2048%2048'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3crect%20width='48'%20height='48'%20rx='9.6'%20fill='%2313C2C2'/%3e%3cpath%20d='M31.2548%2027.6879C31.451%2027.2148%2032.1048%2027.2148%2032.3008%2027.6879L32.5818%2028.3672C33.0618%2029.5259%2033.9572%2030.4511%2035.0829%2030.9518L35.8804%2031.3067C36.3362%2031.5098%2036.3362%2032.1733%2035.8804%2032.3766L35.0362%2032.752C33.9388%2033.24%2033.0593%2034.1325%2032.571%2035.253L32.2964%2035.8813C32.096%2036.3414%2031.4597%2036.3414%2031.2591%2035.8813L30.9857%2035.253C30.4973%2034.1323%2029.6169%2033.2401%2028.5193%2032.752L27.6751%2032.3766C27.2193%2032.1733%2027.2193%2031.5098%2027.6751%2031.3067L28.4727%2030.9518C29.5983%2030.4511%2030.4939%2029.5259%2030.9738%2028.3672L31.2548%2027.6879ZM32.8911%2012.8887C33.5036%2012.8888%2034%2013.3951%2034%2013.9911V25.4907C33.3049%2025.245%2032.557%2025.1109%2031.7778%2025.1109C28.0959%2025.1109%2025.1111%2028.0957%2025.1111%2031.7776C25.1111%2032.9922%2025.4377%2034.1301%2026.0052%2035.1109H15.1035C14.494%2035.1108%2014%2034.6117%2014%2033.9911V20.6665H20.6667C21.2803%2020.6665%2021.7778%2020.169%2021.7778%2019.5553V12.8887H32.8911ZM19.5556%2018.4442H14L19.5556%2012.8919V18.4442Z'%20fill='white'/%3e%3c/svg%3e"></span><div class="card-title"><h3 title="查找技能">查找技能</h3></div><button type="button" role="switch" aria-checked="true" data-state="checked" data-disabled="" disabled="" value="on" data-slot="switch" class="peer inline-flex h-[19px] w-[34px] shrink-0 cursor-pointer items-center rounded-full border border-transparent shadow-xs transition-colors focus-visible:ring-[3px] focus-visible:ring-ring/50 focus-visible:outline-hidden disabled:cursor-not-allowed disabled:opacity-45 data-[state=checked]:bg-primary data-[state=unchecked]:bg-[#c9ced6]" title="内置技能不允许停用"><span data-state="checked" data-disabled="" data-slot="switch-thumb" class="pointer-events-none block size-[15px] rounded-full bg-white shadow-sm ring-0 transition-transform data-[state=checked]:translate-x-[15px] data-[state=unchecked]:translate-x-[2px]"></span></button></div><p class="card-desc">在 DSH 内查找、浏览和安装技能。不要当作例行第一步使用。仅当用户显式要求从技能市场查找、浏览或安装技能，或本地没有已安装技能能覆盖任务且大概率需要专用技能时使用。搜索范围为本机已安装技能与技能管理插件提供的技能市场目录。</p><div class="card-tags"><span data-slot="badge" class="inline-flex items-center justify-center gap-1 whitespace-nowrap shrink-0 transition-colors focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 aria-invalid:border-destructive h-auto rounded-[4px] border px-[6px] py-[0px] text-[12px] font-normal leading-[20px] bg-[#F0F5FF] text-[#2F54EB] border-[#ADC6FF] dark:bg-[rgba(47,84,235,0.16)] dark:text-[#a5b4ff] dark:border-[#4056b8]">skill</span><span data-slot="badge" class="
+
+## 首卡 card-foot innerHTML
+<div class="card-foot-left"><span class="_source_kwdbw_29" title="技能来源"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="13" height="13" fill="currentColor" class="remixicon "><path d="M13.0607 8.11097L14.4749 9.52518C17.2086 12.2589 17.2086 16.691 14.4749 19.4247L14.1214 19.7782C11.3877 22.5119 6.95555 22.5119 4.22188 19.7782C1.48821 17.0446 1.48821 12.6124 4.22188 9.87874L5.6361 11.293C3.68348 13.2456 3.68348 16.4114 5.6361 18.364C7.58872 20.3166 10.7545 20.3166 12.7072 18.364L13.0607 18.0105C15.0133 16.0578 15.0133 12.892 13.0607 10.9394L11.6465 9.52518L13.0607 8.11097ZM19.7782 14.1214L18.364 12.7072C20.3166 10.7545 20.3166 7.58872 18.364 5.6361C16.4114 3.68348 13.2456 3.68348 11.293 5.6361L10.9394 5.98965C8.98678 7.94227 8.98678 11.1081 10.9394 13.0607L12.3536 14.4749L10.9394 15.8891L9.52518 14.4749C6.79151 11.7413 6.79151 7.30911 9.52518 4.57544L9.87874 4.22188C12.6124 1.48821 17.0446 1.48821 19.7782 4.22188C22.5119 6.95555 22.5119 11.3877 19.7782 14.1214Z"></path></svg>来源 内置技能</span><span data-slot="badge" class="inline-flex items-center justify-center gap-1 whitespace-nowrap shrink-0 transition-colors focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 aria-invalid:border-destructive border h-auto rounded-[6px] px-[6px] py-[2px] text-[10px] font-semibold bg-[#f2f4f8] text-[#5b6472] dark:bg-[#262a33] dark:text-[#9aa3af]">v1.0.0</span></div><div class="card-actions"><span class="_quick-use_kwdbw_12">快捷使用</span></div>
+
+## 首卡内可交互控件
+[
+  {
+    "tag": "button",
+    "role": "switch",
+    "ariaLabel": null,
+    "title": "内置技能不允许停用",
+    "ariaChecked": "true",
+    "text": "",
+    "cls": "peer inline-flex h-[19px] w-[34px] shrink-0 cursor-pointer items-cente",
+    "w": 34,
+    "h": 19
+  }
+]
+
+## 全部卡片的可交互控件
+[
+  {
+    "i": 0,
+    "name": "查找技能",
+    "children": [
+      {
+        "tag": "button",
+        "role": "switch",
+        "ariaLabel": null,
+        "title": "内置技能不允许停用",
+        "ariaChecked": "true",
+        "text": "",
+        "cls": "peer inline-flex h-[19px] w-[34px] shrink-0 cursor-pointer items-cente",
+        "w": 34,
+        "h": 19
+      }
+    ]
+  },
+  {
+    "i": 1,
+    "name": "创建技能",
+    "children": [
+      {
+        "tag": "button",
+        "role": "switch",
+        "ariaLabel": null,
+        "title": "内置技能不允许停用",
+        "ariaChecked": "true",
+        "text": "",
+        "cls": "peer inline-flex h-[19px] w-[34px] shrink-0 cursor-pointer items-cente",
+        "w": 34,
+        "h": 19
+      }
+    ]
+  },
+  {
+    "i": 2,
+    "name": "配置连接器",
+    "children": [
+      {
+        "tag": "button",
+        "role": "switch",
+        "ariaLabel": null,
+        "title": "内置技能不允许停用",
+        "ariaChecked": "true",
+        "text": "",
+        "cls": "peer inline-flex h-[19px] w-[34px] shrink-0 cursor-pointer items-cente",
+        "w": 34,
+        "h": 19
+      }
+    ]
+  },
+  {
+    "i": 3,
+    "name": "添加连接器",
+    "children": [
+      {
+        "tag": "button",
+        "role": "switch",
+        "ariaLabel": null,
+        "title": "内置技能不允许停用",
+        "ariaChecked": "true",
+        "text": "",
+        "cls": "peer inline-flex h-[19px] w-[34px] shrink-0 cursor-pointer items-cente",
+        "w": 34,
+        "h": 19
+      }
+    ]
+  },
+  {
+    "i": 4,
+    "name": "指标数据查询",
+    "children": [
+      {
+        "tag": "button",
+        "role": "switch",
+        "ariaLabel": null,
+        "title": "启停技能",
+        "ariaChecked": "true",
+        "text": "",
+        "cls": "peer inline-flex h-[19px] w-[34px] shrink-0 cursor-pointer items-cente",
+        "w": 34,
+        "h": 19
+      },
+      {
+        "tag": "button",
+        "role": null,
+        "ariaLabel": "删除",
+        "title": "删除",
+        "ariaChecked": null,
+        "text": "",
+        "cls": "inline-flex items-center justify-center gap-2 whitespace-nowrap border",
+        "w": 28,
+        "h": 28
+      }
+    ]
+  },
+  {
+    "i": 5,
+    "name": "指标信息查询",
+    "children": [
+      {
+        "tag": "button",
+        "role": "switch",
+        "ariaLabel": null,
+        "title": "启停技能",
+        "ariaChecked": "true",
+        "text": "",
+        "cls": "peer inline-flex h-[19px] w-[34px] shrink-0 cursor-pointer items-cente",
+        "w": 34,
+        "h": 19
+      },
+      {
+        "tag": "button",
+        "role": null,
+        "ariaLabel": "删除",
+        "title": "删除",
+        "ariaChecked": null,
+        "text": "",
+        "cls": "inline-flex items-center justify-center gap-2 whitespace-nowrap border",
+        "w": 28,
+        "h": 28
+      }
+    ]
+  },
+  {
+    "i": 6,
+    "name": "Agent 创建与修改",
+    "children": [
+      {
+        "tag": "button",
+        "role": "switch",
+        "ariaLabel": null,
+        "title": "内置技能不允许停用",
+        "ariaChecked": "true",
+        "text": "",
+        "cls": "peer inline-flex h-[19px] w-[34px] shrink-0 cursor-pointer items-cente",
+        "w": 34,
+        "h": 19
+      }
+    ]
+  }
+]
+
+## 纯图标控件（三点菜单候选）
+[
+  {
+    "ariaLabel": "删除",
+    "title": "删除",
+    "cls": "inline-flex items-center justify-center gap-2 whitespace-nowrap border",
+    "svgHtml": "<svg viewBox=\"0 0 24 24\" xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" fill=\"currentColor\" class=\"remixicon \"><path d=\"M17 6H22V8H20V21C20 21.5523 1",
+    "w": 28,
+    "h": 28,
+    "insideCard": true
+  },
+  {
+    "ariaLabel": "删除",
+    "title": "删除",
+    "cls": "inline-flex items-center justify-center gap-2 whitespace-nowrap border",
+    "svgHtml": "<svg viewBox=\"0 0 24 24\" xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" fill=\"currentColor\" class=\"remixicon \"><path d=\"M17 6H22V8H20V21C20 21.5523 1",
+    "w": 28,
+    "h": 28,
+    "insideCard": true
+  }
+]

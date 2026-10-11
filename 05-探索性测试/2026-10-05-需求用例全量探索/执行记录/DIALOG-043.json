@@ -1,0 +1,116 @@
+{
+  "case_id": "DIALOG-043",
+  "case_title": "明确文件交付登记",
+  "source_sha256": "b712acd3b204ebcfdd07129c4d993ea1beb184f9a2d0c3827745ee1fdf7a6677",
+  "status": "已执行-符合预期",
+  "review_status": "待双方审核",
+  "latest_attempt_id": "DIALOG-043-A01",
+  "attempts": [
+    {
+      "attempt_id": "DIALOG-043-A01",
+      "started_at": "2026-10-05T21:07:00+08:00",
+      "ended_at": "2026-10-05T21:10:00+08:00",
+      "environment_id": "ENV-001",
+      "surface": "Visible task conversation and reopen-file UI in existing tpt-workspace via CDP 9234",
+      "actual_preconditions": {
+        "project": "existing tpt-workspace",
+        "model": "standard / low",
+        "access_mode": "workspace edits",
+        "fixture": "only round-owned DIALOG043-round-owned.txt"
+      },
+      "input": "Create one text file, explicitly deliver it, and provide a UI entry that can reopen it.",
+      "actual_steps": [
+        "Submitted a request through the visible task UI to create DIALOG043-round-owned.txt with the line DIALOG043_DELIVERABLE.",
+        "Waited for the completed response and observed the edited-file card plus explicit file mention.",
+        "Clicked the explicit 再次打开入口 file button; the UI displayed D:\\code\\tpt-workspace\\DIALOG043-round-owned.txt and exact content DIALOG043_DELIVERABLE.",
+        "Independently read the exact workspace file content.",
+        "Removed only this round-owned file through the UI after evidence capture; cleanup verification is pending.",
+        "Removed only DIALOG043-round-owned.txt through the UI; the UI reported Test-Path False and an independent filesystem check also returned False."
+      ],
+      "wait_condition": "Task completed in 14 seconds; then reopened file via its visible button.",
+      "checkpoints": [
+        {
+          "expected_index": 1,
+          "expected": "产物可再次打开",
+          "observed": "The explicit 再次打开入口 button opened a file view showing the path and exact content.",
+          "verdict": "符合",
+          "evidence": [
+            "证据/DIALOG-043/DIALOG-043-A01/result.png",
+            "证据/DIALOG-043/DIALOG-043-A01/result.json",
+            "证据/DIALOG-043/DIALOG-043-A01/reopen.png",
+            "证据/DIALOG-043/DIALOG-043-A01/reopen.json"
+          ]
+        },
+        {
+          "expected_index": 2,
+          "expected": "记录与实际文件对应",
+          "observed": "UI showed the file as edited artifact; independent read returned exactly DIALOG043_DELIVERABLE.",
+          "verdict": "符合",
+          "evidence": [
+            "证据/DIALOG-043/DIALOG-043-A01/result.png",
+            "证据/DIALOG-043/DIALOG-043-A01/result.json",
+            "证据/DIALOG-043/DIALOG-043-A01/reopen.png",
+            "证据/DIALOG-043/DIALOG-043-A01/reopen.json"
+          ]
+        }
+      ],
+      "observed_result": "Explicitly delivered file reopened with exact path/content; only the round-owned file was subsequently removed and verified absent.",
+      "status": "已执行-符合预期",
+      "evidence": [
+        "证据/DIALOG-043/DIALOG-043-A01/result.png",
+        "证据/DIALOG-043/DIALOG-043-A01/result.json",
+        "证据/DIALOG-043/DIALOG-043-A01/reopen.png",
+        "证据/DIALOG-043/DIALOG-043-A01/reopen.json",
+        "证据/DIALOG-043/DIALOG-043-A01/cleanup.json",
+        "证据/DIALOG-043/DIALOG-043-A01/cleanup.png"
+      ],
+      "notes": "One own fixture created, delivery/reopen confirmed, then deleted through UI; independent Test-Path False.",
+      "cleanup": {
+        "changes": [
+          "created and then removed DIALOG043-round-owned.txt"
+        ],
+        "remaining": []
+      }
+    }
+  ],
+  "product_observations": [
+    {
+      "observation": "Explicit file delivery surfaced an edited-file entry; its 再次打开入口 button reopened the exact file path and contents.",
+      "evidence": [
+        "证据/DIALOG-043/DIALOG-043-A01/result.png",
+        "证据/DIALOG-043/DIALOG-043-A01/result.json",
+        "证据/DIALOG-043/DIALOG-043-A01/reopen.png",
+        "证据/DIALOG-043/DIALOG-043-A01/reopen.json"
+      ]
+    }
+  ],
+  "differences": [],
+  "finding_ids": [],
+  "blocker": null,
+  "applicability_reason": null,
+  "cleanup": {
+    "changes": [
+      "DIALOG043-round-owned.txt created and removed via UI; Test-Path False"
+    ],
+    "remaining": []
+  },
+  "review": {
+    "assistant": null,
+    "user": null,
+    "approved_scope": [],
+    "final_decision": "待审核"
+  },
+  "audit_history": [
+    {
+      "revised_at": "2026-10-05T21:52:00+08:00",
+      "field": "DIALOG-043-A01 button label in execution record and product observation",
+      "prior_value": "????????",
+      "revised_value": "再次打开入口",
+      "reason": "Corrected text corruption from the captured reopen UI evidence; no historical evidence files or verdicts changed.",
+      "evidence": [
+        "证据/DIALOG-043/DIALOG-043-A01/reopen.png",
+        "证据/DIALOG-043/DIALOG-043-A01/reopen.json"
+      ]
+    }
+  ]
+}

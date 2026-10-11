@@ -1,0 +1,111 @@
+{
+  "call_id": "CALL-82e8a111-2383-4997-86ba-e8f921cfeb4b",
+  "status": "returned",
+  "observations": {
+    "observations": {
+      "title": {
+        "event_id": "CALL-82e8a111-2383-4997-86ba-e8f921cfeb4b-1",
+        "captured_at": "2026-10-06T16:53:19.120Z",
+        "environment_id": "agent-oc-20261006-funcfull-01",
+        "business_call_id": "CALL-82e8a111-2383-4997-86ba-e8f921cfeb4b",
+        "kind": "read",
+        "target": "本轮专家标题",
+        "object_id": "expert-card-title",
+        "source": {
+          "channel": "dom",
+          "scope": "专家页/我的专家卡片",
+          "locator": "h3"
+        },
+        "value": "fast-assert-expert-minimal-agent-oc-20261006-funcfull-01",
+        "raw": {
+          "title": "fast-assert-expert-minimal-agent-oc-20261006-funcfull-01"
+        }
+      },
+      "meta": {
+        "event_id": "CALL-82e8a111-2383-4997-86ba-e8f921cfeb4b-2",
+        "captured_at": "2026-10-06T16:53:19.125Z",
+        "environment_id": "agent-oc-20261006-funcfull-01",
+        "business_call_id": "CALL-82e8a111-2383-4997-86ba-e8f921cfeb4b",
+        "kind": "read",
+        "target": "本轮专家名称与版本",
+        "object_id": "expert-card-meta",
+        "source": {
+          "channel": "dom",
+          "scope": "专家页/我的专家卡片",
+          "locator": "div[class*=\"_card_\"]"
+        },
+        "value": [
+          "fast-assert-expert-minimal-agent-oc-20261006-funcfull-01",
+          "0.0.0"
+        ],
+        "raw": {
+          "title": "fast-assert-expert-minimal-agent-oc-20261006-funcfull-01",
+          "version": "0.0.0",
+          "text": "fast-assert-expert-minimal-agent-oc-20261006-funcfull-01 Harmless regression fixture with a fixed response and no external operations. 来源 我创建的 · 本地运行 v0.0.0 使用"
+        }
+      },
+      "fields": {
+        "event_id": "CALL-82e8a111-2383-4997-86ba-e8f921cfeb4b-3",
+        "captured_at": "2026-10-06T16:53:19.127Z",
+        "environment_id": "agent-oc-20261006-funcfull-01",
+        "business_call_id": "CALL-82e8a111-2383-4997-86ba-e8f921cfeb4b",
+        "kind": "read",
+        "target": "本轮专家来源与运行类型",
+        "object_id": "expert-card-fields",
+        "source": {
+          "channel": "dom",
+          "scope": "专家页/我的专家卡片",
+          "locator": "div[class*=\"_card_\"]"
+        },
+        "value": [
+          "我创建的",
+          "本地运行"
+        ],
+        "raw": {
+          "text": "fast-assert-expert-minimal-agent-oc-20261006-funcfull-01 Harmless regression fixture with a fixed response and no external operations. 来源 我创建的 · 本地运行 v0.0.0 使用",
+          "source": "我创建的",
+          "location": "本地运行"
+        }
+      },
+      "description": {
+        "event_id": "CALL-82e8a111-2383-4997-86ba-e8f921cfeb4b-4",
+        "captured_at": "2026-10-06T16:53:19.131Z",
+        "environment_id": "agent-oc-20261006-funcfull-01",
+        "business_call_id": "CALL-82e8a111-2383-4997-86ba-e8f921cfeb4b",
+        "kind": "read",
+        "target": "本轮专家简介",
+        "object_id": "expert-card-description",
+        "source": {
+          "channel": "dom",
+          "scope": "专家页/我的专家卡片",
+          "locator": "div[class*=\"_card_\"]"
+        },
+        "value": "Harmless regression fixture with a fixed response and no external operations.",
+        "raw": {
+          "text": "fast-assert-expert-minimal-agent-oc-20261006-funcfull-01 Harmless regression fixture with a fixed response and no external operations. 来源 我创建的 · 本地运行 v0.0.0 使用",
+          "desc": "Harmless regression fixture with a fixed response and no external operations."
+        }
+      },
+      "exists": {
+        "event_id": "CALL-82e8a111-2383-4997-86ba-e8f921cfeb4b-5",
+        "captured_at": "2026-10-06T16:53:19.141Z",
+        "environment_id": "agent-oc-20261006-funcfull-01",
+        "business_call_id": "CALL-82e8a111-2383-4997-86ba-e8f921cfeb4b",
+        "kind": "read",
+        "target": "按内部name核对存在",
+        "object_id": "expert-card-internal",
+        "source": {
+          "channel": "dom",
+          "scope": "专家页/我的专家卡片",
+          "locator": "div[class*=\"_card_\"]"
+        },
+        "value": true,
+        "raw": {
+          "count": 1,
+          "internalNameInDom": true
+        },
+        "derivation": "count > 0"
+      }
+    }
+  }
+}

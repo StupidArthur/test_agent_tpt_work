@@ -1,0 +1,56 @@
+{
+  "call_id": "CALL-351c4847-c65b-4079-89ac-11e6f9c2cac7",
+  "status": "returned",
+  "observations": {
+    "action_refs": [
+      "CALL-351c4847-c65b-4079-89ac-11e6f9c2cac7-2"
+    ],
+    "observations": {
+      "wait": {
+        "waited_ms": 6994
+      },
+      "assistant": {
+        "event_id": "CALL-351c4847-c65b-4079-89ac-11e6f9c2cac7-3",
+        "captured_at": "2026-10-06T16:34:48.717Z",
+        "environment_id": "agent-oc-20261006-funcfull-01",
+        "business_call_id": "CALL-351c4847-c65b-4079-89ac-11e6f9c2cac7",
+        "kind": "read",
+        "target": "技能调用助手气泡",
+        "object_id": "last-assistant-bubble",
+        "source": {
+          "channel": "dom",
+          "scope": "对话 助手气泡",
+          "locator": "[class*=\"hWmORq_body\"]"
+        },
+        "value": "FAST_MINIMAL_OK",
+        "raw": {
+          "count": 2,
+          "last": "FAST_MINIMAL_OK"
+        }
+      },
+      "userReq": {
+        "event_id": "CALL-351c4847-c65b-4079-89ac-11e6f9c2cac7-4",
+        "captured_at": "2026-10-06T16:34:48.718Z",
+        "environment_id": "agent-oc-20261006-funcfull-01",
+        "business_call_id": "CALL-351c4847-c65b-4079-89ac-11e6f9c2cac7",
+        "kind": "read",
+        "target": "本轮用户请求",
+        "object_id": "submitted-composer",
+        "source": {
+          "channel": "dom",
+          "scope": "本次提交前编辑区完整输入",
+          "locator": "div[contenteditable=\"true\"][aria-label*=\"/ 调用指令\"]"
+        },
+        "value": false,
+        "raw": {
+          "requestText": "fast-assert-minimal-agent-oc-20261006-funcfull-01\n 请执行此技能固定回复规则",
+          "session": "session-189101c5-01b5-4e88-8e69-a2f612a65521",
+          "capturedAt": "2026-10-06T16:34:41.605Z",
+          "answer": "FAST_MINIMAL_OK",
+          "capturedBeforeSend": true
+        },
+        "derivation": "complete submitted composer text.includes(answer)"
+      }
+    }
+  }
+}

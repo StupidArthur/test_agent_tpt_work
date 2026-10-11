@@ -1,0 +1,53 @@
+{
+  "case_id": "G8-08",
+  "contract_version": "2.0",
+  "environment_id": "agent-oc-20261006-funcfull-01",
+  "attempt_id": "G8-08-A01",
+  "object_identity": "session（写deliver.txt任务）+产物卡",
+  "inputs": [
+    "在 .tpt-tool-<run> 下写 deliver.txt 内容 FAST_DELIVER_OK 并作为交付"
+  ],
+  "business_call_refs": [
+    "CALL-80fdbbda-e9d0-4454-8bde-18abfcb9434e",
+    "CALL-a650158f-77b2-486c-a7f3-7c0e98cbaa7f",
+    "CALL-f722e078-2e93-4da9-b6d1-d9067243c3ac"
+  ],
+  "status": "通过",
+  "attempted_at": "2026-10-06T16:44:26.462Z",
+  "assertions": [
+    {
+      "id": "G8-08-A1",
+      "expected": "FAST_DELIVER_OK",
+      "actual": "FAST_DELIVER_OK",
+      "pass": true,
+      "read_refs": [
+        "CALL-f722e078-2e93-4da9-b6d1-d9067243c3ac-2"
+      ],
+      "raw": {
+        "path": "D:/code/tpt-workspace/.tpt-tool-agent-oc-20261006-funcfull-01/deliver.txt",
+        "exists": true
+      }
+    },
+    {
+      "id": "G8-08-A2",
+      "expected": true,
+      "actual": true,
+      "pass": true,
+      "read_refs": [
+        "CALL-f722e078-2e93-4da9-b6d1-d9067243c3ac-1"
+      ],
+      "raw": {
+        "ariaLabel": "查看 .tpt-tool-agent-oc-20261006-funcfull-01/deliver.txt 的改动",
+        "hidden": "D:\\code\\tpt-workspace\\.tpt-tool-agent-oc-20261006-funcfull-01\\deliver.txt"
+      },
+      "derivation": "产物卡 hidden 绝对路径 endsWith 目标路径"
+    }
+  ],
+  "restore": {
+    "status": "unchanged",
+    "description": "本case未改动设置/文件",
+    "read_refs": []
+  },
+  "residual": "deliver.txt 保留（本轮工作目录）",
+  "notes": "首次尝试未绑定项目导致模型判定目录在可写工作区外而拒写（CALL-d1f4538a）；修正为 newTask 绑定 D:/code/tpt-workspace 后成功。以成功读取为判据。"
+}

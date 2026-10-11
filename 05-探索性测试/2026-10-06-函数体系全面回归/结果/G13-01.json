@@ -1,0 +1,38 @@
+{
+  "case_id": "G13-01",
+  "contract_version": "2.0",
+  "environment_id": "agent-oc-20261006-funcfull-01",
+  "attempt_id": "G13-01-A01",
+  "object_identity": "composer @ 菜单",
+  "inputs": [
+    "在 composer 输入 @"
+  ],
+  "business_call_refs": [
+    "CALL-ad3292c7-18c5-4083-a760-8a1d5f164cc8"
+  ],
+  "status": "失败",
+  "attempted_at": "2026-10-06T17:16:29.789Z",
+  "assertions": [
+    {
+      "id": "G13-01-A1",
+      "expected": true,
+      "actual": false,
+      "pass": false,
+      "read_refs": [
+        "CALL-ad3292c7-18c5-4083-a760-8a1d5f164cc8-3"
+      ],
+      "raw": {
+        "items": [],
+        "wantPattern": "文件|资料|本地"
+      },
+      "derivation": "@ 菜单未弹出任何匹配项"
+    }
+  ],
+  "restore": {
+    "status": "unchanged",
+    "description": "本case未改动设置/文件",
+    "read_refs": []
+  },
+  "residual": "",
+  "notes": "输入 @ 后未出现文件/本地资料菜单项。登记候选问题。"
+}

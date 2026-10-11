@@ -1,0 +1,89 @@
+{
+  "ok": true,
+  "start": 229159.812,
+  "end": 229171.25,
+  "requests": [
+    {
+      "request_id": 1,
+      "start": 229159.812,
+      "end": 229166.296,
+      "ok": true,
+      "error": null,
+      "status": "200"
+    },
+    {
+      "request_id": 2,
+      "start": 229167.359,
+      "end": 229171.203,
+      "ok": true,
+      "error": null,
+      "status": "200"
+    }
+  ],
+  "first_text_wait": 8.593999999991386,
+  "error": null,
+  "scenario": "standard-sales-analysis",
+  "metrics": [
+    {
+      "first_effective": 1.359,
+      "reasoning": 1.359,
+      "tool": 6.438,
+      "text": null,
+      "usage": {
+        "input_tokens": 22613,
+        "input_tokens_details": {
+          "cached_tokens": 18176,
+          "input_tokens_per_turn": [],
+          "cached_tokens_per_turn": []
+        },
+        "output_tokens": 765,
+        "output_tokens_details": {
+          "reasoning_tokens": 0,
+          "tool_output_tokens": 0,
+          "output_tokens_per_turn": [],
+          "tool_output_tokens_per_turn": []
+        },
+        "total_tokens": 23378
+      },
+      "e2e": 6.484,
+      "ok": true
+    },
+    {
+      "first_effective": 1.047,
+      "reasoning": null,
+      "tool": null,
+      "text": 1.047,
+      "usage": {
+        "input_tokens": 23127,
+        "input_tokens_details": {
+          "cached_tokens": 22528,
+          "input_tokens_per_turn": [],
+          "cached_tokens_per_turn": []
+        },
+        "output_tokens": 436,
+        "output_tokens_details": {
+          "reasoning_tokens": 0,
+          "tool_output_tokens": 0,
+          "output_tokens_per_turn": [],
+          "tool_output_tokens_per_turn": []
+        },
+        "total_tokens": 23563
+      },
+      "e2e": 3.844,
+      "ok": true
+    }
+  ],
+  "checks": {
+    "first_completed": true,
+    "expected_tool": true,
+    "tool_arguments": true,
+    "second_completed": true,
+    "final_numbers": true,
+    "final_report": true
+  },
+  "evidence": [
+    "wire/preflight/00001-CAP_AGENT_5ef63bbe38014ce1a023d3d8d55b627b.json",
+    "wire/preflight/00002-CAP_AGENT_5ef63bbe38014ce1a023d3d8d55b627b.json"
+  ],
+  "source_session": "session-0085a1a5-ea38-4831-92df-afed9df3ec8c"
+}

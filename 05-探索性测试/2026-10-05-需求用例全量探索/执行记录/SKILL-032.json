@@ -1,0 +1,107 @@
+{
+  "case_id": "SKILL-032",
+  "case_title": "包内PNG图标",
+  "source_sha256": "92a6f4ecd2a5dffe0f1a2a60e73fa18b5fb98763b09cc56ce4cc22fd56e13f0e",
+  "status": "已执行-符合预期",
+  "review_status": "待双方审核",
+  "latest_attempt_id": "SKILL-032-A01",
+  "attempts": [
+    {
+      "attempt_id": "SKILL-032-A01",
+      "started_at": "2026-10-05T16:53:00.000Z",
+      "ended_at": "2026-10-05T16:55:00.000Z",
+      "environment_id": "ENV-001",
+      "surface": "TPT Work UI via CDP + Playwright; visible UI actions and direct Trace/readback; round-owned fixtures only",
+      "actual_preconditions": {
+        "account_alias": "Arthur",
+        "workspace": "tpt-workspace",
+        "project": "未新增项目",
+        "session_id": "本轮Skill管理页面；不涉及新会话",
+        "model": "标准 / low",
+        "permission": "工作区内修改",
+        "fixtures": [
+          "夹具/skill-rich-20261006/round-skill-neighbor-20261006"
+        ]
+      },
+      "input": "包内PNG图标",
+      "actual_steps": [
+        "通过UI导入round-skill-neighbor-20261006.zip。",
+        "在详情页打开assets目录并点击icon.png。"
+      ],
+      "wait_condition": "UI变化后重新读取当前iframe/页面；等待导入或任务出现稳定终态；不使用API绕过UI。",
+      "checkpoints": [
+        {
+          "expected_index": 1,
+          "expected": "图标可见",
+          "observed": "详情只读预览显示实际彩色PNG图案；Skill.md的icon字段为“assets/icon.png”。",
+          "verdict": "符合",
+          "evidence": [
+            "证据/SKILL-032/SKILL-032-A01/icon-preview.png",
+            "证据/SKILL-032/SKILL-032-A01/neighbor-import-result.png"
+          ]
+        },
+        {
+          "expected_index": 2,
+          "expected": "来源是包内文件",
+          "observed": "目录树可达assets/icon.png，YAML明确指向包内相对路径。",
+          "verdict": "符合",
+          "evidence": [
+            "证据/SKILL-032/SKILL-032-A01/icon-preview.png",
+            "证据/SKILL-032/SKILL-032-A01/neighbor-import-result.png"
+          ]
+        }
+      ],
+      "observed_result": "包内assets/icon.png可在Skill详情直接预览，YAML图标字段指向该相对路径；导入数量由22增至23。",
+      "status": "已执行-符合预期",
+      "evidence": [
+        "证据/SKILL-032/SKILL-032-A01/icon-preview.png",
+        "证据/SKILL-032/SKILL-032-A01/neighbor-import-result.png"
+      ],
+      "difference_ids": [],
+      "notes": "卡片列表图形与其他圆形样本相同；本attempt通过的是包内文件可达及详情真实图像预览。"
+    }
+  ],
+  "product_observations": [
+    {
+      "feature_id": null,
+      "statement": "包内assets/icon.png可在Skill详情直接预览，YAML图标字段指向该相对路径；导入数量由22增至23。",
+      "case_ids": [
+        "SKILL-032"
+      ],
+      "attempt_ids": [
+        "SKILL-032-A01"
+      ],
+      "environment_id": "ENV-001",
+      "verified_depth": "仅SKILL-032-A01与所引用UI、round-owned样本及证据范围",
+      "scope_and_limits": "卡片列表图形与其他圆形样本相同；本attempt通过的是包内文件可达及详情真实图像预览。；待双方审核。",
+      "evidence": [
+        "证据/SKILL-032/SKILL-032-A01/icon-preview.png",
+        "证据/SKILL-032/SKILL-032-A01/neighbor-import-result.png"
+      ],
+      "relation_to_design": "对照当前用例原文记录；本轮观察不自动作为正式验收结论。",
+      "review_status": "待双方审核"
+    }
+  ],
+  "differences": [],
+  "finding_ids": [],
+  "blocker": null,
+  "applicability_reason": null,
+  "cleanup": {
+    "changes": [],
+    "remaining": [
+      "本轮round-owned技能样本保留在产品技能库以供本任务后续对照；未改动已有技能资产。"
+    ]
+  },
+  "review": {
+    "assistant": null,
+    "user": null,
+    "approved_scope": [],
+    "final_decision": "待审核"
+  },
+  "audit_history": [
+    {
+      "at": "2026-10-05T16:55:00.000Z",
+      "event": "夜间续跑由实际可控UI与round-owned夹具执行新增A01；旧阻塞原因保留于历史，结论待双方审核。"
+    }
+  ]
+}

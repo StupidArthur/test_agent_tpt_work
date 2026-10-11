@@ -1,0 +1,50 @@
+{
+  "call_id": "CALL-97a2e908-541c-4f20-8e5d-1200accf86ab",
+  "status": "returned",
+  "observations": {
+    "action_refs": [
+      "CALL-97a2e908-541c-4f20-8e5d-1200accf86ab-2"
+    ],
+    "observations": {
+      "mode": {
+        "event_id": "CALL-97a2e908-541c-4f20-8e5d-1200accf86ab-3",
+        "captured_at": "2026-10-06T17:18:13.844Z",
+        "environment_id": "agent-oc-20261006-funcfull-01",
+        "business_call_id": "CALL-97a2e908-541c-4f20-8e5d-1200accf86ab",
+        "kind": "read",
+        "target": "创建技能模式标识",
+        "object_id": "skill-create-mode",
+        "source": {
+          "channel": "dom",
+          "scope": "composer 输入区",
+          "locator": "div[contenteditable=\"true\"][aria-label*=\"/ 调用指令\"]"
+        },
+        "value": true,
+        "raw": {
+          "composer": "@\ncreate-skill\n ",
+          "presetPattern": "create-skill|创建技能"
+        },
+        "derivation": "composer 含预置创建技能指令/标签"
+      },
+      "visible": {
+        "event_id": "CALL-97a2e908-541c-4f20-8e5d-1200accf86ab-4",
+        "captured_at": "2026-10-06T17:18:13.847Z",
+        "environment_id": "agent-oc-20261006-funcfull-01",
+        "business_call_id": "CALL-97a2e908-541c-4f20-8e5d-1200accf86ab",
+        "kind": "read",
+        "target": "创建技能面板可见",
+        "object_id": "skill-create-visible",
+        "source": {
+          "channel": "dom",
+          "scope": "主表面 composer",
+          "locator": "div[contenteditable=\"true\"][aria-label*=\"/ 调用指令\"]"
+        },
+        "value": true,
+        "raw": {
+          "visible": true
+        },
+        "derivation": "composer.isVisible()"
+      }
+    }
+  }
+}

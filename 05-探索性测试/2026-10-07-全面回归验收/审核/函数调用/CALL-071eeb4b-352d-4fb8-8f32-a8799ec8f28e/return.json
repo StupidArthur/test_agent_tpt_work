@@ -1,0 +1,35 @@
+{
+  "call_id": "CALL-071eeb4b-352d-4fb8-8f32-a8799ec8f28e",
+  "status": "returned",
+  "observations": {
+    "action_refs": [
+      "CALL-071eeb4b-352d-4fb8-8f32-a8799ec8f28e-2"
+    ],
+    "observations": {
+      "read": {
+        "event_id": "CALL-071eeb4b-352d-4fb8-8f32-a8799ec8f28e-3",
+        "captured_at": "2026-10-07T00:11:46.553Z",
+        "environment_id": "acceptance-20261007",
+        "business_call_id": "CALL-071eeb4b-352d-4fb8-8f32-a8799ec8f28e",
+        "kind": "read",
+        "target": "会话搜索结果数",
+        "object_id": "session-search-count",
+        "source": {
+          "channel": "dom",
+          "scope": "搜索面板/结果列表",
+          "locator": "input,input[placeholder*=\"搜索\"]"
+        },
+        "value": 1,
+        "raw": {
+          "total": 1,
+          "matched": 1,
+          "countText": "搜索到 1个任务",
+          "listText": "请只回复 G8AONLY\n…\"请只回复 G8AONLY\"、读取特定文件并只回固定 token）属…",
+          "query": "G8AONLY",
+          "listHTML": "<div data-tpt-search-list=\"\"><button type=\"button\" data-tpt-search-item=\"\"><span data-tpt-search-item-title=\"\"><span>请只回复 </span><mark data-tpt-search-hit=\"\">G8AONLY</mark></span><span data-tpt-search-item-snippet=\"\"><span>…\"请只回复 </span><mark data-tpt-search-hit=\"\">G8AONLY</mark><span>\"、读取特定文件并只回固定 token）属…</span></span></button></div>"
+        },
+        "derivation": "结果行含查询值计数"
+      }
+    }
+  }
+}

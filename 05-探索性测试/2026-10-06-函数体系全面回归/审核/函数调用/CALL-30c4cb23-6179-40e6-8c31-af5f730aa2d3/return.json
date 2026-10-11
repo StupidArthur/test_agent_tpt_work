@@ -1,0 +1,111 @@
+{
+  "call_id": "CALL-30c4cb23-6179-40e6-8c31-af5f730aa2d3",
+  "status": "returned",
+  "observations": {
+    "observations": {
+      "title": {
+        "event_id": "CALL-30c4cb23-6179-40e6-8c31-af5f730aa2d3-1",
+        "captured_at": "2026-10-06T16:14:20.793Z",
+        "environment_id": "agent-oc-20261006-funcfull-01",
+        "business_call_id": "CALL-30c4cb23-6179-40e6-8c31-af5f730aa2d3",
+        "kind": "read",
+        "target": "本轮专家标题",
+        "object_id": "expert-card-title",
+        "source": {
+          "channel": "dom",
+          "scope": "专家页/我的专家卡片",
+          "locator": "h3"
+        },
+        "value": "本轮快速回归专家",
+        "raw": {
+          "title": "本轮快速回归专家"
+        }
+      },
+      "meta": {
+        "event_id": "CALL-30c4cb23-6179-40e6-8c31-af5f730aa2d3-2",
+        "captured_at": "2026-10-06T16:14:20.798Z",
+        "environment_id": "agent-oc-20261006-funcfull-01",
+        "business_call_id": "CALL-30c4cb23-6179-40e6-8c31-af5f730aa2d3",
+        "kind": "read",
+        "target": "本轮专家名称与版本",
+        "object_id": "expert-card-meta",
+        "source": {
+          "channel": "dom",
+          "scope": "专家页/我的专家卡片",
+          "locator": "div[class*=\"_card_\"]"
+        },
+        "value": [
+          "本轮快速回归专家",
+          "1.2.3"
+        ],
+        "raw": {
+          "title": "本轮快速回归专家",
+          "version": "1.2.3",
+          "text": "本轮快速回归专家 本轮无害回归测试专家，用于确认本地导入、详情展示和固定回复规则，不访问网络设备，不操作现场，也不改动用户文件。 回归验证 来源 我创建的 · 本地运行 v1.2.3 使用"
+        }
+      },
+      "fields": {
+        "event_id": "CALL-30c4cb23-6179-40e6-8c31-af5f730aa2d3-3",
+        "captured_at": "2026-10-06T16:14:20.800Z",
+        "environment_id": "agent-oc-20261006-funcfull-01",
+        "business_call_id": "CALL-30c4cb23-6179-40e6-8c31-af5f730aa2d3",
+        "kind": "read",
+        "target": "本轮专家来源与运行类型",
+        "object_id": "expert-card-fields",
+        "source": {
+          "channel": "dom",
+          "scope": "专家页/我的专家卡片",
+          "locator": "div[class*=\"_card_\"]"
+        },
+        "value": [
+          "我创建的",
+          "本地运行"
+        ],
+        "raw": {
+          "text": "本轮快速回归专家 本轮无害回归测试专家，用于确认本地导入、详情展示和固定回复规则，不访问网络设备，不操作现场，也不改动用户文件。 回归验证 来源 我创建的 · 本地运行 v1.2.3 使用",
+          "source": "我创建的",
+          "location": "本地运行"
+        }
+      },
+      "description": {
+        "event_id": "CALL-30c4cb23-6179-40e6-8c31-af5f730aa2d3-4",
+        "captured_at": "2026-10-06T16:14:20.804Z",
+        "environment_id": "agent-oc-20261006-funcfull-01",
+        "business_call_id": "CALL-30c4cb23-6179-40e6-8c31-af5f730aa2d3",
+        "kind": "read",
+        "target": "本轮专家简介",
+        "object_id": "expert-card-description",
+        "source": {
+          "channel": "dom",
+          "scope": "专家页/我的专家卡片",
+          "locator": "div[class*=\"_card_\"]"
+        },
+        "value": "本轮无害回归测试专家，用于确认本地导入、详情展示和固定回复规则，不访问网络设备，不操作现场，也不改动用户文件。",
+        "raw": {
+          "text": "本轮快速回归专家 本轮无害回归测试专家，用于确认本地导入、详情展示和固定回复规则，不访问网络设备，不操作现场，也不改动用户文件。 回归验证 来源 我创建的 · 本地运行 v1.2.3 使用",
+          "desc": "本轮无害回归测试专家，用于确认本地导入、详情展示和固定回复规则，不访问网络设备，不操作现场，也不改动用户文件。"
+        }
+      },
+      "exists": {
+        "event_id": "CALL-30c4cb23-6179-40e6-8c31-af5f730aa2d3-5",
+        "captured_at": "2026-10-06T16:14:20.810Z",
+        "environment_id": "agent-oc-20261006-funcfull-01",
+        "business_call_id": "CALL-30c4cb23-6179-40e6-8c31-af5f730aa2d3",
+        "kind": "read",
+        "target": "按内部name核对存在",
+        "object_id": "expert-card-internal",
+        "source": {
+          "channel": "dom",
+          "scope": "专家页/我的专家卡片",
+          "locator": "div[class*=\"_card_\"]"
+        },
+        "value": true,
+        "raw": {
+          "count": 1,
+          "internalNameInDom": true
+        },
+        "derivation": "count > 0"
+      }
+    }
+  }
+}

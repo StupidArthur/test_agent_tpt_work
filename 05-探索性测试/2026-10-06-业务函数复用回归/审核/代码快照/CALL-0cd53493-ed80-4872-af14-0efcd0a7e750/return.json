@@ -1,0 +1,84 @@
+{
+  "observations": {
+    "observations": {
+      "text": {
+        "event_id": "business-f7efcda5-5001-431c-a5ce-ac0337905b15-1",
+        "captured_at": "2026-10-06T10:02:31.358Z",
+        "environment_id": "env-fn-20261006-agent2",
+        "kind": "read",
+        "target": "用量页脚文本",
+        "business_call_id": "CALL-0cd53493-ed80-4872-af14-0efcd0a7e750",
+        "object_id": "usage-footer",
+        "source": {
+          "channel": "dom",
+          "scope": "composer 页脚用量区",
+          "locator": "body"
+        },
+        "value": "k | 16:49 | 发消息或创建任务, / 调用指令, @ 文件或对话 | 工作区内修改 | 标准 | low | 1 轮 3 步·393 tok/s | 61.7K tok·缓存命中 0% | 8%",
+        "raw": {
+          "text": "k | 16:49 | 发消息或创建任务, / 调用指令, @ 文件或对话 | 工作区内修改 | 标准 | low | 1 轮 3 步·393 tok/s | 61.7K tok·缓存命中 0% | 8%"
+        }
+      },
+      "detailedHidden": {
+        "event_id": "business-f7efcda5-5001-431c-a5ce-ac0337905b15-2",
+        "captured_at": "2026-10-06T10:02:31.359Z",
+        "environment_id": "env-fn-20261006-agent2",
+        "kind": "read",
+        "target": "简洁页脚详细字段全隐藏",
+        "business_call_id": "CALL-0cd53493-ed80-4872-af14-0efcd0a7e750",
+        "object_id": "usage-footer-detailed-hidden",
+        "source": {
+          "channel": "derived",
+          "scope": "composer 页脚用量区",
+          "locator": "usage-footer"
+        },
+        "value": false,
+        "raw": {
+          "text": "k | 16:49 | 发消息或创建任务, / 调用指令, @ 文件或对话 | 工作区内修改 | 标准 | low | 1 轮 3 步·393 tok/s | 61.7K tok·缓存命中 0% | 8%",
+          "hasRounds": true,
+          "hasSteps": true,
+          "hasTotal": true
+        },
+        "derivation": "!hasRounds && !hasSteps && !hasTotal"
+      },
+      "basicPresent": {
+        "event_id": "business-f7efcda5-5001-431c-a5ce-ac0337905b15-3",
+        "captured_at": "2026-10-06T10:02:31.359Z",
+        "environment_id": "env-fn-20261006-agent2",
+        "kind": "read",
+        "target": "简洁页脚基本用量存在",
+        "business_call_id": "CALL-0cd53493-ed80-4872-af14-0efcd0a7e750",
+        "object_id": "usage-footer-basic",
+        "source": {
+          "channel": "derived",
+          "scope": "composer 页脚用量区",
+          "locator": "usage-footer"
+        },
+        "value": true,
+        "raw": {
+          "text": "k | 16:49 | 发消息或创建任务, / 调用指令, @ 文件或对话 | 工作区内修改 | 标准 | low | 1 轮 3 步·393 tok/s | 61.7K tok·缓存命中 0% | 8%"
+        },
+        "derivation": "tok/s 或百分比存在"
+      },
+      "detailedShown": {
+        "event_id": "business-f7efcda5-5001-431c-a5ce-ac0337905b15-4",
+        "captured_at": "2026-10-06T10:02:31.359Z",
+        "environment_id": "env-fn-20261006-agent2",
+        "kind": "read",
+        "target": "详细页脚字段显示",
+        "business_call_id": "CALL-0cd53493-ed80-4872-af14-0efcd0a7e750",
+        "object_id": "usage-footer-detailed",
+        "source": {
+          "channel": "derived",
+          "scope": "composer 页脚用量区",
+          "locator": "usage-footer"
+        },
+        "value": true,
+        "raw": {
+          "text": "k | 16:49 | 发消息或创建任务, / 调用指令, @ 文件或对话 | 工作区内修改 | 标准 | low | 1 轮 3 步·393 tok/s | 61.7K tok·缓存命中 0% | 8%"
+        },
+        "derivation": "轮/步/token总量均显示"
+      }
+    }
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "call_id": "CALL-97a2cf1d-0da5-4d87-84bb-beba6856a0bb",
+  "status": "returned",
+  "observations": {
+    "action_refs": [
+      "CALL-97a2cf1d-0da5-4d87-84bb-beba6856a0bb-2"
+    ],
+    "observations": {
+      "wait": {
+        "waited_ms": 36481
+      },
+      "assistant": {
+        "event_id": "CALL-97a2cf1d-0da5-4d87-84bb-beba6856a0bb-3",
+        "captured_at": "2026-10-07T00:26:43.301Z",
+        "environment_id": "acceptance-20261007",
+        "business_call_id": "CALL-97a2cf1d-0da5-4d87-84bb-beba6856a0bb",
+        "kind": "read",
+        "target": "编辑会话助手摘要正文",
+        "object_id": "last-assistant-bubble",
+        "source": {
+          "channel": "dom",
+          "scope": "对话 助手气泡",
+          "locator": "[class*=\"hWmORq_body\"]"
+        },
+        "value": "这是个本地 Agent（runtime: local，source: created），可以修改。当前状态已确认：\n\n现状\n\n包路径：C:\\Users\\Administrator\\.tpt-work\\agents\\fast-assert-expert-longread-agent-oc-20261006-funcfull-01\nmetadata.json 的 displayDescription.zh 当前为 FAST_EXPERT_DESCRIPTION_INITIAL（an 为 FAST_EXPERT_DESCRIPTION_EN）\n注册表同 id 条目为本地条目（version 1.2.3），有对应包目录 → 走「既有包档」修改\n\n改动方案（仅此一处）\n\n字段\t当前值\t改为\nmetadata.json → displayDescription.zh\tFAST_EXPERT_DESCRIPTION_INITIAL\tAUDIT_EXPERT_EDIT_20261007\n\n明确不做\n\ndisplayDescription.en 保持 FAST_EXPERT_DESCRIPTION_EN 不变\nagent.md、metadata.json 其余全部字段、skills、注册表其它条目一律不动\n\n修改后的校验与注册（既有包档）\n\nvalidate_agent.py ... --mode existing（只查契约硬项，不会触发创作档位）\nregister_agent.py ... 重新注册，同步该 id 的 version 等字段（只更新自己这条）\n\n说明（取舍）：按你的要求只改 displayDescription.zh，与它语义对应的 en 保持原样。按规范「只改用户点到的地方」，我不会顺手改写 structure 或其它内容。版本号这一步不递增（仅改展示文案字段，属你要求的测试改动，不做版本号变动——如需要我可以一起递增，请说明）。\n\n请确认是否按此执行。确认后我才落盘并重新注册。",
+        "raw": {
+          "count": 6,
+          "last": "这是个本地 Agent（runtime: local，source: created），可以修改。当前状态已确认：\n\n现状\n\n包路径：C:\\Users\\Administrator\\.tpt-work\\agents\\fast-assert-expert-longread-agent-oc-20261006-funcfull-01\nmetadata.json 的 displayDescription.zh 当前为 FAST_EXPERT_DESCRIPTION_INITIAL（an 为 FAST_EXPERT_DESCRIPTION_EN）\n注册表同 id 条目为本地条目（version 1.2.3），有对应包目录 → 走「既有包档」修改\n\n改动方案（仅此一处）\n\n字段\t当前值\t改为\nmetadata.json → displayDescription.zh\tFAST_EXPERT_DESCRIPTION_INITIAL\tAUDIT_EXPERT_EDIT_20261007\n\n明确不做\n\ndisplayDescription.en 保持 FAST_EXPERT_DESCRIPTION_EN 不变\nagent.md、metadata.json 其余全部字段、skills、注册表其它条目一律不动\n\n修改后的校验与注册（既有包档）\n\nvalidate_agent.py ... --mode existing（只查契约硬项，不会触发创作档位）\nregister_agent.py ... 重新注册，同步该 id 的 version 等字段（只更新自己这条）\n\n说明（取舍）：按你的要求只改 displayDescription.zh，与它语义对应的 en 保持原样。按规范「只改用户点到的地方」，我不会顺手改写 structure 或其它内容。版本号这一步不递增（仅改展示文案字段，属你要求的测试改动，不做版本号变动——如需要我可以一起递增，请说明）。\n\n请确认是否按此执行。确认后我才落盘并重新注册。"
+        }
+      }
+    }
+  }
+}

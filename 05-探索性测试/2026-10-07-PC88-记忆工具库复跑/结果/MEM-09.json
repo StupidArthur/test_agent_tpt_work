@@ -1,0 +1,55 @@
+{
+  "run": "PC88-20261007-r2-01",
+  "case_id": "MEM-09",
+  "title": "自动沉淀开关与触发",
+  "attempts": [
+    {
+      "attempt_id": "MEM-09-A1",
+      "started_at": "2026-10-07T05:45:51Z",
+      "ended_at": "2026-10-07T05:45:57Z",
+      "precondition": "启用沉淀=true，沉淀最小字符=240，沉淀冷却=30min，每日上限=8；触发前旧会话已结束；触发前落盘基线：2026-10-07.md 322B sha 581a1600…（仅含 session-43be5740）",
+      "inputs": ["新会话 session-664db833-9b76-45e2-ac66-563ebb14fd3b；发送含唯一标记 MEM-09-auto1 的普通长对话（请求 321 字符），明确不调用记忆工具"],
+      "steps": ["conversation.newTask(forceNew)", "conversation.sendMessage", "conversation.readToolTrace", "memory.readFiles(2026-10-07.md)"],
+      "subchecks": [
+        {
+          "id": "MEM-09-S1",
+          "name": "落盘基线与旧会话",
+          "expected": "先结束旧会话并采集落盘基线",
+          "actual": {"基线文件": "2026-10-07.md 322B sha 581a1600… mtime 05:13:14Z（session-43be5740）", "旧会话": "以 forceNew 建立新任务，旧会话不再活跃"},
+          "verdict": "符合",
+          "source": "CALL-<readFiles log 基线>"
+        },
+        {
+          "id": "MEM-09-S2",
+          "name": "真实自动沉淀触发与产物绑定",
+          "expected": "新会话发送独有标记后，产物按本轮会话ID/标记绑定；避免工具写入",
+          "actual": {"触发": "session-664db833… 请求 321 字符 ≥ 240", "产物": "2026-10-07.md 322B→1065B sha c51b76ba… mtime 05:45:52Z", "新段落": "<!-- tpt-session:session-664db833-9b76-45e2-ac66-563ebb14 --> 标题含 MEM-09-auto1，正文含 MEM-09-auto1", "工具轨迹": "count=0（未用记忆工具）"},
+          "verdict": "符合",
+          "source": "CALL-<sendMessage MEM-09>；CALL-<readFiles log>；CALL-<readToolTrace count=0>"
+        },
+        {
+          "id": "MEM-09-S3",
+          "name": "产物类型（工作日志 vs 长期条目）",
+          "expected": "先核对机制是否仅写工作日志，不强求每轮自动生成长期条目",
+          "actual": {"工作日志": "新增会话段落", "长期层 MEMORY.md": "未变（仍 283B，无新增）", "审计": "未新增 actor=auto/auto 行"},
+          "verdict": "符合",
+          "source": "CALL-<readFiles MEMORY.md/audit>",
+          "note": "本轮观察：自动沉淀写工作日志（2026-10-07.md），未写长期 MEMORY.md，也未写 audit；与历史“机制仅写工作日志”一致。"
+        },
+        {
+          "id": "MEM-09-S4",
+          "name": "长度门槛单位",
+          "expected": "记录请求/回复实际长度与门槛单位",
+          "actual": {"门槛": "沉淀最小字符 240（面板：本轮对话少于该值不沉淀）", "请求": "321 字符", "回复": "589 字符", "判定依据": "请求本身已 ≥240；门槛是否含回复未确认，但本次请求已满足"},
+          "verdict": "符合",
+          "source": "CALL-<sendMessage MEM-09>"
+        }
+      ],
+      "verdict": "通过",
+      "restore": "2026-10-07.md 由 MEM-18 删除（本轮新增）；审计增量单列"
+    }
+  ],
+  "status": "通过",
+  "session_id": "session-664db833-9b76-45e2-ac66-563ebb14fd3b",
+  "evidence_refs": []
+}

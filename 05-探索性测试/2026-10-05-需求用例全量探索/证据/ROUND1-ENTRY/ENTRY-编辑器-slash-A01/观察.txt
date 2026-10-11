@@ -1,0 +1,154 @@
+# surface state: 新建任务/slash
+# captured_at: 2026-10-05T09:35:37.971Z
+# url: dsh-app://app/
+
+## dialogs: 0
+
+## body
+TPT
+WORK
+新建任务
+自动化任务
+更多
+IM 频道
+技能
+连接器
+数据资产
+专家
+插件
+任务
+IM 频道
+项目
+tpt-workspace
+请只回复 LOW_SMOKE_OK，不要调用
+hi
+最近
+请只回复字符串：MODEL_SMOKE_高
+请只回复字符串：MODEL_SMOKE_高
+请只回复字符串：MODEL_SMOKE_高
+请只回复字符串：MODEL_SMOKE_高
+你好，请只回复“收到”，用
+A
+Arthur
+重试更新
+选择项目
+标准模式
+处理日常工作
+内容创作
+完成调研分析
+设计与创意
+模式
+目标
+goal
+设置或查看长期任务目标
+计划
+plan
+进入或退出计划模式
+技能
+配置连接器
+configure-connector
+从市场下载连接器，按用户要求配置、测试连接，保存并应用。当用户想配置或接入市场中的某个连接器时使用，例如「配置连接器」「接入市场里的 xxx」「把 xxx 连上」「下载 xxx 连接器」。
+添加连接器
+create-connector
+引导用户在对话中添加 MCP 连接器。当用户想粘贴 mcpServers JSON 或描述连接信息（名称、地址、认证）来添加连接器时使用，例如「添加连接器」「导入连接器」「接入这个 MCP 服务」。
+创建技能
+create-skill
+引导用户在 DSH 中一步步创建新技能。当用户想要创建、编写、制作或保存一个新技能，或询问技能结构、最佳实践或 DSH 的 SKILL.md 格式时使用。
+diagnose-windows-sandbox-acl
+Use on Windows for unexpected DSH sandbox access denials: workspace writes or listing fail, or an ordinarily readable path cannot be read. The bundled script inspects the path and every ancestor, reports observations and action reasons, and supports scoped, backed-up ACL repairs. Expected confinement denials need no ACL repair.
+Agent 创建与修改
+expert-manager
+在 TPT 桌面端新建或修改 Agent：收集信息 → 在数据根里初始化包 → 写 metadata.json 与 agent.md（可带内嵌 Skill）→ 校验 → 注册（写 .registry.json）→ 收尾。触发词：新建 Agent、创建 Agent、生成 Agent、做一个专家、把资料转成 Agent；修改 Agent、编辑 Agent、更新 Agent、改提示词、改简介、改标签；批量创建 Agent。
+查找技能
+find-skills
+在 DSH 内查找、浏览和安装技能。不要当作例行第一步使用。仅当用户显式要求从技能市场查找、浏览或安装技能，或本地没有已安装技能能覆盖任务且大概率需要专用技能时使用。搜索范围为本机已安装技能与技能管理插件提供的技能市场目录。
+指标数据查询
+indicator-data-query
+按指标名称查询 supOS 指标服务的指标数据——技能自带脚本先按名称取指标详情拿到指标编码，再按编码查询指标数据（实测 MEA/目标 TAR/平衡 BAL/当量 EQU，小时/分钟/日/月/年单点与区间），并在本地汇总（数据点数、最小/最大/均值、quality 值类分布）。当用户查指标值、实测值、目标值、能耗或产量指标，或按日期范围取指标数据时触发。
+指标信息查询
+indicator-info-query
+按指标名称查询 supOS 指标服务的指标信息——指标清单（指标 ID 与名称）与指标详情（指标编码、类型、单位、计算精度、物料、实测/平衡/当量/目标值公式与取值方式、启用状态、创建信息）。当用户问有哪些指标/指标清单/指标编码/指标单位/指标类型/指标公式/指标启用状态，或取数前需要确认准确的指标名称时触发。
+office-docx
+Create, read, edit, and check Word documents (.docx), including reports, letters, and formatted tables. Use when a DOCX file is an input or requested deliverable. Load this skill before running Office commands. Use only bundled LibreOffice unless the user explicitly opts out; without that opt-out, do not search for another LibreOffice executable.
+office-pptx
+Create, read, edit, and check PowerPoint presentations (.pptx), including slide text, tables, images, and charts. Use when a PPTX file is an input or requested deliverable. Load this skill before running Office commands. Use only bundled LibreOffice unless the user explicitly opts out; without that opt-out, do not search for another LibreOffice executable.
+office-xlsx
+Read, create, and modify Excel workbooks (.xlsx), including data, formulas, formatting, and pandas analysis. Use for Excel inputs or deliverables. Load before running Office commands. Data and formula tasks skip visual inspection; inspect only for formatting or layout needs. Use only bundled LibreOffice unless the user explicitly opts out; without that opt-out, do not search for another LibreOffice executable.
+指令
+压缩
+compact
+压缩以上对话内容
+下载日志
+export
+将当前会话内容导出为 ZIP
+
+/
+
+工作区内修改
+标准
+low
+
+## controls (56)
+#0 [button] "新建会话"
+#1 [button] "收起侧边栏"
+#2 [button] "搜索"
+#3 [button] "新建任务"
+#4 [button] "自动化任务"
+#5 [button] "更多"
+#6 [button] "IM 频道"
+#7 [button] "技能"
+#8 [button] "连接器"
+#9 [button] "数据资产"
+#10 [button] "专家"
+#11 [button] "插件"
+#12 [tab] "任务"
+#13 [tab] "IM 频道"
+#14 [button] "排序方式"
+#15 [button] "折叠项目"
+#16 [button] "新建项目"
+#17 [treeitem] "tpt-workspace"
+#18 [treeitem] "请只回复 LOW_SMOKE_OK，不要调用"
+#19 [treeitem] "hi"
+#20 [button] "最近"
+#21 [button] "请只回复字符串：MODEL_SMOKE_高"
+#22 [button] "请只回复字符串：MODEL_SMOKE_高"
+#23 [button] "请只回复字符串：MODEL_SMOKE_高"
+#24 [button] "请只回复字符串：MODEL_SMOKE_高"
+#25 [button] "你好，请只回复“收到”，用"
+#26 [button] "AArthur"
+#27 [button] "重试更新"
+#28 [button] "选择项目"
+#29 [button] "标准模式" DISABLED title="到设置里开启「允许切换agent模式」后即可切换"
+#30 [button] "处理日常工作"
+#31 [button] "内容创作"
+#32 [button] "完成调研分析"
+#33 [button] "设计与创意"
+#34 [option] "目标goal设置或查看长期任务目标"
+#35 [option] "计划plan进入或退出计划模式"
+#36 [option] "配置连接器configure-connector从市场下载连接器，按用户要求配置、测试连接，保存并应用。当用户想配置或接入市场中的某个连接器时使用，例如「配置连"
+#37 [option] "添加连接器create-connector引导用户在对话中添加 MCP 连接器。当用户想粘贴 mcpServers JSON 或描述连接信息（名称、地址、认证）"
+#38 [option] "创建技能create-skill引导用户在 DSH 中一步步创建新技能。当用户想要创建、编写、制作或保存一个新技能，或询问技能结构、最佳实践或 DSH 的 SK"
+#39 [option] "diagnose-windows-sandbox-aclUse on Windows for unexpected DSH sandbox access den"
+#40 [option] "Agent 创建与修改expert-manager在 TPT 桌面端新建或修改 Agent：收集信息 → 在数据根里初始化包 → 写 metadata.json"
+#41 [option] "查找技能find-skills在 DSH 内查找、浏览和安装技能。不要当作例行第一步使用。仅当用户显式要求从技能市场查找、浏览或安装技能，或本地没有已安装技能能"
+#42 [option] "指标数据查询indicator-data-query按指标名称查询 supOS 指标服务的指标数据——技能自带脚本先按名称取指标详情拿到指标编码，再按编码查询指"
+#43 [option] "指标信息查询indicator-info-query按指标名称查询 supOS 指标服务的指标信息——指标清单（指标 ID 与名称）与指标详情（指标编码、类型、"
+#44 [option] "office-docxCreate, read, edit, and check Word documents (.docx), including repor"
+#45 [option] "office-pptxCreate, read, edit, and check PowerPoint presentations (.pptx), inclu"
+#46 [option] "office-xlsxRead, create, and modify Excel workbooks (.xlsx), including data, for"
+#47 [option] "压缩compact压缩以上对话内容"
+#48 [option] "下载日志export将当前会话内容导出为 ZIP"
+#49 [textbox] "描述你想要构建的内容, / 调用指令, @ 文件或对话"
+#50 [button] "添加文件或调用指令"
+#51 [button] "访问模式，当前：工作区内修改"
+#52 [button] "选择模型，当前 标准，推理等级 low" title="标准 · low"
+#53 [button] "开始录音"
+#54 [button] "发送消息"
+#55 [menuitem] "TPT Work" title="TPT Work"
+
+## frames (0)
+
+## probe
+popups = ["模式\n目标\ngoal\n设置或查看长期任务目标\n计划\nplan\n进入或退出计划模式\n技能\n配置连接器\nconfigure-connector\n从市场下载连接器，按用户要求配置、测试连接，保存并应用。当用户想配置或接入市场中的某个连接器时使用，例如「配置连接器」「接入市场里的 xxx」「把 xxx 连上」「下载 xxx 连接器」。\n添加连接器\ncreate-connector\n引导用户在对话中添加 MCP 连接器。当用户想粘贴 mcpServers JSON 或描述连接信息（名称、地址、认证）来添加连接器时使用，例如「添加连接器」「导入连接器」「接入这个 MCP 服务」。\n创建技能\ncreate-skill\n引导用户在 DSH 中一步步创建新技能。当用户想要创建、编写、制作或保存一个新技能，或询问技能结构、最佳实践或 DSH 的 SKILL.md 格式时使用。\ndiagnose-windows-sandbox-acl\nUse on Windows for unexpected DSH sandbox access denials: workspace writes or listing fail, or an ordinarily readable path cannot be read. The bundled script inspects the path and every ancestor, reports observations and action reasons, and supports scoped, backed-up ACL repairs. Expected confinement denials need no ACL repair.\nAgent 创建与修改\nexpert-manager\n在 TPT 桌面端新建或修改 Agent：收集信息 → 在数据根里初始化包 → 写 metadata.json 与 agent.md（可带内嵌 Skill）→ 校验 → 注册（写 .registry.json）→ 收尾。触发词：新建 Agent、创建 Agent、生成 Agent、做一个专家、把资料转成 Agent；修改 Agent、编辑 Agent、更新 Agent、改提示词、改简介、改标签；批量创建 Agent。\n查找技能\nfind-skills\n在 DSH 内查找、浏览和安装技能。不要当作例行第一步使用。仅当用户显式要求从技能市场查找、浏览或安装技能，或本地没有已安装技能能覆盖任务且大概率需要专用技能时使用。搜索范围为本机已安装技能与技能管理插件提供的技能市场目录。\n指标数据查询\nindicator-data-query\n按指标名称查询 supOS 指标服务的指标数据——技能自带脚本先按名称取指标详情拿到指标编码，再按编码查询指标数据（实测 MEA/目标 TAR/平衡 BAL/当量 EQU，小时/分钟/日/月/年单点与区间），并在本地汇总（数据点数、最小/最大/均值、quality 值类分布）。当用户查指标值、实测值、目标值、能耗或产量指标，或按日期范围取指标数据时触发。\n指标信息查询\nindicator-info-query\n按指标名称查询 supOS 指标服务的指标信息——指标清单（指标 ID 与名称）与指标详情（指标编码、类型、单位、计算精度、物料、实测/平衡/当量/目标值公式与取值方式、启用状态、创建信息）。当用户问有哪些指标/指标清单/指标编码/指标单位/指标类型/指标公式/指标启用状态，或取数前需要确认准确的指标名称时触发。\noffice-docx\nCreate, read, edit, and check Word documents (.docx), including reports, letters, and formatted tables. Use when a DOCX file is an input or requested deliverable. Load this skill before running Office commands. Use only bundled LibreOffice unless the user explicitly opts out; without that opt-out, do not search for another LibreOffice executable.\noffice-pptx\nCreate, read, edit, and check PowerPoint presentations (.pptx), including slide text, tables, images, and charts. Use when a PPTX file is an input or requested deliverable. Load this skill before running Office commands. Use only bundled LibreOffice unless the user explicitly opts out; without that opt-out, do not search for another LibreOffice executable.\noffice-xlsx\nRead, create, and modify Excel workbooks (.xlsx), including data, formulas, formatting, and pandas analysis. Use for Excel inputs or deliverables. Load before running Office commands. Data and formula tasks skip visual inspection; inspect only for formatting or layout needs. Use only bundled LibreOffice unless the user explicitly opts out; without that opt-out, do not search for another LibreOffice executable.\n指令\n压缩\ncompact\n压缩以上对话内容\n下载日志\nexport\n将当前会话内容导出为 ZIP"]
+menuitems = [""]
+tail of body = " edit, and check Word documents (.docx), including reports, letters, and formatted tables. Use when a DOCX file is an input or requested deliverable. Load this skill before running Office commands. Use only bundled LibreOffice unless the user explicitly opts out; without that opt-out, do not search for another LibreOffice executable.\noffice-pptx\nCreate, read, edit, and check PowerPoint presentations (.pptx), including slide text, tables, images, and charts. Use when a PPTX file is an input or requested deliverable. Load this skill before running Office commands. Use only bundled LibreOffice unless the user explicitly opts out; without that opt-out, do not search for another LibreOffice executable.\noffice-xlsx\nRead, create, and modify Excel workbooks (.xlsx), including data, formulas, formatting, and pandas analysis. Use for Excel inputs or deliverables. Load before running Office commands. Data and formula tasks skip visual inspection; inspect only for formatting or layout needs. Use only bundled LibreOffice unless the user explicitly opts out; without that opt-out, do not search for another LibreOffice executable.\n指令\n压缩\ncompact\n压缩以上对话内容\n下载日志\nexport\n将当前会话内容导出为 ZIP\n\n/\n\n工作区内修改\n标准\nlow"

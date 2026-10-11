@@ -1,0 +1,16 @@
+配置 TPT内部系统
+
+按第三方系统接口填写连接信息
+
+TPT内部系统
+
+TPT内部系统 MCP 服务：通过用户名密码连接远端 MCP Server，AI 可调用 TptApiInvokeApi 代理执行内部 API
+
+MCP地址
+TPT用户名
+TPT密码
+租户ID
+填写 MCP Server 地址、TPT 登录凭据及租户 ID。插件会将用户名、密码（自动 Base64 编码为 pass64）和租户 ID 注入到请求头中，MCP Server 据此鉴权。
+取消
+测试连接
+保存并启用

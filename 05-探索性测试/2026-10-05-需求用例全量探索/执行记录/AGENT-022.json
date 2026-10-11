@@ -1,0 +1,110 @@
+{
+  "case_id": "AGENT-022",
+  "case_title": "展开阅读",
+  "source_sha256": "c3cdc4c71c1746e9a647aa5190e0983229af9b41c22e2e6c9a9bc3da80727b66",
+  "status": "已执行-结论不确定",
+  "review_status": "待双方审核",
+  "latest_attempt_id": "AGENT-022-A01",
+  "attempts": [
+    {
+      "attempt_id": "AGENT-022-A01",
+      "started_at": "2026-10-05T16:18:00.000Z",
+      "ended_at": "2026-10-05T16:18:05.000Z",
+      "environment_id": "ENV-001",
+      "surface": "TPT Work visible UI through CDP + Playwright; independent readback only for round-owned fixture",
+      "actual_preconditions": {
+        "account_alias": "Arthur",
+        "workspace": "tpt-workspace",
+        "project": "未新增项目",
+        "session_id": "未新增项目；本轮专家管理/详情操作",
+        "model": "标准 / low",
+        "permission": "工作区内修改",
+        "fixtures": [
+          "round-owned Expert: round-agent-longread-20261005"
+        ]
+      },
+      "input": "本轮长提示词专家详情视图。",
+      "actual_steps": [
+        "打开本轮长提示词专家详情页。",
+        "用滚动容器浏览到底部；未找到或操作显式“展开”控件。",
+        "在滚动后读取正文面板与顶部操作可见状态。"
+      ],
+      "wait_condition": "等待页面出现稳定终态；发生导航/弹窗后重新读取可见frame及目标状态。",
+      "checkpoints": [
+        {
+          "expected_index": 1,
+          "expected": "增加阅读高度",
+          "observed": "正文容器总高1023px、默认可视高519px；通过内部滚动到末尾，滚动本身未改变面板高度，也未观察到点击“展开”动作。滚动后“删除/打开文件夹/去对话编辑/使用”仍在iframe DOM且可见。",
+          "verdict": "未验证",
+          "evidence": [
+            "证据/AGENT-022/AGENT-022-A01/detail-top.png",
+            "证据/AGENT-022/AGENT-022-A01/detail-bottom.png",
+            "证据/AGENT-022/AGENT-022-A01/scroll-state.json"
+          ]
+        },
+        {
+          "expected_index": 2,
+          "expected": "顶部操作仍能返回",
+          "observed": "正文容器总高1023px、默认可视高519px；通过内部滚动到末尾，滚动本身未改变面板高度，也未观察到点击“展开”动作。滚动后“删除/打开文件夹/去对话编辑/使用”仍在iframe DOM且可见。",
+          "verdict": "符合",
+          "evidence": [
+            "证据/AGENT-022/AGENT-022-A01/detail-top.png",
+            "证据/AGENT-022/AGENT-022-A01/detail-bottom.png",
+            "证据/AGENT-022/AGENT-022-A01/scroll-state.json"
+          ]
+        }
+      ],
+      "observed_result": "正文容器总高1023px、默认可视高519px；通过内部滚动到末尾，滚动本身未改变面板高度，也未观察到点击“展开”动作。滚动后“删除/打开文件夹/去对话编辑/使用”仍在iframe DOM且可见。",
+      "status": "已执行-结论不确定",
+      "evidence": [
+        "证据/AGENT-022/AGENT-022-A01/detail-top.png",
+        "证据/AGENT-022/AGENT-022-A01/detail-bottom.png",
+        "证据/AGENT-022/AGENT-022-A01/scroll-state.json"
+      ],
+      "difference_ids": [],
+      "notes": "已有内容滚动证据不能替代“点击展开后阅读高度增加”的直接验证，因此第1点保持未验证；第2点直接观察顶部操作仍可见。"
+    }
+  ],
+  "product_observations": [
+    {
+      "feature_id": null,
+      "statement": "正文容器总高1023px、默认可视高519px；通过内部滚动到末尾，滚动本身未改变面板高度，也未观察到点击“展开”动作。滚动后“删除/打开文件夹/去对话编辑/使用”仍在iframe DOM且可见。",
+      "case_ids": [
+        "AGENT-022"
+      ],
+      "attempt_ids": [
+        "AGENT-022-A01"
+      ],
+      "environment_id": "ENV-001",
+      "verified_depth": "仅当前本轮UI尝试与引用范围内的回读证据",
+      "scope_and_limits": "限定当前本轮样本及本attempt；所有产品判断待双方审核。",
+      "evidence": [
+        "证据/AGENT-022/AGENT-022-A01/detail-top.png",
+        "证据/AGENT-022/AGENT-022-A01/detail-bottom.png",
+        "证据/AGENT-022/AGENT-022-A01/scroll-state.json"
+      ],
+      "relation_to_design": "按源用例原文逐检查点记录；依据为待评审设计，不自动视为正式验收标准。",
+      "review_status": "待双方审核"
+    }
+  ],
+  "differences": [],
+  "finding_ids": [],
+  "blocker": null,
+  "applicability_reason": null,
+  "cleanup": {
+    "changes": [],
+    "remaining": []
+  },
+  "review": {
+    "assistant": null,
+    "user": null,
+    "approved_scope": [],
+    "final_decision": "待审核"
+  },
+  "audit_history": [
+    {
+      "at": "2026-10-05T16:18:05.000Z",
+      "event": "旧阻塞依赖已由用户授权与夜间实际UI/夹具能力复核；本轮新增attempt替代旧阻塞状态，保留旧原因于本attempt notes。"
+    }
+  ]
+}

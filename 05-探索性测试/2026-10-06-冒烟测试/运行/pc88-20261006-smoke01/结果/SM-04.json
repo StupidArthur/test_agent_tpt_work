@@ -1,0 +1,23 @@
+{
+  "id": "SM-04",
+  "contract_version": "smoke-1.0",
+  "machine_id": "PC-88",
+  "assertions": {
+    "SM-04-A1": {
+      "read": "draft attachment area contains smoke-note.txt",
+      "actual": 2,
+      "expected": true,
+      "pass": true
+    },
+    "SM-04-A2": {
+      "read": "draft attachment file-card count after remove",
+      "actual": 0,
+      "expected": 0,
+      "pass": true
+    }
+  },
+  "raw": {
+    "addedName": 1,
+    "rmCount": 1
+  }
+}

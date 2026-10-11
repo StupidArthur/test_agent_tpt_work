@@ -1,0 +1,54 @@
+{
+  "case_id": "G2-08",
+  "contract_version": "2.0",
+  "attempt_id": "fn-20261006-agent2-G2-08-A1",
+  "environment_id": "env-fn-20261006-agent2",
+  "object_identity": {
+    "internal_name": "fast-assert-skill-fn-20261006-agent2",
+    "display_name": "本轮快速回归技能"
+  },
+  "inputs": [
+    "打开本轮技能详情，读取 SKILL.md 正文"
+  ],
+  "action_refs": [
+    "business-c1a54692-c427-4355-95d2-c0ee89744009-2"
+  ],
+  "status": "通过",
+  "started_at": "2026-10-06T07:30:40.995Z",
+  "ended_at": "2026-10-06T07:30:42.874Z",
+  "actual_steps": [
+    "点击卡片主体进入详情整页",
+    "读取目录预览区 SKILL.md 正文"
+  ],
+  "assertions": [
+    {
+      "id": "G2-08-A1",
+      "actual": "---\nname: fast-assert-skill-fn-20261006-agent2\nname_cn: 本轮快速回归技能\nname_en: FastRegressionSkillUnique\ndescription: A harmless fixture for regression-description-unique-token search and fixed reply verification.\nversion: 1.2.3\n---\n\n# Fixed reply\nWhen explicitly requested to execute this regression skill's fixed reply rule, reply exactly FAST_SKILL_EXEC_OK. Do not call other tools, access networks, or modify files.\n",
+      "read_refs": [
+        "business-c1a54692-c427-4355-95d2-c0ee89744009-3"
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "path": "运行日志/business.jsonl",
+      "sha256": "6203703aeaf46ab5fd94d64c474b878c26f39b97bc4c3f7a3840f9ee9a48bdc5"
+    },
+    {
+      "path": "运行日志/业务调用.jsonl",
+      "sha256": "91fc9bb4b29ad5347770a9e5e5a21b38b9c414c04a2e484e84b5dd981db87bd7"
+    }
+  ],
+  "cleanup": {
+    "status": "retained",
+    "description": "详情整页已返回列表；本轮技能保留供 G3",
+    "read_refs": [
+      "business-6b6721dc-d6db-4622-a0ce-1f43b1723a99-3"
+    ]
+  },
+  "business_call_refs": [
+    "CALL-398f1d4d-7610-4417-80b0-c834ec0bc24a",
+    "CALL-03b04a3d-a0ec-4935-813f-36de89fd20f5"
+  ],
+  "notes": "详情为 iframe 内整页视图 [class*=dir-preview]，非 dialog"
+}

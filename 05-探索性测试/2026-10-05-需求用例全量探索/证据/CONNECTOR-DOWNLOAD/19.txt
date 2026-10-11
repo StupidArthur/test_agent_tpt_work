@@ -1,0 +1,17 @@
+配置 DataHub
+
+按第三方系统接口填写连接信息
+
+🌐
+DataHub
+
+位号数据查询：位号列表 / 元数据 / 实时值 / 历史值 / 聚合值
+
+连接名称
+API 域名
+用户名
+密码
+填写 DataHub 的 API 域名与登录账号密码：保存连接时插件自动调用 {baseUrl}/tpt-admin/system-manager/umsAdmin/login 登录接口（密码发送前按 Base64 编码为 pass64）换取 Token，并在后续 API 调用的 Authorization: Bearer 请求头中注入。账号密码与 Token 仅保存在 DSH 本机，不会暴露给模型。
+取消
+测试连接
+保存并启用

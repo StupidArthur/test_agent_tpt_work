@@ -1,0 +1,50 @@
+{
+  "run": {
+    "target": "tpt-gateway-volc",
+    "module": "api",
+    "items": [
+      "API-01"
+    ],
+    "ts": "20261007-104208",
+    "est_requests": 1,
+    "seconds": 5.015,
+    "key_present": false,
+    "base_url": "http://nlb-2weu6cb4a97uoz9cqu39kvmj.nlb.cn-beijing.volces.com:30880/v1"
+  },
+  "instances": [
+    {
+      "instance_id": "API-01/tpt-gateway-volc/discovery",
+      "item": "API-01",
+      "status": "失败",
+      "assertions": [
+        {
+          "name": "http_200",
+          "expected": "200",
+          "actual": "None",
+          "satisfied": false
+        },
+        {
+          "name": "parsable_catalog",
+          "expected": "list non-empty",
+          "actual": "0 items",
+          "satisfied": false
+        },
+        {
+          "name": "ids_nonempty_str",
+          "expected": "True",
+          "actual": "True",
+          "satisfied": true
+        }
+      ],
+      "attempts": [],
+      "evidence": [
+        "api/API-01_tpt-gateway-volc_models.json"
+      ],
+      "notes": [],
+      "metrics": {
+        "model_count": 0
+      },
+      "failure_attribution": "connect"
+    }
+  ]
+}

@@ -1,0 +1,171 @@
+// Skills iframe helpers (runtime support for business functions).
+import fs from 'node:fs';
+import path from 'node:path';
+import { sleep, skillsFrame } from './tpt.mjs';
+
+export const SKILLS_DIR = 'C:\\Users\\Administrator\\.tpt-work\\dsh\\skills';
+export const AGENTS_DIR = 'C:\\Users\\Administrator\\.tpt-work\\agents';
+
+export function skillDirNames() {
+  return fs.readdirSync(SKILLS_DIR, { withFileTypes: true }).filter((d) => d.isDirectory()).map((d) => d.name).sort();
+}
+export function skillDirExists(name) {
+  return fs.existsSync(path.join(SKILLS_DIR, name));
+}
+export function agentDirNames() {
+  return fs.readdirSync(AGENTS_DIR, { withFileTypes: true }).filter((d) => d.isDirectory()).map((d) => d.name).sort();
+}
+
+export async function openSkills(page) {
+  const frame = await skillsFrame(page);
+  if (!frame) throw new Error('skills frame not found');
+  return frame;
+}
+
+export async function backToList(frame) {
+  for (let i = 0; i < 4; i++) {
+    const isDetail = await frame.evaluate(() => !!document.querySelector('[class*="_page_"]'));
+    if (!isDetail) return;
+    await frame.evaluate(() => {
+      const p = document.querySelector('[class*="_page_"]');
+      const b = p && [...p.querySelectorAll('button')].find((x) => (x.innerText || '').trim() === '技能');
+      if (b) b.click();
+    });
+    await sleep(900);
+  }
+}
+
+export async function closeDialogs(frame, page) {
+  for (let i = 0; i < 4; i++) {
+    const has = await frame.evaluate(() => [...document.querySelectorAll('[role="dialog"]')].some((e) => e.offsetWidth));
+    if (!has) break;
+    const cancel = frame.getByRole('button', { name: '取消', exact: true });
+    if (await cancel.count()) await cancel.first().click({ timeout: 3000 }).catch(() => {});
+    else await page.keyboard.press('Escape').catch(() => {});
+    await sleep(500);
+  }
+}
+
+export async function ensureList(page) {
+  const frame = await openSkills(page);
+  await closeDialogs(frame, page);
+  await backToList(frame);
+  await frame.getByRole('tab', { name: /我的技能/ }).click({ timeout: 8000 }).catch(() => {});
+  await sleep(600);
+  return frame;
+}
+
+export async function openImportDialog(frame) {
+  await frame.getByRole('button', { name: '导入技能', exact: true }).click({ timeout: 8000 });
+  await sleep(1200);
+}
+
+export async function dialogInfo(frame) {
+  return frame.evaluate(() => {
+    const dlg = [...document.querySelectorAll('[role="dialog"]')].find((e) => e.offsetWidth);
+    return {
+      present: !!dlg,
+      text: dlg ? dlg.innerText.replace(/\s+/g, ' ').trim() : '',
+      fileInputs: dlg ? dlg.querySelectorAll('input[type="file"]').length : 0,
+      directory: dlg ? !!dlg.querySelector('input[webkitdirectory]') : false,
+    };
+  });
+}
+
+export async function setFileAndConfirm(frame, files, { directory = false } = {}) {
+  const selector = directory ? '[role="dialog"] input[type="file"][webkitdirectory]' : '[role="dialog"] input[type="file"]:not([webkitdirectory])';
+  const input = frame.locator(selector).first();
+  await input.setInputFiles(files);
+  await sleep(1200);
+  const before = await dialogInfo(frame);
+  const confirm = frame.locator('[role="dialog"]').getByRole('button', { name: /^(导入|确认导入|确定|下一步)$/ }).first();
+  const hasConfirm = await confirm.count();
+  if (hasConfirm) await confirm.click({ timeout: 8000 });
+  await sleep(2500);
+  const after = await dialogInfo(frame);
+  return { before, after, confirmClicked: hasConfirm > 0 };
+}
+
+export async function listCards(frame) {
+  return frame.evaluate(() => {
+    return [...document.querySelectorAll('[data-slot="card"]')].map((c, i) => {
+      const sw = c.querySelector('[role="switch"]');
+      return {
+        index: i,
+        title: (c.querySelector('h3')?.innerText || c.innerText || '').replace(/\s+/g, ' ').trim().slice(0, 80),
+        checked: sw ? sw.getAttribute('aria-checked') : null,
+      };
+    });
+  });
+}
+
+export async function cardByTitle(frame, title) {
+  return frame.locator('[data-slot="card"]').filter({ hasText: title });
+}
+
+export async function openCardDetail(frame, title, { all = false, nth = 0 } = {}) {
+  const cards = frame.locator('[data-slot="card"]').filter({ hasText: title });
+  const n = await cards.count();
+  const order = all ? [...Array(n).keys()] : [nth];
+  for (const i of order) {
+    if (i >= n) continue;
+    await cards.nth(i).locator('[data-slot="card-content"]').click({ timeout: 8000 }).catch(() => {});
+    await sleep(1200);
+    const d = await readDetail(frame);
+    if (d) return { index: i, ...d };
+    await backToList(frame);
+  }
+  return null;
+}
+
+export async function readDetail(frame) {
+  return frame.evaluate(() => {
+    const p = document.querySelector('[class*="_page_"]');
+    if (!p) return null;
+    const t = p.innerText;
+    const nameRaw = (t.match(/name:\s*([^\s]+)/) || [])[1] || null;
+    const name = nameRaw ? nameRaw.replace(/^["']|["']$/g, '') : null;
+    const lines = t.split('\n').map((s) => s.trim()).filter(Boolean);
+    const di = lines.indexOf('详情');
+    const title = di >= 0 ? lines[di + 1] : null;
+    return { nameRaw, name, title, text: t.slice(0, 4000) };
+  });
+}
+
+export async function findCardIndexByInternalName(frame, title, internalName) {
+  await backToList(frame);
+  const cards = frame.locator('[data-slot="card"]').filter({ hasText: title });
+  const n = await cards.count();
+  const seen = [];
+  for (let i = 0; i < n; i++) {
+    await cards.nth(i).locator('[data-slot="card-content"]').click({ timeout: 8000 }).catch(() => {});
+    await sleep(1100);
+    const d = await readDetail(frame);
+    seen.push(d ? d.name : null);
+    if (d && d.name === internalName) {
+      await backToList(frame);
+      return { index: i, seen, matched: true };
+    }
+    await backToList(frame);
+  }
+  return { index: -1, seen, matched: false };
+}
+
+export async function search(frame, text) {
+  const box = frame.locator('input[placeholder="搜索技能名称或描述"]').first();
+  await box.click({ timeout: 5000 });
+  await box.fill(text);
+  await sleep(1200);
+}
+
+export async function clearSearch(frame) {
+  const box = frame.locator('input[placeholder="搜索技能名称或描述"]').first();
+  if (await box.count()) {
+    await box.fill('');
+    await sleep(800);
+  }
+}
+
+export async function cardSwitchByTitle(frame, title) {
+  return frame.locator('[data-slot="card"]').filter({ hasText: title }).first().locator('[role="switch"]').first();
+}

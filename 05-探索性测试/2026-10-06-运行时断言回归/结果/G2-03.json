@@ -1,0 +1,45 @@
+{
+  "case_id": "G2-03",
+  "contract_version": "2.0",
+  "attempt_id": "G2-A01",
+  "environment_id": "env-20261006-oc1",
+  "object_identity": "本轮技能标题",
+  "inputs": [],
+  "action_refs": [
+    "G2-11fa0508-7f6d-4b12-99ab-82744e58bd4b-2",
+    "G2-11fa0508-7f6d-4b12-99ab-82744e58bd4b-5",
+    "G2-11fa0508-7f6d-4b12-99ab-82744e58bd4b-10",
+    "G2-11fa0508-7f6d-4b12-99ab-82744e58bd4b-13"
+  ],
+  "status": "通过",
+  "started_at": "2026-10-06T04:20:12.138Z",
+  "ended_at": "2026-10-06T04:20:56.612Z",
+  "actual_steps": [
+    "读取卡片标题"
+  ],
+  "assertions": [
+    {
+      "id": "G2-03-A1",
+      "actual": "本轮快速回归技能",
+      "read_refs": [
+        "G2-11fa0508-7f6d-4b12-99ab-82744e58bd4b-8"
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "path": "运行日志/G2.jsonl",
+      "sha256": "f337d95211b2d44aed55cae14179a348ca3401bf8e1dd254cafa25b0e95c5988"
+    },
+    {
+      "path": "tools/run/scratch/g2-run.json",
+      "sha256": "6444fe126ff4e3d190b553d1bfd7c66fa87723a7f489dfa9b4bb4ee0b20ea5c4"
+    }
+  ],
+  "cleanup": {
+    "status": "retained",
+    "description": "本轮导入技能保留并最终停用（G3处理）",
+    "read_refs": []
+  },
+  "notes": "G2共享一次导入、卡片与详情快照。"
+}

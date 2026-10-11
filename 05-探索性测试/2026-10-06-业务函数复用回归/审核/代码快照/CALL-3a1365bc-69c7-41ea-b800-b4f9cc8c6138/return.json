@@ -1,0 +1,59 @@
+{
+  "observations": {
+    "observations": {
+      "read": {
+        "event_id": "business-d4020ba2-54d3-47a6-a5a8-78674ede1362-1",
+        "captured_at": "2026-10-06T11:46:05.220Z",
+        "environment_id": "env-fn-20261006-agent2",
+        "kind": "read",
+        "target": "技能安装目录文件列表",
+        "business_call_id": "CALL-3a1365bc-69c7-41ea-b800-b4f9cc8c6138",
+        "object_id": "C:/Users/yuzechao/.tpt-work/dsh/skills/fast-assert-trash-fn-20261006-agent2",
+        "source": {
+          "channel": "file",
+          "scope": "本机技能安装目录",
+          "locator": "C:/Users/yuzechao/.tpt-work/dsh/skills/fast-assert-trash-fn-20261006-agent2"
+        },
+        "value": ".DS_Store|SKILL.md|__MACOSX|__MACOSX/._SKILL.md",
+        "raw": {
+          "base": "C:/Users/yuzechao/.tpt-work/dsh/skills/fast-assert-trash-fn-20261006-agent2",
+          "files": [
+            ".DS_Store",
+            "SKILL.md",
+            "__MACOSX",
+            "__MACOSX/._SKILL.md"
+          ]
+        }
+      },
+      "junk": {
+        "event_id": "business-d4020ba2-54d3-47a6-a5a8-78674ede1362-2",
+        "captured_at": "2026-10-06T11:46:05.221Z",
+        "environment_id": "env-fn-20261006-agent2",
+        "kind": "read",
+        "target": "系统垃圾文件存在",
+        "business_call_id": "CALL-3a1365bc-69c7-41ea-b800-b4f9cc8c6138",
+        "object_id": "C:/Users/yuzechao/.tpt-work/dsh/skills/fast-assert-trash-fn-20261006-agent2",
+        "source": {
+          "channel": "file",
+          "scope": "本机技能安装目录",
+          "locator": "C:/Users/yuzechao/.tpt-work/dsh/skills/fast-assert-trash-fn-20261006-agent2"
+        },
+        "value": true,
+        "raw": {
+          "files": [
+            ".DS_Store",
+            "SKILL.md",
+            "__MACOSX",
+            "__MACOSX/._SKILL.md"
+          ],
+          "hit": [
+            ".DS_Store",
+            "__MACOSX",
+            "__MACOSX/._SKILL.md"
+          ]
+        },
+        "derivation": "存在 __MACOSX 或 .DS_Store"
+      }
+    }
+  }
+}

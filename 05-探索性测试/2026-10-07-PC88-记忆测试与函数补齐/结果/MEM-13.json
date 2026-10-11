@@ -1,0 +1,12 @@
+{
+  "id": "MEM-13",
+  "run": "PC88-20261007-memory01",
+  "machine_id": "PC88",
+  "status": "未验证",
+  "assertions": {
+    "晋升": "重复升格天数=2(需跨天同 id)，禁止改系统时钟制造跨天，未执行晋升触发",
+    "重要规则": "tool 写入 importance=1；反思驱动升格未发生"
+  },
+  "refs": [],
+  "notes": "工具直接写 importance 与反思驱动升格是两个实例"
+}

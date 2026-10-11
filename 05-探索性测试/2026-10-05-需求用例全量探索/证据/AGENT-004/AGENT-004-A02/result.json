@@ -1,0 +1,18 @@
+{
+  "captured_at": "2026-10-05T13:37:27.094Z",
+  "visible_text": " 1分39秒\n\nround 测试样本已完成——只创建、只验证，未做任何注册，也未触碰 C:\\Users\\Administrator\\.tpt-work。\n\n新建文件/目录清单\n\n全部位于工作区内临时数据根 D:\\code\\tpt-workspace\\.tpt-test-home：\n\n代码块\n.tpt-test-home/\n└── agents/\n    └── process-term-explainer/\n        ├── agent.md          (2980 B)\n        └── metadata.json     (1752 B)\n\n数据根 D:\\code\\tpt-workspace\\.tpt-test-home\\agents 是首次创建，里面只有这一个包；没有生成 .registry.json（未注册 = 不会登记），也未在此轮触碰 C:\\Users\\Administrator\\.tpt-work 的任何内容。\n\n回读/校验结果\n校验：validate_agent.py ... --tpt-home D:\\code\\tpt-workspace\\.tpt-test-home --mode new → ✅ 包合规（9 项通过），0 错误、0 提醒。\n回读 \nmetadata.json\n：13 键齐全——name=process-term-explainer、category=行业顾问、version=1.0.0、author=\"\"、展示名「工艺术语解释专家」、中文展示描述 44 字、quickPrompts 与 tags 各 3 条（双语），agents=[\"agent.md\"]、avatar=\"\"、skills=[]。\n回读 \nagent.md\n：frontmatter（name 与 metadata 一致、无 tools、无图像承诺），正文四节骨架齐全（核心能力 / 工作流程 / 输出规范 / 注意事项），无任何 [TODO] 占位符，内容覆盖了「术语定义 / 单位换算 / 概念关系 / 边界」及「不给现场值、不控设备、不接外部」等约束。\n清理方式\n\n因为这是纯测试落盘且未注册，删除即可彻底移除（目录内无注册表引用）：\n\npowershell\nRemove-Item -Recurse -Force \"D:\\code\\tpt-workspace\\.tpt-test-home\"\n\n需要我现在执行清理，还是保留这个样本继续使用？\n\n已编辑 2 个文件\n+71\n-68\n.tpt-test-home/agents/process-term-explainer/agent.md\n+39\n-36\n.tpt-test-home/agents/process-term-explainer/metadata.json\n+32\n-32\n用量 448K tok\n21:36\n任务\n5 已完成\n发消息或创建任务, / 调用指令, @ 文件或对话\n工作区内修改\n标准\nlow\n3 轮 19 步·157 tok/s\n861K tok·缓存命中 0%\n23%",
+  "files": {
+    "agent.md": {
+      "bytes": 2980,
+      "sha256": "de71ae9a4e7e575dd6b67f4383a758112b53cb7e681013540e3c735e77d0c006"
+    },
+    "metadata.json": {
+      "bytes": 1752,
+      "sha256": "6b5104e698f3e7fc44eecb519eb09128517884e07fdfa40e3e9946d48ef5b95a",
+      "name": "process-term-explainer",
+      "category": "行业顾问",
+      "description": "通俗中文讲解工艺术语、单位与概念关系，说明适用边界；资料不足明确标注，不设现场值、不控设备、不接外部"
+    }
+  },
+  "registry_exists": false
+}

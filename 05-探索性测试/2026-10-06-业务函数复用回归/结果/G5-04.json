@@ -1,0 +1,50 @@
+{
+  "case_id": "G5-04",
+  "contract_version": "2.0",
+  "attempt_id": "fn-20261006-agent2-G5-04-A1",
+  "environment_id": "env-fn-20261006-agent2",
+  "object_identity": {
+    "internal_name": "fast-assert-expert-fn-20261006-agent2"
+  },
+  "inputs": [
+    "再次提交同一个本轮专家目录，触发同名冲突"
+  ],
+  "action_refs": [
+    "business-d92652df-8145-45d7-89c0-5143f851de89-2"
+  ],
+  "status": "通过",
+  "started_at": "2026-10-06T07:53:18.363Z",
+  "ended_at": "2026-10-06T07:53:21.266Z",
+  "actual_steps": [
+    "提交同名专家目录",
+    "读取冲突弹窗是否同时含 覆盖 / 副本 两选项"
+  ],
+  "assertions": [
+    {
+      "id": "G5-04-A1",
+      "actual": true,
+      "read_refs": [
+        "business-d92652df-8145-45d7-89c0-5143f851de89-4"
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "path": "运行日志/business.jsonl",
+      "sha256": "6203703aeaf46ab5fd94d64c474b878c26f39b97bc4c3f7a3840f9ee9a48bdc5"
+    },
+    {
+      "path": "运行日志/业务调用.jsonl",
+      "sha256": "91fc9bb4b29ad5347770a9e5e5a21b38b9c414c04a2e484e84b5dd981db87bd7"
+    }
+  ],
+  "cleanup": {
+    "status": "retained",
+    "description": "冲突弹窗未选择处理方式，保留原专家；后续 G5-05 才选择副本",
+    "read_refs": []
+  },
+  "business_call_refs": [
+    "CALL-7f59ad9b-99d6-4a1b-bb4c-dd983bb81a47"
+  ],
+  "notes": "弹窗含「覆盖现有」「作为副本」；boolean 由 hasOverwrite && hasCopy 计算"
+}

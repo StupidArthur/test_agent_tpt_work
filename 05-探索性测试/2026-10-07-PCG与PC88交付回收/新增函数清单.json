@@ -1,0 +1,18 @@
+{
+  "functions": [
+    {
+      "name": "review.inspectNavigation",
+      "file": "code/business/navigation.mjs",
+      "purpose": "只读定位本轮试用中的按钮与导航表面",
+      "disposition": "保留任务内，通用观察已有能力，不并入主库"
+    },
+    {
+      "name": "fixtures.removeCreatedFile",
+      "file": "../../tools/ui-operations/business/fixtures/cleanup.mjs",
+      "purpose": "恢复本轮新建文件，强制不存在基线及内容SHA核验",
+      "origin": "PC88 task.deleteNewFile 经安全边界重写",
+      "evidence": "审核/工具本机验证.json",
+      "disposition": "本机试用后并入主库，不替代产品删除"
+    }
+  ]
+}

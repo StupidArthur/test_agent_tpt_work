@@ -1,0 +1,42 @@
+{
+  "case_id": "G13-06",
+  "contract_version": "2.0",
+  "environment_id": "agent-oc-20261006-funcfull-01",
+  "attempt_id": "G13-06-A01",
+  "object_identity": "更多→帮助/反馈",
+  "inputs": [
+    "点击更多→帮助"
+  ],
+  "business_call_refs": [
+    "CALL-26f7dd97-db7c-41cc-8d39-e5ed8c1724c3"
+  ],
+  "status": "失败",
+  "attempted_at": "2026-10-06T17:16:42.323Z",
+  "assertions": [
+    {
+      "id": "G13-06-A1",
+      "expected": true,
+      "actual": false,
+      "pass": false,
+      "read_refs": [
+        "CALL-26f7dd97-db7c-41cc-8d39-e5ed8c1724c3-3"
+      ],
+      "raw": {
+        "beforePages": 1,
+        "afterPages": 1,
+        "dialog": {
+          "count": 0,
+          "text": ""
+        }
+      },
+      "derivation": "无新页面或 dialog 出现"
+    }
+  ],
+  "restore": {
+    "status": "unchanged",
+    "description": "本case未改动设置/文件",
+    "read_refs": []
+  },
+  "residual": "",
+  "notes": "点击帮助后未观察到帮助页面/dialog/外部目标。登记候选问题。"
+}

@@ -1,0 +1,167 @@
+{
+  "case_id": "DIALOG-003",
+  "case_title": "阅读后清除提醒",
+  "source_sha256": "b712acd3b204ebcfdd07129c4d993ea1beb184f9a2d0c3827745ee1fdf7a6677",
+  "status": "已执行-符合预期",
+  "review_status": "待双方审核",
+  "latest_attempt_id": "DIALOG-003-A02",
+  "attempts": [
+    {
+      "attempt_id": "DIALOG-003-A01",
+      "started_at": "2026-10-05T19:40:00+08:00",
+      "ended_at": "2026-10-05T19:42:00+08:00",
+      "environment_id": "ENV-001",
+      "surface": "TPT Work Electron UI via CDP 9234 + Playwright; dsh-app://app/ top frame",
+      "actual_preconditions": {
+        "workspace": "tpt-workspace",
+        "project": "existing project",
+        "sessions": [
+          "Write 25 distinct short reminders",
+          "Reply exactly BACKGROUND_B_INTACT."
+        ],
+        "model": "standard / low",
+        "permission": "workspace edits"
+      },
+      "input": "A asked to write 25 safety reminders; it asked which output format. B was a separate exact-marker task.",
+      "actual_steps": [
+        "Sent A while in existing project.",
+        "A entered running state; switched to a new independent B task and received exact B marker.",
+        "A row while B was current displayed unread/waiting status.",
+        "Selected A and observed an explicit request for user choice among in-chat list, Markdown, and Word."
+      ],
+      "wait_condition": "A displayed a request for user input; no completed state at capture.",
+      "checkpoints": [
+        {
+          "expected_index": 1,
+          "expected": "提醒消失",
+          "observed": "Before opening A the row said ?????????; after opening A it said ??????, so unread prefix disappeared while the waiting state remained.",
+          "verdict": "符合",
+          "evidence": [
+            "证据/DIALOG-003/DIALOG-003-A01/waiting-state.json",
+            "证据/DIALOG-003/DIALOG-003-A01/waiting-state.png"
+          ]
+        },
+        {
+          "expected_index": 2,
+          "expected": "历史结果仍可访问",
+          "observed": "The prior waiting question remained accessible, but there was no completed result to verify as preserved history.",
+          "verdict": "未验证",
+          "evidence": [
+            "证据/DIALOG-003/DIALOG-003-A01/waiting-state.json",
+            "证据/DIALOG-003/DIALOG-003-A01/waiting-state.png"
+          ]
+        }
+      ],
+      "observed_result": "Opening A removed the unread prefix from its row, leaving the waiting-for-answer state and the exact question accessible. No completed task result existed yet.",
+      "status": "已执行-结论不确定",
+      "evidence": [
+        "证据/DIALOG-003/DIALOG-003-A01/waiting-state.json",
+        "证据/DIALOG-003/DIALOG-003-A01/waiting-state.png"
+      ],
+      "difference_ids": [],
+      "notes": "This attempt opened a waiting-for-user interaction rather than a completed task reminder. The preserved content is the question and waiting state, not a completed result."
+    },
+    {
+      "attempt_id": "DIALOG-003-A02",
+      "started_at": "2026-10-05T19:40:00+08:00",
+      "ended_at": "2026-10-05T19:46:54+08:00",
+      "environment_id": "ENV-001",
+      "surface": "Electron UI via CDP 9234 + Playwright, dsh-app://app/ top frame",
+      "actual_preconditions": {
+        "workspace": "tpt-workspace",
+        "project": "existing project",
+        "session_a": "Write 25 distinct short reminders; round-owned",
+        "model": "standard / low"
+      },
+      "input": "A was completed in background after answering its delivery-format question.",
+      "actual_steps": [
+        "Captured A while B was current and the A row indicated an unread completion state.",
+        "Selected A in the Recent list.",
+        "Read the full response and exact completion marker BACKGROUND_A_DONE.",
+        "Observed the A row became current and its prior unread status text disappeared."
+      ],
+      "wait_condition": "Waited for the selected completed session view and its prior result to load.",
+      "checkpoints": [
+        {
+          "expected_index": 1,
+          "expected": "提醒消失",
+          "observed": "Before opening, A row displayed ???????; after opening and reading, A became current and the unread status label disappeared.",
+          "verdict": "符合",
+          "evidence": [
+            "证据/DIALOG-003/DIALOG-003-A02/after-open.json",
+            "证据/DIALOG-003/DIALOG-003-A02/after-open.png"
+          ]
+        },
+        {
+          "expected_index": 2,
+          "expected": "历史结果仍可访问",
+          "observed": "The full 25-item response and exact marker BACKGROUND_A_DONE remained visible in A after opening.",
+          "verdict": "符合",
+          "evidence": [
+            "证据/DIALOG-003/DIALOG-003-A02/after-open.json",
+            "证据/DIALOG-003/DIALOG-003-A02/after-open.png"
+          ]
+        }
+      ],
+      "observed_result": "Opening the completed A session cleared its unread status while preserving the full response and marker.",
+      "status": "已执行-符合预期",
+      "evidence": [
+        "证据/DIALOG-003/DIALOG-003-A02/after-open.json",
+        "证据/DIALOG-003/DIALOG-003-A02/after-open.png"
+      ],
+      "difference_ids": [],
+      "notes": "This attempt tests a completed background task; DIALOG-003-A01 remains as earlier uncertain wait-for-user interaction."
+    }
+  ],
+  "product_observations": [
+    {
+      "observation": "Opening A removed the unread prefix from its row, leaving the waiting-for-answer state and the exact question accessible. No completed task result existed yet.",
+      "scope": "ENV-001; existing tpt-workspace; round-owned A/B sessions",
+      "depth": "visible task and sidebar state",
+      "evidence": [
+        "证据/DIALOG-003/DIALOG-003-A01/waiting-state.json",
+        "证据/DIALOG-003/DIALOG-003-A01/waiting-state.png"
+      ],
+      "additional_feature": false
+    },
+    {
+      "observation": "Opening the completed background task cleared its unread label and preserved the full result.",
+      "scope": "ENV-001, existing tpt-workspace, round-owned A session",
+      "depth": "unread clearing and result readback",
+      "evidence": [
+        "证据/DIALOG-003/DIALOG-003-A02/after-open.json",
+        "证据/DIALOG-003/DIALOG-003-A02/after-open.png"
+      ],
+      "additional_feature": false
+    }
+  ],
+  "differences": [],
+  "finding_ids": [],
+  "blocker": {
+    "reason": "无法执行【阅读后清除提醒】：需要先产生未读/完成标记再进入会话读取，观察标记是否清除。 本机可用条件：标准/low 模型、单一项目、无附件夹具、无故障注入、无第二身份。",
+    "missing_dependency": "需要先产生未读/完成标记再进入会话读取，观察标记是否清除。 本机可用条件：标准/low 模型、单一项目、无附件夹具、无故障注入、无第二身份。",
+    "evidence": [
+      "证据/DIALOG-003/DIALOG-003-A01/反馈入口-摘录.txt"
+    ],
+    "next_action": "需要上述缺失的夹具/场景/能力之一；其中附件类需可控 HTML 输入或授权使用原生选择器，过程类需要一次包含工具调用的较长期望任务。"
+  },
+  "applicability_reason": null,
+  "cleanup": {
+    "changes": [
+      {
+        "item": "Round-owned completed test session A",
+        "action": "Retained for review",
+        "restore": "No restore required"
+      }
+    ],
+    "remaining": [
+      "Round-owned A/B sessions remain in existing project"
+    ]
+  },
+  "review": {
+    "assistant": null,
+    "user": null,
+    "approved_scope": [],
+    "final_decision": "待审核"
+  }
+}

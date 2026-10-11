@@ -1,0 +1,37 @@
+{
+  "case_id": "G6-08",
+  "contract_version": "2.0",
+  "environment_id": "agent-oc-20261006-funcfull-01",
+  "attempt_id": "G6-08-A01",
+  "object_identity": "恢复后的新任务场景",
+  "inputs": [
+    "setScene 标准模式",
+    "newTask"
+  ],
+  "business_call_refs": [
+    "CALL-9ffc14bd-576d-4021-88d5-3173b09f2bc8",
+    "CALL-aa2bcee2-d620-4037-aea4-11e33e52aad3",
+    "CALL-966ebd39-1dbf-4fe1-a413-11ce33813062",
+    "CALL-750625e3-c9ad-4c96-92cb-88bbafaae83f"
+  ],
+  "status": "通过",
+  "attempted_at": "2026-10-06T16:24:32.424Z",
+  "assertions": [
+    {
+      "id": "G6-08-A1",
+      "expected": "标准模式",
+      "actual": "标准模式",
+      "pass": true,
+      "read_refs": [
+        "CALL-750625e3-c9ad-4c96-92cb-88bbafaae83f-2"
+      ]
+    }
+  ],
+  "restore": {
+    "status": "unchanged",
+    "description": "本case未改动设置/文件",
+    "read_refs": []
+  },
+  "residual": "场景已恢复初值 标准模式",
+  "notes": "scene_initial=标准模式。"
+}

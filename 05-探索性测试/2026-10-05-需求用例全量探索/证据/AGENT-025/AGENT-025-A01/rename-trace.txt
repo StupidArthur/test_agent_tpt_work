@@ -1,0 +1,35 @@
+ents\round-agent-bundled-call-20261006”的访问被拒绝。 所在位置 行:1 字符: 178 ... rk\agents"; Rename-Item (Join-Path $root "round-agent-bundled-call-20 ... ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ CategoryInfo : WriteError: (C:\Users\Admini...d-call-20261006:String) [Rename-Item], IOException FullyQualifiedErrorId : RenameItemIOError,Microsoft.PowerShell.Commands.RenameItemCommand
+
+
+助手
+	
+Renaming still denied even within workspace-write. Since this path is outside the session workspace, let me escalate to the wider access mode to write there.
+
+
+工具
+	
+pwsh{"command": "$root="C:\Users\Administrator\.tpt-work\agents"; Rename-Item (Join-Path $root "round-agent-bundled-call-20261006") "round-agent-bundled-call-20261006.hold"; Write-Output ("src exists now: " + (Test-Path (Join-Path $root "round-agent-bundled-call-20261006"))); Write-Output ("hold exists now: " + (Test-Path (Join-Path $root "round-agent-bundled-call-20261006.hold"))); Write-Output ("hold is dir: " + (Test-Path (Join-Path $root "round-agent-bundled-call-20261006.hold") -PathType Container))", "des…
+→
+src exists now: False hold exists now: True hold is dir: True
+
+
+助手
+	
+The rename succeeded with full access. Let me verify the package contents are intact (only moved, not modified).
+
+
+工具
+	
+pwsh{"command": "$hold="[app-data-root]/round-agent-bundled-call-20261006…
+→
+error
+
+
+	
+发消息或创建任务, / 调用指令, @ 文件或对话
+工作区内修改
+标准
+low
+1 轮 7 步·163 tok/s
+173K tok·缓存命中 0%
+12%

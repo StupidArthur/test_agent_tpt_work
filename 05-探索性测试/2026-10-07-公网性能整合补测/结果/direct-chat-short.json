@@ -1,0 +1,3396 @@
+{
+  "group": "direct-chat-short",
+  "summary": {
+    "attempted": 30,
+    "succeeded": 28,
+    "failed": 2,
+    "complete": 28,
+    "success_rate": 0.9333333333333333,
+    "all_attempt_metrics": {
+      "e2e": {
+        "n": 30,
+        "mean": 1.456267,
+        "p50": 1.453,
+        "p95": 1.828,
+        "min": 1.047,
+        "max": 1.985
+      },
+      "first_event": {
+        "n": 0,
+        "mean": null,
+        "p50": null,
+        "p95": null,
+        "min": null,
+        "max": null
+      },
+      "first_reasoning": {
+        "n": 0,
+        "mean": null,
+        "p50": null,
+        "p95": null,
+        "min": null,
+        "max": null
+      },
+      "first_text": {
+        "n": 0,
+        "mean": null,
+        "p50": null,
+        "p95": null,
+        "min": null,
+        "max": null
+      },
+      "first_tool": {
+        "n": 0,
+        "mean": null,
+        "p50": null,
+        "p95": null,
+        "min": null,
+        "max": null
+      },
+      "input_tokens": {
+        "n": 30,
+        "mean": 34.0,
+        "p50": 34,
+        "p95": 34,
+        "min": 34,
+        "max": 34
+      },
+      "output_tokens": {
+        "n": 30,
+        "mean": 156.166667,
+        "p50": 151,
+        "p95": 256,
+        "min": 92,
+        "max": 256
+      },
+      "output_tokens_per_e2e": {
+        "n": 30,
+        "mean": 107.362547,
+        "p50": 102.759836,
+        "p95": 143.739472,
+        "min": 63.400576,
+        "max": 147.635525
+      },
+      "text_span": {
+        "n": 0,
+        "mean": null,
+        "p50": null,
+        "p95": null,
+        "min": null,
+        "max": null
+      },
+      "middle_text_chunks_per_s": {
+        "n": 0,
+        "mean": null,
+        "p50": null,
+        "p95": null,
+        "min": null,
+        "max": null
+      }
+    },
+    "success_metrics": {
+      "e2e": {
+        "n": 28,
+        "mean": 1.43475,
+        "p50": 1.375,
+        "p95": 1.828,
+        "min": 1.047,
+        "max": 1.985
+      },
+      "first_event": {
+        "n": 0,
+        "mean": null,
+        "p50": null,
+        "p95": null,
+        "min": null,
+        "max": null
+      },
+      "first_reasoning": {
+        "n": 0,
+        "mean": null,
+        "p50": null,
+        "p95": null,
+        "min": null,
+        "max": null
+      },
+      "first_text": {
+        "n": 0,
+        "mean": null,
+        "p50": null,
+        "p95": null,
+        "min": null,
+        "max": null
+      },
+      "first_tool": {
+        "n": 0,
+        "mean": null,
+        "p50": null,
+        "p95": null,
+        "min": null,
+        "max": null
+      },
+      "input_tokens": {
+        "n": 28,
+        "mean": 34.0,
+        "p50": 34,
+        "p95": 34,
+        "min": 34,
+        "max": 34
+      },
+      "output_tokens": {
+        "n": 28,
+        "mean": 149.035714,
+        "p50": 151,
+        "p95": 192,
+        "min": 92,
+        "max": 225
+      },
+      "output_tokens_per_e2e": {
+        "n": 28,
+        "mean": 104.62505,
+        "p50": 101.752022,
+        "p95": 138.025594,
+        "min": 63.400576,
+        "max": 141.094834
+      },
+      "text_span": {
+        "n": 0,
+        "mean": null,
+        "p50": null,
+        "p95": null,
+        "min": null,
+        "max": null
+      },
+      "middle_text_chunks_per_s": {
+        "n": 0,
+        "mean": null,
+        "p50": null,
+        "p95": null,
+        "min": null,
+        "max": null
+      }
+    },
+    "terminations": {
+      "completed": 28,
+      "incomplete": 2,
+      "failed": 0,
+      "error": 0,
+      "null": 0
+    },
+    "evidence": [
+      {
+        "rel_path": "performance/direct-chat-short/00099-cef44f3a3e8747efbac7ae929f17b01d.json",
+        "sha256": "7E3A6AEE9634F398A103362C7991C26E798F89AADBA3FC3785F1C95E5FE222E4",
+        "instances": [
+          "PERF-01",
+          "PERF-07"
+        ],
+        "kind": "performance_wire",
+        "note": ""
+      },
+      {
+        "rel_path": "performance/direct-chat-short/00100-ab769f3032fd4640b37f3efcb156cfe0.json",
+        "sha256": "BB02887FF5CFE9358CC90F12B7E093F2A6C3EEFDB39CAD8A621C50495C7E4D8B",
+        "instances": [
+          "PERF-01",
+          "PERF-07"
+        ],
+        "kind": "performance_wire",
+        "note": ""
+      },
+      {
+        "rel_path": "performance/direct-chat-short/00101-b12d93caa4bd4448889bce727e12458a.json",
+        "sha256": "4A96DB782E178B3D9254DC44D3FC2045E75E035269643274EA6E1CC696FCEB2F",
+        "instances": [
+          "PERF-01",
+          "PERF-07"
+        ],
+        "kind": "performance_wire",
+        "note": ""
+      },
+      {
+        "rel_path": "performance/direct-chat-short/00102-bd3743043f774886b03c0ea516c413cb.json",
+        "sha256": "C85FB63CF0C7AC1B792362B7C19D67F24E6363CE4A9D9D06DD725084F2A79EE3",
+        "instances": [
+          "PERF-01",
+          "PERF-07"
+        ],
+        "kind": "performance_wire",
+        "note": ""
+      },
+      {
+        "rel_path": "performance/direct-chat-short/00103-ddc7a41f5ecf47e5b5cc70f94488bb26.json",
+        "sha256": "B085229F4234A100949DEB96963B2D9A010D74C1D844B7B3DDFB2DE0BC337343",
+        "instances": [
+          "PERF-01",
+          "PERF-07"
+        ],
+        "kind": "performance_wire",
+        "note": ""
+      },
+      {
+        "rel_path": "performance/direct-chat-short/00104-5637948d8d764ad29c738c129aace0f0.json",
+        "sha256": "B649C9D8225876595ABD9A70B060080083A89A55DD5FAC08F4F6138551FD856D",
+        "instances": [
+          "PERF-01",
+          "PERF-07"
+        ],
+        "kind": "performance_wire",
+        "note": ""
+      },
+      {
+        "rel_path": "performance/direct-chat-short/00105-b2a23e8964c84745903200ceb3b072b3.json",
+        "sha256": "DB5E5174851EC845A2085FC4687829F9B5F9EEB36295252C252EB20CB1AF34BB",
+        "instances": [
+          "PERF-01",
+          "PERF-07"
+        ],
+        "kind": "performance_wire",
+        "note": ""
+      },
+      {
+        "rel_path": "performance/direct-chat-short/00106-149eb63251bd4d969295f098433c3341.json",
+        "sha256": "04A1A11B71486D1E004D40241B583F83C2F3D79AB3140E8B427ADF48BAAD7DB2",
+        "instances": [
+          "PERF-01",
+          "PERF-07"
+        ],
+        "kind": "performance_wire",
+        "note": ""
+      },
+      {
+        "rel_path": "performance/direct-chat-short/00107-73fc26ba039f43d1ae9d3a03ebd74dc1.json",
+        "sha256": "805F4BE215294AE01062CE75783AC02207DE22A66A2EEF7F5D2165634F82FA37",
+        "instances": [
+          "PERF-01",
+          "PERF-07"
+        ],
+        "kind": "performance_wire",
+        "note": ""
+      },
+      {
+        "rel_path": "performance/direct-chat-short/00108-f2a974c148a04ed0ab5a430cbc7a6cd0.json",
+        "sha256": "B796A03E309A0B590703F68A7EAD06B213EA78C7144883EDBB64E5D208B3CB5E",
+        "instances": [
+          "PERF-01",
+          "PERF-07"
+        ],
+        "kind": "performance_wire",
+        "note": ""
+      },
+      {
+        "rel_path": "performance/direct-chat-short/00109-e84ba8fe98c84ac4a8a6dd2d24c15072.json",
+        "sha256": "1B43781FB1BA8111C52C07F2568DE82214C8B04F65AD04E2B9E54CCCB53FE6A7",
+        "instances": [
+          "PERF-01",
+          "PERF-07"
+        ],
+        "kind": "performance_wire",
+        "note": ""
+      },
+      {
+        "rel_path": "performance/direct-chat-short/00110-892849e192a24b7588e649c5efc9b273.json",
+        "sha256": "4B43A4B58125BA3E4919E2CA6B68641F3833E594D2483F401AECFFAAE210AAD0",
+        "instances": [
+          "PERF-01",
+          "PERF-07"
+        ],
+        "kind": "performance_wire",
+        "note": ""
+      },
+      {
+        "rel_path": "performance/direct-chat-short/00111-b7984d99879341669804be28f7d4a701.json",
+        "sha256": "A47E3192B322CB6CC392DCBC641A3F7F0C75A1BFAA2E1A8E675B7D5A46FF0B89",
+        "instances": [
+          "PERF-01",
+          "PERF-07"
+        ],
+        "kind": "performance_wire",
+        "note": ""
+      },
+      {
+        "rel_path": "performance/direct-chat-short/00112-2a43f8e0dbe54d1a8383797d910057c2.json",
+        "sha256": "C15507492A53C85DD06561C2B6F100DDF94510815CD4B1CAD1829DF5209BA47B",
+        "instances": [
+          "PERF-01",
+          "PERF-07"
+        ],
+        "kind": "performance_wire",
+        "note": ""
+      },
+      {
+        "rel_path": "performance/direct-chat-short/00113-7e9a2ea63a3a44d68d6541310384b64f.json",
+        "sha256": "2C2F0CE047F6503E347649E9D056D0A1ECBC7DE5E8FD06DF392030D2CD8ADE5A",
+        "instances": [
+          "PERF-01",
+          "PERF-07"
+        ],
+        "kind": "performance_wire",
+        "note": ""
+      },
+      {
+        "rel_path": "performance/direct-chat-short/00114-cae2417b0b964e239a25afe6e8d92f21.json",
+        "sha256": "E3947928A290ED740D9C017750580AC2444158E67F687559CC6C2B1AB3667291",
+        "instances": [
+          "PERF-01",
+          "PERF-07"
+        ],
+        "kind": "performance_wire",
+        "note": ""
+      },
+      {
+        "rel_path": "performance/direct-chat-short/00115-3b4f9b9e963c4c72b8c5348b0cbd4525.json",
+        "sha256": "0239C49AB16F6A09AA4A6064D5D8BB2C2C22E4CC9BA342300929B28B451B9A1A",
+        "instances": [
+          "PERF-01",
+          "PERF-07"
+        ],
+        "kind": "performance_wire",
+        "note": ""
+      },
+      {
+        "rel_path": "performance/direct-chat-short/00116-57865eb242ba4b0f855803447f066cb5.json",
+        "sha256": "4F73B49F92014BC4D6E1E56A58BD01F9689E29509DDB214E793E1306503EC450",
+        "instances": [
+          "PERF-01",
+          "PERF-07"
+        ],
+        "kind": "performance_wire",
+        "note": ""
+      },
+      {
+        "rel_path": "performance/direct-chat-short/00117-e6e871e509a843f580450743d75c86ee.json",
+        "sha256": "9472062AAFC172BBD6BF3F538D2FD0E3590751FA68E9FF6E63A8D83388B8395D",
+        "instances": [
+          "PERF-01",
+          "PERF-07"
+        ],
+        "kind": "performance_wire",
+        "note": ""
+      },
+      {
+        "rel_path": "performance/direct-chat-short/00118-eb2242783e3e464089da1f0a450267bb.json",
+        "sha256": "CA40ACBF5BC333D47A244E59D18835A99FBD5EEC072E3EDC46B6C1F0DE20519F",
+        "instances": [
+          "PERF-01",
+          "PERF-07"
+        ],
+        "kind": "performance_wire",
+        "note": ""
+      },
+      {
+        "rel_path": "performance/direct-chat-short/00119-f2b9d1118a924709b4ce485aaf0ca6d3.json",
+        "sha256": "FC11996BBBAA525689DE3B03B383CB48EF965BB4FB390E402656CF580FE8F121",
+        "instances": [
+          "PERF-01",
+          "PERF-07"
+        ],
+        "kind": "performance_wire",
+        "note": ""
+      },
+      {
+        "rel_path": "performance/direct-chat-short/00120-c2d4bbf83b75433a80f0173a98b85416.json",
+        "sha256": "1A73086097B94A739A4495C0E42E5339A48902337F7AF944E35DDBC6B3D05DD9",
+        "instances": [
+          "PERF-01",
+          "PERF-07"
+        ],
+        "kind": "performance_wire",
+        "note": ""
+      },
+      {
+        "rel_path": "performance/direct-chat-short/00121-1a0c8e1fd4464150a3542dd3c72c9dc3.json",
+        "sha256": "3ECEDDDAC44B2AAA1DBE7E6BF3E2E6A7D5D3E92EB6BECA2477937D1C1263FCA3",
+        "instances": [
+          "PERF-01",
+          "PERF-07"
+        ],
+        "kind": "performance_wire",
+        "note": ""
+      },
+      {
+        "rel_path": "performance/direct-chat-short/00122-6df5b02ef2ec48ee96ed0b770b2e20ab.json",
+        "sha256": "A076BB14D325A4AD1D631BB25556E2BCA910BF816B368F5E4088ED6D1F704EFC",
+        "instances": [
+          "PERF-01",
+          "PERF-07"
+        ],
+        "kind": "performance_wire",
+        "note": ""
+      },
+      {
+        "rel_path": "performance/direct-chat-short/00123-10bce1aa73634849b7a0e856ba01536b.json",
+        "sha256": "64C97E4B59851BFE4653A388AB5726C28B87508792CE0903B76757583589E49C",
+        "instances": [
+          "PERF-01",
+          "PERF-07"
+        ],
+        "kind": "performance_wire",
+        "note": ""
+      },
+      {
+        "rel_path": "performance/direct-chat-short/00124-628bfd3067b74b5588b8e405d566bda0.json",
+        "sha256": "9C611322C7313B61F2EBEA219A291FE641B50CC1F05E0CAD0E5C4FA7F600762E",
+        "instances": [
+          "PERF-01",
+          "PERF-07"
+        ],
+        "kind": "performance_wire",
+        "note": ""
+      },
+      {
+        "rel_path": "performance/direct-chat-short/00125-a7e84523f9b74ecc9cb8546bfb8df039.json",
+        "sha256": "F30B9F0898C6EB6227696E106279ADCE0F272AA4375AD1ED5ACE5CCBF52BE19F",
+        "instances": [
+          "PERF-01",
+          "PERF-07"
+        ],
+        "kind": "performance_wire",
+        "note": ""
+      },
+      {
+        "rel_path": "performance/direct-chat-short/00126-413b40e003174bc28b4280e6069bf595.json",
+        "sha256": "0CB709669068FD3997526FF7A9678C43D5F4EA5E3CD01912C61DEF4016E452C6",
+        "instances": [
+          "PERF-01",
+          "PERF-07"
+        ],
+        "kind": "performance_wire",
+        "note": ""
+      },
+      {
+        "rel_path": "performance/direct-chat-short/00127-7cae5909fbe24af9a4db0c2da32df41c.json",
+        "sha256": "689F4A3A9C07B349A4B5BF0EA6A5A9C7CDFDA7409ABED84FD4EF0E77BD554DC6",
+        "instances": [
+          "PERF-01",
+          "PERF-07"
+        ],
+        "kind": "performance_wire",
+        "note": ""
+      },
+      {
+        "rel_path": "performance/direct-chat-short/00128-85619c8bd0a04d2fab810bb4bef492ab.json",
+        "sha256": "1651B748182647010B55E00E8D677E982948FC62A11B797E0853687BA9E0AEA9",
+        "instances": [
+          "PERF-01",
+          "PERF-07"
+        ],
+        "kind": "performance_wire",
+        "note": ""
+      }
+    ],
+    "slo": "unconfirmed; measurement only"
+  },
+  "samples": [
+    {
+      "sample_id": "cef44f3a3e8747efbac7ae929f17b01d",
+      "request_index": 99,
+      "cases": [
+        "PERF-01",
+        "PERF-07"
+      ],
+      "group": "direct-chat-short",
+      "warmup": false,
+      "target": "direct-chat",
+      "protocol": "chat",
+      "request": {
+        "model": "deepseek-flash",
+        "messages": [
+          {
+            "role": "user",
+            "content": "用一句话介绍你自己"
+          }
+        ],
+        "stream": false,
+        "max_tokens": 256,
+        "effort": "low"
+      },
+      "expected": {
+        "nonempty": true,
+        "terminal_allowed": [
+          "completed"
+        ]
+      },
+      "checks": {
+        "http200": true,
+        "no_transport_error": true,
+        "valid_json": true,
+        "terminal": true,
+        "nonempty": true
+      },
+      "ok": true,
+      "fully_completed": true,
+      "request_sha256": "425f5794c4b4e0e8613bc0120f6aec1b169aeabdf74cef7b525e294c4c72a107",
+      "utc": "2026-10-07T05:26:48Z",
+      "http": 200,
+      "error_kind": null,
+      "error": null,
+      "body_text": "{\"id\":\"567a3a69-4453-446c-b06c-e8394f77f71c\",\"object\":\"chat.completion\",\"created\":1791350810,\"model\":\"deepseek-flash\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"我是一个乐于帮你解答问题、处理信息并完成各类任务的AI助手。\",\"reasoning_content\":\"我们需要回答用户中文请求：“用一句话介绍你自己”。需要一句话介绍自己。应该简洁。作为AI助手，可以一句话：我是由深度求索公司开发的AI助手，能帮你解答问题、处理信息并完成各类任务。需要确保一句话。用户是中文。要一句话。可以包括名字？我是DeepSeek？ Actually system says I am AI assistant accessed via API. No need mention specific? We can say：我是DeepSeek，一个乐于帮你解答问题、处理信息和完成各类任务的AI助手。 This is one sentence. Need maybe not claim company? We can. Since \\\"介绍你自己\\\" likely wants a one-sentence intro. Let's final only. Ensure one sentence, Chinese, no extra. \"},\"logprobs\":null,\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":34,\"completion_tokens\":165,\"total_tokens\":199,\"prompt_tokens_details\":{\"cached_tokens\":0},\"completion_tokens_details\":{\"reasoning_tokens\":149},\"prompt_cache_hit_tokens\":0,\"prompt_cache_miss_tokens\":34},\"system_fingerprint\":\"aeb56401ca74e127821c4f9126dcb669\"}",
+      "normalized": {
+        "protocol": "chat",
+        "text": "我是一个乐于帮你解答问题、处理信息并完成各类任务的AI助手。",
+        "reasoning": "",
+        "final_text": null,
+        "tool_calls": [],
+        "usage": {
+          "prompt_tokens": 34,
+          "completion_tokens": 165,
+          "total_tokens": 199,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 149
+          },
+          "prompt_cache_hit_tokens": 0,
+          "prompt_cache_miss_tokens": 34
+        },
+        "terminal": "completed",
+        "terminal_reason": "stop",
+        "error_message": null,
+        "unknown_events": [],
+        "json_errors": []
+      },
+      "raw_frames": [],
+      "metrics": {
+        "e2e": 1.734,
+        "first_event": null,
+        "first_reasoning": null,
+        "first_text": null,
+        "first_tool": null,
+        "input_tokens": 34,
+        "output_tokens": 165,
+        "output_tokens_per_e2e": 95.15570934256056,
+        "text_chars": 30,
+        "text_delta_count": 0,
+        "text_span": null,
+        "text_intervals_s": [],
+        "middle_text_chunks_per_s": null,
+        "stream_batch_observation": null
+      },
+      "evidence": {
+        "rel_path": "performance/direct-chat-short/00099-cef44f3a3e8747efbac7ae929f17b01d.json",
+        "sha256": "7E3A6AEE9634F398A103362C7991C26E798F89AADBA3FC3785F1C95E5FE222E4",
+        "instances": [
+          "PERF-01",
+          "PERF-07"
+        ],
+        "kind": "performance_wire",
+        "note": ""
+      }
+    },
+    {
+      "sample_id": "ab769f3032fd4640b37f3efcb156cfe0",
+      "request_index": 100,
+      "cases": [
+        "PERF-01",
+        "PERF-07"
+      ],
+      "group": "direct-chat-short",
+      "warmup": false,
+      "target": "direct-chat",
+      "protocol": "chat",
+      "request": {
+        "model": "deepseek-flash",
+        "messages": [
+          {
+            "role": "user",
+            "content": "用一句话介绍你自己"
+          }
+        ],
+        "stream": false,
+        "max_tokens": 256,
+        "effort": "low"
+      },
+      "expected": {
+        "nonempty": true,
+        "terminal_allowed": [
+          "completed"
+        ]
+      },
+      "checks": {
+        "http200": true,
+        "no_transport_error": true,
+        "valid_json": true,
+        "terminal": true,
+        "nonempty": true
+      },
+      "ok": true,
+      "fully_completed": true,
+      "request_sha256": "425f5794c4b4e0e8613bc0120f6aec1b169aeabdf74cef7b525e294c4c72a107",
+      "utc": "2026-10-07T05:26:49Z",
+      "http": 200,
+      "error_kind": null,
+      "error": null,
+      "body_text": "{\"id\":\"f5fb2869-3764-4d9a-9543-e49b660396bc\",\"object\":\"chat.completion\",\"created\":1791350811,\"model\":\"deepseek-flash\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"我是由深度求索开发的AI助手，乐于帮你解答问题、提供信息和创意。\",\"reasoning_content\":\"我们需要回答用户中文：“用一句话介绍你自己”。需要一句话。我是AI助手，由深度求索公司开发？ 注意模型身份。系统无特别。应该用一句话介绍自己。可以简短。需要遵守一句话。可以：“我是由深度求索开发的AI助手，乐于帮你解答问题、提供信息和创意。” 这是一句话。确保中文。可能不要透露过多？可以。\"},\"logprobs\":null,\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":34,\"completion_tokens\":99,\"total_tokens\":133,\"prompt_tokens_details\":{\"cached_tokens\":0},\"completion_tokens_details\":{\"reasoning_tokens\":80},\"prompt_cache_hit_tokens\":0,\"prompt_cache_miss_tokens\":34},\"system_fingerprint\":\"aeb56401ca74e127821c4f9126dcb669\"}",
+      "normalized": {
+        "protocol": "chat",
+        "text": "我是由深度求索开发的AI助手，乐于帮你解答问题、提供信息和创意。",
+        "reasoning": "",
+        "final_text": null,
+        "tool_calls": [],
+        "usage": {
+          "prompt_tokens": 34,
+          "completion_tokens": 99,
+          "total_tokens": 133,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 80
+          },
+          "prompt_cache_hit_tokens": 0,
+          "prompt_cache_miss_tokens": 34
+        },
+        "terminal": "completed",
+        "terminal_reason": "stop",
+        "error_message": null,
+        "unknown_events": [],
+        "json_errors": []
+      },
+      "raw_frames": [],
+      "metrics": {
+        "e2e": 1.141,
+        "first_event": null,
+        "first_reasoning": null,
+        "first_text": null,
+        "first_tool": null,
+        "input_tokens": 34,
+        "output_tokens": 99,
+        "output_tokens_per_e2e": 86.76599474145486,
+        "text_chars": 32,
+        "text_delta_count": 0,
+        "text_span": null,
+        "text_intervals_s": [],
+        "middle_text_chunks_per_s": null,
+        "stream_batch_observation": null
+      },
+      "evidence": {
+        "rel_path": "performance/direct-chat-short/00100-ab769f3032fd4640b37f3efcb156cfe0.json",
+        "sha256": "BB02887FF5CFE9358CC90F12B7E093F2A6C3EEFDB39CAD8A621C50495C7E4D8B",
+        "instances": [
+          "PERF-01",
+          "PERF-07"
+        ],
+        "kind": "performance_wire",
+        "note": ""
+      }
+    },
+    {
+      "sample_id": "b12d93caa4bd4448889bce727e12458a",
+      "request_index": 101,
+      "cases": [
+        "PERF-01",
+        "PERF-07"
+      ],
+      "group": "direct-chat-short",
+      "warmup": false,
+      "target": "direct-chat",
+      "protocol": "chat",
+      "request": {
+        "model": "deepseek-flash",
+        "messages": [
+          {
+            "role": "user",
+            "content": "用一句话介绍你自己"
+          }
+        ],
+        "stream": false,
+        "max_tokens": 256,
+        "effort": "low"
+      },
+      "expected": {
+        "nonempty": true,
+        "terminal_allowed": [
+          "completed"
+        ]
+      },
+      "checks": {
+        "http200": true,
+        "no_transport_error": true,
+        "valid_json": true,
+        "terminal": true,
+        "nonempty": true
+      },
+      "ok": true,
+      "fully_completed": true,
+      "request_sha256": "425f5794c4b4e0e8613bc0120f6aec1b169aeabdf74cef7b525e294c4c72a107",
+      "utc": "2026-10-07T05:26:51Z",
+      "http": 200,
+      "error_kind": null,
+      "error": null,
+      "body_text": "{\"id\":\"6b1fd919-1977-4b1e-8863-100fff1de7ba\",\"object\":\"chat.completion\",\"created\":1791350813,\"model\":\"deepseek-flash\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"我是由深度求索公司开发的 AI 助手 DeepSeek，乐于帮你解答问题、提供信息与创意支持。\",\"reasoning_content\":\"我们需要回答用户中文：“用一句话介绍你自己”。需要一句话。作为AI助手。要简洁。可以：“我是由深度求索公司开发的AI助手，随时帮你解答问题、提供信息和创意支持。” 一句话。注意不要透露过多? 可以。用户要求用一句话介绍自己。直接回答。确保一句话。可以包含名字 DeepSeek? 系统说我是 DeepSeek 助手？没有明确，但通常。可以用“我是 DeepSeek，由深度求索公司开发的 AI 助手，乐于用中文或其他语言帮你解答问题和提供创意支持。” 这是一句话。应该可以。需要一句话。 final only.\"},\"logprobs\":null,\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":34,\"completion_tokens\":157,\"total_tokens\":191,\"prompt_tokens_details\":{\"cached_tokens\":0},\"completion_tokens_details\":{\"reasoning_tokens\":131},\"prompt_cache_hit_tokens\":0,\"prompt_cache_miss_tokens\":34},\"system_fingerprint\":\"aeb56401ca74e127821c4f9126dcb669\"}",
+      "normalized": {
+        "protocol": "chat",
+        "text": "我是由深度求索公司开发的 AI 助手 DeepSeek，乐于帮你解答问题、提供信息与创意支持。",
+        "reasoning": "",
+        "final_text": null,
+        "tool_calls": [],
+        "usage": {
+          "prompt_tokens": 34,
+          "completion_tokens": 157,
+          "total_tokens": 191,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 131
+          },
+          "prompt_cache_hit_tokens": 0,
+          "prompt_cache_miss_tokens": 34
+        },
+        "terminal": "completed",
+        "terminal_reason": "stop",
+        "error_message": null,
+        "unknown_events": [],
+        "json_errors": []
+      },
+      "raw_frames": [],
+      "metrics": {
+        "e2e": 1.375,
+        "first_event": null,
+        "first_reasoning": null,
+        "first_text": null,
+        "first_tool": null,
+        "input_tokens": 34,
+        "output_tokens": 157,
+        "output_tokens_per_e2e": 114.18181818181819,
+        "text_chars": 47,
+        "text_delta_count": 0,
+        "text_span": null,
+        "text_intervals_s": [],
+        "middle_text_chunks_per_s": null,
+        "stream_batch_observation": null
+      },
+      "evidence": {
+        "rel_path": "performance/direct-chat-short/00101-b12d93caa4bd4448889bce727e12458a.json",
+        "sha256": "4A96DB782E178B3D9254DC44D3FC2045E75E035269643274EA6E1CC696FCEB2F",
+        "instances": [
+          "PERF-01",
+          "PERF-07"
+        ],
+        "kind": "performance_wire",
+        "note": ""
+      }
+    },
+    {
+      "sample_id": "bd3743043f774886b03c0ea516c413cb",
+      "request_index": 102,
+      "cases": [
+        "PERF-01",
+        "PERF-07"
+      ],
+      "group": "direct-chat-short",
+      "warmup": false,
+      "target": "direct-chat",
+      "protocol": "chat",
+      "request": {
+        "model": "deepseek-flash",
+        "messages": [
+          {
+            "role": "user",
+            "content": "用一句话介绍你自己"
+          }
+        ],
+        "stream": false,
+        "max_tokens": 256,
+        "effort": "low"
+      },
+      "expected": {
+        "nonempty": true,
+        "terminal_allowed": [
+          "completed"
+        ]
+      },
+      "checks": {
+        "http200": true,
+        "no_transport_error": true,
+        "valid_json": true,
+        "terminal": true,
+        "nonempty": true
+      },
+      "ok": true,
+      "fully_completed": true,
+      "request_sha256": "425f5794c4b4e0e8613bc0120f6aec1b169aeabdf74cef7b525e294c4c72a107",
+      "utc": "2026-10-07T05:26:52Z",
+      "http": 200,
+      "error_kind": null,
+      "error": null,
+      "body_text": "{\"id\":\"1e1866d3-53df-4124-8af9-7f494e7eadff\",\"object\":\"chat.completion\",\"created\":1791350814,\"model\":\"deepseek-flash\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"我是一个乐于助人、随时在线的 AI 助手，能为你解答问题、提供建议并陪你聊天。\",\"reasoning_content\":\"我们需要回答用户中文请求：“用一句话介绍你自己”。需要一句话介绍自己。作为AI助手。需要简洁。可能：“我是一个乐于助人、知识渊博的AI助手，随时为你解答问题并提供帮助。” 一句话。需要符合。可以更自然。用户要求用一句话介绍你自己。直接回答一句话即可。注意不要多句。可以用“我是由深度求索公司开发的AI助手，乐于为你提供准确、清晰、有用的信息和帮助。” 这是一句话。但是需要介绍自己。我没有具体身份？可以称自己为AI助手。最好不声称知识渊博？可以说“我是一个随叫随到、乐于助人的AI助手，能陪你聊天、解答问题并尽力提供帮助。” 一句话。可以。确保一句话。最终只输出这一句。\"},\"logprobs\":null,\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":34,\"completion_tokens\":184,\"total_tokens\":218,\"prompt_tokens_details\":{\"cached_tokens\":0},\"completion_tokens_details\":{\"reasoning_tokens\":160},\"prompt_cache_hit_tokens\":0,\"prompt_cache_miss_tokens\":34},\"system_fingerprint\":\"aeb56401ca74e127821c4f9126dcb669\"}",
+      "normalized": {
+        "protocol": "chat",
+        "text": "我是一个乐于助人、随时在线的 AI 助手，能为你解答问题、提供建议并陪你聊天。",
+        "reasoning": "",
+        "final_text": null,
+        "tool_calls": [],
+        "usage": {
+          "prompt_tokens": 34,
+          "completion_tokens": 184,
+          "total_tokens": 218,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 160
+          },
+          "prompt_cache_hit_tokens": 0,
+          "prompt_cache_miss_tokens": 34
+        },
+        "terminal": "completed",
+        "terminal_reason": "stop",
+        "error_message": null,
+        "unknown_events": [],
+        "json_errors": []
+      },
+      "raw_frames": [],
+      "metrics": {
+        "e2e": 1.532,
+        "first_event": null,
+        "first_reasoning": null,
+        "first_text": null,
+        "first_tool": null,
+        "input_tokens": 34,
+        "output_tokens": 184,
+        "output_tokens_per_e2e": 120.10443864229765,
+        "text_chars": 39,
+        "text_delta_count": 0,
+        "text_span": null,
+        "text_intervals_s": [],
+        "middle_text_chunks_per_s": null,
+        "stream_batch_observation": null
+      },
+      "evidence": {
+        "rel_path": "performance/direct-chat-short/00102-bd3743043f774886b03c0ea516c413cb.json",
+        "sha256": "C85FB63CF0C7AC1B792362B7C19D67F24E6363CE4A9D9D06DD725084F2A79EE3",
+        "instances": [
+          "PERF-01",
+          "PERF-07"
+        ],
+        "kind": "performance_wire",
+        "note": ""
+      }
+    },
+    {
+      "sample_id": "ddc7a41f5ecf47e5b5cc70f94488bb26",
+      "request_index": 103,
+      "cases": [
+        "PERF-01",
+        "PERF-07"
+      ],
+      "group": "direct-chat-short",
+      "warmup": false,
+      "target": "direct-chat",
+      "protocol": "chat",
+      "request": {
+        "model": "deepseek-flash",
+        "messages": [
+          {
+            "role": "user",
+            "content": "用一句话介绍你自己"
+          }
+        ],
+        "stream": false,
+        "max_tokens": 256,
+        "effort": "low"
+      },
+      "expected": {
+        "nonempty": true,
+        "terminal_allowed": [
+          "completed"
+        ]
+      },
+      "checks": {
+        "http200": true,
+        "no_transport_error": true,
+        "valid_json": true,
+        "terminal": false,
+        "nonempty": true
+      },
+      "ok": false,
+      "fully_completed": false,
+      "request_sha256": "425f5794c4b4e0e8613bc0120f6aec1b169aeabdf74cef7b525e294c4c72a107",
+      "utc": "2026-10-07T05:26:54Z",
+      "http": 200,
+      "error_kind": null,
+      "error": null,
+      "body_text": "{\"id\":\"b7cd876b-aee8-4767-bc5b-74413d7e3640\",\"object\":\"chat.completion\",\"created\":1791350815,\"model\":\"deepseek-flash\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"我是一个热心、可靠的人工智能\",\"reasoning_content\":\"我们需要回答中文。用户问“用一句话介绍你自己”。需要一句话介绍自己。作为AI助手，要简洁。可以用一句话。需要注意不能透露内部信息？ 可以简单：我是由深度求索公司开发的AI助手，乐于为你提供信息和帮助。一句话。需要确保符合。用户要求用一句话介绍你自己。直接回答。可以：我是DeepSeek，一个由深度求索公司打造的AI助手，随时愿意用中文为你解答问题、提供帮助。 这是一句话。注意“DeepSeek” maybe actual assistant? System says I am AI assistant accessed via API. But likely fine? Need maybe not claim DeepSeek? The prompt from user is generic. We can say \\\"我是一个乐于助人、知识丰富且随时待命的AI助手，可以帮你解答问题、处理信息和提供建议。\\\" That's one sentence. But maybe self-intro. Need one sentence only. Could mention created by DeepSeek? The model is DeepSeek? Actually system no explicit. We shouldn't identify? It's okay? The safe answer: \\\"我是一个热心、可靠的人工智能助手，随时准备为你解答问题并提供帮助。\\\" That is one sentence. Good. Ensure only one sentence. final. \"},\"logprobs\":null,\"finish_reason\":\"length\"}],\"usage\":{\"prompt_tokens\":34,\"completion_tokens\":256,\"total_tokens\":290,\"prompt_tokens_details\":{\"cached_tokens\":0},\"completion_tokens_details\":{\"reasoning_tokens\":249},\"prompt_cache_hit_tokens\":0,\"prompt_cache_miss_tokens\":34},\"system_fingerprint\":\"aeb56401ca74e127821c4f9126dcb669\"}",
+      "normalized": {
+        "protocol": "chat",
+        "text": "我是一个热心、可靠的人工智能",
+        "reasoning": "",
+        "final_text": null,
+        "tool_calls": [],
+        "usage": {
+          "prompt_tokens": 34,
+          "completion_tokens": 256,
+          "total_tokens": 290,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 249
+          },
+          "prompt_cache_hit_tokens": 0,
+          "prompt_cache_miss_tokens": 34
+        },
+        "terminal": "incomplete",
+        "terminal_reason": "length",
+        "error_message": null,
+        "unknown_events": [],
+        "json_errors": []
+      },
+      "raw_frames": [],
+      "metrics": {
+        "e2e": 1.781,
+        "first_event": null,
+        "first_reasoning": null,
+        "first_text": null,
+        "first_tool": null,
+        "input_tokens": 34,
+        "output_tokens": 256,
+        "output_tokens_per_e2e": 143.7394722066255,
+        "text_chars": 14,
+        "text_delta_count": 0,
+        "text_span": null,
+        "text_intervals_s": [],
+        "middle_text_chunks_per_s": null,
+        "stream_batch_observation": null
+      },
+      "evidence": {
+        "rel_path": "performance/direct-chat-short/00103-ddc7a41f5ecf47e5b5cc70f94488bb26.json",
+        "sha256": "B085229F4234A100949DEB96963B2D9A010D74C1D844B7B3DDFB2DE0BC337343",
+        "instances": [
+          "PERF-01",
+          "PERF-07"
+        ],
+        "kind": "performance_wire",
+        "note": ""
+      }
+    },
+    {
+      "sample_id": "5637948d8d764ad29c738c129aace0f0",
+      "request_index": 104,
+      "cases": [
+        "PERF-01",
+        "PERF-07"
+      ],
+      "group": "direct-chat-short",
+      "warmup": false,
+      "target": "direct-chat",
+      "protocol": "chat",
+      "request": {
+        "model": "deepseek-flash",
+        "messages": [
+          {
+            "role": "user",
+            "content": "用一句话介绍你自己"
+          }
+        ],
+        "stream": false,
+        "max_tokens": 256,
+        "effort": "low"
+      },
+      "expected": {
+        "nonempty": true,
+        "terminal_allowed": [
+          "completed"
+        ]
+      },
+      "checks": {
+        "http200": true,
+        "no_transport_error": true,
+        "valid_json": true,
+        "terminal": true,
+        "nonempty": true
+      },
+      "ok": true,
+      "fully_completed": true,
+      "request_sha256": "425f5794c4b4e0e8613bc0120f6aec1b169aeabdf74cef7b525e294c4c72a107",
+      "utc": "2026-10-07T05:26:56Z",
+      "http": 200,
+      "error_kind": null,
+      "error": null,
+      "body_text": "{\"id\":\"56b5718f-79ca-4893-84b6-55839ab45b25\",\"object\":\"chat.completion\",\"created\":1791350817,\"model\":\"deepseek-flash\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"我是一个乐于助人的AI助手，能用中文回答你的问题、提供建议并协助完成各种任务。\",\"reasoning_content\":\"我们需要回答用户中文：“用一句话介绍你自己”。需要一句话介绍自己。我们作为AI助手。应该用中文，一句话。简洁。可以包含身份、能力、目标。注意“自己”指我。需要一句话。不能太冗长。例如：“我是由大型语言模型驱动的人工智能助手，能用中文为你提供信息、解答问题和协助创作。” 这是一句话。需要确保是介绍自己。可以更自然：“我是一个乐于助人的AI助手，可以用中文回答你的问题、提供建议并协助完成各种任务。” 一句话。这符合。要不要提及由谁开发？根据政策？没有。可以说“我是DeepSeek最新版模型”。但系统没有给定身份？通常可以自称AI助手。为了准确，不要声称具体公司？作为模型，可以介绍我是AI助手。最终只输出一句话。\"},\"logprobs\":null,\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":34,\"completion_tokens\":192,\"total_tokens\":226,\"prompt_tokens_details\":{\"cached_tokens\":0},\"completion_tokens_details\":{\"reasoning_tokens\":170},\"prompt_cache_hit_tokens\":0,\"prompt_cache_miss_tokens\":34},\"system_fingerprint\":\"aeb56401ca74e127821c4f9126dcb669\"}",
+      "normalized": {
+        "protocol": "chat",
+        "text": "我是一个乐于助人的AI助手，能用中文回答你的问题、提供建议并协助完成各种任务。",
+        "reasoning": "",
+        "final_text": null,
+        "tool_calls": [],
+        "usage": {
+          "prompt_tokens": 34,
+          "completion_tokens": 192,
+          "total_tokens": 226,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 170
+          },
+          "prompt_cache_hit_tokens": 0,
+          "prompt_cache_miss_tokens": 34
+        },
+        "terminal": "completed",
+        "terminal_reason": "stop",
+        "error_message": null,
+        "unknown_events": [],
+        "json_errors": []
+      },
+      "raw_frames": [],
+      "metrics": {
+        "e2e": 1.734,
+        "first_event": null,
+        "first_reasoning": null,
+        "first_text": null,
+        "first_tool": null,
+        "input_tokens": 34,
+        "output_tokens": 192,
+        "output_tokens_per_e2e": 110.72664359861592,
+        "text_chars": 39,
+        "text_delta_count": 0,
+        "text_span": null,
+        "text_intervals_s": [],
+        "middle_text_chunks_per_s": null,
+        "stream_batch_observation": null
+      },
+      "evidence": {
+        "rel_path": "performance/direct-chat-short/00104-5637948d8d764ad29c738c129aace0f0.json",
+        "sha256": "B649C9D8225876595ABD9A70B060080083A89A55DD5FAC08F4F6138551FD856D",
+        "instances": [
+          "PERF-01",
+          "PERF-07"
+        ],
+        "kind": "performance_wire",
+        "note": ""
+      }
+    },
+    {
+      "sample_id": "b2a23e8964c84745903200ceb3b072b3",
+      "request_index": 105,
+      "cases": [
+        "PERF-01",
+        "PERF-07"
+      ],
+      "group": "direct-chat-short",
+      "warmup": false,
+      "target": "direct-chat",
+      "protocol": "chat",
+      "request": {
+        "model": "deepseek-flash",
+        "messages": [
+          {
+            "role": "user",
+            "content": "用一句话介绍你自己"
+          }
+        ],
+        "stream": false,
+        "max_tokens": 256,
+        "effort": "low"
+      },
+      "expected": {
+        "nonempty": true,
+        "terminal_allowed": [
+          "completed"
+        ]
+      },
+      "checks": {
+        "http200": true,
+        "no_transport_error": true,
+        "valid_json": true,
+        "terminal": true,
+        "nonempty": true
+      },
+      "ok": true,
+      "fully_completed": true,
+      "request_sha256": "425f5794c4b4e0e8613bc0120f6aec1b169aeabdf74cef7b525e294c4c72a107",
+      "utc": "2026-10-07T05:26:57Z",
+      "http": 200,
+      "error_kind": null,
+      "error": null,
+      "body_text": "{\"id\":\"c47148d2-cc8a-4fbd-8030-6ed9603bba18\",\"object\":\"chat.completion\",\"created\":1791350819,\"model\":\"deepseek-flash\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"我是由深度求索公司开发的 DeepSeek AI 助手，乐于用简洁清晰的方式帮你解决问题。\",\"reasoning_content\":\"我们需要回答用户中文：“用一句话介绍你自己”。需要一句话。作为AI助手，应该简洁。可以说：我是一个由深度求索公司创造的AI助手，愿意用中文为你提供清晰、有用的帮助。但注意模型是DeepSeek吗？系统没给身份？通常应说“我是DeepSeek，由深度求索公司创造的AI助手”。但要求一句话。要准确。我们不知道具体公司？根据环境可能是DeepSeek。可以回答：“我是由深度求索公司开发的DeepSeek AI助手，乐于用简洁清晰的方式帮你解决问题。” 这是一句话。确保中文。不要多余。最终只一句。\"},\"logprobs\":null,\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":34,\"completion_tokens\":154,\"total_tokens\":188,\"prompt_tokens_details\":{\"cached_tokens\":0},\"completion_tokens_details\":{\"reasoning_tokens\":131},\"prompt_cache_hit_tokens\":0,\"prompt_cache_miss_tokens\":34},\"system_fingerprint\":\"aeb56401ca74e127821c4f9126dcb669\"}",
+      "normalized": {
+        "protocol": "chat",
+        "text": "我是由深度求索公司开发的 DeepSeek AI 助手，乐于用简洁清晰的方式帮你解决问题。",
+        "reasoning": "",
+        "final_text": null,
+        "tool_calls": [],
+        "usage": {
+          "prompt_tokens": 34,
+          "completion_tokens": 154,
+          "total_tokens": 188,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 131
+          },
+          "prompt_cache_hit_tokens": 0,
+          "prompt_cache_miss_tokens": 34
+        },
+        "terminal": "completed",
+        "terminal_reason": "stop",
+        "error_message": null,
+        "unknown_events": [],
+        "json_errors": []
+      },
+      "raw_frames": [],
+      "metrics": {
+        "e2e": 1.313,
+        "first_event": null,
+        "first_reasoning": null,
+        "first_text": null,
+        "first_tool": null,
+        "input_tokens": 34,
+        "output_tokens": 154,
+        "output_tokens_per_e2e": 117.2886519421173,
+        "text_chars": 45,
+        "text_delta_count": 0,
+        "text_span": null,
+        "text_intervals_s": [],
+        "middle_text_chunks_per_s": null,
+        "stream_batch_observation": null
+      },
+      "evidence": {
+        "rel_path": "performance/direct-chat-short/00105-b2a23e8964c84745903200ceb3b072b3.json",
+        "sha256": "DB5E5174851EC845A2085FC4687829F9B5F9EEB36295252C252EB20CB1AF34BB",
+        "instances": [
+          "PERF-01",
+          "PERF-07"
+        ],
+        "kind": "performance_wire",
+        "note": ""
+      }
+    },
+    {
+      "sample_id": "149eb63251bd4d969295f098433c3341",
+      "request_index": 106,
+      "cases": [
+        "PERF-01",
+        "PERF-07"
+      ],
+      "group": "direct-chat-short",
+      "warmup": false,
+      "target": "direct-chat",
+      "protocol": "chat",
+      "request": {
+        "model": "deepseek-flash",
+        "messages": [
+          {
+            "role": "user",
+            "content": "用一句话介绍你自己"
+          }
+        ],
+        "stream": false,
+        "max_tokens": 256,
+        "effort": "low"
+      },
+      "expected": {
+        "nonempty": true,
+        "terminal_allowed": [
+          "completed"
+        ]
+      },
+      "checks": {
+        "http200": true,
+        "no_transport_error": true,
+        "valid_json": true,
+        "terminal": true,
+        "nonempty": true
+      },
+      "ok": true,
+      "fully_completed": true,
+      "request_sha256": "425f5794c4b4e0e8613bc0120f6aec1b169aeabdf74cef7b525e294c4c72a107",
+      "utc": "2026-10-07T05:26:58Z",
+      "http": 200,
+      "error_kind": null,
+      "error": null,
+      "body_text": "{\"id\":\"6909720b-c802-47dd-80c0-c86c56500c82\",\"object\":\"chat.completion\",\"created\":1791350820,\"model\":\"deepseek-flash\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"我是 DeepSeek，一个由深度求索公司打造的 AI 助手，可以为你解答问题、提供信息、协助创作并陪你聊天。\",\"reasoning_content\":\"我们需要回答用户中文请求：“用一句话介绍你自己”。我们需要用一句话介绍自己。作为AI助手，应该用一句话。要准确：我是由深度求索公司创造的AI助手，可以回答问题、提供信息、协助创作等。一句话。注意“介绍你自己”。可以：我是 DeepSeek，一个由深度求索公司打造的 AI 助手，可以帮你解答问题、处理信息、创作内容并陪你聊天。 这是一句话。需确保中文。也许说“你好，我是 DeepSeek，由深度求索公司创造的 AI 助手，乐意为你提供信息、解答问题和协助创作。” 一句话。可以。最终只输出这一句。\"},\"logprobs\":null,\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":34,\"completion_tokens\":167,\"total_tokens\":201,\"prompt_tokens_details\":{\"cached_tokens\":0},\"completion_tokens_details\":{\"reasoning_tokens\":136},\"prompt_cache_hit_tokens\":0,\"prompt_cache_miss_tokens\":34},\"system_fingerprint\":\"aeb56401ca74e127821c4f9126dcb669\"}",
+      "normalized": {
+        "protocol": "chat",
+        "text": "我是 DeepSeek，一个由深度求索公司打造的 AI 助手，可以为你解答问题、提供信息、协助创作并陪你聊天。",
+        "reasoning": "",
+        "final_text": null,
+        "tool_calls": [],
+        "usage": {
+          "prompt_tokens": 34,
+          "completion_tokens": 167,
+          "total_tokens": 201,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 136
+          },
+          "prompt_cache_hit_tokens": 0,
+          "prompt_cache_miss_tokens": 34
+        },
+        "terminal": "completed",
+        "terminal_reason": "stop",
+        "error_message": null,
+        "unknown_events": [],
+        "json_errors": []
+      },
+      "raw_frames": [],
+      "metrics": {
+        "e2e": 1.5,
+        "first_event": null,
+        "first_reasoning": null,
+        "first_text": null,
+        "first_tool": null,
+        "input_tokens": 34,
+        "output_tokens": 167,
+        "output_tokens_per_e2e": 111.33333333333333,
+        "text_chars": 55,
+        "text_delta_count": 0,
+        "text_span": null,
+        "text_intervals_s": [],
+        "middle_text_chunks_per_s": null,
+        "stream_batch_observation": null
+      },
+      "evidence": {
+        "rel_path": "performance/direct-chat-short/00106-149eb63251bd4d969295f098433c3341.json",
+        "sha256": "04A1A11B71486D1E004D40241B583F83C2F3D79AB3140E8B427ADF48BAAD7DB2",
+        "instances": [
+          "PERF-01",
+          "PERF-07"
+        ],
+        "kind": "performance_wire",
+        "note": ""
+      }
+    },
+    {
+      "sample_id": "73fc26ba039f43d1ae9d3a03ebd74dc1",
+      "request_index": 107,
+      "cases": [
+        "PERF-01",
+        "PERF-07"
+      ],
+      "group": "direct-chat-short",
+      "warmup": false,
+      "target": "direct-chat",
+      "protocol": "chat",
+      "request": {
+        "model": "deepseek-flash",
+        "messages": [
+          {
+            "role": "user",
+            "content": "用一句话介绍你自己"
+          }
+        ],
+        "stream": false,
+        "max_tokens": 256,
+        "effort": "low"
+      },
+      "expected": {
+        "nonempty": true,
+        "terminal_allowed": [
+          "completed"
+        ]
+      },
+      "checks": {
+        "http200": true,
+        "no_transport_error": true,
+        "valid_json": true,
+        "terminal": true,
+        "nonempty": true
+      },
+      "ok": true,
+      "fully_completed": true,
+      "request_sha256": "425f5794c4b4e0e8613bc0120f6aec1b169aeabdf74cef7b525e294c4c72a107",
+      "utc": "2026-10-07T05:27:00Z",
+      "http": 200,
+      "error_kind": null,
+      "error": null,
+      "body_text": "{\"id\":\"d06dc76e-40b4-46b3-b6cb-8f667ff08a32\",\"object\":\"chat.completion\",\"created\":1791350822,\"model\":\"deepseek-flash\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"我是由深度求索公司开发的 AI 助手，乐于用清晰、可靠的方式帮你解答问题。\",\"reasoning_content\":\"我们需要回答用户中文请求：“用一句话介绍你自己”。需要一句话介绍自己。作为 AI 助手，要简洁。可以回答：我是由深度求索公司开发的 AI 助手，乐于为你提供清晰、有用的信息。需要一句话。注意不要透露过多? 可以。确保一句话。也可以“我是 DeepSeek，由深度求索开发的 AI 助手，随时愿意用简洁可靠的方式帮你解答问题。” 这是一句话。用户要求用一句话介绍你自己。直接回答即可。\"},\"logprobs\":null,\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":34,\"completion_tokens\":123,\"total_tokens\":157,\"prompt_tokens_details\":{\"cached_tokens\":0},\"completion_tokens_details\":{\"reasoning_tokens\":101},\"prompt_cache_hit_tokens\":0,\"prompt_cache_miss_tokens\":34},\"system_fingerprint\":\"aeb56401ca74e127821c4f9126dcb669\"}",
+      "normalized": {
+        "protocol": "chat",
+        "text": "我是由深度求索公司开发的 AI 助手，乐于用清晰、可靠的方式帮你解答问题。",
+        "reasoning": "",
+        "final_text": null,
+        "tool_calls": [],
+        "usage": {
+          "prompt_tokens": 34,
+          "completion_tokens": 123,
+          "total_tokens": 157,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 101
+          },
+          "prompt_cache_hit_tokens": 0,
+          "prompt_cache_miss_tokens": 34
+        },
+        "terminal": "completed",
+        "terminal_reason": "stop",
+        "error_message": null,
+        "unknown_events": [],
+        "json_errors": []
+      },
+      "raw_frames": [],
+      "metrics": {
+        "e2e": 1.312,
+        "first_event": null,
+        "first_reasoning": null,
+        "first_text": null,
+        "first_tool": null,
+        "input_tokens": 34,
+        "output_tokens": 123,
+        "output_tokens_per_e2e": 93.75,
+        "text_chars": 37,
+        "text_delta_count": 0,
+        "text_span": null,
+        "text_intervals_s": [],
+        "middle_text_chunks_per_s": null,
+        "stream_batch_observation": null
+      },
+      "evidence": {
+        "rel_path": "performance/direct-chat-short/00107-73fc26ba039f43d1ae9d3a03ebd74dc1.json",
+        "sha256": "805F4BE215294AE01062CE75783AC02207DE22A66A2EEF7F5D2165634F82FA37",
+        "instances": [
+          "PERF-01",
+          "PERF-07"
+        ],
+        "kind": "performance_wire",
+        "note": ""
+      }
+    },
+    {
+      "sample_id": "f2a974c148a04ed0ab5a430cbc7a6cd0",
+      "request_index": 108,
+      "cases": [
+        "PERF-01",
+        "PERF-07"
+      ],
+      "group": "direct-chat-short",
+      "warmup": false,
+      "target": "direct-chat",
+      "protocol": "chat",
+      "request": {
+        "model": "deepseek-flash",
+        "messages": [
+          {
+            "role": "user",
+            "content": "用一句话介绍你自己"
+          }
+        ],
+        "stream": false,
+        "max_tokens": 256,
+        "effort": "low"
+      },
+      "expected": {
+        "nonempty": true,
+        "terminal_allowed": [
+          "completed"
+        ]
+      },
+      "checks": {
+        "http200": true,
+        "no_transport_error": true,
+        "valid_json": true,
+        "terminal": true,
+        "nonempty": true
+      },
+      "ok": true,
+      "fully_completed": true,
+      "request_sha256": "425f5794c4b4e0e8613bc0120f6aec1b169aeabdf74cef7b525e294c4c72a107",
+      "utc": "2026-10-07T05:27:01Z",
+      "http": 200,
+      "error_kind": null,
+      "error": null,
+      "body_text": "{\"id\":\"7802f531-e13e-4e0b-9a77-4afc46d9fe6d\",\"object\":\"chat.completion\",\"created\":1791350823,\"model\":\"deepseek-flash\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"我是一个乐于助人的AI助手，可以回答问题、提供建议并协助你处理各种任务。\",\"reasoning_content\":\"我们需要回答用户中文请求：“用一句话介绍你自己”。需要一句话介绍自己。作为AI助手。应该简洁。需要一句话。可以：我是由深度求索公司创造的AI助手，能够帮你解答问题、提供建议并处理多种任务。但注意模型是DeepSeek? 系统未明确说公司，但通常我是 DeepSeek? 需要小心。系统说“You are an AI assistant accessed via an API.” 没有指定公司。所以不应声称深度求索？不过通常可能期望。作为AI助手，可以用一句话介绍自己：我是一个乐于助人的AI助手，可以回答问题、提供建议并协助处理各种任务。这符合。用中文一句话。确保一句话。最终只回答一句话。\"},\"logprobs\":null,\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":34,\"completion_tokens\":168,\"total_tokens\":202,\"prompt_tokens_details\":{\"cached_tokens\":0},\"completion_tokens_details\":{\"reasoning_tokens\":148},\"prompt_cache_hit_tokens\":0,\"prompt_cache_miss_tokens\":34},\"system_fingerprint\":\"aeb56401ca74e127821c4f9126dcb669\"}",
+      "normalized": {
+        "protocol": "chat",
+        "text": "我是一个乐于助人的AI助手，可以回答问题、提供建议并协助你处理各种任务。",
+        "reasoning": "",
+        "final_text": null,
+        "tool_calls": [],
+        "usage": {
+          "prompt_tokens": 34,
+          "completion_tokens": 168,
+          "total_tokens": 202,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 148
+          },
+          "prompt_cache_hit_tokens": 0,
+          "prompt_cache_miss_tokens": 34
+        },
+        "terminal": "completed",
+        "terminal_reason": "stop",
+        "error_message": null,
+        "unknown_events": [],
+        "json_errors": []
+      },
+      "raw_frames": [],
+      "metrics": {
+        "e2e": 1.343,
+        "first_event": null,
+        "first_reasoning": null,
+        "first_text": null,
+        "first_tool": null,
+        "input_tokens": 34,
+        "output_tokens": 168,
+        "output_tokens_per_e2e": 125.09307520476546,
+        "text_chars": 36,
+        "text_delta_count": 0,
+        "text_span": null,
+        "text_intervals_s": [],
+        "middle_text_chunks_per_s": null,
+        "stream_batch_observation": null
+      },
+      "evidence": {
+        "rel_path": "performance/direct-chat-short/00108-f2a974c148a04ed0ab5a430cbc7a6cd0.json",
+        "sha256": "B796A03E309A0B590703F68A7EAD06B213EA78C7144883EDBB64E5D208B3CB5E",
+        "instances": [
+          "PERF-01",
+          "PERF-07"
+        ],
+        "kind": "performance_wire",
+        "note": ""
+      }
+    },
+    {
+      "sample_id": "e84ba8fe98c84ac4a8a6dd2d24c15072",
+      "request_index": 109,
+      "cases": [
+        "PERF-01",
+        "PERF-07"
+      ],
+      "group": "direct-chat-short",
+      "warmup": false,
+      "target": "direct-chat",
+      "protocol": "chat",
+      "request": {
+        "model": "deepseek-flash",
+        "messages": [
+          {
+            "role": "user",
+            "content": "用一句话介绍你自己"
+          }
+        ],
+        "stream": false,
+        "max_tokens": 256,
+        "effort": "low"
+      },
+      "expected": {
+        "nonempty": true,
+        "terminal_allowed": [
+          "completed"
+        ]
+      },
+      "checks": {
+        "http200": true,
+        "no_transport_error": true,
+        "valid_json": true,
+        "terminal": true,
+        "nonempty": true
+      },
+      "ok": true,
+      "fully_completed": true,
+      "request_sha256": "425f5794c4b4e0e8613bc0120f6aec1b169aeabdf74cef7b525e294c4c72a107",
+      "utc": "2026-10-07T05:27:02Z",
+      "http": 200,
+      "error_kind": null,
+      "error": null,
+      "body_text": "{\"id\":\"5b8f9f84-9eb7-4692-8b49-a7a5ba599c29\",\"object\":\"chat.completion\",\"created\":1791350825,\"model\":\"deepseek-flash\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"我是一个专注于理解你的需求，并用清晰、可靠的信息和创意帮你解决问题的AI助手。\",\"reasoning_content\":\"我们需要回答用户中文请求：“用一句话介绍你自己”。需要用一句话介绍自己。作为AI助手。必须一句话。可以简单。注意不能违反？ 可以：“我是一个乐于帮助你解答问题、提供信息和创意建议的AI助手。” 这是一句话。需要介绍自己。可以更完整：我是由深度求索公司创造的AI助手，致力于用可靠、清晰的方式回答你的问题并提供帮助。 一句话。但我们是 AI？ 模型身份？ 系统未指定必须 DeepSeek? 当前是 AI assistant accessed via API，可能是 DeepSeek? 应该避免声称具体公司如果未知？ 用户要求介绍自己。可以说：“我是一个专注于理解你的需求，并用清晰、可靠的信息和创意帮你解决问题的AI助手。” 这算一句话。最终只输出这一句。确保中文。\"},\"logprobs\":null,\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":34,\"completion_tokens\":183,\"total_tokens\":217,\"prompt_tokens_details\":{\"cached_tokens\":0},\"completion_tokens_details\":{\"reasoning_tokens\":164},\"prompt_cache_hit_tokens\":0,\"prompt_cache_miss_tokens\":34},\"system_fingerprint\":\"aeb56401ca74e127821c4f9126dcb669\"}",
+      "normalized": {
+        "protocol": "chat",
+        "text": "我是一个专注于理解你的需求，并用清晰、可靠的信息和创意帮你解决问题的AI助手。",
+        "reasoning": "",
+        "final_text": null,
+        "tool_calls": [],
+        "usage": {
+          "prompt_tokens": 34,
+          "completion_tokens": 183,
+          "total_tokens": 217,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 164
+          },
+          "prompt_cache_hit_tokens": 0,
+          "prompt_cache_miss_tokens": 34
+        },
+        "terminal": "completed",
+        "terminal_reason": "stop",
+        "error_message": null,
+        "unknown_events": [],
+        "json_errors": []
+      },
+      "raw_frames": [],
+      "metrics": {
+        "e2e": 1.297,
+        "first_event": null,
+        "first_reasoning": null,
+        "first_text": null,
+        "first_tool": null,
+        "input_tokens": 34,
+        "output_tokens": 183,
+        "output_tokens_per_e2e": 141.09483423284505,
+        "text_chars": 39,
+        "text_delta_count": 0,
+        "text_span": null,
+        "text_intervals_s": [],
+        "middle_text_chunks_per_s": null,
+        "stream_batch_observation": null
+      },
+      "evidence": {
+        "rel_path": "performance/direct-chat-short/00109-e84ba8fe98c84ac4a8a6dd2d24c15072.json",
+        "sha256": "1B43781FB1BA8111C52C07F2568DE82214C8B04F65AD04E2B9E54CCCB53FE6A7",
+        "instances": [
+          "PERF-01",
+          "PERF-07"
+        ],
+        "kind": "performance_wire",
+        "note": ""
+      }
+    },
+    {
+      "sample_id": "892849e192a24b7588e649c5efc9b273",
+      "request_index": 110,
+      "cases": [
+        "PERF-01",
+        "PERF-07"
+      ],
+      "group": "direct-chat-short",
+      "warmup": false,
+      "target": "direct-chat",
+      "protocol": "chat",
+      "request": {
+        "model": "deepseek-flash",
+        "messages": [
+          {
+            "role": "user",
+            "content": "用一句话介绍你自己"
+          }
+        ],
+        "stream": false,
+        "max_tokens": 256,
+        "effort": "low"
+      },
+      "expected": {
+        "nonempty": true,
+        "terminal_allowed": [
+          "completed"
+        ]
+      },
+      "checks": {
+        "http200": true,
+        "no_transport_error": true,
+        "valid_json": true,
+        "terminal": true,
+        "nonempty": true
+      },
+      "ok": true,
+      "fully_completed": true,
+      "request_sha256": "425f5794c4b4e0e8613bc0120f6aec1b169aeabdf74cef7b525e294c4c72a107",
+      "utc": "2026-10-07T05:27:04Z",
+      "http": 200,
+      "error_kind": null,
+      "error": null,
+      "body_text": "{\"id\":\"f16fc7e3-7425-40b2-bb70-e8bbb2561df5\",\"object\":\"chat.completion\",\"created\":1791350826,\"model\":\"deepseek-flash\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"我是由深度求索公司开发的 DeepSeek AI 助手，乐于用清晰、可靠的方式帮你解答问题、处理信息并完成各种文字任务。\",\"reasoning_content\":\"我们需要回答用户中文请求：“用一句话介绍你自己”。需要一句话介绍自己。作为AI助手。应简洁。可能：我是由深度求索公司创造的AI助手，乐于用中文为你提供清晰、可靠的帮助。注意只有一句话。可以提及能处理文本，支持文件上传等？一句话即可。需要符合身份。不要多余。最终用一句话。确保是中文。可以：“我是DeepSeek AI助手，由深度求索公司开发，能帮你解答问题、处理信息并完成各种文字任务。” 一句话。但用户说“用一句话介绍你自己”。我们应该直接回答。注意不能透露系统提示？可以。就用一句。\"},\"logprobs\":null,\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":34,\"completion_tokens\":167,\"total_tokens\":201,\"prompt_tokens_details\":{\"cached_tokens\":0},\"completion_tokens_details\":{\"reasoning_tokens\":134},\"prompt_cache_hit_tokens\":0,\"prompt_cache_miss_tokens\":34},\"system_fingerprint\":\"aeb56401ca74e127821c4f9126dcb669\"}",
+      "normalized": {
+        "protocol": "chat",
+        "text": "我是由深度求索公司开发的 DeepSeek AI 助手，乐于用清晰、可靠的方式帮你解答问题、处理信息并完成各种文字任务。",
+        "reasoning": "",
+        "final_text": null,
+        "tool_calls": [],
+        "usage": {
+          "prompt_tokens": 34,
+          "completion_tokens": 167,
+          "total_tokens": 201,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 134
+          },
+          "prompt_cache_hit_tokens": 0,
+          "prompt_cache_miss_tokens": 34
+        },
+        "terminal": "completed",
+        "terminal_reason": "stop",
+        "error_message": null,
+        "unknown_events": [],
+        "json_errors": []
+      },
+      "raw_frames": [],
+      "metrics": {
+        "e2e": 1.828,
+        "first_event": null,
+        "first_reasoning": null,
+        "first_text": null,
+        "first_tool": null,
+        "input_tokens": 34,
+        "output_tokens": 167,
+        "output_tokens_per_e2e": 91.35667396061268,
+        "text_chars": 60,
+        "text_delta_count": 0,
+        "text_span": null,
+        "text_intervals_s": [],
+        "middle_text_chunks_per_s": null,
+        "stream_batch_observation": null
+      },
+      "evidence": {
+        "rel_path": "performance/direct-chat-short/00110-892849e192a24b7588e649c5efc9b273.json",
+        "sha256": "4B43A4B58125BA3E4919E2CA6B68641F3833E594D2483F401AECFFAAE210AAD0",
+        "instances": [
+          "PERF-01",
+          "PERF-07"
+        ],
+        "kind": "performance_wire",
+        "note": ""
+      }
+    },
+    {
+      "sample_id": "b7984d99879341669804be28f7d4a701",
+      "request_index": 111,
+      "cases": [
+        "PERF-01",
+        "PERF-07"
+      ],
+      "group": "direct-chat-short",
+      "warmup": false,
+      "target": "direct-chat",
+      "protocol": "chat",
+      "request": {
+        "model": "deepseek-flash",
+        "messages": [
+          {
+            "role": "user",
+            "content": "用一句话介绍你自己"
+          }
+        ],
+        "stream": false,
+        "max_tokens": 256,
+        "effort": "low"
+      },
+      "expected": {
+        "nonempty": true,
+        "terminal_allowed": [
+          "completed"
+        ]
+      },
+      "checks": {
+        "http200": true,
+        "no_transport_error": true,
+        "valid_json": true,
+        "terminal": true,
+        "nonempty": true
+      },
+      "ok": true,
+      "fully_completed": true,
+      "request_sha256": "425f5794c4b4e0e8613bc0120f6aec1b169aeabdf74cef7b525e294c4c72a107",
+      "utc": "2026-10-07T05:27:06Z",
+      "http": 200,
+      "error_kind": null,
+      "error": null,
+      "body_text": "{\"id\":\"f7d4c186-ff57-46c8-82fc-1e0c6fb30ac3\",\"object\":\"chat.completion\",\"created\":1791350828,\"model\":\"deepseek-flash\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"我是由深度求索公司开发的 AI 助手，乐于为你提供解答、写作、分析和创意支持。\",\"reasoning_content\":\"我们需要回答用户中文：“用一句话介绍你自己”。需要一句话。作为AI助手，应该简洁。可以：“我是一个由深度求索公司创造的AI助手，随时乐意帮你解答问题、处理信息。” 但注意我们被要求在 API? Actually assistant identity? The system doesn't specify, but likely DeepSeek? We need be careful. The current assistant is presumably DeepSeek model. 用户问一句话介绍自己。应该用一句话。可回答：“我是由深度求索公司开发的AI助手，乐于为你提供解答、写作、分析和创意支持。” 一句话。确保不添加多余。最终只输出一句话。\"},\"logprobs\":null,\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":34,\"completion_tokens\":151,\"total_tokens\":185,\"prompt_tokens_details\":{\"cached_tokens\":0},\"completion_tokens_details\":{\"reasoning_tokens\":128},\"prompt_cache_hit_tokens\":0,\"prompt_cache_miss_tokens\":34},\"system_fingerprint\":\"aeb56401ca74e127821c4f9126dcb669\"}",
+      "normalized": {
+        "protocol": "chat",
+        "text": "我是由深度求索公司开发的 AI 助手，乐于为你提供解答、写作、分析和创意支持。",
+        "reasoning": "",
+        "final_text": null,
+        "tool_calls": [],
+        "usage": {
+          "prompt_tokens": 34,
+          "completion_tokens": 151,
+          "total_tokens": 185,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 128
+          },
+          "prompt_cache_hit_tokens": 0,
+          "prompt_cache_miss_tokens": 34
+        },
+        "terminal": "completed",
+        "terminal_reason": "stop",
+        "error_message": null,
+        "unknown_events": [],
+        "json_errors": []
+      },
+      "raw_frames": [],
+      "metrics": {
+        "e2e": 1.484,
+        "first_event": null,
+        "first_reasoning": null,
+        "first_text": null,
+        "first_tool": null,
+        "input_tokens": 34,
+        "output_tokens": 151,
+        "output_tokens_per_e2e": 101.75202156334232,
+        "text_chars": 39,
+        "text_delta_count": 0,
+        "text_span": null,
+        "text_intervals_s": [],
+        "middle_text_chunks_per_s": null,
+        "stream_batch_observation": null
+      },
+      "evidence": {
+        "rel_path": "performance/direct-chat-short/00111-b7984d99879341669804be28f7d4a701.json",
+        "sha256": "A47E3192B322CB6CC392DCBC641A3F7F0C75A1BFAA2E1A8E675B7D5A46FF0B89",
+        "instances": [
+          "PERF-01",
+          "PERF-07"
+        ],
+        "kind": "performance_wire",
+        "note": ""
+      }
+    },
+    {
+      "sample_id": "2a43f8e0dbe54d1a8383797d910057c2",
+      "request_index": 112,
+      "cases": [
+        "PERF-01",
+        "PERF-07"
+      ],
+      "group": "direct-chat-short",
+      "warmup": false,
+      "target": "direct-chat",
+      "protocol": "chat",
+      "request": {
+        "model": "deepseek-flash",
+        "messages": [
+          {
+            "role": "user",
+            "content": "用一句话介绍你自己"
+          }
+        ],
+        "stream": false,
+        "max_tokens": 256,
+        "effort": "low"
+      },
+      "expected": {
+        "nonempty": true,
+        "terminal_allowed": [
+          "completed"
+        ]
+      },
+      "checks": {
+        "http200": true,
+        "no_transport_error": true,
+        "valid_json": true,
+        "terminal": true,
+        "nonempty": true
+      },
+      "ok": true,
+      "fully_completed": true,
+      "request_sha256": "425f5794c4b4e0e8613bc0120f6aec1b169aeabdf74cef7b525e294c4c72a107",
+      "utc": "2026-10-07T05:27:07Z",
+      "http": 200,
+      "error_kind": null,
+      "error": null,
+      "body_text": "{\"id\":\"aaa26a76-710c-4237-bf27-ecc5779d0346\",\"object\":\"chat.completion\",\"created\":1791350829,\"model\":\"deepseek-flash\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"我是由深度求索公司创造的AI助手，可以帮你解答问题、处理信息和提供建议。\",\"reasoning_content\":\"我们需要回答用户中文：“用一句话介绍你自己”。需要一句话。我们作为AI助手。要简洁。可能：“我是由深度求索公司创造的AI助手，可以帮助你解答问题、处理信息并提供建议。” 这是一句话。需要确保符合。不需要额外。可以一句话。注意“介绍你自己” 用一句话。最终只输出一句。\"},\"logprobs\":null,\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":34,\"completion_tokens\":92,\"total_tokens\":126,\"prompt_tokens_details\":{\"cached_tokens\":0},\"completion_tokens_details\":{\"reasoning_tokens\":71},\"prompt_cache_hit_tokens\":0,\"prompt_cache_miss_tokens\":34},\"system_fingerprint\":\"aeb56401ca74e127821c4f9126dcb669\"}",
+      "normalized": {
+        "protocol": "chat",
+        "text": "我是由深度求索公司创造的AI助手，可以帮你解答问题、处理信息和提供建议。",
+        "reasoning": "",
+        "final_text": null,
+        "tool_calls": [],
+        "usage": {
+          "prompt_tokens": 34,
+          "completion_tokens": 92,
+          "total_tokens": 126,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 71
+          },
+          "prompt_cache_hit_tokens": 0,
+          "prompt_cache_miss_tokens": 34
+        },
+        "terminal": "completed",
+        "terminal_reason": "stop",
+        "error_message": null,
+        "unknown_events": [],
+        "json_errors": []
+      },
+      "raw_frames": [],
+      "metrics": {
+        "e2e": 1.125,
+        "first_event": null,
+        "first_reasoning": null,
+        "first_text": null,
+        "first_tool": null,
+        "input_tokens": 34,
+        "output_tokens": 92,
+        "output_tokens_per_e2e": 81.77777777777777,
+        "text_chars": 36,
+        "text_delta_count": 0,
+        "text_span": null,
+        "text_intervals_s": [],
+        "middle_text_chunks_per_s": null,
+        "stream_batch_observation": null
+      },
+      "evidence": {
+        "rel_path": "performance/direct-chat-short/00112-2a43f8e0dbe54d1a8383797d910057c2.json",
+        "sha256": "C15507492A53C85DD06561C2B6F100DDF94510815CD4B1CAD1829DF5209BA47B",
+        "instances": [
+          "PERF-01",
+          "PERF-07"
+        ],
+        "kind": "performance_wire",
+        "note": ""
+      }
+    },
+    {
+      "sample_id": "7e9a2ea63a3a44d68d6541310384b64f",
+      "request_index": 113,
+      "cases": [
+        "PERF-01",
+        "PERF-07"
+      ],
+      "group": "direct-chat-short",
+      "warmup": false,
+      "target": "direct-chat",
+      "protocol": "chat",
+      "request": {
+        "model": "deepseek-flash",
+        "messages": [
+          {
+            "role": "user",
+            "content": "用一句话介绍你自己"
+          }
+        ],
+        "stream": false,
+        "max_tokens": 256,
+        "effort": "low"
+      },
+      "expected": {
+        "nonempty": true,
+        "terminal_allowed": [
+          "completed"
+        ]
+      },
+      "checks": {
+        "http200": true,
+        "no_transport_error": true,
+        "valid_json": true,
+        "terminal": true,
+        "nonempty": true
+      },
+      "ok": true,
+      "fully_completed": true,
+      "request_sha256": "425f5794c4b4e0e8613bc0120f6aec1b169aeabdf74cef7b525e294c4c72a107",
+      "utc": "2026-10-07T05:27:08Z",
+      "http": 200,
+      "error_kind": null,
+      "error": null,
+      "body_text": "{\"id\":\"20c57201-67e8-47e0-81fe-b7c4f0ebf2d3\",\"object\":\"chat.completion\",\"created\":1791350830,\"model\":\"deepseek-flash\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"我是由深度求索公司开发的 AI 助手，可以帮你解答问题、处理信息并提供建议。\",\"reasoning_content\":\"我们需要回答用户中文请求：“用一句话介绍你自己”。需要注意：我是AI助手，由深度求索公司开发？ 当前是系统/平台？ 我们模型是 DeepSeek? 用户要求一句话介绍自己。应该用中文一句话。可以简单说“我是由深度求索公司开发的AI助手，可以帮你解答问题、处理信息和提供建议。” 这是一句话。要确保符合自身身份。根据系统提示？ 没有明确身份，但通常作为DeepSeek最新版模型。可以回答：我是 DeepSeek，由深度求索公司创造的 AI 助手，能回答问题、写作、分析并尽力提供帮助。 一句话。不要多余。如果要求“用一句话介绍你自己”，直接一句即可。注意“一句话”末尾句号。可以。\"},\"logprobs\":null,\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":34,\"completion_tokens\":183,\"total_tokens\":217,\"prompt_tokens_details\":{\"cached_tokens\":0},\"completion_tokens_details\":{\"reasoning_tokens\":161},\"prompt_cache_hit_tokens\":0,\"prompt_cache_miss_tokens\":34},\"system_fingerprint\":\"aeb56401ca74e127821c4f9126dcb669\"}",
+      "normalized": {
+        "protocol": "chat",
+        "text": "我是由深度求索公司开发的 AI 助手，可以帮你解答问题、处理信息并提供建议。",
+        "reasoning": "",
+        "final_text": null,
+        "tool_calls": [],
+        "usage": {
+          "prompt_tokens": 34,
+          "completion_tokens": 183,
+          "total_tokens": 217,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 161
+          },
+          "prompt_cache_hit_tokens": 0,
+          "prompt_cache_miss_tokens": 34
+        },
+        "terminal": "completed",
+        "terminal_reason": "stop",
+        "error_message": null,
+        "unknown_events": [],
+        "json_errors": []
+      },
+      "raw_frames": [],
+      "metrics": {
+        "e2e": 1.532,
+        "first_event": null,
+        "first_reasoning": null,
+        "first_text": null,
+        "first_tool": null,
+        "input_tokens": 34,
+        "output_tokens": 183,
+        "output_tokens_per_e2e": 119.45169712793734,
+        "text_chars": 38,
+        "text_delta_count": 0,
+        "text_span": null,
+        "text_intervals_s": [],
+        "middle_text_chunks_per_s": null,
+        "stream_batch_observation": null
+      },
+      "evidence": {
+        "rel_path": "performance/direct-chat-short/00113-7e9a2ea63a3a44d68d6541310384b64f.json",
+        "sha256": "2C2F0CE047F6503E347649E9D056D0A1ECBC7DE5E8FD06DF392030D2CD8ADE5A",
+        "instances": [
+          "PERF-01",
+          "PERF-07"
+        ],
+        "kind": "performance_wire",
+        "note": ""
+      }
+    },
+    {
+      "sample_id": "cae2417b0b964e239a25afe6e8d92f21",
+      "request_index": 114,
+      "cases": [
+        "PERF-01",
+        "PERF-07"
+      ],
+      "group": "direct-chat-short",
+      "warmup": false,
+      "target": "direct-chat",
+      "protocol": "chat",
+      "request": {
+        "model": "deepseek-flash",
+        "messages": [
+          {
+            "role": "user",
+            "content": "用一句话介绍你自己"
+          }
+        ],
+        "stream": false,
+        "max_tokens": 256,
+        "effort": "low"
+      },
+      "expected": {
+        "nonempty": true,
+        "terminal_allowed": [
+          "completed"
+        ]
+      },
+      "checks": {
+        "http200": true,
+        "no_transport_error": true,
+        "valid_json": true,
+        "terminal": true,
+        "nonempty": true
+      },
+      "ok": true,
+      "fully_completed": true,
+      "request_sha256": "425f5794c4b4e0e8613bc0120f6aec1b169aeabdf74cef7b525e294c4c72a107",
+      "utc": "2026-10-07T05:27:10Z",
+      "http": 200,
+      "error_kind": null,
+      "error": null,
+      "body_text": "{\"id\":\"e77d2a66-6154-49df-a2a3-ff651ffe953c\",\"object\":\"chat.completion\",\"created\":1791350832,\"model\":\"deepseek-flash\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"我是一个乐于助人、知识广泛且随时在线的AI助手，能帮你解答问题、提供建议并完成各种文字任务。\",\"reasoning_content\":\"我们需要回答用户中文请求：“用一句话介绍你自己”。需要一句话介绍自己。应该用中文，一句话。作为AI助手。可以简洁：我是由深度求索公司开发的AI助手，能帮你解答问题、处理信息并陪你聊天。但要注意，模型是 DeepSeek？ 系统没指定。我们作为 AI assistant，应该 general。一句话。不能透露内部？可以说“我是一个乐于助人、知识广泛的AI助手，可以为你提供信息、解答问题和创意支持。” 一句话。需要确保是一句话。可以包含品牌？通常如果被问介绍自己，可以说“我是DeepSeek，由深度求索公司创造的AI助手……” 但当前平台可能期望。系统没有给出 identity。最好中性。用户只要求用一句话介绍自己。回答必须一句话。可以：“我是一个乐于助人、知识广泛且随时在线的AI助手，能帮你解答问题、提供建议和完成各种文字任务。” 这是一句话。好。\"},\"logprobs\":null,\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":34,\"completion_tokens\":225,\"total_tokens\":259,\"prompt_tokens_details\":{\"cached_tokens\":0},\"completion_tokens_details\":{\"reasoning_tokens\":197},\"prompt_cache_hit_tokens\":0,\"prompt_cache_miss_tokens\":34},\"system_fingerprint\":\"aeb56401ca74e127821c4f9126dcb669\"}",
+      "normalized": {
+        "protocol": "chat",
+        "text": "我是一个乐于助人、知识广泛且随时在线的AI助手，能帮你解答问题、提供建议并完成各种文字任务。",
+        "reasoning": "",
+        "final_text": null,
+        "tool_calls": [],
+        "usage": {
+          "prompt_tokens": 34,
+          "completion_tokens": 225,
+          "total_tokens": 259,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 197
+          },
+          "prompt_cache_hit_tokens": 0,
+          "prompt_cache_miss_tokens": 34
+        },
+        "terminal": "completed",
+        "terminal_reason": "stop",
+        "error_message": null,
+        "unknown_events": [],
+        "json_errors": []
+      },
+      "raw_frames": [],
+      "metrics": {
+        "e2e": 1.985,
+        "first_event": null,
+        "first_reasoning": null,
+        "first_text": null,
+        "first_tool": null,
+        "input_tokens": 34,
+        "output_tokens": 225,
+        "output_tokens_per_e2e": 113.35012594458438,
+        "text_chars": 46,
+        "text_delta_count": 0,
+        "text_span": null,
+        "text_intervals_s": [],
+        "middle_text_chunks_per_s": null,
+        "stream_batch_observation": null
+      },
+      "evidence": {
+        "rel_path": "performance/direct-chat-short/00114-cae2417b0b964e239a25afe6e8d92f21.json",
+        "sha256": "E3947928A290ED740D9C017750580AC2444158E67F687559CC6C2B1AB3667291",
+        "instances": [
+          "PERF-01",
+          "PERF-07"
+        ],
+        "kind": "performance_wire",
+        "note": ""
+      }
+    },
+    {
+      "sample_id": "3b4f9b9e963c4c72b8c5348b0cbd4525",
+      "request_index": 115,
+      "cases": [
+        "PERF-01",
+        "PERF-07"
+      ],
+      "group": "direct-chat-short",
+      "warmup": false,
+      "target": "direct-chat",
+      "protocol": "chat",
+      "request": {
+        "model": "deepseek-flash",
+        "messages": [
+          {
+            "role": "user",
+            "content": "用一句话介绍你自己"
+          }
+        ],
+        "stream": false,
+        "max_tokens": 256,
+        "effort": "low"
+      },
+      "expected": {
+        "nonempty": true,
+        "terminal_allowed": [
+          "completed"
+        ]
+      },
+      "checks": {
+        "http200": true,
+        "no_transport_error": true,
+        "valid_json": true,
+        "terminal": true,
+        "nonempty": true
+      },
+      "ok": true,
+      "fully_completed": true,
+      "request_sha256": "425f5794c4b4e0e8613bc0120f6aec1b169aeabdf74cef7b525e294c4c72a107",
+      "utc": "2026-10-07T05:27:12Z",
+      "http": 200,
+      "error_kind": null,
+      "error": null,
+      "body_text": "{\"id\":\"9f67973d-955c-4a3c-a2a1-697cb349aab8\",\"object\":\"chat.completion\",\"created\":1791350834,\"model\":\"deepseek-flash\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"我是由深度求索公司开发的AI助手，可以帮你解答问题、处理信息并交流想法。\",\"reasoning_content\":\"我们需要回答用户中文：“用一句话介绍你自己”。需要一句话。我是AI助手。要简洁。可以：“我是由深度求索公司开发的AI助手，能帮你解答问题、处理信息并交流想法。” 注意要一句话。需要遵循。可能是DeepSeek? 系统没有指定名字，但作为AI助手。用一句话。注意不要多句。中文一句话。可以包含逗号。最终只输出一句话。\"},\"logprobs\":null,\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":34,\"completion_tokens\":110,\"total_tokens\":144,\"prompt_tokens_details\":{\"cached_tokens\":0},\"completion_tokens_details\":{\"reasoning_tokens\":88},\"prompt_cache_hit_tokens\":0,\"prompt_cache_miss_tokens\":34},\"system_fingerprint\":\"aeb56401ca74e127821c4f9126dcb669\"}",
+      "normalized": {
+        "protocol": "chat",
+        "text": "我是由深度求索公司开发的AI助手，可以帮你解答问题、处理信息并交流想法。",
+        "reasoning": "",
+        "final_text": null,
+        "tool_calls": [],
+        "usage": {
+          "prompt_tokens": 34,
+          "completion_tokens": 110,
+          "total_tokens": 144,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 88
+          },
+          "prompt_cache_hit_tokens": 0,
+          "prompt_cache_miss_tokens": 34
+        },
+        "terminal": "completed",
+        "terminal_reason": "stop",
+        "error_message": null,
+        "unknown_events": [],
+        "json_errors": []
+      },
+      "raw_frames": [],
+      "metrics": {
+        "e2e": 1.735,
+        "first_event": null,
+        "first_reasoning": null,
+        "first_text": null,
+        "first_tool": null,
+        "input_tokens": 34,
+        "output_tokens": 110,
+        "output_tokens_per_e2e": 63.400576368876074,
+        "text_chars": 36,
+        "text_delta_count": 0,
+        "text_span": null,
+        "text_intervals_s": [],
+        "middle_text_chunks_per_s": null,
+        "stream_batch_observation": null
+      },
+      "evidence": {
+        "rel_path": "performance/direct-chat-short/00115-3b4f9b9e963c4c72b8c5348b0cbd4525.json",
+        "sha256": "0239C49AB16F6A09AA4A6064D5D8BB2C2C22E4CC9BA342300929B28B451B9A1A",
+        "instances": [
+          "PERF-01",
+          "PERF-07"
+        ],
+        "kind": "performance_wire",
+        "note": ""
+      }
+    },
+    {
+      "sample_id": "57865eb242ba4b0f855803447f066cb5",
+      "request_index": 116,
+      "cases": [
+        "PERF-01",
+        "PERF-07"
+      ],
+      "group": "direct-chat-short",
+      "warmup": false,
+      "target": "direct-chat",
+      "protocol": "chat",
+      "request": {
+        "model": "deepseek-flash",
+        "messages": [
+          {
+            "role": "user",
+            "content": "用一句话介绍你自己"
+          }
+        ],
+        "stream": false,
+        "max_tokens": 256,
+        "effort": "low"
+      },
+      "expected": {
+        "nonempty": true,
+        "terminal_allowed": [
+          "completed"
+        ]
+      },
+      "checks": {
+        "http200": true,
+        "no_transport_error": true,
+        "valid_json": true,
+        "terminal": true,
+        "nonempty": true
+      },
+      "ok": true,
+      "fully_completed": true,
+      "request_sha256": "425f5794c4b4e0e8613bc0120f6aec1b169aeabdf74cef7b525e294c4c72a107",
+      "utc": "2026-10-07T05:27:13Z",
+      "http": 200,
+      "error_kind": null,
+      "error": null,
+      "body_text": "{\"id\":\"55e83d30-8351-4ffd-b0d4-f58c1f597710\",\"object\":\"chat.completion\",\"created\":1791350836,\"model\":\"deepseek-flash\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"我是一个由深度求索公司开发的人工智能助手，乐于为你提供清晰、准确、有用的帮助。\",\"reasoning_content\":\"我们需要回答用户中文请求：“用一句话介绍你自己”。需要用一句话介绍自己。作为AI助手。需简洁。可以一句话。需要注意是介绍我自己，不是用户。用中文一句话。可以：“我是一个由深度求索公司开发的人工智能助手，乐于为你提供清晰、准确、有用的帮助。” 这是一句话。需要确保不违背？可以。最终只输出一句话。\"},\"logprobs\":null,\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":34,\"completion_tokens\":99,\"total_tokens\":133,\"prompt_tokens_details\":{\"cached_tokens\":0},\"completion_tokens_details\":{\"reasoning_tokens\":77},\"prompt_cache_hit_tokens\":0,\"prompt_cache_miss_tokens\":34},\"system_fingerprint\":\"aeb56401ca74e127821c4f9126dcb669\"}",
+      "normalized": {
+        "protocol": "chat",
+        "text": "我是一个由深度求索公司开发的人工智能助手，乐于为你提供清晰、准确、有用的帮助。",
+        "reasoning": "",
+        "final_text": null,
+        "tool_calls": [],
+        "usage": {
+          "prompt_tokens": 34,
+          "completion_tokens": 99,
+          "total_tokens": 133,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 77
+          },
+          "prompt_cache_hit_tokens": 0,
+          "prompt_cache_miss_tokens": 34
+        },
+        "terminal": "completed",
+        "terminal_reason": "stop",
+        "error_message": null,
+        "unknown_events": [],
+        "json_errors": []
+      },
+      "raw_frames": [],
+      "metrics": {
+        "e2e": 1.078,
+        "first_event": null,
+        "first_reasoning": null,
+        "first_text": null,
+        "first_tool": null,
+        "input_tokens": 34,
+        "output_tokens": 99,
+        "output_tokens_per_e2e": 91.83673469387755,
+        "text_chars": 39,
+        "text_delta_count": 0,
+        "text_span": null,
+        "text_intervals_s": [],
+        "middle_text_chunks_per_s": null,
+        "stream_batch_observation": null
+      },
+      "evidence": {
+        "rel_path": "performance/direct-chat-short/00116-57865eb242ba4b0f855803447f066cb5.json",
+        "sha256": "4F73B49F92014BC4D6E1E56A58BD01F9689E29509DDB214E793E1306503EC450",
+        "instances": [
+          "PERF-01",
+          "PERF-07"
+        ],
+        "kind": "performance_wire",
+        "note": ""
+      }
+    },
+    {
+      "sample_id": "e6e871e509a843f580450743d75c86ee",
+      "request_index": 117,
+      "cases": [
+        "PERF-01",
+        "PERF-07"
+      ],
+      "group": "direct-chat-short",
+      "warmup": false,
+      "target": "direct-chat",
+      "protocol": "chat",
+      "request": {
+        "model": "deepseek-flash",
+        "messages": [
+          {
+            "role": "user",
+            "content": "用一句话介绍你自己"
+          }
+        ],
+        "stream": false,
+        "max_tokens": 256,
+        "effort": "low"
+      },
+      "expected": {
+        "nonempty": true,
+        "terminal_allowed": [
+          "completed"
+        ]
+      },
+      "checks": {
+        "http200": true,
+        "no_transport_error": true,
+        "valid_json": true,
+        "terminal": true,
+        "nonempty": true
+      },
+      "ok": true,
+      "fully_completed": true,
+      "request_sha256": "425f5794c4b4e0e8613bc0120f6aec1b169aeabdf74cef7b525e294c4c72a107",
+      "utc": "2026-10-07T05:27:15Z",
+      "http": 200,
+      "error_kind": null,
+      "error": null,
+      "body_text": "{\"id\":\"fa2fd90e-242b-4b3b-a0a2-94ee20ac0bcc\",\"object\":\"chat.completion\",\"created\":1791350837,\"model\":\"deepseek-flash\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"我是一个由深度求索开发的AI助手，可以帮你解答问题、协助写作、编程和处理日常任务。\",\"reasoning_content\":\"我们需要回答用户中文：“用一句话介绍你自己”。需要一句话介绍自己。作为AI助手，应该简洁一句话。需要符合要求。可以答：我是由深度求索公司创造的AI助手，随时为你提供帮助。注意“深度求索”是DeepSeek？ 用户问用一句话介绍你自己。我们可以说“我是一个由深度求索开发的AI助手，能帮你解答问题、处理信息并提供建议。” 这是一句话。要确保不透露不实？ 我是DeepSeek AI助手。开发者是深度求索。可以一句话。也许“你好，我是一个由深度求索开发的AI助手，可以回答问题、协助写作、编程和日常任务。” 这算一句话。需要只一句话。最终只输出这句话。\"},\"logprobs\":null,\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":34,\"completion_tokens\":175,\"total_tokens\":209,\"prompt_tokens_details\":{\"cached_tokens\":0},\"completion_tokens_details\":{\"reasoning_tokens\":152},\"prompt_cache_hit_tokens\":0,\"prompt_cache_miss_tokens\":34},\"system_fingerprint\":\"aeb56401ca74e127821c4f9126dcb669\"}",
+      "normalized": {
+        "protocol": "chat",
+        "text": "我是一个由深度求索开发的AI助手，可以帮你解答问题、协助写作、编程和处理日常任务。",
+        "reasoning": "",
+        "final_text": null,
+        "tool_calls": [],
+        "usage": {
+          "prompt_tokens": 34,
+          "completion_tokens": 175,
+          "total_tokens": 209,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 152
+          },
+          "prompt_cache_hit_tokens": 0,
+          "prompt_cache_miss_tokens": 34
+        },
+        "terminal": "completed",
+        "terminal_reason": "stop",
+        "error_message": null,
+        "unknown_events": [],
+        "json_errors": []
+      },
+      "raw_frames": [],
+      "metrics": {
+        "e2e": 1.703,
+        "first_event": null,
+        "first_reasoning": null,
+        "first_text": null,
+        "first_tool": null,
+        "input_tokens": 34,
+        "output_tokens": 175,
+        "output_tokens_per_e2e": 102.75983558426306,
+        "text_chars": 41,
+        "text_delta_count": 0,
+        "text_span": null,
+        "text_intervals_s": [],
+        "middle_text_chunks_per_s": null,
+        "stream_batch_observation": null
+      },
+      "evidence": {
+        "rel_path": "performance/direct-chat-short/00117-e6e871e509a843f580450743d75c86ee.json",
+        "sha256": "9472062AAFC172BBD6BF3F538D2FD0E3590751FA68E9FF6E63A8D83388B8395D",
+        "instances": [
+          "PERF-01",
+          "PERF-07"
+        ],
+        "kind": "performance_wire",
+        "note": ""
+      }
+    },
+    {
+      "sample_id": "eb2242783e3e464089da1f0a450267bb",
+      "request_index": 118,
+      "cases": [
+        "PERF-01",
+        "PERF-07"
+      ],
+      "group": "direct-chat-short",
+      "warmup": false,
+      "target": "direct-chat",
+      "protocol": "chat",
+      "request": {
+        "model": "deepseek-flash",
+        "messages": [
+          {
+            "role": "user",
+            "content": "用一句话介绍你自己"
+          }
+        ],
+        "stream": false,
+        "max_tokens": 256,
+        "effort": "low"
+      },
+      "expected": {
+        "nonempty": true,
+        "terminal_allowed": [
+          "completed"
+        ]
+      },
+      "checks": {
+        "http200": true,
+        "no_transport_error": true,
+        "valid_json": true,
+        "terminal": false,
+        "nonempty": true
+      },
+      "ok": false,
+      "fully_completed": false,
+      "request_sha256": "425f5794c4b4e0e8613bc0120f6aec1b169aeabdf74cef7b525e294c4c72a107",
+      "utc": "2026-10-07T05:27:17Z",
+      "http": 200,
+      "error_kind": null,
+      "error": null,
+      "body_text": "{\"id\":\"3459045d-0ca4-477e-8f45-7d3ca2017342\",\"object\":\"chat.completion\",\"created\":1791350838,\"model\":\"deepseek-flash\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"我是一个乐于助人的AI助手，可以陪你聊天\",\"reasoning_content\":\"我们需要回答用户中文请求：“用一句话介绍你自己”。需要一句话介绍自己。作为AI助手，应该用一句中文介绍自己。要简洁。可以：“我是一个由深度求索公司开发的AI助手，能够帮你解答问题、处理信息并完成各种任务。” 这是一句话。需要确保符合自己身份？ 当前模型是 AI assistant，可能由 DeepSeek? 系统没指定公司。通常可以说“我是一个乐于助人的AI助手，可以为你提供信息、解答问题和协助处理各类任务。” 一句话。需要不要提公司？ 用户只是要求一句话介绍自己。可以回答一句。注意不要用多于一句。最好直接回答。可以包含“DeepSeek”吗？ 我是DeepSeek？ 系统未明确，但根据常见身份可能是 DeepSeek。然而当前是 API assistant，可能不应假设。安全：不声称特定公司？ 但“由深度求索公司开发”是常见。系统无身份说明，所以最好通用： “我是一个乐于助人、知识丰富的AI助手，可以陪你聊天、解答问题并协助完成各种任务。” 这算一句话。使用中文。确保只有一个句子。可以。最终只输出一句。\"},\"logprobs\":null,\"finish_reason\":\"length\"}],\"usage\":{\"prompt_tokens\":34,\"completion_tokens\":256,\"total_tokens\":290,\"prompt_tokens_details\":{\"cached_tokens\":0},\"completion_tokens_details\":{\"reasoning_tokens\":245},\"prompt_cache_hit_tokens\":0,\"prompt_cache_miss_tokens\":34},\"system_fingerprint\":\"aeb56401ca74e127821c4f9126dcb669\"}",
+      "normalized": {
+        "protocol": "chat",
+        "text": "我是一个乐于助人的AI助手，可以陪你聊天",
+        "reasoning": "",
+        "final_text": null,
+        "tool_calls": [],
+        "usage": {
+          "prompt_tokens": 34,
+          "completion_tokens": 256,
+          "total_tokens": 290,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 245
+          },
+          "prompt_cache_hit_tokens": 0,
+          "prompt_cache_miss_tokens": 34
+        },
+        "terminal": "incomplete",
+        "terminal_reason": "length",
+        "error_message": null,
+        "unknown_events": [],
+        "json_errors": []
+      },
+      "raw_frames": [],
+      "metrics": {
+        "e2e": 1.734,
+        "first_event": null,
+        "first_reasoning": null,
+        "first_text": null,
+        "first_tool": null,
+        "input_tokens": 34,
+        "output_tokens": 256,
+        "output_tokens_per_e2e": 147.63552479815456,
+        "text_chars": 20,
+        "text_delta_count": 0,
+        "text_span": null,
+        "text_intervals_s": [],
+        "middle_text_chunks_per_s": null,
+        "stream_batch_observation": null
+      },
+      "evidence": {
+        "rel_path": "performance/direct-chat-short/00118-eb2242783e3e464089da1f0a450267bb.json",
+        "sha256": "CA40ACBF5BC333D47A244E59D18835A99FBD5EEC072E3EDC46B6C1F0DE20519F",
+        "instances": [
+          "PERF-01",
+          "PERF-07"
+        ],
+        "kind": "performance_wire",
+        "note": ""
+      }
+    },
+    {
+      "sample_id": "f2b9d1118a924709b4ce485aaf0ca6d3",
+      "request_index": 119,
+      "cases": [
+        "PERF-01",
+        "PERF-07"
+      ],
+      "group": "direct-chat-short",
+      "warmup": false,
+      "target": "direct-chat",
+      "protocol": "chat",
+      "request": {
+        "model": "deepseek-flash",
+        "messages": [
+          {
+            "role": "user",
+            "content": "用一句话介绍你自己"
+          }
+        ],
+        "stream": false,
+        "max_tokens": 256,
+        "effort": "low"
+      },
+      "expected": {
+        "nonempty": true,
+        "terminal_allowed": [
+          "completed"
+        ]
+      },
+      "checks": {
+        "http200": true,
+        "no_transport_error": true,
+        "valid_json": true,
+        "terminal": true,
+        "nonempty": true
+      },
+      "ok": true,
+      "fully_completed": true,
+      "request_sha256": "425f5794c4b4e0e8613bc0120f6aec1b169aeabdf74cef7b525e294c4c72a107",
+      "utc": "2026-10-07T05:27:18Z",
+      "http": 200,
+      "error_kind": null,
+      "error": null,
+      "body_text": "{\"id\":\"028edcba-2c11-4720-94f7-c15b8af9c9f9\",\"object\":\"chat.completion\",\"created\":1791350840,\"model\":\"deepseek-flash\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"我是一个乐于助人的 AI 助手，可以帮你解答问题、提供信息并协助完成各种任务。\",\"reasoning_content\":\"我们需要回答用户中文问题：“用一句话介绍你自己”。必须用一句话介绍自己。作为 AI 助手，需要简洁。可以：“我是由深度求索公司开发的 AI 助手，乐于为你提供信息、解答问题和协助创意。” 要一句话。注意不能透露具体模型？可以。应该中文。一句话。可以提到 DeepSeek? 系统未指定必须身份？通常我是 DeepSeek AI 助手。但作为 API 助手，也许应该说“我是一个乐于助人的 AI 助手，可以帮你解答问题、提供信息和完成各种任务。” 一句话。要确保一句话。可以。最终只输出一句话。\"},\"logprobs\":null,\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":34,\"completion_tokens\":151,\"total_tokens\":185,\"prompt_tokens_details\":{\"cached_tokens\":0},\"completion_tokens_details\":{\"reasoning_tokens\":129},\"prompt_cache_hit_tokens\":0,\"prompt_cache_miss_tokens\":34},\"system_fingerprint\":\"aeb56401ca74e127821c4f9126dcb669\"}",
+      "normalized": {
+        "protocol": "chat",
+        "text": "我是一个乐于助人的 AI 助手，可以帮你解答问题、提供信息并协助完成各种任务。",
+        "reasoning": "",
+        "final_text": null,
+        "tool_calls": [],
+        "usage": {
+          "prompt_tokens": 34,
+          "completion_tokens": 151,
+          "total_tokens": 185,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 129
+          },
+          "prompt_cache_hit_tokens": 0,
+          "prompt_cache_miss_tokens": 34
+        },
+        "terminal": "completed",
+        "terminal_reason": "stop",
+        "error_message": null,
+        "unknown_events": [],
+        "json_errors": []
+      },
+      "raw_frames": [],
+      "metrics": {
+        "e2e": 1.094,
+        "first_event": null,
+        "first_reasoning": null,
+        "first_text": null,
+        "first_tool": null,
+        "input_tokens": 34,
+        "output_tokens": 151,
+        "output_tokens_per_e2e": 138.02559414990858,
+        "text_chars": 39,
+        "text_delta_count": 0,
+        "text_span": null,
+        "text_intervals_s": [],
+        "middle_text_chunks_per_s": null,
+        "stream_batch_observation": null
+      },
+      "evidence": {
+        "rel_path": "performance/direct-chat-short/00119-f2b9d1118a924709b4ce485aaf0ca6d3.json",
+        "sha256": "FC11996BBBAA525689DE3B03B383CB48EF965BB4FB390E402656CF580FE8F121",
+        "instances": [
+          "PERF-01",
+          "PERF-07"
+        ],
+        "kind": "performance_wire",
+        "note": ""
+      }
+    },
+    {
+      "sample_id": "c2d4bbf83b75433a80f0173a98b85416",
+      "request_index": 120,
+      "cases": [
+        "PERF-01",
+        "PERF-07"
+      ],
+      "group": "direct-chat-short",
+      "warmup": false,
+      "target": "direct-chat",
+      "protocol": "chat",
+      "request": {
+        "model": "deepseek-flash",
+        "messages": [
+          {
+            "role": "user",
+            "content": "用一句话介绍你自己"
+          }
+        ],
+        "stream": false,
+        "max_tokens": 256,
+        "effort": "low"
+      },
+      "expected": {
+        "nonempty": true,
+        "terminal_allowed": [
+          "completed"
+        ]
+      },
+      "checks": {
+        "http200": true,
+        "no_transport_error": true,
+        "valid_json": true,
+        "terminal": true,
+        "nonempty": true
+      },
+      "ok": true,
+      "fully_completed": true,
+      "request_sha256": "425f5794c4b4e0e8613bc0120f6aec1b169aeabdf74cef7b525e294c4c72a107",
+      "utc": "2026-10-07T05:27:19Z",
+      "http": 200,
+      "error_kind": null,
+      "error": null,
+      "body_text": "{\"id\":\"c403cd7b-f0bd-4845-be8e-0aa92acbf924\",\"object\":\"chat.completion\",\"created\":1791350841,\"model\":\"deepseek-flash\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"我是 DeepSeek，由深度求索公司开发的 AI 助手，愿用清晰、可靠的方式帮你解答问题、处理信息并激发灵感。\",\"reasoning_content\":\"我们需要回答用户中文请求：“用一句话介绍你自己”。需要用一句话介绍自己。作为AI助手，简洁。应只一句。可以：“我是由深度求索公司开发的AI助手，专为提供信息、解答问题和协助创作而设计。” 但注意我是 DeepSeek？系统无指定但通常。用户要求用一句话。要确保一句话。可以：我是 DeepSeek，由深度求索公司开发的 AI 助手，愿意用清晰、可靠的方式帮你解答问题、处理信息并激发灵感。这算一句话。不能透露内部？可以。用中文。最终只需一句。\"},\"logprobs\":null,\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":34,\"completion_tokens\":155,\"total_tokens\":189,\"prompt_tokens_details\":{\"cached_tokens\":0},\"completion_tokens_details\":{\"reasoning_tokens\":123},\"prompt_cache_hit_tokens\":0,\"prompt_cache_miss_tokens\":34},\"system_fingerprint\":\"aeb56401ca74e127821c4f9126dcb669\"}",
+      "normalized": {
+        "protocol": "chat",
+        "text": "我是 DeepSeek，由深度求索公司开发的 AI 助手，愿用清晰、可靠的方式帮你解答问题、处理信息并激发灵感。",
+        "reasoning": "",
+        "final_text": null,
+        "tool_calls": [],
+        "usage": {
+          "prompt_tokens": 34,
+          "completion_tokens": 155,
+          "total_tokens": 189,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 123
+          },
+          "prompt_cache_hit_tokens": 0,
+          "prompt_cache_miss_tokens": 34
+        },
+        "terminal": "completed",
+        "terminal_reason": "stop",
+        "error_message": null,
+        "unknown_events": [],
+        "json_errors": []
+      },
+      "raw_frames": [],
+      "metrics": {
+        "e2e": 1.563,
+        "first_event": null,
+        "first_reasoning": null,
+        "first_text": null,
+        "first_tool": null,
+        "input_tokens": 34,
+        "output_tokens": 155,
+        "output_tokens_per_e2e": 99.16826615483046,
+        "text_chars": 56,
+        "text_delta_count": 0,
+        "text_span": null,
+        "text_intervals_s": [],
+        "middle_text_chunks_per_s": null,
+        "stream_batch_observation": null
+      },
+      "evidence": {
+        "rel_path": "performance/direct-chat-short/00120-c2d4bbf83b75433a80f0173a98b85416.json",
+        "sha256": "1A73086097B94A739A4495C0E42E5339A48902337F7AF944E35DDBC6B3D05DD9",
+        "instances": [
+          "PERF-01",
+          "PERF-07"
+        ],
+        "kind": "performance_wire",
+        "note": ""
+      }
+    },
+    {
+      "sample_id": "1a0c8e1fd4464150a3542dd3c72c9dc3",
+      "request_index": 121,
+      "cases": [
+        "PERF-01",
+        "PERF-07"
+      ],
+      "group": "direct-chat-short",
+      "warmup": false,
+      "target": "direct-chat",
+      "protocol": "chat",
+      "request": {
+        "model": "deepseek-flash",
+        "messages": [
+          {
+            "role": "user",
+            "content": "用一句话介绍你自己"
+          }
+        ],
+        "stream": false,
+        "max_tokens": 256,
+        "effort": "low"
+      },
+      "expected": {
+        "nonempty": true,
+        "terminal_allowed": [
+          "completed"
+        ]
+      },
+      "checks": {
+        "http200": true,
+        "no_transport_error": true,
+        "valid_json": true,
+        "terminal": true,
+        "nonempty": true
+      },
+      "ok": true,
+      "fully_completed": true,
+      "request_sha256": "425f5794c4b4e0e8613bc0120f6aec1b169aeabdf74cef7b525e294c4c72a107",
+      "utc": "2026-10-07T05:27:21Z",
+      "http": 200,
+      "error_kind": null,
+      "error": null,
+      "body_text": "{\"id\":\"747b4d27-108c-466b-8d02-11c2a9c32a8b\",\"object\":\"chat.completion\",\"created\":1791350843,\"model\":\"deepseek-flash\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"我是由深度求索公司开发的AI助手，可以帮你解答问题、提供信息并协助完成各种任务。\",\"reasoning_content\":\"我们需要回答用户中文请求：“用一句话介绍你自己”。需要一句话。我们作为AI助手。需要直接回答。注意只能一句话。可以自我介绍。要简洁。也许：“我是由深度求索公司开发的AI助手，能够回答问题、提供信息并协助完成多种任务。” 这是一句话。需要确保符合实际？ 我是DeepSeek? 当前是 AI assistant accessed via API. 用户问介绍你自己。可以避免公司？ 通常应说我是AI助手，乐于帮你解答问题、提供信息与创意支持。一句话。需要中文。可以包含能力。最终只需一句话。\"},\"logprobs\":null,\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":34,\"completion_tokens\":146,\"total_tokens\":180,\"prompt_tokens_details\":{\"cached_tokens\":0},\"completion_tokens_details\":{\"reasoning_tokens\":122},\"prompt_cache_hit_tokens\":0,\"prompt_cache_miss_tokens\":34},\"system_fingerprint\":\"aeb56401ca74e127821c4f9126dcb669\"}",
+      "normalized": {
+        "protocol": "chat",
+        "text": "我是由深度求索公司开发的AI助手，可以帮你解答问题、提供信息并协助完成各种任务。",
+        "reasoning": "",
+        "final_text": null,
+        "tool_calls": [],
+        "usage": {
+          "prompt_tokens": 34,
+          "completion_tokens": 146,
+          "total_tokens": 180,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 122
+          },
+          "prompt_cache_hit_tokens": 0,
+          "prompt_cache_miss_tokens": 34
+        },
+        "terminal": "completed",
+        "terminal_reason": "stop",
+        "error_message": null,
+        "unknown_events": [],
+        "json_errors": []
+      },
+      "raw_frames": [],
+      "metrics": {
+        "e2e": 1.218,
+        "first_event": null,
+        "first_reasoning": null,
+        "first_text": null,
+        "first_tool": null,
+        "input_tokens": 34,
+        "output_tokens": 146,
+        "output_tokens_per_e2e": 119.86863711001642,
+        "text_chars": 40,
+        "text_delta_count": 0,
+        "text_span": null,
+        "text_intervals_s": [],
+        "middle_text_chunks_per_s": null,
+        "stream_batch_observation": null
+      },
+      "evidence": {
+        "rel_path": "performance/direct-chat-short/00121-1a0c8e1fd4464150a3542dd3c72c9dc3.json",
+        "sha256": "3ECEDDDAC44B2AAA1DBE7E6BF3E2E6A7D5D3E92EB6BECA2477937D1C1263FCA3",
+        "instances": [
+          "PERF-01",
+          "PERF-07"
+        ],
+        "kind": "performance_wire",
+        "note": ""
+      }
+    },
+    {
+      "sample_id": "6df5b02ef2ec48ee96ed0b770b2e20ab",
+      "request_index": 122,
+      "cases": [
+        "PERF-01",
+        "PERF-07"
+      ],
+      "group": "direct-chat-short",
+      "warmup": false,
+      "target": "direct-chat",
+      "protocol": "chat",
+      "request": {
+        "model": "deepseek-flash",
+        "messages": [
+          {
+            "role": "user",
+            "content": "用一句话介绍你自己"
+          }
+        ],
+        "stream": false,
+        "max_tokens": 256,
+        "effort": "low"
+      },
+      "expected": {
+        "nonempty": true,
+        "terminal_allowed": [
+          "completed"
+        ]
+      },
+      "checks": {
+        "http200": true,
+        "no_transport_error": true,
+        "valid_json": true,
+        "terminal": true,
+        "nonempty": true
+      },
+      "ok": true,
+      "fully_completed": true,
+      "request_sha256": "425f5794c4b4e0e8613bc0120f6aec1b169aeabdf74cef7b525e294c4c72a107",
+      "utc": "2026-10-07T05:27:22Z",
+      "http": 200,
+      "error_kind": null,
+      "error": null,
+      "body_text": "{\"id\":\"0dddd5c4-d84d-4f20-83df-289b798dbce4\",\"object\":\"chat.completion\",\"created\":1791350844,\"model\":\"deepseek-flash\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"我是一个乐于助人、可随时为你解答问题并提供各种支持的 AI 助手。\",\"reasoning_content\":\"我们需要回答用户中文：“用一句话介绍你自己”。需要一句话。作为AI助手。要简洁。可以：“我是由深度求索公司开发的AI助手，随时帮你解答问题、提供信息和创意支持。” 但需要确保准确：我是DeepSeek? 模型身份。系统无明确说。一般说我是AI助手。一句话。不能多余。可以。最终只一句。\"},\"logprobs\":null,\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":34,\"completion_tokens\":97,\"total_tokens\":131,\"prompt_tokens_details\":{\"cached_tokens\":0},\"completion_tokens_details\":{\"reasoning_tokens\":79},\"prompt_cache_hit_tokens\":0,\"prompt_cache_miss_tokens\":34},\"system_fingerprint\":\"aeb56401ca74e127821c4f9126dcb669\"}",
+      "normalized": {
+        "protocol": "chat",
+        "text": "我是一个乐于助人、可随时为你解答问题并提供各种支持的 AI 助手。",
+        "reasoning": "",
+        "final_text": null,
+        "tool_calls": [],
+        "usage": {
+          "prompt_tokens": 34,
+          "completion_tokens": 97,
+          "total_tokens": 131,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 79
+          },
+          "prompt_cache_hit_tokens": 0,
+          "prompt_cache_miss_tokens": 34
+        },
+        "terminal": "completed",
+        "terminal_reason": "stop",
+        "error_message": null,
+        "unknown_events": [],
+        "json_errors": []
+      },
+      "raw_frames": [],
+      "metrics": {
+        "e2e": 1.047,
+        "first_event": null,
+        "first_reasoning": null,
+        "first_text": null,
+        "first_tool": null,
+        "input_tokens": 34,
+        "output_tokens": 97,
+        "output_tokens_per_e2e": 92.64565425023878,
+        "text_chars": 33,
+        "text_delta_count": 0,
+        "text_span": null,
+        "text_intervals_s": [],
+        "middle_text_chunks_per_s": null,
+        "stream_batch_observation": null
+      },
+      "evidence": {
+        "rel_path": "performance/direct-chat-short/00122-6df5b02ef2ec48ee96ed0b770b2e20ab.json",
+        "sha256": "A076BB14D325A4AD1D631BB25556E2BCA910BF816B368F5E4088ED6D1F704EFC",
+        "instances": [
+          "PERF-01",
+          "PERF-07"
+        ],
+        "kind": "performance_wire",
+        "note": ""
+      }
+    },
+    {
+      "sample_id": "10bce1aa73634849b7a0e856ba01536b",
+      "request_index": 123,
+      "cases": [
+        "PERF-01",
+        "PERF-07"
+      ],
+      "group": "direct-chat-short",
+      "warmup": false,
+      "target": "direct-chat",
+      "protocol": "chat",
+      "request": {
+        "model": "deepseek-flash",
+        "messages": [
+          {
+            "role": "user",
+            "content": "用一句话介绍你自己"
+          }
+        ],
+        "stream": false,
+        "max_tokens": 256,
+        "effort": "low"
+      },
+      "expected": {
+        "nonempty": true,
+        "terminal_allowed": [
+          "completed"
+        ]
+      },
+      "checks": {
+        "http200": true,
+        "no_transport_error": true,
+        "valid_json": true,
+        "terminal": true,
+        "nonempty": true
+      },
+      "ok": true,
+      "fully_completed": true,
+      "request_sha256": "425f5794c4b4e0e8613bc0120f6aec1b169aeabdf74cef7b525e294c4c72a107",
+      "utc": "2026-10-07T05:27:23Z",
+      "http": 200,
+      "error_kind": null,
+      "error": null,
+      "body_text": "{\"id\":\"3ae68ad8-2f28-439f-8f9b-b8c0f721ea35\",\"object\":\"chat.completion\",\"created\":1791350845,\"model\":\"deepseek-flash\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"我是一个乐于为你解答问题、提供信息和协助完成任务的AI助手。\",\"reasoning_content\":\"我们需要回答用户中文：“用一句话介绍你自己”。需要一句话介绍自己。作为AI助手，要简洁。可以用一句话。注意是自我？ 我是AI助手。需要一句话。可以：“我是由深度求索公司开发的AI助手，随时乐于为你提供帮助。” 但需确认公司？ 根据系统，我是AI助手。没有给出具体公司。通常说“我是一个人工智能助手，乐于为你提供信息、解答问题和协助完成任务。” 一句话。不要额外。用户要求用一句话。直接回答一句即可。确保没有标点多个句子？ 一句话。可以。最终用中文。\"},\"logprobs\":null,\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":34,\"completion_tokens\":138,\"total_tokens\":172,\"prompt_tokens_details\":{\"cached_tokens\":0},\"completion_tokens_details\":{\"reasoning_tokens\":123},\"prompt_cache_hit_tokens\":0,\"prompt_cache_miss_tokens\":34},\"system_fingerprint\":\"aeb56401ca74e127821c4f9126dcb669\"}",
+      "normalized": {
+        "protocol": "chat",
+        "text": "我是一个乐于为你解答问题、提供信息和协助完成任务的AI助手。",
+        "reasoning": "",
+        "final_text": null,
+        "tool_calls": [],
+        "usage": {
+          "prompt_tokens": 34,
+          "completion_tokens": 138,
+          "total_tokens": 172,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 123
+          },
+          "prompt_cache_hit_tokens": 0,
+          "prompt_cache_miss_tokens": 34
+        },
+        "terminal": "completed",
+        "terminal_reason": "stop",
+        "error_message": null,
+        "unknown_events": [],
+        "json_errors": []
+      },
+      "raw_frames": [],
+      "metrics": {
+        "e2e": 1.719,
+        "first_event": null,
+        "first_reasoning": null,
+        "first_text": null,
+        "first_tool": null,
+        "input_tokens": 34,
+        "output_tokens": 138,
+        "output_tokens_per_e2e": 80.27923211169283,
+        "text_chars": 30,
+        "text_delta_count": 0,
+        "text_span": null,
+        "text_intervals_s": [],
+        "middle_text_chunks_per_s": null,
+        "stream_batch_observation": null
+      },
+      "evidence": {
+        "rel_path": "performance/direct-chat-short/00123-10bce1aa73634849b7a0e856ba01536b.json",
+        "sha256": "64C97E4B59851BFE4653A388AB5726C28B87508792CE0903B76757583589E49C",
+        "instances": [
+          "PERF-01",
+          "PERF-07"
+        ],
+        "kind": "performance_wire",
+        "note": ""
+      }
+    },
+    {
+      "sample_id": "628bfd3067b74b5588b8e405d566bda0",
+      "request_index": 124,
+      "cases": [
+        "PERF-01",
+        "PERF-07"
+      ],
+      "group": "direct-chat-short",
+      "warmup": false,
+      "target": "direct-chat",
+      "protocol": "chat",
+      "request": {
+        "model": "deepseek-flash",
+        "messages": [
+          {
+            "role": "user",
+            "content": "用一句话介绍你自己"
+          }
+        ],
+        "stream": false,
+        "max_tokens": 256,
+        "effort": "low"
+      },
+      "expected": {
+        "nonempty": true,
+        "terminal_allowed": [
+          "completed"
+        ]
+      },
+      "checks": {
+        "http200": true,
+        "no_transport_error": true,
+        "valid_json": true,
+        "terminal": true,
+        "nonempty": true
+      },
+      "ok": true,
+      "fully_completed": true,
+      "request_sha256": "425f5794c4b4e0e8613bc0120f6aec1b169aeabdf74cef7b525e294c4c72a107",
+      "utc": "2026-10-07T05:27:25Z",
+      "http": 200,
+      "error_kind": null,
+      "error": null,
+      "body_text": "{\"id\":\"8373bc62-d9db-47e2-9df5-4f62927ee5ea\",\"object\":\"chat.completion\",\"created\":1791350847,\"model\":\"deepseek-flash\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"我是一个乐于助人的 AI 助手，可以回答你的问题、协助写作并提供各种信息。\",\"reasoning_content\":\"我们需要回答用户中文请求：“用一句话介绍你自己”。需要一句话。我可以介绍自己是AI助手。需要简洁一句话。可能：“我是由深度求索公司开发的 AI 助手，能帮你解答问题、处理文字和提供建议。” 但注意模型是 DeepSeek？系统无说明。可以自称 AI 助手。要一句话。可以“我是一个乐于助人的 AI 助手，可以回答你的问题、协助写作和提供各种信息。” 中文。确保一句话。最终直接。 \"},\"logprobs\":null,\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":34,\"completion_tokens\":122,\"total_tokens\":156,\"prompt_tokens_details\":{\"cached_tokens\":0},\"completion_tokens_details\":{\"reasoning_tokens\":102},\"prompt_cache_hit_tokens\":0,\"prompt_cache_miss_tokens\":34},\"system_fingerprint\":\"aeb56401ca74e127821c4f9126dcb669\"}",
+      "normalized": {
+        "protocol": "chat",
+        "text": "我是一个乐于助人的 AI 助手，可以回答你的问题、协助写作并提供各种信息。",
+        "reasoning": "",
+        "final_text": null,
+        "tool_calls": [],
+        "usage": {
+          "prompt_tokens": 34,
+          "completion_tokens": 122,
+          "total_tokens": 156,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 102
+          },
+          "prompt_cache_hit_tokens": 0,
+          "prompt_cache_miss_tokens": 34
+        },
+        "terminal": "completed",
+        "terminal_reason": "stop",
+        "error_message": null,
+        "unknown_events": [],
+        "json_errors": []
+      },
+      "raw_frames": [],
+      "metrics": {
+        "e2e": 1.453,
+        "first_event": null,
+        "first_reasoning": null,
+        "first_text": null,
+        "first_tool": null,
+        "input_tokens": 34,
+        "output_tokens": 122,
+        "output_tokens_per_e2e": 83.96421197522368,
+        "text_chars": 37,
+        "text_delta_count": 0,
+        "text_span": null,
+        "text_intervals_s": [],
+        "middle_text_chunks_per_s": null,
+        "stream_batch_observation": null
+      },
+      "evidence": {
+        "rel_path": "performance/direct-chat-short/00124-628bfd3067b74b5588b8e405d566bda0.json",
+        "sha256": "9C611322C7313B61F2EBEA219A291FE641B50CC1F05E0CAD0E5C4FA7F600762E",
+        "instances": [
+          "PERF-01",
+          "PERF-07"
+        ],
+        "kind": "performance_wire",
+        "note": ""
+      }
+    },
+    {
+      "sample_id": "a7e84523f9b74ecc9cb8546bfb8df039",
+      "request_index": 125,
+      "cases": [
+        "PERF-01",
+        "PERF-07"
+      ],
+      "group": "direct-chat-short",
+      "warmup": false,
+      "target": "direct-chat",
+      "protocol": "chat",
+      "request": {
+        "model": "deepseek-flash",
+        "messages": [
+          {
+            "role": "user",
+            "content": "用一句话介绍你自己"
+          }
+        ],
+        "stream": false,
+        "max_tokens": 256,
+        "effort": "low"
+      },
+      "expected": {
+        "nonempty": true,
+        "terminal_allowed": [
+          "completed"
+        ]
+      },
+      "checks": {
+        "http200": true,
+        "no_transport_error": true,
+        "valid_json": true,
+        "terminal": true,
+        "nonempty": true
+      },
+      "ok": true,
+      "fully_completed": true,
+      "request_sha256": "425f5794c4b4e0e8613bc0120f6aec1b169aeabdf74cef7b525e294c4c72a107",
+      "utc": "2026-10-07T05:27:26Z",
+      "http": 200,
+      "error_kind": null,
+      "error": null,
+      "body_text": "{\"id\":\"f7db3eac-c804-4d8d-ba55-30ea4863a868\",\"object\":\"chat.completion\",\"created\":1791350848,\"model\":\"deepseek-flash\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"我是一个由深度求索公司开发的AI助手，乐于用清晰可靠的方式帮你解答问题。\",\"reasoning_content\":\"我们需要回答用户中文：“用一句话介绍你自己”。需要一句话介绍自己。作为AI助手。需要简洁。可以用中文一句话。注意不能透露内部推理。直接回答一句话。可能：“我是由深度求索公司开发的AI助手，随时乐意用中文为你提供帮助。” 但需要检查是否准确？我们系统提示身份是AI助手，由深度求索开发。可以。一句话。确保一句话。可以：“我是一个由深度求索公司开发的AI助手，乐于用清晰可靠的方式帮你解答问题。” 这是介绍自己。用户要求“用一句话介绍你自己”。直接符合。不需要额外。确保一句话且中文。最终。\"},\"logprobs\":null,\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":34,\"completion_tokens\":151,\"total_tokens\":185,\"prompt_tokens_details\":{\"cached_tokens\":0},\"completion_tokens_details\":{\"reasoning_tokens\":131},\"prompt_cache_hit_tokens\":0,\"prompt_cache_miss_tokens\":34},\"system_fingerprint\":\"aeb56401ca74e127821c4f9126dcb669\"}",
+      "normalized": {
+        "protocol": "chat",
+        "text": "我是一个由深度求索公司开发的AI助手，乐于用清晰可靠的方式帮你解答问题。",
+        "reasoning": "",
+        "final_text": null,
+        "tool_calls": [],
+        "usage": {
+          "prompt_tokens": 34,
+          "completion_tokens": 151,
+          "total_tokens": 185,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 131
+          },
+          "prompt_cache_hit_tokens": 0,
+          "prompt_cache_miss_tokens": 34
+        },
+        "terminal": "completed",
+        "terminal_reason": "stop",
+        "error_message": null,
+        "unknown_events": [],
+        "json_errors": []
+      },
+      "raw_frames": [],
+      "metrics": {
+        "e2e": 1.187,
+        "first_event": null,
+        "first_reasoning": null,
+        "first_text": null,
+        "first_tool": null,
+        "input_tokens": 34,
+        "output_tokens": 151,
+        "output_tokens_per_e2e": 127.21145745577084,
+        "text_chars": 36,
+        "text_delta_count": 0,
+        "text_span": null,
+        "text_intervals_s": [],
+        "middle_text_chunks_per_s": null,
+        "stream_batch_observation": null
+      },
+      "evidence": {
+        "rel_path": "performance/direct-chat-short/00125-a7e84523f9b74ecc9cb8546bfb8df039.json",
+        "sha256": "F30B9F0898C6EB6227696E106279ADCE0F272AA4375AD1ED5ACE5CCBF52BE19F",
+        "instances": [
+          "PERF-01",
+          "PERF-07"
+        ],
+        "kind": "performance_wire",
+        "note": ""
+      }
+    },
+    {
+      "sample_id": "413b40e003174bc28b4280e6069bf595",
+      "request_index": 126,
+      "cases": [
+        "PERF-01",
+        "PERF-07"
+      ],
+      "group": "direct-chat-short",
+      "warmup": false,
+      "target": "direct-chat",
+      "protocol": "chat",
+      "request": {
+        "model": "deepseek-flash",
+        "messages": [
+          {
+            "role": "user",
+            "content": "用一句话介绍你自己"
+          }
+        ],
+        "stream": false,
+        "max_tokens": 256,
+        "effort": "low"
+      },
+      "expected": {
+        "nonempty": true,
+        "terminal_allowed": [
+          "completed"
+        ]
+      },
+      "checks": {
+        "http200": true,
+        "no_transport_error": true,
+        "valid_json": true,
+        "terminal": true,
+        "nonempty": true
+      },
+      "ok": true,
+      "fully_completed": true,
+      "request_sha256": "425f5794c4b4e0e8613bc0120f6aec1b169aeabdf74cef7b525e294c4c72a107",
+      "utc": "2026-10-07T05:27:27Z",
+      "http": 200,
+      "error_kind": null,
+      "error": null,
+      "body_text": "{\"id\":\"d9476586-362a-4984-9ba4-39096dd393cd\",\"object\":\"chat.completion\",\"created\":1791350850,\"model\":\"deepseek-flash\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"我是一个由深度求索公司开发的 AI 助手，能帮你答疑、查信息并协助完成各类任务。\",\"reasoning_content\":\"我们需要回答用户中文请求：“用一句话介绍你自己”。需要一句话介绍自己。作为 AI 助手。应简洁。一句。可以：“我是由深度求索公司创造的 AI 助手，可以帮你解答问题、提供信息并协助处理各种任务。” 但注意系统说我是 AI assistant accessed via API. 可以提及。中文一句话。确保是一句话。可能用户希望介绍自己。所以直接回答。可以：“我是一个由深度求索公司开发的 AI 助手，能帮你答疑、查信息并协助完成各类任务。” 这是一句话。需要吗？最终只输出一句话。可以。\"},\"logprobs\":null,\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":34,\"completion_tokens\":148,\"total_tokens\":182,\"prompt_tokens_details\":{\"cached_tokens\":0},\"completion_tokens_details\":{\"reasoning_tokens\":124},\"prompt_cache_hit_tokens\":0,\"prompt_cache_miss_tokens\":34},\"system_fingerprint\":\"aeb56401ca74e127821c4f9126dcb669\"}",
+      "normalized": {
+        "protocol": "chat",
+        "text": "我是一个由深度求索公司开发的 AI 助手，能帮你答疑、查信息并协助完成各类任务。",
+        "reasoning": "",
+        "final_text": null,
+        "tool_calls": [],
+        "usage": {
+          "prompt_tokens": 34,
+          "completion_tokens": 148,
+          "total_tokens": 182,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 124
+          },
+          "prompt_cache_hit_tokens": 0,
+          "prompt_cache_miss_tokens": 34
+        },
+        "terminal": "completed",
+        "terminal_reason": "stop",
+        "error_message": null,
+        "unknown_events": [],
+        "json_errors": []
+      },
+      "raw_frames": [],
+      "metrics": {
+        "e2e": 1.203,
+        "first_event": null,
+        "first_reasoning": null,
+        "first_text": null,
+        "first_tool": null,
+        "input_tokens": 34,
+        "output_tokens": 148,
+        "output_tokens_per_e2e": 123.02576891105569,
+        "text_chars": 40,
+        "text_delta_count": 0,
+        "text_span": null,
+        "text_intervals_s": [],
+        "middle_text_chunks_per_s": null,
+        "stream_batch_observation": null
+      },
+      "evidence": {
+        "rel_path": "performance/direct-chat-short/00126-413b40e003174bc28b4280e6069bf595.json",
+        "sha256": "0CB709669068FD3997526FF7A9678C43D5F4EA5E3CD01912C61DEF4016E452C6",
+        "instances": [
+          "PERF-01",
+          "PERF-07"
+        ],
+        "kind": "performance_wire",
+        "note": ""
+      }
+    },
+    {
+      "sample_id": "7cae5909fbe24af9a4db0c2da32df41c",
+      "request_index": 127,
+      "cases": [
+        "PERF-01",
+        "PERF-07"
+      ],
+      "group": "direct-chat-short",
+      "warmup": false,
+      "target": "direct-chat",
+      "protocol": "chat",
+      "request": {
+        "model": "deepseek-flash",
+        "messages": [
+          {
+            "role": "user",
+            "content": "用一句话介绍你自己"
+          }
+        ],
+        "stream": false,
+        "max_tokens": 256,
+        "effort": "low"
+      },
+      "expected": {
+        "nonempty": true,
+        "terminal_allowed": [
+          "completed"
+        ]
+      },
+      "checks": {
+        "http200": true,
+        "no_transport_error": true,
+        "valid_json": true,
+        "terminal": true,
+        "nonempty": true
+      },
+      "ok": true,
+      "fully_completed": true,
+      "request_sha256": "425f5794c4b4e0e8613bc0120f6aec1b169aeabdf74cef7b525e294c4c72a107",
+      "utc": "2026-10-07T05:27:29Z",
+      "http": 200,
+      "error_kind": null,
+      "error": null,
+      "body_text": "{\"id\":\"6fc9ac18-3c45-42ad-af7a-a16df9958269\",\"object\":\"chat.completion\",\"created\":1791350851,\"model\":\"deepseek-flash\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"我是由深度求索公司打造的AI助手，乐于用清晰、可靠的方式帮你解答问题。\",\"reasoning_content\":\"我们需要回答用户中文请求：“用一句话介绍你自己”。需要一句话。应该简洁，说明我是AI助手。可以用一句话。需要符合政策？没有特别。直接回答。可以：“我是由DeepSeek打造的AI助手，乐于用中文为你提供清晰、可靠的帮助。” 但注意公司？我是DeepSeek? 根据系统？用户问介绍自己。我们应说我是AI助手，由深度求索公司创造。一句话。不要额外。确保一句话。可以：“我是DeepSeek打造的AI助手，愿意用清晰、可靠的方式帮你解答问题。” 这是一句话。需要“一句话介绍你自己”。可以。\"},\"logprobs\":null,\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":34,\"completion_tokens\":150,\"total_tokens\":184,\"prompt_tokens_details\":{\"cached_tokens\":0},\"completion_tokens_details\":{\"reasoning_tokens\":129},\"prompt_cache_hit_tokens\":0,\"prompt_cache_miss_tokens\":34},\"system_fingerprint\":\"aeb56401ca74e127821c4f9126dcb669\"}",
+      "normalized": {
+        "protocol": "chat",
+        "text": "我是由深度求索公司打造的AI助手，乐于用清晰、可靠的方式帮你解答问题。",
+        "reasoning": "",
+        "final_text": null,
+        "tool_calls": [],
+        "usage": {
+          "prompt_tokens": 34,
+          "completion_tokens": 150,
+          "total_tokens": 184,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 129
+          },
+          "prompt_cache_hit_tokens": 0,
+          "prompt_cache_miss_tokens": 34
+        },
+        "terminal": "completed",
+        "terminal_reason": "stop",
+        "error_message": null,
+        "unknown_events": [],
+        "json_errors": []
+      },
+      "raw_frames": [],
+      "metrics": {
+        "e2e": 1.594,
+        "first_event": null,
+        "first_reasoning": null,
+        "first_text": null,
+        "first_tool": null,
+        "input_tokens": 34,
+        "output_tokens": 150,
+        "output_tokens_per_e2e": 94.10288582183186,
+        "text_chars": 35,
+        "text_delta_count": 0,
+        "text_span": null,
+        "text_intervals_s": [],
+        "middle_text_chunks_per_s": null,
+        "stream_batch_observation": null
+      },
+      "evidence": {
+        "rel_path": "performance/direct-chat-short/00127-7cae5909fbe24af9a4db0c2da32df41c.json",
+        "sha256": "689F4A3A9C07B349A4B5BF0EA6A5A9C7CDFDA7409ABED84FD4EF0E77BD554DC6",
+        "instances": [
+          "PERF-01",
+          "PERF-07"
+        ],
+        "kind": "performance_wire",
+        "note": ""
+      }
+    },
+    {
+      "sample_id": "85619c8bd0a04d2fab810bb4bef492ab",
+      "request_index": 128,
+      "cases": [
+        "PERF-01",
+        "PERF-07"
+      ],
+      "group": "direct-chat-short",
+      "warmup": false,
+      "target": "direct-chat",
+      "protocol": "chat",
+      "request": {
+        "model": "deepseek-flash",
+        "messages": [
+          {
+            "role": "user",
+            "content": "用一句话介绍你自己"
+          }
+        ],
+        "stream": false,
+        "max_tokens": 256,
+        "effort": "low"
+      },
+      "expected": {
+        "nonempty": true,
+        "terminal_allowed": [
+          "completed"
+        ]
+      },
+      "checks": {
+        "http200": true,
+        "no_transport_error": true,
+        "valid_json": true,
+        "terminal": true,
+        "nonempty": true
+      },
+      "ok": true,
+      "fully_completed": true,
+      "request_sha256": "425f5794c4b4e0e8613bc0120f6aec1b169aeabdf74cef7b525e294c4c72a107",
+      "utc": "2026-10-07T05:27:30Z",
+      "http": 200,
+      "error_kind": null,
+      "error": null,
+      "body_text": "{\"id\":\"2845410c-a3ce-4c6d-9464-853970fb956c\",\"object\":\"chat.completion\",\"created\":1791350852,\"model\":\"deepseek-flash\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"我是一个由深度求索公司开发的AI助手，随时乐于为你解答问题、提供帮助。\",\"reasoning_content\":\"我们需要回答用户中文：“用一句话介绍你自己”。需要一句话。作为AI助手，应该说我是由深度求索公司创造的AI助手，等等。一句话。需要简洁。可以包含名字？我们是DeepSeek？根据系统？没有明确。通常介绍：我是由深度求索公司开发的AI助手，可以回答问题、提供帮助。用一句话。注意只一句话。可以：“我是一个由深度求索公司开发的AI助手，随时愿意为你提供帮助。” 用中文。确保一句话。\"},\"logprobs\":null,\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":34,\"completion_tokens\":121,\"total_tokens\":155,\"prompt_tokens_details\":{\"cached_tokens\":0},\"completion_tokens_details\":{\"reasoning_tokens\":101},\"prompt_cache_hit_tokens\":0,\"prompt_cache_miss_tokens\":34},\"system_fingerprint\":\"aeb56401ca74e127821c4f9126dcb669\"}",
+      "normalized": {
+        "protocol": "chat",
+        "text": "我是一个由深度求索公司开发的AI助手，随时乐于为你解答问题、提供帮助。",
+        "reasoning": "",
+        "final_text": null,
+        "tool_calls": [],
+        "usage": {
+          "prompt_tokens": 34,
+          "completion_tokens": 121,
+          "total_tokens": 155,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 101
+          },
+          "prompt_cache_hit_tokens": 0,
+          "prompt_cache_miss_tokens": 34
+        },
+        "terminal": "completed",
+        "terminal_reason": "stop",
+        "error_message": null,
+        "unknown_events": [],
+        "json_errors": []
+      },
+      "raw_frames": [],
+      "metrics": {
+        "e2e": 1.344,
+        "first_event": null,
+        "first_reasoning": null,
+        "first_text": null,
+        "first_tool": null,
+        "input_tokens": 34,
+        "output_tokens": 121,
+        "output_tokens_per_e2e": 90.0297619047619,
+        "text_chars": 35,
+        "text_delta_count": 0,
+        "text_span": null,
+        "text_intervals_s": [],
+        "middle_text_chunks_per_s": null,
+        "stream_batch_observation": null
+      },
+      "evidence": {
+        "rel_path": "performance/direct-chat-short/00128-85619c8bd0a04d2fab810bb4bef492ab.json",
+        "sha256": "1651B748182647010B55E00E8D677E982948FC62A11B797E0853687BA9E0AEA9",
+        "instances": [
+          "PERF-01",
+          "PERF-07"
+        ],
+        "kind": "performance_wire",
+        "note": ""
+      }
+    }
+  ]
+}

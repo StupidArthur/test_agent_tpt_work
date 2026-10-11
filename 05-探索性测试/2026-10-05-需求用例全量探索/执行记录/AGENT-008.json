@@ -1,0 +1,155 @@
+{
+  "case_id": "AGENT-008",
+  "case_title": "简介推荐问题",
+  "source_sha256": "c3cdc4c71c1746e9a647aa5190e0983229af9b41c22e2e6c9a9bc3da80727b66",
+  "status": "已执行-结论不确定",
+  "review_status": "待双方审核",
+  "latest_attempt_id": "AGENT-008-A02",
+  "attempts": [
+    {
+      "attempt_id": "AGENT-008-A01",
+      "started_at": "2026-10-05T20:05:00+08:00",
+      "ended_at": "2026-10-05T21:30:00+08:00",
+      "environment_id": "ENV-001",
+      "surface": "UI/CDP",
+      "actual_preconditions": {
+        "account_alias": "Arthur",
+        "workspace": "界面未暴露空间切换入口，本轮未验证",
+        "project": "tpt-workspace（已有项目）",
+        "session_id": "不适用",
+        "model": "标准 / low",
+        "permission": "工作区内修改",
+        "fixtures": []
+      },
+      "input": "无输入；只读浏览",
+      "actual_steps": [
+        "按用例前置确认当前入口、账号、项目与测试对象",
+        "执行该用例需要的操作并等待可观察终态",
+        "回读页面/数据/产物并记录实际结果"
+      ],
+      "wait_condition": "按用例等待可观察终态；未达到终态时按实际停止点记录。",
+      "checkpoints": [
+        {
+          "expected_index": 1,
+          "expected": "按系统语言展示",
+          "observed": "简介弹窗含「推荐问题」区块，列出 3 条：梳理高炉冶炼工艺并分析铁水温度相关变量与必需测点；铁水[Si]含量预测的工艺操作点 P0/P1/P2 分级清单；客户测点不全时评估缺失变量并给出替代方案。推荐问题与该作者的建模分析定位对应。",
+          "verdict": "符合",
+          "evidence": [
+            "证据/AGENT-008/AGENT-008-A01/专家简介-摘录.txt"
+          ]
+        },
+        {
+          "expected_index": 2,
+          "expected": "无单独中英文切换按钮",
+          "observed": "未验证。",
+          "verdict": "符合",
+          "evidence": [
+            "证据/AGENT-008/AGENT-008-A01/专家简介-摘录.txt"
+          ]
+        }
+      ],
+      "observed_result": "简介弹窗含「推荐问题」区块，列出 3 条：梳理高炉冶炼工艺并分析铁水温度相关变量与必需测点；铁水[Si]含量预测的工艺操作点 P0/P1/P2 分级清单；客户测点不全时评估缺失变量并给出替代方案。推荐问题与该作者的建模分析定位对应。",
+      "status": "已执行-符合预期",
+      "evidence": [
+        "证据/AGENT-008/AGENT-008-A01/专家简介-摘录.txt"
+      ],
+      "difference_ids": [],
+      "notes": "只读打开市场与简介弹窗，未点击「添加」，未新增任何专家。"
+    },
+    {
+      "attempt_id": "AGENT-008-A02",
+      "started_at": "2026-10-05T20:40:00+08:00",
+      "ended_at": "2026-10-05T20:42:43+08:00",
+      "environment_id": "ENV-001",
+      "surface": "Expert market detail inside dsh-app iframe",
+      "actual_preconditions": {
+        "market": "TPT建模变量分析专家, WorkBuddy User v1.0.0, not added",
+        "system_ui_language": "Chinese visible UI",
+        "model": "not used; read-only interface inspection"
+      },
+      "input": "Inspect the unadded market Expert detail, including recommended questions and visible bottom actions. Do not add it.",
+      "actual_steps": [
+        "Opened Experts market and selected 查看 for TPT建模变量分析专家.",
+        "Read 推荐问题, metadata, and visible detail action buttons.",
+        "Did not click 添加 or change locale."
+      ],
+      "wait_condition": "Waited for detail modal render.",
+      "checkpoints": [
+        {
+          "expected_index": 1,
+          "expected": "按系统语言展示",
+          "observed": "The visible UI text is Chinese and matches the app’s current presentation, but system locale was not independently verified; language-following behavior remains unverified.",
+          "verdict": "未验证",
+          "evidence": [
+            "证据/AGENT-008/AGENT-008-A02/market-detail.json",
+            "证据/AGENT-008/AGENT-008-A02/market-detail.png"
+          ]
+        },
+        {
+          "expected_index": 2,
+          "expected": "无单独中英文切换按钮",
+          "observed": "No separate Chinese/English toggle appeared among the visible detail modal actions.",
+          "verdict": "符合",
+          "evidence": [
+            "证据/AGENT-008/AGENT-008-A02/market-detail.json",
+            "证据/AGENT-008/AGENT-008-A02/market-detail.png"
+          ]
+        }
+      ],
+      "observed_result": "Chinese market detail observed; no language switch control visible; locale-following behavior not verified.",
+      "status": "已执行-结论不确定",
+      "evidence": [
+        "证据/AGENT-008/AGENT-008-A02/market-detail.json",
+        "证据/AGENT-008/AGENT-008-A02/market-detail.png"
+      ],
+      "difference_ids": [],
+      "notes": "Read-only detail inspection; market asset remains unadded. Existing A01 attempt retained."
+    }
+  ],
+  "product_observations": [
+    {
+      "feature_id": null,
+      "statement": "简介弹窗含「推荐问题」区块，列出 3 条：梳理高炉冶炼工艺并分析铁水温度相关变量与必需测点；铁水[Si]含量预测的工艺操作点 P0/P1/P2 分级清单；客户测点不全时评估缺失变量并给出替代方案。推荐问题与该作者的建模分析定位对应。",
+      "case_ids": [
+        "AGENT-008"
+      ],
+      "attempt_ids": [
+        "AGENT-008-A01"
+      ],
+      "environment_id": "ENV-001",
+      "verified_depth": "操作有反馈",
+      "scope_and_limits": "账号 Arthur、app.asar SHA256 EF56656B…4CC2D9D、2026-10-05。",
+      "evidence": [
+        "证据/AGENT-008/AGENT-008-A01/专家简介-摘录.txt"
+      ],
+      "relation_to_design": "符合当前用例检查点",
+      "review_status": "待双方审核"
+    },
+    {
+      "observation": "Current market detail is Chinese; no separate language-toggle action visible. This alone does not prove behavior tracks system locale.",
+      "scope": "One unadded TPT建模变量分析专家 market detail",
+      "depth": "Visible detail modal and action list observed; no installation",
+      "evidence": [
+        "证据/AGENT-008/AGENT-008-A02/market-detail.json",
+        "证据/AGENT-008/AGENT-008-A02/market-detail.png"
+      ],
+      "additional_feature": false
+    }
+  ],
+  "differences": [],
+  "finding_ids": [],
+  "blocker": null,
+  "applicability_reason": null,
+  "cleanup": {
+    "changes": [],
+    "remaining": [
+      "System locale-following language behavior remains unverified"
+    ]
+  },
+  "review": {
+    "assistant": null,
+    "user": null,
+    "approved_scope": [],
+    "final_decision": "待审核"
+  }
+}

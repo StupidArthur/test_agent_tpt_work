@@ -1,0 +1,355 @@
+{
+  "case_id": "SKILL-018",
+  "case_title": "停用仍可显式使用",
+  "source_sha256": "92a6f4ecd2a5dffe0f1a2a60e73fa18b5fb98763b09cc56ce4cc22fd56e13f0e",
+  "status": "已执行-存在差异",
+  "review_status": "待双方审核",
+  "latest_attempt_id": "SKILL-018-A03",
+  "attempts": [
+    {
+      "attempt_id": "SKILL-018-A01",
+      "started_at": "2026-10-05T15:34:43.122Z",
+      "ended_at": "2026-10-05T15:34:43.122Z",
+      "environment_id": "ENV-001",
+      "surface": "TPT Work UI via CDP + Playwright; visible UI actions and trace",
+      "actual_preconditions": {
+        "account_alias": "Arthur",
+        "workspace": "tpt-workspace",
+        "project": "现有项目；未新增项目",
+        "session_id": "本轮新建测试会话（case 作用域见证据）",
+        "model": "标准 / low",
+        "permission": "工作区内修改",
+        "fixtures": [
+          "round-import-probe-20261005；测试后启用状态已恢复 true"
+        ]
+      },
+      "input": "停用技能后点击卡片「快捷使用」，发送 /round-import-probe-20261005 ROUND_IMPORT_PROBE_20261005",
+      "actual_steps": [
+        "通过可见 UI 入口进入对应模块/任务",
+        "执行本轮虚构、无外部副作用的检查",
+        "从 UI 回读结果并保存对应助手/工具轨迹证据"
+      ],
+      "wait_condition": "等待 UI Trace 出现稳定终态；截图前重新读取当前界面。",
+      "checkpoints": [
+        {
+          "expected_index": 1,
+          "expected": "显式使用可执行",
+          "observed": "快捷使用填入 slash command；Trace 未调用 skill 且未加载样本指令，未返回样本专属标记。反而观察到 glob、只读 pwsh、memory_recall/read/log；界面确认 memory_log 新增一条。",
+          "verdict": "差异",
+          "evidence": [
+            "证据/SKILL-018/SKILL-018-A01/final-answer-row.png",
+            "证据/SKILL-018/SKILL-018-A01/glob-row.png",
+            "证据/SKILL-018/SKILL-018-A01/memory-log-row.png",
+            "证据/SKILL-018/SKILL-018-A01/memory-recall-row.png",
+            "证据/SKILL-018/SKILL-018-A01/trace.json",
+            "证据/SKILL-018/SKILL-018-A01/workspace-list-row.png"
+          ]
+        },
+        {
+          "expected_index": 2,
+          "expected": "不自动打开启用开关",
+          "observed": "执行期间启用状态保持 false；任务结束后经 UI 恢复为 true。",
+          "verdict": "符合",
+          "evidence": [
+            "证据/SKILL-018/SKILL-018-A01/final-answer-row.png",
+            "证据/SKILL-018/SKILL-018-A01/glob-row.png",
+            "证据/SKILL-018/SKILL-018-A01/memory-log-row.png",
+            "证据/SKILL-018/SKILL-018-A01/memory-recall-row.png",
+            "证据/SKILL-018/SKILL-018-A01/trace.json",
+            "证据/SKILL-018/SKILL-018-A01/workspace-list-row.png"
+          ]
+        }
+      ],
+      "observed_result": "停用态快捷使用未产生技能工具调用；出现了记忆读取/写入副作用。只验证本轮样本与该次任务，不外推所有技能。",
+      "status": "已执行-存在差异",
+      "evidence": [
+        "证据/SKILL-018/SKILL-018-A01/final-answer-row.png",
+        "证据/SKILL-018/SKILL-018-A01/glob-row.png",
+        "证据/SKILL-018/SKILL-018-A01/memory-log-row.png",
+        "证据/SKILL-018/SKILL-018-A01/memory-recall-row.png",
+        "证据/SKILL-018/SKILL-018-A01/trace.json",
+        "证据/SKILL-018/SKILL-018-A01/workspace-list-row.png"
+      ],
+      "difference_ids": [
+        "DIFF-020"
+      ],
+      "notes": "已在 UI 中恢复本轮样本的 enabled 状态。memory_log 写入属现有用户数据，未删除、修改或尝试清理。按用户指示保留证据并待双方审核；本观察不单独断言根因或普遍缺陷。"
+    },
+    {
+      "attempt_id": "SKILL-018-A02",
+      "started_at": "2026-10-05T18:21:00.000Z",
+      "ended_at": "2026-10-05T18:25:00.000Z",
+      "environment_id": "ENV-001",
+      "surface": "TPT Work技能管理UI卡片快捷使用 + 标准/low新对话，经CDP 9234及Playwright；只用round-owned样本",
+      "actual_preconditions": {
+        "account_alias": "Arthur",
+        "workspace": "tpt-workspace",
+        "project": "未新增项目",
+        "session_id": "本轮停用态快捷使用新任务",
+        "model": "标准 / low",
+        "permission": "工作区内修改",
+        "fixtures": [
+          "本轮round-owned round-import-probe-20261005"
+        ]
+      },
+      "input": "在技能管理页停用round-import-probe-20261005，点击该卡片快捷使用并发送明确触发字符串ROUND_IMPORT_PROBE_20261005。",
+      "actual_steps": [
+        "读取本轮样本卡片来源用户创建、初始开关true。",
+        "只将该round-owned样本切为false。",
+        "点击样本卡片“快捷使用”，UI在新任务composer中填入/round-import-probe-20261005。",
+        "补入ROUND_IMPORT_PROBE_20261005请求并以标准/low发送。",
+        "等待终态；答案明确表示该技能不在当前catalog且没有skill_content，未返回样本标记。",
+        "经UI将样本开关恢复true并独立回读。"
+      ],
+      "wait_condition": "等待任务完成或出现“技能不在当前catalog”终态；检查样本专属标记及启停状态。",
+      "checkpoints": [
+        {
+          "expected_index": 1,
+          "expected": "显式使用可执行",
+          "observed": "停用卡片快捷使用预填slash命令。模型最终回复 round-import-probe-20261005 is not present in the current skill catalog、没有skill_content、不能加载；没有返回ROUND_IMPORT_SKILL_OK。此attempt保存的use-result.png是答案范围证据，没有单独保存UI Trace。",
+          "verdict": "差异",
+          "evidence": [
+            "证据/SKILL-018/SKILL-018-A02/baseline.png",
+            "证据/SKILL-018/SKILL-018-A02/disabled-before-use.png",
+            "证据/SKILL-018/SKILL-018-A02/use-before-send.png",
+            "证据/SKILL-018/SKILL-018-A02/use-result.png",
+            "证据/SKILL-018/SKILL-018-A02/enabled-restored.png"
+          ]
+        },
+        {
+          "expected_index": 2,
+          "expected": "不自动打开启用开关",
+          "observed": "点击快捷使用及发送期间样本保持aria-checked=false；终态后仅通过UI将本round-owned样本恢复为true，并从卡片独立回读。",
+          "verdict": "符合",
+          "evidence": [
+            "证据/SKILL-018/SKILL-018-A02/baseline.png",
+            "证据/SKILL-018/SKILL-018-A02/disabled-before-use.png",
+            "证据/SKILL-018/SKILL-018-A02/use-before-send.png",
+            "证据/SKILL-018/SKILL-018-A02/use-result.png",
+            "证据/SKILL-018/SKILL-018-A02/enabled-restored.png"
+          ]
+        }
+      ],
+      "observed_result": "本次停用态快捷使用将slash预填到composer；标准/low模型称其不在当前skill catalog且没有skill_content，未执行样本指令、未返回唯一标记。之后通过UI将round-owned样本恢复启用。",
+      "status": "已执行-存在差异",
+      "evidence": [
+        "证据/SKILL-018/SKILL-018-A02/baseline.png",
+        "证据/SKILL-018/SKILL-018-A02/disabled-before-use.png",
+        "证据/SKILL-018/SKILL-018-A02/use-before-send.png",
+        "证据/SKILL-018/SKILL-018-A02/use-result.png",
+        "证据/SKILL-018/SKILL-018-A02/enabled-restored.png"
+      ],
+      "difference_ids": [
+        "DIFF-020"
+      ],
+      "notes": "仅round-owned harmless sample；本attempt没有可见文件/网络/连接器/记忆写入行为证据。由于未保存该失败任务Trace JSON，不把回答自述等同于已核验Trace。"
+    },
+    {
+      "attempt_id": "SKILL-018-A03",
+      "started_at": "2026-10-05T20:07:00.000Z",
+      "ended_at": "2026-10-05T20:11:00.000Z",
+      "environment_id": "ENV-001",
+      "surface": "Skills iframe and standard/low conversation UI Trace through CDP + Playwright",
+      "actual_preconditions": {
+        "account_alias": "Arthur",
+        "workspace": "tpt-workspace",
+        "project": "existing workspace; no new project",
+        "session_id": "round-night-md-direct-20261006 test conversation",
+        "model": "Standard / low",
+        "permission": "workspace-edit mode",
+        "fixtures": [
+          "round-night-md-direct-20261006 (round-owned only)"
+        ]
+      },
+      "input": "Starting from the sample disabled, select it through the Skills detail Use action and explicitly invoke its unique marker; then enable the same sample as a control and invoke again. Restore the original disabled state.",
+      "actual_steps": [
+        "Read the round-owned Skill card switch; aria-checked=false. Saved baseline screenshot and state.",
+        "Opened detail and clicked Use; composer received /round-night-md-direct-20261006. Sent an explicit unique-marker request using standard/low.",
+        "Trace showed skill tool call error and the assistant then requested a PowerShell recursive search from C:\\ for SKILL.md. Stopped that tool request before it ran to completion; no file output was returned.",
+        "Read the sample switch again; it remained disabled.",
+        "Temporarily enabled only this round-owned sample through its card switch. Used the card Quick use action and sent a new explicit request.",
+        "Trace showed skill_content for round-night-md-direct-20261006 and assistant returned ROUND_NIGHT_MD_20261006_OK.",
+        "Restored the card switch to aria-checked=false and captured final UI state."
+      ],
+      "wait_condition": "Wait for the disabled attempt to return or expose tool activity; stop the broad C:\\ recursive scan request; wait for enabled control attempt result and Trace; restore the switch.",
+      "checkpoints": [
+        {
+          "expected_index": 1,
+          "expected": "显式使用可执行",
+          "observed": "Disabled sample explicit-use attempt did not load the Skill: Trace showed skill tool error, followed by a request for Get-ChildItem -Path C:\\ -Recurse -Filter SKILL.md; the request was stopped and no file results were returned. After enabling only the sample, the follow-up Trace included its skill_content and the unique marker answer succeeded. Thus explicit use while disabled was not verified as executable; enabled control worked.",
+          "verdict": "差异",
+          "evidence": [
+            "证据/SKILL-018/SKILL-018-A03/trace.png",
+            "证据/SKILL-018/SKILL-018-A03/trace.txt"
+          ]
+        },
+        {
+          "expected_index": 2,
+          "expected": "不自动打开启用开关",
+          "observed": "The sample remained aria-checked=false after the disabled attempt; only an explicit switch click changed it to true for the control. It was then restored to false. Disabled explicit-use did not auto-enable the Skill.",
+          "verdict": "符合",
+          "evidence": [
+            "证据/SKILL-018/SKILL-018-A03/baseline.json",
+            "证据/SKILL-018/SKILL-018-A03/baseline.png",
+            "证据/SKILL-018/SKILL-018-A03/enabled-after-use.png",
+            "证据/SKILL-018/SKILL-018-A03/enabled.png",
+            "证据/SKILL-018/SKILL-018-A03/restored-disabled.png",
+            "证据/SKILL-018/SKILL-018-A03/restored-state.json"
+          ]
+        }
+      ],
+      "observed_result": "The round-owned sample was disabled at baseline. Explicit Use prefixed its slash command but actual skill tool invocation failed. The app then requested a recursive C:\\ search for SKILL.md; we stopped the request before completion and received no file results. After manually enabling only this sample, Trace showed its skill_content and the assistant returned the exact marker. The switch was restored to disabled.",
+      "status": "已执行-存在差异",
+      "evidence": [
+        "证据/SKILL-018/SKILL-018-A03/baseline.json",
+        "证据/SKILL-018/SKILL-018-A03/baseline.png",
+        "证据/SKILL-018/SKILL-018-A03/enabled-after-use.png",
+        "证据/SKILL-018/SKILL-018-A03/enabled.png",
+        "证据/SKILL-018/SKILL-018-A03/restored-disabled.png",
+        "证据/SKILL-018/SKILL-018-A03/restored-state.json",
+        "证据/SKILL-018/SKILL-018-A03/trace.png",
+        "证据/SKILL-018/SKILL-018-A03/trace.txt"
+      ],
+      "difference_ids": [
+        "DIFF-020"
+      ],
+      "notes": "Only the round-owned sample was toggled and restored to its baseline disabled state. No full-drive scan results or filesystem access are claimed. The attempted PowerShell command was visibly requested and then aborted via UI. Potential broad-scope recovery behavior is separately recorded for review; no file write or external action occurred."
+    }
+  ],
+  "product_observations": [
+    {
+      "feature_id": null,
+      "statement": "停用态快捷使用未产生技能工具调用；出现了记忆读取/写入副作用。只验证本轮样本与该次任务，不外推所有技能。",
+      "case_ids": [
+        "SKILL-018"
+      ],
+      "attempt_ids": [
+        "SKILL-018-A01"
+      ],
+      "environment_id": "ENV-001",
+      "verified_depth": "本轮 UI 实际交互及 Trace/设置回读",
+      "scope_and_limits": "已在 UI 中恢复本轮样本的 enabled 状态。memory_log 写入属现有用户数据，未删除、修改或尝试清理。按用户指示保留证据并待双方审核；本观察不单独断言根因或普遍缺陷。",
+      "evidence": [
+        "证据/SKILL-018/SKILL-018-A01/final-answer-row.png",
+        "证据/SKILL-018/SKILL-018-A01/glob-row.png",
+        "证据/SKILL-018/SKILL-018-A01/memory-log-row.png",
+        "证据/SKILL-018/SKILL-018-A01/memory-recall-row.png",
+        "证据/SKILL-018/SKILL-018-A01/trace.json",
+        "证据/SKILL-018/SKILL-018-A01/workspace-list-row.png"
+      ],
+      "relation_to_design": "待双方审核；按检查点记录，未将待评审设计视为已批准产品规范。",
+      "review_status": "待双方审核"
+    },
+    {
+      "observation_id": "OBS-196",
+      "feature_id": null,
+      "statement": "round-import-probe-20261005在false时通过卡片“快捷使用”触发标准/low任务，UI预填slash，但模型回复称目标技能不在catalog且没有skill_content，未返回唯一标记；任务后UI恢复enabled=true。此A02没有观察到A01所记memory副作用，未因此否定旧attempt。",
+      "case_ids": [
+        "SKILL-018"
+      ],
+      "attempt_ids": [
+        "SKILL-018-A02"
+      ],
+      "environment_id": "ENV-001",
+      "verified_depth": "本轮round-owned Skill停用态卡片快捷使用的单次执行；检查助手明确输出和UI启停回读，没有Trace JSON",
+      "scope_and_limits": "只限round-import-probe-20261005；不推广到其他Skill或调用入口；DIFF-020与旧memory_log影响继续待审。",
+      "evidence": [
+        "证据/SKILL-018/SKILL-018-A02/baseline.png",
+        "证据/SKILL-018/SKILL-018-A02/disabled-before-use.png",
+        "证据/SKILL-018/SKILL-018-A02/use-before-send.png",
+        "证据/SKILL-018/SKILL-018-A02/use-result.png",
+        "证据/SKILL-018/SKILL-018-A02/enabled-restored.png"
+      ]
+    },
+    {
+      "observation_id": "OBS-212",
+      "feature_id": null,
+      "statement": "The round-owned sample was disabled at baseline. Explicit Use prefixed its slash command but actual skill tool invocation failed. The app then requested a recursive C:\\ search for SKILL.md; we stopped the request before completion and received no file results. After manually enabling only this sample, Trace showed its skill_content and the assistant returned the exact marker. The switch was restored to disabled.",
+      "case_ids": [
+        "SKILL-018"
+      ],
+      "attempt_ids": [
+        "SKILL-018-A03"
+      ],
+      "environment_id": "ENV-001",
+      "verified_depth": "Disabled and enabled explicit use with Trace; switch restoration",
+      "scope_and_limits": "One round-owned single-file Skill, standard/low, current app runtime. Broad C:\\ scan was stopped; no search results or actual filesystem access are claimed.",
+      "evidence": [
+        "证据/SKILL-018/SKILL-018-A03/baseline.json",
+        "证据/SKILL-018/SKILL-018-A03/baseline.png",
+        "证据/SKILL-018/SKILL-018-A03/enabled-after-use.png",
+        "证据/SKILL-018/SKILL-018-A03/enabled.png",
+        "证据/SKILL-018/SKILL-018-A03/restored-disabled.png",
+        "证据/SKILL-018/SKILL-018-A03/restored-state.json",
+        "证据/SKILL-018/SKILL-018-A03/trace.png",
+        "证据/SKILL-018/SKILL-018-A03/trace.txt"
+      ],
+      "relation_to_design": "Disabled explicit-use checkpoint diverged; enabled control succeeded. Pending bilateral review.",
+      "review_status": "待双方审核"
+    }
+  ],
+  "differences": [
+    "DIFF-020",
+    "DIFF-037"
+  ],
+  "finding_ids": [
+    "CAND-027"
+  ],
+  "blocker": null,
+  "applicability_reason": null,
+  "cleanup": {
+    "changes": [
+      {
+        "change": "仅将round-import-probe-20261005启用→停用→启用，作为SKILL-018-A02；未触及其他Skill。",
+        "restored": true,
+        "verification": "任务结束后role=switch aria-checked=true，且卡片显示来源用户创建。",
+        "evidence": [
+          "证据/SKILL-018/SKILL-018-A02/baseline.png",
+          "证据/SKILL-018/SKILL-018-A02/disabled-before-use.png",
+          "证据/SKILL-018/SKILL-018-A02/use-result.png",
+          "证据/SKILL-018/SKILL-018-A02/enabled-restored.png"
+        ]
+      },
+      {
+        "change": "Temporarily enabled round-night-md-direct-20261006 as a control for explicit use.",
+        "restored": true,
+        "verification": "Skills card aria-checked returned to false; before and restored screenshots/state saved."
+      }
+    ],
+    "remaining": []
+  },
+  "review": {
+    "assistant": null,
+    "user": null,
+    "approved_scope": [],
+    "final_decision": "待审核"
+  },
+  "audit_history": [
+    {
+      "type": "previous blocker superseded by user-authorized night continuation",
+      "recorded_at": "2026-10-05T15:34:43.122Z",
+      "blocker": {
+        "reason": "无法在本轮可用的正常路径上构造该场景：需要一次对话内显式调用被停用技能的完整执行，属执行侧行为，且需要可控的多轮模型会话与结果回读。本轮未执行，未以推测代替结论。",
+        "missing_dependency": "需要一次对话内显式调用被停用技能的完整执行，属执行侧行为，且需要可控的多轮模型会话与结果回读",
+        "evidence": [
+          "证据/ROUND2-SKILL/SKILL-A02/搜索筛选详情与启停.txt",
+          "证据/SKILL-002/SKILL-002-A02/技能卡片全量.txt"
+        ],
+        "next_action": "需要可控的多轮模型会话（用于 SKILL-018 的显式调用）与一条运行时长足够的无害任务（用于 SKILL-019 的在途切换）后补测。"
+      },
+      "disposition": "Preserved for history; not treated as current restriction."
+    },
+    {
+      "at": "2026-10-05T18:25:00.000Z",
+      "event": "新增round-owned样本安全复核SKILL-018-A02：停用态快捷使用未加载样本；任务后恢复启用，旧A01 memory_log记录保留。"
+    },
+    {
+      "at": "2026-10-05T20:11:00.000Z",
+      "event": "A03 compared disabled and enabled explicit Skill use on a round-owned sample; preserved DIFF-020, stopped a recursive C:\\ scan request, and restored original disabled state."
+    }
+  ],
+  "notes": "停用技能快捷使用发生的具体差异与 memory_log 副作用待审核；样本已恢复启用。",
+  "difference_ids": [
+    "DIFF-020"
+  ]
+}

@@ -1,0 +1,183 @@
+{
+  "case_id": "DIALOG-001",
+  "case_title": "当前任务完成不显示未读",
+  "source_sha256": "b712acd3b204ebcfdd07129c4d993ea1beb184f9a2d0c3827745ee1fdf7a6677",
+  "status": "已执行-符合预期",
+  "review_status": "待双方审核",
+  "latest_attempt_id": "DIALOG-001-A03",
+  "attempts": [
+    {
+      "attempt_id": "DIALOG-001-A02",
+      "started_at": "2026-10-05T19:28:00+08:00",
+      "ended_at": "2026-10-05T19:28:08+08:00",
+      "environment_id": "ENV-001",
+      "surface": "TPT Work Electron UI via CDP 9234 + Playwright; dsh-app://app/, top frame",
+      "actual_preconditions": {
+        "account_alias": "Arthur (shown in UI)",
+        "workspace": "tpt-workspace",
+        "project": "tpt-workspace selected through project picker UI",
+        "session_id": "DIALOG001_OK (new session this round)",
+        "model": "standard",
+        "reasoning_level": "low",
+        "permission": "workspace edits",
+        "fixtures": [
+          "Round-unique marker DIALOG001_OK"
+        ]
+      },
+      "input": "The PowerShell pipeline corrupted the intended Chinese prefix; actual displayed and submitted text was ???? DIALOG001_OK. Planned input: reply only DIALOG001_OK.",
+      "actual_steps": [
+        "Clicked the visible New Task entry while on Skills page.",
+        "Opened Select Project and selected the existing tpt-workspace menu item.",
+        "Confirmed model standard / low and permission workspace edits.",
+        "Submitted the text as actually displayed: ???? DIALOG001_OK.",
+        "Polled the visible page to terminal state; the new session stayed selected. Read body and sidebar DOM and saved screenshot."
+      ],
+      "wait_condition": "Wait for terminal status in the selected task; completion appeared after about 8 seconds.",
+      "checkpoints": [
+        {
+          "expected_index": 1,
+          "expected": "完成内容直接可见",
+          "observed": "The selected session body showed completion status and 7 seconds elapsed, followed by a completion message. Input corruption limits usefulness.",
+          "verdict": "符合",
+          "evidence": [
+            "证据/DIALOG-001/DIALOG-001-A02/ui-state.json",
+            "证据/DIALOG-001/DIALOG-001-A02/final.png"
+          ]
+        },
+        {
+          "expected_index": 2,
+          "expected": "A不出现完成未读标记",
+          "observed": "After completion the session remained selected; no distinct unread badge text was seen in the sidebar DOM. Observation limited to current DOM and screenshot.",
+          "verdict": "未验证",
+          "evidence": [
+            "证据/DIALOG-001/DIALOG-001-A02/ui-state.json",
+            "证据/DIALOG-001/DIALOG-001-A02/final.png"
+          ]
+        }
+      ],
+      "observed_result": "The new task completed in the currently selected session and displayed completion text with 7 seconds elapsed. No sidebar unread badge text was observed. Input encoding corruption requires a clean ASCII replay.",
+      "status": "已执行-结论不确定",
+      "evidence": [
+        "证据/DIALOG-001/DIALOG-001-A02/ui-state.json",
+        "证据/DIALOG-001/DIALOG-001-A02/final.png"
+      ],
+      "difference_ids": [],
+      "notes": "No settings or existing sessions changed. The new session remains in the existing project as a round-owned sample. Append an ASCII-input replay to rule out pipeline encoding corruption."
+    },
+    {
+      "attempt_id": "DIALOG-001-A03",
+      "started_at": "2026-10-05T19:32:00+08:00",
+      "ended_at": "2026-10-05T19:32:09+08:00",
+      "environment_id": "ENV-001",
+      "surface": "TPT Work Electron UI through CDP 9234 + Playwright; dsh-app://app/ top frame",
+      "actual_preconditions": {
+        "account_alias": "Arthur shown in UI",
+        "workspace": "tpt-workspace",
+        "project": "existing tpt-workspace selected through UI picker",
+        "session_id": "session-1177f728-9d39-4219-aacf-2ffd3bb11d83 (current-round session)",
+        "model": "standard",
+        "reasoning_level": "low",
+        "permission": "workspace edits",
+        "fixtures": [
+          "ASCII marker DIALOG001_OK"
+        ]
+      },
+      "input": "Reply exactly DIALOG001_OK. Harmless UI status check.",
+      "actual_steps": [
+        "Opened New Task from the visible sidebar entry.",
+        "The new editor showed tpt-workspace already selected; verified project and left it unchanged.",
+        "Verified model selector standard / low and permission workspace edits.",
+        "Submitted ASCII-only prompt.",
+        "Waited while the current task showed running, then read completed body and selected sidebar row."
+      ],
+      "wait_condition": "Wait for task to complete in current selected view; completion displayed at about 6 seconds.",
+      "checkpoints": [
+        {
+          "expected_index": 1,
+          "expected": "完成内容直接可见",
+          "observed": "The selected task body displayed ?????? / ?? 6?? followed by the exact requested output DIALOG001_OK.",
+          "verdict": "符合",
+          "evidence": [
+            "证据/DIALOG-001/DIALOG-001-A03/ui-state.json",
+            "证据/DIALOG-001/DIALOG-001-A03/final.png"
+          ]
+        },
+        {
+          "expected_index": 2,
+          "expected": "A不出现完成未读标记",
+          "observed": "The task stayed selected after completion. Its sidebar row had role=treeitem and aria-selected=true; no unread marker or badge was present in the row DOM or visible text.",
+          "verdict": "符合",
+          "evidence": [
+            "证据/DIALOG-001/DIALOG-001-A03/ui-state.json",
+            "证据/DIALOG-001/DIALOG-001-A03/final.png"
+          ]
+        }
+      ],
+      "observed_result": "A new normal task completed while remaining the selected conversation. Completion content and elapsed time were directly visible; the current sidebar row had no unread indicator.",
+      "status": "已执行-符合预期",
+      "evidence": [
+        "证据/DIALOG-001/DIALOG-001-A03/ui-state.json",
+        "证据/DIALOG-001/DIALOG-001-A03/final.png"
+      ],
+      "difference_ids": [],
+      "notes": "No settings or existing sessions changed. New round-owned session remains in existing tpt-workspace."
+    }
+  ],
+  "product_observations": [
+    {
+      "observation": "The new task completed in the currently selected session, showing 7 seconds elapsed; sidebar DOM had no unread badge text.",
+      "scope": "ENV-001, tpt-workspace, new round-owned session",
+      "depth": "Business terminal state and current sidebar status observed",
+      "evidence": [
+        "证据/DIALOG-001/DIALOG-001-A02/ui-state.json",
+        "证据/DIALOG-001/DIALOG-001-A02/final.png"
+      ],
+      "additional_feature": false
+    },
+    {
+      "observation": "An ASCII-only short task completed in the currently selected session, with completion content visible and no unread badge in the selected sidebar row.",
+      "scope": "ENV-001; existing tpt-workspace; current-round session",
+      "depth": "business terminal state and selected row UI state",
+      "evidence": [
+        "证据/DIALOG-001/DIALOG-001-A03/ui-state.json",
+        "证据/DIALOG-001/DIALOG-001-A03/final.png"
+      ],
+      "additional_feature": false
+    }
+  ],
+  "differences": [],
+  "finding_ids": [],
+  "blocker": {
+    "reason": "无法执行【当前任务完成不显示未读】：需要在当前查看中的会话完成任务并观察是否不产生未读标记；本轮只观察到侧栏完成标记形态，未做前后对比读取。 本机可用条件：标准/low 模型、单一项目、无附件夹具、无故障注入、无第二身份。",
+    "missing_dependency": "需要在当前查看中的会话完成任务并观察是否不产生未读标记；本轮只观察到侧栏完成标记形态，未做前后对比读取。 本机可用条件：标准/low 模型、单一项目、无附件夹具、无故障注入、无第二身份。",
+    "evidence": [
+      "证据/DIALOG-001/DIALOG-001-A01/反馈入口-摘录.txt"
+    ],
+    "next_action": "需要上述缺失的夹具/场景/能力之一；其中附件类需可控 HTML 输入或授权使用原生选择器，过程类需要一次包含工具调用的较长期望任务。"
+  },
+  "applicability_reason": null,
+  "cleanup": {
+    "changes": [
+      {
+        "item": "New round-owned test session DIALOG001_OK",
+        "action": "Retained for review; not cleaned",
+        "restore": "No restore required; explicit current-round sample"
+      },
+      {
+        "item": "New current-round session Reply exactly DIALOG001_OK. Harmless UI",
+        "action": "Retained for review",
+        "restore": "No restore required; current-round sample"
+      }
+    ],
+    "remaining": [
+      "Round-owned test session DIALOG001_OK remains in existing project",
+      "Current-round ASCII sample session remains in existing project"
+    ]
+  },
+  "review": {
+    "assistant": null,
+    "user": null,
+    "approved_scope": [],
+    "final_decision": "待审核"
+  }
+}

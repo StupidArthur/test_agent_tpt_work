@@ -1,0 +1,49 @@
+{
+  "observations": {
+    "action_refs": [
+      "business-66a66ab4-0a19-46b4-a5df-979bbaac0cc8-3"
+    ],
+    "observations": {
+      "before": {
+        "event_id": "business-66a66ab4-0a19-46b4-a5df-979bbaac0cc8-1",
+        "captured_at": "2026-10-06T10:24:31.486Z",
+        "environment_id": "env-fn-20261006-agent2",
+        "kind": "read",
+        "target": "设置开关按索引(改前)",
+        "business_call_id": "CALL-945ad512-39e1-4f66-9c7e-9499ac2145c3",
+        "object_id": "settings-switch-index",
+        "source": {
+          "channel": "dom",
+          "scope": "设置/开发者模式#0",
+          "locator": "[data-shortcut-modal=\"settings\"] [role=\"switch\"]"
+        },
+        "value": true,
+        "raw": {
+          "aria_checked": "true",
+          "index": 0
+        },
+        "derivation": "aria_checked === 'true'"
+      },
+      "after": {
+        "event_id": "business-66a66ab4-0a19-46b4-a5df-979bbaac0cc8-4",
+        "captured_at": "2026-10-06T10:24:32.738Z",
+        "environment_id": "env-fn-20261006-agent2",
+        "kind": "read",
+        "target": "设置开关按索引(改后)",
+        "business_call_id": "CALL-945ad512-39e1-4f66-9c7e-9499ac2145c3",
+        "object_id": "settings-switch-index",
+        "source": {
+          "channel": "dom",
+          "scope": "设置/开发者模式#0",
+          "locator": "[data-shortcut-modal=\"settings\"] [role=\"switch\"]"
+        },
+        "value": false,
+        "raw": {
+          "aria_checked": "false",
+          "index": 0
+        },
+        "derivation": "aria_checked === 'true'"
+      }
+    }
+  }
+}

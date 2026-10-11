@@ -1,0 +1,56 @@
+{
+  "call_id": "CALL-5426a31b-7ef9-447f-8bc1-364cccca576e",
+  "status": "returned",
+  "observations": {
+    "action_refs": [
+      "CALL-5426a31b-7ef9-447f-8bc1-364cccca576e-2"
+    ],
+    "observations": {
+      "toolText": {
+        "event_id": "CALL-5426a31b-7ef9-447f-8bc1-364cccca576e-3",
+        "captured_at": "2026-10-07T03:24:42.585Z",
+        "environment_id": "PC88-20261007-memory01",
+        "business_call_id": "CALL-5426a31b-7ef9-447f-8bc1-364cccca576e",
+        "kind": "read",
+        "target": "轨迹工具记录",
+        "object_id": "trace-tool-row",
+        "source": {
+          "channel": "dom",
+          "scope": "本轮会话/轨迹表格",
+          "locator": "tr[data-kind=\"tool\"]"
+        },
+        "value": "工具 memory_recall{\"query\": \"MEM88-20261007-TOOL-乙\"} → 检索「MEM88-20261007-TOOL-乙」命中 2 条： [日志 2026-10-07 · 2026-10-07.md:2 · 相关度 60%] - 11:21 MEM88-20261007-TOOL-乙 [长期记忆 · MEMORY.md:4 · 相关度 60%] - [F] MEM88-20261007-TOOL-乙（2026-10-07） 已扫描：日志 2026-10-07、长期记忆",
+        "raw": {
+          "count": 3,
+          "texts": [
+            "工具 memory_log{\"note\": \"MEM88-20261007-TOOL-乙\"} → 已写入日志：- 11:21 MEM88-20261007-TOOL-乙",
+            "工具 memory_note{\"content\": \"MEM88-20261007-TOOL-乙\", \"type\": \"F\", \"importance\": 1} → 已写入长期记忆（1 行）",
+            "工具 memory_recall{\"query\": \"MEM88-20261007-TOOL-乙\"} → 检索「MEM88-20261007-TOOL-乙」命中 2 条： [日志 2026-10-07 · 2026-10-07.md:2 · 相关度 60%] - 11:21 MEM88-20261007-TOOL-乙 [长期记忆 · MEMORY.md:4 · 相关度 60%] - [F] MEM88-20261007-TOOL-乙（2026-10-07） 已扫描：日志 2026-10-07、长期记忆"
+          ]
+        }
+      },
+      "scroll": {
+        "event_id": "CALL-5426a31b-7ef9-447f-8bc1-364cccca576e-4",
+        "captured_at": "2026-10-07T03:24:42.589Z",
+        "environment_id": "PC88-20261007-memory01",
+        "business_call_id": "CALL-5426a31b-7ef9-447f-8bc1-364cccca576e",
+        "kind": "read",
+        "target": "工具输出容器可滚动",
+        "object_id": "trace-tool-scroll",
+        "source": {
+          "channel": "dom",
+          "scope": "本轮会话/轨迹工具输出单元",
+          "locator": "tr[data-kind=\"tool\"] td"
+        },
+        "value": false,
+        "raw": {
+          "found": true,
+          "scrollHeight": null,
+          "clientHeight": null,
+          "vert": false
+        },
+        "derivation": "某输出单元 scrollHeight>clientHeight 且允许纵向滚动"
+      }
+    }
+  }
+}

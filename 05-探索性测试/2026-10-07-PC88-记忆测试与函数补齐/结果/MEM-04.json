@@ -1,0 +1,16 @@
+{
+  "id": "MEM-04",
+  "run": "PC88-20261007-memory01",
+  "machine_id": "PC88",
+  "status": "部分通过",
+  "assertions": {
+    "外部改写感知": "外部写入 USER.md 后，面板显示 USER.md 1 条 55 字符(由 0 更新)",
+    "写前备份": "host/tool 写入 MEMORY.md 时生成 MEMORY.md.bak=被覆盖前字节; 外部改写 USER.md 未生成备份",
+    "审计": "外部改写未新增 audit"
+  },
+  "refs": [
+    "fixtures.writeFile",
+    "CALL-78d60a38-ae48-4790-bef3-a1117f7d94f4"
+  ],
+  "notes": "AGENTS 单文件备份不能推导全部文件有备份"
+}

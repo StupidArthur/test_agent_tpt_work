@@ -1,0 +1,157 @@
+{
+  "fileTests": "passed",
+  "missingHashRejected": true,
+  "discovery": [
+    {
+      "query": "恢复 新增文件",
+      "expected": "fixtures.removeCreatedFile",
+      "candidates": [
+        "fixtures.removeCreatedFile",
+        "skills.toggleSwitchNoDetail",
+        "settings.readSnapshot",
+        "conversation.setSort",
+        "fixtures.backupFile"
+      ]
+    },
+    {
+      "query": "插件 展开",
+      "expected": "settings.setPluginExpanded",
+      "candidates": [
+        "settings.listPluginCards",
+        "settings.setPluginExpanded",
+        "conversation.readPluginCard",
+        "conversation.readWorkSteps",
+        "skills.clickTreeNode"
+      ]
+    },
+    {
+      "query": "会话 搜索",
+      "expected": "conversation.searchSessions",
+      "candidates": [
+        "conversation.searchSessions",
+        "conversation.openSearchShortcut",
+        "conversation.newTask",
+        "conversation.setTaskPermission",
+        "conversation.readTaskState"
+      ]
+    },
+    {
+      "query": "记忆 编辑",
+      "expected": "memory.editLayerFile",
+      "candidates": [
+        "memory.editLayerFile",
+        "memory.probePanel",
+        "memory.readOverview",
+        "memory.addEntry",
+        "memory.inspectSurfaces"
+      ]
+    }
+  ],
+  "calls": [
+    {
+      "name": "fixtures.readFile",
+      "args": {
+        "path": "D:\\code\\electron-ui\\探索性测试\\2026-10-07-PCG与PC88交付回收\\文件试用\\1791387720525\\new.txt"
+      },
+      "call_id": "CALL-85a083a4-5804-4ecf-a36b-6eb86798b3c7",
+      "status": "returned"
+    },
+    {
+      "name": "fixtures.writeFile",
+      "args": {
+        "path": "D:\\code\\electron-ui\\探索性测试\\2026-10-07-PCG与PC88交付回收\\文件试用\\1791387720525\\new.txt",
+        "content": "review-owned harmless cleanup fixture"
+      },
+      "call_id": "CALL-2727767e-7666-4f31-be2f-a8f4f9957b01",
+      "status": "returned"
+    },
+    {
+      "name": "fixtures.removeCreatedFile",
+      "args": {
+        "path": "D:\\code\\electron-ui\\探索性测试\\2026-10-07-PCG与PC88交付回收\\文件试用\\1791387720525\\new.txt",
+        "expectedSha256": "0000000000000000000000000000000000000000000000000000000000000000",
+        "absentReadRef": "CALL-85a083a4-5804-4ecf-a36b-6eb86798b3c7-1"
+      },
+      "call_id": "CALL-52b18214-5dc2-4feb-b198-457cde107673",
+      "status": "error",
+      "error": {
+        "type": "Error",
+        "message": "File changed since expected hash"
+      }
+    },
+    {
+      "name": "fixtures.removeCreatedFile",
+      "args": {
+        "path": "D:\\code\\electron-ui\\探索性测试\\2026-10-07-PCG与PC88交付回收\\文件试用\\1791387720525\\new.txt",
+        "expectedSha256": "cfd4aa6884e24a86b69830c8873601c3cc965c30ff5896dd84799687f4873472",
+        "absentReadRef": "CALL-not-a-baseline"
+      },
+      "call_id": "CALL-7c6140b6-0132-48bd-8d19-9a91f36b783f",
+      "status": "error",
+      "error": {
+        "type": "Error",
+        "message": "Require this task fixtures.readFile event proving target originally absent"
+      }
+    },
+    {
+      "name": "fixtures.removeCreatedFile",
+      "args": {
+        "path": "D:\\code\\electron-ui\\outside-review.txt",
+        "expectedSha256": "cfd4aa6884e24a86b69830c8873601c3cc965c30ff5896dd84799687f4873472",
+        "absentReadRef": "CALL-85a083a4-5804-4ecf-a36b-6eb86798b3c7-1"
+      },
+      "call_id": "CALL-94147c68-b538-40ac-9697-52575c837223",
+      "status": "error",
+      "error": {
+        "type": "Error",
+        "message": "Target outside task/environment roots"
+      }
+    },
+    {
+      "name": "fixtures.removeCreatedFile",
+      "args": {
+        "path": "D:\\code\\electron-ui\\探索性测试\\2026-10-07-PCG与PC88交付回收\\文件试用\\1791387720525\\memory.MD",
+        "expectedSha256": "cfd4aa6884e24a86b69830c8873601c3cc965c30ff5896dd84799687f4873472",
+        "absentReadRef": "CALL-85a083a4-5804-4ecf-a36b-6eb86798b3c7-1"
+      },
+      "call_id": "CALL-8c2b9556-f2fd-4c47-9d20-422c43689a81",
+      "status": "error",
+      "error": {
+        "type": "Error",
+        "message": "Protected memory file"
+      }
+    },
+    {
+      "name": "fixtures.removeCreatedFile",
+      "args": {
+        "path": "D:\\code\\electron-ui\\探索性测试\\2026-10-07-PCG与PC88交付回收\\文件试用\\1791387720525",
+        "expectedSha256": "cfd4aa6884e24a86b69830c8873601c3cc965c30ff5896dd84799687f4873472",
+        "absentReadRef": "CALL-85a083a4-5804-4ecf-a36b-6eb86798b3c7-1"
+      },
+      "call_id": "CALL-e519ef2c-de36-4250-9e93-f7029fcd66a7",
+      "status": "error",
+      "error": {
+        "type": "Error",
+        "message": "Require this task fixtures.readFile event proving target originally absent"
+      }
+    },
+    {
+      "name": "fixtures.removeCreatedFile",
+      "args": {
+        "path": "D:\\code\\electron-ui\\探索性测试\\2026-10-07-PCG与PC88交付回收\\文件试用\\1791387720525\\new.txt",
+        "expectedSha256": "cfd4aa6884e24a86b69830c8873601c3cc965c30ff5896dd84799687f4873472",
+        "absentReadRef": "CALL-85a083a4-5804-4ecf-a36b-6eb86798b3c7-1"
+      },
+      "call_id": "CALL-04443a4f-2d89-4211-941e-8141b40010b2",
+      "status": "returned"
+    },
+    {
+      "name": "fixtures.readFile",
+      "args": {
+        "path": "D:\\code\\electron-ui\\探索性测试\\2026-10-07-PCG与PC88交付回收\\文件试用\\1791387720525\\new.txt"
+      },
+      "call_id": "CALL-4fcb4d1f-ce82-4248-902d-17bae21ce059",
+      "status": "returned"
+    }
+  ]
+}

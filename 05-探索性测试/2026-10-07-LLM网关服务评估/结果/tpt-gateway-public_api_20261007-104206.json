@@ -1,0 +1,84 @@
+{
+  "run": {
+    "target": "tpt-gateway-public",
+    "module": "api",
+    "items": [
+      "API-01",
+      "API-07"
+    ],
+    "ts": "20261007-104206",
+    "est_requests": 3,
+    "seconds": 0.61,
+    "key_present": false,
+    "base_url": "https://tpt.supcon.com/tpt-work-router/v1"
+  },
+  "instances": [
+    {
+      "instance_id": "API-01/tpt-gateway-public/discovery",
+      "item": "API-01",
+      "status": "失败",
+      "assertions": [
+        {
+          "name": "http_200",
+          "expected": "200",
+          "actual": "401",
+          "satisfied": false
+        },
+        {
+          "name": "parsable_catalog",
+          "expected": "list non-empty",
+          "actual": "0 items",
+          "satisfied": false
+        },
+        {
+          "name": "ids_nonempty_str",
+          "expected": "True",
+          "actual": "True",
+          "satisfied": true
+        },
+        {
+          "name": "target_present:ds-flash",
+          "expected": "True",
+          "actual": "False",
+          "satisfied": false
+        }
+      ],
+      "attempts": [],
+      "evidence": [
+        "api/API-01_tpt-gateway-public_models.json"
+      ],
+      "notes": [],
+      "metrics": {
+        "model_count": 0
+      },
+      "failure_attribution": null
+    },
+    {
+      "instance_id": "API-07/tpt-gateway-public/auth",
+      "item": "API-07",
+      "status": "通过",
+      "assertions": [
+        {
+          "name": "no_key_rejected",
+          "expected": "401/403",
+          "actual": "401",
+          "satisfied": true
+        },
+        {
+          "name": "bad_key_rejected",
+          "expected": "401/403",
+          "actual": "401",
+          "satisfied": true
+        }
+      ],
+      "attempts": [],
+      "evidence": [
+        "api/API-07_tpt-gateway-public_none.json",
+        "api/API-07_tpt-gateway-public_bad.json"
+      ],
+      "notes": [],
+      "metrics": {},
+      "failure_attribution": null
+    }
+  ]
+}

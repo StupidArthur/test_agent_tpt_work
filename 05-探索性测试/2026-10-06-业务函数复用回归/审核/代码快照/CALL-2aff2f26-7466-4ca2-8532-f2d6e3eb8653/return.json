@@ -1,0 +1,31 @@
+{
+  "observations": {
+    "action_refs": [
+      "business-e9035b09-8eb5-4d70-a23d-40e3bb7a6eb0-2"
+    ],
+    "observations": {
+      "result": {
+        "event_id": "business-e9035b09-8eb5-4d70-a23d-40e3bb7a6eb0-3",
+        "captured_at": "2026-10-06T11:21:56.914Z",
+        "environment_id": "env-fn-20261006-agent2",
+        "kind": "read",
+        "target": "搜索结果命中数",
+        "business_call_id": "CALL-2aff2f26-7466-4ca2-8532-f2d6e3eb8653",
+        "object_id": "skill-search-count",
+        "source": {
+          "channel": "dom",
+          "scope": "技能页/结果列表",
+          "locator": "section.panel [data-slot=\"card\"]"
+        },
+        "value": 0,
+        "raw": {
+          "matched": 0,
+          "total": 1,
+          "query": "FAST_SEARCH_TAG",
+          "internalName": "fast-assert-cn-all-fn-20261006-agent2"
+        },
+        "derivation": "卡片文本含内部名计数"
+      }
+    }
+  }
+}

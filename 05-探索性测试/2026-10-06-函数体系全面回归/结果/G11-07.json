@@ -1,0 +1,54 @@
+{
+  "case_id": "G11-07",
+  "contract_version": "2.0",
+  "environment_id": "agent-oc-20261006-funcfull-01",
+  "attempt_id": "G11-07-A01",
+  "object_identity": "fast-assert-expert-bundled-agent-oc-20261006-funcfull-01",
+  "inputs": [
+    "使用 bundled 专家并请求执行内置技能固定规则"
+  ],
+  "business_call_refs": [
+    "CALL-b9702cf4-eacb-4559-bb81-3e769b4f8776",
+    "CALL-0deeeb11-f5a0-4cde-8439-f9ac188307bd",
+    "CALL-57f9c1c0-fb7b-4927-8ad0-8a1a0a6738b0"
+  ],
+  "status": "通过",
+  "attempted_at": "2026-10-06T16:54:29.076Z",
+  "assertions": [
+    {
+      "id": "G11-07-A1",
+      "expected": "FAST_BUNDLED_OK",
+      "actual": "<skill_content name=\"agent-fast-assert-expert-bundled-agent-oc-20261006-funcfull-01\"> ... <content> ... return exactly FAST_BUNDLED_OK ... </content>",
+      "pass": true,
+      "read_refs": [
+        "CALL-57f9c1c0-fb7b-4927-8ad0-8a1a0a6738b0-3"
+      ],
+      "derivation": "本轮轨迹内加载的 bundled SKILL.md 正文含 FAST_BUNDLED_OK"
+    },
+    {
+      "id": "G11-07-A2",
+      "expected": "FAST_BUNDLED_OK",
+      "actual": "FAST_BUNDLED_OK",
+      "pass": true,
+      "read_refs": [
+        "CALL-0deeeb11-f5a0-4cde-8439-f9ac188307bd-3"
+      ]
+    },
+    {
+      "id": "G11-07-A3",
+      "expected": false,
+      "actual": false,
+      "pass": true,
+      "read_refs": [
+        "CALL-0deeeb11-f5a0-4cde-8439-f9ac188307bd-4"
+      ]
+    }
+  ],
+  "restore": {
+    "status": "unchanged",
+    "description": "本case未改动设置/文件",
+    "read_refs": []
+  },
+  "residual": "",
+  "notes": "轨迹显示实际读取 skills/bundled/SKILL.md 后回复。"
+}

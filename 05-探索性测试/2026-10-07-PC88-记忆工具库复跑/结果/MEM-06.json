@@ -1,0 +1,65 @@
+{
+  "run": "PC88-20261007-r2-01",
+  "case_id": "MEM-06",
+  "title": "分层注入",
+  "attempts": [
+    {
+      "attempt_id": "MEM-06-A1",
+      "started_at": "2026-10-07T05:28:00Z",
+      "ended_at": "2026-10-07T05:30:00Z",
+      "precondition": "SOUL.md 由空改为含 SOUL-MARK；AGENTS.md 含 MEM-04-agents1；USER.md 含 MEM-04-user1；MEMORY.md 含 MEM-02/MEM-03 条目；2026-10-07.md 工作日志存在",
+      "inputs": ["新会话 session-bd62394f-03e2-4eaf-8d57-d14f87d31dc2；提问不调用记忆工具，仅凭上下文逐条回答标记是否存在"],
+      "steps": ["fixtures.writeFile(SOUL.md 加标记)", "conversation.newTask(forceNew)", "conversation.sendMessage", "conversation.readToolTrace(确认未调用记忆工具)"],
+      "subchecks": [
+        {
+          "id": "MEM-06-S1",
+          "name": "分层文件非空准备",
+          "expected": "各层准备非空内容，逐层可区分",
+          "actual": {"SOUL.md": "76B 含 MEM-06-soul1", "AGENTS.md": "135B 含 MEM-04-agents1", "USER.md": "133B 含 MEM-04-user1", "MEMORY.md": "2 条含 MEM-02-s1/MEM-03-tool1", "日志": "2026-10-07.md 含 session-43be5740 段落"},
+          "verdict": "符合",
+          "source": "CALL-9d3d1ab1-503c-4ce8-84fe-543fa1478248-1"
+        },
+        {
+          "id": "MEM-06-S2",
+          "name": "USER.md 层注入观测",
+          "expected": "USER.md 内容应出现在注入上下文",
+          "actual": {"模型答复": "MEM-04-user1 — ✅ 能检索到。来源：用户画像 USER.md。原文引用：外部改写样本 MEM88R2-PC88-20261007-r2-01-MEM-04-user1", "记忆工具调用": 0},
+          "verdict": "符合",
+          "source": "CALL-<sendMessage MEM-06>；CALL-<readToolTrace count=0>"
+        },
+        {
+          "id": "MEM-06-S3",
+          "name": "SOUL.md 层注入观测",
+          "expected": "SOUL.md 内容应出现在注入上下文",
+          "actual": {"模型答复": "MEM-06-soul1 — ❌ 未能检索到。当前注入的上下文（工作日志、MEMORY.md、USER.md）中均无该标记。", "记忆工具调用": 0},
+          "verdict": "未验证",
+          "source": "CALL-<sendMessage MEM-06>；CALL-<readToolTrace count=0>",
+          "note": "模型复述不构成“注入缺失”的证明；本机无宿主上下文读取能力（会话 zstd 仅含元数据，sqlite 无消息表）。单列为候选观察，不判产品失败。"
+        },
+        {
+          "id": "MEM-06-S4",
+          "name": "AGENTS.md 层注入观测",
+          "expected": "AGENTS.md 内容应出现在注入上下文",
+          "actual": {"模型答复": "MEM-04-agents1 — ❌ 未能检索到。当前注入的上下文（工作日志、MEMORY.md、USER.md）中均无该标记。"},
+          "verdict": "未验证",
+          "source": "CALL-<sendMessage MEM-06>",
+          "note": "同上；仅模型复述，不证明缺失。"
+        },
+        {
+          "id": "MEM-06-S5",
+          "name": "MEMORY.md/日志 层注入观测",
+          "expected": "MEMORY.md 与工作日志内容应出现在注入上下文",
+          "actual": {"模型答复": "“当前注入的上下文（工作日志、MEMORY.md、USER.md）”；且 MEM-08 会话经 memory_recall 命中 MEMORY.md:1 与 MEMORY.md:4"},
+          "verdict": "符合",
+          "source": "CALL-<sendMessage MEM-06>；CALL-91498b16 关联 MEM-08"
+        }
+      ],
+      "verdict": "部分通过（SOUL/AGENTS 未验证）",
+      "restore": "SOUL.md 由 MEM-18 恢复为 0B；AGENTS/USER 同 MEM-04 恢复"
+    }
+  ],
+  "status": "未验证",
+  "candidate_observations": ["SOUL.md、AGENTS.md 内容未在模型可报告的注入上下文中出现（仅模型复述，未证明缺失）"],
+  "unverified": ["MEM-06-S3", "MEM-06-S4"],
+  "evidence_refs": ["CALL-9d3d1ab1"]
+}

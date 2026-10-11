@@ -1,0 +1,89 @@
+{
+  "ok": true,
+  "start": 229809.343,
+  "end": 229821.093,
+  "requests": [
+    {
+      "request_id": 67,
+      "start": 229809.343,
+      "end": 229815.468,
+      "ok": true,
+      "error": null,
+      "status": "200"
+    },
+    {
+      "request_id": 72,
+      "start": 229816.671,
+      "end": 229821.078,
+      "ok": true,
+      "error": null,
+      "status": "200"
+    }
+  ],
+  "first_text_wait": 8.532000000008615,
+  "error": null,
+  "scenario": "standard-sales-analysis",
+  "metrics": [
+    {
+      "first_effective": 2.907,
+      "reasoning": 2.907,
+      "tool": 6.078,
+      "text": null,
+      "usage": {
+        "input_tokens": 22605,
+        "input_tokens_details": {
+          "cached_tokens": 18176,
+          "input_tokens_per_turn": [],
+          "cached_tokens_per_turn": []
+        },
+        "output_tokens": 393,
+        "output_tokens_details": {
+          "reasoning_tokens": 0,
+          "tool_output_tokens": 0,
+          "output_tokens_per_turn": [],
+          "tool_output_tokens_per_turn": []
+        },
+        "total_tokens": 22998
+      },
+      "e2e": 6.125,
+      "ok": true
+    },
+    {
+      "first_effective": 1.204,
+      "reasoning": null,
+      "tool": null,
+      "text": 1.204,
+      "usage": {
+        "input_tokens": 22872,
+        "input_tokens_details": {
+          "cached_tokens": 22528,
+          "input_tokens_per_turn": [],
+          "cached_tokens_per_turn": []
+        },
+        "output_tokens": 443,
+        "output_tokens_details": {
+          "reasoning_tokens": 0,
+          "tool_output_tokens": 0,
+          "output_tokens_per_turn": [],
+          "tool_output_tokens_per_turn": []
+        },
+        "total_tokens": 23315
+      },
+      "e2e": 4.407,
+      "ok": true
+    }
+  ],
+  "checks": {
+    "first_completed": true,
+    "expected_tool": true,
+    "tool_arguments": true,
+    "second_completed": true,
+    "final_numbers": true,
+    "final_report": true
+  },
+  "evidence": [
+    "wire/scan-5users/00067-CAP_AGENT_3434d1824c504a9bb3b269490d022004.json",
+    "wire/scan-5users/00072-CAP_AGENT_3434d1824c504a9bb3b269490d022004.json"
+  ],
+  "source_session": "session-34721e42-7172-406f-8536-84d795cf8970"
+}

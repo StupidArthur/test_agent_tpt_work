@@ -1,0 +1,65 @@
+{
+  "case_id": "G12-08",
+  "contract_version": "2.0",
+  "attempt_id": "fn-20261006-agent2-G12-08-A1",
+  "environment_id": "env-fn-20261006-agent2",
+  "object_identity": {
+    "setting": "新会话快捷键"
+  },
+  "inputs": [
+    "设置→常规→编辑快捷键→改新会话为 Ctrl+Alt+Shift+F9→重开回读→恢复 Ctrl+N"
+  ],
+  "action_refs": [
+    "business-452c8bdf-c347-4114-ba7f-d2cb2c4efb86-2",
+    "business-454e52ca-8dca-40d3-9ba5-67d24450da2f-2"
+  ],
+  "status": "通过",
+  "started_at": "2026-10-06T10:28:00.000Z",
+  "ended_at": "2026-10-06T11:08:00.000Z",
+  "actual_steps": [
+    "读取新会话快捷键初值",
+    "录制并保存 Ctrl+Alt+Shift+F9",
+    "重开快捷键编辑器回读",
+    "恢复 Ctrl+N 并回读"
+  ],
+  "assertions": [
+    {
+      "id": "G12-08-A1",
+      "actual": "Ctrl+Alt+Shift+F9",
+      "read_refs": [
+        "business-0ab5e25d-52ad-42bf-94d0-80c8b1726182-1"
+      ]
+    },
+    {
+      "id": "G12-08-A2",
+      "actual": "Ctrl+N",
+      "read_refs": [
+        "business-3f33be9b-0423-41f2-b68d-3b6c1b2e2213-1"
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "path": "运行日志/business.jsonl",
+      "sha256": "6203703aeaf46ab5fd94d64c474b878c26f39b97bc4c3f7a3840f9ee9a48bdc5"
+    },
+    {
+      "path": "运行日志/业务调用.jsonl",
+      "sha256": "91fc9bb4b29ad5347770a9e5e5a21b38b9c414c04a2e484e84b5dd981db87bd7"
+    }
+  ],
+  "cleanup": {
+    "status": "restored",
+    "description": "新会话快捷键已恢复 Ctrl+N",
+    "read_refs": [
+      "business-3f33be9b-0423-41f2-b68d-3b6c1b2e2213-1"
+    ]
+  },
+  "business_call_refs": [
+    "CALL-1fa79bf4-6cd5-4cbf-8810-5408376ff033",
+    "CALL-6640d758-f2b8-4b89-8d90-e1a19938f809",
+    "CALL-7529d2c6-a5cd-4b59-a8a5-8837b720cefd",
+    "CALL-1ceb4c07-14da-4002-8a87-1d39a8175539"
+  ],
+  "notes": "shortcut_new_initial=Ctrl+N；改后重开回读 Ctrl+Alt+Shift+F9，恢复后回读 Ctrl+N"
+}

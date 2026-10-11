@@ -1,0 +1,52 @@
+{
+  "observations": {
+    "action_refs": [
+      "business-13522799-648b-48ee-86cb-c3ab438b69c6-2",
+      "business-13522799-648b-48ee-86cb-c3ab438b69c6-4"
+    ],
+    "observations": {
+      "conflict": {
+        "event_id": "business-13522799-648b-48ee-86cb-c3ab438b69c6-5",
+        "captured_at": "2026-10-06T09:39:25.088Z",
+        "environment_id": "env-fn-20261006-agent2",
+        "kind": "read",
+        "target": "同名冲突弹窗",
+        "business_call_id": "CALL-38a330fa-872e-43cd-b698-a535e865fa31",
+        "object_id": "expert-conflict-dialog",
+        "source": {
+          "channel": "dom",
+          "scope": "专家页/导入冲突弹窗",
+          "locator": "[role=\"dialog\"]"
+        },
+        "value": {
+          "hasOverwrite": false,
+          "hasCopy": false
+        },
+        "raw": {
+          "dialogCount": 0,
+          "text": null
+        }
+      },
+      "card": {
+        "event_id": "business-13522799-648b-48ee-86cb-c3ab438b69c6-6",
+        "captured_at": "2026-10-06T09:39:26.104Z",
+        "environment_id": "env-fn-20261006-agent2",
+        "kind": "read",
+        "target": "本轮专家卡存在",
+        "business_call_id": "CALL-38a330fa-872e-43cd-b698-a535e865fa31",
+        "object_id": "expert-card-present",
+        "source": {
+          "channel": "dom",
+          "scope": "专家页/我的专家卡片",
+          "locator": "div[class*=\"_card_\"]"
+        },
+        "value": true,
+        "raw": {
+          "count": 1,
+          "visible": true
+        },
+        "derivation": "count>0 && visible"
+      }
+    }
+  }
+}

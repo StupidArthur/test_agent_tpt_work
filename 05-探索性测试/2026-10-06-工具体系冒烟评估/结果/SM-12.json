@@ -1,0 +1,96 @@
+{
+  "case_id": "SM-12",
+  "started_at": "2026-10-06T14:28:59.613Z",
+  "ended_at": "2026-10-06T14:29:22.914Z",
+  "status": "通过",
+  "assertions": [
+    {
+      "id": "SM-12-A1",
+      "actual": false,
+      "expected": false,
+      "pass": true,
+      "read_refs": [
+        "CALL-9e468632-91fd-434e-b3eb-353e3cff026b-8"
+      ]
+    },
+    {
+      "id": "SM-12-A2",
+      "actual": "跟随系统",
+      "expected": "跟随系统",
+      "pass": true,
+      "read_refs": [
+        "CALL-d3022762-3007-4bd6-bfb0-8946f7910b10-1"
+      ]
+    },
+    {
+      "id": "SM-12-A3",
+      "actual": true,
+      "expected": true,
+      "pass": true,
+      "read_refs": [
+        "CALL-e8f5f7b3-2312-489c-a90e-bf6454ab52d0-2",
+        "CALL-ee348400-d417-48ed-9206-8ad864e544b5-1",
+        "CALL-b96d1511-f2fd-408f-a30a-617d5438e3bb-1"
+      ]
+    }
+  ],
+  "business_call_refs": [
+    "CALL-c107a952-d9bc-4324-9a84-d539acfbe6f1",
+    "CALL-daf6a34d-d223-4250-8ecc-f52df3ba9253",
+    "CALL-5f34da36-e1a6-4274-ad60-a182eb8612c8",
+    "CALL-341fe511-fb40-45c3-9a06-6040c447f955",
+    "CALL-9e468632-91fd-434e-b3eb-353e3cff026b",
+    "CALL-7a875da7-b01a-4d84-acb9-b0676688ebbc",
+    "CALL-1f7e3b4a-e79a-4c1d-826e-c2cd6d69c11a",
+    "CALL-d3022762-3007-4bd6-bfb0-8946f7910b10",
+    "CALL-d919d864-6a4a-4772-8562-3520e7e0d893",
+    "CALL-b0eb651e-d8b2-4465-8811-6401b8f2dce6",
+    "CALL-d86b8c23-d51f-4712-b9fb-e4f8a2ffec04",
+    "CALL-ee348400-d417-48ed-9206-8ad864e544b5",
+    "CALL-e8f5f7b3-2312-489c-a90e-bf6454ab52d0",
+    "CALL-b96d1511-f2fd-408f-a30a-617d5438e3bb"
+  ],
+  "tool_discovery": {
+    "feature_path": [
+      "收尾",
+      "恢复核验"
+    ],
+    "plan_functions": [
+      "skills.setSkillEnabled",
+      "settings.readGeneral",
+      "attachments.readDraftState",
+      "conversation.clearDraft",
+      "conversation.closeDialogs",
+      "conversation.readDialogs"
+    ],
+    "used": [
+      "skills.setSkillEnabled",
+      "smoke.skills.closeSkills",
+      "smoke.skills.openSkills",
+      "skills.readSkillCard",
+      "smoke.navigation.closeSidebarPanels",
+      "settings.setTheme",
+      "settings.readGeneral",
+      "conversation.newTask",
+      "conversation.clearDraft",
+      "conversation.closeDialogs",
+      "conversation.readDialogs",
+      "attachments.readDraftState",
+      "conversation.readComposer"
+    ],
+    "additional_functions": [
+      "smoke.skills.closeSkills",
+      "smoke.skills.openSkills",
+      "skills.readSkillCard",
+      "smoke.navigation.closeSidebarPanels",
+      "settings.setTheme",
+      "conversation.newTask",
+      "conversation.readComposer"
+    ],
+    "all_product_operations_via_functions": true
+  },
+  "attempt": "A04",
+  "supersedes": "历史/SM-12-A03.json",
+  "retest_reason": "项目控件按已观察的workspace定位；目标会话已打开时不强求侧栏再次选择",
+  "error": null
+}

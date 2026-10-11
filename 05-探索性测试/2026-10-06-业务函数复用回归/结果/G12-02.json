@@ -1,0 +1,58 @@
+{
+  "case_id": "G12-02",
+  "contract_version": "2.0",
+  "attempt_id": "fn-20261006-agent2-G12-02-A1",
+  "environment_id": "env-fn-20261006-agent2",
+  "object_identity": {
+    "setting": "性能与用量=简洁"
+  },
+  "inputs": [
+    "设置→常规→性能与用量改简洁，读取页脚"
+  ],
+  "action_refs": [
+    "business-acd013ea-2b46-407e-b87f-8ceaf25362ee-2"
+  ],
+  "status": "通过",
+  "started_at": "2026-10-06T09:59:40.000Z",
+  "ended_at": "2026-10-06T10:03:00.000Z",
+  "actual_steps": [
+    "切换用量为简洁",
+    "在读取得的已完成任务页脚读取详细字段与基本用量"
+  ],
+  "assertions": [
+    {
+      "id": "G12-02-A1",
+      "actual": true,
+      "read_refs": [
+        "business-e392a8e5-c3b2-4017-854e-7795658974d3-2"
+      ]
+    },
+    {
+      "id": "G12-02-A2",
+      "actual": true,
+      "read_refs": [
+        "business-e392a8e5-c3b2-4017-854e-7795658974d3-3"
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "path": "运行日志/business.jsonl",
+      "sha256": "6203703aeaf46ab5fd94d64c474b878c26f39b97bc4c3f7a3840f9ee9a48bdc5"
+    },
+    {
+      "path": "运行日志/业务调用.jsonl",
+      "sha256": "91fc9bb4b29ad5347770a9e5e5a21b38b9c414c04a2e484e84b5dd981db87bd7"
+    }
+  ],
+  "cleanup": {
+    "status": "retained",
+    "description": "样本保留待审",
+    "read_refs": []
+  },
+  "business_call_refs": [
+    "CALL-ec46d749-306a-4a60-ab73-673a4ebb19e7",
+    "CALL-c3cf90e5-d364-4a89-b700-e9c077447ba5"
+  ],
+  "notes": "简洁下页脚无 轮/步/token总量，保留 tok/s 与 8%；原文见 raw.text"
+}

@@ -1,0 +1,65 @@
+{
+  "call_id": "CALL-e8f5f7b3-2312-489c-a90e-bf6454ab52d0",
+  "status": "returned",
+  "observations": {
+    "observations": {
+      "names": {
+        "event_id": "CALL-e8f5f7b3-2312-489c-a90e-bf6454ab52d0-1",
+        "captured_at": "2026-10-06T14:35:34.841Z",
+        "environment_id": "env-tool-smoke-eval1",
+        "business_call_id": "CALL-e8f5f7b3-2312-489c-a90e-bf6454ab52d0",
+        "kind": "read",
+        "target": "当前草稿附件名列表",
+        "object_id": "composer-attachment-names",
+        "source": {
+          "channel": "dom",
+          "scope": "composer 附件区",
+          "locator": "[data-slot=\"conversation.input.attachments\"] .gSkjMW_name, [data-slot=\"conversation.input.attachments\"] img[alt]"
+        },
+        "value": [],
+        "raw": {
+          "count": 0,
+          "names": []
+        }
+      },
+      "count": {
+        "event_id": "CALL-e8f5f7b3-2312-489c-a90e-bf6454ab52d0-2",
+        "captured_at": "2026-10-06T14:35:34.842Z",
+        "environment_id": "env-tool-smoke-eval1",
+        "business_call_id": "CALL-e8f5f7b3-2312-489c-a90e-bf6454ab52d0",
+        "kind": "read",
+        "target": "当前草稿附件数",
+        "object_id": "composer-attachment-count",
+        "source": {
+          "channel": "dom",
+          "scope": "composer 附件区",
+          "locator": "[data-slot=\"conversation.input.attachments\"] .gSkjMW_name, [data-slot=\"conversation.input.attachments\"] img[alt]"
+        },
+        "value": 0,
+        "raw": {
+          "count": 0
+        }
+      },
+      "hint": {
+        "event_id": "CALL-e8f5f7b3-2312-489c-a90e-bf6454ab52d0-3",
+        "captured_at": "2026-10-06T14:35:34.845Z",
+        "environment_id": "env-tool-smoke-eval1",
+        "business_call_id": "CALL-e8f5f7b3-2312-489c-a90e-bf6454ab52d0",
+        "kind": "read",
+        "target": "附件数量提示",
+        "object_id": "composer-attachment-hint",
+        "source": {
+          "channel": "dom",
+          "scope": "composer 附件区",
+          "locator": "[data-slot=\"conversation.input.attachments\"]"
+        },
+        "value": false,
+        "raw": {
+          "text": "",
+          "matched": null
+        },
+        "derivation": "存在 N/M 计数文本"
+      }
+    }
+  }
+}

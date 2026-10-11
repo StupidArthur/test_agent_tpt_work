@@ -1,0 +1,55 @@
+{
+  "case_id": "G8-09",
+  "contract_version": "2.0",
+  "environment_id": "agent-oc-20261006-funcfull-01",
+  "attempt_id": "G8-09-A01",
+  "object_identity": "session（读flow.txt任务）工作步骤面板",
+  "inputs": [
+    "读取完成工作步骤默认折叠并展开"
+  ],
+  "business_call_refs": [
+    "CALL-914afcd8-2ac9-4cd4-835b-65f75bc6520d",
+    "CALL-3045d0d8-266d-430f-9b92-0d1ff5e9f38d",
+    "CALL-c8adc87f-65ae-4cc0-8dba-619e446c31dc",
+    "CALL-d5b91b2b-4ac7-4b62-be90-27f673e1d1b0"
+  ],
+  "status": "通过",
+  "attempted_at": "2026-10-06T16:39:28.258Z",
+  "assertions": [
+    {
+      "id": "G8-09-A1",
+      "expected": true,
+      "actual": true,
+      "pass": true,
+      "read_refs": [
+        "CALL-c8adc87f-65ae-4cc0-8dba-619e446c31dc-1"
+      ],
+      "raw": {
+        "count": 1,
+        "ariaExpanded": "false"
+      },
+      "derivation": "ariaExpanded === 'false'"
+    },
+    {
+      "id": "G8-09-A2",
+      "expected": true,
+      "actual": true,
+      "pass": true,
+      "read_refs": [
+        "CALL-d5b91b2b-4ac7-4b62-be90-27f673e1d1b0-1"
+      ],
+      "raw": {
+        "count": 1,
+        "visible": 1
+      },
+      "derivation": "可见工具调用记录>0"
+    }
+  ],
+  "restore": {
+    "status": "unchanged",
+    "description": "本case未改动设置/文件",
+    "read_refs": []
+  },
+  "residual": "工作步骤面板保持展开",
+  "notes": "A2 以 readVisibleToolCalls（tool-call 可见数=1）为判据；readWorkSteps 的 afterExpand 选择器未命中可见记录，已在报告中说明。"
+}

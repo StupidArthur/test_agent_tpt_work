@@ -1,0 +1,46 @@
+{
+  "attempt_id": "SKILL-009-A03",
+  "captured_at": "2026-10-05T23:08:01.922Z",
+  "viewport": {
+    "width": 900,
+    "height": 700
+  },
+  "precondition": {
+    "name": "本轮技能样本 20261006",
+    "card_preview": "本轮技能样本 20261006\n\n用于本轮技能界面与导入探索的无害包。\n\nround-owned\nui-test\n20261006\n来源 用户创建\nv1.0.0\n快捷使用",
+    "search_matches": 7,
+    "all_states": [
+      "true",
+      "true",
+      "true",
+      "true",
+      "true",
+      "true",
+      "true"
+    ]
+  },
+  "actions": [
+    "在“我的技能-全部”用精确名称搜索7个本轮用户创建样本。",
+    "只关闭一个本轮样本的启用开关。",
+    "保留同一查询，分别选择未启用与已启用筛选并读取匹配数。",
+    "回到全部筛选后启用原样本；核对7项全部启用并清空搜索。"
+  ],
+  "results": {
+    "disabled_state_after_toggle": "false",
+    "search_and_disabled_filter": 1,
+    "search_and_enabled_filter": 6,
+    "all_matches_after_restore": 7,
+    "all_states_after_restore": [
+      "true",
+      "true",
+      "true",
+      "true",
+      "true",
+      "true",
+      "true"
+    ],
+    "search_after_clear": ""
+  },
+  "conclusion": "同一搜索词在未启用筛选下返回1项，在已启用筛选下返回6项；两状态结果集合随单个 round-owned 样本开关变化。完成后该样本恢复启用、搜索清空。",
+  "scope": "仅更改“本轮技能样本 20261006”7个用户创建 round-owned 副本中的第一个；未修改其他技能。"
+}

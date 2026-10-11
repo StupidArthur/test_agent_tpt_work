@@ -1,0 +1,29 @@
+{
+  "call_id": "CALL-07a5d0a5-7f4d-4ae7-a8c2-cc5f1364e1e2",
+  "status": "returned",
+  "observations": {
+    "observations": {
+      "read": {
+        "event_id": "CALL-07a5d0a5-7f4d-4ae7-a8c2-cc5f1364e1e2-1",
+        "captured_at": "2026-10-06T17:06:50.529Z",
+        "environment_id": "agent-oc-20261006-funcfull-01",
+        "business_call_id": "CALL-07a5d0a5-7f4d-4ae7-a8c2-cc5f1364e1e2",
+        "kind": "read",
+        "target": "设置开关状态(按索引)",
+        "object_id": "settings-switch-index",
+        "source": {
+          "channel": "dom",
+          "scope": "设置/实验性功能#0",
+          "locator": "[data-shortcut-modal=\"settings\"] [role=\"switch\"]"
+        },
+        "value": true,
+        "raw": {
+          "count": 2,
+          "index": 0,
+          "aria_checked": "true"
+        },
+        "derivation": "aria_checked === 'true'"
+      }
+    }
+  }
+}

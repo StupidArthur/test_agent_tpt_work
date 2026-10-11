@@ -1,0 +1,37 @@
+{
+  "call_id": "CALL-6d1d0ec4-e7f4-41af-8627-4d548da605c4",
+  "status": "returned",
+  "observations": {
+    "action_refs": [
+      "CALL-6d1d0ec4-e7f4-41af-8627-4d548da605c4-2"
+    ],
+    "observations": {
+      "result": {
+        "event_id": "CALL-6d1d0ec4-e7f4-41af-8627-4d548da605c4-3",
+        "captured_at": "2026-10-06T17:17:04.663Z",
+        "environment_id": "agent-oc-20261006-funcfull-01",
+        "business_call_id": "CALL-6d1d0ec4-e7f4-41af-8627-4d548da605c4",
+        "kind": "read",
+        "target": "搜索结果命中数",
+        "object_id": "skill-search-count",
+        "source": {
+          "channel": "dom",
+          "scope": "技能页/结果列表",
+          "locator": "section.panel [data-slot=\"card\"]"
+        },
+        "value": 3,
+        "raw": {
+          "matched": 3,
+          "titles": [
+            "本轮中文优先",
+            "本轮中文优先",
+            "本轮中文优先"
+          ],
+          "query": "FAST_SEARCH_TAG",
+          "matchText": "本轮中文优先"
+        },
+        "derivation": "结果卡片标题等于本轮身份文本的计数"
+      }
+    }
+  }
+}

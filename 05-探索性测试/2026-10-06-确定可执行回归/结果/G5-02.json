@@ -1,0 +1,30 @@
+{
+  "case_id": "G5-02",
+  "status": "通过",
+  "started_at": "2026-10-06T10:08:00+08:00",
+  "ended_at": "2026-10-06T10:08:40+08:00",
+  "actual_steps": [
+    "在专家引用后追加自然语句“请执行你的本轮回归固定回复规则”",
+    "发送并等待终态",
+    "打开“轨迹”读取系统注入"
+  ],
+  "observed": "轨迹记录 <skill_content name=\"agent-fast-reg-expert-20261006095332\">，含 skill_resources（base directory C:\\Users\\Administrator\\.tpt-work\\agents\\fast-reg-expert-20261006095332）与 skill_instructions（专家角色定义 + 规则 return exactly FAST_EXPERT_EXEC_OK）。本轮专家正文被注入。请求文本不含预期输出串。",
+  "evidence": [
+    {
+      "path": "证据/G5-02-trace.png",
+      "sha256": "a193cf75c247135d1f541507c12b75204649b0de3e938d6f370689bc89771616"
+    },
+    {
+      "path": "证据/G5-02-trace.txt",
+      "sha256": "e3745f9d14a7ccd1226a4f8bdd24f6857e30990a1a015f42ee9e41b965715afa"
+    }
+  ],
+  "cleanup": "无。",
+  "timings": {
+    "操作等待秒": 10,
+    "产品执行秒": 7,
+    "取证登记秒": 10,
+    "排障恢复秒": 0
+  },
+  "group": "G5"
+}

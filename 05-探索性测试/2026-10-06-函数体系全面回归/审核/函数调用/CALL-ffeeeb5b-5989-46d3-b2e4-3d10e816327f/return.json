@@ -1,0 +1,38 @@
+{
+  "call_id": "CALL-ffeeeb5b-5989-46d3-b2e4-3d10e816327f",
+  "status": "returned",
+  "observations": {
+    "action_refs": [
+      "CALL-ffeeeb5b-5989-46d3-b2e4-3d10e816327f-2"
+    ],
+    "observations": {
+      "menu": {
+        "event_id": "CALL-ffeeeb5b-5989-46d3-b2e4-3d10e816327f-3",
+        "captured_at": "2026-10-06T17:16:31.407Z",
+        "environment_id": "agent-oc-20261006-funcfull-01",
+        "business_call_id": "CALL-ffeeeb5b-5989-46d3-b2e4-3d10e816327f",
+        "kind": "read",
+        "target": "composer 菜单项",
+        "object_id": "composer-menu",
+        "source": {
+          "channel": "dom",
+          "scope": "composer 弹出菜单",
+          "locator": "[class*=\"menu\"],[class*=\"Menu\"],[role=\"menu\"]"
+        },
+        "value": true,
+        "raw": {
+          "items": [
+            "添加本地文件",
+            "从我的资料库添加",
+            "连接器",
+            "技能",
+            "专家",
+            "模式"
+          ],
+          "wantPattern": "Agent|专家"
+        },
+        "derivation": "菜单标签匹配 /Agent|专家/"
+      }
+    }
+  }
+}

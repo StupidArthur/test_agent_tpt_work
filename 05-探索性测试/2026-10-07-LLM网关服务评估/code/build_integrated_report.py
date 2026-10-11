@@ -1,0 +1,242 @@
+"""Offline full assessment across the original run, todo_1 and public follow-up."""
+import hashlib,json,re,sys
+from pathlib import Path
+ROOT=Path(__file__).resolve().parents[3]
+OLD=Path(__file__).resolve().parents[1]
+NEW=ROOT/'探索性测试/2026-10-07-公网性能整合补测'
+sys.path.insert(0,str(ROOT/'04-测试项/saas-llm-test/code'))
+from llm_probe.stats import summarise
+from llm_probe.performance import aggregate
+read=lambda p:json.loads(p.read_text(encoding='utf-8'))
+group=lambda name:read(NEW/'结果'/f'{name}.json')
+fmt=lambda v:'未取得' if v is None else f'{v:.3f}'
+audit=read(NEW/'验收校验.json')
+if audit['issues']:raise SystemExit('Source audit not clean')
+coverage=read(NEW/'整体覆盖.json')
+names={}
+for f in (ROOT/'04-测试项/saas-llm-test/cases').glob('*.md'):
+    names.update(dict(re.findall(r'^## ((?:API|TPT|PERF|CAP)-\d{2}) (.+)$',f.read_text(encoding='utf-8'),re.M)))
+lines=[]
+def add(text=''):lines.extend(text.strip('\n').splitlines()+[''])
+add('''# LLM网关服务综合测试报告
+
+日期：2026-10-07。测试项：`04-测试项/saas-llm-test`。
+
+本报告汇总原始API评估、todo_1复核、管理者修订以及公网性能整合补测；report-3way作为历史对照。它是整项测试的结果入口。各轮原报告、原始字节和当时推断保留，后续证据收窄的结论以本报告为准。本文整理已有数据，没有新增网络请求。
+
+## 1. 总体结论
+
+**公网主力flash已具备实测的文本、流式、上下文、工具和结构化输出能力；在本轮固定负载下，文本与本地工具用户均完成了1/5/10档采样。当前TPT Work完整适配、生产性能达标与最大用户容量尚未验收。**
+
+| 要回答的问题 | 综合判断 |
+|---|---|
+| 基础LLM API能用吗？ | 主力flash已测路径正常，鉴权及非法请求有明确拒绝与健康对照 |
+| 给TPT Work提供能力是否足够？ | 原生Responses所需多项API有证据；当前适配器身份、实际序列化和消费行为尚缺，不能宣布完整宿主适配 |
+| 图片能用吗？ | flash-backup-ds取得正确图片样本；flash为text-only；pro当前503前置失败 |
+| 性能如何？ | 已完成短/长、三档上下文、输出规模、思考档和两条公网路径测量；具体值见下表，SLO尚未确认 |
+| 10用户可用吗？ | 本轮短文本及本地加法工具的10用户窗口全部成功；只对应这些负载和时间窗 |
+| 最多支持多少用户？ | 未测定；没有失败边界、已确认SLO及两个独立边界持续窗口 |
+| 有没有bug？ | 有待定级协议/计量差异和真实未完成请求；8个DIFF不等于8个已确认bug，不能宣称零bug |
+| 测试完成度如何？ | 36项保留：26完整采样/检查、8部分、2完全未验证；完整覆盖不等于通过率 |
+
+## 2. 范围、环境及统计口径
+
+评估通用LLM API、TPT所需网关契约、性能与用户负载。没有操作软件UI，没有把登录、设置、技能、记忆等产品测试合入本项。API失败后正常调用的验证，也不等于复现或验收软件同一会话切模型的历史bug。
+
+| 当前目标 | 请求模型 | 协议与思考字段 | 用途 |
+|---|---|---|---|
+| `https://tpt.supcon.com/tpt-work-router/v1` | flash | Responses：reasoning.effort；Chat：think_level | 主力功能、性能及负载 |
+| 同上 | flash-backup-ds / pro | 依据目录能力分别检查 | 图片、计量/可用性参考；未做全模型性能矩阵 |
+| `https://api.deepseek.com/v1` | deepseek-flash | Chat：effort | 当前公网路径对照 |
+
+- 使用已有测试凭据，单key模式；不展示密钥，不推断生产账户配额。
+- 主力目录支持off/low/medium/high；off实验省略reasoning字段，不代表服务实际关闭推理。同名low跨服务也不代表相同计算量。
+- 当前宿主适配器版本、SHA-256和serializer未取得；历史资料不能代替当前身份。
+- 内网：原轮有不可达记录，最新轮按用户要求不测；本报告只保留历史参考，不给内网当前验收结论。
+- 原轮25实例、23通过/2环境失败的初始台账含后来修正的判定，不作为最终通过率。
+- todo_1交付声明49次真实请求；尚未独立逐请求去重审计，因此不与新轮相加声称全历史请求总数。
+''')
+add(f"公网整合轮独立核验：已登记HTTP请求 **{audit['actual_http_requests']}次**、证据索引 **{audit['index_records']}项**，issues=[]。另有用户暂停时终止、没有完整证据的在途尝试，未算成功。原始JSON/SSE正文及内层终态已独立重建；记录校验通过不等于业务全通过。新统计采用最近秩分位数，历史v1使用插值分位，不混样本重算总平均或总通过率。")
+add('''## 3. 功能与兼容性综合结果
+
+| 能力 | 综合实测结果 | 证据与边界 |
+|---|---|---|
+| 模型发现 API-01/TPT-02 | 公网目录3个目标，id及字段类型可读；多个is_default=true | 无默认唯一性契约；当前消费者如何选择未知 |
+| 非流式/流式文本 API-02/03、TPT-01/03 | 标记回显、原生Responses及正文/推理分开解析已通过；Chat另外采样 | 不混用Chat成功代替Responses；正文SSE与完整终态已取证 |
+| 多轮文本 API-04 | 新问句不重复答案，能从真实历史准确取回随机标记 | 字符串历史可用；简化数组形态拒绝单列DIFF-04 |
+| 非流式/流式工具 API-05/06、TPT-04 | a=17/b=25、调用ID、增量/最终参数及回填42链路有证据；新增30轮完整成功 | 本地近零耗时工具，不代表复杂外部工具或长业务流 |
+| 真实历史 TPT-07 | 文本与工具真实完整output项目（含reasoning）回传均200且答案正确 | 保留原项目字段；不能概括为所有结构化历史均失败；宿主实际发送形态未知 |
+| 鉴权 API-07 | 缺失/无效key拒绝，随后有效请求成功 | 有原始状态/错误体及同场景健康对照 |
+| 非法请求 API-08、TPT-09 | 不存在模型、错误input类型、空模型字段被拒绝，后续正常请求成功 | API客户端次序恢复，不代表软件会话状态恢复 |
+| usage/输出约束 API-09 | 输入/输出计量与请求上限可取；低预算出现incomplete | 推理细分语义仍待确认；缺失值不能填0 |
+| JSON模式 API-10 | 正文可解析为对象，answer为整数42，无Markdown包裹 | 固定结构样本，不代表任意schema能力 |
+| 思考档 TPT-06 | flash四种配置接受并完成；实际wire保留 | 参数接受不证明内部预算或推理关闭效果；其他模型未全矩阵遍历 |
+| 图片 TPT-05 | flash-backup-ds对分离红块夹具回答3；flash拒绝image与text-only声明相符 | 原相邻红块夹具不足以判错误；pro最新仍503，不判图片功能失败 |
+| 完成/截断/取消 TPT-08、API-12 | 正常、预算截断与客户端主动关闭已区分 | 客户端关闭不证明服务端停算/停计费；慢读/半断开未隔离测试 |
+| 服务错误 API-11、TPT-10 | 自然pro503的状态/错误体已保存 | 429、同模型故障解除后恢复、200流内error/failed/无终态EOF仍缺条件 |
+
+## 4. 性能测量
+
+### 4.1 当前短请求与首有效内容
+
+时间单位均为秒；E2E包括客户端网络与读取时间。失败样本保留在“全部尝试”统计。问候、标记、自我介绍是不同负载，不能混为一个指标。
+
+| 路径/场景 | 正式样本完整成功 | E2E均值 | p50 | p95 | 首正文p95 |
+|---|---:|---:|---:|---:|---:|''')
+for label,name in [('网关Responses标记','short-responses'),('网关Chat自我介绍（非流式）','gateway-chat-short'),('直连Chat自我介绍（非流式）','direct-chat-short'),('网关Chat问候流','gateway-chat-first-text'),('直连Chat问候流','direct-chat-first-text')]:
+    s=group(name)['summary'];m=s['all_attempt_metrics'];e=m['e2e']
+    lines.append(f"| {label} | {s['complete']}/{s['attempted']} | {fmt(e['mean'])} | {fmt(e['p50'])} | {fmt(e['p95'])} | {fmt(m['first_text']['p95'])} |")
+add('\n直连自我介绍的2次length截断没有被补成原通过；1024预算另做2次对照均完成。工具场景另有30轮，首事件/首推理/首工具与第二轮首正文分别取值，第二轮首正文相对整轮起点计时。')
+tool=read(NEW/'结果/tool-timings-derived.json')
+add('| 工具30轮时点 | 有值样本数 | 均值 | p95 |\n|---|---:|---:|---:|')
+for k,label in [('first_event','首事件'),('first_reasoning','首推理'),('first_tool','首工具'),('first_text','整轮首正文'),('e2e','整轮完成')]:
+    s=summarise([r[k] for r in tool]);lines.append(f'| {label} | {s.n} | {fmt(s.mean)} | {fmt(s.p95)} |')
+add('''
+### 4.2 完整长回答与增量节奏
+
+固定约1500字题，要求结束标记、正文至少1200字符及completed；输出上限8192。流式/非流式独立各10次。以下吞吐为服务返回总output_tokens/E2E，不是纯正文token或纯解码速率。
+
+| 路径/协议 | 完整成功 | E2E均值 / p95秒 | output token/E2E均值 | 正文增量跨度范围秒 |
+|---|---:|---:|---:|---:|''')
+for alias,label in [('gateway-responses','网关Responses'),('gateway-chat','网关Chat'),('direct-chat','直连Chat')]:
+    for suffix,mode in [('long-stream','流式'),('long-json','非流式')]:
+        s=group(alias+'-'+suffix)['summary'];m=s['all_attempt_metrics'];span=m['text_span']
+        spantext='不适用' if span['min'] is None else f"{span['min']:.3f}～{span['max']:.3f}"
+        lines.append(f"| {label}/{mode} | {s['complete']}/{s['attempted']} | {fmt(m['e2e']['mean'])} / {fmt(m['e2e']['p95'])} | {m['output_tokens_per_e2e']['mean']:.1f} | {spantext} |")
+add('\n网关Chat长流10个样本的正文持续9.343～12.016秒分阶段到达，不支持把整个接口叫“假流式”。正文delta中段节奏单位为chunks/s，不能与token/s相除推导服务副本数或用户数。原轮512上限的10个长样本均截断，旧约130.2 token/s只保留为截断测量。')
+add('''### 4.3 上下文与缓存
+
+短/典型/长三档，重复与新内容各10次交错；中部和尾部标记60/60正确。输入量按服务usage，未超过声明窗口并预留输出预算。
+
+| 组 | 样本 | 输入token均值 | E2E均值 / p95秒 | 返回正cached_tokens的样本 |
+|---|---:|---:|---:|---:|''')
+cache={r['group']:r for r in read(NEW/'结果/context-cache-fields.json')}
+for size in [20,1250,2500]:
+    for variant in ['repeat','fresh']:
+        name=f'context-{size}-{variant}';s=group(name)['summary'];m=s['all_attempt_metrics'];c=cache[name]
+        lines.append(f"| {['短','典型','长'][[20,1250,2500].index(size)]}/{'重复' if variant=='repeat' else '新内容'} | 10 | {m['input_tokens']['mean']:.0f} | {fmt(m['e2e']['mean'])} / {fmt(m['e2e']['p95'])} | {c['service_reported_cache_positive_samples']}/10 |")
+add('\n约57.5K重复输入8/10次服务报告缓存计量为正，并非每次重复都命中。可以引用返回字段，不把延迟差本身当缓存机制或纯prefill耗时证明。')
+add('### 4.4 输出规模与思考档\n\n同题输出上限128/512/2048各10次；合法截断也满足输出边界检查，但不是完整长回答成功。\n\n| 上限 | completed / incomplete | 实际输出token均值 | E2E均值 / p95秒 |\n|---|---:|---:|---:|')
+for cap in [128,512,2048]:
+    s=group('output-'+str(cap))['summary'];m=s['all_attempt_metrics']
+    lines.append(f"| {cap} | {s['complete']} / {s['terminations'].get('incomplete',0)} | {m['output_tokens']['mean']:.1f} | {fmt(m['e2e']['mean'])} / {fmt(m['e2e']['p95'])} |")
+add('\n固定9.11/9.9问题，四档各取交错执行的前10个作性能对照；low后续20个仅补首内容采样，未混入此公平样本表。\n\n| 请求档 | 成功/样本 | E2E均值 / p95秒 | 首推理p95秒 | 首正文p95秒 |\n|---|---:|---:|---:|---:|')
+for effort in ['off','low','medium','high']:
+    s=aggregate(group('efforts-'+effort)['samples'][:10]);m=s['all_attempt_metrics']
+    lines.append(f"| {effort} | {s['succeeded']}/10 | {fmt(m['e2e']['mean'])} / {fmt(m['e2e']['p95'])} | {fmt(m['first_reasoning']['p95'])} | {fmt(m['first_text']['p95'])} |")
+stable=read(NEW/'结果/stability-window.json');m=group('stability')['summary']['all_attempt_metrics']
+add(f'''\n### 4.5 稳定性及公网对照的边界
+
+单用户固定标记、low、上限256、轮间等待5秒，持续{stable['elapsed']:.1f}秒，{stable['attempted']}/{stable['attempted']}完整成功；E2E均值{m['e2e']['mean']:.3f}、p95 {m['e2e']['p95']:.3f}秒。逐分钟均无失败，已保存资源与在途记录；这不是长期稳定性或多用户持续容量验证。
+
+网关flash与直连deepseek-flash的请求模型ID、思考字段映射、协议及实际输出量未完全一致；采样采用同场景相邻批次，非同一瞬间执行。表中差值只描述客户端路径观测，不归因纯网关开销。历史report-3way的首data时点与新首正文不同，不能拿旧“6.8倍”直接解释当前TTFT。
+''')
+add('''## 5. 并发、用户与恢复
+
+### 5.1 请求突发
+
+1/5/10各3波，全部排空后才下一波。固定800预算的历史长题共48请求均截断，不是并发故障证据；另以8192预算的完整长题取得48/48成功，实际峰值与计划1/5/10一致。
+
+| 完整长回答并发 | 成功/请求 | 请求E2E均值 / p95秒 | 首正文p95秒 |
+|---|---:|---:|---:|''')
+for n in [1,5,10]:
+    s=group(f'complete-burst-{n}')['summary'];m=s['all_attempt_metrics']
+    lines.append(f"| {n} | {s['succeeded']}/{s['attempted']} | {fmt(m['e2e']['mean'])} / {fmt(m['e2e']['p95'])} | {fmt(m['first_text']['p95'])} |")
+add('''
+### 5.2 闭环用户曲线
+
+用户每轮顺序执行，完成后思考间隔5秒；固定历史，low。文本轮1请求、工具轮2请求（调用→本地加法→最终42）；文本/工具上限分别1024，工具回填后的上限512。每档至少120秒及30轮。
+
+| 负载 | 用户 | 秒 | 成功/轮次 | 请求峰值 | 整轮p95秒 | 首正文p95秒 |
+|---|---:|---:|---:|---:|---:|---:|''')
+for workload in ['text','tool']:
+    for n in [1,5,10]:
+        r=read(NEW/'结果/用户曲线'/f'{workload}-{n}.json')
+        lines.append(f"| {'文本' if workload=='text' else '本地工具'} | {n} | {r['duration']:.1f} | {r['successful_turns']}/{r['attempted_turns']} | {r['request_peak']} | {fmt(r['turn_e2e_s']['p95'])} | {fmt(r['first_text_s']['p95'])} |")
+add('''
+### 5.3 开放到达、失败与压后健康
+
+三个安全低速率各120秒；最大在途10、队列10，计划到达/完成/失败/拒绝对账成立。没有静默丢弃，未找到排队增长边界。
+
+| 到达率（轮/秒） | 计划 | 完成 | 失败 | 拒绝 | 请求峰值 |
+|---|---:|---:|---:|---:|---:|''')
+for rate in [.25,.5,1]:
+    r=read(NEW/'结果/用户曲线'/f'arrival-{rate}.json')
+    lines.append(f"| {rate} | {r['scheduled']} | {r['completed']} | {r['failed']} | {r['rejected']} | {r['request_peak']} |")
+add('''
+0.5档的1次失败：HTTP200，incomplete/max_output_tokens；输出token=256，正文为空、推理非空。相同输入/模型/effort，仅提高上限至1024的单次对照成功；原59/60不改写。压前基线另有1例同样预算截断，故其实际9/10，压后10/10。不能将此归因为并发限流，也不能以失败基线p95宣布延迟恢复达标。
+
+**容量结论：当前只验证了本轮短负载下10活跃用户的有限窗口，不是“最多10用户”，也不是生产推荐容量。** 最高档未触及失败边界；没有已确认成功率/整轮及首正文SLO、两个独立边界持续窗口、生产凭据配额、多样/增长历史及慢工具场景。正式恢复容差也未知。
+
+## 6. 差异、候选问题与处理建议
+
+8个历史编号都保留，按最后证据重新表述；不计作8个确认bug。
+
+| 编号 | 当前结论 | 影响与具体下一步 |
+|---|---|---|
+| DIFF-01 | 可见推理非空、reasoning_tokens=0与总输出计量并存；细分语义未确认 | 服务方明确tokenizer及计量组成；吞吐标总output/E2E，不断言隐藏推理收费 |
+| DIFF-02 | 3个默认标记事实成立；唯一性未承诺 | 取得当前适配器选择规则，再验默认选择是否落到不可用模型 |
+| DIFF-03 | flash-backup-ds图样成功；pro新旧都503，最新“当前模型暂时不可用: no available channels” | 上游可用后再测pro图片；错误本身不证明图片未实现或上游未购买 |
+| DIFF-04 | 字符串及完整真实output（含reasoning）回传成功；简化assistant output_text数组400 | 核对输入契约和serializer，必要时单字段对照；不称全部结构化历史失败 |
+| DIFF-05 | 旧代理502缺独立artifact，直接路径有成功证据 | 如仍需评估代理，用匹配请求留独立响应；当前不定级网关bug |
+| DIFF-06 | 预算耗尽可产生空正文，原轮及新基线/到达窗口均观察到 | 业务须将incomplete与成功区分；选择足够预算，不能用无正文HTTP200当成功 |
+| DIFF-07 | 6个低预算流式末帧均为response.completed承载内层incomplete；非流式同样截断 | 核对事件契约；消费者依内层status判定，防止正文/任务假完成；原始末帧已补齐 |
+| DIFF-08 | 跨模型推理、usage、opaque ID结构差异仍待兼容定级 | 明确必需字段与缺省规则，取得当前消费者后验证实际影响 |
+
+### 测试器问题及已完成修正
+
+候选JSON截断、覆盖统计错误、图片夹具相邻导致歧义、事件名误判终态、开放到达未充分限制在途/队列、未充分排空、非流式Chat length误判完成均已记录和修正。新采样器从开始就正确识别Chat length；公共旧helper在收尾时同步修正。原报告与历史观察没有删除。
+
+容量调度13项、性能/公共解析6项、原执行器8项离线验证分别有记录；是本地程序验证，不合入真实网关成功数。新开放到达已在真实公网重跑三个低速率窗口，但不等于验证服务过载边界。原始证据和代码快照有SHA-256，并已保护跨PC换行字节。
+
+## 7. 36项逐项覆盖及未完成条件
+
+完整采样/检查只表示已取到相应API观察或足量测量，不表示性能达标；TPT各项仍受“当前宿主身份未知”的统一限制。未覆盖子项不会因主项完整标签而自动通过。
+
+| 编号 | 测试项 | 覆盖 | 限制/说明 |
+|---|---|---|---|''')
+special={'TPT-10':'缺可控200流内error/failed及无终态EOF；未做真实网关注入。',
+ 'PERF-02':'三场景正式30样本已取得；时点分列，未知时点不填0。',
+ 'TPT-06':'主力flash声明四配置接受性覆盖；其他模型未全矩阵遍历。',
+ 'PERF-07':'两条公网路径测量完成，可比性限制已列；内网本轮排除。',
+ 'CAP-01':'本轮授权最高档10，三波与实际峰值已观测；不推测更高档。'}
+for r in coverage:
+    note=special.get(r['case'],r['note'])
+    if note.startswith('既有可信'):note='既有可信功能证据复用或本轮足量测量；具体结果见上文。'
+    lines.append(f"| {r['case']} | {names.get(r['case'],'')} | {r['coverage']} | {note} |")
+add('''
+### 下一步验收门槛
+
+1. **TPT适配**：补当前适配器版本/SHA和实际serializer/事件消费契约，重点核对DIFF-04/07；不把API单项成功当完整软件验收。
+2. **容量**：确认生产典型上下文、输出预算、用户思考间隔、文本/工具比例、凭据配额及业务SLO；声明更高档上限，再找到相邻失败边界，候选档做至少两个独立10分钟/100轮窗口。当前不报最大用户数。
+3. **恢复**：采用足够输出预算，先建立全成功且与恢复阶段同配置的基线；前置失败先诊断并保留新attempt。明确恢复容差后再判恢复。
+4. **条件项**：获得隔离429、慢读/半断开、流内failed/error/无终态的条件；pro恢复后补图片。内网只有用户重新纳入范围才执行。
+
+## 8. 来源、证据和交付状态
+
+本报告是管理者整项汇总，候选缺陷最终定级待双方审核，未自动写入产品知识。代码与执行记录分开：正式复用代码在测试项code，产品结果及原始证据在探索任务。
+
+- [原轮管理者审核](测试结果审核报告.md)：原功能结果、原问题与修订口径。
+- [todo_1复核](补测/todo_1/复核报告.md)、[管理者修改](补测/todo_1/管理者修改说明.md)：计量、图样、历史与终态修订。
+- [公网补测报告](../2026-10-07-公网性能整合补测/报告.md)、[全部测量表](../2026-10-07-公网性能整合补测/测量表.md)：新样本及窗口。
+- [候选逐项复核](../2026-10-07-公网性能整合补测/候选问题复核.json)、[容量未满足轮次](../2026-10-07-公网性能整合补测/结果/容量轮次未满足.json)：具体原值及原始wire路径。
+- [新原始证据索引](../2026-10-07-公网性能整合补测/证据索引.jsonl)：每项路径、SHA-256、归属编号；新轮独立校验2512项。
+- [历史三方报告](../../04-测试项/saas-llm-test/report-3way.md)：历史背景；不把旧首data当新首正文，不把chunks/s除token/s换算用户，不以最小span概括整个接口；旧内网不是当前结果。
+- [源码与修订记录](../2026-10-07-公网性能整合补测/执行与修订说明.md)：旧版本、快照、暂停/续跑及解析器修正。
+
+综合来源文件SHA-256和适用编号见 `综合测试报告-依据索引.json`；具体请求继续按各轮原证据索引回溯，不复制或改写历史响应。
+''')
+body='\n'.join(lines)
+body=re.sub(r'(?m)^(\|[^\n]+\|)\n\n(?=\|)',r'\1\n',body)
+body=re.sub(r'(?m)^(\|[^\n]+\|)\n(?=[^\n|])',r'\1\n\n',body)
+report=OLD/'综合测试报告.md';report.write_text(body,encoding='utf-8',newline='\n')
+files=[OLD/'测试结果审核报告.md',OLD/'测试结果审核报告-依据索引.json',OLD/'补测/todo_1/复核报告.md',OLD/'补测/todo_1/管理者修改说明.md',OLD/'补测/todo_1/36项覆盖表.md',OLD/'证据索引.jsonl',OLD/'补测/todo_1/证据索引.jsonl',
+ NEW/'报告.md',NEW/'测量表.md',NEW/'整体覆盖.json',NEW/'验收校验.json',NEW/'候选问题复核.json',NEW/'证据索引.jsonl',NEW/'运行计划.json',NEW/'执行与修订说明.md',ROOT/'04-测试项/saas-llm-test/report-3way.md']
+files+=list((NEW/'结果').glob('*.json'))+list((NEW/'结果/用户曲线').glob('*.json'))+list((ROOT/'04-测试项/saas-llm-test/cases').glob('*.md'))
+records=[]
+for f in files:
+    cases=set(re.findall(r'\b(?:API|TPT|PERF|CAP)-\d{2}\b',f.read_text(encoding='utf-8')))
+    if not cases:cases={r['case'] for r in coverage}
+    records.append({'path':f.relative_to(ROOT).as_posix(),'sha256':hashlib.sha256(f.read_bytes()).hexdigest().upper(),'cases':sorted(cases)})
+(OLD/'综合测试报告-依据索引.json').write_text(json.dumps({'sources':records,'history_not_pooled':True,'new_requests_for_report':0},ensure_ascii=False,indent=2),encoding='utf-8',newline='\n')
+print(json.dumps({'report':report.relative_to(ROOT).as_posix(),'source_files':len(records),'coverage_items':len(coverage),'new_requests':0},ensure_ascii=False))

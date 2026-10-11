@@ -1,0 +1,31 @@
+{
+  "case_id": "G4-02",
+  "status": "通过",
+  "started_at": "2026-10-06T10:07:20+08:00",
+  "ended_at": "2026-10-06T10:08:00+08:00",
+  "actual_steps": [
+    "对 webkitdirectory 目录 input 执行 setInputFiles(本轮 expert 目录)",
+    "观察弹窗显示 FOLDER expert 2 个文件 · 1.2KB",
+    "点击“提交”",
+    "重新观察列表"
+  ],
+  "observed": "选择目录后弹窗显示“FOLDER expert / 2 个文件 · 1.2KB”；提交后列表新增卡片“本轮快速回归专家”，我的专家计数由 11 增至 12。",
+  "evidence": [
+    {
+      "path": "证据/G4-02-selected.png",
+      "sha256": "a28d6f5fa701d06b0c44afe59a4e161df84093117d4c9f04047a29619284a578"
+    },
+    {
+      "path": "证据/G4-02-after-submit.png",
+      "sha256": "ce881241ec80f0b1b8e3d78679bea2212c823f31a50991c586d29257bcfb52ef"
+    }
+  ],
+  "cleanup": "样本保留供审核。",
+  "timings": {
+    "操作等待秒": 20,
+    "产品执行秒": 15,
+    "取证登记秒": 10,
+    "排障恢复秒": 0
+  },
+  "group": "G4"
+}

@@ -1,0 +1,64 @@
+{
+  "label": "wave-1",
+  "planned": 1,
+  "headers_sent_peak": 1,
+  "http200_unfinished_peak": 1,
+  "duration": 7.598208400013391,
+  "statuses": {
+    "200": 1
+  },
+  "complete": 1,
+  "client_errors": {},
+  "rows": [
+    {
+      "id": "wave-1-0000",
+      "start": 0.0019850000098813325,
+      "complete": true,
+      "sent_at": 0.11156940000364557,
+      "status": 200,
+      "headers_at": 7.587597400008235,
+      "response_headers": {
+        "Server": "nginx/1.14.1",
+        "Date": "Wed, 07 Oct 2026 09:05:10 GMT",
+        "Content-Type": "text/event-stream",
+        "Transfer-Encoding": "chunked",
+        "Connection": "keep-alive",
+        "Cache-Control": "no-cache",
+        "X-Ai-Router-Request-Id": "1jbytbh1000dlyhibl3lzvi4o3cr329l",
+        "X-Ratelimit-Limit": "100000",
+        "X-Ratelimit-Remaining": "99910",
+        "X-Ratelimit-Reset": "1791367510",
+        "X-Request-Id": "1jbytbh1000dlyhibl3lzvi4o3cr329l",
+        "X-Service-Name": "ai-router"
+      },
+      "read_complete": true,
+      "end": 7.596507500013104,
+      "done": true,
+      "usage": {
+        "prompt_tokens": 29,
+        "completion_tokens": 1024,
+        "total_tokens": 1053,
+        "prompt_tokens_details": {},
+        "completion_tokens_details": {}
+      },
+      "stream_errors": [],
+      "finish_reasons": [
+        "stop"
+      ],
+      "response_sha256": "7C543DD6B24BB8B6CFF75930F21731F051BC81D48383CDF8B2C7B0A1057E3E1E",
+      "response_path": "responses/wave-1-0000.sse.gz"
+    }
+  ],
+  "events": [
+    {
+      "t": 0.11156940000364557,
+      "id": "wave-1-0000",
+      "event": "headers_sent"
+    },
+    {
+      "t": 7.596507500013104,
+      "id": "wave-1-0000",
+      "event": "end"
+    }
+  ]
+}

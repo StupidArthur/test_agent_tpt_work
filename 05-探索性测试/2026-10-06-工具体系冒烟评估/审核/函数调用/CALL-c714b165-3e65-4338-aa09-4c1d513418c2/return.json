@@ -1,0 +1,49 @@
+{
+  "call_id": "CALL-c714b165-3e65-4338-aa09-4c1d513418c2",
+  "status": "returned",
+  "observations": {
+    "action_refs": [
+      "CALL-c714b165-3e65-4338-aa09-4c1d513418c2-3"
+    ],
+    "observations": {
+      "before": {
+        "event_id": "CALL-c714b165-3e65-4338-aa09-4c1d513418c2-1",
+        "captured_at": "2026-10-06T14:33:40.801Z",
+        "environment_id": "env-tool-smoke-eval1",
+        "business_call_id": "CALL-c714b165-3e65-4338-aa09-4c1d513418c2",
+        "kind": "read",
+        "target": "本轮技能开关(改前)",
+        "object_id": "skill-card-switch",
+        "source": {
+          "channel": "dom",
+          "scope": "技能页/我的技能卡片",
+          "locator": "[role=\"switch\"]"
+        },
+        "value": false,
+        "raw": {
+          "aria_checked": "false"
+        },
+        "derivation": "aria_checked === 'true'"
+      },
+      "after": {
+        "event_id": "CALL-c714b165-3e65-4338-aa09-4c1d513418c2-4",
+        "captured_at": "2026-10-06T14:33:40.803Z",
+        "environment_id": "env-tool-smoke-eval1",
+        "business_call_id": "CALL-c714b165-3e65-4338-aa09-4c1d513418c2",
+        "kind": "read",
+        "target": "本轮技能开关(改后)",
+        "object_id": "skill-card-switch",
+        "source": {
+          "channel": "dom",
+          "scope": "技能页/我的技能卡片",
+          "locator": "[role=\"switch\"]"
+        },
+        "value": false,
+        "raw": {
+          "aria_checked": "false"
+        },
+        "derivation": "aria_checked === 'true'"
+      }
+    }
+  }
+}

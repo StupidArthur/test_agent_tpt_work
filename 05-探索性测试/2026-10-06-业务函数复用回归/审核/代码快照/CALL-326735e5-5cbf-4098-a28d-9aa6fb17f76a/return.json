@@ -1,0 +1,67 @@
+{
+  "observations": {
+    "action_refs": [
+      "business-da05733c-b031-4740-bef2-bdcc97a38ae3-2"
+    ],
+    "observations": {
+      "preview": {
+        "event_id": "business-da05733c-b031-4740-bef2-bdcc97a38ae3-3",
+        "captured_at": "2026-10-06T09:20:02.102Z",
+        "environment_id": "env-fn-20261006-agent2",
+        "kind": "read",
+        "target": "文件预览正文",
+        "business_call_id": "CALL-326735e5-5cbf-4098-a28d-9aa6fb17f76a",
+        "object_id": "skill-file-preview",
+        "source": {
+          "channel": "dom",
+          "scope": "技能页/技能详情/预览",
+          "locator": "[class*=\"dir-preview\"]"
+        },
+        "value": "{\"marker\":\"FAST_JSON\"}\r\n",
+        "raw": {
+          "length": 24
+        }
+      },
+      "editable": {
+        "event_id": "business-da05733c-b031-4740-bef2-bdcc97a38ae3-4",
+        "captured_at": "2026-10-06T09:20:02.105Z",
+        "environment_id": "env-fn-20261006-agent2",
+        "kind": "read",
+        "target": "文件预览可编辑控件数",
+        "business_call_id": "CALL-326735e5-5cbf-4098-a28d-9aa6fb17f76a",
+        "object_id": "skill-file-editable",
+        "source": {
+          "channel": "dom",
+          "scope": "技能页/技能详情/预览",
+          "locator": "[class*=\"dir-preview\"]"
+        },
+        "value": 0,
+        "raw": {
+          "count": 0
+        }
+      },
+      "image": {
+        "event_id": "business-da05733c-b031-4740-bef2-bdcc97a38ae3-5",
+        "captured_at": "2026-10-06T09:20:02.107Z",
+        "environment_id": "env-fn-20261006-agent2",
+        "kind": "read",
+        "target": "包内图片预览加载",
+        "business_call_id": "CALL-326735e5-5cbf-4098-a28d-9aa6fb17f76a",
+        "object_id": "skill-file-image",
+        "source": {
+          "channel": "dom",
+          "scope": "技能页/技能详情/预览",
+          "locator": "[class*=\"dir-preview\"]"
+        },
+        "value": false,
+        "raw": {
+          "hasImg": false,
+          "src": null,
+          "complete": null,
+          "naturalWidth": null
+        },
+        "derivation": "hasImg && complete && naturalWidth>0"
+      }
+    }
+  }
+}

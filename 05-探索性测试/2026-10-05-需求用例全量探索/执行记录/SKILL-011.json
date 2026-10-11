@@ -1,0 +1,93 @@
+{
+  "case_id": "SKILL-011",
+  "case_title": "开关不触发跳转",
+  "source_sha256": "92a6f4ecd2a5dffe0f1a2a60e73fa18b5fb98763b09cc56ce4cc22fd56e13f0e",
+  "status": "已执行-符合预期",
+  "review_status": "待双方审核",
+  "latest_attempt_id": "SKILL-011-A01",
+  "attempts": [
+    {
+      "attempt_id": "SKILL-011-A01",
+      "started_at": "2026-10-05T20:10:00+08:00",
+      "ended_at": "2026-10-05T20:40:00+08:00",
+      "environment_id": "ENV-001",
+      "surface": "UI/CDP（技能 iframe；开关 button[role=\"switch\"]）",
+      "actual_preconditions": {
+        "account_alias": "Arthur",
+        "workspace": "界面未暴露空间切换入口，本轮未验证",
+        "project": "tpt-workspace（已有项目）",
+        "session_id": "不适用",
+        "model": "标准 / low",
+        "permission": "工作区内修改",
+        "fixtures": []
+      },
+      "input": "无输入；点击用户创建技能的启用开关一次（已恢复）",
+      "actual_steps": [
+        "进入技能模块，读取点击前状态（可见 dialog 0、正文 1425 字符、卡片 7）",
+        "点击用户创建技能「指标数据查询」的启用开关",
+        "等待 2.6 秒后重新解析帧，读取状态与开关值"
+      ],
+      "wait_condition": "点击后等待 2.6 秒；本地渲染，取得稳定终态。",
+      "checkpoints": [
+        {
+          "expected_index": 1,
+          "expected": "仅切换状态",
+          "observed": "点击开关后该卡 aria-checked 由 true 翻转为 false，同卡 title 为「启停技能」，即仅切换启用状态本身。",
+          "verdict": "符合",
+          "evidence": [
+            "证据/ROUND2-SKILL/SKILL-CARD-A01/卡片交互对比.txt"
+          ]
+        },
+        {
+          "expected_index": 2,
+          "expected": "仍停留列表",
+          "observed": "点击后正文长度保持 1425、卡片数保持 7、可见 dialog 数保持 0，未发生任何跳转或页面切换，仍停留在技能列表。",
+          "verdict": "符合",
+          "evidence": [
+            "证据/ROUND2-SKILL/SKILL-CARD-A01/卡片交互对比.txt"
+          ]
+        }
+      ],
+      "observed_result": "验证深度：业务闭环（点击—状态翻转—停留在列表）。两个检查点均有直接证据。该次停用已恢复为启用。",
+      "status": "已执行-符合预期",
+      "evidence": [
+        "证据/ROUND2-SKILL/SKILL-CARD-A01/卡片交互对比.txt"
+      ],
+      "difference_ids": []
+    }
+  ],
+  "product_observations": [
+    {
+      "feature_id": null,
+      "statement": "点击技能卡片的启用开关只翻转该技能的启用状态（aria-checked true→false，title「启停技能」），不触发卡片跳转：点击前后正文长度 1425 不变、卡片数 7 不变、可见 dialog 0。",
+      "case_ids": [
+        "SKILL-011"
+      ],
+      "attempt_ids": [
+        "SKILL-011-A01"
+      ],
+      "environment_id": "ENV-001",
+      "verified_depth": "业务闭环",
+      "scope_and_limits": "账号 Arthur、app.asar SHA256 EF56656B…4CC2D9D、2026-10-05。",
+      "evidence": [
+        "证据/ROUND2-SKILL/SKILL-CARD-A01/卡片交互对比.txt"
+      ],
+      "relation_to_design": "符合当前用例检查点",
+      "review_status": "待双方审核"
+    }
+  ],
+  "differences": [],
+  "finding_ids": [],
+  "blocker": null,
+  "applicability_reason": null,
+  "cleanup": {
+    "changes": [],
+    "remaining": []
+  },
+  "review": {
+    "assistant": null,
+    "user": null,
+    "approved_scope": [],
+    "final_decision": "待审核"
+  }
+}

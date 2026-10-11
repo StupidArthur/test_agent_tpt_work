@@ -1,0 +1,31 @@
+{
+  "case_id": "CONTROL-009",
+  "case_title": "无指针读取不虚构光标",
+  "source_sha256": "c2aa834a467efcab974bea5bcb87dcaa122947bd838e75d829036c021ca329c3",
+  "status": "阻塞",
+  "review_status": "待双方审核",
+  "latest_attempt_id": null,
+  "attempts": [],
+  "product_observations": [],
+  "differences": [],
+  "finding_ids": [],
+  "blocker": {
+    "reason": "无法执行【无指针读取不虚构光标】：被控端交互需要真实执行端或测试宿主（可读执行状态、合法事件快照、延迟/乱序/断租约控制）。本机没有被控端执行宿主，也没有事件注入能力，无法产生指针、覆盖层、租约、快照等被控端证据。",
+    "missing_dependency": "被控端交互需要真实执行端或测试宿主（可读执行状态、合法事件快照、延迟/乱序/断租约控制）。本机没有被控端执行宿主，也没有事件注入能力，无法产生指针、覆盖层、租约、快照等被控端证据。",
+    "evidence": [
+      "证据/AGENT-003/AGENT-003-A01/专家市场.txt"
+    ],
+    "next_action": "需要一台被控端执行宿主或测试宿主，以及可控制的延迟/乱序/断租约与合法事件快照。"
+  },
+  "applicability_reason": null,
+  "cleanup": {
+    "changes": [],
+    "remaining": []
+  },
+  "review": {
+    "assistant": null,
+    "user": null,
+    "approved_scope": [],
+    "final_decision": "待审核"
+  }
+}

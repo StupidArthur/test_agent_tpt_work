@@ -1,0 +1,255 @@
+[
+  {
+    "id": "G10-01",
+    "title": "默认打开SKILL正文",
+    "steps": [
+      "打开本轮rich技能详情。"
+    ],
+    "expected": [
+      "详情初始选中文件：\"SKILL.md\"",
+      "默认预览完整正文：\"FAST_RICH_BASE_OK\""
+    ],
+    "fixture": "见扩展场景与夹具说明",
+    "assertions": [
+      {
+        "id": "G10-01-A1",
+        "target": "详情初始选中文件",
+        "read": "读取选中树节点路径",
+        "operator": "equals",
+        "expected": "SKILL.md"
+      },
+      {
+        "id": "G10-01-A2",
+        "target": "默认预览完整正文",
+        "read": "读取文件预览文本",
+        "operator": "contains",
+        "expected": "FAST_RICH_BASE_OK"
+      }
+    ]
+  },
+  {
+    "id": "G10-02",
+    "title": "深层文件可达",
+    "steps": [
+      "展开references/handbook/advanced，选择checklist.md。"
+    ],
+    "expected": [
+      "深层文件预览：\"FAST_DEEP_CHECKLIST\""
+    ],
+    "fixture": "见扩展场景与夹具说明",
+    "assertions": [
+      {
+        "id": "G10-02-A1",
+        "target": "深层文件预览",
+        "read": "读取所选文件正文",
+        "operator": "contains",
+        "expected": "FAST_DEEP_CHECKLIST"
+      }
+    ]
+  },
+  {
+    "id": "G10-03",
+    "title": "目录可折叠",
+    "steps": [
+      "收起references目录并读取子节点可见状态，再展开恢复。"
+    ],
+    "expected": [
+      "收起后的深层节点可见：false",
+      "恢复展开深层节点可见：true"
+    ],
+    "fixture": "见扩展场景与夹具说明",
+    "assertions": [
+      {
+        "id": "G10-03-A1",
+        "target": "收起后的深层节点可见",
+        "read": "读取checklist.md树节点可见状态",
+        "operator": "equals",
+        "expected": false
+      },
+      {
+        "id": "G10-03-A2",
+        "target": "恢复展开深层节点可见",
+        "read": "读取同一节点可见状态",
+        "operator": "equals",
+        "expected": true
+      }
+    ]
+  },
+  {
+    "id": "G10-04",
+    "title": "文本JSON只读",
+    "steps": [
+      "分别点notes.txt与records.json，读取正文和可编辑控件。"
+    ],
+    "expected": [
+      "notes预览正文：\"FAST_NOTES\"",
+      "JSON预览正文：\"FAST_JSON\"",
+      "文件预览可编辑控件数：0"
+    ],
+    "fixture": "见扩展场景与夹具说明",
+    "assertions": [
+      {
+        "id": "G10-04-A1",
+        "target": "notes预览正文",
+        "read": "读取文件文本",
+        "operator": "contains",
+        "expected": "FAST_NOTES"
+      },
+      {
+        "id": "G10-04-A2",
+        "target": "JSON预览正文",
+        "read": "读取文件文本",
+        "operator": "contains",
+        "expected": "FAST_JSON"
+      },
+      {
+        "id": "G10-04-A3",
+        "target": "文件预览可编辑控件数",
+        "read": "限定预览区数textarea/contenteditable=true",
+        "operator": "equals",
+        "expected": 0
+      }
+    ]
+  },
+  {
+    "id": "G10-05",
+    "title": "图片预览",
+    "steps": [
+      "点assets/icon.png。"
+    ],
+    "expected": [
+      "包内图片预览加载：true"
+    ],
+    "fixture": "见扩展场景与夹具说明",
+    "assertions": [
+      {
+        "id": "G10-05-A1",
+        "target": "包内图片预览加载",
+        "read": "读取实际预览img.complete且naturalWidth>0",
+        "operator": "equals",
+        "expected": true
+      }
+    ]
+  },
+  {
+    "id": "G10-06",
+    "title": "二进制不虚构解析",
+    "steps": [
+      "点data/sample.bin。"
+    ],
+    "expected": [
+      "二进制文件说明：true",
+      "二进制正文解析声称：false"
+    ],
+    "fixture": "见扩展场景与夹具说明",
+    "assertions": [
+      {
+        "id": "G10-06-A1",
+        "target": "二进制文件说明",
+        "read": "读取名称/类型/大小说明均存在",
+        "operator": "equals",
+        "expected": true
+      },
+      {
+        "id": "G10-06-A2",
+        "target": "二进制正文解析声称",
+        "read": "读取是否宣称已解析出业务内容",
+        "operator": "equals",
+        "expected": false
+      }
+    ]
+  },
+  {
+    "id": "G10-07",
+    "title": "合法外部修改生效",
+    "steps": [
+      "从详情定位本轮实际安装SKILL.md，备份字节与哈希。",
+      "只替换固定输出FAST_RICH_BASE_OK为FAST_RICH_NEW_OK；新建任务显式选择该技能调用固定规则；最后恢复并回读。"
+    ],
+    "expected": [
+      "合法修改后的新任务正文：\"FAST_RICH_NEW_OK\"",
+      "新任务加载技能资源内容：\"FAST_RICH_NEW_OK\"",
+      "本轮实际安装SKILL.md绝对路径：null"
+    ],
+    "fixture": "见扩展场景与夹具说明",
+    "assertions": [
+      {
+        "id": "G10-07-A1",
+        "target": "合法修改后的新任务正文",
+        "read": "读取最终正文trim",
+        "operator": "equals",
+        "expected": "FAST_RICH_NEW_OK"
+      },
+      {
+        "id": "G10-07-A2",
+        "target": "新任务加载技能资源内容",
+        "read": "读取成功加载的skill_content正文",
+        "operator": "contains",
+        "expected": "FAST_RICH_NEW_OK"
+      },
+      {
+        "id": "G10-07-A3",
+        "target": "本轮实际安装SKILL.md绝对路径",
+        "read": "初始与恢复后对同一文件读取SHA256",
+        "operator": "sha256_equal",
+        "expected": null
+      }
+    ]
+  },
+  {
+    "id": "G10-08",
+    "title": "无效修改保留最近有效内容",
+    "steps": [
+      "备份rich安装文件；移除技术description使之无效；通过UI打开/使用样本观察校验；新任务调用固定规则；最终恢复。"
+    ],
+    "expected": [
+      "无效文件校验提示：true",
+      "无效修改后的固定回复：\"FAST_RICH_BASE_OK\"",
+      "本轮实际安装SKILL.md绝对路径：null"
+    ],
+    "fixture": "见扩展场景与夹具说明",
+    "assertions": [
+      {
+        "id": "G10-08-A1",
+        "target": "无效文件校验提示",
+        "read": "读取提示明确无效字段或校验失败",
+        "operator": "equals",
+        "expected": true
+      },
+      {
+        "id": "G10-08-A2",
+        "target": "无效修改后的固定回复",
+        "read": "读取最终正文trim",
+        "operator": "equals",
+        "expected": "FAST_RICH_BASE_OK"
+      },
+      {
+        "id": "G10-08-A3",
+        "target": "本轮实际安装SKILL.md绝对路径",
+        "read": "初始与恢复后SHA256",
+        "operator": "sha256_equal",
+        "expected": null
+      }
+    ]
+  },
+  {
+    "id": "G10-09",
+    "title": "修改后不增加本地修改标签",
+    "steps": [
+      "沿用合法修改时的本轮user对象，读取卡片标签；不把user来源扩展为市场版本结论。"
+    ],
+    "expected": [
+      "本轮卡片已本地修改标签：false"
+    ],
+    "fixture": "见扩展场景与夹具说明",
+    "assertions": [
+      {
+        "id": "G10-09-A1",
+        "target": "本轮卡片已本地修改标签",
+        "read": "读取限定卡片标签列表中该标签存在",
+        "operator": "equals",
+        "expected": false
+      }
+    ]
+  }
+]

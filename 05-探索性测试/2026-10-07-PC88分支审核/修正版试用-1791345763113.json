@@ -1,0 +1,123 @@
+{
+  "results": [
+    {
+      "name": "fixtures.backupFile",
+      "args": {
+        "path": "C:\\Users\\Administrator\\.tpt-work\\dsh\\tpt-memory\\MEMORY.md"
+      },
+      "status": "returned",
+      "call_id": "CALL-35245d21-f19b-4bde-807d-c5b33bc166fb"
+    },
+    {
+      "name": "fixtures.backupFile",
+      "args": {
+        "path": "C:\\Users\\Administrator\\.tpt-work\\dsh\\tpt-memory\\index.json"
+      },
+      "status": "returned",
+      "call_id": "CALL-e8cc13a2-6b01-4ec0-83b2-fb4c0d3e0e8c"
+    },
+    {
+      "name": "mem.probePanel",
+      "args": {
+        "action": "delete-first"
+      },
+      "status": "error",
+      "error": {
+        "type": "Error",
+        "message": "args.action invalid enum"
+      },
+      "rejectedBeforeInvocation": true,
+      "expected": "error"
+    },
+    {
+      "name": "mem.readFiles",
+      "args": {
+        "files": [
+          "../outside.txt"
+        ]
+      },
+      "status": "error",
+      "error": {
+        "type": "Error",
+        "message": "Memory file must be relative to root: ../outside.txt"
+      },
+      "expected": "error",
+      "call_id": "CALL-6972bef8-3dfe-4559-9ba9-a11eedf2c71f"
+    },
+    {
+      "name": "mem.editLayerFile",
+      "args": {
+        "file": "USER.md",
+        "content": "wrong",
+        "beforeSha256": "invalid"
+      },
+      "status": "error",
+      "error": {
+        "type": "Error",
+        "message": "Layer changed before edit"
+      },
+      "expected": "error",
+      "call_id": "CALL-60cfc37b-fef3-4488-aa55-41e8db9ee49b"
+    },
+    {
+      "name": "mem.addEntry",
+      "args": {
+        "type": "事实",
+        "content": "LOCAL_PC88_REVIEW_1791345729241"
+      },
+      "status": "returned",
+      "call_id": "CALL-789f4b4d-8d8c-4de5-8382-c377ee9520d0"
+    },
+    {
+      "name": "mem.editLayerFile",
+      "args": {
+        "file": "MEMORY.md",
+        "beforeSha256": "a7e5c430eec450ef3fc46812d16e19e29902388be5bd2785333b21675950865b",
+        "content": "- [F] LOCAL_PC88_REVIEW_1791345729241_EDITED（2026-10-07）\n"
+      },
+      "status": "returned",
+      "call_id": "CALL-8df5e379-12d7-4ebb-8b7a-6a43edb5f180"
+    },
+    {
+      "name": "fixtures.restoreFile",
+      "args": {
+        "path": "C:\\Users\\Administrator\\.tpt-work\\dsh\\tpt-memory\\MEMORY.md",
+        "backup": "D:\\code\\electron-ui\\探索性测试\\2026-10-07-PC88分支审核\\恢复备份\\e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.bin",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "status": "returned",
+      "call_id": "CALL-79fd2c03-3e6a-4b88-a80a-0db341590fce"
+    },
+    {
+      "name": "fixtures.restoreFile",
+      "args": {
+        "path": "C:\\Users\\Administrator\\.tpt-work\\dsh\\tpt-memory\\index.json",
+        "backup": "D:\\code\\electron-ui\\探索性测试\\2026-10-07-PC88分支审核\\恢复备份\\6363d0856a5ea142d6fc1cf634861015c1b8bd3116051a52dfae353dec6dcb48.bin",
+        "sha256": "6363d0856a5ea142d6fc1cf634861015c1b8bd3116051a52dfae353dec6dcb48"
+      },
+      "status": "returned",
+      "call_id": "CALL-aaf41899-812a-423d-b0e2-d56c769038d7"
+    },
+    {
+      "name": "cleanup.reviewGeneratedBackup",
+      "path": "C:\\Users\\Administrator\\.tpt-work\\dsh\\tpt-memory\\MEMORY.md.bak",
+      "sha256": "a7e5c430eec450ef3fc46812d16e19e29902388be5bd2785333b21675950865b"
+    }
+  ],
+  "restored": [
+    {
+      "path": "C:\\Users\\Administrator\\.tpt-work\\dsh\\tpt-memory\\MEMORY.md",
+      "expected": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "actual": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\.tpt-work\\dsh\\tpt-memory\\index.json",
+      "expected": "6363d0856a5ea142d6fc1cf634861015c1b8bd3116051a52dfae353dec6dcb48",
+      "actual": "6363d0856a5ea142d6fc1cf634861015c1b8bd3116051a52dfae353dec6dcb48"
+    }
+  ],
+  "remainingNewFiles": [],
+  "auditBeforeBytes": 2517,
+  "auditAfterBytes": 2699,
+  "auditPrefixPreserved": true
+}

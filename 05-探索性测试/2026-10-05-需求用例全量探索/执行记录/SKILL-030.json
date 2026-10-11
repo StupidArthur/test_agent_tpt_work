@@ -1,0 +1,31 @@
+{
+  "case_id": "SKILL-030",
+  "case_title": "编辑type不改市场关联",
+  "source_sha256": "92a6f4ecd2a5dffe0f1a2a60e73fa18b5fb98763b09cc56ce4cc22fd56e13f0e",
+  "status": "阻塞",
+  "review_status": "待双方审核",
+  "latest_attempt_id": null,
+  "attempts": [],
+  "product_observations": [],
+  "differences": [],
+  "finding_ids": [],
+  "blocker": {
+    "reason": "无法执行【编辑type不改市场关联（仅测试夹具）】：需要上述伪造样本并编辑其 type。本机技能页当前只有 5 个内置技能与 2 个更早批次创建的用户技能，均无上述变体。",
+    "missing_dependency": "需要上述伪造样本并编辑其 type。本机技能页当前只有 5 个内置技能与 2 个更早批次创建的用户技能，均无上述变体。",
+    "evidence": [
+      "证据/SKILL-030/SKILL-030-A01/技能详情页-摘录.txt"
+    ],
+    "next_action": "需要构造并导入需要上述伪造样本并编辑其 type（导入需经原生目录选择器，须先获得授权），或由测试市场提供对应样本。"
+  },
+  "applicability_reason": null,
+  "cleanup": {
+    "changes": [],
+    "remaining": []
+  },
+  "review": {
+    "assistant": null,
+    "user": null,
+    "approved_scope": [],
+    "final_decision": "待审核"
+  }
+}

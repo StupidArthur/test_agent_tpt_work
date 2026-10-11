@@ -1,0 +1,48 @@
+{
+  "observations": {
+    "action_refs": [
+      "business-728cfd4d-f961-4f61-8f47-e1b789335eb5-2"
+    ],
+    "observations": {
+      "mode": {
+        "event_id": "business-728cfd4d-f961-4f61-8f47-e1b789335eb5-3",
+        "captured_at": "2026-10-06T11:41:26.084Z",
+        "environment_id": "env-fn-20261006-agent2",
+        "kind": "read",
+        "target": "创建技能模式标识",
+        "business_call_id": "CALL-1546741a-8f96-43f8-9511-9252e20bed5a",
+        "object_id": "skill-create-mode",
+        "source": {
+          "channel": "dom",
+          "scope": "composer 输入区",
+          "locator": "div[contenteditable=\"true\"][aria-label*=\"/ 调用指令\"]"
+        },
+        "value": true,
+        "raw": {
+          "composer": "/create-skill ",
+          "presetPattern": "create-skill|创建技能"
+        },
+        "derivation": "composer 含预置创建技能指令/标签"
+      },
+      "visible": {
+        "event_id": "business-728cfd4d-f961-4f61-8f47-e1b789335eb5-4",
+        "captured_at": "2026-10-06T11:41:26.086Z",
+        "environment_id": "env-fn-20261006-agent2",
+        "kind": "read",
+        "target": "创建技能面板可见",
+        "business_call_id": "CALL-1546741a-8f96-43f8-9511-9252e20bed5a",
+        "object_id": "skill-create-visible",
+        "source": {
+          "channel": "dom",
+          "scope": "主表面 composer",
+          "locator": "div[contenteditable=\"true\"][aria-label*=\"/ 调用指令\"]"
+        },
+        "value": true,
+        "raw": {
+          "visible": true
+        },
+        "derivation": "composer.isVisible()"
+      }
+    }
+  }
+}

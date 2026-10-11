@@ -1,0 +1,60 @@
+{
+  "case_id": "G7-07",
+  "contract_version": "2.1",
+  "attempt_id": "fn-20261006-agent2-G7-07-A1",
+  "environment_id": "env-fn-20261006-agent2",
+  "object_identity": {
+    "attachment": "fixture.unknown-fast"
+  },
+  "inputs": [
+    "添加 fixture.unknown-fast"
+  ],
+  "action_refs": [
+    "business-dd51c5c9-fb9c-4a74-9b95-7d624c7cec06-2"
+  ],
+  "status": "通过",
+  "started_at": "2026-10-06T08:29:38.767Z",
+  "ended_at": "2026-10-06T08:29:56.772Z",
+  "actual_steps": [
+    "新建任务添加未知格式附件",
+    "读取匹配卡数",
+    "读取目标卡状态文本并判断是否含肯定解析声明"
+  ],
+  "assertions": [
+    {
+      "id": "G7-07-A1",
+      "actual": 1,
+      "read_refs": [
+        "business-e5a15eab-6b7a-4a65-8f73-c9ddb5a0ba2a-2"
+      ]
+    },
+    {
+      "id": "G7-07-A2",
+      "actual": false,
+      "read_refs": [
+        "business-80f825d2-3297-4edc-b418-84a1ac592e61-1"
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "path": "运行日志/business.jsonl",
+      "sha256": "6203703aeaf46ab5fd94d64c474b878c26f39b97bc4c3f7a3840f9ee9a48bdc5"
+    },
+    {
+      "path": "运行日志/业务调用.jsonl",
+      "sha256": "91fc9bb4b29ad5347770a9e5e5a21b38b9c414c04a2e484e84b5dd981db87bd7"
+    }
+  ],
+  "cleanup": {
+    "status": "retained",
+    "description": "草稿保留；后续清理",
+    "read_refs": []
+  },
+  "business_call_refs": [
+    "CALL-855ec7b4-55ab-4a8b-9752-1cce9002c674",
+    "CALL-52dbf409-e109-4c37-823f-a62c635da9fb",
+    "CALL-e185b6cc-b809-40b7-aba3-71b66c4f172f"
+  ],
+  "notes": "A2 卡片完整文本 'fixture.unknown-fast UNKNOWN- 21B'，无解析成功等肯定声明，故 false"
+}

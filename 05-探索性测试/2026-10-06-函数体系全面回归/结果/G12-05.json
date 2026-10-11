@@ -1,0 +1,64 @@
+{
+  "case_id": "G12-05",
+  "contract_version": "2.0",
+  "environment_id": "agent-oc-20261006-funcfull-01",
+  "attempt_id": "G12-05-A01",
+  "object_identity": "设置/记忆与进化/启用沉淀",
+  "inputs": [
+    "切换启用沉淀一次",
+    "重开回读",
+    "恢复"
+  ],
+  "business_call_refs": [
+    "CALL-5f4894b4-a5a3-4b6d-bec1-586152a38cce",
+    "CALL-b591948e-51dc-407f-912e-7cc64fadd8c7",
+    "CALL-87d1695a-4abc-45d9-8131-3c7422926b79",
+    "CALL-50cf9f9f-635c-4163-b2b5-687115fa807a",
+    "CALL-8a6c3b23-5906-4223-bc21-04193e276774"
+  ],
+  "status": "失败",
+  "attempted_at": "2026-10-06T17:06:28.593Z",
+  "assertions": [
+    {
+      "id": "G12-05-A1",
+      "expected": false,
+      "actual": true,
+      "pass": false,
+      "read_refs": [
+        "CALL-b591948e-51dc-407f-912e-7cc64fadd8c7-1"
+      ],
+      "raw": {
+        "checked": true,
+        "kind": "checkbox"
+      }
+    },
+    {
+      "id": "G12-05-A2",
+      "expected": false,
+      "actual": false,
+      "pass": true,
+      "read_refs": [
+        "CALL-87d1695a-4abc-45d9-8131-3c7422926b79-1"
+      ],
+      "raw": {
+        "texts": []
+      }
+    },
+    {
+      "id": "G12-05-A3",
+      "expected": true,
+      "actual": true,
+      "pass": true,
+      "read_refs": [
+        "CALL-8a6c3b23-5906-4223-bc21-04193e276774-1"
+      ]
+    }
+  ],
+  "restore": {
+    "status": "unchanged",
+    "description": "本case未改动设置/文件",
+    "read_refs": []
+  },
+  "residual": "",
+  "notes": "evolution_initial=true。同 G12-04，checkbox 行未被 setRowToggle 切换。"
+}

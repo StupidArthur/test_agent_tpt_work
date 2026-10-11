@@ -1,0 +1,51 @@
+{
+  "case_id": "G12-02",
+  "contract_version": "2.0",
+  "attempt_id": "G12-A02",
+  "environment_id": "env-20261006-oc1",
+  "object_identity": "设置用量",
+  "inputs": [
+    "简洁"
+  ],
+  "action_refs": [
+    "G12b-a7b301ad-5442-4eda-abe1-aa6678877cce-3",
+    "G12b-a7b301ad-5442-4eda-abe1-aa6678877cce-7",
+    "G12b-a7b301ad-5442-4eda-abe1-aa6678877cce-12",
+    "G12b-a7b301ad-5442-4eda-abe1-aa6678877cce-16",
+    "G12b-a7b301ad-5442-4eda-abe1-aa6678877cce-20"
+  ],
+  "status": "失败",
+  "started_at": "2026-10-06T06:29:38.822Z",
+  "ended_at": "2026-10-06T06:32:54.693Z",
+  "actual_steps": [
+    "切简洁读页脚"
+  ],
+  "assertions": [
+    {
+      "id": "G12-02-A1",
+      "actual": false,
+      "read_refs": [
+        "G12b-a7b301ad-5442-4eda-abe1-aa6678877cce-4"
+      ]
+    },
+    {
+      "id": "G12-02-A2",
+      "actual": true,
+      "read_refs": [
+        "G12b-a7b301ad-5442-4eda-abe1-aa6678877cce-5"
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "path": "运行日志/G12b.jsonl",
+      "sha256": "fec499be09b85c8f820931ab48e2f6f45197f5afacc7c1590bdc5e99036442ef"
+    }
+  ],
+  "cleanup": {
+    "status": "restored",
+    "description": "用量与代码工具恢复初值",
+    "read_refs": []
+  },
+  "notes": "G12用量/代码工具。"
+}

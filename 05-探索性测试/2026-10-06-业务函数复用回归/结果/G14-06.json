@@ -1,0 +1,61 @@
+{
+  "case_id": "G14-06",
+  "contract_version": "2.0",
+  "attempt_id": "fn-20261006-agent2-G14-06-A1",
+  "environment_id": "env-fn-20261006-agent2",
+  "object_identity": {
+    "zip": "mixed.zip"
+  },
+  "inputs": [
+    "导入 mixed.zip 按默认确认，读取逐项与 invalid 匹配"
+  ],
+  "action_refs": [
+    "business-ffc924c8-a653-4662-9012-48cc9eef4bfb-1",
+    "business-834d24a1-9892-4ec2-959c-b255239ac5ca-1"
+  ],
+  "status": "失败",
+  "started_at": "2026-10-06T11:43:00.000Z",
+  "ended_at": "2026-10-06T11:47:30.000Z",
+  "actual_steps": [
+    "确认导入 mixed.zip",
+    "读取逐项结果",
+    "搜索 invalid 技术名"
+  ],
+  "assertions": [
+    {
+      "id": "G14-06-A1",
+      "actual": "导入技能 每次导入一个技能：选择 ZIP、SKILL.md 或 Skill 文件夹。 选择文件 选择文件夹 ZIP mixed.zip 1 个文件 · 861 B × 未导入任何技能；已跳过同名技能：duplicate、invalid、valid 文件要求 压缩包或文件夹需包含 SKILL.md SKILL.md 需包含 YAML 格式的技能名称和描述 导入时复制完整内容，不修改原始来源 取消 导入",
+      "read_refs": [
+        "business-ffc924c8-a653-4662-9012-48cc9eef4bfb-3"
+      ]
+    },
+    {
+      "id": "G14-06-A2",
+      "actual": 1,
+      "read_refs": [
+        "business-83bce1cc-fb12-4a3f-9bb7-d7f9270053fe-3"
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "path": "运行日志/business.jsonl",
+      "sha256": "6203703aeaf46ab5fd94d64c474b878c26f39b97bc4c3f7a3840f9ee9a48bdc5"
+    },
+    {
+      "path": "运行日志/业务调用.jsonl",
+      "sha256": "91fc9bb4b29ad5347770a9e5e5a21b38b9c414c04a2e484e84b5dd981db87bd7"
+    }
+  ],
+  "cleanup": {
+    "status": "retained",
+    "description": "样本保留待审",
+    "read_refs": []
+  },
+  "business_call_refs": [
+    "CALL-88bffcf3-373a-432b-887d-abb21adab223",
+    "CALL-a3b8453b-2c4a-4013-aa44-87a7c1a3b1d3",
+    "CALL-f29d96e2-5194-448c-b601-6cd1ebf55f53"
+  ],
+  "notes": "差异/污染：本次确认结果为“未导入任何技能；已跳过同名技能：duplicate、invalid、valid”，未给出 valid=成功/invalid=失败的逐项状态；且 mixed 的 valid/invalid 已存在（此前一次未记录的探测导入造成），invalid 技术名搜索命中=1，未复现“invalid 失败”"
+}

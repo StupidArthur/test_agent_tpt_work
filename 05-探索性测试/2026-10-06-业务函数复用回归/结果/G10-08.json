@@ -1,0 +1,76 @@
+{
+  "case_id": "G10-08",
+  "contract_version": "2.1",
+  "attempt_id": "fn-20261006-agent2-G10-08-A1",
+  "environment_id": "env-fn-20261006-agent2",
+  "object_identity": {
+    "installed_skill_md": "C:/Users/yuzechao/.tpt-work/dsh/skills/fast-assert-rich-fn-20261006-agent2/SKILL.md"
+  },
+  "inputs": [
+    "外部移除技术 description 使无效，触发校验后新建任务调用，再恢复"
+  ],
+  "action_refs": [
+    "business-22e0befc-1eca-442c-99a9-ee4939e36989-2"
+  ],
+  "status": "失败",
+  "started_at": "2026-10-06T09:34:13.897Z",
+  "ended_at": "2026-10-06T09:36:41.716Z",
+  "actual_steps": [
+    "读取安装 SKILL.md 初始哈希",
+    "外部删除 description 行",
+    "打开技能列表读取校验反馈",
+    "新建任务经快捷使用调用固定规则",
+    "恢复原字节并回读哈希"
+  ],
+  "assertions": [
+    {
+      "id": "G10-08-A1",
+      "actual": false,
+      "read_refs": [
+        "business-46db6ef3-4276-4e33-86da-eb42dd44fe19-3"
+      ]
+    },
+    {
+      "id": "G10-08-A2",
+      "actual": "FAST_RICH_BASE_OK",
+      "read_refs": [
+        "business-22e0befc-1eca-442c-99a9-ee4939e36989-3"
+      ]
+    },
+    {
+      "id": "G10-08-A3",
+      "actual": {
+        "before": "789818033a343357f0366b5d473d80ca29c98cf714bc8171d80c6c5ae28cfcce",
+        "after": "789818033a343357f0366b5d473d80ca29c98cf714bc8171d80c6c5ae28cfcce"
+      },
+      "read_refs": [
+        "business-e8c28820-1f25-42f2-9151-410aad8cd6d2-1",
+        "business-580e6f53-3ac8-4aad-8dbf-cd28e2b17e31-1"
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "path": "运行日志/business.jsonl",
+      "sha256": "6203703aeaf46ab5fd94d64c474b878c26f39b97bc4c3f7a3840f9ee9a48bdc5"
+    },
+    {
+      "path": "运行日志/业务调用.jsonl",
+      "sha256": "91fc9bb4b29ad5347770a9e5e5a21b38b9c414c04a2e484e84b5dd981db87bd7"
+    }
+  ],
+  "cleanup": {
+    "status": "restored",
+    "description": "安装 SKILL.md 已按原字节恢复并回读哈希一致",
+    "read_refs": [
+      "business-580e6f53-3ac8-4aad-8dbf-cd28e2b17e31-1"
+    ]
+  },
+  "business_call_refs": [
+    "CALL-81a792cb-a0e0-4b27-8482-0b90e9d9a277",
+    "CALL-25509769-a004-4fc6-8eb6-ccb05e662e8e",
+    "CALL-c1496db4-da09-4161-970f-cf5b69234fa1",
+    "CALL-78b44340-2a46-4808-aaaf-f8340e3f9a91"
+  ],
+  "notes": "A1 失败：移除 description 后技能列表未出现针对该无效字段的校验反馈（read=false）。A2 通过：旧内容仍可用，固定回复 FAST_RICH_BASE_OK。A3 通过：恢复后哈希一致"
+}

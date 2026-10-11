@@ -1,0 +1,140 @@
+{
+  "batch": "todo_1",
+  "date": "2026-10-07",
+  "target": "tpt-gateway-public",
+  "model_primary": "flash",
+  "credential": "TPT_API_KEY(单 key, 环境变量; 不入库)",
+  "real_requests": 49,
+  "results": [
+    {
+      "checkpoint": "T01",
+      "object": "候选问题.json",
+      "attempt": "orig->fix",
+      "expected_source": "JSON 规范",
+      "expected": "可解析且含 7 个 DIFF",
+      "actual": "orig 不可解析(DIFF-06 截断)；修复后 7 项",
+      "judgement": "交付问题已修",
+      "evidence": [
+        "补测/todo_1/原始快照/候选问题.json.orig",
+        "候选问题.json"
+      ]
+    },
+    {
+      "checkpoint": "T02",
+      "object": "36 测试项覆盖",
+      "expected_source": "cases/README + 01/02/03/04 用例",
+      "expected": "逐项列覆盖与子项",
+      "actual": "完整 15/部分 13/未验证 8",
+      "judgement": "覆盖表建立",
+      "evidence": [
+        "补测/todo_1/36项覆盖表.md"
+      ]
+    },
+    {
+      "checkpoint": "T03",
+      "object": "DIFF-01 flash 计量",
+      "attempt": "off/low/high 各 2",
+      "expected_source": "目录声明 reasoning + usage 契约",
+      "expected": "细分字段真实",
+      "actual": "reasoning_tokens=0 while reasoning 文本存在; output_tokens 9/33/10/12/21/62",
+      "judgement": "计量语义待确认(收窄)",
+      "evidence": [
+        "补测/todo_1/证据/T03/metering.json"
+      ]
+    },
+    {
+      "checkpoint": "T04",
+      "object": "DIFF-02/TPT-02 目录",
+      "attempt": "GET /models x2",
+      "expected_source": "catalog 契约",
+      "expected": "字段类型/默认标记",
+      "actual": "3 模型, is_default=true x3, 两次一致",
+      "judgement": "目录事实成立; 宿主影响未验证",
+      "evidence": [
+        "补测/todo_1/证据/T04/summary.json"
+      ]
+    },
+    {
+      "checkpoint": "T05",
+      "object": "DIFF-04/TPT-07 历史",
+      "attempt": "A/B/C",
+      "expected_source": "Responses input 契约",
+      "expected": "合法历史被接受且回忆正确",
+      "actual": "A 200 'M_a1'; B 400; C 复用真实 items 200 含 42",
+      "judgement": "B 复现; 宿主风险未验证; TPT-07 工具复用通过",
+      "evidence": [
+        "补测/todo_1/证据/T05/summary.json",
+        "补测/todo_1/证据/T05/C2_stream_events.json"
+      ]
+    },
+    {
+      "checkpoint": "T06",
+      "object": "DIFF-07 终态配对",
+      "attempt": "normal/16/32/512 x 2 形态 x 2",
+      "expected_source": "Responses 终态契约",
+      "expected": "状态与事件一致",
+      "actual": "非流式 incomplete(reason=max_output_tokens); 流式 response.completed 内 status=incomplete",
+      "judgement": "收窄: 无独立 response.incomplete 事件",
+      "evidence": [
+        "补测/todo_1/证据/T06/terminal_pairs.json"
+      ]
+    },
+    {
+      "checkpoint": "T07",
+      "object": "API-09/TPT-08/PERF-03 终态重审 + TPT-08 补项",
+      "attempt": "normal+cancel",
+      "expected_source": "TPT-08 三子项",
+      "expected": "正常/截断/取消分别呈现",
+      "actual": "normal completed; cancel 收 152 帧后关闭, 无 terminal/usage",
+      "judgement": "PERF-03 降级为截断测量; TPT-08 完整",
+      "evidence": [
+        "补测/todo_1/证据/T07/tpt08_terminal__r2.json"
+      ]
+    },
+    {
+      "checkpoint": "T08",
+      "object": "DIFF-03/TPT-05 图片",
+      "attempt": "v1(相邻方块)->v2(分离方块)",
+      "expected_source": "独立 PNG + 预期 3",
+      "expected": "声明 image 的模型答 3",
+      "actual": "flash-backup-ds 答 3; pro 503 上游不可用; flash 400 不支持",
+      "judgement": "flash-backup-ds 已验证; pro 前置不成立",
+      "evidence": [
+        "补测/todo_1/证据/T08/image_trials__r3.json",
+        "补测/todo_1/证据/T08/three_blocks_v2.png"
+      ]
+    },
+    {
+      "checkpoint": "T09",
+      "object": "DIFF-05/06 + API-05/06/10 抽查",
+      "attempt": "读证据",
+      "expected_source": "用例断言",
+      "expected": "参数/ID/答案/JSON 实际值",
+      "actual": "API-05 call_id chatcmpl-tool-…; API-06 call_89fdb2…; 均 42; API-10 正文 {answer:42}",
+      "judgement": "通过项断言无缺口; DIFF-05 收窄",
+      "evidence": [
+        "补测/todo_1/证据/T09/spotcheck_sources.json"
+      ]
+    },
+    {
+      "checkpoint": "T10",
+      "object": "容量补测计划",
+      "expected_source": "docs/03-指标与容量",
+      "expected": "可执行计划 + 待确认参数",
+      "actual": "见 容量补测计划.md",
+      "judgement": "完成",
+      "evidence": [
+        "补测/todo_1/容量补测计划.md"
+      ]
+    }
+  ],
+  "manager_revision": {
+    "coverage_counts": {
+      "complete": 15,
+      "partial": 13,
+      "unverified": 8
+    },
+    "new_requests": 0,
+    "reason": "counts and metering wording corrected; old bytes archived"
+  }
+}

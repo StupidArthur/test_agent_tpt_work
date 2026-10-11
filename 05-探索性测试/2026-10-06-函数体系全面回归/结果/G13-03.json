@@ -1,0 +1,45 @@
+{
+  "case_id": "G13-03",
+  "contract_version": "2.0",
+  "environment_id": "agent-oc-20261006-funcfull-01",
+  "attempt_id": "G13-03-A01",
+  "object_identity": "技能页双页签",
+  "inputs": [
+    "打开技能页读页签"
+  ],
+  "business_call_refs": [
+    "CALL-1d17b390-f147-4050-b240-c1e5e8f0dffe"
+  ],
+  "status": "通过",
+  "attempted_at": "2026-10-06T17:16:33.437Z",
+  "assertions": [
+    {
+      "id": "G13-03-A1",
+      "expected": true,
+      "actual": true,
+      "pass": true,
+      "read_refs": [
+        "CALL-1d17b390-f147-4050-b240-c1e5e8f0dffe-3"
+      ],
+      "raw": {
+        "tabs": [
+          {
+            "text": "我的技能 92",
+            "disabled": false
+          },
+          {
+            "text": "技能市场 1",
+            "disabled": false
+          }
+        ]
+      }
+    }
+  ],
+  "restore": {
+    "status": "unchanged",
+    "description": "本case未改动设置/文件",
+    "read_refs": []
+  },
+  "residual": "",
+  "notes": ""
+}

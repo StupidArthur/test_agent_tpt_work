@@ -1,0 +1,29 @@
+{
+  "case_id": "G2-05",
+  "status": "通过",
+  "started_at": "2026-10-06T09:55:30+08:00",
+  "ended_at": "2026-10-06T09:56:00+08:00",
+  "actual_steps": [
+    "清空名称查询，搜索 regression-description-unique-token",
+    "读取命中卡片与标题"
+  ],
+  "observed": "搜索描述唯一词 regression-description-unique-token 后本轮技能命中；命中卡片标题为“本轮快速回归技能”，不包含该查询词（查询词只出现在描述文本中）。",
+  "evidence": [
+    {
+      "path": "证据/G2-05-search-desc.png",
+      "sha256": "8abd8525c6aaaa1eda422b95d471d0699ac187fed2a6be8f8a8edad1fa2bc75c"
+    },
+    {
+      "path": "证据/G2-search-probe.txt",
+      "sha256": "ff7cd072a2ed50bb6fe51b967d30e1a78b6cbea947da88f22211424d2067b5e5"
+    }
+  ],
+  "cleanup": "清空搜索。",
+  "timings": {
+    "操作等待秒": 20,
+    "产品执行秒": 0,
+    "取证登记秒": 5,
+    "排障恢复秒": 0
+  },
+  "group": "G2"
+}

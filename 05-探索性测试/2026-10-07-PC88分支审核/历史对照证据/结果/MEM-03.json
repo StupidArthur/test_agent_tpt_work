@@ -1,0 +1,17 @@
+{
+  "id": "MEM-03",
+  "run": "PC88-20261007-memory01",
+  "machine_id": "PC88",
+  "status": "通过",
+  "assertions": {
+    "工具调用": "模型真实调用 memory_log 与 memory_note(memory_recall 另见 MEM-08)",
+    "落盘": "MEMORY.md 追加 - [F] MEM88-20261007-TOOL-乙；新建 2026-10-07.md 工作日志；新建 .entry-meta.json importance=1",
+    "备份": "写前 MEMORY.md.bak=旧内容(87B)",
+    "审计": "actor=tool type=memory_write ×2(日志追加/长期记忆追加)"
+  },
+  "refs": [
+    "CALL-3074440d-112a-4423-aad1-e3deb5e3dc10",
+    "CALL-5426a31b-7ef9-447f-8bc1-364cccca576e"
+  ],
+  "notes": "tool 写入未更新 index.json（与面板添加不同）"
+}

@@ -1,0 +1,55 @@
+{
+  "case_id": "G7-03",
+  "contract_version": "2.0",
+  "environment_id": "agent-oc-20261006-funcfull-01",
+  "attempt_id": "G7-03-A01",
+  "object_identity": "composer 草稿附件区",
+  "inputs": [
+    "先加 count-01..20",
+    "再加 count-21..35"
+  ],
+  "business_call_refs": [
+    "CALL-b08e40ea-30c3-4ecc-aa36-6853b2b5a4c5",
+    "CALL-5d60f86a-5f9d-4bf1-b149-dce98ce928c7",
+    "CALL-c8ae0f14-9dda-4681-9e21-085ecf26625a",
+    "CALL-e6d07889-531f-471c-b918-f5b3c563faf7",
+    "CALL-b640bf36-8225-474b-9294-16c701dd8d22"
+  ],
+  "status": "失败",
+  "attempted_at": "2026-10-06T16:28:11.613Z",
+  "assertions": [
+    {
+      "id": "G7-03-A1",
+      "expected": "same_value",
+      "actual": {
+        "before": 20,
+        "after": 35
+      },
+      "pass": false,
+      "read_refs": [
+        "CALL-5d60f86a-5f9d-4bf1-b149-dce98ce928c7-1",
+        "CALL-e6d07889-531f-471c-b918-f5b3c563faf7-1"
+      ]
+    },
+    {
+      "id": "G7-03-A2",
+      "expected": true,
+      "actual": false,
+      "pass": false,
+      "read_refs": [
+        "CALL-b640bf36-8225-474b-9294-16c701dd8d22-1"
+      ],
+      "raw": {
+        "candidates": [],
+        "joined": ""
+      }
+    }
+  ],
+  "restore": {
+    "status": "unchanged",
+    "description": "本case未改动设置/文件",
+    "read_refs": []
+  },
+  "residual": "第二批 15 个已随后清空",
+  "notes": "本版本未在 30 处设上限：第二批 15 个被全部接受（草稿 20→35），无超额提示。登记候选问题。"
+}

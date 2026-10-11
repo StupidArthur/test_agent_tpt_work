@@ -1,0 +1,62 @@
+{
+  "case_id": "G3-05",
+  "contract_version": "2.0",
+  "attempt_id": "fn-20261006-agent2-G3-05-A1",
+  "environment_id": "env-fn-20261006-agent2",
+  "object_identity": {
+    "internal_name": "fast-assert-skill-fn-20261006-agent2",
+    "call_session": "session-13bcf86a-2d6f-4605-ac22-2bf42175f707"
+  },
+  "inputs": [
+    "用户请求：/fast-assert-skill-fn-20261006-agent2 请执行本轮回归技能的固定回复规则"
+  ],
+  "action_refs": [
+    "business-ac0283f0-98c8-4c23-90ea-f1854ae790d4-2"
+  ],
+  "status": "通过",
+  "started_at": "2026-10-06T07:37:46.268Z",
+  "ended_at": "2026-10-06T07:38:02.573Z",
+  "actual_steps": [
+    "在已引用技能的新会话发送固定回复规则请求",
+    "等待终态 15725ms",
+    "读取助手气泡与用户请求首行"
+  ],
+  "assertions": [
+    {
+      "id": "G3-05-A1",
+      "actual": "FAST_SKILL_EXEC_OK",
+      "read_refs": [
+        "business-ac0283f0-98c8-4c23-90ea-f1854ae790d4-3"
+      ]
+    },
+    {
+      "id": "G3-05-A2",
+      "actual": false,
+      "read_refs": [
+        "business-ac0283f0-98c8-4c23-90ea-f1854ae790d4-4"
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "path": "运行日志/business.jsonl",
+      "sha256": "6203703aeaf46ab5fd94d64c474b878c26f39b97bc4c3f7a3840f9ee9a48bdc5"
+    },
+    {
+      "path": "运行日志/业务调用.jsonl",
+      "sha256": "91fc9bb4b29ad5347770a9e5e5a21b38b9c414c04a2e484e84b5dd981db87bd7"
+    }
+  ],
+  "cleanup": {
+    "status": "retained",
+    "description": "技能调用会话保留；本轮技能在 G3-06 停用",
+    "read_refs": [
+      "business-2e09ea4a-443b-4890-9f28-1521f3ad2791-4"
+    ]
+  },
+  "business_call_refs": [
+    "CALL-dbc3fcf5-4c5d-4467-8680-001038d57621",
+    "CALL-37960120-9878-4859-802c-aaad624ca590"
+  ],
+  "notes": "A2 raw.requestText='/fast-assert-skill-fn-20261006-agent2  请执行本轮回归技能的固定回复规则'，不含输出串"
+}

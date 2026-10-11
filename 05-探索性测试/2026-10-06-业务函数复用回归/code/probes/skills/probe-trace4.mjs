@@ -1,0 +1,27 @@
+// Probe: locate the trace timeline container holding skill_content.
+import { createRequire } from 'node:module';
+const require = createRequire(import.meta.url);
+const { chromium } = require('F:/tpt-work-test/ui-by-agent/node_modules/playwright');
+const browser = await chromium.connectOverCDP('http://127.0.0.1:9234');
+try {
+  const page = browser.contexts().flatMap(c => c.pages()).find(p => p.url().startsWith('dsh-app://'));
+  const res = await page.evaluate(() => {
+    const vis = (el) => !!(el.offsetWidth || el.offsetHeight || el.getClientRects().length);
+    let target = null;
+    for (const el of document.querySelectorAll('*')) {
+      if (!vis(el)) continue;
+      const t = (el.innerText || '');
+      if (t.includes('skill_content') && t.length < 3000) { target = el; break; }
+    }
+    if (!target) return { none: true };
+    const chain = [];
+    let cur = target;
+    for (let i = 0; i < 7 && cur; i++) {
+      const at = {}; for (const a of cur.attributes) at[a.name] = String(a.value).slice(0, 90);
+      chain.push({ tag: cur.tagName, attrs: at, len: (cur.innerText || '').length });
+      cur = cur.parentElement;
+    }
+    return { len: target.innerText.length, chain };
+  });
+  console.log(JSON.stringify(res, null, 2));
+} finally { await browser.close(); }

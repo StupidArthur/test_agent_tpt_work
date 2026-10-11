@@ -1,0 +1,31 @@
+{
+  "observations": {
+    "action_refs": [
+      "business-dc5f73b0-2feb-4d12-8d20-f2ad7046d7ed-2"
+    ],
+    "observations": {
+      "result": {
+        "event_id": "business-dc5f73b0-2feb-4d12-8d20-f2ad7046d7ed-3",
+        "captured_at": "2026-10-06T11:45:01.009Z",
+        "environment_id": "env-fn-20261006-agent2",
+        "kind": "read",
+        "target": "搜索结果命中数",
+        "business_call_id": "CALL-970de219-0a42-4417-8d65-4f3c73288603",
+        "object_id": "skill-search-count",
+        "source": {
+          "channel": "dom",
+          "scope": "技能页/结果列表",
+          "locator": "section.panel [data-slot=\"card\"]"
+        },
+        "value": 0,
+        "raw": {
+          "matched": 0,
+          "titles": [],
+          "query": "fast-assert-nested",
+          "matchText": "fast-assert-nested-fn-20261006-agent2"
+        },
+        "derivation": "结果卡片标题等于本轮身份文本的计数"
+      }
+    }
+  }
+}

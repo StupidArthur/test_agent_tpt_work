@@ -1,0 +1,52 @@
+{
+  "case_id": "G3-04",
+  "contract_version": "2.1",
+  "attempt_id": "fn-20261006-agent2-G3-04-A1",
+  "environment_id": "env-fn-20261006-agent2",
+  "object_identity": {
+    "internal_name": "fast-assert-skill-fn-20261006-agent2",
+    "call_session": "session-13bcf86a-2d6f-4605-ac22-2bf42175f707"
+  },
+  "inputs": [
+    "发送请求：/本轮技能引用 + 请执行本轮回归技能的固定回复规则"
+  ],
+  "action_refs": [
+    "business-ac306c3e-133a-4346-918b-ec887c97d5c2-2"
+  ],
+  "status": "通过",
+  "started_at": "2026-10-06T07:38:02.568Z",
+  "ended_at": "2026-10-06T07:39:24.981Z",
+  "actual_steps": [
+    "切换 轨迹 标签",
+    "在轨迹表格 context 行读取 <skill_content> 片段"
+  ],
+  "assertions": [
+    {
+      "id": "G3-04-A1",
+      "actual": "<skill_content name=\"fast-assert-skill-fn-20261006-agent2\"> <skill_resources> Base directory for this skill: C:\\Users\\yuzechao.tpt-work\\dsh\\skills\\fast-assert-skill-fn-20261006-agent2 Resolve relative paths mentioned by this skill against the base directory before using them. Load referenced resources only as needed. </skill_resources> <skill_instructions> Fixed reply When explicitly requested to execute this regression skill's fixed reply rule, reply exactly FAST_SKILL_EXEC_OK. Do not call other tools, acc…",
+      "read_refs": [
+        "business-ac306c3e-133a-4346-918b-ec887c97d5c2-3"
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "path": "运行日志/business.jsonl",
+      "sha256": "6203703aeaf46ab5fd94d64c474b878c26f39b97bc4c3f7a3840f9ee9a48bdc5"
+    },
+    {
+      "path": "运行日志/业务调用.jsonl",
+      "sha256": "91fc9bb4b29ad5347770a9e5e5a21b38b9c414c04a2e484e84b5dd981db87bd7"
+    }
+  ],
+  "cleanup": {
+    "status": "retained",
+    "description": "轨迹只读；技能调用会话保留",
+    "read_refs": []
+  },
+  "business_call_refs": [
+    "CALL-f18e9351-8a20-4fca-b1b5-4868dc8a4b35",
+    "CALL-dbc3fcf5-4c5d-4467-8680-001038d57621"
+  ],
+  "notes": "读取限定在本轮会话轨迹表格行(tr[data-trajectory-row-key] td, data-kind=context)，非整页搜索；未截断的原始文本见 business.jsonl read 事件"
+}

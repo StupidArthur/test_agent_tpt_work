@@ -1,0 +1,58 @@
+{
+  "http_status": 200,
+  "error_kind": null,
+  "t_headers": 0.032,
+  "t_first_frame": 0.032,
+  "t_end": 0.047,
+  "body_text": "",
+  "frames": [
+    {
+      "t": 0.032,
+      "event": "response.output_item.added",
+      "data": "{\"type\": \"response.output_item.added\", \"output_index\": 0, \"item\": {\"id\": \"fc_1\", \"type\": \"function_call\", \"call_id\": \"call_1\", \"name\": \"add_numbers\"}}",
+      "json_ok": true
+    },
+    {
+      "t": 0.032,
+      "event": "response.function_call_arguments.delta",
+      "data": "{\"type\": \"response.function_call_arguments.delta\", \"item_id\": \"fc_1\", \"output_index\": 0, \"delta\": \"{\\\"a\\\":17,\"}",
+      "json_ok": true
+    },
+    {
+      "t": 0.047,
+      "event": "response.function_call_arguments.delta",
+      "data": "{\"type\": \"response.function_call_arguments.delta\", \"item_id\": \"fc_1\", \"output_index\": 0, \"delta\": \"\\\"b\\\":25}\"}",
+      "json_ok": true
+    },
+    {
+      "t": 0.047,
+      "event": "response.output_item.done",
+      "data": "{\"type\": \"response.output_item.done\", \"output_index\": 0, \"item\": {\"id\": \"fc_1\", \"type\": \"function_call\", \"call_id\": \"call_1\", \"name\": \"add_numbers\", \"arguments\": \"{\\\"a\\\":17,\\\"b\\\":25}\"}}",
+      "json_ok": true
+    },
+    {
+      "t": 0.047,
+      "event": "response.output_item.added",
+      "data": "{\"type\": \"response.output_item.added\", \"output_index\": 1, \"item\": {\"id\": \"fc_2\", \"type\": \"function_call\", \"call_id\": \"call_2\", \"name\": \"add_numbers\"}}",
+      "json_ok": true
+    },
+    {
+      "t": 0.047,
+      "event": "response.function_call_arguments.delta",
+      "data": "{\"type\": \"response.function_call_arguments.delta\", \"item_id\": \"fc_2\", \"output_index\": 1, \"delta\": \"{\\\"a\\\":1,\\\"b\\\":2}\"}",
+      "json_ok": true
+    },
+    {
+      "t": 0.047,
+      "event": "response.output_item.done",
+      "data": "{\"type\": \"response.output_item.done\", \"output_index\": 1, \"item\": {\"id\": \"fc_2\", \"type\": \"function_call\", \"call_id\": \"call_2\", \"name\": \"add_numbers\", \"arguments\": \"{\\\"a\\\":1,\\\"b\\\":3}\"}}",
+      "json_ok": true
+    },
+    {
+      "t": 0.047,
+      "event": "response.completed",
+      "data": "{\"type\": \"response.completed\", \"response\": {\"status\": \"completed\", \"usage\": {\"input_tokens\": 9, \"output_tokens\": 7, \"total_tokens\": 16}}}",
+      "json_ok": true
+    }
+  ]
+}

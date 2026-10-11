@@ -1,0 +1,59 @@
+{
+  "case_id": "G5-03",
+  "contract_version": "2.0",
+  "attempt_id": "fn-20261006-agent2-G5-03-A1",
+  "environment_id": "env-fn-20261006-agent2",
+  "object_identity": {
+    "internal_name": "fast-assert-expert-fn-20261006-agent2",
+    "call_session": "session-5c4f9da7-e77e-4528-86cd-10742a91df08"
+  },
+  "inputs": [
+    "用户请求：/agent-fast-assert-expert-fn-20261006-agent2 请执行你的本轮回归固定回复规则"
+  ],
+  "action_refs": [
+    "business-56d8292b-31b6-40e6-9cc6-d71af3a7308c-2"
+  ],
+  "status": "通过",
+  "started_at": "2026-10-06T07:47:39.313Z",
+  "ended_at": "2026-10-06T07:47:55.352Z",
+  "actual_steps": [
+    "发送固定回复规则请求",
+    "等待终态 15464ms",
+    "读取助手正文与用户请求首行"
+  ],
+  "assertions": [
+    {
+      "id": "G5-03-A1",
+      "actual": "FAST_EXPERT_EXEC_OK",
+      "read_refs": [
+        "business-56d8292b-31b6-40e6-9cc6-d71af3a7308c-3"
+      ]
+    },
+    {
+      "id": "G5-03-A2",
+      "actual": false,
+      "read_refs": [
+        "business-56d8292b-31b6-40e6-9cc6-d71af3a7308c-4"
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "path": "运行日志/business.jsonl",
+      "sha256": "6203703aeaf46ab5fd94d64c474b878c26f39b97bc4c3f7a3840f9ee9a48bdc5"
+    },
+    {
+      "path": "运行日志/业务调用.jsonl",
+      "sha256": "91fc9bb4b29ad5347770a9e5e5a21b38b9c414c04a2e484e84b5dd981db87bd7"
+    }
+  ],
+  "cleanup": {
+    "status": "retained",
+    "description": "专家调用会话保留；专家保留待审",
+    "read_refs": []
+  },
+  "business_call_refs": [
+    "CALL-7d0406dd-6094-40a3-8a43-29991137660f"
+  ],
+  "notes": "A2 raw.requestText 不含 FAST_EXPERT_EXEC_OK"
+}

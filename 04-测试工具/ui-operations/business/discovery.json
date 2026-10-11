@@ -1,0 +1,921 @@
+{
+  "modules": [
+    {
+      "name": "application",
+      "title": "接入与环境",
+      "keywords": [
+        "接入",
+        "连接",
+        "环境",
+        "CDP"
+      ]
+    },
+    {
+      "name": "conversation",
+      "title": "对话、任务、会话与权限",
+      "keywords": [
+        "对话",
+        "任务",
+        "会话",
+        "权限",
+        "搜索",
+        "链接"
+      ]
+    },
+    {
+      "name": "attachments",
+      "title": "附件",
+      "keywords": [
+        "附件",
+        "上传"
+      ]
+    },
+    {
+      "name": "skills",
+      "title": "技能",
+      "keywords": [
+        "技能",
+        "skill"
+      ]
+    },
+    {
+      "name": "experts",
+      "title": "专家",
+      "keywords": [
+        "专家",
+        "expert",
+        "agent"
+      ]
+    },
+    {
+      "name": "settings",
+      "title": "设置与插件",
+      "keywords": [
+        "设置",
+        "配置",
+        "插件"
+      ]
+    },
+    {
+      "name": "memory",
+      "title": "记忆与进化",
+      "keywords": [
+        "记忆",
+        "memory",
+        "进化",
+        "概览",
+        "分层文件"
+      ]
+    },
+    {
+      "name": "fixtures",
+      "title": "夹具、备份、文件与服务",
+      "keywords": [
+        "夹具",
+        "样本",
+        "备份",
+        "恢复",
+        "服务"
+      ]
+    },
+    {
+      "name": "smoke",
+      "title": "冒烟辅助",
+      "keywords": [
+        "冒烟",
+        "smoke"
+      ]
+    }
+  ],
+  "contracts": {
+    "skills.useSkillDirect": {
+      "keywords": [
+        "快捷使用",
+        "新建会话",
+        "入口行为"
+      ],
+      "effects": "准备并打开一个已有会话后点击快捷使用；入口前后 session 独立读取。",
+      "evidence": [
+        "sessionBefore",
+        "sessionAfter",
+        "reference"
+      ],
+      "limits": "用于判定入口自身是否新建会话；不要拿调用前另一次读取的 session 代替 sessionBefore。"
+    },
+    "skills.useSkill": {
+      "keywords": [
+        "快捷使用",
+        "技能引用"
+      ],
+      "effects": "先主动新建任务，再选择技能。",
+      "evidence": [
+        "请查看实际返回及函数实现"
+      ],
+      "limits": "不能证明快捷使用入口自身新建了会话；该判据用 skills.useSkillDirect。"
+    },
+    "experts.scrollPromptToEnd": {
+      "keywords": [
+        "滚动",
+        "末尾可见",
+        "提示词"
+      ],
+      "effects": "滚动专家提示词预览并读取末尾标记的可见范围。",
+      "evidence": [
+        "实际返回中的滚动位置和末尾标记可见性事件"
+      ],
+      "limits": "全文包含标记不能代替可视范围验证。"
+    },
+    "conversation.setTaskPermission": {
+      "keywords": [
+        "当前任务权限",
+        "完全权限",
+        "访问模式"
+      ],
+      "effects": "修改当前任务权限；完全权限会执行产品确认，须显式 confirmFullPermission=true。",
+      "evidence": [
+        "before",
+        "after",
+        "after.raw.session"
+      ],
+      "limits": "不修改设置中的默认权限；调用者保存初值并恢复。"
+    },
+    "skills.toggleSwitchNoDetail": {
+      "keywords": [
+        "技能开关",
+        "切换",
+        "恢复"
+      ],
+      "effects": "切换技能开关，读取列表状态，再自动恢复。",
+      "evidence": [
+        "before",
+        "after",
+        "listState",
+        "restored"
+      ],
+      "limits": "在同次返回中比较变化和恢复，不比较两次调用的相同阶段。"
+    },
+    "memory.inspectSurfaces": {
+      "keywords": [
+        "记忆与进化",
+        "探针",
+        "结构枚举",
+        "inspectSurfaces"
+      ],
+      "effects": "导航/读取记忆面板或记忆文件，不改配置。",
+      "evidence": [
+        "observations 中的限定范围原始值；读取成功不等于用例通过"
+      ],
+      "limits": "不含删除原生确认、高级设置写入、自动沉淀/反思/晋升行为验证；文件根目录来自本机环境。"
+    },
+    "memory.probePanel": {
+      "keywords": [
+        "记忆与进化",
+        "探针",
+        "面板",
+        "probePanel"
+      ],
+      "effects": "导航/读取记忆面板或记忆文件，不改配置。",
+      "evidence": [
+        "observations 中的限定范围原始值；读取成功不等于用例通过"
+      ],
+      "limits": "不含删除原生确认、高级设置写入、自动沉淀/反思/晋升行为验证；文件根目录来自本机环境。"
+    },
+    "memory.readOverview": {
+      "keywords": [
+        "记忆与进化",
+        "概览与参数",
+        "readOverview"
+      ],
+      "effects": "导航/读取记忆面板或记忆文件，不改配置。",
+      "evidence": [
+        "observations 中的限定范围原始值；读取成功不等于用例通过"
+      ],
+      "limits": "不含删除原生确认、高级设置写入、自动沉淀/反思/晋升行为验证；文件根目录来自本机环境。"
+    },
+    "memory.readFiles": {
+      "keywords": [
+        "记忆与进化",
+        "文件取证",
+        "readFiles"
+      ],
+      "effects": "导航/读取记忆面板或记忆文件，不改配置。",
+      "evidence": [
+        "observations 中的限定范围原始值；读取成功不等于用例通过"
+      ],
+      "limits": "不含删除原生确认、高级设置写入、自动沉淀/反思/晋升行为验证；文件根目录来自本机环境。"
+    },
+    "memory.addEntry": {
+      "keywords": [
+        "记忆与进化",
+        "面板添加",
+        "addEntry"
+      ],
+      "effects": "通过 UI 写入记忆；须先备份，调用者恢复。",
+      "evidence": [
+        "observations 中的限定范围原始值；读取成功不等于用例通过"
+      ],
+      "limits": "不含删除原生确认、高级设置写入、自动沉淀/反思/晋升行为验证；文件根目录来自本机环境。"
+    },
+    "memory.editLayerFile": {
+      "keywords": [
+        "editLayerFile",
+        "修改",
+        "分层",
+        "分层文件编辑",
+        "文件",
+        "编辑",
+        "记忆",
+        "记忆与进化"
+      ],
+      "effects": [
+        "概览分层文件编辑；用fixtures备份并恢复"
+      ],
+      "evidence": [
+        "before",
+        "after.value.savedText",
+        "after.value.matchesRequested",
+        "文件 SHA-256"
+      ],
+      "limits": [
+        "条目行内没有编辑时可用此入口；不能当成行内编辑已实现"
+      ]
+    },
+    "fixtures.removeCreatedFile": {
+      "keywords": [
+        "删除",
+        "清理",
+        "恢复",
+        "新增文件",
+        "不存在",
+        "remove"
+      ],
+      "effects": [
+        "只恢复已记录原本不存在的本轮文件；不递归删除"
+      ],
+      "evidence": [
+        "当前SHA、创建前读取引用、删除后exists"
+      ],
+      "limits": [
+        "不是产品记忆删除入口；不能替代MEM-17原生确认",
+        "无本轮不存在证据不能使用"
+      ]
+    },
+    "settings.listPluginCards": {
+      "keywords": [
+        "列表",
+        "卡片",
+        "展开",
+        "插件",
+        "收起"
+      ],
+      "effects": [
+        "进入设置/内置插件，读取卡片；结束用settings.closeSettings关闭"
+      ],
+      "limits": [
+        "与左侧插件市场不同；readPluginCard不能替代此读取"
+      ],
+      "evidence": [
+        "真实读取和原始字段"
+      ]
+    },
+    "settings.setPluginExpanded": {
+      "keywords": [
+        "展开",
+        "插件",
+        "收起",
+        "详情"
+      ],
+      "effects": [
+        "按label设置expanded，返回before/after；调用者恢复初值"
+      ],
+      "limits": [
+        "不用于左侧插件市场"
+      ],
+      "evidence": [
+        "真实读取和原始字段"
+      ]
+    },
+    "conversation.searchSessions": {
+      "keywords": [
+        "任务",
+        "会话",
+        "搜索",
+        "查找"
+      ],
+      "effects": [
+        "打开搜索并读取匹配计数，结束Escape"
+      ],
+      "limits": [
+        "计数不证明指定session命中；用唯一标题并核对列表原文"
+      ],
+      "evidence": [
+        "真实读取和原始字段"
+      ]
+    },
+    "fixtures.readFile": {
+      "keywords": [
+        "不存在",
+        "删除前",
+        "哈希",
+        "文件",
+        "读取"
+      ],
+      "effects": [
+        "记录内容与哈希；不存在时记录value=null、raw.exists=false"
+      ],
+      "limits": [
+        "删除恢复前须在创建文件之前保留此读取"
+      ],
+      "evidence": [
+        "真实读取和原始字段"
+      ]
+    }
+  },
+  "routes": [
+    {
+      "id": "application.connection",
+      "module": "application",
+      "title": "核对连接与当前详情身份",
+      "intent": "观察",
+      "guide": "已启动时核对连接；启动与安装定位走 TPT Work 接入技能。详情身份读取不能替代连接核验。",
+      "functions": [
+        "application.inspectConnection",
+        "application.readDetailIdentity"
+      ]
+    },
+    {
+      "id": "conversation.session",
+      "module": "conversation",
+      "title": "新建、查找、进入会话",
+      "intent": "查找/创建",
+      "guide": "先按唯一身份查找，再进入指定会话；搜索计数不证明目标会话命中。",
+      "functions": [
+        "conversation.newTask",
+        "conversation.openSession",
+        "conversation.listSessionRows",
+        "conversation.searchSessions",
+        "conversation.openSearchShortcut"
+      ]
+    },
+    {
+      "id": "conversation.draft",
+      "module": "conversation",
+      "title": "准备、读取与清空草稿",
+      "intent": "修改/观察",
+      "guide": "准备当前输入和引用；发送与终态在执行场景，附件在附件模块。",
+      "functions": [
+        "conversation.readComposer",
+        "conversation.clearDraft",
+        "conversation.readComposerMenu",
+        "conversation.clickAutomationCase"
+      ]
+    },
+    {
+      "id": "conversation.execution",
+      "module": "conversation",
+      "title": "发送消息、审批与读取终态",
+      "intent": "执行/观察",
+      "guide": "发送后绑定 session 与唯一回复判断终态；审批须遵循本轮授权。",
+      "functions": [
+        "conversation.sendMessage",
+        "conversation.decideApproval",
+        "conversation.readTaskState",
+        "conversation.readCompletion"
+      ]
+    },
+    {
+      "id": "conversation.trace",
+      "module": "conversation",
+      "title": "检查工作步骤、工具轨迹与产物",
+      "intent": "观察",
+      "guide": "按业务断言选择轨迹、工具详情或真实产物；可见记录数量不能证明执行成功。",
+      "functions": [
+        "conversation.readToolTrace",
+        "conversation.readToolDetail",
+        "conversation.readArtifact",
+        "conversation.readWorkSteps",
+        "conversation.readVisibleToolCalls",
+        "conversation.readTraceVisible"
+      ]
+    },
+    {
+      "id": "conversation.permission",
+      "module": "conversation",
+      "title": "读取或修改当前任务权限",
+      "intent": "修改/观察",
+      "guide": "仅当前任务；默认权限转设置模块。改前保留初值，改后回读并恢复。",
+      "functions": [
+        "conversation.readTaskPermissionOptions",
+        "conversation.setTaskPermission"
+      ]
+    },
+    {
+      "id": "conversation.project",
+      "module": "conversation",
+      "title": "发现项目控件与已有选项",
+      "intent": "查找",
+      "guide": "只发现当前已有项目，不创建项目；先核对真实控件和选项身份。",
+      "functions": [
+        "conversation.readProjectControls",
+        "conversation.readProjectOptions"
+      ]
+    },
+    {
+      "id": "conversation.sidebar",
+      "module": "conversation",
+      "title": "侧栏排序、未读与提醒",
+      "intent": "修改/观察",
+      "guide": "排序和未读只作用于指定会话或当前列表；排序修改需要恢复。",
+      "functions": [
+        "conversation.markUnread",
+        "conversation.readUnreadBadge",
+        "conversation.readSortMenu",
+        "conversation.setSort"
+      ]
+    },
+    {
+      "id": "conversation.links",
+      "module": "conversation",
+      "title": "回复链接、侧面板与帮助入口",
+      "intent": "执行/观察",
+      "guide": "链接请求日志依赖本轮夹具；请求发生不能替代目标面板可见断言。",
+      "functions": [
+        "conversation.openLinkInReply",
+        "conversation.readSidePanelVisible",
+        "conversation.readLinkLog",
+        "conversation.openHelpFeedback"
+      ]
+    },
+    {
+      "id": "conversation.dialogs",
+      "module": "conversation",
+      "title": "读取或关闭页面弹窗",
+      "intent": "观察/恢复",
+      "guide": "先看真实弹窗再有限关闭；不以关闭弹窗代替业务确认。",
+      "functions": [
+        "conversation.readDialogs",
+        "conversation.closeDialogs"
+      ]
+    },
+    {
+      "id": "conversation.legacy-plugin",
+      "module": "conversation",
+      "title": "读取左侧插件页卡片",
+      "intent": "观察",
+      "guide": "旧左侧插件页面读法；设置中的内置插件用 settings.plugins。",
+      "functions": [
+        "conversation.readPluginCard"
+      ]
+    },
+    {
+      "id": "conversation.usage",
+      "module": "conversation",
+      "title": "读取输入区用量展示",
+      "intent": "观察",
+      "guide": "仅用量文本与字段可见性，不推断计费或模型能力。",
+      "functions": [
+        "conversation.readUsageFooter"
+      ]
+    },
+    {
+      "id": "attachments.draft",
+      "module": "attachments",
+      "title": "添加、移除与清空草稿附件",
+      "intent": "修改/观察",
+      "guide": "操作草稿附件；发送后气泡验证转 sent，图片预览转 preview。",
+      "functions": [
+        "attachments.addLocalFiles",
+        "attachments.readDraftState",
+        "attachments.removeAttachment",
+        "attachments.clearAttachments",
+        "attachments.readSingleName",
+        "attachments.readComposerText"
+      ]
+    },
+    {
+      "id": "attachments.preview",
+      "module": "attachments",
+      "title": "图片加载、预览与附件滚动",
+      "intent": "执行/观察",
+      "guide": "图片加载和预览可见性分别读取；末项可见不能由列表包含推断。",
+      "functions": [
+        "attachments.readImageState",
+        "attachments.togglePreview",
+        "attachments.scrollAttachments"
+      ]
+    },
+    {
+      "id": "attachments.card",
+      "module": "attachments",
+      "title": "名称、图标、解析声明与拒绝反馈",
+      "intent": "观察",
+      "guide": "按卡片身份限定读取；完整名称用悬停标题，解析声明用卡片正文。",
+      "functions": [
+        "attachments.readFeedback",
+        "attachments.readCardIcon",
+        "attachments.readCardText",
+        "attachments.readCardTitle"
+      ]
+    },
+    {
+      "id": "attachments.sent",
+      "module": "attachments",
+      "title": "验证发送后的附件气泡",
+      "intent": "观察",
+      "guide": "读取真实用户气泡，不拿草稿附件状态代替发送后断言。",
+      "functions": [
+        "attachments.readSentBubble"
+      ]
+    },
+    {
+      "id": "skills.import",
+      "module": "skills",
+      "title": "选择与提交技能文件或 ZIP",
+      "intent": "创建",
+      "guide": "单文件与 ZIP 候选确认是不同流程；需要监听图标请求时转 icon。",
+      "functions": [
+        "skills.readImportDialog",
+        "skills.importSingleFile",
+        "skills.importPackage",
+        "skills.readImportCandidates",
+        "skills.confirmImport"
+      ]
+    },
+    {
+      "id": "skills.list",
+      "module": "skills",
+      "title": "查找技能、列表身份与数量",
+      "intent": "查找/观察",
+      "guide": "展示标题和内部名分别核对；查指定内部名用 searchSkill，广泛搜索用 searchSkills。",
+      "functions": [
+        "skills.searchSkills",
+        "skills.searchSkill",
+        "skills.readSkillCard",
+        "skills.readListIdentity",
+        "skills.readSkillCount",
+        "skills.readSkillNames",
+        "skills.readTabs"
+      ]
+    },
+    {
+      "id": "skills.enabled",
+      "module": "skills",
+      "title": "启停开关、筛选及恢复",
+      "intent": "修改/恢复",
+      "guide": "setSkillEnabled 由调用者恢复；toggleSwitchNoDetail 自带恢复，不跨调用比较同一阶段。",
+      "functions": [
+        "skills.setSkillEnabled",
+        "skills.filterSkills",
+        "skills.readSkillsListState",
+        "skills.toggleSwitchNoDetail"
+      ]
+    },
+    {
+      "id": "skills.detail",
+      "module": "skills",
+      "title": "详情身份、目录树与文件预览",
+      "intent": "观察/执行",
+      "guide": "按详情身份和树节点绑定对象；选择文件与展开目录分别调用。",
+      "functions": [
+        "skills.readSkillDetail",
+        "skills.readDetailTree",
+        "skills.clickTreeNode",
+        "skills.toggleTreeFolder",
+        "skills.readTreeNodeVisible",
+        "skills.readFirstCardIdentity",
+        "skills.openCardDetail"
+      ]
+    },
+    {
+      "id": "skills.use",
+      "module": "skills",
+      "title": "快捷引用、会话入口与实际调用",
+      "intent": "执行/观察",
+      "guide": "入口是否自行新建会话用 useSkillDirect；useSkill 先新建任务，quickUse 引入当前会话。实际生效看请求与轨迹。",
+      "functions": [
+        "skills.useSkill",
+        "skills.useSkillRequest",
+        "skills.useSkillDirect",
+        "skills.readTraceSkillContent",
+        "skills.quickUse"
+      ]
+    },
+    {
+      "id": "skills.icon",
+      "module": "skills",
+      "title": "图标加载及导入网络请求",
+      "intent": "观察/创建",
+      "guide": "仅目标图标的加载状态或匹配请求数；常规导入走 import。",
+      "functions": [
+        "skills.readIconState",
+        "skills.importPackageMonitored"
+      ]
+    },
+    {
+      "id": "skills.files",
+      "module": "skills",
+      "title": "安装文件、外部修改与校验反馈",
+      "intent": "修改/观察",
+      "guide": "外部文件变更不是 UI 编辑；必须保留初值并恢复。countDelta 是两次读取的派生比较。",
+      "functions": [
+        "skills.installedSkillFile",
+        "skills.readValidationFeedback",
+        "skills.listInstalledFiles",
+        "skills.countDelta"
+      ]
+    },
+    {
+      "id": "skills.create",
+      "module": "skills",
+      "title": "进入新建技能模式",
+      "intent": "创建",
+      "guide": "只验证创建入口与模式，不代表技能已经创建。",
+      "functions": [
+        "skills.startCreate"
+      ]
+    },
+    {
+      "id": "experts.import",
+      "module": "experts",
+      "title": "导入入口、提交与来源卡片",
+      "intent": "创建/观察",
+      "guide": "完整导入含可选冲突处理；单独观察冲突与异常包走 conflict。",
+      "functions": [
+        "experts.readImportDialog",
+        "experts.importDirectory",
+        "experts.readCard",
+        "experts.readImportDialogFolderInput",
+        "experts.listAgentDirs"
+      ]
+    },
+    {
+      "id": "experts.conflict",
+      "module": "experts",
+      "title": "同名冲突、异常包与安装完整性",
+      "intent": "创建/观察",
+      "guide": "submitImport 只停在冲突；chooseConflict 决定副本或覆盖，须先确认恢复范围。",
+      "functions": [
+        "experts.readFileExists",
+        "experts.readPaths",
+        "experts.submitImport",
+        "experts.chooseConflict",
+        "experts.readInstallPaths",
+        "experts.readAgentDirFiles",
+        "experts.submitAndReadFeedback"
+      ]
+    },
+    {
+      "id": "experts.detail",
+      "module": "experts",
+      "title": "阅读详情与验证提示词末尾可见",
+      "intent": "观察",
+      "guide": "全文包含末尾标记不证明可视范围；末尾断言用 scrollPromptToEnd。",
+      "functions": [
+        "experts.readDetail",
+        "experts.scrollPromptToEnd"
+      ]
+    },
+    {
+      "id": "experts.edit",
+      "module": "experts",
+      "title": "进入创建或对话编辑并发送",
+      "intent": "创建/修改",
+      "guide": "创建入口、编辑会话与实际写入分别判定；不得用助手回答代替文件落盘证据。",
+      "functions": [
+        "experts.startCreate",
+        "experts.startEdit",
+        "experts.editSend"
+      ]
+    },
+    {
+      "id": "experts.use",
+      "module": "experts",
+      "title": "引入专家、实际调用与轨迹",
+      "intent": "执行/观察",
+      "guide": "引入引用不证明规则生效；结合请求终态和正文注入轨迹。",
+      "functions": [
+        "experts.useExpert",
+        "experts.useExpertRequest",
+        "experts.readTraceExpertContent"
+      ]
+    },
+    {
+      "id": "experts.files",
+      "module": "experts",
+      "title": "外部文件、元数据与坏配置反馈",
+      "intent": "观察",
+      "guide": "文件读取用于独立核验；配置反馈须来自当前专家列表。",
+      "functions": [
+        "experts.readInstalledFileHashes",
+        "experts.readFileContent",
+        "experts.readMetadataField",
+        "experts.readValidationFeedback"
+      ]
+    },
+    {
+      "id": "settings.appearance",
+      "module": "settings",
+      "title": "主题、语言、字号与实际显示",
+      "intent": "修改/观察",
+      "guide": "选中值与实际效果分别验证；回复外观绑定同一 session 和正文。",
+      "functions": [
+        "settings.readGeneral",
+        "settings.readSurfaceBg",
+        "settings.setTheme",
+        "settings.setLanguage",
+        "settings.readGeneralNav",
+        "settings.setFontDelta",
+        "settings.readConversationAppearance"
+      ]
+    },
+    {
+      "id": "settings.defaults",
+      "module": "settings",
+      "title": "默认权限、场景与输入区标签",
+      "intent": "修改/观察",
+      "guide": "默认设置不等于当前任务权限；当前任务权限走 conversation.permission。",
+      "functions": [
+        "settings.setPermission",
+        "settings.setScene",
+        "settings.readComposerLabels"
+      ]
+    },
+    {
+      "id": "settings.controls",
+      "module": "settings",
+      "title": "按行或索引读取和修改设置",
+      "intent": "修改/观察",
+      "guide": "优先实际行标签；没有标签时才用分区索引，先核对真实控件类型与初值。",
+      "functions": [
+        "settings.readSwitch",
+        "settings.setSwitch",
+        "settings.readSelect",
+        "settings.setSelect",
+        "settings.readSwitchIndex",
+        "settings.setSwitchIndex",
+        "settings.readRowToggle",
+        "settings.setRowToggle"
+      ]
+    },
+    {
+      "id": "settings.recovery",
+      "module": "settings",
+      "title": "保存错误、快照与关闭设置",
+      "intent": "观察/恢复",
+      "guide": "关闭前捕获保存错误；快照核验恢复，关闭设置本身不恢复值。",
+      "functions": [
+        "settings.readToastError",
+        "settings.readSnapshot",
+        "settings.closeSettings"
+      ]
+    },
+    {
+      "id": "settings.shortcuts",
+      "module": "settings",
+      "title": "读取、录制与保存快捷键",
+      "intent": "修改/观察",
+      "guide": "先 listShortcuts 查真实行名；保存绑定与原生快捷键生效需分别验证。",
+      "functions": [
+        "settings.readShortcut",
+        "settings.setShortcut",
+        "settings.listShortcuts"
+      ]
+    },
+    {
+      "id": "settings.plugins",
+      "module": "settings",
+      "title": "内置插件列表与展开收起",
+      "intent": "观察/修改",
+      "guide": "设置内置插件，与左侧插件市场分开；展开修改后恢复初值。",
+      "functions": [
+        "settings.listPluginCards",
+        "settings.setPluginExpanded"
+      ]
+    },
+    {
+      "id": "settings.profile",
+      "module": "settings",
+      "title": "个人主页身份只读性",
+      "intent": "观察",
+      "guide": "仅验证实际身份字段是否只读。",
+      "functions": [
+        "settings.readProfileIdentity"
+      ]
+    },
+    {
+      "id": "memory.observe",
+      "module": "memory",
+      "title": "面板探查、概览与文件取证",
+      "intent": "观察",
+      "guide": "结构探针用于定位，概览和文件用于实际取值；不代表沉淀、反思或晋升行为已验证。",
+      "functions": [
+        "memory.inspectSurfaces",
+        "memory.probePanel",
+        "memory.readOverview",
+        "memory.readFiles"
+      ]
+    },
+    {
+      "id": "memory.edit",
+      "module": "memory",
+      "title": "添加记忆或编辑分层文件",
+      "intent": "修改",
+      "guide": "先备份，本机 memory_root 与文件身份须核对，写后独立回读并恢复；不覆盖原生删除确认场景。",
+      "functions": [
+        "memory.addEntry",
+        "memory.editLayerFile"
+      ]
+    },
+    {
+      "id": "fixtures.prepare",
+      "module": "fixtures",
+      "title": "准备唯一样本、项目文件与比较身份",
+      "intent": "创建/观察",
+      "guide": "用于本轮样本准备；夹具成功不表示产品验证通过。",
+      "functions": [
+        "fixtures.prepareFixtures",
+        "fixtures.prepareProjectFiles",
+        "fixtures.prepareSmokeFixtures",
+        "fixtures.identityDelta"
+      ]
+    },
+    {
+      "id": "fixtures.files",
+      "module": "fixtures",
+      "title": "文件读取、备份、外部写入与恢复",
+      "intent": "修改/恢复",
+      "guide": "先读取和备份；新增文件恢复需事前不存在证据及当前哈希，不代替产品 UI 删除。",
+      "functions": [
+        "fixtures.backupFile",
+        "fixtures.readFile",
+        "fixtures.writeFile",
+        "fixtures.restoreFile",
+        "fixtures.removeCreatedFile"
+      ]
+    },
+    {
+      "id": "fixtures.server",
+      "module": "fixtures",
+      "title": "启动与停止本轮链接服务",
+      "intent": "创建/恢复",
+      "guide": "复用本次返回的 URL、端口与日志；只停止本轮拥有的服务。",
+      "functions": [
+        "fixtures.startLinkServer",
+        "fixtures.stopLinkServer"
+      ]
+    },
+    {
+      "id": "smoke.navigation",
+      "module": "smoke",
+      "title": "冒烟页面导航",
+      "intent": "辅助",
+      "guide": "仅 PC-88 冒烟流程复用；明确业务目标优先对应业务模块，不将冒烟辅助当业务断言。",
+      "functions": [
+        "smoke.navigation.skillsFrame",
+        "smoke.navigation.expertsFrame",
+        "smoke.navigation.closeDialogs",
+        "smoke.navigation.ensureMoreMenu",
+        "smoke.navigation.goHome",
+        "smoke.navigation.openSkills",
+        "smoke.navigation.openExperts",
+        "smoke.navigation.closeSidebarPanels"
+      ]
+    },
+    {
+      "id": "smoke.conversation",
+      "module": "smoke",
+      "title": "冒烟对话执行",
+      "intent": "辅助",
+      "guide": "仅 PC-88 冒烟流程复用；明确业务目标优先对应业务模块，不将冒烟辅助当业务断言。",
+      "functions": [
+        "smoke.conversation.readComposerState",
+        "smoke.conversation.selectProject",
+        "smoke.conversation.setReasoning",
+        "smoke.conversation.typeDraft",
+        "smoke.conversation.send",
+        "smoke.conversation.waitForIdle",
+        "smoke.conversation.readAssistantMessages",
+        "smoke.conversation.isCompleted"
+      ]
+    },
+    {
+      "id": "smoke.skills",
+      "module": "smoke",
+      "title": "冒烟技能流程",
+      "intent": "辅助",
+      "guide": "仅 PC-88 冒烟流程复用；明确业务目标优先对应业务模块，不将冒烟辅助当业务断言。",
+      "functions": [
+        "smoke.skills.skillsFrame",
+        "smoke.skills.ensureMenu",
+        "smoke.skills.openSkills",
+        "smoke.skills.closeSkills",
+        "smoke.skills.importSkill",
+        "smoke.skills.search",
+        "smoke.skills.listCards",
+        "smoke.skills.readSwitch",
+        "smoke.skills.setSwitch",
+        "smoke.skills.openAndReadDetail"
+      ]
+    }
+  ]
+}

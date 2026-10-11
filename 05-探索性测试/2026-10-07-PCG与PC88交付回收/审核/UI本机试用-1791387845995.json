@@ -1,0 +1,327 @@
+[
+  {
+    "call_id": "CALL-3440f588-89fb-489d-8b98-c27ee00528c0",
+    "status": "returned",
+    "observations": {
+      "observations": {
+        "read": {
+          "event_id": "CALL-3440f588-89fb-489d-8b98-c27ee00528c0-1",
+          "captured_at": "2026-10-07T15:43:48.971Z",
+          "environment_id": "local-pcg-pc88-review-20261007",
+          "business_call_id": "CALL-3440f588-89fb-489d-8b98-c27ee00528c0",
+          "kind": "read",
+          "target": "当前编辑区真实状态",
+          "object_id": "composer",
+          "source": {
+            "channel": "dom",
+            "scope": "当前会话编辑区"
+          },
+          "value": {
+            "visible": true,
+            "editable": "true",
+            "text": "",
+            "refs": [],
+            "session": "session-f34b2967-d1cc-479f-8d00-84dcbaaeae8d",
+            "model": "选择模型，当前 标准，推理等级 low",
+            "project": "选择项目"
+          },
+          "raw": {
+            "count": 1,
+            "projectControlCount": 1
+          }
+        }
+      }
+    }
+  },
+  {
+    "call_id": "CALL-8f73eb2f-be38-42c0-9bf8-e41d49ac7c57",
+    "status": "returned",
+    "observations": {
+      "observations": {
+        "read": {
+          "event_id": "CALL-8f73eb2f-be38-42c0-9bf8-e41d49ac7c57-1",
+          "captured_at": "2026-10-07T15:43:56.934Z",
+          "environment_id": "local-pcg-pc88-review-20261007",
+          "business_call_id": "CALL-8f73eb2f-be38-42c0-9bf8-e41d49ac7c57",
+          "kind": "read",
+          "target": "内置插件折叠卡片",
+          "object_id": "plugins",
+          "source": {
+            "channel": "dom",
+            "scope": "设置/内置插件"
+          },
+          "value": [
+            {
+              "text": "persona\nComposition-authored deployment persona section for the DeepSeek Harness",
+              "expanded": "false"
+            },
+            {
+              "text": "agent-instructions\nWorkspace context loader for AGENTS.md/CLAUDE.md instruction files",
+              "expanded": "false"
+            },
+            {
+              "text": "tool-bash\n已停用\nModel-facing bash tool with optional generic background-job and sandbox-escalation support",
+              "expanded": "false"
+            },
+            {
+              "text": "tool-pwsh\nModel-facing pwsh tool over the bash executor seam",
+              "expanded": "false"
+            },
+            {
+              "text": "tool-fs\nModel-facing filesystem tools (read, write, edit) over the DeepSeek Harness filesystem seam (ctx.fs)",
+              "expanded": "false"
+            },
+            {
+              "text": "tool-fs-search\nModel-facing filesystem discovery tools (glob, grep) backed by the packaged ripgrep binary (@vscode/ripgrep)",
+              "expanded": "false"
+            },
+            {
+              "text": "tool-jobs\nModel-facing background job control tools (job_output, job_list, job_kill) over the ctx.jobs registry",
+              "expanded": "false"
+            },
+            {
+              "text": "skill-filesystem\nLocal filesystem skill provider for the DeepSeek Harness",
+              "expanded": "false"
+            },
+            {
+              "text": "tool-skill\nModel-facing skill loading tool for the DeepSeek Harness",
+              "expanded": "false"
+            },
+            {
+              "text": "command-goal\nHuman-facing slash command for persisted same-session goals",
+              "expanded": "false"
+            },
+            {
+              "text": "tool-goal\nModel-facing same-session goal tools with execution-time authority checks",
+              "expanded": "false"
+            },
+            {
+              "text": "tool-ask-user\nModel-facing ask_user_question tool over the ctx.userQuestions seam",
+              "expanded": "false"
+            },
+            {
+              "text": "tool-todo\nModel-facing todo_write tool over the DeepSeek Harness event-sourced session log",
+              "expanded": "false"
+            },
+            {
+              "text": "tool-web\nModel-facing web tools (web_search, web_fetch) over the DeepSeek Harness web capability seam (ctx.web)",
+              "expanded": "false"
+            },
+            {
+              "text": "tool-present\nExplicit workspace file delivery declarations for the DeepSeek Harness\npresent",
+              "expanded": "false"
+            },
+            {
+              "text": "plugin-manager/tools\n已停用\ntool-plugin-manager",
+              "expanded": "false"
+            },
+            {
+              "text": "plan-mode\nLogged per-agent plan mode with deployment guidance, a direct slash command, and a user-reviewed exit",
+              "expanded": "false"
+            },
+            {
+              "text": "compaction-basic\nToken-meter-driven compaction policy and LLM summarization backend for the DeepSeek Harness",
+              "expanded": "false"
+            },
+            {
+              "text": "command-compact\nHuman-facing slash command for explicit session compaction",
+              "expanded": "false"
+            },
+            {
+              "text": "compaction-tool-result-pruner\nReplay-safe model-free head/middle/tail pruning for tool-result surface nodes\ntool-result-pruner",
+              "expanded": "false"
+            },
+            {
+              "text": "tool-subagent-control\nGlobally named send_message, interrupt_agent, and list_agents tools over ctx.subagents continuations",
+              "expanded": "false"
+            },
+            {
+              "text": "tool-subagent-control/list-agents\ntool-subagent-list-agents",
+              "expanded": "false"
+            },
+            {
+              "text": "tool-subagent\nModel-facing subagent delegation tool over the ctx.subagents seam",
+              "expanded": "false"
+            },
+            {
+              "text": "tool-subagent\nModel-facing subagent delegation tool over the ctx.subagents seam\ntool-subagent-fork",
+              "expanded": "false"
+            },
+            {
+              "text": "tool-subagent\n已停用\nModel-facing subagent delegation tool over the ctx.subagents seam\ntool-subagent-codex",
+              "expanded": "false"
+            },
+            {
+              "text": "tool-subagent\n已停用\nModel-facing subagent delegation tool over the ctx.subagents seam\ntool-subagent-claude-code",
+              "expanded": "false"
+            },
+            {
+              "text": "workflow-ptc\nWorkflow orchestration in the shared sandboxed Node PTC runtime",
+              "expanded": "false"
+            },
+            {
+              "text": "tool-workflow\nModel-facing workflow tool: run a JavaScript orchestration script over ctx.workflowEngine",
+              "expanded": "false"
+            },
+            {
+              "text": "tool-ralph\n已停用\nModel-facing fresh-agent Ralph loop over the workflow and subagent seams",
+              "expanded": "false"
+            }
+          ],
+          "raw": {
+            "cards": [
+              {
+                "text": "persona\nComposition-authored deployment persona section for the DeepSeek Harness",
+                "expanded": "false"
+              },
+              {
+                "text": "agent-instructions\nWorkspace context loader for AGENTS.md/CLAUDE.md instruction files",
+                "expanded": "false"
+              },
+              {
+                "text": "tool-bash\n已停用\nModel-facing bash tool with optional generic background-job and sandbox-escalation support",
+                "expanded": "false"
+              },
+              {
+                "text": "tool-pwsh\nModel-facing pwsh tool over the bash executor seam",
+                "expanded": "false"
+              },
+              {
+                "text": "tool-fs\nModel-facing filesystem tools (read, write, edit) over the DeepSeek Harness filesystem seam (ctx.fs)",
+                "expanded": "false"
+              },
+              {
+                "text": "tool-fs-search\nModel-facing filesystem discovery tools (glob, grep) backed by the packaged ripgrep binary (@vscode/ripgrep)",
+                "expanded": "false"
+              },
+              {
+                "text": "tool-jobs\nModel-facing background job control tools (job_output, job_list, job_kill) over the ctx.jobs registry",
+                "expanded": "false"
+              },
+              {
+                "text": "skill-filesystem\nLocal filesystem skill provider for the DeepSeek Harness",
+                "expanded": "false"
+              },
+              {
+                "text": "tool-skill\nModel-facing skill loading tool for the DeepSeek Harness",
+                "expanded": "false"
+              },
+              {
+                "text": "command-goal\nHuman-facing slash command for persisted same-session goals",
+                "expanded": "false"
+              },
+              {
+                "text": "tool-goal\nModel-facing same-session goal tools with execution-time authority checks",
+                "expanded": "false"
+              },
+              {
+                "text": "tool-ask-user\nModel-facing ask_user_question tool over the ctx.userQuestions seam",
+                "expanded": "false"
+              },
+              {
+                "text": "tool-todo\nModel-facing todo_write tool over the DeepSeek Harness event-sourced session log",
+                "expanded": "false"
+              },
+              {
+                "text": "tool-web\nModel-facing web tools (web_search, web_fetch) over the DeepSeek Harness web capability seam (ctx.web)",
+                "expanded": "false"
+              },
+              {
+                "text": "tool-present\nExplicit workspace file delivery declarations for the DeepSeek Harness\npresent",
+                "expanded": "false"
+              },
+              {
+                "text": "plugin-manager/tools\n已停用\ntool-plugin-manager",
+                "expanded": "false"
+              },
+              {
+                "text": "plan-mode\nLogged per-agent plan mode with deployment guidance, a direct slash command, and a user-reviewed exit",
+                "expanded": "false"
+              },
+              {
+                "text": "compaction-basic\nToken-meter-driven compaction policy and LLM summarization backend for the DeepSeek Harness",
+                "expanded": "false"
+              },
+              {
+                "text": "command-compact\nHuman-facing slash command for explicit session compaction",
+                "expanded": "false"
+              },
+              {
+                "text": "compaction-tool-result-pruner\nReplay-safe model-free head/middle/tail pruning for tool-result surface nodes\ntool-result-pruner",
+                "expanded": "false"
+              },
+              {
+                "text": "tool-subagent-control\nGlobally named send_message, interrupt_agent, and list_agents tools over ctx.subagents continuations",
+                "expanded": "false"
+              },
+              {
+                "text": "tool-subagent-control/list-agents\ntool-subagent-list-agents",
+                "expanded": "false"
+              },
+              {
+                "text": "tool-subagent\nModel-facing subagent delegation tool over the ctx.subagents seam",
+                "expanded": "false"
+              },
+              {
+                "text": "tool-subagent\nModel-facing subagent delegation tool over the ctx.subagents seam\ntool-subagent-fork",
+                "expanded": "false"
+              },
+              {
+                "text": "tool-subagent\n已停用\nModel-facing subagent delegation tool over the ctx.subagents seam\ntool-subagent-codex",
+                "expanded": "false"
+              },
+              {
+                "text": "tool-subagent\n已停用\nModel-facing subagent delegation tool over the ctx.subagents seam\ntool-subagent-claude-code",
+                "expanded": "false"
+              },
+              {
+                "text": "workflow-ptc\nWorkflow orchestration in the shared sandboxed Node PTC runtime",
+                "expanded": "false"
+              },
+              {
+                "text": "tool-workflow\nModel-facing workflow tool: run a JavaScript orchestration script over ctx.workflowEngine",
+                "expanded": "false"
+              },
+              {
+                "text": "tool-ralph\n已停用\nModel-facing fresh-agent Ralph loop over the workflow and subagent seams",
+                "expanded": "false"
+              }
+            ]
+          }
+        }
+      }
+    }
+  },
+  {
+    "call_id": "CALL-fd320509-3136-4c15-a08f-f6b880de1aeb",
+    "status": "error",
+    "error": {
+      "type": "Error",
+      "message": "Plugin label must identify one card"
+    }
+  },
+  {
+    "review_error": "settings.setPluginExpanded:Plugin label must identify one card"
+  },
+  {
+    "call_id": "CALL-cd92e90f-98b4-441f-a50e-fdfced92af21",
+    "status": "error",
+    "error": {
+      "type": "Error",
+      "message": "Plugin label must identify one card"
+    }
+  },
+  {
+    "restore_error": "settings.setPluginExpanded:Plugin label must identify one card"
+  },
+  {
+    "call_id": "CALL-9e69362e-e1b0-48d2-9731-0cb610caf24a",
+    "status": "returned",
+    "observations": {
+      "action_refs": [
+        "CALL-9e69362e-e1b0-48d2-9731-0cb610caf24a-2"
+      ],
+      "observations": {}
+    }
+  }
+]

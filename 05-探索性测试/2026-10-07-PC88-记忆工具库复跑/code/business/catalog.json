@@ -1,0 +1,18 @@
+{
+  "functions": [
+    {
+      "name": "task.deleteNewFile",
+      "file": "code/business/restore.mjs",
+      "export": "deleteNewFile",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "path": { "type": "string" },
+          "expectedSha256": { "type": "string" }
+        },
+        "required": ["path"],
+        "additionalProperties": false
+      }
+    }
+  ]
+}

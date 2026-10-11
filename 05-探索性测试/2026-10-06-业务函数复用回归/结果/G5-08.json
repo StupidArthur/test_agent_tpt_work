@@ -1,0 +1,90 @@
+{
+  "case_id": "G5-08",
+  "contract_version": "2.1",
+  "attempt_id": "fn-20261006-agent2-G5-08-A1",
+  "environment_id": "env-fn-20261006-agent2",
+  "object_identity": {
+    "fixture_dir": "F:/code_ai/test_agent_tpt_work/探索性测试/2026-10-06-业务函数复用回归/夹具/expert-bad-json"
+  },
+  "inputs": [
+    "导入 expert-bad-json 目录（metadata.json 非法 JSON）"
+  ],
+  "action_refs": [
+    "business-f3ccb3e3-ca9b-4fea-8bd8-1bc397de6ab9-2",
+    "business-f3ccb3e3-ca9b-4fea-8bd8-1bc397de6ab9-5"
+  ],
+  "status": "失败",
+  "started_at": "2026-10-06T07:52:49.934Z",
+  "ended_at": "2026-10-06T07:53:47.451Z",
+  "actual_steps": [
+    "提交前读取坏包源 metadata.json/agent.md SHA256",
+    "提交坏包目录",
+    "读取本次校验提示句、列表数量",
+    "提交后再次读取源文件 SHA256"
+  ],
+  "assertions": [
+    {
+      "id": "G5-08-A1",
+      "actual": false,
+      "read_refs": [
+        "business-f3ccb3e3-ca9b-4fea-8bd8-1bc397de6ab9-6"
+      ]
+    },
+    {
+      "id": "G5-08-A2",
+      "actual": {
+        "before": 2,
+        "after": 2
+      },
+      "read_refs": [
+        "business-f3ccb3e3-ca9b-4fea-8bd8-1bc397de6ab9-3",
+        "business-f3ccb3e3-ca9b-4fea-8bd8-1bc397de6ab9-7"
+      ]
+    },
+    {
+      "id": "G5-08-A3",
+      "actual": {
+        "before": "fbca812a3c87d9fafab958a24f147271ffed8e5fa6e5b539dadda7bafbb3f3d7",
+        "after": "fbca812a3c87d9fafab958a24f147271ffed8e5fa6e5b539dadda7bafbb3f3d7"
+      },
+      "read_refs": [
+        "business-3e7e5b64-6e57-4ac5-8ae4-a2916f061cf1-1",
+        "business-68b40423-8709-4c36-81e9-ec598550ca9f-1"
+      ]
+    },
+    {
+      "id": "G5-08-A4",
+      "actual": {
+        "before": "73774e6761972ac669ac77f15424090d4dc2e31bec61b76e0c94541eea2f47a9",
+        "after": "73774e6761972ac669ac77f15424090d4dc2e31bec61b76e0c94541eea2f47a9"
+      },
+      "read_refs": [
+        "business-3e7e5b64-6e57-4ac5-8ae4-a2916f061cf1-2",
+        "business-68b40423-8709-4c36-81e9-ec598550ca9f-2"
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "path": "运行日志/business.jsonl",
+      "sha256": "6203703aeaf46ab5fd94d64c474b878c26f39b97bc4c3f7a3840f9ee9a48bdc5"
+    },
+    {
+      "path": "运行日志/业务调用.jsonl",
+      "sha256": "91fc9bb4b29ad5347770a9e5e5a21b38b9c414c04a2e484e84b5dd981db87bd7"
+    }
+  ],
+  "cleanup": {
+    "status": "unchanged",
+    "description": "坏包被拒绝，列表数量与源文件均不变",
+    "read_refs": [
+      "business-f3ccb3e3-ca9b-4fea-8bd8-1bc397de6ab9-7"
+    ]
+  },
+  "business_call_refs": [
+    "CALL-4287e986-1cb3-469a-9819-c6e80a285892",
+    "CALL-3f979f29-4b1d-4b40-b798-82758d357463",
+    "CALL-fb2b3790-3a4e-45db-9b5b-d169cbf4994a"
+  ],
+  "notes": "A1 判失败：本次校验提示句为『所选内容不是有效的专家包：需要包含 agent.md 和 metadata.json』，未指出 metadata.json/JSON 解析或格式校验失败（与其他坏包共用同一通用提示）。源文件前后哈希一致、列表数量不变"
+}

@@ -1,0 +1,47 @@
+{
+  "case_id": "G10-05",
+  "contract_version": "retest-1.0",
+  "attempt_id": "G10-05-A02",
+  "environment_id": "env-20261006-agent2",
+  "object_identity": "fast-assert-rich-20261006-agent2 详情图片预览区",
+  "inputs": [],
+  "action_refs": [
+    "business-89b78902-33e1-4fd2-9501-1353123cd635-12",
+    "business-89b78902-33e1-4fd2-9501-1353123cd635-13"
+  ],
+  "status": "通过",
+  "started_at": "2026-10-06T10:18:55.442Z",
+  "ended_at": "2026-10-06T10:19:20.697Z",
+  "actual_steps": [
+    "在rich文件树点击assets/icon.png",
+    "定位当前预览区img并读取加载状态"
+  ],
+  "assertions": [
+    {
+      "id": "G10-05-A1",
+      "actual": true,
+      "read_refs": [
+        "business-89b78902-33e1-4fd2-9501-1353123cd635-14"
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "path": "运行日志/business.jsonl",
+      "sha256": "aaadf0b2901d2cb69e298a41be0118017d9deadfdfefd5334328191063ed931f"
+    },
+    {
+      "path": "运行日志/业务调用.jsonl",
+      "sha256": "8d619b0d6f5da075d69128ea5b9bd89cdcf86f03cc59f16c18c2888bc01ece1e"
+    }
+  ],
+  "cleanup": {
+    "status": "unchanged",
+    "description": "仅查看详情，无设置/资产变更",
+    "read_refs": []
+  },
+  "business_call_refs": [
+    "CALL-e6479ca2-02a7-4902-942d-7cc3a54abd26"
+  ],
+  "notes": "原问题：读取详情所有图片并挑任意已加载图片，可能命中图标。本轮在文件树点击assets/icon.png后，限定详情非svg预览img读取complete与naturalWidth。"
+}

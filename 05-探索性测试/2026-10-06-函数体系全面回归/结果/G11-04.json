@@ -1,0 +1,52 @@
+{
+  "case_id": "G11-04",
+  "contract_version": "2.0",
+  "environment_id": "agent-oc-20261006-funcfull-01",
+  "attempt_id": "G11-04-A01",
+  "object_identity": "fast-assert-expert-longread-agent-oc-20261006-funcfull-01",
+  "inputs": [
+    "导入 experts/longread",
+    "打开详情"
+  ],
+  "business_call_refs": [
+    "CALL-fcb158be-6d61-410e-ab41-400debcdb7e7",
+    "CALL-d292186b-bcc8-4421-a6e1-c3857bf41d5c"
+  ],
+  "status": "通过",
+  "attempted_at": "2026-10-06T16:53:41.714Z",
+  "assertions": [
+    {
+      "id": "G11-04-A1",
+      "expected": "FAST_PROMPT_END",
+      "actual": "...Harmless reading line 100.\nFAST_PROMPT_END",
+      "pass": true,
+      "read_refs": [
+        "CALL-d292186b-bcc8-4421-a6e1-c3857bf41d5c-3"
+      ],
+      "raw": {
+        "length": 2830
+      },
+      "derivation": "prompt.includes('FAST_PROMPT_END')"
+    },
+    {
+      "id": "G11-04-A2",
+      "expected": true,
+      "actual": true,
+      "pass": true,
+      "read_refs": [
+        "CALL-d292186b-bcc8-4421-a6e1-c3857bf41d5c-4"
+      ],
+      "raw": {
+        "hasEnd": true,
+        "visible": true
+      }
+    }
+  ],
+  "restore": {
+    "status": "unchanged",
+    "description": "本case未改动设置/文件",
+    "read_refs": []
+  },
+  "residual": "",
+  "notes": ""
+}

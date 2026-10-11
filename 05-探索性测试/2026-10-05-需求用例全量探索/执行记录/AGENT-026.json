@@ -1,0 +1,105 @@
+{
+  "case_id": "AGENT-026",
+  "case_title": "编辑上下文清楚",
+  "source_sha256": "c3cdc4c71c1746e9a647aa5190e0983229af9b41c22e2e6c9a9bc3da80727b66",
+  "status": "已执行-符合预期",
+  "review_status": "待双方审核",
+  "latest_attempt_id": "AGENT-026-A01",
+  "attempts": [
+    {
+      "attempt_id": "AGENT-026-A01",
+      "started_at": "2026-10-05T16:19:35.000Z",
+      "ended_at": "2026-10-05T16:19:42.000Z",
+      "environment_id": "ENV-001",
+      "surface": "TPT Work visible UI through CDP + Playwright; independent readback only for round-owned fixture",
+      "actual_preconditions": {
+        "account_alias": "Arthur",
+        "workspace": "tpt-workspace",
+        "project": "未新增项目",
+        "session_id": "未新增项目；本轮专家管理/详情操作",
+        "model": "标准 / low",
+        "permission": "工作区内修改",
+        "fixtures": [
+          "round-owned Expert: round-agent-longread-20261005"
+        ]
+      },
+      "input": "通过本轮 round-agent-longread-20261005 详情页进入对话编辑。",
+      "actual_steps": [
+        "在本轮专家详情点击“去对话编辑”。",
+        "观察目标输入区、当前专家标识、访问模式及左侧导航。"
+      ],
+      "wait_condition": "等待页面出现稳定终态；发生导航/弹窗后重新读取可见frame及目标状态。",
+      "checkpoints": [
+        {
+          "expected_index": 1,
+          "expected": "输入区显示当前Agent及编辑模式",
+          "observed": "预填输入区含“/expert-manager 帮我修改专家：[round-agent-longread-20261005]...”，可识别当前Expert和编辑模式；页面左侧栏仍显示任务/模块导航；工作区权限“工作区内修改”。",
+          "verdict": "符合",
+          "evidence": [
+            "证据/AGENT-026/AGENT-026-A01/edit-navigation.png",
+            "证据/AGENT-026/AGENT-026-A01/edit-navigation.json"
+          ]
+        },
+        {
+          "expected_index": 2,
+          "expected": "左侧栏保留",
+          "observed": "预填输入区含“/expert-manager 帮我修改专家：[round-agent-longread-20261005]...”，可识别当前Expert和编辑模式；页面左侧栏仍显示任务/模块导航；工作区权限“工作区内修改”。",
+          "verdict": "符合",
+          "evidence": [
+            "证据/AGENT-026/AGENT-026-A01/edit-navigation.png",
+            "证据/AGENT-026/AGENT-026-A01/edit-navigation.json"
+          ]
+        }
+      ],
+      "observed_result": "预填输入区含“/expert-manager 帮我修改专家：[round-agent-longread-20261005]...”，可识别当前Expert和编辑模式；页面左侧栏仍显示任务/模块导航；工作区权限“工作区内修改”。",
+      "status": "已执行-符合预期",
+      "evidence": [
+        "证据/AGENT-026/AGENT-026-A01/edit-navigation.png",
+        "证据/AGENT-026/AGENT-026-A01/edit-navigation.json"
+      ],
+      "difference_ids": [],
+      "notes": "只进入可见编辑会话，没有提交任何Agent修改。"
+    }
+  ],
+  "product_observations": [
+    {
+      "feature_id": null,
+      "statement": "预填输入区含“/expert-manager 帮我修改专家：[round-agent-longread-20261005]...”，可识别当前Expert和编辑模式；页面左侧栏仍显示任务/模块导航；工作区权限“工作区内修改”。",
+      "case_ids": [
+        "AGENT-026"
+      ],
+      "attempt_ids": [
+        "AGENT-026-A01"
+      ],
+      "environment_id": "ENV-001",
+      "verified_depth": "仅当前本轮UI尝试与引用范围内的回读证据",
+      "scope_and_limits": "限定当前本轮样本及本attempt；所有产品判断待双方审核。",
+      "evidence": [
+        "证据/AGENT-026/AGENT-026-A01/edit-navigation.png",
+        "证据/AGENT-026/AGENT-026-A01/edit-navigation.json"
+      ],
+      "relation_to_design": "按源用例原文逐检查点记录；依据为待评审设计，不自动视为正式验收标准。",
+      "review_status": "待双方审核"
+    }
+  ],
+  "differences": [],
+  "finding_ids": [],
+  "blocker": null,
+  "applicability_reason": null,
+  "cleanup": {
+    "changes": [],
+    "remaining": []
+  },
+  "review": {
+    "assistant": null,
+    "user": null,
+    "approved_scope": [],
+    "final_decision": "待审核"
+  },
+  "audit_history": [
+    {
+      "at": "2026-10-05T16:19:42.000Z",
+      "event": "旧阻塞依赖已由用户授权与夜间实际UI/夹具能力复核；本轮新增attempt替代旧阻塞状态，保留旧原因于本attempt notes。"
+    }
+  ]
+}

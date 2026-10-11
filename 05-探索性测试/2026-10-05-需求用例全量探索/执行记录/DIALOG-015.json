@@ -1,0 +1,123 @@
+{
+  "case_id": "DIALOG-015",
+  "case_title": "附件数量30边界",
+  "source_sha256": "b712acd3b204ebcfdd07129c4d993ea1beb184f9a2d0c3827745ee1fdf7a6677",
+  "status": "已执行-存在差异",
+  "review_status": "待双方审核",
+  "latest_attempt_id": "DIALOG-015-A01",
+  "attempts": [
+    {
+      "attempt_id": "DIALOG-015-A01",
+      "started_at": "2026-10-06T06:15:00+08:00",
+      "ended_at": "2026-10-05T22:10:30.103Z",
+      "environment_id": "ENV-001",
+      "surface": "Unified task composer UI via Electron CDP + Playwright; round-owned fixture manifest",
+      "actual_preconditions": {
+        "account": "Arthur",
+        "project": "existing tpt-workspace",
+        "model": "standard / low",
+        "fixtures": "35 tiny round-owned TXT attachments; unsent draft"
+      },
+      "input": "Selected 30 distinct round-owned text files in one HTML file-input operation.",
+      "actual_steps": [
+        "Created 35 tiny, harmless, round-owned text fixtures in the task fixture folder.",
+        "Selected count-01.txt through count-30.txt together with the in-app HTML file input.",
+        "Waited for all 30 upload indicators to settle; read back 30 cards and 30 individual removal controls.",
+        "Confirmed every expected filename was present, but no explicit 30/30 or remaining-capacity counter appeared.",
+        "Removed all 30 attachments individually; confirmed the draft returned to zero cards."
+      ],
+      "wait_condition": "Waited until all visible 上传中 indicators cleared; read back card count, per-file controls and notifications.",
+      "checkpoints": [
+        {
+          "expected_index": 1,
+          "expected": "数量显示30/30",
+          "observed": "The composer displayed all 30 file cards and 30 remove controls; all expected filenames were readable from the attachment rail. No explicit numeric 30/30 count string or remaining-capacity indicator was visible.",
+          "verdict": "差异",
+          "evidence": [
+            "证据/DIALOG-015/DIALOG-015-A01/30-card-list.json",
+            "证据/DIALOG-015/DIALOG-015-A01/30-card-list.txt",
+            "证据/DIALOG-015/DIALOG-015-A01/30-ui-readback.json",
+            "证据/DIALOG-015/DIALOG-015-A01/30-attachments-rail.png",
+            "证据/DIALOG-015/DIALOG-015-A01/fixture-manifest.json"
+          ]
+        },
+        {
+          "expected_index": 2,
+          "expected": "30项可逐个确认",
+          "observed": "Each of the 30 distinct file names appeared in the UI rail and had its own 移除文件 control.",
+          "verdict": "符合",
+          "evidence": [
+            "证据/DIALOG-015/DIALOG-015-A01/30-card-list.json",
+            "证据/DIALOG-015/DIALOG-015-A01/30-card-list.txt",
+            "证据/DIALOG-015/DIALOG-015-A01/30-ui-readback.json",
+            "证据/DIALOG-015/DIALOG-015-A01/30-attachments-rail.png",
+            "证据/DIALOG-015/DIALOG-015-A01/fixture-manifest.json"
+          ]
+        }
+      ],
+      "observed_result": "All 30 round-owned fixture files were accepted and individually visible in the composer. The UI did not show a numeric 30/30 count, so the count-indicator checkpoint differs.",
+      "status": "已执行-存在差异",
+      "evidence": [
+        "证据/DIALOG-015/DIALOG-015-A01/30-card-list.json",
+        "证据/DIALOG-015/DIALOG-015-A01/30-card-list.txt",
+        "证据/DIALOG-015/DIALOG-015-A01/30-ui-readback.json",
+        "证据/DIALOG-015/DIALOG-015-A01/30-attachments-rail.png",
+        "证据/DIALOG-015/DIALOG-015-A01/fixture-manifest.json"
+      ],
+      "notes": "The 30-item batch fit the attachment list; no message was sent. The difference concerns only the missing numeric counter. Pending bilateral review; do not generalize beyond this client/session.",
+      "cleanup": {
+        "changes": [
+          "Removed all attachments created for this test from the unsent draft using their individual UI removal controls."
+        ],
+        "remaining": [
+          "35 small harmless fixture source files remain in the task fixture folder for traceability."
+        ]
+      }
+    }
+  ],
+  "product_observations": [
+    {
+      "observation_id": "OBS-240",
+      "feature_id": null,
+      "statement": "All 30 round-owned fixture files were accepted and individually visible in the composer. The UI did not show a numeric 30/30 count, so the count-indicator checkpoint differs.",
+      "case_ids": [
+        "DIALOG-015"
+      ],
+      "attempt_ids": [
+        "DIALOG-015-A01"
+      ],
+      "environment_id": "ENV-001",
+      "verified_depth": "Actual multi-file HTML input, UI card count/order, settled status and accessible notification readback",
+      "scope_and_limits": "Only tiny round-owned text fixtures in an unsent draft; no message sent and no existing user files changed.",
+      "evidence": [
+        "证据/DIALOG-015/DIALOG-015-A01/30-card-list.json",
+        "证据/DIALOG-015/DIALOG-015-A01/30-card-list.txt",
+        "证据/DIALOG-015/DIALOG-015-A01/30-ui-readback.json",
+        "证据/DIALOG-015/DIALOG-015-A01/30-attachments-rail.png",
+        "证据/DIALOG-015/DIALOG-015-A01/fixture-manifest.json"
+      ],
+      "relation_to_design": "Pending bilateral review.",
+      "review_status": "待双方审核"
+    }
+  ],
+  "differences": [
+    "DIFF-039"
+  ],
+  "finding_ids": [],
+  "blocker": null,
+  "applicability_reason": null,
+  "cleanup": {
+    "changes": [
+      "Removed all attachments created for this test from the unsent draft using their individual UI removal controls."
+    ],
+    "remaining": [
+      "35 small harmless fixture source files remain in the task fixture folder for traceability."
+    ]
+  },
+  "review": {
+    "assistant": null,
+    "user": null,
+    "approved_scope": [],
+    "final_decision": "待审核"
+  }
+}

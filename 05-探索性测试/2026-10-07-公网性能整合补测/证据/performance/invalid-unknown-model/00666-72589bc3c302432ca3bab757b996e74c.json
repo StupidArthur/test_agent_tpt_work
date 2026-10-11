@@ -1,0 +1,83 @@
+{
+  "sample_id": "72589bc3c302432ca3bab757b996e74c",
+  "request_index": 666,
+  "cases": [
+    "API-08"
+  ],
+  "group": "invalid-unknown-model",
+  "warmup": false,
+  "target": "gateway-responses",
+  "protocol": "responses",
+  "request": {
+    "model": "nonexistent-0ad56cfa8527410596b53b948598de5f",
+    "input": [
+      {
+        "role": "user",
+        "content": [
+          {
+            "type": "input_text",
+            "text": "只输出 ERROR_OK"
+          }
+        ]
+      }
+    ],
+    "stream": true,
+    "max_output_tokens": 256,
+    "reasoning": {
+      "effort": "low"
+    }
+  },
+  "expected": {
+    "nonempty": true,
+    "terminal_allowed": [
+      "completed"
+    ]
+  },
+  "checks": {
+    "http200": false,
+    "no_transport_error": true,
+    "valid_json": true,
+    "terminal": false,
+    "nonempty": false
+  },
+  "ok": false,
+  "fully_completed": false,
+  "request_sha256": "c0bd496c7c956610167df154758a4a4d20cc1e578d79a1335d42074e69975727",
+  "utc": "2026-10-07T06:22:58Z",
+  "start_monotonic": 222789.625,
+  "end_monotonic": 222789.75,
+  "http": 400,
+  "error_kind": null,
+  "error": null,
+  "body_text": "{\"error\":{\"code\":null,\"message\":\"model not found: nonexistent-0ad56cfa8527410596b53b948598de5f: model not found\",\"param\":null,\"type\":\"request_error\"}}",
+  "normalized": {
+    "protocol": "responses",
+    "text": "",
+    "reasoning": "",
+    "final_text": null,
+    "tool_calls": [],
+    "usage": null,
+    "terminal": null,
+    "terminal_reason": null,
+    "error_message": null,
+    "unknown_events": [],
+    "json_errors": []
+  },
+  "raw_frames": [],
+  "metrics": {
+    "e2e": 0.125,
+    "first_event": null,
+    "first_reasoning": null,
+    "first_text": null,
+    "first_tool": null,
+    "input_tokens": null,
+    "output_tokens": null,
+    "output_tokens_per_e2e": null,
+    "text_chars": 0,
+    "text_delta_count": 0,
+    "text_span": null,
+    "text_intervals_s": [],
+    "middle_text_chunks_per_s": null,
+    "stream_batch_observation": null
+  }
+}

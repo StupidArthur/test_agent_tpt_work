@@ -1,0 +1,112 @@
+{
+  "case_id": "OTHER-019",
+  "attempt_id": "OTHER-019-A02",
+  "captured_at": "2026-10-05T15:09:28.009Z",
+  "surface": "visible settings dialog via avatar menu",
+  "environment": "ENV-001, tpt-workspace, standard/low",
+  "categories": {
+    "常规": {
+      "settings": {
+        "permission": "工作区内修改",
+        "language": "中文",
+        "theme": "跟随系统",
+        "conversation_font_size": "14px",
+        "work_detail": "标准",
+        "performance_usage_detail": "详细",
+        "web_link_open": "应用内侧边栏",
+        "coding_tools": "enabled",
+        "busy_send_behavior": "排队发送",
+        "new_session_shortcut": "Ctrl+N"
+      },
+      "ui_text_labels": [
+        "权限",
+        "语言",
+        "外观",
+        "字号大小",
+        "工作步骤展示",
+        "性能与用量",
+        "网页链接默认打开方式",
+        "代码工作工具",
+        "快捷键",
+        "繁忙时的发送行为"
+      ]
+    },
+    "个人主页": {
+      "fields": [
+        "用户名称(read-only)",
+        "用户类型(read-only)",
+        "头像(change disabled in captured UI)",
+        "model=标准/text/default",
+        "reasoning=low"
+      ],
+      "note": "Personal identifiers were not persisted in evidence."
+    },
+    "积分与订阅": {
+      "plan": "免费版",
+      "available_credits": "-",
+      "action": "方案详情 (not opened; no purchase)"
+    },
+    "场景预设": {
+      "visible_presets": [
+        "标准模式 (default)",
+        "PTC模式",
+        "工厂模式 (custom)"
+      ],
+      "selected_default": "新任务默认: 标准模式"
+    },
+    "记忆与进化": {
+      "memory_enabled": true,
+      "sedimentation_enabled": true,
+      "editable_memory_files": "not opened; no memory contents captured",
+      "activity_note": "The round-owned disabled-skill probe caused one memory-log append at 22:47; not deleted or edited."
+    },
+    "实验性功能": {
+      "experimental_features": "false",
+      "experience_optimization": "false",
+      "changed": false,
+      "reason": "Opt-in processed-conversation-data plan not enabled."
+    },
+    "开发者模式": {
+      "developer_mode": "false",
+      "changed": false,
+      "reason": "UI warns extra internal capabilities may affect stability."
+    },
+    "内置插件": {
+      "session_plugin_count": 29,
+      "global_plugin_count": 235,
+      "visible_plugin_cards": 29,
+      "plugin_statuses": [
+        "persona, 已启用",
+        "agent-instructions, 已启用",
+        "tool-bash, 已停用",
+        "tool-pwsh, 已启用",
+        "tool-fs, 已启用",
+        "tool-fs-search, 已启用",
+        "tool-jobs, 已启用",
+        "skill-filesystem, 已启用",
+        "tool-skill, 已启用",
+        "command-goal, 已启用",
+        "tool-goal, 已启用",
+        "tool-ask-user, 已启用",
+        "tool-todo, 已启用",
+        "tool-web, 已启用",
+        "tool-present, present, 已启用",
+        "plugin-manager/tools, tool-plugin-manager, 已停用",
+        "plan-mode, 已启用",
+        "compaction-basic, 已启用",
+        "command-compact, 已启用",
+        "compaction-tool-result-pruner, tool-result-pruner, 已启用",
+        "tool-subagent-control, 已启用",
+        "tool-subagent-control/list-agents, tool-subagent-list-agents, 已启用",
+        "tool-subagent, 已启用",
+        "tool-subagent, tool-subagent-fork, 已启用",
+        "tool-subagent, tool-subagent-codex, 已停用",
+        "tool-subagent, tool-subagent-claude-code, 已停用",
+        "workflow-ptc, 已启用",
+        "tool-workflow, 已启用",
+        "tool-ralph, 已停用"
+      ],
+      "actionability": "Cards show names and enabled/disabled states; no dedicated switch/checkbox exposed in this list; no plugin state changed."
+    }
+  }
+}

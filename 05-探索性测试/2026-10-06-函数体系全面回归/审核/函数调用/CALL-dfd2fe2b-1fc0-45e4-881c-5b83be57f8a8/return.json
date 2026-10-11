@@ -1,0 +1,165 @@
+{
+  "call_id": "CALL-dfd2fe2b-1fc0-45e4-881c-5b83be57f8a8",
+  "status": "returned",
+  "observations": {
+    "observations": {
+      "title": {
+        "event_id": "CALL-dfd2fe2b-1fc0-45e4-881c-5b83be57f8a8-1",
+        "captured_at": "2026-10-06T16:35:12.073Z",
+        "environment_id": "agent-oc-20261006-funcfull-01",
+        "business_call_id": "CALL-dfd2fe2b-1fc0-45e4-881c-5b83be57f8a8",
+        "kind": "read",
+        "target": "本轮技能标题",
+        "object_id": "skill-card-title",
+        "source": {
+          "channel": "dom",
+          "scope": "技能页/我的技能卡片",
+          "locator": ".card-title h3"
+        },
+        "value": "fast-assert-declared-market-agent-oc-20261006-funcfull-01",
+        "raw": {
+          "title": "fast-assert-declared-market-agent-oc-20261006-funcfull-01"
+        }
+      },
+      "meta": {
+        "event_id": "CALL-dfd2fe2b-1fc0-45e4-881c-5b83be57f8a8-2",
+        "captured_at": "2026-10-06T16:35:12.075Z",
+        "environment_id": "agent-oc-20261006-funcfull-01",
+        "business_call_id": "CALL-dfd2fe2b-1fc0-45e4-881c-5b83be57f8a8",
+        "kind": "read",
+        "target": "本轮技能来源与版本",
+        "object_id": "skill-card-meta",
+        "source": {
+          "channel": "dom",
+          "scope": "技能页/我的技能卡片",
+          "locator": "section.panel [data-slot=\"card\"]"
+        },
+        "value": {
+          "source": "用户创建",
+          "version": null
+        },
+        "raw": {
+          "text": "fast-assert-declared-market-agent-oc-20261006-funcfull-01 FAST_DESCRIPTION_BASE 来源 用户创建 快捷使用",
+          "source": "用户创建",
+          "version": null
+        }
+      },
+      "source": {
+        "event_id": "CALL-dfd2fe2b-1fc0-45e4-881c-5b83be57f8a8-4",
+        "captured_at": "2026-10-06T16:35:12.082Z",
+        "environment_id": "agent-oc-20261006-funcfull-01",
+        "business_call_id": "CALL-dfd2fe2b-1fc0-45e4-881c-5b83be57f8a8",
+        "kind": "read",
+        "target": "本轮技能来源",
+        "object_id": "skill-card-source",
+        "source": {
+          "channel": "dom",
+          "scope": "技能页/我的技能卡片",
+          "locator": "section.panel [data-slot=\"card\"]"
+        },
+        "value": "用户创建",
+        "raw": {
+          "text": "fast-assert-declared-market-agent-oc-20261006-funcfull-01 FAST_DESCRIPTION_BASE 来源 用户创建 快捷使用",
+          "source": "用户创建"
+        }
+      },
+      "version": {
+        "event_id": "CALL-dfd2fe2b-1fc0-45e4-881c-5b83be57f8a8-7",
+        "captured_at": "2026-10-06T16:35:12.090Z",
+        "environment_id": "agent-oc-20261006-funcfull-01",
+        "business_call_id": "CALL-dfd2fe2b-1fc0-45e4-881c-5b83be57f8a8",
+        "kind": "read",
+        "target": "本轮技能版本",
+        "object_id": "skill-card-version",
+        "source": {
+          "channel": "dom",
+          "scope": "技能页/我的技能卡片",
+          "locator": "section.panel [data-slot=\"card\"]"
+        },
+        "value": null,
+        "raw": {
+          "text": "fast-assert-declared-market-agent-oc-20261006-funcfull-01 FAST_DESCRIPTION_BASE 来源 用户创建 快捷使用",
+          "version": null
+        }
+      },
+      "description": {
+        "event_id": "CALL-dfd2fe2b-1fc0-45e4-881c-5b83be57f8a8-3",
+        "captured_at": "2026-10-06T16:35:12.079Z",
+        "environment_id": "agent-oc-20261006-funcfull-01",
+        "business_call_id": "CALL-dfd2fe2b-1fc0-45e4-881c-5b83be57f8a8",
+        "kind": "read",
+        "target": "本轮样本描述",
+        "object_id": "skill-card-description",
+        "source": {
+          "channel": "dom",
+          "scope": "技能页/我的技能卡片",
+          "locator": "section.panel [data-slot=\"card\"]"
+        },
+        "value": "FAST_DESCRIPTION_BASE",
+        "raw": {
+          "text": "fast-assert-declared-market-agent-oc-20261006-funcfull-01 FAST_DESCRIPTION_BASE 来源 用户创建 快捷使用",
+          "desc": "FAST_DESCRIPTION_BASE"
+        }
+      },
+      "switch": {
+        "event_id": "CALL-dfd2fe2b-1fc0-45e4-881c-5b83be57f8a8-8",
+        "captured_at": "2026-10-06T16:35:12.093Z",
+        "environment_id": "agent-oc-20261006-funcfull-01",
+        "business_call_id": "CALL-dfd2fe2b-1fc0-45e4-881c-5b83be57f8a8",
+        "kind": "read",
+        "target": "本轮技能开关",
+        "object_id": "skill-card-switch",
+        "source": {
+          "channel": "dom",
+          "scope": "技能页/我的技能卡片",
+          "locator": "[role=\"switch\"]"
+        },
+        "value": true,
+        "raw": {
+          "aria_checked": "true"
+        },
+        "derivation": "aria_checked === 'true'"
+      },
+      "market": {
+        "event_id": "CALL-dfd2fe2b-1fc0-45e4-881c-5b83be57f8a8-5",
+        "captured_at": "2026-10-06T16:35:12.084Z",
+        "environment_id": "agent-oc-20261006-funcfull-01",
+        "business_call_id": "CALL-dfd2fe2b-1fc0-45e4-881c-5b83be57f8a8",
+        "kind": "read",
+        "target": "对象市场关联",
+        "object_id": "skill-card-market",
+        "source": {
+          "channel": "dom",
+          "scope": "技能页/我的技能卡片",
+          "locator": "section.panel [data-slot=\"card\"]"
+        },
+        "value": false,
+        "raw": {
+          "source": "用户创建",
+          "text": "fast-assert-declared-market-agent-oc-20261006-funcfull-01 FAST_DESCRIPTION_BASE 来源 用户创建 快捷使用"
+        },
+        "derivation": "来源含市场/公共 Agent 标记"
+      },
+      "localTag": {
+        "event_id": "CALL-dfd2fe2b-1fc0-45e4-881c-5b83be57f8a8-6",
+        "captured_at": "2026-10-06T16:35:12.087Z",
+        "environment_id": "agent-oc-20261006-funcfull-01",
+        "business_call_id": "CALL-dfd2fe2b-1fc0-45e4-881c-5b83be57f8a8",
+        "kind": "read",
+        "target": "卡片本地修改标签",
+        "object_id": "skill-card-local-tag",
+        "source": {
+          "channel": "dom",
+          "scope": "技能页/我的技能卡片",
+          "locator": "section.panel [data-slot=\"card\"]"
+        },
+        "value": false,
+        "raw": {
+          "text": "fast-assert-declared-market-agent-oc-20261006-funcfull-01 FAST_DESCRIPTION_BASE 来源 用户创建 快捷使用"
+        },
+        "derivation": "卡片标签含本地修改"
+      }
+    },
+    "switch_read_ref": "CALL-dfd2fe2b-1fc0-45e4-881c-5b83be57f8a8-8"
+  }
+}

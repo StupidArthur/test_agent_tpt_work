@@ -1,0 +1,24 @@
+{
+  "id": "SM-03",
+  "contract_version": "smoke-1.0",
+  "machine_id": "PC-88",
+  "assertions": {
+    "SM-03-A1": {
+      "read": "target assistant final text trim",
+      "actual": "SMOKE_CHAT_pc88-20261006-smoke01_OK",
+      "expected": "SMOKE_CHAT_pc88-20261006-smoke01_OK",
+      "pass": true
+    },
+    "SM-03-A2": {
+      "read": "completion state",
+      "completed": true,
+      "expected": true,
+      "pass": true
+    }
+  },
+  "raw": {
+    "msgs": [
+      "SMOKE_CHAT_pc88-20261006-smoke01_OK"
+    ]
+  }
+}

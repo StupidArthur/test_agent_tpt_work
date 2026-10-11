@@ -1,0 +1,84 @@
+{
+  "sample_id": "01613b8993e24f53950f733cc1b08117",
+  "request_index": 97,
+  "cases": [
+    "PREP",
+    "PERF-07"
+  ],
+  "group": "direct-chat-probe",
+  "warmup": false,
+  "target": "direct-chat",
+  "protocol": "chat",
+  "request": {
+    "model": "deepseek-flash",
+    "messages": [
+      {
+        "role": "user",
+        "content": "只输出 OK"
+      }
+    ],
+    "stream": false,
+    "max_tokens": 256,
+    "effort": "low"
+  },
+  "expected": {
+    "exact_text": "OK"
+  },
+  "checks": {
+    "http200": true,
+    "no_transport_error": true,
+    "valid_json": true,
+    "terminal": true,
+    "exact_text": true
+  },
+  "ok": true,
+  "fully_completed": true,
+  "request_sha256": "bed885c268b9c76979d1a2fe82a0d401c5abd8d841a8e1c4709b9a67d6807153",
+  "utc": "2026-10-07T05:26:45Z",
+  "http": 200,
+  "error_kind": null,
+  "error": null,
+  "body_text": "{\"id\":\"00fe6a76-bfd0-483e-ac0e-3285af572a0f\",\"object\":\"chat.completion\",\"created\":1791350807,\"model\":\"deepseek-flash\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"OK\",\"reasoning_content\":\"We need answer only \\\"OK\\\". Must comply. Need be careful no extra. User says \\\"只输出 OK\\\" Chinese meaning only output OK. So final OK.\"},\"logprobs\":null,\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":33,\"completion_tokens\":35,\"total_tokens\":68,\"prompt_tokens_details\":{\"cached_tokens\":0},\"completion_tokens_details\":{\"reasoning_tokens\":33},\"prompt_cache_hit_tokens\":0,\"prompt_cache_miss_tokens\":33},\"system_fingerprint\":\"aeb56401ca74e127821c4f9126dcb669\"}",
+  "normalized": {
+    "protocol": "chat",
+    "text": "OK",
+    "reasoning": "",
+    "final_text": null,
+    "tool_calls": [],
+    "usage": {
+      "prompt_tokens": 33,
+      "completion_tokens": 35,
+      "total_tokens": 68,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 33
+      },
+      "prompt_cache_hit_tokens": 0,
+      "prompt_cache_miss_tokens": 33
+    },
+    "terminal": "completed",
+    "terminal_reason": "stop",
+    "error_message": null,
+    "unknown_events": [],
+    "json_errors": []
+  },
+  "raw_frames": [],
+  "metrics": {
+    "e2e": 0.75,
+    "first_event": null,
+    "first_reasoning": null,
+    "first_text": null,
+    "first_tool": null,
+    "input_tokens": 33,
+    "output_tokens": 35,
+    "output_tokens_per_e2e": 46.666666666666664,
+    "text_chars": 2,
+    "text_delta_count": 0,
+    "text_span": null,
+    "text_intervals_s": [],
+    "middle_text_chunks_per_s": null,
+    "stream_batch_observation": null
+  }
+}

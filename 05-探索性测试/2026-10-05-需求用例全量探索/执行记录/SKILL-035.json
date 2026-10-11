@@ -1,0 +1,111 @@
+{
+  "case_id": "SKILL-035",
+  "case_title": "图标绝对路径拒绝",
+  "source_sha256": "92a6f4ecd2a5dffe0f1a2a60e73fa18b5fb98763b09cc56ce4cc22fd56e13f0e",
+  "status": "已执行-结论不确定",
+  "review_status": "待双方审核",
+  "latest_attempt_id": "SKILL-035-A01",
+  "attempts": [
+    {
+      "attempt_id": "SKILL-035-A01",
+      "started_at": "2026-10-05T17:06:00.000Z",
+      "ended_at": "2026-10-05T17:07:00.000Z",
+      "environment_id": "ENV-001",
+      "surface": "TPT Work UI via CDP + Playwright; visible UI actions and direct Trace/readback; round-owned fixtures only",
+      "actual_preconditions": {
+        "account_alias": "Arthur",
+        "workspace": "tpt-workspace",
+        "project": "未新增项目",
+        "session_id": "本轮Skill管理页面；不涉及新会话",
+        "model": "标准 / low",
+        "permission": "工作区内修改",
+        "fixtures": [
+          "夹具/skill-rich-20261006/round-skill-absolute-20261006"
+        ]
+      },
+      "input": "图标绝对路径拒绝",
+      "actual_steps": [
+        "导入icon字段指向本任务内round-owned邻接PNG的绝对路径包。",
+        "在列表与详情只读查看该字段和图标呈现。"
+      ],
+      "wait_condition": "UI变化后重新读取当前iframe/页面；等待导入或任务出现稳定终态；不使用API绕过UI。",
+      "checkpoints": [
+        {
+          "expected_index": 1,
+          "expected": "不读取包外资源",
+          "observed": "卡片显示统一内置data:image/svg+xml通用图形，未显示该绝对路径引用图；仅限当前界面观察，未证实其他渲染路径。",
+          "verdict": "未验证",
+          "evidence": [
+            "证据/SKILL-035/SKILL-035-A01/after.png",
+            "证据/SKILL-035/SKILL-035-A01/absolute-detail.png"
+          ]
+        },
+        {
+          "expected_index": 2,
+          "expected": "危险路径按安全错误处理",
+          "observed": "包导入成功且详情原样显示绝对路径，没有出现路径错误提示。",
+          "verdict": "差异",
+          "evidence": [
+            "证据/SKILL-035/SKILL-035-A01/after.png",
+            "证据/SKILL-035/SKILL-035-A01/absolute-detail.png"
+          ]
+        }
+      ],
+      "observed_result": "包含本任务自建邻接图像绝对路径的包被UI导入，详情保留该绝对路径，列表显示通用图标；未观察到路径错误提示或实际外部图像读取。",
+      "status": "已执行-结论不确定",
+      "evidence": [
+        "证据/SKILL-035/SKILL-035-A01/after.png",
+        "证据/SKILL-035/SKILL-035-A01/absolute-detail.png"
+      ],
+      "difference_ids": [
+        "DIFF-027"
+      ],
+      "notes": "路径目标是本轮本地夹具neighbor-icon.png，未访问用户资产；不能仅凭通用卡片图标证明所有路径消费者均安全。"
+    }
+  ],
+  "product_observations": [
+    {
+      "feature_id": null,
+      "statement": "包含本任务自建邻接图像绝对路径的包被UI导入，详情保留该绝对路径，列表显示通用图标；未观察到路径错误提示或实际外部图像读取。",
+      "case_ids": [
+        "SKILL-035"
+      ],
+      "attempt_ids": [
+        "SKILL-035-A01"
+      ],
+      "environment_id": "ENV-001",
+      "verified_depth": "仅SKILL-035-A01与所引用UI、round-owned样本及证据范围",
+      "scope_and_limits": "路径目标是本轮本地夹具neighbor-icon.png，未访问用户资产；不能仅凭通用卡片图标证明所有路径消费者均安全。；待双方审核。",
+      "evidence": [
+        "证据/SKILL-035/SKILL-035-A01/after.png",
+        "证据/SKILL-035/SKILL-035-A01/absolute-detail.png"
+      ],
+      "relation_to_design": "对照当前用例原文记录；本轮观察不自动作为正式验收结论。",
+      "review_status": "待双方审核"
+    }
+  ],
+  "differences": [
+    "DIFF-027"
+  ],
+  "finding_ids": [],
+  "blocker": null,
+  "applicability_reason": null,
+  "cleanup": {
+    "changes": [],
+    "remaining": [
+      "本轮round-owned技能样本保留在产品技能库以供本任务后续对照；未改动已有技能资产。"
+    ]
+  },
+  "review": {
+    "assistant": null,
+    "user": null,
+    "approved_scope": [],
+    "final_decision": "待审核"
+  },
+  "audit_history": [
+    {
+      "at": "2026-10-05T17:07:00.000Z",
+      "event": "夜间续跑由实际可控UI与round-owned夹具执行新增A01；旧阻塞原因保留于历史，结论待双方审核。"
+    }
+  ]
+}

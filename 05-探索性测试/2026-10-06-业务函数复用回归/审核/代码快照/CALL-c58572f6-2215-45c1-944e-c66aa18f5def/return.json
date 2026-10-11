@@ -1,0 +1,68 @@
+{
+  "observations": {
+    "action_refs": [
+      "business-0e0a7db5-8699-40a3-80e1-4678e9712e5f-2",
+      "business-0e0a7db5-8699-40a3-80e1-4678e9712e5f-4"
+    ],
+    "observations": {
+      "reference": {
+        "event_id": "business-0e0a7db5-8699-40a3-80e1-4678e9712e5f-5",
+        "captured_at": "2026-10-06T09:48:31.033Z",
+        "environment_id": "env-fn-20261006-agent2",
+        "kind": "read",
+        "target": "专家编辑引用身份",
+        "business_call_id": "CALL-c58572f6-2215-45c1-944e-c66aa18f5def",
+        "object_id": "expert-edit-composer",
+        "source": {
+          "channel": "dom",
+          "scope": "composer 输入区",
+          "locator": "div[contenteditable=\"true\"][aria-label*=\"/ 调用指令\"]"
+        },
+        "value": true,
+        "raw": {
+          "text": "/expert-manager 帮我修改专家：[fast-assert-expert-longread-fn-20261006-agent2]，增加/优化[请补充你希望新增/优化的技能或知识领域等]方面的能力",
+          "internalName": "fast-assert-expert-longread-fn-20261006-agent2"
+        },
+        "derivation": "composer 含本轮专家内部名"
+      },
+      "mode": {
+        "event_id": "business-0e0a7db5-8699-40a3-80e1-4678e9712e5f-6",
+        "captured_at": "2026-10-06T09:48:31.035Z",
+        "environment_id": "env-fn-20261006-agent2",
+        "kind": "read",
+        "target": "专家编辑模式",
+        "business_call_id": "CALL-c58572f6-2215-45c1-944e-c66aa18f5def",
+        "object_id": "expert-edit-mode",
+        "source": {
+          "channel": "dom",
+          "scope": "composer 输入区",
+          "locator": "div[contenteditable=\"true\"][aria-label*=\"/ 调用指令\"]"
+        },
+        "value": true,
+        "raw": {
+          "text": "/expert-manager 帮我修改专家：[fast-assert-expert-longread-fn-20261006-agent2]，增加/优化[请补充你希望新增/优化的技能或知识领域等]方面的能力"
+        },
+        "derivation": "composer 明确表示修改/编辑该专家"
+      },
+      "nav": {
+        "event_id": "business-0e0a7db5-8699-40a3-80e1-4678e9712e5f-7",
+        "captured_at": "2026-10-06T09:48:31.038Z",
+        "environment_id": "env-fn-20261006-agent2",
+        "kind": "read",
+        "target": "左侧导航可见",
+        "business_call_id": "CALL-c58572f6-2215-45c1-944e-c66aa18f5def",
+        "object_id": "left-nav",
+        "source": {
+          "channel": "dom",
+          "scope": "主界面左侧导航",
+          "locator": "button[aria-label=\"新建任务\"]"
+        },
+        "value": true,
+        "raw": {
+          "visible": true
+        },
+        "derivation": "新建任务按钮可见"
+      }
+    }
+  }
+}

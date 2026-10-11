@@ -1,0 +1,78 @@
+{
+  "call_id": "CALL-d919d864-6a4a-4772-8562-3520e7e0d893",
+  "status": "returned",
+  "observations": {
+    "action_refs": [
+      "CALL-d919d864-6a4a-4772-8562-3520e7e0d893-2"
+    ],
+    "observations": {
+      "project": null,
+      "editor": {
+        "event_id": "CALL-d919d864-6a4a-4772-8562-3520e7e0d893-3",
+        "captured_at": "2026-10-06T14:35:34.728Z",
+        "environment_id": "env-tool-smoke-eval1",
+        "business_call_id": "CALL-d919d864-6a4a-4772-8562-3520e7e0d893",
+        "kind": "read",
+        "target": "新任务编辑器",
+        "object_id": "composer",
+        "source": {
+          "channel": "dom",
+          "scope": "composer 输入区",
+          "locator": "div[contenteditable=\"true\"][aria-label*=\"/ 调用指令\"]"
+        },
+        "value": true,
+        "raw": {
+          "count": 1,
+          "visible": true,
+          "editable": "true"
+        },
+        "derivation": "visible && contenteditable === 'true'"
+      },
+      "model": {
+        "event_id": "CALL-d919d864-6a4a-4772-8562-3520e7e0d893-4",
+        "captured_at": "2026-10-06T14:35:34.733Z",
+        "environment_id": "env-tool-smoke-eval1",
+        "business_call_id": "CALL-d919d864-6a4a-4772-8562-3520e7e0d893",
+        "kind": "read",
+        "target": "当前任务模型与推理等级",
+        "object_id": "model-trigger",
+        "source": {
+          "channel": "dom",
+          "scope": "composer 模型触发按钮",
+          "locator": "button[aria-label^=\"选择模型\"]"
+        },
+        "value": [
+          "标准",
+          "low"
+        ],
+        "raw": {
+          "ariaLabel": "选择模型，当前 标准，推理等级 low",
+          "text": "标准\nlow"
+        }
+      },
+      "session": {
+        "event_id": "CALL-d919d864-6a4a-4772-8562-3520e7e0d893-5",
+        "captured_at": "2026-10-06T14:35:34.735Z",
+        "environment_id": "env-tool-smoke-eval1",
+        "business_call_id": "CALL-d919d864-6a4a-4772-8562-3520e7e0d893",
+        "kind": "read",
+        "target": "本轮任务session身份",
+        "object_id": "session",
+        "source": {
+          "channel": "dom",
+          "scope": "主界面会话容器",
+          "locator": "[data-conversation-session]"
+        },
+        "value": "session-0960764c-2a98-4174-81e9-e41373292a47",
+        "raw": {
+          "attr": "data-conversation-session",
+          "value": "session-0960764c-2a98-4174-81e9-e41373292a47"
+        }
+      }
+    },
+    "args_echo": {
+      "model": "标准",
+      "reasoning": "low"
+    }
+  }
+}

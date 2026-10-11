@@ -1,0 +1,105 @@
+{
+  "case_id": "DIALOG-008",
+  "case_title": "主动终止状态",
+  "source_sha256": "b712acd3b204ebcfdd07129c4d993ea1beb184f9a2d0c3827745ee1fdf7a6677",
+  "status": "已执行-符合预期",
+  "review_status": "待双方审核",
+  "latest_attempt_id": "DIALOG-008-A01",
+  "attempts": [
+    {
+      "attempt_id": "DIALOG-008-A01",
+      "started_at": "2026-10-05T19:51:00+08:00",
+      "ended_at": "2026-10-05T19:52:00+08:00",
+      "environment_id": "ENV-001",
+      "surface": "Electron UI via CDP 9234 + Playwright, dsh-app://app/ top frame",
+      "actual_preconditions": {
+        "workspace": "tpt-workspace",
+        "project": "existing project",
+        "model": "standard / low",
+        "permission": "workspace edits",
+        "fixture": "round-owned harmless long checklist task"
+      },
+      "input": "Write 40 short, distinct reminders for keeping a kitchen tidy. Number each reminder and end with KITCHEN_DONE.",
+      "actual_steps": [
+        "Opened a new task in the existing project and submitted the harmless long-generation prompt.",
+        "Observed sidebar ?????, main ????...? and visible button aria-label ??????.",
+        "Clicked the actual visible Stop generation control immediately.",
+        "Read final task body and its sidebar row."
+      ],
+      "wait_condition": "Waited until the UI exposed Stop generation; clicked it while the model was running; terminal state appeared immediately.",
+      "checkpoints": [
+        {
+          "expected_index": 1,
+          "expected": "详情保留终止结果",
+          "observed": "After stopping, the task detail preserved the prompt and displayed ????? in the task body.",
+          "verdict": "符合",
+          "evidence": [
+            "证据/DIALOG-008/DIALOG-008-A01/final-state.json",
+            "证据/DIALOG-008/DIALOG-008-A01/final.png"
+          ]
+        },
+        {
+          "expected_index": 2,
+          "expected": "侧栏不显示完成或未读提醒",
+          "observed": "The selected sidebar row had no completion/unread status label, and the final task view had no Stop generation control.",
+          "verdict": "符合",
+          "evidence": [
+            "证据/DIALOG-008/DIALOG-008-A01/final-state.json",
+            "证据/DIALOG-008/DIALOG-008-A01/final.png"
+          ]
+        }
+      ],
+      "observed_result": "The visible Stop generation control interrupted the task; detail remained available with ?????. No completed/unread badge appeared on its current sidebar row.",
+      "status": "已执行-符合预期",
+      "evidence": [
+        "证据/DIALOG-008/DIALOG-008-A01/final-state.json",
+        "证据/DIALOG-008/DIALOG-008-A01/running.png",
+        "证据/DIALOG-008/DIALOG-008-A01/final.png"
+      ],
+      "difference_ids": [],
+      "notes": "Only the new round-owned task was stopped. No existing user task, project, setting, or asset changed."
+    }
+  ],
+  "product_observations": [
+    {
+      "observation": "Stopping an in-progress round-owned generation left a visible stopped state in detail and no completion/unread label on the sidebar row.",
+      "scope": "ENV-001, existing project, current-round task",
+      "depth": "running to stopped terminal state observed",
+      "evidence": [
+        "证据/DIALOG-008/DIALOG-008-A01/final-state.json",
+        "证据/DIALOG-008/DIALOG-008-A01/running.png",
+        "证据/DIALOG-008/DIALOG-008-A01/final.png"
+      ],
+      "additional_feature": false
+    }
+  ],
+  "differences": [],
+  "finding_ids": [],
+  "blocker": {
+    "reason": "无法执行【主动终止状态】：需要一条运行时间足够长的无害任务才能执行终止；本轮任务均在数秒内完成。 本机可用条件：标准/low 模型、单一项目、无附件夹具、无故障注入、无第二身份。",
+    "missing_dependency": "需要一条运行时间足够长的无害任务才能执行终止；本轮任务均在数秒内完成。 本机可用条件：标准/low 模型、单一项目、无附件夹具、无故障注入、无第二身份。",
+    "evidence": [
+      "证据/DIALOG-008/DIALOG-008-A01/反馈入口-摘录.txt"
+    ],
+    "next_action": "需要上述缺失的夹具/场景/能力之一；其中附件类需可控 HTML 输入或授权使用原生选择器，过程类需要一次包含工具调用的较长期望任务。"
+  },
+  "applicability_reason": null,
+  "cleanup": {
+    "changes": [
+      {
+        "item": "Round-owned active generation",
+        "action": "Stopped with visible UI control",
+        "restore": "No restore required; task intentionally terminated for this case"
+      }
+    ],
+    "remaining": [
+      "Stopped round-owned session remains in existing project"
+    ]
+  },
+  "review": {
+    "assistant": null,
+    "user": null,
+    "approved_scope": [],
+    "final_decision": "待审核"
+  }
+}

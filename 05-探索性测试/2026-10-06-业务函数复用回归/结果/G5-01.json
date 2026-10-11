@@ -1,0 +1,53 @@
+{
+  "case_id": "G5-01",
+  "contract_version": "2.0",
+  "attempt_id": "fn-20261006-agent2-G5-01-A1",
+  "environment_id": "env-fn-20261006-agent2",
+  "object_identity": {
+    "internal_name": "fast-assert-expert-fn-20261006-agent2",
+    "call_session": "session-5c4f9da7-e77e-4528-86cd-10742a91df08"
+  },
+  "inputs": [
+    "新建会话后经专家卡片 使用 引入专家引用"
+  ],
+  "action_refs": [
+    "business-35912c9b-071e-48b5-9670-8a9592181aa4-5"
+  ],
+  "status": "通过",
+  "started_at": "2026-10-06T07:47:27.513Z",
+  "ended_at": "2026-10-06T07:47:32.745Z",
+  "actual_steps": [
+    "先挂载既有会话作为此前活动会话",
+    "新建任务",
+    "专家页点击卡片 使用",
+    "读取 composer 引用名与前后会话身份"
+  ],
+  "assertions": [
+    {
+      "id": "G5-01-A1",
+      "actual": "agent-fast-assert-expert-fn-20261006-agent2",
+      "read_refs": [
+        "business-35912c9b-071e-48b5-9670-8a9592181aa4-6"
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "path": "运行日志/business.jsonl",
+      "sha256": "6203703aeaf46ab5fd94d64c474b878c26f39b97bc4c3f7a3840f9ee9a48bdc5"
+    },
+    {
+      "path": "运行日志/业务调用.jsonl",
+      "sha256": "91fc9bb4b29ad5347770a9e5e5a21b38b9c414c04a2e484e84b5dd981db87bd7"
+    }
+  ],
+  "cleanup": {
+    "status": "retained",
+    "description": "专家调用会话保留；专家保留待审",
+    "read_refs": []
+  },
+  "business_call_refs": [
+    "CALL-2477b250-e542-40e8-a6fa-380e063b2e40"
+  ],
+  "notes": "引用名 = agent-加内部名；会话 session-26fcd928→session-5c4f9da7"
+}

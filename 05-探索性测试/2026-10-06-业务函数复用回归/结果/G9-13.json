@@ -1,0 +1,58 @@
+{
+  "case_id": "G9-13",
+  "contract_version": "2.0",
+  "attempt_id": "fn-20261006-agent2-G9-13-A1",
+  "environment_id": "env-fn-20261006-agent2",
+  "object_identity": {
+    "skill": "fast-assert-missing-icon-fn-20261006-agent2"
+  },
+  "inputs": [
+    "导入 zips/missing-icon.zip"
+  ],
+  "action_refs": [
+    "business-e42e69fe-5b7c-4aa7-971d-5983f8089f22-4"
+  ],
+  "status": "通过",
+  "started_at": "2026-10-06T09:04:00.000Z",
+  "ended_at": "2026-10-06T09:20:00.000Z",
+  "actual_steps": [
+    "导入 missing-icon.zip",
+    "读取对象存在与默认图标"
+  ],
+  "assertions": [
+    {
+      "id": "G9-13-A1",
+      "actual": true,
+      "read_refs": [
+        "business-e42e69fe-5b7c-4aa7-971d-5983f8089f22-6"
+      ]
+    },
+    {
+      "id": "G9-13-A2",
+      "actual": true,
+      "read_refs": [
+        "business-193f5569-0c80-4dc2-ac6a-8458a727fb77-3"
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "path": "运行日志/business.jsonl",
+      "sha256": "6203703aeaf46ab5fd94d64c474b878c26f39b97bc4c3f7a3840f9ee9a48bdc5"
+    },
+    {
+      "path": "运行日志/业务调用.jsonl",
+      "sha256": "91fc9bb4b29ad5347770a9e5e5a21b38b9c414c04a2e484e84b5dd981db87bd7"
+    }
+  ],
+  "cleanup": {
+    "status": "retained",
+    "description": "样本保留待审",
+    "read_refs": []
+  },
+  "business_call_refs": [
+    "CALL-a846484a-5719-4361-9c92-bdc052afbdaa",
+    "CALL-9f9d2325-bf02-48ba-9f74-d3fa17cc665c"
+  ],
+  "notes": "图标缺失时显示默认图标，无 broken image"
+}

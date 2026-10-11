@@ -1,0 +1,39 @@
+{
+  "observations": {
+    "action_refs": [
+      "business-e52f6b27-a39e-43b9-87c1-e9395fd30bd6-2"
+    ],
+    "observations": {
+      "read": {
+        "event_id": "business-e52f6b27-a39e-43b9-87c1-e9395fd30bd6-3",
+        "captured_at": "2026-10-06T11:13:06.353Z",
+        "environment_id": "env-fn-20261006-agent2",
+        "kind": "read",
+        "target": "用户名与用户类型只读",
+        "business_call_id": "CALL-b5bf3eab-d13d-4da2-a98b-afb70e36f523",
+        "object_id": "settings-profile-identity",
+        "source": {
+          "channel": "dom",
+          "scope": "设置/个人主页",
+          "locator": "[data-shortcut-modal=\"settings\"] input"
+        },
+        "value": true,
+        "raw": {
+          "inputs": [
+            {
+              "value": "Arthur",
+              "disabled": true,
+              "readOnly": true
+            },
+            {
+              "value": "个人用户",
+              "disabled": true,
+              "readOnly": true
+            }
+          ]
+        },
+        "derivation": "用户名与用户类型均 disabled/readonly"
+      }
+    }
+  }
+}

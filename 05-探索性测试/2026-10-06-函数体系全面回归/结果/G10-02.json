@@ -1,0 +1,33 @@
+{
+  "case_id": "G10-02",
+  "contract_version": "2.0",
+  "environment_id": "agent-oc-20261006-funcfull-01",
+  "attempt_id": "G10-02-A01",
+  "object_identity": "rich 详情树 references/handbook/advanced/checklist.md",
+  "inputs": [
+    "选择 references/handbook/advanced/checklist.md"
+  ],
+  "business_call_refs": [
+    "CALL-9905aa60-390b-40f8-8807-cd00d4f42cd2"
+  ],
+  "status": "通过",
+  "attempted_at": "2026-10-06T16:46:58.763Z",
+  "assertions": [
+    {
+      "id": "G10-02-A1",
+      "expected": "FAST_DEEP_CHECKLIST",
+      "actual": "FAST_DEEP_CHECKLIST\n",
+      "pass": true,
+      "read_refs": [
+        "CALL-9905aa60-390b-40f8-8807-cd00d4f42cd2-3"
+      ]
+    }
+  ],
+  "restore": {
+    "status": "unchanged",
+    "description": "本case未改动设置/文件",
+    "read_refs": []
+  },
+  "residual": "",
+  "notes": "深层文件可达。"
+}

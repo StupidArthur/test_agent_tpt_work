@@ -1,0 +1,53 @@
+{
+  "case_id": "G3-01",
+  "contract_version": "2.0",
+  "attempt_id": "fn-20261006-agent2-G3-01-A1",
+  "environment_id": "env-fn-20261006-agent2",
+  "object_identity": {
+    "internal_name": "fast-assert-skill-fn-20261006-agent2",
+    "call_session": "session-13bcf86a-2d6f-4605-ac22-2bf42175f707"
+  },
+  "inputs": [
+    "不操作开关，读取刚导入技能在首次切换前的开关状态"
+  ],
+  "action_refs": [
+    "business-4f193fec-51d2-442f-b62b-879407ee616b-3"
+  ],
+  "status": "失败",
+  "started_at": "2026-10-06T07:34:40.881Z",
+  "ended_at": "2026-10-06T07:34:40.881Z",
+  "actual_steps": [
+    "读取本轮技能卡片 [role=switch] 的 aria-checked（首次切换前）"
+  ],
+  "assertions": [
+    {
+      "id": "G3-01-A1",
+      "actual": true,
+      "read_refs": [
+        "business-4f193fec-51d2-442f-b62b-879407ee616b-1"
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "path": "运行日志/business.jsonl",
+      "sha256": "6203703aeaf46ab5fd94d64c474b878c26f39b97bc4c3f7a3840f9ee9a48bdc5"
+    },
+    {
+      "path": "运行日志/业务调用.jsonl",
+      "sha256": "91fc9bb4b29ad5347770a9e5e5a21b38b9c414c04a2e484e84b5dd981db87bd7"
+    }
+  ],
+  "cleanup": {
+    "status": "retained",
+    "description": "记录差异后按场景继续；随后 G3-06 结束时停用",
+    "read_refs": [
+      "business-2e09ea4a-443b-4890-9f28-1521f3ad2791-4"
+    ]
+  },
+  "business_call_refs": [
+    "CALL-254d902d-e2d7-40e1-9b0c-926a1c601212",
+    "CALL-37960120-9878-4859-802c-aaad624ca590"
+  ],
+  "notes": "设计期望停用(false)，实际导入即启用(true)，按判据记失败并继续；raw.aria_checked=true"
+}

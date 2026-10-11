@@ -1,0 +1,51 @@
+{
+  "case_id": "G5-06",
+  "contract_version": "2.0",
+  "environment_id": "agent-oc-20261006-funcfull-01",
+  "attempt_id": "G5-06-A01",
+  "object_identity": "fast-assert-expert-agent-oc-20261006-funcfull-01",
+  "inputs": [
+    "副本导入前后读原安装文件哈希"
+  ],
+  "business_call_refs": [
+    "CALL-ba12d66c-1ac2-4120-8424-d87a309b24e9",
+    "CALL-9c17dd5e-7b4e-4a28-916e-59ebbc02c788"
+  ],
+  "status": "通过",
+  "attempted_at": "2026-10-06T16:16:33.816Z",
+  "assertions": [
+    {
+      "id": "G5-06-A1",
+      "expected": "sha256_equal",
+      "actual": {
+        "before": "a5fb9473cc6f556b792b5060e23a0384851496e35b6cbfc4ae41324f9b3209dd",
+        "after": "a5fb9473cc6f556b792b5060e23a0384851496e35b6cbfc4ae41324f9b3209dd"
+      },
+      "pass": true,
+      "read_refs": [
+        "CALL-ba12d66c-1ac2-4120-8424-d87a309b24e9-1",
+        "CALL-9c17dd5e-7b4e-4a28-916e-59ebbc02c788-1"
+      ]
+    },
+    {
+      "id": "G5-06-A2",
+      "expected": "sha256_equal",
+      "actual": {
+        "before": "575ea03071e58a2d312081b00fe57854ef1f0e8d529a20517197783db12858c8",
+        "after": "575ea03071e58a2d312081b00fe57854ef1f0e8d529a20517197783db12858c8"
+      },
+      "pass": true,
+      "read_refs": [
+        "CALL-ba12d66c-1ac2-4120-8424-d87a309b24e9-2",
+        "CALL-9c17dd5e-7b4e-4a28-916e-59ebbc02c788-2"
+      ]
+    }
+  ],
+  "restore": {
+    "status": "unchanged",
+    "description": "本case未改动设置/文件",
+    "read_refs": []
+  },
+  "residual": "",
+  "notes": "同一已安装文件（原目录）前后哈希一致，未被副本导入覆盖。"
+}

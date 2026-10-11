@@ -1,0 +1,124 @@
+{
+  "observations": {
+    "observations": {
+      "title": {
+        "event_id": "business-3231521b-5345-450b-97ee-574b288bbae4-1",
+        "captured_at": "2026-10-06T09:04:47.551Z",
+        "environment_id": "env-fn-20261006-agent2",
+        "kind": "read",
+        "target": "本轮技能标题",
+        "business_call_id": "CALL-b599da7b-6aa3-42fc-8ccf-40e0a3be6099",
+        "object_id": "skill-card-title",
+        "source": {
+          "channel": "dom",
+          "scope": "技能页/我的技能卡片",
+          "locator": ".card-title h3"
+        },
+        "value": "fast-assert-desc-en-fn-20261006-agent2",
+        "raw": {
+          "title": "fast-assert-desc-en-fn-20261006-agent2"
+        }
+      },
+      "meta": {
+        "event_id": "business-3231521b-5345-450b-97ee-574b288bbae4-2",
+        "captured_at": "2026-10-06T09:04:47.553Z",
+        "environment_id": "env-fn-20261006-agent2",
+        "kind": "read",
+        "target": "本轮技能来源与版本",
+        "business_call_id": "CALL-b599da7b-6aa3-42fc-8ccf-40e0a3be6099",
+        "object_id": "skill-card-meta",
+        "source": {
+          "channel": "dom",
+          "scope": "技能页/我的技能卡片",
+          "locator": "section.panel [data-slot=\"card\"]"
+        },
+        "value": {
+          "source": "用户创建",
+          "version": null
+        },
+        "raw": {
+          "text": "fast-assert-desc-en-fn-20261006-agent2 FAST_DESCRIPTION_EN 来源 用户创建 快捷使用",
+          "source": "用户创建",
+          "version": null
+        }
+      },
+      "source": {
+        "event_id": "business-3231521b-5345-450b-97ee-574b288bbae4-4",
+        "captured_at": "2026-10-06T09:04:47.562Z",
+        "environment_id": "env-fn-20261006-agent2",
+        "kind": "read",
+        "target": "本轮技能来源",
+        "business_call_id": "CALL-b599da7b-6aa3-42fc-8ccf-40e0a3be6099",
+        "object_id": "skill-card-source",
+        "source": {
+          "channel": "dom",
+          "scope": "技能页/我的技能卡片",
+          "locator": "section.panel [data-slot=\"card\"]"
+        },
+        "value": "用户创建",
+        "raw": {
+          "text": "fast-assert-desc-en-fn-20261006-agent2 FAST_DESCRIPTION_EN 来源 用户创建 快捷使用",
+          "source": "用户创建"
+        }
+      },
+      "version": {
+        "event_id": "business-3231521b-5345-450b-97ee-574b288bbae4-5",
+        "captured_at": "2026-10-06T09:04:47.564Z",
+        "environment_id": "env-fn-20261006-agent2",
+        "kind": "read",
+        "target": "本轮技能版本",
+        "business_call_id": "CALL-b599da7b-6aa3-42fc-8ccf-40e0a3be6099",
+        "object_id": "skill-card-version",
+        "source": {
+          "channel": "dom",
+          "scope": "技能页/我的技能卡片",
+          "locator": "section.panel [data-slot=\"card\"]"
+        },
+        "value": null,
+        "raw": {
+          "text": "fast-assert-desc-en-fn-20261006-agent2 FAST_DESCRIPTION_EN 来源 用户创建 快捷使用",
+          "version": null
+        }
+      },
+      "description": {
+        "event_id": "business-3231521b-5345-450b-97ee-574b288bbae4-3",
+        "captured_at": "2026-10-06T09:04:47.560Z",
+        "environment_id": "env-fn-20261006-agent2",
+        "kind": "read",
+        "target": "本轮样本描述",
+        "business_call_id": "CALL-b599da7b-6aa3-42fc-8ccf-40e0a3be6099",
+        "object_id": "skill-card-description",
+        "source": {
+          "channel": "dom",
+          "scope": "技能页/我的技能卡片",
+          "locator": "section.panel [data-slot=\"card\"]"
+        },
+        "value": "FAST_DESCRIPTION_EN",
+        "raw": {
+          "text": "fast-assert-desc-en-fn-20261006-agent2 FAST_DESCRIPTION_EN 来源 用户创建 快捷使用",
+          "desc": "FAST_DESCRIPTION_EN"
+        }
+      },
+      "switch": {
+        "event_id": "business-3231521b-5345-450b-97ee-574b288bbae4-6",
+        "captured_at": "2026-10-06T09:04:47.566Z",
+        "environment_id": "env-fn-20261006-agent2",
+        "kind": "read",
+        "target": "本轮技能开关",
+        "business_call_id": "CALL-b599da7b-6aa3-42fc-8ccf-40e0a3be6099",
+        "object_id": "skill-card-switch",
+        "source": {
+          "channel": "dom",
+          "scope": "技能页/我的技能卡片",
+          "locator": "[role=\"switch\"]"
+        },
+        "value": true,
+        "raw": {
+          "aria_checked": "true"
+        },
+        "derivation": "aria_checked === 'true'"
+      }
+    },
+    "switch_read_ref": "business-3231521b-5345-450b-97ee-574b288bbae4-6"
+  }
+}

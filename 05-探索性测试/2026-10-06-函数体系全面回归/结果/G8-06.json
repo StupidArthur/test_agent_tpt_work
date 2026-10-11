@@ -1,0 +1,46 @@
+{
+  "case_id": "G8-06",
+  "contract_version": "2.0",
+  "environment_id": "agent-oc-20261006-funcfull-01",
+  "attempt_id": "G8-06-A01",
+  "object_identity": "session（读flow.txt任务）+工具调用",
+  "inputs": [
+    "请只读取文件 D:\\code\\tpt-workspace\\.tpt-tool-agent-oc-20261006-funcfull-01\\flow.txt 并原样回答文件内容"
+  ],
+  "business_call_refs": [
+    "CALL-96d7dba7-2f1a-4c96-bcb9-c2f22c121594",
+    "CALL-23aa89fe-c6b5-4574-943d-b33105e5aebd",
+    "CALL-084646e9-dbce-42a0-86d9-c103ad06fc45"
+  ],
+  "status": "通过",
+  "attempted_at": "2026-10-06T16:38:27.767Z",
+  "assertions": [
+    {
+      "id": "G8-06-A1",
+      "expected": "D:\\code\\tpt-workspace\\.tpt-tool-agent-oc-20261006-funcfull-01\\flow.txt",
+      "actual": "工具 read{\"file_path\": \"D:\\code\\tpt-workspace\\.tpt-tool-agent-oc-20261006-funcfull-01\\flow.txt\"} → <path>...flow.txt</path> <content> 1: FAST_FLOW_INPUT ...",
+      "pass": true,
+      "read_refs": [
+        "CALL-084646e9-dbce-42a0-86d9-c103ad06fc45-3"
+      ],
+      "derivation": "轨迹工具行文本含实际参数路径"
+    },
+    {
+      "id": "G8-06-A2",
+      "expected": "FAST_FLOW_INPUT",
+      "actual": "FAST_FLOW_INPUT",
+      "pass": true,
+      "read_refs": [
+        "CALL-084646e9-dbce-42a0-86d9-c103ad06fc45-3"
+      ],
+      "derivation": "轨迹工具行输出含 FAST_FLOW_INPUT"
+    }
+  ],
+  "restore": {
+    "status": "unchanged",
+    "description": "本case未改动设置/文件",
+    "read_refs": []
+  },
+  "residual": "",
+  "notes": "readToolTrace 限定本轮轨迹表格；工具行含 read 参数路径与输出内容。"
+}

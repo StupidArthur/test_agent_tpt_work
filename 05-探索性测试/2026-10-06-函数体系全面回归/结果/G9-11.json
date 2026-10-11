@@ -1,0 +1,47 @@
+{
+  "case_id": "G9-11",
+  "contract_version": "2.0",
+  "environment_id": "agent-oc-20261006-funcfull-01",
+  "attempt_id": "G9-11-A01",
+  "object_identity": "fast-assert-declared-market-agent-oc-20261006-funcfull-01",
+  "inputs": [
+    "导入 variants/declared-market/SKILL.md"
+  ],
+  "business_call_refs": [
+    "CALL-6ed130f5-43c6-45e7-be70-b33e33e60428",
+    "CALL-dfd2fe2b-1fc0-45e4-881c-5b83be57f8a8"
+  ],
+  "status": "通过",
+  "attempted_at": "2026-10-06T16:35:12.082Z",
+  "assertions": [
+    {
+      "id": "G9-11-A1",
+      "expected": "用户创建",
+      "actual": "用户创建",
+      "pass": true,
+      "read_refs": [
+        "CALL-dfd2fe2b-1fc0-45e4-881c-5b83be57f8a8-4"
+      ]
+    },
+    {
+      "id": "G9-11-A2",
+      "expected": false,
+      "actual": false,
+      "pass": true,
+      "read_refs": [
+        "CALL-dfd2fe2b-1fc0-45e4-881c-5b83be57f8a8-5"
+      ],
+      "raw": {
+        "source": "用户创建"
+      },
+      "derivation": "来源不含市场/公共 Agent 标记"
+    }
+  ],
+  "restore": {
+    "status": "unchanged",
+    "description": "本case未改动设置/文件",
+    "read_refs": []
+  },
+  "residual": "",
+  "notes": "本地文件声明 type: market 未被当作可信市场来源。"
+}

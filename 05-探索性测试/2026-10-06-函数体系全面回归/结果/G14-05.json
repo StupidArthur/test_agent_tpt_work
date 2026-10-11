@@ -1,0 +1,53 @@
+{
+  "case_id": "G14-05",
+  "contract_version": "2.0",
+  "environment_id": "agent-oc-20261006-funcfull-01",
+  "attempt_id": "G14-05-A01",
+  "object_identity": "root.zip 同名再次导入",
+  "inputs": [
+    "再次确认导入 root.zip",
+    "读默认操作与哈希"
+  ],
+  "business_call_refs": [
+    "CALL-473e03ca-2483-4d84-b9f4-13042d7308f5",
+    "CALL-599b34ce-80c5-412f-88c7-165f471af476",
+    "CALL-4fa834ed-a8f7-48d6-b32d-e8a2c14a411d",
+    "CALL-c04a166f-7105-4847-ae2c-80ce92712e71"
+  ],
+  "status": "通过",
+  "attempted_at": "2026-10-06T17:22:29.217Z",
+  "assertions": [
+    {
+      "id": "G14-05-A1",
+      "expected": "跳过",
+      "actual": "跳过",
+      "pass": true,
+      "read_refs": [
+        "CALL-599b34ce-80c5-412f-88c7-165f471af476-4"
+      ],
+      "raw": {
+        "text": "…未导入任何技能；已跳过同名技能：fast-assert-root-agent-oc-20261006-funcfull-01…"
+      }
+    },
+    {
+      "id": "G14-05-A2",
+      "expected": "sha256_equal",
+      "actual": {
+        "before": "aaa76d27672c2ace063ad02ab4766cf47826926b16265779bd2bf65e64351302",
+        "after": "aaa76d27672c2ace063ad02ab4766cf47826926b16265779bd2bf65e64351302"
+      },
+      "pass": true,
+      "read_refs": [
+        "CALL-473e03ca-2483-4d84-b9f4-13042d7308f5-1",
+        "CALL-4fa834ed-a8f7-48d6-b32d-e8a2c14a411d-1"
+      ]
+    }
+  ],
+  "restore": {
+    "status": "unchanged",
+    "description": "本case未改动设置/文件",
+    "read_refs": []
+  },
+  "residual": "",
+  "notes": "同名默认跳过，已安装文件未变。"
+}

@@ -1,0 +1,3 @@
+// MIGRATION_HISTORY_ONLY: not a runtime entry point.
+if(!process.argv.includes('--rebuild-migration'))throw Error('Historical migration script; do not run against the reviewed library. Use maintenance/verify.mjs.');
+const fs=require('fs'),path=require('path');for(const domain of ['skills','experts']){const p=path.join(__dirname,'../business',domain,'manage.mjs');let s=fs.readFileSync(p,'utf8');s=s.replaceAll('cardByTitle(frame, displayName)','await cardByTitle(frame, displayName, ctx.internalName)').replaceAll('cardByTitle(frame, title)','await cardByTitle(frame, title, ctx.internalName)');fs.writeFileSync(p,s);}

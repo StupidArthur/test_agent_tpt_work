@@ -1,0 +1,36 @@
+{
+  "case_id": "G13-05",
+  "contract_version": "2.0",
+  "environment_id": "agent-oc-20261006-funcfull-01",
+  "attempt_id": "G13-05-A01",
+  "object_identity": "自动化任务案例 工业 AI 每日简报",
+  "inputs": [
+    "打开自动化任务页点击案例"
+  ],
+  "business_call_refs": [
+    "CALL-7c48d03b-63b8-426f-bde9-6fc62f9dd96a"
+  ],
+  "status": "通过",
+  "attempted_at": "2026-10-06T17:16:38.552Z",
+  "assertions": [
+    {
+      "id": "G13-05-A1",
+      "expected": "每天生成工业 AI、流程工业、Agent、Skill 和 MCP 最新动态。",
+      "actual": "每天生成工业 AI、流程工业、Agent、Skill 和 MCP 最新动态。",
+      "pass": true,
+      "read_refs": [
+        "CALL-7c48d03b-63b8-426f-bde9-6fc62f9dd96a-6"
+      ],
+      "raw": {
+        "expectedEvent": "CALL-7c48d03b-63b8-426f-bde9-6fc62f9dd96a-3"
+      }
+    }
+  ],
+  "restore": {
+    "status": "unchanged",
+    "description": "本case未改动设置/文件",
+    "read_refs": []
+  },
+  "residual": "",
+  "notes": "expected 独立取自点击前案例提示词字段。"
+}

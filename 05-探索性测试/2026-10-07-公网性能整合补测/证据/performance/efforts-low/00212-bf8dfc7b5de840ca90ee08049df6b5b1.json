@@ -1,0 +1,446 @@
+{
+  "sample_id": "bf8dfc7b5de840ca90ee08049df6b5b1",
+  "request_index": 212,
+  "cases": [
+    "PERF-06",
+    "PERF-02"
+  ],
+  "group": "efforts-low",
+  "warmup": false,
+  "target": "gateway-responses",
+  "protocol": "responses",
+  "request": {
+    "model": "flash",
+    "input": [
+      {
+        "role": "user",
+        "content": [
+          {
+            "type": "input_text",
+            "text": "9.11和9.9哪个大？只输出较大的数。"
+          }
+        ]
+      }
+    ],
+    "stream": true,
+    "max_output_tokens": 2048,
+    "reasoning": {
+      "effort": "low"
+    }
+  },
+  "expected": {
+    "exact_text": "9.9"
+  },
+  "checks": {
+    "http200": true,
+    "no_transport_error": true,
+    "valid_json": true,
+    "terminal": true,
+    "exact_text": true
+  },
+  "ok": true,
+  "fully_completed": true,
+  "request_sha256": "190f87de99da663d45ffc9253a2a03209bb4bbff296615a2100463ea9643b476",
+  "utc": "2026-10-07T05:28:48Z",
+  "http": 200,
+  "error_kind": null,
+  "error": null,
+  "body_text": "",
+  "normalized": {
+    "protocol": "responses",
+    "text": "9.9",
+    "reasoning": "我们只需要比较9.11和9.9。显然9.9大于9.11。输出较大的数，即9.9。",
+    "final_text": "9.9",
+    "tool_calls": [],
+    "usage": {
+      "input_tokens": 19,
+      "input_tokens_details": {
+        "cached_tokens": 0,
+        "input_tokens_per_turn": [],
+        "cached_tokens_per_turn": []
+      },
+      "output_tokens": 34,
+      "output_tokens_details": {
+        "reasoning_tokens": 0,
+        "tool_output_tokens": 0,
+        "output_tokens_per_turn": [],
+        "tool_output_tokens_per_turn": []
+      },
+      "total_tokens": 53
+    },
+    "terminal": "completed",
+    "terminal_reason": "completed",
+    "error_message": null,
+    "unknown_events": [
+      {
+        "event": "response.created",
+        "data": "{\"response\":{\"id\":\"resp_833a5c24cf2b087b\",\"created_at\":1791350930,\"incomplete_details\":null,\"instructions\":null,\"metadata\":null,\"model\":\"flash\",\"object\":\"response\",\"output\":[],\"parallel_tool_calls\":tr"
+      },
+      {
+        "event": "response.in_progress",
+        "data": "{\"response\":{\"id\":\"resp_833a5c24cf2b087b\",\"created_at\":1791350930,\"incomplete_details\":null,\"instructions\":null,\"metadata\":null,\"model\":\"flash\",\"object\":\"response\",\"output\":[],\"parallel_tool_calls\":tr"
+      },
+      {
+        "event": "response.reasoning_part.added",
+        "data": "{\"content_index\":0,\"item_id\":\"a562b949a146d6f2\",\"output_index\":0,\"part\":{\"text\":\"\",\"type\":\"reasoning_text\"},\"sequence_number\":3,\"type\":\"response.reasoning_part.added\"}"
+      },
+      {
+        "event": "response.reasoning_text.done",
+        "data": "{\"content_index\":0,\"item_id\":\"a562b949a146d6f2\",\"output_index\":0,\"sequence_number\":33,\"text\":\"我们只需要比较9.11和9.9。显然9.9大于9.11。输出较大的数，即9.9。\",\"type\":\"response.reasoning_text.done\"}"
+      },
+      {
+        "event": "response.reasoning_part.done",
+        "data": "{\"content_index\":0,\"item_id\":\"a562b949a146d6f2\",\"output_index\":0,\"part\":{\"text\":\"我们只需要比较9.11和9.9。显然9.9大于9.11。输出较大的数，即9.9。\",\"type\":\"reasoning_text\"},\"sequence_number\":34,\"type\":\"response.reasoning_part"
+      },
+      {
+        "event": "response.content_part.added",
+        "data": "{\"content_index\":0,\"item_id\":\"8d03ef016c416cee\",\"output_index\":1,\"part\":{\"annotations\":[],\"text\":\"\",\"type\":\"output_text\",\"logprobs\":[]},\"sequence_number\":37,\"type\":\"response.content_part.added\"}"
+      },
+      {
+        "event": "response.output_text.done",
+        "data": "{\"content_index\":0,\"item_id\":\"8d03ef016c416cee\",\"logprobs\":[],\"output_index\":1,\"sequence_number\":41,\"text\":\"9.9\",\"type\":\"response.output_text.done\"}"
+      },
+      {
+        "event": "response.content_part.done",
+        "data": "{\"content_index\":0,\"item_id\":\"8d03ef016c416cee\",\"output_index\":1,\"part\":{\"annotations\":[],\"text\":\"9.9\",\"type\":\"output_text\",\"logprobs\":null},\"sequence_number\":42,\"type\":\"response.content_part.done\"}"
+      }
+    ],
+    "json_errors": []
+  },
+  "raw_frames": [
+    {
+      "t": 0.46799999999348074,
+      "event": "response.created",
+      "data": "{\"response\":{\"id\":\"resp_833a5c24cf2b087b\",\"created_at\":1791350930,\"incomplete_details\":null,\"instructions\":null,\"metadata\":null,\"model\":\"flash\",\"object\":\"response\",\"output\":[],\"parallel_tool_calls\":true,\"temperature\":1.0,\"tool_choice\":\"none\",\"tools\":[],\"top_p\":1.0,\"background\":false,\"max_output_tokens\":2048,\"max_tool_calls\":null,\"previous_response_id\":null,\"prompt\":null,\"reasoning\":{\"context\":null,\"effort\":\"low\",\"generate_summary\":null,\"mode\":null,\"summary\":null},\"service_tier\":\"auto\",\"status\":\"in_progress\",\"text\":null,\"top_logprobs\":null,\"truncation\":\"disabled\",\"usage\":null,\"user\":null,\"presence_penalty\":0.0,\"frequency_penalty\":0.0,\"kv_transfer_params\":null,\"ec_transfer_params\":null,\"input_messages\":null,\"output_messages\":null},\"sequence_number\":0,\"type\":\"response.created\"}",
+      "raw": "event: response.created\ndata: {\"response\":{\"id\":\"resp_833a5c24cf2b087b\",\"created_at\":1791350930,\"incomplete_details\":null,\"instructions\":null,\"metadata\":null,\"model\":\"flash\",\"object\":\"response\",\"output\":[],\"parallel_tool_calls\":true,\"temperature\":1.0,\"tool_choice\":\"none\",\"tools\":[],\"top_p\":1.0,\"background\":false,\"max_output_tokens\":2048,\"max_tool_calls\":null,\"previous_response_id\":null,\"prompt\":null,\"reasoning\":{\"context\":null,\"effort\":\"low\",\"generate_summary\":null,\"mode\":null,\"summary\":null},\"service_tier\":\"auto\",\"status\":\"in_progress\",\"text\":null,\"top_logprobs\":null,\"truncation\":\"disabled\",\"usage\":null,\"user\":null,\"presence_penalty\":0.0,\"frequency_penalty\":0.0,\"kv_transfer_params\":null,\"ec_transfer_params\":null,\"input_messages\":null,\"output_messages\":null},\"sequence_number\":0,\"type\":\"response.created\"}",
+      "json_ok": true
+    },
+    {
+      "t": 0.46799999999348074,
+      "event": "response.in_progress",
+      "data": "{\"response\":{\"id\":\"resp_833a5c24cf2b087b\",\"created_at\":1791350930,\"incomplete_details\":null,\"instructions\":null,\"metadata\":null,\"model\":\"flash\",\"object\":\"response\",\"output\":[],\"parallel_tool_calls\":true,\"temperature\":1.0,\"tool_choice\":\"none\",\"tools\":[],\"top_p\":1.0,\"background\":false,\"max_output_tokens\":2048,\"max_tool_calls\":null,\"previous_response_id\":null,\"prompt\":null,\"reasoning\":{\"context\":null,\"effort\":\"low\",\"generate_summary\":null,\"mode\":null,\"summary\":null},\"service_tier\":\"auto\",\"status\":\"in_progress\",\"text\":null,\"top_logprobs\":null,\"truncation\":\"disabled\",\"usage\":null,\"user\":null,\"presence_penalty\":0.0,\"frequency_penalty\":0.0,\"kv_transfer_params\":null,\"ec_transfer_params\":null,\"input_messages\":null,\"output_messages\":null},\"sequence_number\":1,\"type\":\"response.in_progress\"}",
+      "raw": "event: response.in_progress\ndata: {\"response\":{\"id\":\"resp_833a5c24cf2b087b\",\"created_at\":1791350930,\"incomplete_details\":null,\"instructions\":null,\"metadata\":null,\"model\":\"flash\",\"object\":\"response\",\"output\":[],\"parallel_tool_calls\":true,\"temperature\":1.0,\"tool_choice\":\"none\",\"tools\":[],\"top_p\":1.0,\"background\":false,\"max_output_tokens\":2048,\"max_tool_calls\":null,\"previous_response_id\":null,\"prompt\":null,\"reasoning\":{\"context\":null,\"effort\":\"low\",\"generate_summary\":null,\"mode\":null,\"summary\":null},\"service_tier\":\"auto\",\"status\":\"in_progress\",\"text\":null,\"top_logprobs\":null,\"truncation\":\"disabled\",\"usage\":null,\"user\":null,\"presence_penalty\":0.0,\"frequency_penalty\":0.0,\"kv_transfer_params\":null,\"ec_transfer_params\":null,\"input_messages\":null,\"output_messages\":null},\"sequence_number\":1,\"type\":\"response.in_progress\"}",
+      "json_ok": true
+    },
+    {
+      "t": 0.46799999999348074,
+      "event": "response.output_item.added",
+      "data": "{\"item\":{\"id\":\"a562b949a146d6f2\",\"summary\":[],\"type\":\"reasoning\",\"content\":null,\"encrypted_content\":null,\"status\":\"in_progress\"},\"output_index\":0,\"sequence_number\":2,\"type\":\"response.output_item.added\"}",
+      "raw": "event: response.output_item.added\ndata: {\"item\":{\"id\":\"a562b949a146d6f2\",\"summary\":[],\"type\":\"reasoning\",\"content\":null,\"encrypted_content\":null,\"status\":\"in_progress\"},\"output_index\":0,\"sequence_number\":2,\"type\":\"response.output_item.added\"}",
+      "json_ok": true
+    },
+    {
+      "t": 0.46799999999348074,
+      "event": "response.reasoning_part.added",
+      "data": "{\"content_index\":0,\"item_id\":\"a562b949a146d6f2\",\"output_index\":0,\"part\":{\"text\":\"\",\"type\":\"reasoning_text\"},\"sequence_number\":3,\"type\":\"response.reasoning_part.added\"}",
+      "raw": "event: response.reasoning_part.added\ndata: {\"content_index\":0,\"item_id\":\"a562b949a146d6f2\",\"output_index\":0,\"part\":{\"text\":\"\",\"type\":\"reasoning_text\"},\"sequence_number\":3,\"type\":\"response.reasoning_part.added\"}",
+      "json_ok": true
+    },
+    {
+      "t": 0.46799999999348074,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"我们\",\"item_id\":\"a562b949a146d6f2\",\"output_index\":0,\"sequence_number\":4,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"我们\",\"item_id\":\"a562b949a146d6f2\",\"output_index\":0,\"sequence_number\":4,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 0.46799999999348074,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"只需要\",\"item_id\":\"a562b949a146d6f2\",\"output_index\":0,\"sequence_number\":5,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"只需要\",\"item_id\":\"a562b949a146d6f2\",\"output_index\":0,\"sequence_number\":5,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 0.46799999999348074,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"比较\",\"item_id\":\"a562b949a146d6f2\",\"output_index\":0,\"sequence_number\":6,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"比较\",\"item_id\":\"a562b949a146d6f2\",\"output_index\":0,\"sequence_number\":6,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 0.46799999999348074,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"9\",\"item_id\":\"a562b949a146d6f2\",\"output_index\":0,\"sequence_number\":7,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"9\",\"item_id\":\"a562b949a146d6f2\",\"output_index\":0,\"sequence_number\":7,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 0.46799999999348074,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\".\",\"item_id\":\"a562b949a146d6f2\",\"output_index\":0,\"sequence_number\":8,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\".\",\"item_id\":\"a562b949a146d6f2\",\"output_index\":0,\"sequence_number\":8,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 0.46799999999348074,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"11\",\"item_id\":\"a562b949a146d6f2\",\"output_index\":0,\"sequence_number\":9,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"11\",\"item_id\":\"a562b949a146d6f2\",\"output_index\":0,\"sequence_number\":9,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 0.46799999999348074,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"和\",\"item_id\":\"a562b949a146d6f2\",\"output_index\":0,\"sequence_number\":10,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"和\",\"item_id\":\"a562b949a146d6f2\",\"output_index\":0,\"sequence_number\":10,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 0.46799999999348074,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"9\",\"item_id\":\"a562b949a146d6f2\",\"output_index\":0,\"sequence_number\":11,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"9\",\"item_id\":\"a562b949a146d6f2\",\"output_index\":0,\"sequence_number\":11,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 0.46799999999348074,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\".\",\"item_id\":\"a562b949a146d6f2\",\"output_index\":0,\"sequence_number\":12,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\".\",\"item_id\":\"a562b949a146d6f2\",\"output_index\":0,\"sequence_number\":12,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 0.46799999999348074,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"9\",\"item_id\":\"a562b949a146d6f2\",\"output_index\":0,\"sequence_number\":13,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"9\",\"item_id\":\"a562b949a146d6f2\",\"output_index\":0,\"sequence_number\":13,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 0.46799999999348074,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"。\",\"item_id\":\"a562b949a146d6f2\",\"output_index\":0,\"sequence_number\":14,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"。\",\"item_id\":\"a562b949a146d6f2\",\"output_index\":0,\"sequence_number\":14,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 0.46799999999348074,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"显然\",\"item_id\":\"a562b949a146d6f2\",\"output_index\":0,\"sequence_number\":15,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"显然\",\"item_id\":\"a562b949a146d6f2\",\"output_index\":0,\"sequence_number\":15,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 0.46799999999348074,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"9\",\"item_id\":\"a562b949a146d6f2\",\"output_index\":0,\"sequence_number\":16,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"9\",\"item_id\":\"a562b949a146d6f2\",\"output_index\":0,\"sequence_number\":16,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 0.46799999999348074,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\".\",\"item_id\":\"a562b949a146d6f2\",\"output_index\":0,\"sequence_number\":17,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\".\",\"item_id\":\"a562b949a146d6f2\",\"output_index\":0,\"sequence_number\":17,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 0.46799999999348074,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"9\",\"item_id\":\"a562b949a146d6f2\",\"output_index\":0,\"sequence_number\":18,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"9\",\"item_id\":\"a562b949a146d6f2\",\"output_index\":0,\"sequence_number\":18,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 0.46799999999348074,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"大于\",\"item_id\":\"a562b949a146d6f2\",\"output_index\":0,\"sequence_number\":19,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"大于\",\"item_id\":\"a562b949a146d6f2\",\"output_index\":0,\"sequence_number\":19,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 0.46799999999348074,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"9\",\"item_id\":\"a562b949a146d6f2\",\"output_index\":0,\"sequence_number\":20,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"9\",\"item_id\":\"a562b949a146d6f2\",\"output_index\":0,\"sequence_number\":20,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 0.46799999999348074,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\".\",\"item_id\":\"a562b949a146d6f2\",\"output_index\":0,\"sequence_number\":21,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\".\",\"item_id\":\"a562b949a146d6f2\",\"output_index\":0,\"sequence_number\":21,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 0.46799999999348074,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"11\",\"item_id\":\"a562b949a146d6f2\",\"output_index\":0,\"sequence_number\":22,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"11\",\"item_id\":\"a562b949a146d6f2\",\"output_index\":0,\"sequence_number\":22,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 0.46799999999348074,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"。\",\"item_id\":\"a562b949a146d6f2\",\"output_index\":0,\"sequence_number\":23,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"。\",\"item_id\":\"a562b949a146d6f2\",\"output_index\":0,\"sequence_number\":23,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 0.46799999999348074,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"输出\",\"item_id\":\"a562b949a146d6f2\",\"output_index\":0,\"sequence_number\":24,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"输出\",\"item_id\":\"a562b949a146d6f2\",\"output_index\":0,\"sequence_number\":24,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 0.46799999999348074,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"较大的\",\"item_id\":\"a562b949a146d6f2\",\"output_index\":0,\"sequence_number\":25,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"较大的\",\"item_id\":\"a562b949a146d6f2\",\"output_index\":0,\"sequence_number\":25,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 0.46799999999348074,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"数\",\"item_id\":\"a562b949a146d6f2\",\"output_index\":0,\"sequence_number\":26,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"数\",\"item_id\":\"a562b949a146d6f2\",\"output_index\":0,\"sequence_number\":26,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 0.46799999999348074,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"，\",\"item_id\":\"a562b949a146d6f2\",\"output_index\":0,\"sequence_number\":27,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"，\",\"item_id\":\"a562b949a146d6f2\",\"output_index\":0,\"sequence_number\":27,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 0.46799999999348074,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"即\",\"item_id\":\"a562b949a146d6f2\",\"output_index\":0,\"sequence_number\":28,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"即\",\"item_id\":\"a562b949a146d6f2\",\"output_index\":0,\"sequence_number\":28,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 0.46799999999348074,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"9\",\"item_id\":\"a562b949a146d6f2\",\"output_index\":0,\"sequence_number\":29,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"9\",\"item_id\":\"a562b949a146d6f2\",\"output_index\":0,\"sequence_number\":29,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 0.46799999999348074,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\".\",\"item_id\":\"a562b949a146d6f2\",\"output_index\":0,\"sequence_number\":30,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\".\",\"item_id\":\"a562b949a146d6f2\",\"output_index\":0,\"sequence_number\":30,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 0.46799999999348074,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"9\",\"item_id\":\"a562b949a146d6f2\",\"output_index\":0,\"sequence_number\":31,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"9\",\"item_id\":\"a562b949a146d6f2\",\"output_index\":0,\"sequence_number\":31,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 0.46799999999348074,
+      "event": "response.reasoning_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"。\",\"item_id\":\"a562b949a146d6f2\",\"output_index\":0,\"sequence_number\":32,\"type\":\"response.reasoning_text.delta\"}",
+      "raw": "event: response.reasoning_text.delta\ndata: {\"content_index\":0,\"delta\":\"。\",\"item_id\":\"a562b949a146d6f2\",\"output_index\":0,\"sequence_number\":32,\"type\":\"response.reasoning_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 0.46799999999348074,
+      "event": "response.reasoning_text.done",
+      "data": "{\"content_index\":0,\"item_id\":\"a562b949a146d6f2\",\"output_index\":0,\"sequence_number\":33,\"text\":\"我们只需要比较9.11和9.9。显然9.9大于9.11。输出较大的数，即9.9。\",\"type\":\"response.reasoning_text.done\"}",
+      "raw": "event: response.reasoning_text.done\ndata: {\"content_index\":0,\"item_id\":\"a562b949a146d6f2\",\"output_index\":0,\"sequence_number\":33,\"text\":\"我们只需要比较9.11和9.9。显然9.9大于9.11。输出较大的数，即9.9。\",\"type\":\"response.reasoning_text.done\"}",
+      "json_ok": true
+    },
+    {
+      "t": 0.46799999999348074,
+      "event": "response.reasoning_part.done",
+      "data": "{\"content_index\":0,\"item_id\":\"a562b949a146d6f2\",\"output_index\":0,\"part\":{\"text\":\"我们只需要比较9.11和9.9。显然9.9大于9.11。输出较大的数，即9.9。\",\"type\":\"reasoning_text\"},\"sequence_number\":34,\"type\":\"response.reasoning_part.done\"}",
+      "raw": "event: response.reasoning_part.done\ndata: {\"content_index\":0,\"item_id\":\"a562b949a146d6f2\",\"output_index\":0,\"part\":{\"text\":\"我们只需要比较9.11和9.9。显然9.9大于9.11。输出较大的数，即9.9。\",\"type\":\"reasoning_text\"},\"sequence_number\":34,\"type\":\"response.reasoning_part.done\"}",
+      "json_ok": true
+    },
+    {
+      "t": 0.46799999999348074,
+      "event": "response.output_item.done",
+      "data": "{\"item\":{\"id\":\"a562b949a146d6f2\",\"summary\":[],\"type\":\"reasoning\",\"content\":[{\"text\":\"我们只需要比较9.11和9.9。显然9.9大于9.11。输出较大的数，即9.9。\",\"type\":\"reasoning_text\"}],\"encrypted_content\":null,\"status\":\"completed\"},\"output_index\":0,\"sequence_number\":35,\"type\":\"response.output_item.done\"}",
+      "raw": "event: response.output_item.done\ndata: {\"item\":{\"id\":\"a562b949a146d6f2\",\"summary\":[],\"type\":\"reasoning\",\"content\":[{\"text\":\"我们只需要比较9.11和9.9。显然9.9大于9.11。输出较大的数，即9.9。\",\"type\":\"reasoning_text\"}],\"encrypted_content\":null,\"status\":\"completed\"},\"output_index\":0,\"sequence_number\":35,\"type\":\"response.output_item.done\"}",
+      "json_ok": true
+    },
+    {
+      "t": 0.46799999999348074,
+      "event": "response.output_item.added",
+      "data": "{\"item\":{\"id\":\"8d03ef016c416cee\",\"content\":[],\"role\":\"assistant\",\"status\":\"in_progress\",\"type\":\"message\",\"phase\":null},\"output_index\":1,\"sequence_number\":36,\"type\":\"response.output_item.added\"}",
+      "raw": "event: response.output_item.added\ndata: {\"item\":{\"id\":\"8d03ef016c416cee\",\"content\":[],\"role\":\"assistant\",\"status\":\"in_progress\",\"type\":\"message\",\"phase\":null},\"output_index\":1,\"sequence_number\":36,\"type\":\"response.output_item.added\"}",
+      "json_ok": true
+    },
+    {
+      "t": 0.46799999999348074,
+      "event": "response.content_part.added",
+      "data": "{\"content_index\":0,\"item_id\":\"8d03ef016c416cee\",\"output_index\":1,\"part\":{\"annotations\":[],\"text\":\"\",\"type\":\"output_text\",\"logprobs\":[]},\"sequence_number\":37,\"type\":\"response.content_part.added\"}",
+      "raw": "event: response.content_part.added\ndata: {\"content_index\":0,\"item_id\":\"8d03ef016c416cee\",\"output_index\":1,\"part\":{\"annotations\":[],\"text\":\"\",\"type\":\"output_text\",\"logprobs\":[]},\"sequence_number\":37,\"type\":\"response.content_part.added\"}",
+      "json_ok": true
+    },
+    {
+      "t": 0.46799999999348074,
+      "event": "response.output_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"9\",\"item_id\":\"8d03ef016c416cee\",\"logprobs\":[],\"output_index\":1,\"sequence_number\":38,\"type\":\"response.output_text.delta\"}",
+      "raw": "event: response.output_text.delta\ndata: {\"content_index\":0,\"delta\":\"9\",\"item_id\":\"8d03ef016c416cee\",\"logprobs\":[],\"output_index\":1,\"sequence_number\":38,\"type\":\"response.output_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 0.46799999999348074,
+      "event": "response.output_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\".\",\"item_id\":\"8d03ef016c416cee\",\"logprobs\":[],\"output_index\":1,\"sequence_number\":39,\"type\":\"response.output_text.delta\"}",
+      "raw": "event: response.output_text.delta\ndata: {\"content_index\":0,\"delta\":\".\",\"item_id\":\"8d03ef016c416cee\",\"logprobs\":[],\"output_index\":1,\"sequence_number\":39,\"type\":\"response.output_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 0.46799999999348074,
+      "event": "response.output_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"9\",\"item_id\":\"8d03ef016c416cee\",\"logprobs\":[],\"output_index\":1,\"sequence_number\":40,\"type\":\"response.output_text.delta\"}",
+      "raw": "event: response.output_text.delta\ndata: {\"content_index\":0,\"delta\":\"9\",\"item_id\":\"8d03ef016c416cee\",\"logprobs\":[],\"output_index\":1,\"sequence_number\":40,\"type\":\"response.output_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 0.46799999999348074,
+      "event": "response.output_text.done",
+      "data": "{\"content_index\":0,\"item_id\":\"8d03ef016c416cee\",\"logprobs\":[],\"output_index\":1,\"sequence_number\":41,\"text\":\"9.9\",\"type\":\"response.output_text.done\"}",
+      "raw": "event: response.output_text.done\ndata: {\"content_index\":0,\"item_id\":\"8d03ef016c416cee\",\"logprobs\":[],\"output_index\":1,\"sequence_number\":41,\"text\":\"9.9\",\"type\":\"response.output_text.done\"}",
+      "json_ok": true
+    },
+    {
+      "t": 0.46799999999348074,
+      "event": "response.content_part.done",
+      "data": "{\"content_index\":0,\"item_id\":\"8d03ef016c416cee\",\"output_index\":1,\"part\":{\"annotations\":[],\"text\":\"9.9\",\"type\":\"output_text\",\"logprobs\":null},\"sequence_number\":42,\"type\":\"response.content_part.done\"}",
+      "raw": "event: response.content_part.done\ndata: {\"content_index\":0,\"item_id\":\"8d03ef016c416cee\",\"output_index\":1,\"part\":{\"annotations\":[],\"text\":\"9.9\",\"type\":\"output_text\",\"logprobs\":null},\"sequence_number\":42,\"type\":\"response.content_part.done\"}",
+      "json_ok": true
+    },
+    {
+      "t": 0.46799999999348074,
+      "event": "response.output_item.done",
+      "data": "{\"item\":{\"id\":\"8d03ef016c416cee\",\"content\":[{\"annotations\":[],\"text\":\"9.9\",\"type\":\"output_text\",\"logprobs\":null}],\"role\":\"assistant\",\"status\":\"completed\",\"type\":\"message\",\"phase\":null,\"summary\":[]},\"output_index\":1,\"sequence_number\":43,\"type\":\"response.output_item.done\"}",
+      "raw": "event: response.output_item.done\ndata: {\"item\":{\"id\":\"8d03ef016c416cee\",\"content\":[{\"annotations\":[],\"text\":\"9.9\",\"type\":\"output_text\",\"logprobs\":null}],\"role\":\"assistant\",\"status\":\"completed\",\"type\":\"message\",\"phase\":null,\"summary\":[]},\"output_index\":1,\"sequence_number\":43,\"type\":\"response.output_item.done\"}",
+      "json_ok": true
+    },
+    {
+      "t": 0.46799999999348074,
+      "event": "response.completed",
+      "data": "{\"response\":{\"id\":\"resp_833a5c24cf2b087b\",\"created_at\":1791350930,\"incomplete_details\":null,\"instructions\":null,\"metadata\":null,\"model\":\"flash\",\"object\":\"response\",\"output\":[{\"id\":\"rs_a077951507f18d62\",\"summary\":[],\"type\":\"reasoning\",\"content\":[{\"text\":\"我们只需要比较9.11和9.9。显然9.9大于9.11。输出较大的数，即9.9。\",\"type\":\"reasoning_text\"}],\"encrypted_content\":null,\"status\":null},{\"id\":\"msg_9dc24e22d7bfbfb2\",\"content\":[{\"annotations\":[],\"text\":\"9.9\",\"type\":\"output_text\",\"logprobs\":null}],\"role\":\"assistant\",\"status\":\"completed\",\"type\":\"message\",\"phase\":null}],\"parallel_tool_calls\":true,\"temperature\":1.0,\"tool_choice\":\"none\",\"tools\":[],\"top_p\":1.0,\"background\":false,\"max_output_tokens\":2048,\"max_tool_calls\":null,\"previous_response_id\":null,\"prompt\":null,\"reasoning\":{\"context\":null,\"effort\":\"low\",\"generate_summary\":null,\"mode\":null,\"summary\":null},\"service_tier\":\"auto\",\"status\":\"completed\",\"text\":null,\"top_logprobs\":null,\"truncation\":\"disabled\",\"usage\":{\"input_tokens\":19,\"input_tokens_details\":{\"cached_tokens\":0,\"input_tokens_per_turn\":[],\"cached_tokens_per_turn\":[]},\"output_tokens\":34,\"output_tokens_details\":{\"reasoning_tokens\":0,\"tool_output_tokens\":0,\"output_tokens_per_turn\":[],\"tool_output_tokens_per_turn\":[]},\"total_tokens\":53},\"user\":null,\"presence_penalty\":0.0,\"frequency_penalty\":0.0,\"kv_transfer_params\":null,\"ec_transfer_params\":null,\"input_messages\":null,\"output_messages\":null},\"sequence_number\":44,\"type\":\"response.completed\"}",
+      "raw": "event: response.completed\ndata: {\"response\":{\"id\":\"resp_833a5c24cf2b087b\",\"created_at\":1791350930,\"incomplete_details\":null,\"instructions\":null,\"metadata\":null,\"model\":\"flash\",\"object\":\"response\",\"output\":[{\"id\":\"rs_a077951507f18d62\",\"summary\":[],\"type\":\"reasoning\",\"content\":[{\"text\":\"我们只需要比较9.11和9.9。显然9.9大于9.11。输出较大的数，即9.9。\",\"type\":\"reasoning_text\"}],\"encrypted_content\":null,\"status\":null},{\"id\":\"msg_9dc24e22d7bfbfb2\",\"content\":[{\"annotations\":[],\"text\":\"9.9\",\"type\":\"output_text\",\"logprobs\":null}],\"role\":\"assistant\",\"status\":\"completed\",\"type\":\"message\",\"phase\":null}],\"parallel_tool_calls\":true,\"temperature\":1.0,\"tool_choice\":\"none\",\"tools\":[],\"top_p\":1.0,\"background\":false,\"max_output_tokens\":2048,\"max_tool_calls\":null,\"previous_response_id\":null,\"prompt\":null,\"reasoning\":{\"context\":null,\"effort\":\"low\",\"generate_summary\":null,\"mode\":null,\"summary\":null},\"service_tier\":\"auto\",\"status\":\"completed\",\"text\":null,\"top_logprobs\":null,\"truncation\":\"disabled\",\"usage\":{\"input_tokens\":19,\"input_tokens_details\":{\"cached_tokens\":0,\"input_tokens_per_turn\":[],\"cached_tokens_per_turn\":[]},\"output_tokens\":34,\"output_tokens_details\":{\"reasoning_tokens\":0,\"tool_output_tokens\":0,\"output_tokens_per_turn\":[],\"tool_output_tokens_per_turn\":[]},\"total_tokens\":53},\"user\":null,\"presence_penalty\":0.0,\"frequency_penalty\":0.0,\"kv_transfer_params\":null,\"ec_transfer_params\":null,\"input_messages\":null,\"output_messages\":null},\"sequence_number\":44,\"type\":\"response.completed\"}",
+      "json_ok": true
+    }
+  ],
+  "metrics": {
+    "e2e": 0.468,
+    "first_event": 0.468,
+    "first_reasoning": 0.468,
+    "first_text": 0.468,
+    "first_tool": null,
+    "input_tokens": 19,
+    "output_tokens": 34,
+    "output_tokens_per_e2e": 72.64957264957265,
+    "text_chars": 3,
+    "text_delta_count": 3,
+    "text_span": 0.0,
+    "text_intervals_s": [
+      0.0,
+      0.0
+    ],
+    "middle_text_chunks_per_s": null,
+    "stream_batch_observation": true
+  }
+}

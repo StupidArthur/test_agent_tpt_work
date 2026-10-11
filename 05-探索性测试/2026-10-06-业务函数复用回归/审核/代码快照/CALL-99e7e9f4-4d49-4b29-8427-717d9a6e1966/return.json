@@ -1,0 +1,29 @@
+{
+  "observations": {
+    "action_refs": [
+      "business-3ae48476-5dcf-46ee-a84a-72d5ba3c0207-2"
+    ],
+    "observations": {
+      "mode": {
+        "event_id": "business-3ae48476-5dcf-46ee-a84a-72d5ba3c0207-3",
+        "captured_at": "2026-10-06T11:26:36.744Z",
+        "environment_id": "env-fn-20261006-agent2",
+        "kind": "read",
+        "target": "创建专家模式标识",
+        "business_call_id": "CALL-99e7e9f4-4d49-4b29-8427-717d9a6e1966",
+        "object_id": "expert-create-mode",
+        "source": {
+          "channel": "dom",
+          "scope": "composer 输入区",
+          "locator": "div[contenteditable=\"true\"][aria-label*=\"/ 调用指令\"]"
+        },
+        "value": false,
+        "raw": {
+          "composer": "/expert-manager 帮我创建一个 XXX 专家，擅长 XXXXX。我的经验是：[请补充你的行业背景、相关经验]",
+          "presetPattern": "create-expert|创建专家"
+        },
+        "derivation": "composer 含预置创建专家指令/标签"
+      }
+    }
+  }
+}

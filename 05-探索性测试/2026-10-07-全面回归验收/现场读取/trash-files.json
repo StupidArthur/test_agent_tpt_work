@@ -1,0 +1,61 @@
+{
+  "call_id": "CALL-3c2846a1-6e7c-4f98-8a91-03b657c4e3e1",
+  "status": "returned",
+  "observations": {
+    "observations": {
+      "read": {
+        "event_id": "CALL-3c2846a1-6e7c-4f98-8a91-03b657c4e3e1-1",
+        "captured_at": "2026-10-07T00:17:08.203Z",
+        "environment_id": "acceptance-20261007",
+        "business_call_id": "CALL-3c2846a1-6e7c-4f98-8a91-03b657c4e3e1",
+        "kind": "read",
+        "target": "技能安装目录文件列表",
+        "object_id": "C:/Users/Administrator/.tpt-work/dsh/skills/fast-assert-trash-audit-20261007",
+        "source": {
+          "channel": "file",
+          "scope": "本机技能安装目录",
+          "locator": "C:/Users/Administrator/.tpt-work/dsh/skills/fast-assert-trash-audit-20261007"
+        },
+        "value": ".DS_Store|SKILL.md|__MACOSX|__MACOSX/._SKILL.md",
+        "raw": {
+          "base": "C:/Users/Administrator/.tpt-work/dsh/skills/fast-assert-trash-audit-20261007",
+          "files": [
+            ".DS_Store",
+            "SKILL.md",
+            "__MACOSX",
+            "__MACOSX/._SKILL.md"
+          ]
+        }
+      },
+      "junk": {
+        "event_id": "CALL-3c2846a1-6e7c-4f98-8a91-03b657c4e3e1-2",
+        "captured_at": "2026-10-07T00:17:08.204Z",
+        "environment_id": "acceptance-20261007",
+        "business_call_id": "CALL-3c2846a1-6e7c-4f98-8a91-03b657c4e3e1",
+        "kind": "read",
+        "target": "系统垃圾文件存在",
+        "object_id": "C:/Users/Administrator/.tpt-work/dsh/skills/fast-assert-trash-audit-20261007",
+        "source": {
+          "channel": "file",
+          "scope": "本机技能安装目录",
+          "locator": "C:/Users/Administrator/.tpt-work/dsh/skills/fast-assert-trash-audit-20261007"
+        },
+        "value": true,
+        "raw": {
+          "files": [
+            ".DS_Store",
+            "SKILL.md",
+            "__MACOSX",
+            "__MACOSX/._SKILL.md"
+          ],
+          "hit": [
+            ".DS_Store",
+            "__MACOSX",
+            "__MACOSX/._SKILL.md"
+          ]
+        },
+        "derivation": "存在 __MACOSX 或 .DS_Store"
+      }
+    }
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "id": "SM-05",
+  "contract_version": "smoke-1.0",
+  "machine_id": "PC-88",
+  "assertions": {
+    "SM-05-A1": {
+      "read": "search result card count for internal name",
+      "actualCards": 1,
+      "nameOccurrences": 0,
+      "expected": 1,
+      "pass": true
+    },
+    "SM-05-A2": {
+      "read": "detail SKILL.md name field",
+      "actual": "smoke-skill-pc88-20261006-smoke01",
+      "expected": "smoke-skill-pc88-20261006-smoke01",
+      "pass": true
+    },
+    "SM-05-A3": {
+      "read": "detail version",
+      "actual": "1.2.3",
+      "expected": "1.2.3",
+      "pass": true
+    },
+    "SM-05-A4": {
+      "read": "detail source category",
+      "actual": "用户创建",
+      "expectedRaw": "用户创建",
+      "expectedNormalized": "用户",
+      "pass": true
+    }
+  },
+  "raw": {
+    "cards": [
+      {
+        "title": "本轮快速回归技能"
+      }
+    ],
+    "detailTail": "技能\n\n管理本地技能，在对话和 Agent 中复用你的工作方法。\n\n让工业经验，成为随取随用的能力\n技能在厂级 Runtime 内受控运行，每一步都保留输入、依据、版本和执行记录。\n我的技能\n6\n技能市场\n1\n导入技能\n新建技能\n全部\n已启用\n未启用\n已启用 6 个 Skill，可在本地任务中自动调用。\n本轮快速回归技能\n\nA harmless fixture for regression-description-unique-token search and fixed reply verification.\n\n来源 用户创建\nv1.2.3\n快捷使用\n技能\n/\n详情\n本轮快速回归技能\n\nA harmless fixture for regression-description-unique-token search and fixed reply verification.\n\n删除\n本地打开\n对话修改\n使用\n版本\n1.2.3\n来源\n用户创建\nSkill 目录\n1个文件\nSKILL.md\nSKILL.md\n只读查看\n---\r\nname: smoke-skill-pc88-20261006-smoke01\r\nname_cn: 本轮快速回归技能\r\nname_en: FastRegressionSkillUnique\r\ndescription: A harmless fixture fo"
+  }
+}

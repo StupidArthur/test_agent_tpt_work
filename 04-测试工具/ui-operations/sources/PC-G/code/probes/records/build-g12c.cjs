@@ -1,0 +1,20 @@
+// 生成 G12-08..11 结果。
+const fs = require('fs');
+const path = require('path');
+const root = path.resolve(__dirname, '../../..');
+const ev = fs.readFileSync(path.join(root, '运行日志/business.jsonl'), 'utf8').split(/\r?\n/).filter(Boolean).map((l) => JSON.parse(l));
+const g = (id) => { const e = ev.find((x) => x.event_id === id); return e ? e.value : null; };
+const R = (id) => 'business-' + id;
+const mk = (o) => fs.writeFileSync(path.join(root, '结果', o.case_id + '.json'), JSON.stringify(o, null, 2) + '\n');
+function base(caseId, obj, inputs, actions, status, steps, assertions, notes, cleanup) {
+  return { case_id: caseId, contract_version: '2.0', attempt_id: `fn-20261006-agent2-${caseId}-A1`, environment_id: 'env-fn-20261006-agent2', object_identity: obj, inputs, action_refs: actions, status, started_at: '2026-10-06T10:28:00.000Z', ended_at: '2026-10-06T11:08:00.000Z', actual_steps: steps, assertions, evidence: [{ path: '运行日志/business.jsonl', sha256: 'PLACEHOLDER' }, { path: '运行日志/业务调用.jsonl', sha256: 'PLACEHOLDER' }], cleanup: cleanup || { status: 'retained', description: '样本保留待审', read_refs: [] }, business_call_refs: [], notes };
+}
+
+mk(base('G12-08', { setting: '新会话快捷键' }, ['设置→常规→编辑快捷键→改新会话为 Ctrl+Alt+Shift+F9→重开回读→恢复 Ctrl+N'], [R('452c8bdf-c347-4114-ba7f-d2cb2c4efb86-2'), R('454e52ca-8dca-40d3-9ba5-67d24450da2f-2')], '通过', ['读取新会话快捷键初值', '录制并保存 Ctrl+Alt+Shift+F9', '重开快捷键编辑器回读', '恢复 Ctrl+N 并回读'], [{ id: 'G12-08-A1', actual: g(R('0ab5e25d-52ad-42bf-94d0-80c8b1726182-1')), read_refs: [R('0ab5e25d-52ad-42bf-94d0-80c8b1726182-1')] }, { id: 'G12-08-A2', actual: g(R('3f33be9b-0423-41f2-b68d-3b6c1b2e2213-1')), read_refs: [R('3f33be9b-0423-41f2-b68d-3b6c1b2e2213-1')] }], 'shortcut_new_initial=Ctrl+N；改后重开回读 Ctrl+Alt+Shift+F9，恢复后回读 Ctrl+N', { status: 'restored', description: '新会话快捷键已恢复 Ctrl+N', read_refs: [R('3f33be9b-0423-41f2-b68d-3b6c1b2e2213-1')] }));
+
+mk(base('G12-09', { shortcut: '搜索会话 Ctrl+K' }, ['在新任务上按 Ctrl+K 观察搜索面板'], [R('36beb9ed-5cee-4572-aa07-9dca10e4de9a-1')], '不确定', ['按 Ctrl+K', '读取搜索输入/面板可见状态'], [{ id: 'G12-09-A1', actual: null, read_refs: [R('36beb9ed-5cee-4572-aa07-9dca10e4de9a-3')], reason: '合成 Ctrl+K 键事件未触发应用级快捷键，未出现任何输入/面板（inputs=0，dialogs=0，焦点仍在 BODY），无法判定产品搜索面板行为', failed_dependency: '应用级快捷键触发（合成键事件未送达）' }], '无法可靠观测：CDP 合成按键未触发 Electron 应用级 Ctrl+K'));
+
+mk(base('G12-10', { setting: '代码工作工具=开', file: 'D:/tpt-workspace/0929/p1/.fast-assert-fn-20261006-agent2/code-on.js' }, ['代码工具开启；新任务把 code-on.js 内容改为 module.exports = 1; 后读取'], [R('f4523ea8-7eea-4269-b9c4-f8323cea4648-1'), R('ee4e7e0d-411e-4561-b14b-8b4d7a97f289-1'), R('be6fb73e-84ff-4317-968f-88300864f7b7-2')], '通过', ['确认代码工作工具为开', '新建任务并发送精确改写请求', '处理 danger-full-access 审批（允许一次）', '读取文件 trim 与轨迹入口'], [{ id: 'G12-10-A1', actual: g(R('3947b9bf-3d72-451e-b306-29784fce993e-1')), read_refs: [R('3947b9bf-3d72-451e-b306-29784fce993e-1')] }, { id: 'G12-10-A2', actual: g(R('9911a4ea-02ff-4b92-81fb-da226b487691-1')), read_refs: [R('9911a4ea-02ff-4b92-81fb-da226b487691-1')] }], '开启态写入成功：code-on.js 由 0 改为 1；Trace 入口可见。夹具目录被判定在会话工作区之外，需 danger-full-access 审批'));
+
+mk(base('G12-11', { setting: '代码工作工具=关', file: 'D:/tpt-workspace/0929/p1/.fast-assert-fn-20261006-agent2/code-off.js' }, ['关闭代码工具；新任务把 code-off.js 改为 module.exports = 1;，读文件/轨迹，再恢复设置'], [R('f4523ea8-7eea-4269-b9c4-f8323cea4648-1'), R('ee4e7e0d-411e-4561-b14b-8b4d7a97f289-1'), R('8ac394b9-ec61-4ce0-be20-5637fc812794-3'), R('1175e258-c3a3-48f5-8f9b-5f1e3f2870d7-3')], '通过', ['关闭代码工作工具并回读', '新建任务发送相同精确改写请求', '处理审批并读取文件 trim 与轨迹入口', '恢复代码工作工具为开并重开回读'], [{ id: 'G12-11-A1', actual: g(R('0c5420f0-dee3-4092-a221-a673d3541bd0-1')), read_refs: [R('0c5420f0-dee3-4092-a221-a673d3541bd0-1')] }, { id: 'G12-11-A2', actual: g(R('5f5057e9-fcd0-4302-8510-1209830b1db6-1')), read_refs: [R('5f5057e9-fcd0-4302-8510-1209830b1db6-1')] }, { id: 'G12-11-A3', actual: g(R('db346d12-83b5-4c0c-9c67-8d31b0349656-1')), read_refs: [R('db346d12-83b5-4c0c-9c67-8d31b0349656-1')] }], '关闭态：Trace 入口不可见（A1 通过）；code-off.js 仍被写入为 1（A2 为当前产品观察基线）；恢复后代码工作工具=开（A3 通过）', { status: 'restored', description: '代码工作工具已恢复初值 true', read_refs: [R('db346d12-83b5-4c0c-9c67-8d31b0349656-1')] }));
+console.log('built G12-08..11');

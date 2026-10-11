@@ -1,0 +1,698 @@
+{
+  "call_id": "CALL-9f096284-081e-47ac-a730-25b77bca63ea",
+  "status": "returned",
+  "observations": {
+    "observations": {
+      "read": {
+        "event_id": "CALL-9f096284-081e-47ac-a730-25b77bca63ea-86",
+        "captured_at": "2026-10-07T00:36:26.682Z",
+        "environment_id": "acceptance-20261007",
+        "business_call_id": "CALL-9f096284-081e-47ac-a730-25b77bca63ea",
+        "kind": "read",
+        "target": "本轮新增技能停用结果",
+        "object_id": "owned-fixtures-cleanup",
+        "source": {
+          "channel": "dom+file",
+          "scope": "仅本验收run与已确认新增missing-name"
+        },
+        "value": [
+          {
+            "name": "fast-assert-skill-audit-20261007",
+            "before": true,
+            "after": false,
+            "events": {
+              "action_refs": [
+                "CALL-9f096284-081e-47ac-a730-25b77bca63ea-7"
+              ],
+              "observations": {
+                "before": {
+                  "event_id": "CALL-9f096284-081e-47ac-a730-25b77bca63ea-5",
+                  "captured_at": "2026-10-07T00:35:39.024Z",
+                  "environment_id": "acceptance-20261007",
+                  "business_call_id": "CALL-9f096284-081e-47ac-a730-25b77bca63ea",
+                  "kind": "read",
+                  "target": "本轮技能开关(改前)",
+                  "object_id": "skill-card-switch",
+                  "source": {
+                    "channel": "dom",
+                    "scope": "技能页/我的技能卡片",
+                    "locator": "[role=\"switch\"]"
+                  },
+                  "value": true,
+                  "raw": {
+                    "aria_checked": "true"
+                  },
+                  "derivation": "aria_checked === 'true'"
+                },
+                "after": {
+                  "event_id": "CALL-9f096284-081e-47ac-a730-25b77bca63ea-8",
+                  "captured_at": "2026-10-07T00:35:40.287Z",
+                  "environment_id": "acceptance-20261007",
+                  "business_call_id": "CALL-9f096284-081e-47ac-a730-25b77bca63ea",
+                  "kind": "read",
+                  "target": "本轮技能开关(改后)",
+                  "object_id": "skill-card-switch",
+                  "source": {
+                    "channel": "dom",
+                    "scope": "技能页/我的技能卡片",
+                    "locator": "[role=\"switch\"]"
+                  },
+                  "value": false,
+                  "raw": {
+                    "aria_checked": "false"
+                  },
+                  "derivation": "aria_checked === 'true'"
+                }
+              }
+            }
+          },
+          {
+            "name": "fast-assert-root-audit-20261007",
+            "error": "Owned fixture search not unique: fast-assert-root-audit-20261007"
+          },
+          {
+            "name": "one-audit-20261007",
+            "before": true,
+            "after": false,
+            "events": {
+              "action_refs": [
+                "CALL-9f096284-081e-47ac-a730-25b77bca63ea-19"
+              ],
+              "observations": {
+                "before": {
+                  "event_id": "CALL-9f096284-081e-47ac-a730-25b77bca63ea-17",
+                  "captured_at": "2026-10-07T00:35:44.078Z",
+                  "environment_id": "acceptance-20261007",
+                  "business_call_id": "CALL-9f096284-081e-47ac-a730-25b77bca63ea",
+                  "kind": "read",
+                  "target": "本轮技能开关(改前)",
+                  "object_id": "skill-card-switch",
+                  "source": {
+                    "channel": "dom",
+                    "scope": "技能页/我的技能卡片",
+                    "locator": "[role=\"switch\"]"
+                  },
+                  "value": true,
+                  "raw": {
+                    "aria_checked": "true"
+                  },
+                  "derivation": "aria_checked === 'true'"
+                },
+                "after": {
+                  "event_id": "CALL-9f096284-081e-47ac-a730-25b77bca63ea-20",
+                  "captured_at": "2026-10-07T00:35:45.351Z",
+                  "environment_id": "acceptance-20261007",
+                  "business_call_id": "CALL-9f096284-081e-47ac-a730-25b77bca63ea",
+                  "kind": "read",
+                  "target": "本轮技能开关(改后)",
+                  "object_id": "skill-card-switch",
+                  "source": {
+                    "channel": "dom",
+                    "scope": "技能页/我的技能卡片",
+                    "locator": "[role=\"switch\"]"
+                  },
+                  "value": false,
+                  "raw": {
+                    "aria_checked": "false"
+                  },
+                  "derivation": "aria_checked === 'true'"
+                }
+              }
+            }
+          },
+          {
+            "name": "fast-assert-trash-audit-20261007",
+            "before": true,
+            "after": false,
+            "events": {
+              "action_refs": [
+                "CALL-9f096284-081e-47ac-a730-25b77bca63ea-27"
+              ],
+              "observations": {
+                "before": {
+                  "event_id": "CALL-9f096284-081e-47ac-a730-25b77bca63ea-25",
+                  "captured_at": "2026-10-07T00:35:47.824Z",
+                  "environment_id": "acceptance-20261007",
+                  "business_call_id": "CALL-9f096284-081e-47ac-a730-25b77bca63ea",
+                  "kind": "read",
+                  "target": "本轮技能开关(改前)",
+                  "object_id": "skill-card-switch",
+                  "source": {
+                    "channel": "dom",
+                    "scope": "技能页/我的技能卡片",
+                    "locator": "[role=\"switch\"]"
+                  },
+                  "value": true,
+                  "raw": {
+                    "aria_checked": "true"
+                  },
+                  "derivation": "aria_checked === 'true'"
+                },
+                "after": {
+                  "event_id": "CALL-9f096284-081e-47ac-a730-25b77bca63ea-28",
+                  "captured_at": "2026-10-07T00:35:49.089Z",
+                  "environment_id": "acceptance-20261007",
+                  "business_call_id": "CALL-9f096284-081e-47ac-a730-25b77bca63ea",
+                  "kind": "read",
+                  "target": "本轮技能开关(改后)",
+                  "object_id": "skill-card-switch",
+                  "source": {
+                    "channel": "dom",
+                    "scope": "技能页/我的技能卡片",
+                    "locator": "[role=\"switch\"]"
+                  },
+                  "value": false,
+                  "raw": {
+                    "aria_checked": "false"
+                  },
+                  "derivation": "aria_checked === 'true'"
+                }
+              }
+            }
+          },
+          {
+            "name": "duplicate-audit-20261007",
+            "before": true,
+            "after": false,
+            "events": {
+              "action_refs": [
+                "CALL-9f096284-081e-47ac-a730-25b77bca63ea-35"
+              ],
+              "observations": {
+                "before": {
+                  "event_id": "CALL-9f096284-081e-47ac-a730-25b77bca63ea-33",
+                  "captured_at": "2026-10-07T00:35:51.527Z",
+                  "environment_id": "acceptance-20261007",
+                  "business_call_id": "CALL-9f096284-081e-47ac-a730-25b77bca63ea",
+                  "kind": "read",
+                  "target": "本轮技能开关(改前)",
+                  "object_id": "skill-card-switch",
+                  "source": {
+                    "channel": "dom",
+                    "scope": "技能页/我的技能卡片",
+                    "locator": "[role=\"switch\"]"
+                  },
+                  "value": true,
+                  "raw": {
+                    "aria_checked": "true"
+                  },
+                  "derivation": "aria_checked === 'true'"
+                },
+                "after": {
+                  "event_id": "CALL-9f096284-081e-47ac-a730-25b77bca63ea-36",
+                  "captured_at": "2026-10-07T00:35:52.789Z",
+                  "environment_id": "acceptance-20261007",
+                  "business_call_id": "CALL-9f096284-081e-47ac-a730-25b77bca63ea",
+                  "kind": "read",
+                  "target": "本轮技能开关(改后)",
+                  "object_id": "skill-card-switch",
+                  "source": {
+                    "channel": "dom",
+                    "scope": "技能页/我的技能卡片",
+                    "locator": "[role=\"switch\"]"
+                  },
+                  "value": false,
+                  "raw": {
+                    "aria_checked": "false"
+                  },
+                  "derivation": "aria_checked === 'true'"
+                }
+              }
+            }
+          },
+          {
+            "name": "invalid-audit-20261007",
+            "error": "locator.click: Timeout 5000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('section.panel [data-slot=\"card\"]').filter({ has: getByRole('heading', { name: 'fast-assert-mixed-invalid-audit-20261007', exact: true }) }).locator('[role=\"switch\"]').first()\u001b[22m\n\u001b[2m    - locator resolved to <button disabled value=\"on\" title=\"启停技能\" type=\"button\" role=\"switch\" data-disabled=\"\" data-slot=\"switch\" aria-checked=\"true\" data-state=\"checked\" class=\"peer inline-flex h-[19px] w-[34px] shrink-0 cursor-pointer items-center rounded-full border border-transparent shadow-xs transition-colors focus-visible:ring-[3px] focus-visible:ring-ring/50 focus-visible:outline-hidden disabled:cursor-not-allowed disabled:opacity-45 data-[state=checked]:bg-primary data-[state=unchecked]:bg-[#c9ced6]\">…</button>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not enabled\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not enabled\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    9 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not enabled\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 500ms\u001b[22m\n"
+          },
+          {
+            "name": "valid-audit-20261007",
+            "error": "Owned fixture search not unique: valid-audit-20261007"
+          },
+          {
+            "name": "missing-name",
+            "error": "Owned fixture search not unique: missing-name"
+          },
+          {
+            "name": "fast-assert-missing-description-audit-20261007",
+            "error": "locator.click: Timeout 5000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('section.panel [data-slot=\"card\"]').filter({ has: getByRole('heading', { name: 'fast-assert-missing-description-audit-20261007', exact: true }) }).locator('[role=\"switch\"]').first()\u001b[22m\n\u001b[2m    - locator resolved to <button disabled value=\"on\" title=\"启停技能\" type=\"button\" role=\"switch\" data-disabled=\"\" data-slot=\"switch\" aria-checked=\"true\" data-state=\"checked\" class=\"peer inline-flex h-[19px] w-[34px] shrink-0 cursor-pointer items-center rounded-full border border-transparent shadow-xs transition-colors focus-visible:ring-[3px] focus-visible:ring-ring/50 focus-visible:outline-hidden disabled:cursor-not-allowed disabled:opacity-45 data-[state=checked]:bg-primary data-[state=unchecked]:bg-[#c9ced6]\">…</button>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not enabled\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not enabled\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    10 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is not enabled\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n"
+          },
+          {
+            "name": "fast-assert-rich-audit-20261007",
+            "before": true,
+            "after": false,
+            "events": {
+              "action_refs": [
+                "CALL-9f096284-081e-47ac-a730-25b77bca63ea-65"
+              ],
+              "observations": {
+                "before": {
+                  "event_id": "CALL-9f096284-081e-47ac-a730-25b77bca63ea-63",
+                  "captured_at": "2026-10-07T00:36:12.954Z",
+                  "environment_id": "acceptance-20261007",
+                  "business_call_id": "CALL-9f096284-081e-47ac-a730-25b77bca63ea",
+                  "kind": "read",
+                  "target": "本轮技能开关(改前)",
+                  "object_id": "skill-card-switch",
+                  "source": {
+                    "channel": "dom",
+                    "scope": "技能页/我的技能卡片",
+                    "locator": "[role=\"switch\"]"
+                  },
+                  "value": true,
+                  "raw": {
+                    "aria_checked": "true"
+                  },
+                  "derivation": "aria_checked === 'true'"
+                },
+                "after": {
+                  "event_id": "CALL-9f096284-081e-47ac-a730-25b77bca63ea-66",
+                  "captured_at": "2026-10-07T00:36:14.213Z",
+                  "environment_id": "acceptance-20261007",
+                  "business_call_id": "CALL-9f096284-081e-47ac-a730-25b77bca63ea",
+                  "kind": "read",
+                  "target": "本轮技能开关(改后)",
+                  "object_id": "skill-card-switch",
+                  "source": {
+                    "channel": "dom",
+                    "scope": "技能页/我的技能卡片",
+                    "locator": "[role=\"switch\"]"
+                  },
+                  "value": false,
+                  "raw": {
+                    "aria_checked": "false"
+                  },
+                  "derivation": "aria_checked === 'true'"
+                }
+              }
+            }
+          },
+          {
+            "name": "fast-assert-cn-all-audit-20261007",
+            "before": true,
+            "after": false,
+            "events": {
+              "action_refs": [
+                "CALL-9f096284-081e-47ac-a730-25b77bca63ea-73"
+              ],
+              "observations": {
+                "before": {
+                  "event_id": "CALL-9f096284-081e-47ac-a730-25b77bca63ea-71",
+                  "captured_at": "2026-10-07T00:36:16.658Z",
+                  "environment_id": "acceptance-20261007",
+                  "business_call_id": "CALL-9f096284-081e-47ac-a730-25b77bca63ea",
+                  "kind": "read",
+                  "target": "本轮技能开关(改前)",
+                  "object_id": "skill-card-switch",
+                  "source": {
+                    "channel": "dom",
+                    "scope": "技能页/我的技能卡片",
+                    "locator": "[role=\"switch\"]"
+                  },
+                  "value": true,
+                  "raw": {
+                    "aria_checked": "true"
+                  },
+                  "derivation": "aria_checked === 'true'"
+                },
+                "after": {
+                  "event_id": "CALL-9f096284-081e-47ac-a730-25b77bca63ea-74",
+                  "captured_at": "2026-10-07T00:36:17.914Z",
+                  "environment_id": "acceptance-20261007",
+                  "business_call_id": "CALL-9f096284-081e-47ac-a730-25b77bca63ea",
+                  "kind": "read",
+                  "target": "本轮技能开关(改后)",
+                  "object_id": "skill-card-switch",
+                  "source": {
+                    "channel": "dom",
+                    "scope": "技能页/我的技能卡片",
+                    "locator": "[role=\"switch\"]"
+                  },
+                  "value": false,
+                  "raw": {
+                    "aria_checked": "false"
+                  },
+                  "derivation": "aria_checked === 'true'"
+                }
+              }
+            }
+          },
+          {
+            "name": "invalid2-audit-20261007",
+            "error": "locator.click: Timeout 5000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('section.panel [data-slot=\"card\"]').filter({ has: getByRole('heading', { name: 'fast-assert-mixed-invalid-audit2-20261007', exact: true }) }).locator('[role=\"switch\"]').first()\u001b[22m\n\u001b[2m    - locator resolved to <button disabled value=\"on\" title=\"启停技能\" type=\"button\" role=\"switch\" data-disabled=\"\" data-slot=\"switch\" aria-checked=\"true\" data-state=\"checked\" class=\"peer inline-flex h-[19px] w-[34px] shrink-0 cursor-pointer items-center rounded-full border border-transparent shadow-xs transition-colors focus-visible:ring-[3px] focus-visible:ring-ring/50 focus-visible:outline-hidden disabled:cursor-not-allowed disabled:opacity-45 data-[state=checked]:bg-primary data-[state=unchecked]:bg-[#c9ced6]\">…</button>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not enabled\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not enabled\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    10 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is not enabled\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n"
+          },
+          {
+            "name": "valid2-audit-20261007",
+            "error": "Owned fixture search not unique: valid2-audit-20261007"
+          }
+        ],
+        "raw": {
+          "names": [
+            "fast-assert-skill-audit-20261007",
+            "fast-assert-root-audit-20261007",
+            "one-audit-20261007",
+            "fast-assert-trash-audit-20261007",
+            "duplicate-audit-20261007",
+            "invalid-audit-20261007",
+            "valid-audit-20261007",
+            "missing-name",
+            "fast-assert-missing-description-audit-20261007",
+            "fast-assert-rich-audit-20261007",
+            "fast-assert-cn-all-audit-20261007",
+            "invalid2-audit-20261007",
+            "valid2-audit-20261007"
+          ],
+          "rows": [
+            {
+              "name": "fast-assert-skill-audit-20261007",
+              "before": true,
+              "after": false,
+              "events": {
+                "action_refs": [
+                  "CALL-9f096284-081e-47ac-a730-25b77bca63ea-7"
+                ],
+                "observations": {
+                  "before": {
+                    "event_id": "CALL-9f096284-081e-47ac-a730-25b77bca63ea-5",
+                    "captured_at": "2026-10-07T00:35:39.024Z",
+                    "environment_id": "acceptance-20261007",
+                    "business_call_id": "CALL-9f096284-081e-47ac-a730-25b77bca63ea",
+                    "kind": "read",
+                    "target": "本轮技能开关(改前)",
+                    "object_id": "skill-card-switch",
+                    "source": {
+                      "channel": "dom",
+                      "scope": "技能页/我的技能卡片",
+                      "locator": "[role=\"switch\"]"
+                    },
+                    "value": true,
+                    "raw": {
+                      "aria_checked": "true"
+                    },
+                    "derivation": "aria_checked === 'true'"
+                  },
+                  "after": {
+                    "event_id": "CALL-9f096284-081e-47ac-a730-25b77bca63ea-8",
+                    "captured_at": "2026-10-07T00:35:40.287Z",
+                    "environment_id": "acceptance-20261007",
+                    "business_call_id": "CALL-9f096284-081e-47ac-a730-25b77bca63ea",
+                    "kind": "read",
+                    "target": "本轮技能开关(改后)",
+                    "object_id": "skill-card-switch",
+                    "source": {
+                      "channel": "dom",
+                      "scope": "技能页/我的技能卡片",
+                      "locator": "[role=\"switch\"]"
+                    },
+                    "value": false,
+                    "raw": {
+                      "aria_checked": "false"
+                    },
+                    "derivation": "aria_checked === 'true'"
+                  }
+                }
+              }
+            },
+            {
+              "name": "fast-assert-root-audit-20261007",
+              "error": "Owned fixture search not unique: fast-assert-root-audit-20261007"
+            },
+            {
+              "name": "one-audit-20261007",
+              "before": true,
+              "after": false,
+              "events": {
+                "action_refs": [
+                  "CALL-9f096284-081e-47ac-a730-25b77bca63ea-19"
+                ],
+                "observations": {
+                  "before": {
+                    "event_id": "CALL-9f096284-081e-47ac-a730-25b77bca63ea-17",
+                    "captured_at": "2026-10-07T00:35:44.078Z",
+                    "environment_id": "acceptance-20261007",
+                    "business_call_id": "CALL-9f096284-081e-47ac-a730-25b77bca63ea",
+                    "kind": "read",
+                    "target": "本轮技能开关(改前)",
+                    "object_id": "skill-card-switch",
+                    "source": {
+                      "channel": "dom",
+                      "scope": "技能页/我的技能卡片",
+                      "locator": "[role=\"switch\"]"
+                    },
+                    "value": true,
+                    "raw": {
+                      "aria_checked": "true"
+                    },
+                    "derivation": "aria_checked === 'true'"
+                  },
+                  "after": {
+                    "event_id": "CALL-9f096284-081e-47ac-a730-25b77bca63ea-20",
+                    "captured_at": "2026-10-07T00:35:45.351Z",
+                    "environment_id": "acceptance-20261007",
+                    "business_call_id": "CALL-9f096284-081e-47ac-a730-25b77bca63ea",
+                    "kind": "read",
+                    "target": "本轮技能开关(改后)",
+                    "object_id": "skill-card-switch",
+                    "source": {
+                      "channel": "dom",
+                      "scope": "技能页/我的技能卡片",
+                      "locator": "[role=\"switch\"]"
+                    },
+                    "value": false,
+                    "raw": {
+                      "aria_checked": "false"
+                    },
+                    "derivation": "aria_checked === 'true'"
+                  }
+                }
+              }
+            },
+            {
+              "name": "fast-assert-trash-audit-20261007",
+              "before": true,
+              "after": false,
+              "events": {
+                "action_refs": [
+                  "CALL-9f096284-081e-47ac-a730-25b77bca63ea-27"
+                ],
+                "observations": {
+                  "before": {
+                    "event_id": "CALL-9f096284-081e-47ac-a730-25b77bca63ea-25",
+                    "captured_at": "2026-10-07T00:35:47.824Z",
+                    "environment_id": "acceptance-20261007",
+                    "business_call_id": "CALL-9f096284-081e-47ac-a730-25b77bca63ea",
+                    "kind": "read",
+                    "target": "本轮技能开关(改前)",
+                    "object_id": "skill-card-switch",
+                    "source": {
+                      "channel": "dom",
+                      "scope": "技能页/我的技能卡片",
+                      "locator": "[role=\"switch\"]"
+                    },
+                    "value": true,
+                    "raw": {
+                      "aria_checked": "true"
+                    },
+                    "derivation": "aria_checked === 'true'"
+                  },
+                  "after": {
+                    "event_id": "CALL-9f096284-081e-47ac-a730-25b77bca63ea-28",
+                    "captured_at": "2026-10-07T00:35:49.089Z",
+                    "environment_id": "acceptance-20261007",
+                    "business_call_id": "CALL-9f096284-081e-47ac-a730-25b77bca63ea",
+                    "kind": "read",
+                    "target": "本轮技能开关(改后)",
+                    "object_id": "skill-card-switch",
+                    "source": {
+                      "channel": "dom",
+                      "scope": "技能页/我的技能卡片",
+                      "locator": "[role=\"switch\"]"
+                    },
+                    "value": false,
+                    "raw": {
+                      "aria_checked": "false"
+                    },
+                    "derivation": "aria_checked === 'true'"
+                  }
+                }
+              }
+            },
+            {
+              "name": "duplicate-audit-20261007",
+              "before": true,
+              "after": false,
+              "events": {
+                "action_refs": [
+                  "CALL-9f096284-081e-47ac-a730-25b77bca63ea-35"
+                ],
+                "observations": {
+                  "before": {
+                    "event_id": "CALL-9f096284-081e-47ac-a730-25b77bca63ea-33",
+                    "captured_at": "2026-10-07T00:35:51.527Z",
+                    "environment_id": "acceptance-20261007",
+                    "business_call_id": "CALL-9f096284-081e-47ac-a730-25b77bca63ea",
+                    "kind": "read",
+                    "target": "本轮技能开关(改前)",
+                    "object_id": "skill-card-switch",
+                    "source": {
+                      "channel": "dom",
+                      "scope": "技能页/我的技能卡片",
+                      "locator": "[role=\"switch\"]"
+                    },
+                    "value": true,
+                    "raw": {
+                      "aria_checked": "true"
+                    },
+                    "derivation": "aria_checked === 'true'"
+                  },
+                  "after": {
+                    "event_id": "CALL-9f096284-081e-47ac-a730-25b77bca63ea-36",
+                    "captured_at": "2026-10-07T00:35:52.789Z",
+                    "environment_id": "acceptance-20261007",
+                    "business_call_id": "CALL-9f096284-081e-47ac-a730-25b77bca63ea",
+                    "kind": "read",
+                    "target": "本轮技能开关(改后)",
+                    "object_id": "skill-card-switch",
+                    "source": {
+                      "channel": "dom",
+                      "scope": "技能页/我的技能卡片",
+                      "locator": "[role=\"switch\"]"
+                    },
+                    "value": false,
+                    "raw": {
+                      "aria_checked": "false"
+                    },
+                    "derivation": "aria_checked === 'true'"
+                  }
+                }
+              }
+            },
+            {
+              "name": "invalid-audit-20261007",
+              "error": "locator.click: Timeout 5000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('section.panel [data-slot=\"card\"]').filter({ has: getByRole('heading', { name: 'fast-assert-mixed-invalid-audit-20261007', exact: true }) }).locator('[role=\"switch\"]').first()\u001b[22m\n\u001b[2m    - locator resolved to <button disabled value=\"on\" title=\"启停技能\" type=\"button\" role=\"switch\" data-disabled=\"\" data-slot=\"switch\" aria-checked=\"true\" data-state=\"checked\" class=\"peer inline-flex h-[19px] w-[34px] shrink-0 cursor-pointer items-center rounded-full border border-transparent shadow-xs transition-colors focus-visible:ring-[3px] focus-visible:ring-ring/50 focus-visible:outline-hidden disabled:cursor-not-allowed disabled:opacity-45 data-[state=checked]:bg-primary data-[state=unchecked]:bg-[#c9ced6]\">…</button>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not enabled\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not enabled\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    9 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not enabled\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 500ms\u001b[22m\n"
+            },
+            {
+              "name": "valid-audit-20261007",
+              "error": "Owned fixture search not unique: valid-audit-20261007"
+            },
+            {
+              "name": "missing-name",
+              "error": "Owned fixture search not unique: missing-name"
+            },
+            {
+              "name": "fast-assert-missing-description-audit-20261007",
+              "error": "locator.click: Timeout 5000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('section.panel [data-slot=\"card\"]').filter({ has: getByRole('heading', { name: 'fast-assert-missing-description-audit-20261007', exact: true }) }).locator('[role=\"switch\"]').first()\u001b[22m\n\u001b[2m    - locator resolved to <button disabled value=\"on\" title=\"启停技能\" type=\"button\" role=\"switch\" data-disabled=\"\" data-slot=\"switch\" aria-checked=\"true\" data-state=\"checked\" class=\"peer inline-flex h-[19px] w-[34px] shrink-0 cursor-pointer items-center rounded-full border border-transparent shadow-xs transition-colors focus-visible:ring-[3px] focus-visible:ring-ring/50 focus-visible:outline-hidden disabled:cursor-not-allowed disabled:opacity-45 data-[state=checked]:bg-primary data-[state=unchecked]:bg-[#c9ced6]\">…</button>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not enabled\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not enabled\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    10 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is not enabled\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n"
+            },
+            {
+              "name": "fast-assert-rich-audit-20261007",
+              "before": true,
+              "after": false,
+              "events": {
+                "action_refs": [
+                  "CALL-9f096284-081e-47ac-a730-25b77bca63ea-65"
+                ],
+                "observations": {
+                  "before": {
+                    "event_id": "CALL-9f096284-081e-47ac-a730-25b77bca63ea-63",
+                    "captured_at": "2026-10-07T00:36:12.954Z",
+                    "environment_id": "acceptance-20261007",
+                    "business_call_id": "CALL-9f096284-081e-47ac-a730-25b77bca63ea",
+                    "kind": "read",
+                    "target": "本轮技能开关(改前)",
+                    "object_id": "skill-card-switch",
+                    "source": {
+                      "channel": "dom",
+                      "scope": "技能页/我的技能卡片",
+                      "locator": "[role=\"switch\"]"
+                    },
+                    "value": true,
+                    "raw": {
+                      "aria_checked": "true"
+                    },
+                    "derivation": "aria_checked === 'true'"
+                  },
+                  "after": {
+                    "event_id": "CALL-9f096284-081e-47ac-a730-25b77bca63ea-66",
+                    "captured_at": "2026-10-07T00:36:14.213Z",
+                    "environment_id": "acceptance-20261007",
+                    "business_call_id": "CALL-9f096284-081e-47ac-a730-25b77bca63ea",
+                    "kind": "read",
+                    "target": "本轮技能开关(改后)",
+                    "object_id": "skill-card-switch",
+                    "source": {
+                      "channel": "dom",
+                      "scope": "技能页/我的技能卡片",
+                      "locator": "[role=\"switch\"]"
+                    },
+                    "value": false,
+                    "raw": {
+                      "aria_checked": "false"
+                    },
+                    "derivation": "aria_checked === 'true'"
+                  }
+                }
+              }
+            },
+            {
+              "name": "fast-assert-cn-all-audit-20261007",
+              "before": true,
+              "after": false,
+              "events": {
+                "action_refs": [
+                  "CALL-9f096284-081e-47ac-a730-25b77bca63ea-73"
+                ],
+                "observations": {
+                  "before": {
+                    "event_id": "CALL-9f096284-081e-47ac-a730-25b77bca63ea-71",
+                    "captured_at": "2026-10-07T00:36:16.658Z",
+                    "environment_id": "acceptance-20261007",
+                    "business_call_id": "CALL-9f096284-081e-47ac-a730-25b77bca63ea",
+                    "kind": "read",
+                    "target": "本轮技能开关(改前)",
+                    "object_id": "skill-card-switch",
+                    "source": {
+                      "channel": "dom",
+                      "scope": "技能页/我的技能卡片",
+                      "locator": "[role=\"switch\"]"
+                    },
+                    "value": true,
+                    "raw": {
+                      "aria_checked": "true"
+                    },
+                    "derivation": "aria_checked === 'true'"
+                  },
+                  "after": {
+                    "event_id": "CALL-9f096284-081e-47ac-a730-25b77bca63ea-74",
+                    "captured_at": "2026-10-07T00:36:17.914Z",
+                    "environment_id": "acceptance-20261007",
+                    "business_call_id": "CALL-9f096284-081e-47ac-a730-25b77bca63ea",
+                    "kind": "read",
+                    "target": "本轮技能开关(改后)",
+                    "object_id": "skill-card-switch",
+                    "source": {
+                      "channel": "dom",
+                      "scope": "技能页/我的技能卡片",
+                      "locator": "[role=\"switch\"]"
+                    },
+                    "value": false,
+                    "raw": {
+                      "aria_checked": "false"
+                    },
+                    "derivation": "aria_checked === 'true'"
+                  }
+                }
+              }
+            },
+            {
+              "name": "invalid2-audit-20261007",
+              "error": "locator.click: Timeout 5000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('section.panel [data-slot=\"card\"]').filter({ has: getByRole('heading', { name: 'fast-assert-mixed-invalid-audit2-20261007', exact: true }) }).locator('[role=\"switch\"]').first()\u001b[22m\n\u001b[2m    - locator resolved to <button disabled value=\"on\" title=\"启停技能\" type=\"button\" role=\"switch\" data-disabled=\"\" data-slot=\"switch\" aria-checked=\"true\" data-state=\"checked\" class=\"peer inline-flex h-[19px] w-[34px] shrink-0 cursor-pointer items-center rounded-full border border-transparent shadow-xs transition-colors focus-visible:ring-[3px] focus-visible:ring-ring/50 focus-visible:outline-hidden disabled:cursor-not-allowed disabled:opacity-45 data-[state=checked]:bg-primary data-[state=unchecked]:bg-[#c9ced6]\">…</button>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not enabled\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not enabled\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    10 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is not enabled\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n"
+            },
+            {
+              "name": "valid2-audit-20261007",
+              "error": "Owned fixture search not unique: valid2-audit-20261007"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

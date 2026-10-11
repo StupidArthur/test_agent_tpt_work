@@ -1,0 +1,508 @@
+{
+  "machine": "PC-88",
+  "commit": "490e6ee",
+  "root": "C:/Users/Administrator/AppData/Local/Temp/tpt-review-pc88-20261006/探索性测试/2026-10-06-冒烟测试/运行/pc88-20261006-smoke01",
+  "counts": {
+    "未声明status": 12
+  },
+  "records": [
+    {
+      "file": "结果\\SM-01.json",
+      "sha256": "ab7bfa71edf7850d8a9409aa28fa221d93a27e61403cec20b5130ec02e416301",
+      "record": {
+        "id": "SM-01",
+        "contract_version": "smoke-1.0",
+        "machine_id": "PC-88",
+        "assertions": {
+          "SM-01-A1": {
+            "read": "target url is TPT page + main readable",
+            "targetUrl": "dsh-app://app/",
+            "browser": "Chrome/152.0.7977.54",
+            "mainReadable": true,
+            "expected": true,
+            "pass": true
+          }
+        },
+        "package": {
+          "exe": "C:\\Users\\Administrator\\AppData\\Local\\Programs\\tpt-work\\tpt-work.exe",
+          "exeVersion": "0.1.3.0",
+          "asar": "C:\\Users\\Administrator\\AppData\\Local\\Programs\\tpt-work\\resources\\app.asar",
+          "asarSize": 253660790,
+          "asarSha256": "EF56656BC36C274428FCA2790B000DF756F43B823F071170D244AF1894CC2D9D"
+        },
+        "raw": {
+          "targets": [
+            {
+              "type": "page",
+              "url": "dsh-app://app/",
+              "title": "TPT Work"
+            }
+          ]
+        }
+      },
+      "evidence_checks": []
+    },
+    {
+      "file": "结果\\SM-02.json",
+      "sha256": "56674d402da6457f332cdc9fabdb5181ab77f8658374021273e266d770603515",
+      "record": {
+        "id": "SM-02",
+        "contract_version": "smoke-1.0",
+        "machine_id": "PC-88",
+        "assertions": {
+          "SM-02-A1": {
+            "read": "editor isVisible & editable",
+            "editorVisible": true,
+            "editorEditable": true,
+            "expected": true,
+            "pass": true
+          },
+          "SM-02-A2": {
+            "read": "project control accessible text",
+            "projLabel": "在“smoketest”中新建会话",
+            "projName": "smoketest",
+            "expected": "smoketest",
+            "pass": true
+          },
+          "SM-02-A3": {
+            "read": "model control normalized",
+            "modelLabel": "选择模型，当前 标准，推理等级 low",
+            "expected": "标准/low",
+            "pass": true
+          }
+        },
+        "raw": {
+          "refCount": 0
+        }
+      },
+      "evidence_checks": []
+    },
+    {
+      "file": "结果\\SM-03.json",
+      "sha256": "71ae342422cbe7363f2b33ca72f9b4816520938e381d006e88220bdfd7aa5651",
+      "record": {
+        "id": "SM-03",
+        "contract_version": "smoke-1.0",
+        "machine_id": "PC-88",
+        "assertions": {
+          "SM-03-A1": {
+            "read": "target assistant final text trim",
+            "actual": "SMOKE_CHAT_pc88-20261006-smoke01_OK",
+            "expected": "SMOKE_CHAT_pc88-20261006-smoke01_OK",
+            "pass": true
+          },
+          "SM-03-A2": {
+            "read": "completion state",
+            "completed": true,
+            "expected": true,
+            "pass": true
+          }
+        },
+        "raw": {
+          "msgs": [
+            "SMOKE_CHAT_pc88-20261006-smoke01_OK"
+          ]
+        }
+      },
+      "evidence_checks": []
+    },
+    {
+      "file": "结果\\SM-04.json",
+      "sha256": "19a3b0aa88b81fa0dfa26f37c2fdf428e36dcb6e54e1d0ab3f6447a0fdc3d4ac",
+      "record": {
+        "id": "SM-04",
+        "contract_version": "smoke-1.0",
+        "machine_id": "PC-88",
+        "assertions": {
+          "SM-04-A1": {
+            "read": "draft attachment area contains smoke-note.txt",
+            "actual": 2,
+            "expected": true,
+            "pass": true
+          },
+          "SM-04-A2": {
+            "read": "draft attachment file-card count after remove",
+            "actual": 0,
+            "expected": 0,
+            "pass": true
+          }
+        },
+        "raw": {
+          "addedName": 1,
+          "rmCount": 1
+        }
+      },
+      "evidence_checks": []
+    },
+    {
+      "file": "结果\\SM-05.json",
+      "sha256": "6c3b1b88ed0c01c0597f2f3b068cfc958541a50c2fcd410001f47cd5f87aca4e",
+      "record": {
+        "id": "SM-05",
+        "contract_version": "smoke-1.0",
+        "machine_id": "PC-88",
+        "assertions": {
+          "SM-05-A1": {
+            "read": "search result card count for internal name",
+            "actualCards": 1,
+            "nameOccurrences": 0,
+            "expected": 1,
+            "pass": true
+          },
+          "SM-05-A2": {
+            "read": "detail SKILL.md name field",
+            "actual": "smoke-skill-pc88-20261006-smoke01",
+            "expected": "smoke-skill-pc88-20261006-smoke01",
+            "pass": true
+          },
+          "SM-05-A3": {
+            "read": "detail version",
+            "actual": "1.2.3",
+            "expected": "1.2.3",
+            "pass": true
+          },
+          "SM-05-A4": {
+            "read": "detail source category",
+            "actual": "用户创建",
+            "expectedRaw": "用户创建",
+            "expectedNormalized": "用户",
+            "pass": true
+          }
+        },
+        "raw": {
+          "cards": [
+            {
+              "title": "本轮快速回归技能"
+            }
+          ],
+          "detailTail": "技能\n\n管理本地技能，在对话和 Agent 中复用你的工作方法。\n\n让工业经验，成为随取随用的能力\n技能在厂级 Runtime 内受控运行，每一步都保留输入、依据、版本和执行记录。\n我的技能\n6\n技能市场\n1\n导入技能\n新建技能\n全部\n已启用\n未启用\n已启用 6 个 Skill，可在本地任务中自动调用。\n本轮快速回归技能\n\nA harmless fixture for regression-description-unique-token search and fixed reply verification.\n\n来源 用户创建\nv1.2.3\n快捷使用\n技能\n/\n详情\n本轮快速回归技能\n\nA harmless fixture for regression-description-unique-token search and fixed reply verification.\n\n删除\n本地打开\n对话修改\n使用\n版本\n1.2.3\n来源\n用户创建\nSkill 目录\n1个文件\nSKILL.md\nSKILL.md\n只读查看\n---\r\nname: smoke-skill-pc88-20261006-smoke01\r\nname_cn: 本轮快速回归技能\r\nname_en: FastRegressionSkillUnique\r\ndescription: A harmless fixture fo"
+        }
+      },
+      "evidence_checks": []
+    },
+    {
+      "file": "结果\\SM-06.json",
+      "sha256": "16bcccf3d499af768e57515938396f8819988b27698bbf4a6f498122fbd4e380",
+      "record": {
+        "id": "SM-06",
+        "contract_version": "smoke-1.0",
+        "machine_id": "PC-88",
+        "assertions": {
+          "SM-06-A1": {
+            "read": "after enable, reopen list switch checked",
+            "actual": "true",
+            "expected": true,
+            "pass": true
+          },
+          "SM-06-A2": {
+            "read": "after disable, reopen list switch checked",
+            "actual": "false",
+            "expected": false,
+            "pass": true
+          },
+          "SM-06-A3": {
+            "read": "after final enable, reopen list switch checked",
+            "actual": "true",
+            "expected": true,
+            "pass": true
+          }
+        },
+        "raw": {
+          "initial": {
+            "present": true,
+            "aria": "true",
+            "state": "checked"
+          },
+          "enableBefore": "true",
+          "afterEnable": {
+            "present": true,
+            "aria": "true",
+            "state": "checked"
+          },
+          "disableBefore": "true",
+          "afterDisable": {
+            "present": true,
+            "aria": "false",
+            "state": "unchecked"
+          },
+          "final": {
+            "present": true,
+            "aria": "true",
+            "state": "checked"
+          }
+        }
+      },
+      "evidence_checks": []
+    },
+    {
+      "file": "结果\\SM-07.json",
+      "sha256": "1b383cc915f0efeeb0713d7fc863f4a9a6d9bf865cb7a91f4fd9425e2cbf9e8a",
+      "record": {
+        "id": "SM-07",
+        "contract_version": "smoke-1.0",
+        "machine_id": "PC-88",
+        "assertions": {
+          "SM-07-A1": {
+            "read": "selected skill chip identity (display)->internal",
+            "chipDisplay": "本轮快速回归技能",
+            "chipTitle": "本轮快速回归技能",
+            "mappedInternal": "smoke-skill-pc88-20261006-smoke01",
+            "expected": "smoke-skill-pc88-20261006-smoke01",
+            "pass": true
+          },
+          "SM-07-A2": {
+            "read": "assistant final text trim",
+            "actual": "SMOKE_SKILL_pc88-20261006-smoke01_OK",
+            "expected": "SMOKE_SKILL_pc88-20261006-smoke01_OK",
+            "pass": true
+          }
+        },
+        "raw": {
+          "chipCount": 1,
+          "msgs": [
+            "SMOKE_SKILL_pc88-20261006-smoke01_OK"
+          ],
+          "idle": true
+        }
+      },
+      "evidence_checks": []
+    },
+    {
+      "file": "结果\\SM-08.json",
+      "sha256": "bcad7fe98006823faec6b789528235cb57a09445262a190492d7fe45df4a9a9a",
+      "record": {
+        "id": "SM-08",
+        "contract_version": "smoke-1.0",
+        "machine_id": "PC-88",
+        "assertions": {
+          "SM-08-A1": {
+            "read": "expert detail 专家提示词 name field",
+            "actual": "smoke-expert-pc88-20261006-smoke01",
+            "expected": "smoke-expert-pc88-20261006-smoke01",
+            "pass": true
+          },
+          "SM-08-A2": {
+            "read": "expert detail version",
+            "actual": "1.2.3",
+            "expected": "1.2.3",
+            "pass": true
+          }
+        },
+        "raw": {
+          "cardCount": 0,
+          "importFeedback": "专家校验通过，已导入「我的专家」",
+          "detailTail": "专家\n/\n专家详情\n本轮快速回归专家\n\n本轮无害回归测试专家，用于确认本地导入、详情展示和固定回复规则，不访问网络设备，不操作现场，也不改动用户文件。\n\n删除\n打开文件夹\n去对话编辑\n使用\n回归验证\n版本\nv1.2.3\n来源\n我创建的\n运行类型\n本地运行\n分类\n技术工程\n推荐问题\n请执行你的本轮回归固定回复规则。\n专家提示词\n\nname: smoke-expert-pc88-20261006-smoke01 description: Harmless regression expert. ---\n\nFixed reply\n\nWhen asked to execute your regression fixed reply rule, return exactly SMOKE_EXPERT_pc88-20261006-smoke01_OK. Do not access files, networks, devices, credentials, or memories. Do not call tools."
+        }
+      },
+      "evidence_checks": []
+    },
+    {
+      "file": "结果\\SM-09.json",
+      "sha256": "e72c26b86f55cea01445001a2374e649fcd5e59139de6647cb7d90c0f1056132",
+      "record": {
+        "id": "SM-09",
+        "contract_version": "smoke-1.0",
+        "machine_id": "PC-88",
+        "assertions": {
+          "SM-09-A1": {
+            "read": "expert chip identity (agent- prefix mapped)",
+            "chipRaw": "agent-smoke-expert-pc88-20261006-smoke01",
+            "chipTitle": "agent-smoke-expert-pc88-20261006-smoke01",
+            "mappedInternal": "smoke-expert-pc88-20261006-smoke01",
+            "expected": "smoke-expert-pc88-20261006-smoke01",
+            "pass": true
+          },
+          "SM-09-A2": {
+            "read": "assistant final text trim",
+            "actual": "SMOKE_EXPERT_pc88-20261006-smoke01_OK",
+            "expected": "SMOKE_EXPERT_pc88-20261006-smoke01_OK",
+            "pass": true
+          }
+        },
+        "raw": {
+          "chipCount": 1,
+          "msgs": [
+            "SMOKE_EXPERT_pc88-20261006-smoke01_OK"
+          ],
+          "idle": true
+        }
+      },
+      "evidence_checks": []
+    },
+    {
+      "file": "结果\\SM-10.json",
+      "sha256": "19d715236b7c9a4ebc6cf4fc6c3dad8d9b0e054143d42704c0d0510a3c5089f9",
+      "record": {
+        "id": "SM-10",
+        "contract_version": "smoke-1.0",
+        "machine_id": "PC-88",
+        "assertions": {
+          "SM-10-A1": {
+            "read": "settings dialog has 权限/语言/外观 labels",
+            "hasPerm": true,
+            "hasLang": true,
+            "hasAppear": true,
+            "expected": true,
+            "pass": true
+          },
+          "SM-10-A2": {
+            "read": "shortcut dialog 新会话 & 搜索会话 non-empty combos",
+            "newConversation": "Ctrl + N",
+            "searchConversation": "Ctrl + K",
+            "expected": true,
+            "pass": true
+          }
+        },
+        "raw": {
+          "setTextHead": "设置\n常规\n个人主页\n积分与订阅\n场景预设\n记忆与进化\n实验性功能\nBeta\n开发者模式\n内置插件\n关闭\n常规\n管理日常使用偏好\n权限\n选择新会话的默认权限模式\n工作区内修改\n语言\n中文\n外观\n浅色\n深色\n跟随系统\n字号大小\n仅影响会话内容的字号\n14\npx\n工作步骤展示\n选择希望看到多少工具调用细节\n标准\n性能与用量\n选择性能与用量信息展示的详细程度\n详细\n网页链接默认打开方式\n对话中网页链接的",
+          "rows": {
+            "快捷键速查": "Ctrl + /",
+            "新会话": "Ctrl + N",
+            "展开／收起左侧栏": "Ctrl + B",
+            "搜索会话": "Ctrl + K",
+            "添加工作区": "Ctrl + O",
+            "重命名会话": "Ctrl + Alt + R",
+            "分叉会话": "Ctrl + Alt + F",
+            "归档会话": "Ctrl + Shift + A",
+            "打开设置": "Ctrl + ,",
+            "在本地打开": "Ctrl + Alt + O",
+            "展开／收起右侧栏": "Ctrl + Alt + B",
+            "工作区文件": "Ctrl + P",
+            "浏览器": "Ctrl + T",
+            "新建终端": "Ctrl + `",
+            "分栏": "Ctrl + \\",
+            "面板全屏／退出全屏": "Ctrl + Alt + Enter",
+            "刷新当前页面": "Ctrl + R",
+            "关闭当前页面／窗口": "Ctrl + W",
+            "使用互补的 Queue／Steer 方式": "Ctrl + Enter",
+            "打开引用菜单": "@",
+            "换行": "Shift + Enter",
+            "发送消息": "Enter",
+            "打开命令菜单": "/",
+            "停止生成": "Esc Esc",
+            "关闭菜单或顶层弹窗": "Esc",
+            "移动菜单选择": "↑ ↓",
+            "选择菜单项": "Enter",
+            "允许一次": "Enter",
+            "拒绝": "Esc"
+          }
+        }
+      },
+      "evidence_checks": []
+    },
+    {
+      "file": "结果\\SM-11.json",
+      "sha256": "0b3a0fef62bd1510a498f896fde65c51dffccf82a9a32923edd360710c0e441a",
+      "record": {
+        "id": "SM-11",
+        "contract_version": "smoke-1.0",
+        "machine_id": "PC-88",
+        "assertions": {
+          "SM-11-A1": {
+            "read": "readback appearance option equals chosen",
+            "chosen": "深色",
+            "actual": "深色",
+            "expected": "深色",
+            "pass": true
+          },
+          "SM-11-A2": {
+            "read": "computed color/background changed",
+            "S0": {
+              "bodyColor": "rgb(15, 17, 21)",
+              "bodyBg": "rgba(0, 0, 0, 0)",
+              "rootColor": "rgb(15, 17, 21)",
+              "rootBg": "rgba(0, 0, 0, 0)"
+            },
+            "S1": {
+              "bodyColor": "rgb(249, 250, 251)",
+              "bodyBg": "rgba(0, 0, 0, 0)",
+              "rootColor": "rgb(249, 250, 251)",
+              "rootBg": "rgba(0, 0, 0, 0)"
+            },
+            "changed": true,
+            "expected": true,
+            "pass": true
+          },
+          "SM-11-A3": {
+            "read": "reopen appearance option",
+            "initial": "跟随系统",
+            "actual": "跟随系统",
+            "expected": "跟随系统",
+            "pass": true
+          },
+          "SM-11-A4": {
+            "read": "assistant body computed color restored",
+            "S0": {
+              "bodyColor": "rgb(15, 17, 21)",
+              "bodyBg": "rgba(0, 0, 0, 0)",
+              "rootColor": "rgb(15, 17, 21)",
+              "rootBg": "rgba(0, 0, 0, 0)"
+            },
+            "restored": {
+              "bodyColor": "rgb(15, 17, 21)",
+              "bodyBg": "rgba(0, 0, 0, 0)",
+              "rootColor": "rgb(15, 17, 21)",
+              "rootBg": "rgba(0, 0, 0, 0)"
+            },
+            "pass": true
+          }
+        },
+        "raw": {
+          "S2": {
+            "bodyColor": "rgb(15, 17, 21)",
+            "bodyBg": "rgba(0, 0, 0, 0)",
+            "rootColor": "rgb(15, 17, 21)",
+            "rootBg": "rgba(0, 0, 0, 0)"
+          }
+        }
+      },
+      "evidence_checks": []
+    },
+    {
+      "file": "结果\\SM-12.json",
+      "sha256": "12d9defd5bd93613d1d94d682f1379d0a6c8e4ed1975fec9950f1242bbe0df06",
+      "record": {
+        "id": "SM-12",
+        "contract_version": "smoke-1.0",
+        "machine_id": "PC-88",
+        "assertions": {
+          "SM-12-A1": {
+            "read": "reopen skill switch after disable",
+            "actual": "false",
+            "expected": false,
+            "pass": true
+          },
+          "SM-12-A2": {
+            "read": "final appearance option",
+            "actual": "跟随系统",
+            "expected": "跟随系统",
+            "pass": true
+          },
+          "SM-12-A3": {
+            "read": "attachments/popups/draft refs all recovered",
+            "chipCount": 0,
+            "attachCount": 0,
+            "dialogsOpen": 0,
+            "afterDisable": "false",
+            "themeSel": "跟随系统",
+            "expected": true,
+            "pass": true
+          }
+        },
+        "residuals": {
+          "importedSkill": "smoke-skill-pc88-20261006-smoke01",
+          "importedExpert": "smoke-expert-pc88-20261006-smoke01",
+          "expertDisabled": false,
+          "skillDisabled": true,
+          "sessionsRetained": [
+            "SM-03 chat",
+            "SM-07 skill",
+            "SM-09 expert"
+          ]
+        }
+      },
+      "evidence_checks": []
+    }
+  ],
+  "file_count": 70
+}

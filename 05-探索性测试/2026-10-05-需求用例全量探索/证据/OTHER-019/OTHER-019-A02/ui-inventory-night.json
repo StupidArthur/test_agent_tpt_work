@@ -1,0 +1,266 @@
+{
+  "case_id": "OTHER-019",
+  "attempt_id": "OTHER-019-A02",
+  "captured_at": "2026-10-05T15:36:30.670Z",
+  "surface": "Visible TPT settings UI via CDP",
+  "scope": "Settings categories inventoried; safe reversible preferences tested individually. Screenshots are full settings surfaces and may contain unrelated UI, so this inventory is the case summary.",
+  "baseline": {
+    "permission": "工作区内修改",
+    "language": "中文",
+    "appearance": "跟随系统",
+    "conversation_font": "14px",
+    "work_detail": "标准",
+    "usage_detail": "详细",
+    "web_link_open": "应用内侧边栏",
+    "coding_tools": true,
+    "busy_send": "排队发送",
+    "new_session_shortcut": "Ctrl+N",
+    "new_task_default": "标准模式"
+  },
+  "safe_reversible_changes_and_restoration": [
+    {
+      "setting": "工作区权限",
+      "changed_to": "仅可查看",
+      "verified": "关闭重开设置后仍为仅可查看",
+      "restored": "工作区内修改"
+    },
+    {
+      "setting": "语言",
+      "changed_to": "English",
+      "verified": "设置 UI 切换显示英文",
+      "restored": "中文"
+    },
+    {
+      "setting": "外观",
+      "changed_to": "深色",
+      "verified": "UI dark theme",
+      "restored": "跟随系统"
+    },
+    {
+      "setting": "对话字号",
+      "changed_to": "15px",
+      "verified": "UI显示15px",
+      "restored": "14px"
+    },
+    {
+      "setting": "工作细节",
+      "changed_to": "详细",
+      "verified": "selected state",
+      "restored": "标准"
+    },
+    {
+      "setting": "性能/用量细节",
+      "changed_to": "简洁",
+      "verified": "selected state",
+      "restored": "详细"
+    },
+    {
+      "setting": "网页链接默认打开方式",
+      "changed_to": "默认浏览器",
+      "verified": "selected state",
+      "restored": "应用内侧边栏"
+    },
+    {
+      "setting": "代码工作工具",
+      "changed_to": false,
+      "verified": "aria checked false",
+      "restored": true
+    },
+    {
+      "setting": "繁忙时的发送行为",
+      "changed_to": "中断当前",
+      "verified": "selected state",
+      "restored": "排队发送"
+    },
+    {
+      "setting": "新会话快捷键",
+      "changed_to": "Ctrl+Alt+Shift+F9",
+      "verified": "关闭重开快捷键编辑器回读自定义值",
+      "restored": "恢复默认 Ctrl+N"
+    },
+    {
+      "setting": "新任务默认预设",
+      "changed_to": "工厂模式",
+      "verified": "Factory模式新任务 composer 实际可见",
+      "restored": "标准模式；设置页重开回读且新任务 composer 显示标准模式"
+    }
+  ],
+  "inspected_without_mutation": [
+    {
+      "category": "个人主页",
+      "result": "账号别名/类型只读；头像按钮 disabled。"
+    },
+    {
+      "category": "积分与订阅",
+      "result": "免费版、余额显示“-”；未打开购买/升级。"
+    },
+    {
+      "category": "记忆与进化",
+      "result": "记忆、沉淀复选框读取为启用；UI点击后检查仍为 true，无法证明其可被切换，本轮未用脚本强改；记忆文件未打开。"
+    },
+    {
+      "category": "实验性功能",
+      "result": "实验特性与体验优化均关闭；未打开涉及对话数据处理的优化选项。"
+    },
+    {
+      "category": "开发者模式",
+      "result": "关闭；设置文案提示额外能力可能影响稳定性，未改变。"
+    },
+    {
+      "category": "内置插件",
+      "result": "全局235个，当前会话列表29项；状态可见但列表没有明确开关/checkbox；未改变会话工具状态。"
+    }
+  ],
+  "artifacts": [
+    {
+      "name": "settings-general-baseline.png",
+      "path": "证据/OTHER-019/OTHER-019-A02/settings-general-baseline.png",
+      "sha256": "ea23fcee7f940ef73c2b6406e71ae8ddc04e059ff40b1c567b2db3062a1b6a65"
+    },
+    {
+      "name": "setting-permission-readonly.png",
+      "path": "证据/OTHER-019/OTHER-019-A02/setting-permission-readonly.png",
+      "sha256": "0a12cd888f82974fd1f6b47236ac2813c2877c050a2a7d1b859cbe76744a0f53"
+    },
+    {
+      "name": "setting-permission-reopen.png",
+      "path": "证据/OTHER-019/OTHER-019-A02/setting-permission-reopen.png",
+      "sha256": "0a12cd888f82974fd1f6b47236ac2813c2877c050a2a7d1b859cbe76744a0f53"
+    },
+    {
+      "name": "setting-permission-restored.png",
+      "path": "证据/OTHER-019/OTHER-019-A02/setting-permission-restored.png",
+      "sha256": "b911c66c6fa42b29c7137262930c969c9871f8c2237f67711b5e5d23007bafc5"
+    },
+    {
+      "name": "theme-before.png",
+      "path": "证据/OTHER-019/OTHER-019-A02/theme-before.png",
+      "sha256": "e60307d1da6144b4f26b280de8062379ccc05f50b9a759534d61d988b0be4c73"
+    },
+    {
+      "name": "theme-dark.png",
+      "path": "证据/OTHER-019/OTHER-019-A02/theme-dark.png",
+      "sha256": "0c75d968f5ff6bb16df8c755678dee088ab8e1e715c6654569676ab567b45023"
+    },
+    {
+      "name": "theme-restored.png",
+      "path": "证据/OTHER-019/OTHER-019-A02/theme-restored.png",
+      "sha256": "e60307d1da6144b4f26b280de8062379ccc05f50b9a759534d61d988b0be4c73"
+    },
+    {
+      "name": "language-options.png",
+      "path": "证据/OTHER-019/OTHER-019-A02/language-options.png",
+      "sha256": "635d2d0bccf47f62fc93bf50d20a11d5a004f835237467cf6cfec5e098d0b9aa"
+    },
+    {
+      "name": "language-english.png",
+      "path": "证据/OTHER-019/OTHER-019-A02/language-english.png",
+      "sha256": "b899760a0c517884d9d477729fb18b21b855ad2b10df1eefbf662aefc89f10c8"
+    },
+    {
+      "name": "language-restored.png",
+      "path": "证据/OTHER-019/OTHER-019-A02/language-restored.png",
+      "sha256": "ea23fcee7f940ef73c2b6406e71ae8ddc04e059ff40b1c567b2db3062a1b6a65"
+    },
+    {
+      "name": "font-15.png",
+      "path": "证据/OTHER-019/OTHER-019-A02/font-15.png",
+      "sha256": "7a0697decdde1e52f921267161935a3af1941a6029b689e205b1dacc4c931916"
+    },
+    {
+      "name": "workdetail-detailed.png",
+      "path": "证据/OTHER-019/OTHER-019-A02/workdetail-detailed.png",
+      "sha256": "599d932e3d9419a13d6f8e67bc98deb0f2b073ee8c1484648d2a37a7cf9a120f"
+    },
+    {
+      "name": "perf-concise.png",
+      "path": "证据/OTHER-019/OTHER-019-A02/perf-concise.png",
+      "sha256": "b4bcd540e90b7cdcd4164efd8b309835855acff14954ba4cf00976ccbc6fe15b"
+    },
+    {
+      "name": "link-defaultbrowser.png",
+      "path": "证据/OTHER-019/OTHER-019-A02/link-defaultbrowser.png",
+      "sha256": "087e6794a48b72e60473aaa48b8f2fcc80f6957f49959637a95a2b1e5d08c7e0"
+    },
+    {
+      "name": "coding-tools-check.png",
+      "path": "证据/OTHER-019/OTHER-019-A02/coding-tools-check.png",
+      "sha256": "a35708df50c465a594610ab1057856f3fcf8197e8a0248c1ce7cc8305dc7491a"
+    },
+    {
+      "name": "send-interrupt.png",
+      "path": "证据/OTHER-019/OTHER-019-A02/send-interrupt.png",
+      "sha256": "84b2e45d3f8dce8cb7d71cf6ecfe29f1feba0688078a3179e521b6e114590958"
+    },
+    {
+      "name": "shortcuts-editor.png",
+      "path": "证据/OTHER-019/OTHER-019-A02/shortcuts-editor.png",
+      "sha256": "e74747e9e7225a596c86384ea8c90fe295775b985d282ba4a4c5b99632c995f8"
+    },
+    {
+      "name": "shortcut-edit.png",
+      "path": "证据/OTHER-019/OTHER-019-A02/shortcut-edit.png",
+      "sha256": "7b1519f8b3bec43a52130b795dc87f549086dcce5acd5df69d941f868d485075"
+    },
+    {
+      "name": "shortcut-custom.png",
+      "path": "证据/OTHER-019/OTHER-019-A02/shortcut-custom.png",
+      "sha256": "90e3235d3099a8487cce8fd37a9eb4daa7d7b81733859614244b2b2a417a9628"
+    },
+    {
+      "name": "shortcut-persisted.png",
+      "path": "证据/OTHER-019/OTHER-019-A02/shortcut-persisted.png",
+      "sha256": "1427bb878fb3cdd9d9b023dc2010152b62ca43acab130ecc2c23f17a9b32f5a7"
+    },
+    {
+      "name": "shortcut-restored.png",
+      "path": "证据/OTHER-019/OTHER-019-A02/shortcut-restored.png",
+      "sha256": "3c562cb8a452e4d67c529866da8427478bddbc53f8ba2bd51a8116948537d8b0"
+    },
+    {
+      "name": "preset-ptc-now.png",
+      "path": "证据/OTHER-019/OTHER-019-A02/preset-ptc-now.png",
+      "sha256": "cffddf7523f2dcd201ef5a8c004f178db4b3543d08af35d26a70f358ed5e4928"
+    },
+    {
+      "name": "preset-standard-now.png",
+      "path": "证据/OTHER-019/OTHER-019-A02/preset-standard-now.png",
+      "sha256": "55033b6963a691ec22514c31cb2719fd3f736b65cd9e0c4813ebe8371318afe6"
+    },
+    {
+      "name": "preset-after-reopen.png",
+      "path": "证据/OTHER-019/OTHER-019-A02/preset-after-reopen.png",
+      "sha256": "52c398da581fbd70dc5700f4634c7204b611a81a84f709d3c8c674453e97b235"
+    },
+    {
+      "name": "factory-default-temp.png",
+      "path": "证据/OTHER-019/OTHER-019-A02/factory-default-temp.png",
+      "sha256": "07f80bed9adb8122f09230f9cff0473676d202425864ac2aba5b430910291978"
+    },
+    {
+      "name": "factory-standard-restored-final.png",
+      "path": "证据/OTHER-019/OTHER-019-A02/factory-standard-restored-final.png",
+      "sha256": "0ee60e5924f9c2140b4ad8a10baff6a7ba621755494f20f86b12594b06364387"
+    },
+    {
+      "name": "factory-composer.png",
+      "path": "证据/OTHER-019/OTHER-019-A02/factory-composer.png",
+      "sha256": "de83e89dc451f0badf40687d7f2166617a8642e81e90addca15b26344ad413e7"
+    },
+    {
+      "name": "memory-inject-off.png",
+      "path": "证据/OTHER-019/OTHER-019-A02/memory-inject-off.png",
+      "sha256": "818bd8b93dcf15cdcd7dc2d6d8aaecf59fadc29f36cba8bd27191ee9592c0f48"
+    },
+    {
+      "name": "memory-sediment-off.png",
+      "path": "证据/OTHER-019/OTHER-019-A02/memory-sediment-off.png",
+      "sha256": "818bd8b93dcf15cdcd7dc2d6d8aaecf59fadc29f36cba8bd27191ee9592c0f48"
+    },
+    {
+      "name": "memory-restored.png",
+      "path": "证据/OTHER-019/OTHER-019-A02/memory-restored.png",
+      "sha256": "f8704836c0668b9aa71dcf63151a3aa1b84a91320b3637d98de2fc034d9b47a7"
+    }
+  ]
+}

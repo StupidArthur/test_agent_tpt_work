@@ -1,0 +1,54 @@
+{
+  "case_id": "SM-03",
+  "started_at": "2026-10-06T14:27:07.372Z",
+  "ended_at": "2026-10-06T14:27:19.938Z",
+  "status": "通过",
+  "assertions": [
+    {
+      "id": "SM-03-A1",
+      "actual": "SMOKE_CHAT_RETEST_tool-smoke-20261006-eval1",
+      "expected": "SMOKE_CHAT_RETEST_tool-smoke-20261006-eval1",
+      "pass": true,
+      "read_refs": [
+        "CALL-a8682e5a-49fc-4426-b26c-21bb3c12ca42-3"
+      ]
+    },
+    {
+      "id": "SM-03-A2",
+      "actual": true,
+      "expected": true,
+      "pass": true,
+      "read_refs": [
+        "CALL-2a2da870-9ed8-4970-a550-175ee6d6131b-1"
+      ]
+    }
+  ],
+  "business_call_refs": [
+    "CALL-a8682e5a-49fc-4426-b26c-21bb3c12ca42",
+    "CALL-2e181b43-e1af-4724-8663-4f74cba1b3a3",
+    "CALL-2a2da870-9ed8-4970-a550-175ee6d6131b"
+  ],
+  "tool_discovery": {
+    "feature_path": [
+      "对话",
+      "文本执行"
+    ],
+    "plan_functions": [
+      "conversation.sendMessage",
+      "conversation.readTaskState",
+      "conversation.readCompletion"
+    ],
+    "used": [
+      "conversation.sendMessage",
+      "conversation.readComposer"
+    ],
+    "additional_functions": [
+      "conversation.readComposer"
+    ],
+    "all_product_operations_via_functions": true
+  },
+  "error": null,
+  "attempt": "A04",
+  "supersedes": "历史/SM-03-A03.json",
+  "retest_reason": "项目控件按已观察的workspace定位；目标会话已打开时不强求侧栏再次选择"
+}

@@ -1,0 +1,52 @@
+{
+  "case_id": "SM-02",
+  "started_at": "2026-10-06T14:26:59.676Z",
+  "ended_at": "2026-10-06T14:27:07.362Z",
+  "status": "不确定",
+  "assertions": [
+    {
+      "id": "SM-02-A1",
+      "actual": null,
+      "expected": true,
+      "pass": false,
+      "reason": "conversation.newTask: locator.click: Timeout 5000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('[role=\"menu\"]:visible').getByText('D:\\\\code\\\\tpt-workspace', { exact: true }).first()\u001b[22m\n"
+    },
+    {
+      "id": "SM-02-A2",
+      "actual": null,
+      "expected": "$project",
+      "pass": false,
+      "reason": "conversation.newTask: locator.click: Timeout 5000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('[role=\"menu\"]:visible').getByText('D:\\\\code\\\\tpt-workspace', { exact: true }).first()\u001b[22m\n"
+    },
+    {
+      "id": "SM-02-A3",
+      "actual": null,
+      "expected": "标准/low",
+      "pass": false,
+      "reason": "conversation.newTask: locator.click: Timeout 5000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('[role=\"menu\"]:visible').getByText('D:\\\\code\\\\tpt-workspace', { exact: true }).first()\u001b[22m\n"
+    }
+  ],
+  "business_call_refs": [
+    "CALL-ef8d763c-2806-4497-82ff-4129e3fce147",
+    "CALL-9cdf1c9c-c694-427e-9dfb-ffe078cc2427"
+  ],
+  "tool_discovery": {
+    "feature_path": [
+      "对话",
+      "创建与配置"
+    ],
+    "plan_functions": [
+      "conversation.newTask",
+      "conversation.readComposer"
+    ],
+    "used": [
+      "conversation.newTask"
+    ],
+    "additional_functions": [],
+    "all_product_operations_via_functions": true
+  },
+  "error": "conversation.newTask: locator.click: Timeout 5000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('[role=\"menu\"]:visible').getByText('D:\\\\code\\\\tpt-workspace', { exact: true }).first()\u001b[22m\n",
+  "attempt": "A03",
+  "supersedes": "历史/SM-02-A02.json",
+  "retest_reason": "项目控件按已观察的workspace定位；目标会话已打开时不强求侧栏再次选择"
+}

@@ -1,0 +1,51 @@
+{
+  "case_id": "G10-01",
+  "contract_version": "2.0",
+  "environment_id": "agent-oc-20261006-funcfull-01",
+  "attempt_id": "G10-01-A01",
+  "object_identity": "fast-assert-rich-agent-oc-20261006-funcfull-01 详情树",
+  "inputs": [
+    "打开 rich 技能详情"
+  ],
+  "business_call_refs": [
+    "CALL-5600fca4-ddbd-43f2-a459-128a057f895c"
+  ],
+  "status": "通过",
+  "attempted_at": "2026-10-06T16:46:54.391Z",
+  "assertions": [
+    {
+      "id": "G10-01-A1",
+      "expected": "SKILL.md",
+      "actual": "SKILL.md",
+      "pass": true,
+      "read_refs": [
+        "CALL-5600fca4-ddbd-43f2-a459-128a057f895c-3"
+      ],
+      "raw": {
+        "names": [
+          "assets",
+          "data",
+          "references",
+          "SKILL.md"
+        ]
+      }
+    },
+    {
+      "id": "G10-01-A2",
+      "expected": "FAST_RICH_BASE_OK",
+      "actual": "---\nname: \"fast-assert-rich-agent-oc-20261006-funcfull-01\" ... When explicitly invoked, reply exactly FAST_RICH_BASE_OK. Do not access external systems.\n",
+      "pass": true,
+      "read_refs": [
+        "CALL-5600fca4-ddbd-43f2-a459-128a057f895c-4"
+      ],
+      "derivation": "preview.includes('FAST_RICH_BASE_OK')"
+    }
+  ],
+  "restore": {
+    "status": "unchanged",
+    "description": "本case未改动设置/文件",
+    "read_refs": []
+  },
+  "residual": "详情整页保留",
+  "notes": ""
+}

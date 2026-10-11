@@ -1,0 +1,31 @@
+{
+  "observations": {
+    "action_refs": [
+      "business-f86deb00-3d32-425a-a535-01237da10108-2"
+    ],
+    "observations": {
+      "read": {
+        "event_id": "business-f86deb00-3d32-425a-a535-01237da10108-3",
+        "captured_at": "2026-10-06T11:23:40.707Z",
+        "environment_id": "env-fn-20261006-agent2",
+        "kind": "read",
+        "target": "详情身份为本轮技能",
+        "business_call_id": "CALL-a8c5d815-a963-499b-af87-078f13f8f63e",
+        "object_id": "skill-detail-identity",
+        "source": {
+          "channel": "dom",
+          "scope": "技能页/详情",
+          "locator": "[class*=\"dir-preview\"]"
+        },
+        "value": true,
+        "raw": {
+          "detailText": "--- name: \"fast-assert-cn-all-fn-20261006-agent2\" description: \"FAST_DESCRIPTION_BASE\" name_cn: \"本轮中文优先\" name_en: \"Fast English Priority\" tags: [\"FAST_SEARCH_TAG\"] --- When explicitly invoked, reply exactly FAST_MINIMAL_OK. Do not use tools or external systems. ",
+          "hasInternal": false,
+          "hasDisplay": true,
+          "matchText": "本轮中文优先"
+        },
+        "derivation": "详情文本含内部名或本轮显示名"
+      }
+    }
+  }
+}

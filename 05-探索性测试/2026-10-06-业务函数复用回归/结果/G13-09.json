@@ -1,0 +1,69 @@
+{
+  "case_id": "G13-09",
+  "contract_version": "2.0",
+  "attempt_id": "fn-20261006-agent2-G13-09-A1",
+  "environment_id": "env-fn-20261006-agent2",
+  "object_identity": {
+    "page": "技能页",
+    "card": "本轮中文优先"
+  },
+  "inputs": [
+    "列表切换开关不进入详情，回读改前/改后/恢复"
+  ],
+  "action_refs": [
+    "business-40c099a4-73d8-4eb4-94b3-9967cb9f09a4-2",
+    "business-40c099a4-73d8-4eb4-94b3-9967cb9f09a4-6"
+  ],
+  "status": "通过",
+  "started_at": "2026-10-06T11:20:00.000Z",
+  "ended_at": "2026-10-06T11:38:00.000Z",
+  "actual_steps": [
+    "搜索定位本轮卡片",
+    "读开关改前",
+    "切换开关",
+    "读列表可见且详情未打开",
+    "恢复开关并回读"
+  ],
+  "assertions": [
+    {
+      "id": "G13-09-A1",
+      "actual": true,
+      "read_refs": [
+        "business-40c099a4-73d8-4eb4-94b3-9967cb9f09a4-5"
+      ]
+    },
+    {
+      "id": "G13-09-A2",
+      "actual": {
+        "before": true,
+        "after": true
+      },
+      "read_refs": [
+        "business-40c099a4-73d8-4eb4-94b3-9967cb9f09a4-1",
+        "business-40c099a4-73d8-4eb4-94b3-9967cb9f09a4-8"
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "path": "运行日志/business.jsonl",
+      "sha256": "6203703aeaf46ab5fd94d64c474b878c26f39b97bc4c3f7a3840f9ee9a48bdc5"
+    },
+    {
+      "path": "运行日志/业务调用.jsonl",
+      "sha256": "91fc9bb4b29ad5347770a9e5e5a21b38b9c414c04a2e484e84b5dd981db87bd7"
+    }
+  ],
+  "cleanup": {
+    "status": "restored",
+    "description": "技能开关已恢复初值 true",
+    "read_refs": [
+      "business-40c099a4-73d8-4eb4-94b3-9967cb9f09a4-8"
+    ]
+  },
+  "business_call_refs": [
+    "CALL-5f9d0015-379b-4dc1-9892-dcc3448a3010",
+    "CALL-96d1f33d-8c28-4202-bfd1-f18d16f03d53"
+  ],
+  "notes": "开关切换不打开详情；改前/恢复后均为 true"
+}

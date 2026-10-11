@@ -1,0 +1,64 @@
+{
+  "case_id": "G14-02",
+  "contract_version": "2.0",
+  "attempt_id": "fn-20261006-agent2-G14-02-A1",
+  "environment_id": "env-fn-20261006-agent2",
+  "object_identity": {
+    "zip": "root.zip"
+  },
+  "inputs": [
+    "确认 root.zip，读取 root 增量与 nested 匹配"
+  ],
+  "action_refs": [
+    "business-81034867-ca06-403d-a06f-cb8a5ff4e7d2-1",
+    "business-dc5f73b0-2feb-4d12-8d20-f2ad7046d7ed-1"
+  ],
+  "status": "通过",
+  "started_at": "2026-10-06T11:43:00.000Z",
+  "ended_at": "2026-10-06T11:47:30.000Z",
+  "actual_steps": [
+    "读列表数",
+    "确认导入 root.zip",
+    "读列表数增量",
+    "搜索 nested 技术名"
+  ],
+  "assertions": [
+    {
+      "id": "G14-02-A1",
+      "actual": 1,
+      "read_refs": [
+        "business-d7697f0a-424a-45b2-ad2f-136b6b0ad9da-1"
+      ]
+    },
+    {
+      "id": "G14-02-A2",
+      "actual": 0,
+      "read_refs": [
+        "business-dc5f73b0-2feb-4d12-8d20-f2ad7046d7ed-3"
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "path": "运行日志/business.jsonl",
+      "sha256": "6203703aeaf46ab5fd94d64c474b878c26f39b97bc4c3f7a3840f9ee9a48bdc5"
+    },
+    {
+      "path": "运行日志/业务调用.jsonl",
+      "sha256": "91fc9bb4b29ad5347770a9e5e5a21b38b9c414c04a2e484e84b5dd981db87bd7"
+    }
+  ],
+  "cleanup": {
+    "status": "retained",
+    "description": "样本保留待审",
+    "read_refs": []
+  },
+  "business_call_refs": [
+    "CALL-51462f35-982b-4573-a35e-5ed1310a9817",
+    "CALL-d05d221c-105d-46db-9bb0-2a6cd50bc11d",
+    "CALL-970de219-0a42-4417-8d65-4f3c73288603",
+    "CALL-bbcec3e7-d0a4-4b57-85da-6f298e5bdd88",
+    "CALL-b5f28f02-283e-4d0c-9788-ac89e69d5d79"
+  ],
+  "notes": "root 增量=1（39→40）；nested/SKILL.md 随 root 复制但未作为独立技能（nested 匹配=0）"
+}

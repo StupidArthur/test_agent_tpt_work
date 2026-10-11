@@ -1,0 +1,39 @@
+{
+  "case_id": "G1-07",
+  "contract_version": "2.0",
+  "environment_id": "agent-oc-20261006-funcfull-01",
+  "attempt_id": "G1-07-A01",
+  "object_identity": "session-9c8be6fd-0bb0-4054-bb33-e5ae4667964f",
+  "inputs": [
+    "请只输出一个代码块，代码块内容为两行：第一行 A，第二行 B。不要输出代码块以外的任何文字。"
+  ],
+  "business_call_refs": [
+    "CALL-4c4e1f40-eb23-4322-b97c-b9e46e1318cc",
+    "CALL-85bd539f-1197-4d01-ad2a-84002af4325c"
+  ],
+  "status": "通过",
+  "attempted_at": "2026-10-06T16:03:52.187Z",
+  "assertions": [
+    {
+      "id": "G1-07-A1",
+      "expected": "A\nB",
+      "actual": "A\nB",
+      "pass": true,
+      "read_refs": [
+        "CALL-85bd539f-1197-4d01-ad2a-84002af4325c-3"
+      ],
+      "raw": {
+        "count": 1,
+        "text": "A\nB"
+      },
+      "derivation": "code.textContent 规范 CRLF→LF 并 trim 末尾换行"
+    }
+  ],
+  "restore": {
+    "status": "unchanged",
+    "description": "本case未改动设置/文件",
+    "read_refs": []
+  },
+  "residual": "",
+  "notes": "sendMessage waitTerminal 超时（timed_out=true），但终态读取时运行指示为0且代码块已就绪；以 readTaskState 的 code 读值为判据。"
+}

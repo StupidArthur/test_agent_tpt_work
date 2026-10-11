@@ -1,0 +1,70 @@
+{
+  "case_id": "G11-10",
+  "contract_version": "2.0",
+  "attempt_id": "fn-20261006-agent2-G11-10-A1",
+  "environment_id": "env-fn-20261006-agent2",
+  "object_identity": {
+    "expert": "fast-assert-expert-longread-fn-20261006-agent2"
+  },
+  "inputs": [
+    "在 G11-09 会话明确确认仅改 displayDescription.zh 为 FAST_EDITED"
+  ],
+  "action_refs": [
+    "business-14dcbed1-7bcb-4c3b-84e7-188363700cc6-2"
+  ],
+  "status": "失败",
+  "started_at": "2026-10-06T09:45:00.000Z",
+  "ended_at": "2026-10-06T10:05:00.000Z",
+  "actual_steps": [
+    "发送确认消息",
+    "读取安装 metadata 字段",
+    "读取助手摘要",
+    "恢复原描述并独立回读字段"
+  ],
+  "assertions": [
+    {
+      "id": "G11-10-A1",
+      "actual": "FAST_EXPERT_DESCRIPTION_INITIAL",
+      "read_refs": [
+        "business-80acd7e9-1c04-4e0c-a9b4-18728d3678f4-1"
+      ]
+    },
+    {
+      "id": "G11-10-A2",
+      "actual": "需要放宽文件访问权限（目标在会话工作区之外的 agents 根目录）。",
+      "read_refs": [
+        "business-14dcbed1-7bcb-4c3b-84e7-188363700cc6-3"
+      ]
+    },
+    {
+      "id": "G11-10-A3",
+      "actual": "FAST_EXPERT_DESCRIPTION_INITIAL",
+      "read_refs": [
+        "business-0951b6de-088d-43c2-8ad5-9c17e925cb62-1"
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "path": "运行日志/business.jsonl",
+      "sha256": "6203703aeaf46ab5fd94d64c474b878c26f39b97bc4c3f7a3840f9ee9a48bdc5"
+    },
+    {
+      "path": "运行日志/业务调用.jsonl",
+      "sha256": "91fc9bb4b29ad5347770a9e5e5a21b38b9c414c04a2e484e84b5dd981db87bd7"
+    }
+  ],
+  "cleanup": {
+    "status": "unchanged",
+    "description": "字段未被改写，保持初值 FAST_EXPERT_DESCRIPTION_INITIAL",
+    "read_refs": [
+      "business-0951b6de-088d-43c2-8ad5-9c17e925cb62-1"
+    ]
+  },
+  "business_call_refs": [
+    "CALL-38dbbe12-38cc-42e4-90c9-43ec8665b86d",
+    "CALL-06140c2d-d570-43b9-9328-075e32538916",
+    "CALL-15004f50-3693-419b-8eea-fb27168b69dc"
+  ],
+  "notes": "A1/A2 失败：确认后模型未写盘，回复“需要放宽文件访问权限（目标在会话工作区之外的 agents 根目录）”，字段仍为 FAST_EXPERT_DESCRIPTION_INITIAL；A3 通过：字段等于初值"
+}

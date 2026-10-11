@@ -1,0 +1,64 @@
+{
+  "case_id": "G11-04",
+  "contract_version": "2.0",
+  "attempt_id": "G11-A01",
+  "environment_id": "env-20261006-oc1",
+  "object_identity": "longread专家",
+  "inputs": [
+    "longread"
+  ],
+  "action_refs": [
+    "G11-b224fb3a-86bc-4320-8ca2-344e111af082-2",
+    "G11-b224fb3a-86bc-4320-8ca2-344e111af082-5",
+    "G11-b224fb3a-86bc-4320-8ca2-344e111af082-8",
+    "G11-b224fb3a-86bc-4320-8ca2-344e111af082-11",
+    "G11-b224fb3a-86bc-4320-8ca2-344e111af082-14",
+    "G11-b224fb3a-86bc-4320-8ca2-344e111af082-18",
+    "G11-b224fb3a-86bc-4320-8ca2-344e111af082-22",
+    "G11-b224fb3a-86bc-4320-8ca2-344e111af082-25",
+    "G11-b224fb3a-86bc-4320-8ca2-344e111af082-30",
+    "G11-b224fb3a-86bc-4320-8ca2-344e111af082-32",
+    "G11-b224fb3a-86bc-4320-8ca2-344e111af082-37",
+    "G11-b224fb3a-86bc-4320-8ca2-344e111af082-44",
+    "G11-b224fb3a-86bc-4320-8ca2-344e111af082-49",
+    "G11-b224fb3a-86bc-4320-8ca2-344e111af082-53",
+    "G11-b224fb3a-86bc-4320-8ca2-344e111af082-57",
+    "G11-b224fb3a-86bc-4320-8ca2-344e111af082-60",
+    "G11-b224fb3a-86bc-4320-8ca2-344e111af082-64",
+    "G11-b224fb3a-86bc-4320-8ca2-344e111af082-69"
+  ],
+  "status": "失败",
+  "started_at": "2026-10-06T06:18:30.020Z",
+  "ended_at": "2026-10-06T06:25:39.081Z",
+  "actual_steps": [
+    "导入读提示词并滚到底"
+  ],
+  "assertions": [
+    {
+      "id": "G11-04-A1",
+      "actual": "专家\n/\n专家详情\n本轮扩展专家-longread\n\nFAST_EXPERT_DESCRIPTION_INITIAL\n\n删除\n打开文件夹\n去对话编辑\n使用\n回归验证\n版本\nv1.2.3\n来源\n我创建的\n运行类型\n本地运行\n分类\n技术工程\n推荐问题\n请执行你的本轮回归固定回复规则。\n专家提示词\n\nname: fast-assert-expert-longread-20261006-oc1 description: Harmless expert fixture ---\n\nWhen explicitly asked to execute your fixed rule, return exactly FAST_EXPERT_EXT_OK. Do not access external systems. Harmless reading line 1. Harmless reading line 2. Harmless reading line 3. Harmless reading line 4. Harmless reading line 5. Harmless reading line 6. Harmless reading line 7. Harmless reading line 8. Harmless reading line 9. Harmless reading line 10. Harmless reading line 11. Harmless reading line 12. Harmless reading line 13. Harmless reading line 14. Harmless reading line 15. Harmless reading line 16. Harmless reading line 17. Harmless reading line 18. Harmless reading line 19. Harmless reading line 20. Harmless reading line 21. Harmless reading line 22. Harmless reading line 23. Harmless reading line 24. Harmless reading line 25. Harmless reading line 26. Harmless reading line 27. Harmless reading line 28. Harmless reading line 29. Harmless reading line 30. Harmless reading line 31. Harmless reading line 32. Harmless reading line 33. Harmless reading line 34. Harmless reading line 35. Harmless reading line 36. Harmless reading line 37. Harmless reading line 38. Harmless reading line 39. Harmless reading line 40. Harmless reading line 41. Harmless reading line 42. Harmless reading line 43. Harmless reading line 44. Harmless reading line 45. Harmless reading line 46. Harmless reading line 47. Harmless reading line 48. Harmless reading line 49. Harmless reading line 50. Harmless reading line 51. Harmless reading line 52. Harmless reading line 53. Harmless reading line 54. Harmless reading line 55. Harmless reading line 56. Harmless reading line 57. Harmless reading line 58. Harmless reading line 59. Harmless reading line 60. Harmless reading line 61. Harmless reading line 62. Harmless reading line 63. Harmless reading line 64. Harmless reading line 65. Harmless reading line 66. Harmless reading line 67. Harmless reading line 68. Harmless reading line 69. Harmless reading line 70. Harmless reading line 71. Harmless reading line 72. Harmless reading line 73. Harmless reading line 74. Harmless reading line 75. Harmless reading line 76. Harmless reading line 77. Harmless reading line 78. Harmless reading line 79. Harmless reading line 80. Harmless reading line 81. Harmless reading line 82. Harmless reading line 83. Harmless reading line 84. Harmless reading line 85. Harmless reading line 86. Harmless reading line 87. Harmless reading line 88. Harmless reading line 89. Harmless reading line 90. Harmless reading line 91. Harmless reading line 92. Harmless reading line 93. Harmless reading line 94. Harmless reading line 95. Harmless reading line 96. Harmless reading line 97. Harmless reading line 98. Harmless reading line 99. Harmless reading line 100. FAST_PROMPT_END",
+      "read_refs": [
+        "G11-b224fb3a-86bc-4320-8ca2-344e111af082-12"
+      ]
+    },
+    {
+      "id": "G11-04-A2",
+      "actual": false,
+      "read_refs": [
+        "G11-b224fb3a-86bc-4320-8ca2-344e111af082-15"
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "path": "运行日志/G11.jsonl",
+      "sha256": "2eca1f2a8436da8d4a1cc76506776cef7f641f2f6dcfe50961e816ee58acaea0"
+    }
+  ],
+  "cleanup": {
+    "status": "restored",
+    "description": "专家安装文件已恢复原字节",
+    "read_refs": []
+  },
+  "notes": "G11基于本轮专家样本。"
+}

@@ -1,0 +1,159 @@
+{
+  "call_id": "CALL-b30cc6d9-59fa-45a2-905c-47995bc247da",
+  "status": "returned",
+  "observations": {
+    "observations": {
+      "overview": {
+        "event_id": "CALL-b30cc6d9-59fa-45a2-905c-47995bc247da-1",
+        "captured_at": "2026-10-07T06:01:28.336Z",
+        "environment_id": "PC88-20261007-memlib-r2-01",
+        "business_call_id": "CALL-b30cc6d9-59fa-45a2-905c-47995bc247da",
+        "kind": "read",
+        "target": "记忆概览文本与开关",
+        "object_id": "memory-overview",
+        "source": {
+          "channel": "dom",
+          "scope": "设置/记忆与进化/概览"
+        },
+        "value": {
+          "text": "设置\n常规\n个人主页\n积分与订阅\n场景预设\n记忆与进化\n实验性功能\nBeta\n开发者模式\n内置插件\n关闭\n记忆与进化\n\n自动记住你的偏好与项目知识，越用越懂你\n\n概览\n记忆库\n日志\n27\n记忆条目\n索引条目 27\n偏好\n0\n事实\n27\n结论\n0\n规则\n0\n高频召回\n被检索命中最多的记忆条目\n1\nMEM88R2-PC88-20261007-r2-01-MEM-02-s1 面板添加的唯一样本，编辑后新值 EDIT-2 用于本轮复跑核对。\n1 次\n2\nMEM88R2-PC88-20261007-r2-01-MEM-03-tool1 这是由模型通过真实记忆工具写入的事实样本。\n1 次\n启用记忆\n会话开始时把分层记忆注入上下文\n启用沉淀\n每轮对话结束后自动写入本轮记忆\n高级设置\n分层记忆文件\nSOUL.md · 协作风格\n60 字符\n编辑\nAGENTS.md · 工作手册\n75 字符\n编辑\nUSER.md · 用户画像\n0 条\n73 字符\n编辑\nMEMORY.md · 长期记忆\n27 条\n4510 字符\n编辑\n活动趋势\n天\n周\n月\n0\n2\n4\n6\n今天\n10-01\n10-04\n10-07\n写入\n反思\n近期动态?\n刷新动态\n今日：写入 5 · 反思 0 · 异常 0\n1 小时前\n写入\n长期记忆追加 1 条（[F] importance=4）\n1 小时前\n写入\n编辑文件 memory（89 字符）\n2 小时前\n删除条目\n删除条目 60210b7faddd\n2 小时前\n写入\n长期记忆追加 1 条（[F] importance=1）\n2 小时前\n写入\n日志追加：MEM88-20261007-TOOL-乙\n2 小时前\n写入\n编辑文件 memory（57 字符）\n19 小时前\n反思 · 无需升格\n反思完成：无需整理（两个记忆文件均为空，无需重组。）\n19 小时前\n反思 · 无需升格\n本轮反思完成，暂无需升格的内容\n19 小时前\n反思 · 无需升格\n本轮反思完成，暂无需升格的内容\n19 小时前\n反思 · 无需升格\n本轮反思完成，暂无需升格的内容",
+          "toggles": [
+            {
+              "tag": "input",
+              "type": "checkbox",
+              "value": true,
+              "label": null,
+              "cls": "tpt-cfg-bool"
+            },
+            {
+              "tag": "input",
+              "type": "checkbox",
+              "value": true,
+              "label": null,
+              "cls": "tpt-cfg-bool"
+            }
+          ]
+        },
+        "raw": {}
+      },
+      "advanced": {
+        "event_id": "CALL-b30cc6d9-59fa-45a2-905c-47995bc247da-2",
+        "captured_at": "2026-10-07T06:01:29.601Z",
+        "environment_id": "PC88-20261007-memlib-r2-01",
+        "business_call_id": "CALL-b30cc6d9-59fa-45a2-905c-47995bc247da",
+        "kind": "read",
+        "target": "高级设置实际参数值",
+        "object_id": "memory-advanced-values",
+        "source": {
+          "channel": "dom",
+          "scope": "记忆与进化/高级设置"
+        },
+        "value": {
+          "rows": [
+            {
+              "label": "启用记忆 会话开始时把分层记忆注入上下文",
+              "tag": "input",
+              "type": "checkbox",
+              "value": true
+            },
+            {
+              "label": "注入字符预算 注入快照总字符上限",
+              "tag": "input",
+              "type": "number",
+              "value": "2400"
+            },
+            {
+              "label": "注入最近天数 注入最近 N 天的工作日志",
+              "tag": "input",
+              "type": "number",
+              "value": "1"
+            },
+            {
+              "label": "启用沉淀 每轮对话结束后自动写入本轮记忆",
+              "tag": "input",
+              "type": "checkbox",
+              "value": true
+            },
+            {
+              "label": "沉淀最小字符 本轮对话少于该值不沉淀",
+              "tag": "input",
+              "type": "number",
+              "value": "240"
+            },
+            {
+              "label": "沉淀冷却（分） 两次自动沉淀最小间隔",
+              "tag": "input",
+              "type": "number",
+              "value": "30"
+            },
+            {
+              "label": "每日沉淀上限 一天最多自动沉淀次数",
+              "tag": "input",
+              "type": "number",
+              "value": "8"
+            },
+            {
+              "label": "价值过滤 过滤纯过程性要点（重试 / 换工具 / 模型自语）",
+              "tag": "input",
+              "type": "checkbox",
+              "value": true
+            },
+            {
+              "label": "反思升格 定期扫描日志，把重复 / 重要内容升格为长期记忆",
+              "tag": "input",
+              "type": "checkbox",
+              "value": true
+            },
+            {
+              "label": "回看天数 扫描最近 N 天日志",
+              "tag": "input",
+              "type": "number",
+              "value": "7"
+            },
+            {
+              "label": "重复升格天数 同 id 出现 ≥ N 天升格",
+              "tag": "input",
+              "type": "number",
+              "value": "2"
+            },
+            {
+              "label": "条目数上限 MEMORY.md 条目数超限归档",
+              "tag": "input",
+              "type": "number",
+              "value": "200"
+            },
+            {
+              "label": "字符数上限 MEMORY.md 字符数超限归档",
+              "tag": "input",
+              "type": "number",
+              "value": "20000"
+            },
+            {
+              "label": "用户级日预算 用户级 MEMORY.md 每日写入字符",
+              "tag": "input",
+              "type": "number",
+              "value": "4000"
+            }
+          ],
+          "buttons": [
+            "常规",
+            "个人主页",
+            "积分与订阅",
+            "场景预设",
+            "记忆与进化",
+            "实验性功能\nBeta",
+            "开发者模式",
+            "内置插件",
+            "关闭",
+            "返回概览",
+            "重新加载",
+            "保存",
+            "重置为默认"
+          ],
+          "text": "设置 常规 个人主页 积分与订阅 场景预设 记忆与进化 实验性功能 Beta 开发者模式 内置插件 关闭 记忆与进化 自动记住你的偏好与项目知识，越用越懂你 返回概览 共 14 项 · 无未保存改动 重新加载 保存 改动保存后立即生效并写入用户设置文档；重置可随时回到插件默认。 注入 启用记忆 会话开始时把分层记忆注入上下文 注入字符预算 注入快照总字符上限 注入最近天数 注入最近 N 天的工作日志 自动沉淀 启用沉淀 每轮对话结束后自动写入本轮记忆 沉淀最小字符 本轮对话少于该值不沉淀 沉淀冷却（分） 两次自动沉淀最小间隔 每日沉淀上限 一天最多自动沉淀次数 价值过滤 过滤纯过程性要点（重试 / 换工具 / 模型自语） 反思升格 反思升格 定期扫描日志，把重复 / 重要内容升格为长期记忆 回看天数 扫描最近 N 天日志 重复升格天数 同 id 出现 ≥ N 天升格 蒸馏归档 条目数上限 MEMORY.md 条目数超限归档 字符数上限 MEMORY.md 字符数超限归档 写入预算 用户级日预算 用户级 MEMORY.md 每日写入字符 清除全部自定义配置，恢复为插件默认设置。 重置为默认"
+        },
+        "raw": {}
+      }
+    }
+  }
+}

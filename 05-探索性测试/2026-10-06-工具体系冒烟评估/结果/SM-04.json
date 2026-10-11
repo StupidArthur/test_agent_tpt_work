@@ -1,0 +1,56 @@
+{
+  "case_id": "SM-04",
+  "started_at": "2026-10-06T14:27:19.938Z",
+  "ended_at": "2026-10-06T14:27:25.687Z",
+  "status": "通过",
+  "assertions": [
+    {
+      "id": "SM-04-A1",
+      "actual": true,
+      "expected": true,
+      "pass": true,
+      "read_refs": [
+        "CALL-c919f883-e0e3-4340-8936-e2bd3bef74df-3"
+      ]
+    },
+    {
+      "id": "SM-04-A2",
+      "actual": 0,
+      "expected": 0,
+      "pass": true,
+      "read_refs": [
+        "CALL-c3b00ca7-20a1-443b-8dad-d1d3d4835980-2"
+      ]
+    }
+  ],
+  "business_call_refs": [
+    "CALL-0d4302cb-168b-42f5-b9d7-81fc2afed747",
+    "CALL-3e71f7d2-5033-4bd4-969a-7a8e1936723d",
+    "CALL-c919f883-e0e3-4340-8936-e2bd3bef74df",
+    "CALL-a082d3e0-fe1a-4926-81ca-a374d30053a4",
+    "CALL-c3b00ca7-20a1-443b-8dad-d1d3d4835980"
+  ],
+  "tool_discovery": {
+    "feature_path": [
+      "对话",
+      "附件"
+    ],
+    "plan_functions": [
+      "attachments.addLocalFiles",
+      "attachments.readDraftState",
+      "attachments.removeAttachment"
+    ],
+    "used": [
+      "conversation.newTask",
+      "fixtures.writeFile",
+      "attachments.addLocalFiles",
+      "attachments.removeAttachment",
+      "attachments.readDraftState"
+    ],
+    "additional_functions": [
+      "conversation.newTask",
+      "fixtures.writeFile"
+    ],
+    "all_product_operations_via_functions": true
+  }
+}

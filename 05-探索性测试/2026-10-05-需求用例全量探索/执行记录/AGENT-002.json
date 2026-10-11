@@ -1,0 +1,108 @@
+{
+  "case_id": "AGENT-002",
+  "case_title": "创建导入来源归类",
+  "source_sha256": "c3cdc4c71c1746e9a647aa5190e0983229af9b41c22e2e6c9a9bc3da80727b66",
+  "status": "已执行-结论不确定",
+  "review_status": "待双方审核",
+  "latest_attempt_id": "AGENT-002-A02",
+  "attempts": [
+    {
+      "attempt_id": "AGENT-002-A02",
+      "started_at": "2026-10-06T03:04:00+08:00",
+      "ended_at": "2026-10-06T03:04:00+08:00",
+      "environment_id": "ENV-001",
+      "surface": "专家管理页列表/新建专家入口与expert-manager对话Trace；CDP 9234 + Playwright",
+      "actual_preconditions": {
+        "account_alias": "Arthur",
+        "workspace": "tpt-workspace",
+        "project": "未新增项目",
+        "session_id": "round-agent-ui-create-20261006 创建流程（未完成）",
+        "model": "标准/low",
+        "permission": "UI导入本轮目录包；拒绝通过danger-full-access写入产品数据根的权限请求",
+        "fixtures": [
+          "round-agent-bundled-call-20261006（本轮导入样本）"
+        ]
+      },
+      "input": "比较本轮UI目录导入与新建专家来源是否都显示“我创建的”。",
+      "actual_steps": [
+        "查看我的专家列表，本轮目录导入的round-agent-bundled-call-20261006卡片显示“来源 我创建的 · 本地运行”。",
+        "点击新建专家，UI打开带/expert-manager命令的对话创建流程。",
+        "仅请求创建一个无害、专属本轮的本地专家；执行轨迹显示产品数据根写入先因ACL拒绝，随后文件写工具要求danger-full-access。",
+        "拒绝该工作区外写入请求并停止生成；返回专家列表确认数量仍为6且未出现该创建样本。"
+      ],
+      "wait_condition": "核对UI创建流程终态、审批处理和返回后的列表数量。",
+      "checkpoints": [
+        {
+          "expected_index": 1,
+          "expected": "两者统一归类我创建的",
+          "observed": "只验证到目录导入分支：卡片来源显示“我创建的 · 本地运行”。手工创建分支未落盘：ACL拒绝后，工具请求工作区外产品数据根写入的danger-full-access权限，本轮拒绝；专家列表保持6个。两种来源一致性未验证。",
+          "verdict": "未验证",
+          "evidence": [
+            "证据/AGENT-002/AGENT-002-A02/my-experts-round-import-source.png",
+            "证据/AGENT-002/AGENT-002-A02/my-experts-source.txt",
+            "证据/AGENT-002/AGENT-002-A02/agent-create-path.txt"
+          ]
+        }
+      ],
+      "observed_result": "专家列表中，本轮目录导入专家显示“来源 我创建的 · 本地运行”；导入分支已观察。另一分支从“新建专家”进入expert-manager对话，尝试生成本轮样本时，数据根ACL拒绝，随后对越出工作区的直接文件写入出现danger-full-access审批；本轮拒绝该写入并停止。专家数仍为6，未创建手工专家。因此“导入/手工创建统一归类”整体比较尚未验证。",
+      "status": "已执行-结论不确定",
+      "evidence": [
+        "证据/AGENT-002/AGENT-002-A02/my-experts-round-import-source.png",
+        "证据/AGENT-002/AGENT-002-A02/my-experts-source.txt",
+        "证据/AGENT-002/AGENT-002-A02/agent-create-path.txt"
+      ],
+      "difference_ids": [],
+      "notes": "不是导入UI失败，也不构成产品差异；手工创建路径受工作区外写入审批限制。只允许继续用本轮包UI导入；无新建样本残留。"
+    }
+  ],
+  "product_observations": [
+    {
+      "observation_id": "OBS-201",
+      "feature_id": null,
+      "statement": "专家列表中，本轮目录导入专家显示“来源 我创建的 · 本地运行”；导入分支已观察。另一分支从“新建专家”进入expert-manager对话，尝试生成本轮样本时，数据根ACL拒绝，随后对越出工作区的直接文件写入出现danger-full-access审批；本轮拒绝该写入并停止。专家数仍为6，未创建手工专家。因此“导入/手工创建统一归类”整体比较尚未验证。",
+      "case_ids": [
+        "AGENT-002"
+      ],
+      "attempt_ids": [
+        "AGENT-002-A02"
+      ],
+      "environment_id": "ENV-001",
+      "verified_depth": "一个本轮目录导入Expert；一次未完成的新建专家流程",
+      "scope_and_limits": "本轮只观察目录导入分类；手工创建分支被工作区外写入权限限制，不能外推两者一致。",
+      "evidence": [
+        "证据/AGENT-002/AGENT-002-A02/my-experts-round-import-source.png",
+        "证据/AGENT-002/AGENT-002-A02/my-experts-source.txt",
+        "证据/AGENT-002/AGENT-002-A02/agent-create-path.txt"
+      ]
+    }
+  ],
+  "differences": [],
+  "finding_ids": [],
+  "blocker": {
+    "reason": "手工创建分支未完成：expert-manager创建流程要求写入产品数据根；直接写入被ACL拒绝，之后的工作区外danger-full-access请求已拒绝。",
+    "missing_dependency": "若要比较手工创建与导入的来源分类，需要安全可用的产品内UI创建/保存路径，或工作区外写入审批权限；本轮选择不授予该越界权限。",
+    "evidence": [
+      "证据/AGENT-002/AGENT-002-A02/my-experts-round-import-source.png",
+      "证据/AGENT-002/AGENT-002-A02/my-experts-source.txt",
+      "证据/AGENT-002/AGENT-002-A02/agent-create-path.txt"
+    ],
+    "next_action": "如后续产品UI能在本地安全创建样本，可复测手工创建分支；否则保留导入来源已观察、手工创建未验证。"
+  },
+  "applicability_reason": null,
+  "cleanup": {
+    "changes": [],
+    "remaining": []
+  },
+  "review": {
+    "assistant": null,
+    "user": null,
+    "approved_scope": [],
+    "final_decision": "待审核"
+  },
+  "audit_history": [
+    {
+      "at": "2026-10-06T03:04:00+08:00",
+      "event": "A02采用本轮已导入专家并检查手工创建入口；拒绝工作区外数据根写入审批，未产生手工专家；历史A01阻塞观察保留。"
+    }
+  ]
+}

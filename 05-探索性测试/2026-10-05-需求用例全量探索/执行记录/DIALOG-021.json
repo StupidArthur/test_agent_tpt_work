@@ -1,0 +1,115 @@
+{
+  "case_id": "DIALOG-021",
+  "case_title": "未知格式添加",
+  "source_sha256": "b712acd3b204ebcfdd07129c4d993ea1beb184f9a2d0c3827745ee1fdf7a6677",
+  "status": "已执行-符合预期",
+  "review_status": "待双方审核",
+  "latest_attempt_id": "DIALOG-021-A01",
+  "attempts": [
+    {
+      "attempt_id": "DIALOG-021-A01",
+      "started_at": "2026-10-06T06:08:00+08:00",
+      "ended_at": "2026-10-05T22:07:14.128Z",
+      "environment_id": "ENV-001",
+      "surface": "Unified task composer attachment rail UI via Electron CDP + Playwright",
+      "actual_preconditions": {
+        "account": "Arthur",
+        "project": "existing tpt-workspace",
+        "model": "standard / low",
+        "fixture": "round-owned harmless local attachment fixture; draft unsent"
+      },
+      "input": "Attached fixture.unknown-round and inspected its generic card, then removed the attachment.",
+      "actual_steps": [
+        "Added the round-owned fixture.unknown-round through the visible in-app HTML file input.",
+        "Observed the file card displayed fixture.unknown-round, UNKNOWN and 131B with the generic file icon.",
+        "Removed only this attachment; the source remained in the test fixture directory."
+      ],
+      "wait_condition": "Waited for the attachment card, hover state and removal to settle; independently read back source fixture metadata.",
+      "checkpoints": [
+        {
+          "expected_index": 1,
+          "expected": "允许添加并显示通用图标",
+          "observed": "The composer accepted fixture.unknown-round and showed UNKNOWN with the generic _other_ icon.",
+          "verdict": "符合",
+          "evidence": [
+            "证据/DIALOG-021/DIALOG-021-A01/unknown-card.png",
+            "证据/DIALOG-021/DIALOG-021-A01/unknown-card.txt",
+            "证据/DIALOG-021/DIALOG-021-A01/unknown-card-dom.json",
+            "证据/DIALOG-021/DIALOG-021-A01/source-preserved.json"
+          ]
+        },
+        {
+          "expected_index": 2,
+          "expected": "不暗示已可解析",
+          "observed": "The card showed only filename, UNKNOWN and size; no successful parse/extract status was displayed. No parse was claimed or requested.",
+          "verdict": "符合",
+          "evidence": [
+            "证据/DIALOG-021/DIALOG-021-A01/unknown-card.png",
+            "证据/DIALOG-021/DIALOG-021-A01/unknown-card.txt",
+            "证据/DIALOG-021/DIALOG-021-A01/unknown-card-dom.json",
+            "证据/DIALOG-021/DIALOG-021-A01/source-preserved.json"
+          ]
+        }
+      ],
+      "observed_result": "The unknown-extension harmless file was accepted and rendered with generic file styling; the card did not claim that its contents were parsed.",
+      "status": "已执行-符合预期",
+      "evidence": [
+        "证据/DIALOG-021/DIALOG-021-A01/unknown-card.png",
+        "证据/DIALOG-021/DIALOG-021-A01/unknown-card.txt",
+        "证据/DIALOG-021/DIALOG-021-A01/unknown-card-dom.json",
+        "证据/DIALOG-021/DIALOG-021-A01/source-preserved.json"
+      ],
+      "notes": "No message sent. Only a round-owned unsent composer and fixtures were used; all tested attachments were removed after observation. Pending bilateral review.",
+      "cleanup": {
+        "changes": [
+          "Removed the tested unknown/long-name attachment from the round-owned unsent draft."
+        ],
+        "remaining": [
+          "Source fixture files remain in the task fixture folder."
+        ]
+      }
+    }
+  ],
+  "product_observations": [
+    {
+      "observation_id": "OBS-238",
+      "feature_id": null,
+      "statement": "Unknown extension accepted as a generic file; the card did not imply successful content parsing.",
+      "case_ids": [
+        "DIALOG-021"
+      ],
+      "attempt_ids": [
+        "DIALOG-021-A01"
+      ],
+      "environment_id": "ENV-001",
+      "verified_depth": "Unknown extension file card and generic icon in the actual composer",
+      "scope_and_limits": "One harmless round-owned file in an unsent draft; no file content parsed or sent.",
+      "evidence": [
+        "证据/DIALOG-021/DIALOG-021-A01/unknown-card.png",
+        "证据/DIALOG-021/DIALOG-021-A01/unknown-card.txt",
+        "证据/DIALOG-021/DIALOG-021-A01/unknown-card-dom.json",
+        "证据/DIALOG-021/DIALOG-021-A01/source-preserved.json"
+      ],
+      "relation_to_design": "Pending bilateral review.",
+      "review_status": "待双方审核"
+    }
+  ],
+  "differences": [],
+  "finding_ids": [],
+  "blocker": null,
+  "applicability_reason": null,
+  "cleanup": {
+    "changes": [
+      "Removed the tested unknown/long-name attachment from the round-owned unsent draft."
+    ],
+    "remaining": [
+      "Source fixture files remain in the task fixture folder."
+    ]
+  },
+  "review": {
+    "assistant": null,
+    "user": null,
+    "approved_scope": [],
+    "final_decision": "待审核"
+  }
+}

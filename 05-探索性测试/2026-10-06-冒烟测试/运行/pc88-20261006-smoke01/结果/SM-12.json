@@ -1,0 +1,40 @@
+{
+  "id": "SM-12",
+  "contract_version": "smoke-1.0",
+  "machine_id": "PC-88",
+  "assertions": {
+    "SM-12-A1": {
+      "read": "reopen skill switch after disable",
+      "actual": "false",
+      "expected": false,
+      "pass": true
+    },
+    "SM-12-A2": {
+      "read": "final appearance option",
+      "actual": "跟随系统",
+      "expected": "跟随系统",
+      "pass": true
+    },
+    "SM-12-A3": {
+      "read": "attachments/popups/draft refs all recovered",
+      "chipCount": 0,
+      "attachCount": 0,
+      "dialogsOpen": 0,
+      "afterDisable": "false",
+      "themeSel": "跟随系统",
+      "expected": true,
+      "pass": true
+    }
+  },
+  "residuals": {
+    "importedSkill": "smoke-skill-pc88-20261006-smoke01",
+    "importedExpert": "smoke-expert-pc88-20261006-smoke01",
+    "expertDisabled": false,
+    "skillDisabled": true,
+    "sessionsRetained": [
+      "SM-03 chat",
+      "SM-07 skill",
+      "SM-09 expert"
+    ]
+  }
+}

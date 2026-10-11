@@ -1,0 +1,172 @@
+{
+  "call_id": "CALL-bc1ffb23-7c61-4a62-8764-ff0aa585213c",
+  "status": "returned",
+  "observations": {
+    "observations": {
+      "tree": {
+        "event_id": "CALL-bc1ffb23-7c61-4a62-8764-ff0aa585213c-1",
+        "captured_at": "2026-10-07T05:26:08.858Z",
+        "environment_id": "PC88-20261007-memlib-r2-01",
+        "business_call_id": "CALL-bc1ffb23-7c61-4a62-8764-ff0aa585213c",
+        "kind": "read",
+        "target": "记忆目录枚举",
+        "object_id": "C:\\Users\\Administrator\\.tpt-work\\dsh\\tpt-memory",
+        "source": {
+          "channel": "file",
+          "scope": "C:\\Users\\Administrator\\.tpt-work\\dsh\\tpt-memory"
+        },
+        "value": [
+          {
+            "rel": ".entry-meta.json",
+            "kind": "file",
+            "bytes": 123
+          },
+          {
+            "rel": ".reflection-state.json",
+            "kind": "file",
+            "bytes": 79
+          },
+          {
+            "rel": "2026-10-07.md",
+            "kind": "file",
+            "bytes": 322
+          },
+          {
+            "rel": "AGENTS.md",
+            "kind": "file",
+            "bytes": 135
+          },
+          {
+            "rel": "audit.jsonl",
+            "kind": "file",
+            "bytes": 2267
+          },
+          {
+            "rel": "index.json",
+            "kind": "file",
+            "bytes": 800
+          },
+          {
+            "rel": "MEMORY.md",
+            "kind": "file",
+            "bytes": 283
+          },
+          {
+            "rel": "MEMORY.md.bak",
+            "kind": "file",
+            "bytes": 127
+          },
+          {
+            "rel": "reflections",
+            "kind": "dir"
+          },
+          {
+            "rel": "SOUL.md",
+            "kind": "file",
+            "bytes": 76
+          },
+          {
+            "rel": "USER.md",
+            "kind": "file",
+            "bytes": 133
+          }
+        ],
+        "raw": {
+          "root": "C:\\Users\\Administrator\\.tpt-work\\dsh\\tpt-memory"
+        }
+      },
+      "MEMORY.md": {
+        "event_id": "CALL-bc1ffb23-7c61-4a62-8764-ff0aa585213c-2",
+        "captured_at": "2026-10-07T05:26:08.860Z",
+        "environment_id": "PC88-20261007-memlib-r2-01",
+        "business_call_id": "CALL-bc1ffb23-7c61-4a62-8764-ff0aa585213c",
+        "kind": "read",
+        "target": "记忆文件内容与哈希",
+        "object_id": "C:\\Users\\Administrator\\.tpt-work\\dsh\\tpt-memory\\MEMORY.md",
+        "source": {
+          "channel": "file",
+          "scope": "C:\\Users\\Administrator\\.tpt-work\\dsh\\tpt-memory\\MEMORY.md"
+        },
+        "value": {
+          "text": "- [F] MEM88R2-PC88-20261007-r2-01-MEM-02-s1 面板添加的唯一样本，编辑后新值 EDIT-2 用于本轮复跑核对。（2026-10-07）\n\n## 2026-10-07\n- [F] MEM88R2-PC88-20261007-r2-01-MEM-03-tool1 这是由模型通过真实记忆工具写入的事实样本。（2026-10-07）\n",
+          "sha256": "c79ea90b2909fad947ef56b9c5f504c198920699fca142d0872d9335603567ad",
+          "bytes": 283
+        },
+        "raw": {
+          "exists": true,
+          "path": "C:\\Users\\Administrator\\.tpt-work\\dsh\\tpt-memory\\MEMORY.md",
+          "mtime": "2026-10-07T04:58:51.310Z"
+        }
+      },
+      "index.json": {
+        "event_id": "CALL-bc1ffb23-7c61-4a62-8764-ff0aa585213c-3",
+        "captured_at": "2026-10-07T05:26:08.860Z",
+        "environment_id": "PC88-20261007-memlib-r2-01",
+        "business_call_id": "CALL-bc1ffb23-7c61-4a62-8764-ff0aa585213c",
+        "kind": "read",
+        "target": "记忆文件内容与哈希",
+        "object_id": "C:\\Users\\Administrator\\.tpt-work\\dsh\\tpt-memory\\index.json",
+        "source": {
+          "channel": "file",
+          "scope": "C:\\Users\\Administrator\\.tpt-work\\dsh\\tpt-memory\\index.json"
+        },
+        "value": {
+          "text": "{\n  \"version\": 1,\n  \"updatedAt\": \"2026-10-07\",\n  \"recallCounts\": {\n    \"ddd91b2327ef\": 1,\n    \"7513deb0e722\": 1\n  },\n  \"entries\": [\n    {\n      \"id\": \"ddd91b2327ef\",\n      \"type\": \"F\",\n      \"file\": \"C:\\\\Users\\\\Administrator\\\\.tpt-work\\\\dsh\\\\tpt-memory\\\\MEMORY.md\",\n      \"line\": 1,\n      \"keywords\": [\n        \"MEM88R2-PC88-20261007-r2-01-MEM-02-s1\",\n        \"面板添加的唯一样本\",\n        \"编辑后新值\",\n        \"EDIT-2\",\n        \"用于本轮复跑核对\"\n      ]\n    },\n    {\n      \"id\": \"7513deb0e722\",\n      \"type\": \"F\",\n      \"file\": \"C:\\\\Users\\\\Administrator\\\\.tpt-work\\\\dsh\\\\tpt-memory\\\\MEMORY.md\",\n      \"line\": 4,\n      \"keywords\": [\n        \"MEM88R2-PC88-20261007-r2-01-MEM-03-tool1\",\n        \"这是由模型通过真实记忆工具写入的事实样本\"\n      ]\n    }\n  ]\n}\n",
+          "sha256": "924c29f1a05130d83612e1dcf2534a037f5b73c1e2690919b55a081f770120e9",
+          "bytes": 800
+        },
+        "raw": {
+          "exists": true,
+          "path": "C:\\Users\\Administrator\\.tpt-work\\dsh\\tpt-memory\\index.json",
+          "mtime": "2026-10-07T05:21:29.800Z"
+        }
+      },
+      ".entry-meta.json": {
+        "event_id": "CALL-bc1ffb23-7c61-4a62-8764-ff0aa585213c-4",
+        "captured_at": "2026-10-07T05:26:08.861Z",
+        "environment_id": "PC88-20261007-memlib-r2-01",
+        "business_call_id": "CALL-bc1ffb23-7c61-4a62-8764-ff0aa585213c",
+        "kind": "read",
+        "target": "记忆文件内容与哈希",
+        "object_id": "C:\\Users\\Administrator\\.tpt-work\\dsh\\tpt-memory\\.entry-meta.json",
+        "source": {
+          "channel": "file",
+          "scope": "C:\\Users\\Administrator\\.tpt-work\\dsh\\tpt-memory\\.entry-meta.json"
+        },
+        "value": {
+          "text": "{\n  \"version\": 1,\n  \"entries\": {\n    \"7513deb0e722\": {\n      \"importance\": 4,\n      \"createdAt\": 1791349131313\n    }\n  }\n}\n",
+          "sha256": "75d3d19f2e14e46d5e492916bf2578c2eb91c1873e16595150a2988b74ef600f",
+          "bytes": 123
+        },
+        "raw": {
+          "exists": true,
+          "path": "C:\\Users\\Administrator\\.tpt-work\\dsh\\tpt-memory\\.entry-meta.json",
+          "mtime": "2026-10-07T04:58:51.315Z"
+        }
+      },
+      "audit.jsonl": {
+        "event_id": "CALL-bc1ffb23-7c61-4a62-8764-ff0aa585213c-5",
+        "captured_at": "2026-10-07T05:26:08.861Z",
+        "environment_id": "PC88-20261007-memlib-r2-01",
+        "business_call_id": "CALL-bc1ffb23-7c61-4a62-8764-ff0aa585213c",
+        "kind": "read",
+        "target": "记忆文件内容与哈希",
+        "object_id": "C:\\Users\\Administrator\\.tpt-work\\dsh\\tpt-memory\\audit.jsonl",
+        "source": {
+          "channel": "file",
+          "scope": "C:\\Users\\Administrator\\.tpt-work\\dsh\\tpt-memory\\audit.jsonl"
+        },
+        "value": {
+          "text": "{\"time\":1791281272227,\"actor\":\"reflection\",\"type\":\"reflection_nothing\",\"target\":\"C:\\\\Users\\\\Administrator\\\\.tpt-work\\\\dsh\\\\tpt-memory\\\\MEMORY.md\",\"summary\":\"本轮反思完成，暂无需升格的内容\",\"detail\":{\"engine\":\"rules\",\"promoted\":0}}\n{\"time\":1791281337522,\"actor\":\"reflection\",\"type\":\"reflection_nothing\",\"target\":\"C:\\\\Users\\\\Administrator\\\\.tpt-work\\\\dsh\\\\tpt-memory\\\\MEMORY.md\",\"summary\":\"本轮反思完成，暂无需升格的内容\",\"detail\":{\"engine\":\"rules\",\"promoted\":0}}\n{\"time\":1791281837034,\"actor\":\"reflection\",\"type\":\"reflection_nothing\",\"target\":\"C:\\\\Users\\\\Administrator\\\\.tpt-work\\\\dsh\\\\tpt-memory\\\\MEMORY.md\",\"summary\":\"本轮反思完成，暂无需升格的内容\",\"detail\":{\"engine\":\"rules\",\"promoted\":0}}\n{\"time\":1791283712062,\"actor\":\"reflection\",\"type\":\"reflection_nothing\",\"target\":\"C:\\\\Users\\\\Administrator\\\\.tpt-work\\\\dsh\\\\tpt-memory\\\\MEMORY.md\",\"summary\":\"反思完成：无需整理（两个记忆文件均为空，无需重组。）\",\"detail\":{\"engine\":\"llm\",\"provider\":\"tpt-official\",\"model\":\"flash\",\"evicted\":0}}\n{\"time\":1791343234779,\"actor\":\"host\",\"type\":\"memory_write\",\"target\":\"C:\\\\Users\\\\Administrator\\\\.tpt-work\\\\dsh\\\\tpt-memory\\\\MEMORY.md\",\"summary\":\"编辑文件 memory（57 字符）\"}\n{\"time\":1791343291067,\"actor\":\"tool\",\"type\":\"memory_write\",\"target\":\"C:\\\\Users\\\\Administrator\\\\.tpt-work\\\\dsh\\\\tpt-memory\\\\2026-10-07.md\",\"summary\":\"日志追加：MEM88-20261007-TOOL-乙\"}\n{\"time\":1791343303523,\"actor\":\"tool\",\"type\":\"memory_write\",\"target\":\"C:\\\\Users\\\\Administrator\\\\.tpt-work\\\\dsh\\\\tpt-memory\\\\MEMORY.md\",\"summary\":\"长期记忆追加 1 条（[F] importance=1）\",\"detail\":{\"count\":1,\"type\":\"F\",\"importance\":1}}\n{\"time\":1791343723915,\"actor\":\"host\",\"type\":\"memory_deleted\",\"target\":\"C:\\\\Users\\\\Administrator\\\\.tpt-work\\\\dsh\\\\tpt-memory\\\\MEMORY.md\",\"summary\":\"删除条目 60210b7faddd\"}\n{\"time\":1791348359293,\"actor\":\"host\",\"type\":\"memory_write\",\"target\":\"C:\\\\Users\\\\Administrator\\\\.tpt-work\\\\dsh\\\\tpt-memory\\\\MEMORY.md\",\"summary\":\"编辑文件 memory（89 字符）\"}\n{\"time\":1791349131315,\"actor\":\"tool\",\"type\":\"memory_write\",\"target\":\"C:\\\\Users\\\\Administrator\\\\.tpt-work\\\\dsh\\\\tpt-memory\\\\MEMORY.md\",\"summary\":\"长期记忆追加 1 条（[F] importance=4）\",\"detail\":{\"count\":1,\"type\":\"F\",\"importance\":4}}\n",
+          "sha256": "849e09d4d7d0884f94faebf1f69f2e944ca1b8425dc2fd01e65bc63702258554",
+          "bytes": 2267
+        },
+        "raw": {
+          "exists": true,
+          "path": "C:\\Users\\Administrator\\.tpt-work\\dsh\\tpt-memory\\audit.jsonl",
+          "mtime": "2026-10-07T04:58:51.318Z"
+        }
+      }
+    }
+  }
+}

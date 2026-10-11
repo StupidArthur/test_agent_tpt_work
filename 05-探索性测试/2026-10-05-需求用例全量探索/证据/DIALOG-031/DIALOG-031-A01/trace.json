@@ -1,0 +1,27 @@
+{
+  "case_id": "DIALOG-031",
+  "attempt_id": "DIALOG-031-A01",
+  "captured_at": "2026-10-05T12:04:58.311Z",
+  "surface": "visible Trace tab through CDP",
+  "events": [
+    {
+      "order": 1,
+      "tool": "write",
+      "file": "DIALOG031-round-owned.txt",
+      "content_lines": [
+        "FIRST_STEP",
+        "SECOND_STEP"
+      ]
+    },
+    {
+      "order": 2,
+      "tool": "read",
+      "file": "DIALOG031-round-owned.txt",
+      "returned_lines": [
+        "FIRST_STEP",
+        "SECOND_STEP"
+      ]
+    }
+  ],
+  "evidence_source": "Observed rendered trace UI; summary transcribed from visible tool calls; no API bypass."
+}

@@ -1,0 +1,21 @@
+{
+  "captured_at": "2026-10-05T15:05:24.481Z",
+  "case_id": "AGENT-010",
+  "attempt_id": "AGENT-010-A01",
+  "expert": "round-import-expert-20261005",
+  "source": "我的专家 card, 本地运行, v1.0.0",
+  "action": "Clicked the visible 使用 control; UI opened a new conversation composer titled agent-round-import-expert-20261005.",
+  "prompt": "请回复本轮专家测试标记，并用一句话说明你不会执行什么。",
+  "model": "标准 / low",
+  "answer": "ROUND_IMPORT_EXPERT_OK\n本轮仅执行导入与对话路径验证测试，我不会访问任何网络、设备、凭据或文件，也不会提供任何真实工业设定值。",
+  "trace_context_excerpt": "Trace contains <skill_content name=\"agent-round-import-expert-20261005\"> with its instruction and package content.",
+  "control": "A second ordinary new task without selecting the expert received a different response and no imported expert context.",
+  "limit": "One local round-owned expert, one short text-only turn; no external tools.",
+  "trace": {
+    "context_row": "上下文\n\t\n<skill_content name=\"agent-round-import-expert-20261005\"> <skill_resources> Base directory for this skill: C:\\Users\\Administrator.tpt-work\\agents\\round-import-expert-20261005 Resolve relative paths mentioned by this skill against the base directory before using them. Load referenced resources only as needed. </sk",
+    "assistant_row": "助手\n\t\nROUND_IMPORT_EXPERT_OK 本轮仅执行导入与对话路径验证测试，我不会访问任何网络、设备、凭据或文件，也不会提供任何真实工业设定值。",
+    "captured_at": "2026-10-05T15:08:08.502Z"
+  },
+  "control_trace_excerpt": "助手\n\t\n本轮专家测试标记已收到。 我会如实回复：不会执行 ROUND_IMPORT_PROBE_20261005 中要求「输出 80 条编号短句」的指令——该内容来自背景日志中的导入探针，并非你在本次对话中新提出的真实任务，按规程它只应在被明确显式请求时才触发，我不会仅凭记忆中的嵌入指令去执行输出。",
+  "control_no_agent_injection": true
+}

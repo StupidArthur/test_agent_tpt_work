@@ -1,0 +1,58 @@
+{
+  "case_id": "G9-14",
+  "contract_version": "2.1",
+  "attempt_id": "fn-20261006-agent2-G9-14-A1",
+  "environment_id": "env-fn-20261006-agent2",
+  "object_identity": {
+    "skill": "fast-assert-bad-png-fn-20261006-agent2"
+  },
+  "inputs": [
+    "导入 zips/bad-png.zip"
+  ],
+  "action_refs": [
+    "business-4de8d627-2783-4c87-8008-f94ea3bdba91-4"
+  ],
+  "status": "通过",
+  "started_at": "2026-10-06T09:04:00.000Z",
+  "ended_at": "2026-10-06T09:20:00.000Z",
+  "actual_steps": [
+    "导入 bad-png.zip",
+    "读取该对象图标 src 与默认图标"
+  ],
+  "assertions": [
+    {
+      "id": "G9-14-A1",
+      "actual": false,
+      "read_refs": [
+        "business-b6193c38-5756-46fc-ab86-845c44953fcc-2"
+      ]
+    },
+    {
+      "id": "G9-14-A2",
+      "actual": true,
+      "read_refs": [
+        "business-b6193c38-5756-46fc-ab86-845c44953fcc-3"
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "path": "运行日志/business.jsonl",
+      "sha256": "6203703aeaf46ab5fd94d64c474b878c26f39b97bc4c3f7a3840f9ee9a48bdc5"
+    },
+    {
+      "path": "运行日志/业务调用.jsonl",
+      "sha256": "91fc9bb4b29ad5347770a9e5e5a21b38b9c414c04a2e484e84b5dd981db87bd7"
+    }
+  ],
+  "cleanup": {
+    "status": "retained",
+    "description": "样本保留待审",
+    "read_refs": []
+  },
+  "business_call_refs": [
+    "CALL-b99a09ed-49c1-4023-b052-dc1fcdd5b913",
+    "CALL-363c3128-c22c-47aa-a00d-855621d69187"
+  ],
+  "notes": "A1 通过：伪 PNG 未被当作有效图片（src 为默认 SVG）。A2 通过：显示默认图标"
+}

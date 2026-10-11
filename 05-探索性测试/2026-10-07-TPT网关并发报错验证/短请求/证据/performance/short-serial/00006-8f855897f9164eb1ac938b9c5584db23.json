@@ -1,0 +1,118 @@
+{
+  "sample_id": "8f855897f9164eb1ac938b9c5584db23",
+  "request_index": 6,
+  "cases": [
+    "GW-SHORT-C1"
+  ],
+  "group": "short-serial",
+  "warmup": false,
+  "target": "gateway-chat",
+  "protocol": "chat",
+  "request": {
+    "model": "flash",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Reply with exactly OK. Do not explain."
+      }
+    ],
+    "stream": true,
+    "max_tokens": 128,
+    "stream_options": {
+      "include_usage": true
+    },
+    "think_level": "low"
+  },
+  "expected": {
+    "exact_text": "OK"
+  },
+  "checks": {
+    "http200": true,
+    "no_transport_error": true,
+    "valid_json": true,
+    "terminal": true,
+    "exact_text": true
+  },
+  "ok": true,
+  "fully_completed": true,
+  "request_sha256": "f1b1f0c6e7fffccaeded8507003c3fa25134fd16864580f9c64f5c98bf57e67d",
+  "utc": "2026-10-07T09:09:54Z",
+  "start_monotonic": 232806.375,
+  "end_monotonic": 232806.671,
+  "http": 200,
+  "error_kind": null,
+  "error": null,
+  "body_text": "",
+  "normalized": {
+    "protocol": "chat",
+    "text": "OK",
+    "reasoning": "",
+    "final_text": null,
+    "tool_calls": [],
+    "usage": {
+      "prompt_tokens": 13,
+      "completion_tokens": 17,
+      "total_tokens": 30,
+      "prompt_tokens_details": {},
+      "completion_tokens_details": {}
+    },
+    "terminal": "completed",
+    "terminal_reason": "stop",
+    "error_message": null,
+    "unknown_events": [],
+    "json_errors": []
+  },
+  "raw_frames": [
+    {
+      "t": 0.2960000000020955,
+      "event": null,
+      "data": "{\"id\":\"chatcmpl-1jbytbh1000dlyhlzoc8sba4vttztk3w\",\"object\":\"chat.completion.chunk\",\"created\":1791364197,\"model\":\"deepseekv4-flash\",\"choices\":[{\"index\":0,\"delta\":{\"role\":\"assistant\",\"content\":\"\"},\"finish_reason\":null}],\"usage\":null}",
+      "raw": "data: {\"id\":\"chatcmpl-1jbytbh1000dlyhlzoc8sba4vttztk3w\",\"object\":\"chat.completion.chunk\",\"created\":1791364197,\"model\":\"deepseekv4-flash\",\"choices\":[{\"index\":0,\"delta\":{\"role\":\"assistant\",\"content\":\"\"},\"finish_reason\":null}],\"usage\":null}",
+      "json_ok": true
+    },
+    {
+      "t": 0.2960000000020955,
+      "event": null,
+      "data": "{\"id\":\"chatcmpl-1jbytbh1000dlyhlzoc8sba4vttztk3w\",\"object\":\"chat.completion.chunk\",\"created\":1791364197,\"model\":\"deepseekv4-flash\",\"choices\":[{\"index\":0,\"delta\":{\"role\":\"\",\"content\":\"OK\"},\"finish_reason\":null}],\"usage\":null}",
+      "raw": "data: {\"id\":\"chatcmpl-1jbytbh1000dlyhlzoc8sba4vttztk3w\",\"object\":\"chat.completion.chunk\",\"created\":1791364197,\"model\":\"deepseekv4-flash\",\"choices\":[{\"index\":0,\"delta\":{\"role\":\"\",\"content\":\"OK\"},\"finish_reason\":null}],\"usage\":null}",
+      "json_ok": true
+    },
+    {
+      "t": 0.2960000000020955,
+      "event": null,
+      "data": "{\"id\":\"chatcmpl-1jbytbh1000dlyhlzoc8sba4vttztk3w\",\"object\":\"chat.completion.chunk\",\"created\":1791364197,\"model\":\"deepseekv4-flash\",\"choices\":[{\"index\":0,\"delta\":{\"role\":\"\",\"content\":null},\"finish_reason\":\"stop\"}],\"usage\":null}",
+      "raw": "data: {\"id\":\"chatcmpl-1jbytbh1000dlyhlzoc8sba4vttztk3w\",\"object\":\"chat.completion.chunk\",\"created\":1791364197,\"model\":\"deepseekv4-flash\",\"choices\":[{\"index\":0,\"delta\":{\"role\":\"\",\"content\":null},\"finish_reason\":\"stop\"}],\"usage\":null}",
+      "json_ok": true
+    },
+    {
+      "t": 0.2960000000020955,
+      "event": null,
+      "data": "{\"id\":\"chatcmpl-1jbytbh1000dlyhlzoc8sba4vttztk3w\",\"object\":\"chat.completion.chunk\",\"created\":1791364197,\"model\":\"deepseekv4-flash\",\"choices\":[],\"usage\":{\"prompt_tokens\":13,\"completion_tokens\":17,\"total_tokens\":30,\"prompt_tokens_details\":{},\"completion_tokens_details\":{}}}",
+      "raw": "data: {\"id\":\"chatcmpl-1jbytbh1000dlyhlzoc8sba4vttztk3w\",\"object\":\"chat.completion.chunk\",\"created\":1791364197,\"model\":\"deepseekv4-flash\",\"choices\":[],\"usage\":{\"prompt_tokens\":13,\"completion_tokens\":17,\"total_tokens\":30,\"prompt_tokens_details\":{},\"completion_tokens_details\":{}}}",
+      "json_ok": true
+    },
+    {
+      "t": 0.2960000000020955,
+      "event": null,
+      "data": "[DONE]",
+      "raw": "data: [DONE]",
+      "json_ok": null
+    }
+  ],
+  "metrics": {
+    "e2e": 0.296,
+    "first_event": 0.296,
+    "first_reasoning": null,
+    "first_text": 0.296,
+    "first_tool": null,
+    "input_tokens": 13,
+    "output_tokens": 17,
+    "output_tokens_per_e2e": 57.432432432432435,
+    "text_chars": 2,
+    "text_delta_count": 1,
+    "text_span": 0.0,
+    "text_intervals_s": [],
+    "middle_text_chunks_per_s": null,
+    "stream_batch_observation": null
+  }
+}

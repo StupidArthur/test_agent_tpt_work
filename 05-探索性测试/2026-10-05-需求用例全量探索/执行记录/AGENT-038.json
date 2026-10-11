@@ -1,0 +1,32 @@
+{
+  "case_id": "AGENT-038",
+  "case_title": "临时校验后替换",
+  "source_sha256": "c3cdc4c71c1746e9a647aa5190e0983229af9b41c22e2e6c9a9bc3da80727b66",
+  "status": "阻塞",
+  "review_status": "待双方审核",
+  "latest_attempt_id": null,
+  "attempts": [],
+  "product_observations": [],
+  "differences": [],
+  "finding_ids": [],
+  "blocker": {
+    "reason": "无法执行【临时校验后替换】：同上。本机「我的专家」为 0，且市场/云端/本地包的构造需要新增或导入 Agent。 Concrete unmet dependency: A round-owned local Agent and a matching explicitly newer market package plus a controllable safe update/import path are required. Current market cards are unadded and show download-to-local, without clear price or rollback information; installing them is not safe this round.",
+    "missing_dependency": "A round-owned local Agent and a matching explicitly newer market package plus a controllable safe update/import path are required. Current market cards are unadded and show download-to-local, without clear price or rollback information; installing them is not safe this round.",
+    "evidence": [
+      "证据/AGENT-003/AGENT-003-A01/专家市场.txt"
+    ],
+    "next_action": "Supply a clearly free, isolated round-owned market-update fixture with a reversible update flow; otherwise keep this blocked and do not install an ambiguous market listing.",
+    "dependency_reviewed_at": "2026-10-05T21:27:00+08:00"
+  },
+  "applicability_reason": null,
+  "cleanup": {
+    "changes": [],
+    "remaining": []
+  },
+  "review": {
+    "assistant": null,
+    "user": null,
+    "approved_scope": [],
+    "final_decision": "待审核"
+  }
+}

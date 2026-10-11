@@ -1,0 +1,127 @@
+{
+  "case_id": "SKILL-070",
+  "case_title": "根SKILL识别一个包",
+  "source_sha256": "92a6f4ecd2a5dffe0f1a2a60e73fa18b5fb98763b09cc56ce4cc22fd56e13f0e",
+  "status": "已执行-符合预期",
+  "review_status": "待双方审核",
+  "latest_attempt_id": "SKILL-070-A01",
+  "attempts": [
+    {
+      "attempt_id": "SKILL-070-A01",
+      "started_at": "2026-10-05T18:08:00.000Z",
+      "ended_at": "2026-10-05T18:08:00.000Z",
+      "environment_id": "ENV-001",
+      "surface": "TPT Work UI via verified CDP 127.0.0.1:9234 + Playwright; in-app file inputs; standard/low for actual Skill use",
+      "actual_preconditions": {
+        "account_alias": "Arthur",
+        "workspace": "tpt-workspace",
+        "project": "未新增项目",
+        "session_id": "本轮导入管理UI及显式调用新任务",
+        "model": "标准 / low（涉及实际调用的attempt）",
+        "permission": "工作区内修改；仅 round-owned fixtures",
+        "fixtures": [
+          "night-root-package-20261006.zip",
+          "night-trash-package-20261006.zip",
+          "night-collection-20261006",
+          "night-collection-safe-20261006",
+          "night-invalid-direct-20261006/SKILL.md"
+        ]
+      },
+      "input": "按SKILL-070用例检查点使用本轮无害导入夹具；未确认同名目录集合，避免可能覆盖。",
+      "actual_steps": [
+        "确认技能管理iframe、我的技能计数与本轮夹具归属。",
+        "经页面内文件选择器提交指定ZIP、SKILL.md或目录，不触发Windows原生文件窗口。",
+        "读取导入预览、结果、卡片/详情和计数；适用时以标准/low新任务实际调用本轮样本。",
+        "仅操作本轮样本的启停状态并保存界面证据。"
+      ],
+      "wait_condition": "等待 UI 预览或导入终态；读取可见卡片、来源、启停状态、详情目录和实际输出。",
+      "checkpoints": [
+        {
+          "expected_index": 1,
+          "expected": "整体识别一个Skill",
+          "observed": "我的技能列表仅出现 round-night-root-20261006 一张卡；详情列出3个包内文件。",
+          "verdict": "符合",
+          "evidence": [
+            "证据/SKILL-070/SKILL-070-A01/detail.png",
+            "证据/SKILL-070/SKILL-070-A01/import-result.png"
+          ]
+        },
+        {
+          "expected_index": 2,
+          "expected": "不拆内部子Skill",
+          "observed": "nested-skill作为同一Skill目录内文件夹显示；列表中无 round-night-nested-20261006 单独卡片。",
+          "verdict": "符合",
+          "evidence": [
+            "证据/SKILL-070/SKILL-070-A01/detail.png",
+            "证据/SKILL-070/SKILL-070-A01/import-result.png"
+          ]
+        }
+      ],
+      "observed_result": "真实 UI 导入 night-root-package-20261006.zip 成功，卡片技术名 round-night-root-20261006。详情显示一个 Skill 目录共3个文件（assets、nested-skill、SKILL.md），未拆出 nested-skill/SKILL.md 成为第二张 Skill 卡。标准/low 新任务显式调用返回唯一标记 ROUND_NIGHT_ROOT_20261006_OK。操作后仅将本轮样本切回未启用。",
+      "status": "已执行-符合预期",
+      "evidence": [
+        "证据/SKILL-070/SKILL-070-A01/import-result.png",
+        "证据/SKILL-070/SKILL-070-A01/detail.png",
+        "证据/SKILL-070/SKILL-070-A01/use-result.png",
+        "证据/SKILL-070/SKILL-070-A01/disabled-final.png"
+      ],
+      "difference_ids": [],
+      "notes": "只涉及本轮 round-owned 测试包；旧尝试保留；产品结论待双方审核。"
+    }
+  ],
+  "product_observations": [
+    {
+      "feature_id": null,
+      "statement": "真实 UI 导入 night-root-package-20261006.zip 成功，卡片技术名 round-night-root-20261006。详情显示一个 Skill 目录共3个文件（assets、nested-skill、SKILL.md），未拆出 nested-skill/SKILL.md 成为第二张 Skill 卡。标准/low 新任务显式调用返回唯一标记 ROUND_NIGHT_ROOT_20261006_OK。操作后仅将本轮样本切回未启用。",
+      "case_ids": [
+        "SKILL-070"
+      ],
+      "attempt_ids": [
+        "SKILL-070-A01"
+      ],
+      "environment_id": "ENV-001",
+      "verified_depth": "仅SKILL-070 SKILL-070-A01与其列明的round-owned UI样本",
+      "scope_and_limits": "只涉及本轮测试夹具、技能管理UI和本轮任务；未操作用户已有Skill。产品结论待双方审核。",
+      "evidence": [
+        "证据/SKILL-070/SKILL-070-A01/import-result.png",
+        "证据/SKILL-070/SKILL-070-A01/detail.png",
+        "证据/SKILL-070/SKILL-070-A01/use-result.png",
+        "证据/SKILL-070/SKILL-070-A01/disabled-final.png"
+      ],
+      "observation_id": "OBS-188"
+    }
+  ],
+  "differences": [],
+  "finding_ids": [],
+  "blocker": null,
+  "applicability_reason": null,
+  "cleanup": {
+    "changes": [
+      {
+        "change": "仅新增本轮round-owned Skill导入样本；root与valid collection样本已在UI停用。trash样本曾成功停用并留证；缺description样本被系统导入且UI开关为disabled+aria-checked=true，不能经开关恢复，本轮保留以供复核。未触及已有用户Skill。",
+        "restored": false,
+        "verification": "夜间续跑最新回读：round-night-root与round-night-trash、round-night-collection-valid为aria-checked=false；round-night-invalid-only因无description显示aria-checked=true且disabled=true。",
+        "evidence": [
+          "证据/SKILL-072/SKILL-072-A01/cleanup-current-state.png",
+          "证据/SKILL-068/SKILL-068-A02/failed-import.png"
+        ]
+      }
+    ],
+    "remaining": [
+      "round-owned导入样本保留；invalid-only条目因导入成功且启停控件禁用，尚不能通过当前UI恢复为停用。"
+    ]
+  },
+  "review": {
+    "assistant": null,
+    "user": null,
+    "approved_scope": [],
+    "final_decision": "待审核"
+  },
+  "audit_history": [
+    {
+      "at": "2026-10-05T18:08:00.000Z",
+      "event": "夜间UI实际操作补录SKILL-070-A01；保留旧记录，待双方审核。"
+    }
+  ],
+  "difference_ids": []
+}

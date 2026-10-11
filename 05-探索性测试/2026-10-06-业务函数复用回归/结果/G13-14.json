@@ -1,0 +1,64 @@
+{
+  "case_id": "G13-14",
+  "contract_version": "2.0",
+  "attempt_id": "fn-20261006-agent2-G13-14-A1",
+  "environment_id": "env-fn-20261006-agent2",
+  "object_identity": {
+    "side": "侧栏排序"
+  },
+  "inputs": [
+    "读取排序改后与恢复后选中值"
+  ],
+  "action_refs": [
+    "business-39257a3d-f6db-4065-ae6c-8d7bf057ac8d-2",
+    "business-8c0edf6f-6f6d-4ef3-855f-53e9159bd6a1-2"
+  ],
+  "status": "通过",
+  "started_at": "2026-10-06T11:20:00.000Z",
+  "ended_at": "2026-10-06T11:38:00.000Z",
+  "actual_steps": [
+    "读取排序初值",
+    "切换为最近更新并回读",
+    "恢复手动排序并回读"
+  ],
+  "assertions": [
+    {
+      "id": "G13-14-A1",
+      "actual": "最近更新",
+      "read_refs": [
+        "business-5ba7e5bc-29bd-46d7-b84a-5a4e44588bcf-3"
+      ]
+    },
+    {
+      "id": "G13-14-A2",
+      "actual": "手动排序",
+      "read_refs": [
+        "business-f1a0c94f-4708-480f-89f1-c482e5b1f4a3-3"
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "path": "运行日志/business.jsonl",
+      "sha256": "6203703aeaf46ab5fd94d64c474b878c26f39b97bc4c3f7a3840f9ee9a48bdc5"
+    },
+    {
+      "path": "运行日志/业务调用.jsonl",
+      "sha256": "91fc9bb4b29ad5347770a9e5e5a21b38b9c414c04a2e484e84b5dd981db87bd7"
+    }
+  ],
+  "cleanup": {
+    "status": "restored",
+    "description": "排序已恢复初值 手动排序",
+    "read_refs": [
+      "business-f1a0c94f-4708-480f-89f1-c482e5b1f4a3-3"
+    ]
+  },
+  "business_call_refs": [
+    "CALL-f0e3dd14-7125-4435-9160-d69d95e12b40",
+    "CALL-2f09f494-0289-4901-9964-05a2915f4e0f",
+    "CALL-36768ced-1ec9-4753-9123-9a7fc5e574a7",
+    "CALL-3742a4b4-1d7c-4fc1-a19c-500e8259dc0e"
+  ],
+  "notes": "sort_initial=手动排序，changed=最近更新；恢复后回读 手动排序"
+}

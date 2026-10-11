@@ -1,0 +1,37 @@
+{
+  "case_id": "G1-05",
+  "contract_version": "2.0",
+  "environment_id": "agent-oc-20261006-funcfull-01",
+  "attempt_id": "G1-05-A01",
+  "object_identity": "session-9c8be6fd-0bb0-4054-bb33-e5ae4667964f",
+  "inputs": [
+    "请只回复 FAST_CHAT_OK，不要输出其他任何内容"
+  ],
+  "business_call_refs": [
+    "CALL-4907698a-e133-4941-8103-83ea1858e7b3",
+    "CALL-260061ee-86f3-4a81-80d9-9e2a8610531b"
+  ],
+  "status": "通过",
+  "attempted_at": "2026-10-06T16:01:51.520Z",
+  "assertions": [
+    {
+      "id": "G1-05-A1",
+      "expected": 0,
+      "actual": 0,
+      "pass": true,
+      "read_refs": [
+        "CALL-260061ee-86f3-4a81-80d9-9e2a8610531b-1"
+      ],
+      "raw": {
+        "count": 0
+      }
+    }
+  ],
+  "restore": {
+    "status": "unchanged",
+    "description": "本case未改动设置/文件",
+    "read_refs": []
+  },
+  "residual": "",
+  "notes": "上一任务终态：可见运行中指示数量为 0。"
+}

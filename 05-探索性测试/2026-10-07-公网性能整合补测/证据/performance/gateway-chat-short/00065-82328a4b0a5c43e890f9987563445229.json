@@ -1,0 +1,81 @@
+{
+  "sample_id": "82328a4b0a5c43e890f9987563445229",
+  "request_index": 65,
+  "cases": [
+    "PERF-01",
+    "PERF-07"
+  ],
+  "group": "gateway-chat-short",
+  "warmup": false,
+  "target": "gateway-chat",
+  "protocol": "chat",
+  "request": {
+    "model": "flash",
+    "messages": [
+      {
+        "role": "user",
+        "content": "用一句话介绍你自己"
+      }
+    ],
+    "stream": false,
+    "max_tokens": 256,
+    "think_level": "low"
+  },
+  "expected": {
+    "nonempty": true,
+    "terminal_allowed": [
+      "completed"
+    ]
+  },
+  "checks": {
+    "http200": true,
+    "no_transport_error": true,
+    "valid_json": true,
+    "terminal": true,
+    "nonempty": true
+  },
+  "ok": true,
+  "fully_completed": true,
+  "request_sha256": "d36429216836aef5a61151c6299d158dd8b4451b361304d406247e03baac9da8",
+  "utc": "2026-10-07T05:25:44Z",
+  "http": 200,
+  "error_kind": null,
+  "error": null,
+  "body_text": "{\"id\":\"chatcmpl-1jbytbh1000dlycucftxuf2rua75gyji\",\"object\":\"chat.completion\",\"created\":1791350748,\"model\":\"flash\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"你好！我是DeepSeek，由深度求索公司创造的AI助手，擅长通过文字为你答疑解惑、提供建议，还能帮你处理文件、搜索信息，随时准备以热情细腻的方式为你提供免费帮助！\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":8,\"completion_tokens\":133,\"total_tokens\":141,\"prompt_tokens_details\":{},\"completion_tokens_details\":{}}}",
+  "normalized": {
+    "protocol": "chat",
+    "text": "你好！我是DeepSeek，由深度求索公司创造的AI助手，擅长通过文字为你答疑解惑、提供建议，还能帮你处理文件、搜索信息，随时准备以热情细腻的方式为你提供免费帮助！",
+    "reasoning": "",
+    "final_text": null,
+    "tool_calls": [],
+    "usage": {
+      "prompt_tokens": 8,
+      "completion_tokens": 133,
+      "total_tokens": 141,
+      "prompt_tokens_details": {},
+      "completion_tokens_details": {}
+    },
+    "terminal": "completed",
+    "terminal_reason": "stop",
+    "error_message": null,
+    "unknown_events": [],
+    "json_errors": []
+  },
+  "raw_frames": [],
+  "metrics": {
+    "e2e": 1.172,
+    "first_event": null,
+    "first_reasoning": null,
+    "first_text": null,
+    "first_tool": null,
+    "input_tokens": 8,
+    "output_tokens": 133,
+    "output_tokens_per_e2e": 113.48122866894198,
+    "text_chars": 82,
+    "text_delta_count": 0,
+    "text_span": null,
+    "text_intervals_s": [],
+    "middle_text_chunks_per_s": null,
+    "stream_batch_observation": null
+  }
+}

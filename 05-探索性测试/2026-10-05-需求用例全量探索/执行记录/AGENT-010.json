@@ -1,0 +1,128 @@
+{
+  "case_id": "AGENT-010",
+  "case_title": "已添加显示使用",
+  "source_sha256": "c3cdc4c71c1746e9a647aa5190e0983229af9b41c22e2e6c9a9bc3da80727b66",
+  "status": "已执行-结论不确定",
+  "review_status": "待双方审核",
+  "latest_attempt_id": "AGENT-010-A01",
+  "attempts": [
+    {
+      "attempt_id": "AGENT-010-A01",
+      "started_at": "2026-10-05T15:34:43.122Z",
+      "ended_at": "2026-10-05T15:34:43.122Z",
+      "environment_id": "ENV-001",
+      "surface": "TPT Work UI via CDP + Playwright; visible UI actions and trace",
+      "actual_preconditions": {
+        "account_alias": "Arthur",
+        "workspace": "tpt-workspace",
+        "project": "现有项目；未新增项目",
+        "session_id": "本轮新建测试会话（case 作用域见证据）",
+        "model": "标准 / low",
+        "permission": "工作区内修改",
+        "fixtures": [
+          "round-import-expert-20261005 本轮自建本地样本（保留）"
+        ]
+      },
+      "input": "从「我的专家」本地样本卡点「使用」；询问本轮标记与禁做事项。",
+      "actual_steps": [
+        "打开我的专家中的本轮导入样本卡片",
+        "点击可见「使用」进入专家上下文",
+        "发送无害标记询问并读取 Trace、答案；另开普通对照会话"
+      ],
+      "wait_condition": "等待 UI Trace 出现稳定终态；截图前重新读取当前界面。",
+      "checkpoints": [
+        {
+          "expected_index": 1,
+          "expected": "底部可使用",
+          "observed": "点击「使用」后打开带 agent-round-import-expert-20261005 上下文的新任务；模型返回 ROUND_IMPORT_EXPERT_OK 与明确边界。",
+          "verdict": "符合",
+          "evidence": [
+            "证据/AGENT-010/AGENT-010-A01/expert-answer-row.png",
+            "证据/AGENT-010/AGENT-010-A01/expert-card.png",
+            "证据/AGENT-010/AGENT-010-A01/expert-context-row.png",
+            "证据/AGENT-010/AGENT-010-A01/ordinary-control-row.png",
+            "证据/AGENT-010/AGENT-010-A01/usage.json"
+          ]
+        },
+        {
+          "expected_index": 2,
+          "expected": "市场不显示本地新版状态",
+          "observed": "本次验证的是「我的专家」本地样本使用行为；未测试市场卡片更新状态。",
+          "verdict": "未验证",
+          "evidence": [
+            "证据/AGENT-010/AGENT-010-A01/expert-answer-row.png",
+            "证据/AGENT-010/AGENT-010-A01/expert-card.png",
+            "证据/AGENT-010/AGENT-010-A01/expert-context-row.png",
+            "证据/AGENT-010/AGENT-010-A01/ordinary-control-row.png",
+            "证据/AGENT-010/AGENT-010-A01/usage.json"
+          ]
+        }
+      ],
+      "observed_result": "本地导入样本在新任务中实际可调用；Trace 出现其包上下文，普通会话对照无该上下文。市场更新状态不在本次验证范围。",
+      "status": "已执行-结论不确定",
+      "evidence": [
+        "证据/AGENT-010/AGENT-010-A01/expert-answer-row.png",
+        "证据/AGENT-010/AGENT-010-A01/expert-card.png",
+        "证据/AGENT-010/AGENT-010-A01/expert-context-row.png",
+        "证据/AGENT-010/AGENT-010-A01/ordinary-control-row.png",
+        "证据/AGENT-010/AGENT-010-A01/usage.json"
+      ],
+      "difference_ids": [],
+      "notes": "保留旧阻塞及旧 attempt 历史；当前为本地样本验证，不能替代原用例所述市场样本检查。"
+    }
+  ],
+  "product_observations": [
+    {
+      "feature_id": null,
+      "statement": "本地导入样本在新任务中实际可调用；Trace 出现其包上下文，普通会话对照无该上下文。市场更新状态不在本次验证范围。",
+      "case_ids": [
+        "AGENT-010"
+      ],
+      "attempt_ids": [
+        "AGENT-010-A01"
+      ],
+      "environment_id": "ENV-001",
+      "verified_depth": "本轮 UI 实际交互及 Trace/设置回读",
+      "scope_and_limits": "保留旧阻塞及旧 attempt 历史；当前为本地样本验证，不能替代原用例所述市场样本检查。",
+      "evidence": [
+        "证据/AGENT-010/AGENT-010-A01/expert-answer-row.png",
+        "证据/AGENT-010/AGENT-010-A01/expert-card.png",
+        "证据/AGENT-010/AGENT-010-A01/expert-context-row.png",
+        "证据/AGENT-010/AGENT-010-A01/ordinary-control-row.png",
+        "证据/AGENT-010/AGENT-010-A01/usage.json"
+      ],
+      "relation_to_design": "待双方审核；按检查点记录，未将待评审设计视为已批准产品规范。",
+      "review_status": "待双方审核"
+    }
+  ],
+  "differences": [],
+  "finding_ids": [],
+  "blocker": null,
+  "applicability_reason": null,
+  "cleanup": {
+    "changes": [],
+    "remaining": []
+  },
+  "review": {
+    "assistant": null,
+    "user": null,
+    "approved_scope": [],
+    "final_decision": "待审核"
+  },
+  "audit_history": [
+    {
+      "type": "previous blocker superseded by user-authorized night continuation",
+      "recorded_at": "2026-10-05T15:34:43.122Z",
+      "blocker": {
+        "reason": "无法执行【已添加显示使用】：需要在「我的专家」中有已添加对象；本机我的专家为 0。本机「我的专家」为 0，且市场/云端/本地包的构造需要新增或导入 Agent。",
+        "missing_dependency": "需要在「我的专家」中有已添加对象；本机我的专家为 0。",
+        "evidence": [
+          "证据/AGENT-003/AGENT-003-A01/专家市场.txt"
+        ],
+        "next_action": "需要本轮可用的 Agent 包夹具（完整包、缺必填/可选文件变体、同名副本）、一个已添加的市场来源样本，或授权执行导入（会打开原生目录选择器）。"
+      },
+      "disposition": "Preserved for history; not treated as current restriction."
+    }
+  ],
+  "notes": "已验证本地 round-owned Expert 的真实使用闭环；市场更新态尚未验证。"
+}

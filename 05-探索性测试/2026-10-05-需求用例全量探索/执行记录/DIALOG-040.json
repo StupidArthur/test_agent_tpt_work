@@ -1,0 +1,101 @@
+{
+  "case_id": "DIALOG-040",
+  "case_title": "执行详情回读",
+  "source_sha256": "b712acd3b204ebcfdd07129c4d993ea1beb184f9a2d0c3827745ee1fdf7a6677",
+  "status": "已执行-符合预期",
+  "review_status": "待双方审核",
+  "latest_attempt_id": "DIALOG-040-A01",
+  "attempts": [
+    {
+      "attempt_id": "DIALOG-040-A01",
+      "started_at": "2026-10-05T20:38:04+08:00",
+      "ended_at": "2026-10-05T20:39:10+08:00",
+      "environment_id": "ENV-001",
+      "surface": "Visible task conversation and Trace tabs in tpt-workspace",
+      "actual_preconditions": {
+        "project": "existing tpt-workspace",
+        "model": "standard / low",
+        "access_mode": "workspace edits",
+        "sample": "one task-created file, then removed through UI"
+      },
+      "input": "Create one round-owned file with a distinct line, read it back, inspect completed action details in Trace, then remove only that file.",
+      "actual_steps": [
+        "Submitted task through visible new-task UI.",
+        "Observed completed response and edited-file summary.",
+        "Opened Trace tab and read the actual write arguments and read output for the same task round.",
+        "Deleted only the created fixture through UI; Test-Path returned False."
+      ],
+      "wait_condition": "Waited for completion UI; creation/read task took 20 seconds, deletion task took 13 seconds.",
+      "checkpoints": [
+        {
+          "expected_index": 1,
+          "expected": "能看到实际参数输出或错误",
+          "observed": "Trace showed actual file path, write content DETAILS_ROUND_040 and read output DETAILS_ROUND_040; no error occurred.",
+          "verdict": "符合",
+          "evidence": [
+            "证据/DIALOG-040/DIALOG-040-A01/trace.json",
+            "证据/DIALOG-040/DIALOG-040-A01/trace.png"
+          ]
+        },
+        {
+          "expected_index": 2,
+          "expected": "与任务本轮一致",
+          "observed": "The requested file path and content matched this task round; the final conversation returned the same line. Subsequent cleanup removed only that round-owned file.",
+          "verdict": "符合",
+          "evidence": [
+            "证据/DIALOG-040/DIALOG-040-A01/result.png",
+            "证据/DIALOG-040/DIALOG-040-A01/trace.json",
+            "证据/DIALOG-040/DIALOG-040-A01/cleanup.json"
+          ]
+        }
+      ],
+      "observed_result": "Completed action detail exposed actual write/read calls, path and output; task conversation and trace agreed. Own fixture was subsequently removed.",
+      "status": "已执行-符合预期",
+      "evidence": [
+        "证据/DIALOG-040/DIALOG-040-A01/trace.json",
+        "证据/DIALOG-040/DIALOG-040-A01/trace.png",
+        "证据/DIALOG-040/DIALOG-040-A01/result.png",
+        "证据/DIALOG-040/DIALOG-040-A01/cleanup.json",
+        "证据/DIALOG-040/DIALOG-040-A01/cleanup.png"
+      ],
+      "difference_ids": [],
+      "notes": "UI Trace read only; no API bypass. Cleanup was limited to the task-created fixture.",
+      "cleanup": {}
+    }
+  ],
+  "product_observations": [
+    {
+      "observation": "Completed action Trace exposed actual write/read parameters and content output for the same task; response matched trace.",
+      "scope": "One low-model workspace task creating and reading one round-owned file",
+      "depth": "Rendered trace plus conversation and cleanup result",
+      "evidence": [
+        "证据/DIALOG-040/DIALOG-040-A01/trace.json",
+        "证据/DIALOG-040/DIALOG-040-A01/trace.png",
+        "证据/DIALOG-040/DIALOG-040-A01/result.png",
+        "证据/DIALOG-040/DIALOG-040-A01/cleanup.json",
+        "证据/DIALOG-040/DIALOG-040-A01/cleanup.png"
+      ],
+      "additional_feature": false
+    }
+  ],
+  "differences": [],
+  "finding_ids": [],
+  "blocker": null,
+  "applicability_reason": null,
+  "cleanup": {
+    "changes": [
+      {
+        "item": "DIALOG040-round-owned.txt",
+        "action": "Created/read one line, inspected through UI Trace, then deleted via UI",
+        "restore": "UI reported Test-Path False; no other file was touched"
+      }
+    ],
+    "remaining": []
+  },
+  "review": {
+    "assistant": null,
+    "user": null,
+    "approved_scope": [],
+    "final_decision": "待审核"
+  }
+}

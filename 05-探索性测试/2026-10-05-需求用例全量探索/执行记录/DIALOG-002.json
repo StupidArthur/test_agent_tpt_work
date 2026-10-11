@@ -1,0 +1,168 @@
+{
+  "case_id": "DIALOG-002",
+  "case_title": "后台任务完成提醒",
+  "source_sha256": "b712acd3b204ebcfdd07129c4d993ea1beb184f9a2d0c3827745ee1fdf7a6677",
+  "status": "已执行-符合预期",
+  "review_status": "待双方审核",
+  "latest_attempt_id": "DIALOG-002-A02",
+  "attempts": [
+    {
+      "attempt_id": "DIALOG-002-A01",
+      "started_at": "2026-10-05T19:40:00+08:00",
+      "ended_at": "2026-10-05T19:41:00+08:00",
+      "environment_id": "ENV-001",
+      "surface": "Electron UI through CDP 9234 + Playwright, dsh-app://app/ top frame",
+      "actual_preconditions": {
+        "workspace": "tpt-workspace",
+        "project": "existing project",
+        "model": "standard",
+        "reasoning_level": "low",
+        "permission": "workspace edits",
+        "session_a": "Write 25 distinct short reminders",
+        "session_b": "Reply exactly BACKGROUND_B_INTACT."
+      },
+      "input": "A: Write 25 distinct short reminders for safely handling hot water. End with BACKGROUND_A_DONE. B: Reply exactly BACKGROUND_B_INTACT.",
+      "actual_steps": [
+        "Submitted safe task A in the existing project.",
+        "Observed A enter running status, then used visible New Task and submitted independent short task B.",
+        "Waited for B to complete, opened B and confirmed its response. While B stayed current, the A row showed the literal status ????????? with warning state.",
+        "Saved background-state screenshot and DOM before opening A."
+      ],
+      "wait_condition": "A was expected to complete while B remained current; at capture A row showed unread/waiting-for-answer, not a clear completed marker.",
+      "checkpoints": [
+        {
+          "expected_index": 1,
+          "expected": "A显示完成提醒",
+          "observed": "A row displayed literal ????????? with warning state. No explicit completion reminder or A result was visible while B was current.",
+          "verdict": "未验证",
+          "evidence": [
+            "证据/DIALOG-002/DIALOG-002-A01/background-state.json",
+            "证据/DIALOG-002/DIALOG-002-A01/background.png"
+          ]
+        },
+        {
+          "expected_index": 2,
+          "expected": "B内容不被A回复覆盖",
+          "observed": "B remained a separate session and displayed exact response BACKGROUND_B_INTACT; A text did not appear in B body.",
+          "verdict": "符合",
+          "evidence": [
+            "证据/DIALOG-002/DIALOG-002-A01/background-state.json",
+            "证据/DIALOG-002/DIALOG-002-A01/background.png"
+          ]
+        }
+      ],
+      "observed_result": "B content remained independent. A was marked unread/waiting-for-answer in sidebar, but this does not establish whether completion reminder behavior worked because its UI status was not a clear completion state.",
+      "status": "已执行-结论不确定",
+      "evidence": [
+        "证据/DIALOG-002/DIALOG-002-A01/background-state.json",
+        "证据/DIALOG-002/DIALOG-002-A01/background.png"
+      ],
+      "difference_ids": [],
+      "notes": "Next inspect A. Current conclusion uncertain, not a confirmed product difference."
+    },
+    {
+      "attempt_id": "DIALOG-002-A02",
+      "started_at": "2026-10-05T19:40:00+08:00",
+      "ended_at": "2026-10-05T19:46:54+08:00",
+      "environment_id": "ENV-001",
+      "surface": "TPT Work Electron UI via CDP 9234 + Playwright; dsh-app://app/ top frame",
+      "actual_preconditions": {
+        "workspace": "tpt-workspace",
+        "project": "existing project",
+        "model": "standard / low",
+        "permission": "workspace edits",
+        "session_a": "Write 25 distinct short reminders",
+        "session_b": "Reply exactly BACKGROUND_B_INTACT."
+      },
+      "input": "A: Write 25 distinct short reminders for safely handling hot water; after the product asked output format, selected ?directly in conversation?. B: Reply exactly BACKGROUND_B_INTACT.",
+      "actual_steps": [
+        "Submitted A and observed the product request a delivery format; while A waited, created and completed separate B.",
+        "Opened A and selected the radio option ?????????, submitted the choice to resume A.",
+        "Switched to B while A was running.",
+        "While B remained selected, watched A transition from ????? to ??????? with a green/done state; B still displayed BACKGROUND_B_INTACT."
+      ],
+      "wait_condition": "A transitioned to terminal unread/idle row state while B remained selected.",
+      "checkpoints": [
+        {
+          "expected_index": 1,
+          "expected": "A显示完成提醒",
+          "observed": "Background A row displayed the exact status ???????; its status dot had data-state=done while B remained selected.",
+          "verdict": "符合",
+          "evidence": [
+            "证据/DIALOG-002/DIALOG-002-A02/background-state.json",
+            "证据/DIALOG-002/DIALOG-002-A02/background.png"
+          ]
+        },
+        {
+          "expected_index": 2,
+          "expected": "B内容不被A回复覆盖",
+          "observed": "B remained a separate current session and its body still showed BACKGROUND_B_INTACT; A output stayed in A row/session.",
+          "verdict": "符合",
+          "evidence": [
+            "证据/DIALOG-002/DIALOG-002-A02/background-state.json",
+            "证据/DIALOG-002/DIALOG-002-A02/background.png"
+          ]
+        }
+      ],
+      "observed_result": "After user clarification, A completed while B was foreground and displayed an unread/idle completion marker. B?s exact response remained intact in its own session.",
+      "status": "已执行-符合预期",
+      "evidence": [
+        "证据/DIALOG-002/DIALOG-002-A02/background-state.json",
+        "证据/DIALOG-002/DIALOG-002-A02/background.png"
+      ],
+      "difference_ids": [],
+      "notes": "A1 uncertain attempt retained: its first waiting-user state was not an explicit completion notice. A2 verifies background completion after responding to the clarification. Two current-round sessions remain in existing project."
+    }
+  ],
+  "product_observations": [
+    {
+      "observation": "While B remained current, the separate A row displayed ????????? and warning dot; B displayed its own response.",
+      "scope": "ENV-001, existing tpt-workspace, two round-owned sessions",
+      "depth": "sidebar row and B result directly observed; A task result not opened",
+      "evidence": [
+        "证据/DIALOG-002/DIALOG-002-A01/background-state.json",
+        "证据/DIALOG-002/DIALOG-002-A01/background.png"
+      ],
+      "additional_feature": false
+    },
+    {
+      "observation": "Background task A transitioned from running to unread/idle done marker while B remained current with its own response.",
+      "scope": "ENV-001, existing project, round-owned A/B tasks",
+      "depth": "background running-to-completion and independent B content observed",
+      "evidence": [
+        "证据/DIALOG-002/DIALOG-002-A02/background-state.json",
+        "证据/DIALOG-002/DIALOG-002-A02/background.png"
+      ],
+      "additional_feature": false
+    }
+  ],
+  "differences": [],
+  "finding_ids": [],
+  "blocker": {
+    "reason": "无法执行【后台任务完成提醒】：需要一条在后台完成的任务并观察侧栏提醒；需要可控的较长任务与切换浏览行为。 本机可用条件：标准/low 模型、单一项目、无附件夹具、无故障注入、无第二身份。",
+    "missing_dependency": "需要一条在后台完成的任务并观察侧栏提醒；需要可控的较长任务与切换浏览行为。 本机可用条件：标准/low 模型、单一项目、无附件夹具、无故障注入、无第二身份。",
+    "evidence": [
+      "证据/DIALOG-002/DIALOG-002-A01/反馈入口-摘录.txt"
+    ],
+    "next_action": "需要上述缺失的夹具/场景/能力之一；其中附件类需可控 HTML 输入或授权使用原生选择器，过程类需要一次包含工具调用的较长期望任务。"
+  },
+  "applicability_reason": null,
+  "cleanup": {
+    "changes": [
+      {
+        "item": "Round-owned A/B task sessions",
+        "action": "Retained for review",
+        "restore": "No restore required"
+      }
+    ],
+    "remaining": [
+      "DIALOG-002 A and B sessions remain in existing project"
+    ]
+  },
+  "review": {
+    "assistant": null,
+    "user": null,
+    "approved_scope": [],
+    "final_decision": "待审核"
+  }
+}

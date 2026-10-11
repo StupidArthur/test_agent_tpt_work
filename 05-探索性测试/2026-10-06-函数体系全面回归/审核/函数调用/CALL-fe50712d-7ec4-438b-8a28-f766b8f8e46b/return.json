@@ -1,0 +1,49 @@
+{
+  "call_id": "CALL-fe50712d-7ec4-438b-8a28-f766b8f8e46b",
+  "status": "returned",
+  "observations": {
+    "action_refs": [
+      "CALL-fe50712d-7ec4-438b-8a28-f766b8f8e46b-2"
+    ],
+    "observations": {
+      "detail": {
+        "event_id": "CALL-fe50712d-7ec4-438b-8a28-f766b8f8e46b-3",
+        "captured_at": "2026-10-06T16:34:31.365Z",
+        "environment_id": "agent-oc-20261006-funcfull-01",
+        "business_call_id": "CALL-fe50712d-7ec4-438b-8a28-f766b8f8e46b",
+        "kind": "read",
+        "target": "技能详情SKILL.md正文",
+        "object_id": "skill-detail-body",
+        "source": {
+          "channel": "dom",
+          "scope": "技能页/技能详情整页",
+          "locator": "[class*=\"dir-preview\"]"
+        },
+        "value": "---\nname: \"fast-assert-minimal-agent-oc-20261006-funcfull-01\"\ndescription: \"FAST_DESCRIPTION_BASE\"\n---\n\nWhen explicitly invoked, reply exactly FAST_MINIMAL_OK. Do not use tools or external systems.\n",
+        "raw": {
+          "length": 198,
+          "breadcrumb": "技能 / 详情"
+        }
+      },
+      "emptyFields": {
+        "event_id": "CALL-fe50712d-7ec4-438b-8a28-f766b8f8e46b-4",
+        "captured_at": "2026-10-06T16:34:31.367Z",
+        "environment_id": "agent-oc-20261006-funcfull-01",
+        "business_call_id": "CALL-fe50712d-7ec4-438b-8a28-f766b8f8e46b",
+        "kind": "read",
+        "target": "空可选字段占位",
+        "object_id": "skill-empty-fields",
+        "source": {
+          "channel": "dom",
+          "scope": "技能页/技能详情元数据区",
+          "locator": "[class*=\"page-body\"]"
+        },
+        "value": false,
+        "raw": {
+          "text": "Skill 目录 1个文件 SKILL.md SKILL.md 只读查看 --- name: \"fast-assert-minimal-agent-oc-20261006-funcfull-01\" description: \"FAST_DESCRIPTION_BASE\" --- When explicitly invoked, reply exactly FAST_MINIMAL_OK. Do not use tools or external systems."
+        },
+        "derivation": "空字段行正则命中"
+      }
+    }
+  }
+}

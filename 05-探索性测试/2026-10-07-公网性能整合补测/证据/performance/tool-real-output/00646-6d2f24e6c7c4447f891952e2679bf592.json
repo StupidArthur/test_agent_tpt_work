@@ -1,0 +1,119 @@
+{
+  "sample_id": "6d2f24e6c7c4447f891952e2679bf592",
+  "request_index": 646,
+  "cases": [
+    "TPT-07"
+  ],
+  "group": "tool-real-output",
+  "warmup": false,
+  "target": "gateway-responses",
+  "protocol": "responses",
+  "request": {
+    "model": "flash",
+    "input": [
+      {
+        "role": "user",
+        "content": [
+          {
+            "type": "input_text",
+            "text": "调用 add_numbers，参数 a=17 b=25。"
+          }
+        ]
+      }
+    ],
+    "stream": false,
+    "max_output_tokens": 2048,
+    "tools": [
+      {
+        "type": "function",
+        "name": "add_numbers",
+        "description": "Add two integers and return the sum.",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "a": {
+              "type": "integer"
+            },
+            "b": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "a",
+            "b"
+          ]
+        }
+      }
+    ],
+    "tool_choice": "required",
+    "reasoning": {
+      "effort": "low"
+    }
+  },
+  "expected": {
+    "terminal_allowed": [
+      "completed"
+    ]
+  },
+  "checks": {
+    "http200": true,
+    "no_transport_error": true,
+    "valid_json": true,
+    "terminal": true
+  },
+  "ok": true,
+  "fully_completed": true,
+  "request_sha256": "51048753d9537deb8ef50ae2ebe432ae4b5e1bd94c3822985b1e3a028c6b8021",
+  "utc": "2026-10-07T06:22:35Z",
+  "start_monotonic": 222766.625,
+  "end_monotonic": 222767.671,
+  "http": 200,
+  "error_kind": null,
+  "error": null,
+  "body_text": "{\"id\":\"resp_bad9af45e3c7452f\",\"created_at\":1791354158,\"incomplete_details\":null,\"instructions\":null,\"metadata\":null,\"model\":\"flash\",\"object\":\"response\",\"output\":[{\"id\":\"rs_8b8d99350ff4d31e\",\"summary\":[],\"type\":\"reasoning\",\"content\":[{\"text\":\"The user wants me to call the add_numbers tool with a=17 and b=25. This is a single tool call with no dependencies, so I can make it directly.\",\"type\":\"reasoning_text\"}],\"encrypted_content\":null,\"status\":null},{\"arguments\":\"{\\\"a\\\": 17, \\\"b\\\": 25}\",\"call_id\":\"chatcmpl-tool-907531e25a70b158\",\"name\":\"add_numbers\",\"type\":\"function_call\",\"id\":\"fc_9392e948b92d8dfc\",\"caller\":null,\"namespace\":null,\"status\":\"completed\"}],\"parallel_tool_calls\":true,\"temperature\":1.0,\"tool_choice\":\"required\",\"tools\":[{\"name\":\"add_numbers\",\"parameters\":{\"properties\":{\"a\":{\"type\":\"integer\"},\"b\":{\"type\":\"integer\"}},\"required\":[\"a\",\"b\"],\"type\":\"object\"},\"strict\":null,\"type\":\"function\",\"allowed_callers\":null,\"defer_loading\":null,\"description\":\"Add two integers and return the sum.\",\"output_schema\":null}],\"top_p\":1.0,\"background\":false,\"max_output_tokens\":2048,\"max_tool_calls\":null,\"previous_response_id\":null,\"prompt\":null,\"reasoning\":{\"context\":null,\"effort\":\"low\",\"generate_summary\":null,\"mode\":null,\"summary\":null},\"service_tier\":\"auto\",\"status\":\"completed\",\"text\":null,\"top_logprobs\":null,\"truncation\":\"disabled\",\"usage\":{\"input_tokens\":330,\"input_tokens_details\":{\"cached_tokens\":0,\"input_tokens_per_turn\":[],\"cached_tokens_per_turn\":[]},\"output_tokens\":97,\"output_tokens_details\":{\"reasoning_tokens\":0,\"tool_output_tokens\":0,\"output_tokens_per_turn\":[],\"tool_output_tokens_per_turn\":[]},\"total_tokens\":427},\"user\":null,\"presence_penalty\":0.0,\"frequency_penalty\":0.0,\"kv_transfer_params\":null,\"ec_transfer_params\":null,\"input_messages\":null,\"output_messages\":null}",
+  "normalized": {
+    "protocol": "responses",
+    "text": "",
+    "reasoning": "The user wants me to call the add_numbers tool with a=17 and b=25. This is a single tool call with no dependencies, so I can make it directly.",
+    "final_text": null,
+    "tool_calls": [],
+    "usage": {
+      "input_tokens": 330,
+      "input_tokens_details": {
+        "cached_tokens": 0,
+        "input_tokens_per_turn": [],
+        "cached_tokens_per_turn": []
+      },
+      "output_tokens": 97,
+      "output_tokens_details": {
+        "reasoning_tokens": 0,
+        "tool_output_tokens": 0,
+        "output_tokens_per_turn": [],
+        "tool_output_tokens_per_turn": []
+      },
+      "total_tokens": 427
+    },
+    "terminal": "completed",
+    "terminal_reason": "completed",
+    "error_message": null,
+    "unknown_events": [],
+    "json_errors": []
+  },
+  "raw_frames": [],
+  "metrics": {
+    "e2e": 1.046,
+    "first_event": null,
+    "first_reasoning": null,
+    "first_text": null,
+    "first_tool": null,
+    "input_tokens": 330,
+    "output_tokens": 97,
+    "output_tokens_per_e2e": 92.73422562141491,
+    "text_chars": 0,
+    "text_delta_count": 0,
+    "text_span": null,
+    "text_intervals_s": [],
+    "middle_text_chunks_per_s": null,
+    "stream_batch_observation": null
+  }
+}

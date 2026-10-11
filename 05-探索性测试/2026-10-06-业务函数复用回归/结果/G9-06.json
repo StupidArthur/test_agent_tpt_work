@@ -1,0 +1,51 @@
+{
+  "case_id": "G9-06",
+  "contract_version": "2.0",
+  "attempt_id": "fn-20261006-agent2-G9-06-A1",
+  "environment_id": "env-fn-20261006-agent2",
+  "object_identity": {
+    "skill": "fast-assert-desc-tech-fn-20261006-agent2"
+  },
+  "inputs": [
+    "导入 variants/desc-tech"
+  ],
+  "action_refs": [
+    "business-43b3aa08-22b6-40b6-b11f-e8691b2f8724-4"
+  ],
+  "status": "通过",
+  "started_at": "2026-10-06T09:04:00.000Z",
+  "ended_at": "2026-10-06T09:20:00.000Z",
+  "actual_steps": [
+    "导入 desc-tech",
+    "读取卡片描述"
+  ],
+  "assertions": [
+    {
+      "id": "G9-06-A1",
+      "actual": "FAST_DESCRIPTION_BASE",
+      "read_refs": [
+        "business-5cbbe9ae-9f96-4470-9761-794aa668e55a-3"
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "path": "运行日志/business.jsonl",
+      "sha256": "6203703aeaf46ab5fd94d64c474b878c26f39b97bc4c3f7a3840f9ee9a48bdc5"
+    },
+    {
+      "path": "运行日志/业务调用.jsonl",
+      "sha256": "91fc9bb4b29ad5347770a9e5e5a21b38b9c414c04a2e484e84b5dd981db87bd7"
+    }
+  ],
+  "cleanup": {
+    "status": "retained",
+    "description": "样本保留待审",
+    "read_refs": []
+  },
+  "business_call_refs": [
+    "CALL-49614a5c-2fde-497f-86cd-6f490f8ce9fe",
+    "CALL-b4fbdeea-b9bd-4f60-8912-363f74379ba3"
+  ],
+  "notes": "仅技术 description，直接展示"
+}

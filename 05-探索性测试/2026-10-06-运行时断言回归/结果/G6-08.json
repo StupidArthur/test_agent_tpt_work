@@ -1,0 +1,61 @@
+{
+  "case_id": "G6-08",
+  "contract_version": "2.0",
+  "attempt_id": "G6-A01",
+  "environment_id": "env-20261006-oc1",
+  "object_identity": "场景预设恢复",
+  "inputs": [
+    "标准模式"
+  ],
+  "action_refs": [
+    "G6-0dfbb76c-8163-4009-a897-197ae54c0faf-3",
+    "G6-0dfbb76c-8163-4009-a897-197ae54c0faf-6",
+    "G6-0dfbb76c-8163-4009-a897-197ae54c0faf-9",
+    "G6-0dfbb76c-8163-4009-a897-197ae54c0faf-12",
+    "G6-0dfbb76c-8163-4009-a897-197ae54c0faf-15",
+    "G6-0dfbb76c-8163-4009-a897-197ae54c0faf-18",
+    "G6-0dfbb76c-8163-4009-a897-197ae54c0faf-20",
+    "G6-0dfbb76c-8163-4009-a897-197ae54c0faf-23",
+    "G6-0dfbb76c-8163-4009-a897-197ae54c0faf-25",
+    "G6-0dfbb76c-8163-4009-a897-197ae54c0faf-28",
+    "G6-0dfbb76c-8163-4009-a897-197ae54c0faf-30",
+    "G6-0dfbb76c-8163-4009-a897-197ae54c0faf-32",
+    "G6-0dfbb76c-8163-4009-a897-197ae54c0faf-35",
+    "G6-0dfbb76c-8163-4009-a897-197ae54c0faf-37",
+    "G6-0dfbb76c-8163-4009-a897-197ae54c0faf-40",
+    "G6-0dfbb76c-8163-4009-a897-197ae54c0faf-43",
+    "G6-0dfbb76c-8163-4009-a897-197ae54c0faf-46",
+    "G6-0dfbb76c-8163-4009-a897-197ae54c0faf-49",
+    "G6-0dfbb76c-8163-4009-a897-197ae54c0faf-51",
+    "G6-0dfbb76c-8163-4009-a897-197ae54c0faf-54",
+    "G6-0dfbb76c-8163-4009-a897-197ae54c0faf-56"
+  ],
+  "status": "通过",
+  "started_at": "2026-10-06T05:09:25.292Z",
+  "ended_at": "2026-10-06T05:10:49.220Z",
+  "actual_steps": [
+    "恢复标准",
+    "新任务读场景"
+  ],
+  "assertions": [
+    {
+      "id": "G6-08-A1",
+      "actual": "标准模式",
+      "read_refs": [
+        "G6-0dfbb76c-8163-4009-a897-197ae54c0faf-57"
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "path": "运行日志/G6.jsonl",
+      "sha256": "b7a2093f7aedd2ceb007ce52ad3a0272ac5f5281f02aa5f913cbb4b73233aaf5"
+    }
+  ],
+  "cleanup": {
+    "status": "restored",
+    "description": "主题/语言/字号/权限/场景均已恢复初值并独立回读",
+    "read_refs": []
+  },
+  "notes": "G6逐项保存初值、修改、效果、重开与恢复。"
+}

@@ -1,0 +1,94 @@
+{
+  "observations": {
+    "action_refs": [
+      "business-6b6721dc-d6db-4622-a0ce-1f43b1723a99-2"
+    ],
+    "observations": {
+      "count": {
+        "event_id": "business-6b6721dc-d6db-4622-a0ce-1f43b1723a99-3",
+        "captured_at": "2026-10-06T07:31:29.371Z",
+        "environment_id": "env-fn-20261006-agent2",
+        "kind": "read",
+        "target": "搜索结果卡片数量",
+        "business_call_id": "CALL-03b04a3d-a0ec-4935-813f-36de89fd20f5",
+        "object_id": "search-results",
+        "source": {
+          "channel": "dom",
+          "scope": "技能页/我的技能搜索结果",
+          "locator": "section.panel [data-slot=\"card\"]"
+        },
+        "value": 22,
+        "raw": {
+          "count": 22,
+          "titles": [
+            "本轮快速回归技能",
+            "查找技能",
+            "创建技能",
+            "配置连接器",
+            "添加连接器",
+            "指标数据查询",
+            "指标信息查询",
+            "Agent 创建与修改",
+            "dingtalk-aisearch",
+            "dingtalk-aitable",
+            "dingtalk-calendar",
+            "dingtalk-chat",
+            "dingtalk-contact",
+            "dingtalk-doc",
+            "dingtalk-drive",
+            "dingtalk-event",
+            "dingtalk-mail",
+            "dingtalk-minutes",
+            "dingtalk-misc",
+            "dingtalk-shared",
+            "dingtalk-todo",
+            "dingtalk-wiki"
+          ]
+        }
+      },
+      "titleContains": {
+        "event_id": "business-6b6721dc-d6db-4622-a0ce-1f43b1723a99-4",
+        "captured_at": "2026-10-06T07:31:29.374Z",
+        "environment_id": "env-fn-20261006-agent2",
+        "kind": "read",
+        "target": "搜索命中标题是否含搜索词",
+        "business_call_id": "CALL-03b04a3d-a0ec-4935-813f-36de89fd20f5",
+        "object_id": "search-title-contains",
+        "source": {
+          "channel": "dom",
+          "scope": "技能页/我的技能搜索结果",
+          "locator": ".card-title h3"
+        },
+        "value": true,
+        "raw": {
+          "term": "",
+          "titles": [
+            "本轮快速回归技能",
+            "查找技能",
+            "创建技能",
+            "配置连接器",
+            "添加连接器",
+            "指标数据查询",
+            "指标信息查询",
+            "Agent 创建与修改",
+            "dingtalk-aisearch",
+            "dingtalk-aitable",
+            "dingtalk-calendar",
+            "dingtalk-chat",
+            "dingtalk-contact",
+            "dingtalk-doc",
+            "dingtalk-drive",
+            "dingtalk-event",
+            "dingtalk-mail",
+            "dingtalk-minutes",
+            "dingtalk-misc",
+            "dingtalk-shared",
+            "dingtalk-todo",
+            "dingtalk-wiki"
+          ]
+        },
+        "derivation": "titles.some(t => t.includes(term))"
+      }
+    }
+  }
+}

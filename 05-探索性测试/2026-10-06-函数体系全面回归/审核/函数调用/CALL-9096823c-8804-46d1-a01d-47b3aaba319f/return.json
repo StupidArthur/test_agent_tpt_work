@@ -1,0 +1,86 @@
+{
+  "call_id": "CALL-9096823c-8804-46d1-a01d-47b3aaba319f",
+  "status": "returned",
+  "observations": {
+    "observations": {
+      "text": {
+        "event_id": "CALL-9096823c-8804-46d1-a01d-47b3aaba319f-1",
+        "captured_at": "2026-10-06T17:05:46.567Z",
+        "environment_id": "agent-oc-20261006-funcfull-01",
+        "business_call_id": "CALL-9096823c-8804-46d1-a01d-47b3aaba319f",
+        "kind": "read",
+        "target": "用量页脚文本",
+        "object_id": "usage-footer",
+        "source": {
+          "channel": "dom",
+          "scope": "composer 页脚用量区",
+          "locator": "body"
+        },
+        "value": "",
+        "raw": {
+          "text": ""
+        }
+      },
+      "detailedHidden": {
+        "event_id": "CALL-9096823c-8804-46d1-a01d-47b3aaba319f-2",
+        "captured_at": "2026-10-06T17:05:46.568Z",
+        "environment_id": "agent-oc-20261006-funcfull-01",
+        "business_call_id": "CALL-9096823c-8804-46d1-a01d-47b3aaba319f",
+        "kind": "read",
+        "target": "简洁页脚详细字段全隐藏",
+        "object_id": "usage-footer-detailed-hidden",
+        "source": {
+          "channel": "derived",
+          "scope": "composer 页脚用量区",
+          "locator": "usage-footer"
+        },
+        "value": true,
+        "raw": {
+          "text": "",
+          "hasRounds": false,
+          "hasSteps": false,
+          "hasTotal": false
+        },
+        "derivation": "!hasRounds && !hasSteps && !hasTotal"
+      },
+      "basicPresent": {
+        "event_id": "CALL-9096823c-8804-46d1-a01d-47b3aaba319f-3",
+        "captured_at": "2026-10-06T17:05:46.568Z",
+        "environment_id": "agent-oc-20261006-funcfull-01",
+        "business_call_id": "CALL-9096823c-8804-46d1-a01d-47b3aaba319f",
+        "kind": "read",
+        "target": "简洁页脚基本用量存在",
+        "object_id": "usage-footer-basic",
+        "source": {
+          "channel": "derived",
+          "scope": "composer 页脚用量区",
+          "locator": "usage-footer"
+        },
+        "value": false,
+        "raw": {
+          "text": ""
+        },
+        "derivation": "tok/s 或百分比存在"
+      },
+      "detailedShown": {
+        "event_id": "CALL-9096823c-8804-46d1-a01d-47b3aaba319f-4",
+        "captured_at": "2026-10-06T17:05:46.568Z",
+        "environment_id": "agent-oc-20261006-funcfull-01",
+        "business_call_id": "CALL-9096823c-8804-46d1-a01d-47b3aaba319f",
+        "kind": "read",
+        "target": "详细页脚字段显示",
+        "object_id": "usage-footer-detailed",
+        "source": {
+          "channel": "derived",
+          "scope": "composer 页脚用量区",
+          "locator": "usage-footer"
+        },
+        "value": false,
+        "raw": {
+          "text": ""
+        },
+        "derivation": "轮/步/token总量均显示"
+      }
+    }
+  }
+}

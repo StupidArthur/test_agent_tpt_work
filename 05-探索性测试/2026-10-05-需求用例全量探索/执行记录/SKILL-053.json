@@ -1,0 +1,163 @@
+{
+  "case_id": "SKILL-053",
+  "case_title": "添加前完整只读",
+  "source_sha256": "92a6f4ecd2a5dffe0f1a2a60e73fa18b5fb98763b09cc56ce4cc22fd56e13f0e",
+  "status": "已执行-结论不确定",
+  "review_status": "待双方审核",
+  "latest_attempt_id": "SKILL-053-A02",
+  "attempts": [
+    {
+      "attempt_id": "SKILL-053-A01",
+      "started_at": "2026-10-05T20:13:00+08:00",
+      "ended_at": "2026-10-05T12:13:20.753Z",
+      "environment_id": "ENV-001",
+      "surface": "Skills iframe dsh-app://app/api/supcon-skills/ui",
+      "actual_preconditions": {
+        "account": "Arthur",
+        "section": "Skill market",
+        "listing": "报告模板生成, v1.1.0, only one market listing; no install performed"
+      },
+      "input": "Read the market Skill listing before adding it; verify whether the full content is available and whether edit/local-open actions exist. Do not add or install it.",
+      "actual_steps": [
+        "Clicked 技能 in top navigation and scoped all further locators to the Skills iframe.",
+        "Opened 技能市场; one market listing was present.",
+        "Opened 查看简介 and read the description, version, author, usage examples and 内容摘要.",
+        "Confirmed a visible 添加 action; did not activate it. No edit or local-open action appeared in the detail view."
+      ],
+      "wait_condition": "Waited for market listing and detail modal to render.",
+      "checkpoints": [
+        {
+          "expected_index": 1,
+          "expected": "可读完整内容",
+          "observed": "The market detail modal exposed description, version 1.1.0, author, examples and a 内容摘要 field, but did not expose the full Skill package content. Full-content criterion remains unverified.",
+          "verdict": "未验证",
+          "evidence": [
+            "证据/SKILL-053/SKILL-053-A01/preview.json",
+            "证据/SKILL-053/SKILL-053-A01/preview.png"
+          ]
+        },
+        {
+          "expected_index": 2,
+          "expected": "不能编辑或本地打开",
+          "observed": "The preview was read-only: the modal had a close action and 添加; no edit or local-open control was shown. Add was not clicked.",
+          "verdict": "符合",
+          "evidence": [
+            "证据/SKILL-053/SKILL-053-A01/preview.json",
+            "证据/SKILL-053/SKILL-053-A01/preview.png"
+          ]
+        }
+      ],
+      "observed_result": "Read-only market preview opened successfully; it exposed summary/metadata only. No install/add performed. Full Skill package body was not available in this preview.",
+      "status": "已执行-结论不确定",
+      "evidence": [
+        "证据/SKILL-053/SKILL-053-A01/preview.json",
+        "证据/SKILL-053/SKILL-053-A01/preview.png"
+      ],
+      "difference_ids": [],
+      "notes": "Single market listing, no paid resource known or installed. Because package content was not exposed before Add and adding is unnecessary to this read-only check, first checkpoint remains unverified, pending bilateral review.",
+      "cleanup": {}
+    },
+    {
+      "attempt_id": "SKILL-053-A02",
+      "started_at": "2026-10-06T05:45:00+08:00",
+      "ended_at": "2026-10-05T21:50:27.837Z",
+      "environment_id": "ENV-001",
+      "surface": "Skills market iframe UI via Electron CDP + Playwright",
+      "actual_preconditions": {
+        "account": "Arthur",
+        "market": "1 Skills item visible; report-template-generator market card selected for read-only inspection",
+        "model": "standard / low",
+        "actions": "No add/install action"
+      },
+      "input": "Opened 查看简介 for the market Skill. Read the details without adding it or opening an external/local asset.",
+      "actual_steps": [
+        "Switched from 我的技能 to 技能市场 and observed one listing, 报告模板生成.",
+        "Opened 查看简介 on that listing.",
+        "Read the complete displayed description, tags, version, author, examples and 内容摘要.",
+        "Inspected modal controls: only close and 添加 were present; did not click 添加. No editor or local-open control was shown in this modal."
+      ],
+      "wait_condition": "Waited for the market detail dialog to render and read all visible content.",
+      "checkpoints": [
+        {
+          "expected_index": 1,
+          "expected": "可读完整内容",
+          "observed": "The modal exposed the card description, tags, version 1.1.0, author, prompt examples and 内容摘要. It did not expose the raw Skill package body; whether “完整内容” means all displayed details or the package is ambiguous.",
+          "verdict": "未验证",
+          "evidence": [
+            "证据/SKILL-053/SKILL-053-A02/market-detail.png",
+            "证据/SKILL-053/SKILL-053-A02/market-detail.txt"
+          ]
+        },
+        {
+          "expected_index": 2,
+          "expected": "不能编辑或本地打开",
+          "observed": "This read-only detail modal exposed only close and 添加 buttons; no edit or local-open action was shown. 添加 was not clicked.",
+          "verdict": "符合",
+          "evidence": [
+            "证据/SKILL-053/SKILL-053-A02/market-detail.png",
+            "证据/SKILL-053/SKILL-053-A02/market-detail.txt"
+          ]
+        }
+      ],
+      "observed_result": "The market preview is readable before adding and offers no edit/local-open action in this modal. The page shows description, tags, version, author, examples and a summary, but not the raw Skill package. No installation or market addition occurred.",
+      "status": "已执行-结论不确定",
+      "evidence": [
+        "证据/SKILL-053/SKILL-053-A02/market-detail.png",
+        "证据/SKILL-053/SKILL-053-A02/market-detail.txt",
+        "证据/SKILL-053/SKILL-053-A02/market-entry.txt"
+      ],
+      "notes": "Read-only market inspection only. Item price/free status was not checked and no purchase/add action was taken. Pending bilateral review.",
+      "cleanup": {
+        "changes": [],
+        "remaining": []
+      }
+    }
+  ],
+  "product_observations": [
+    {
+      "observation": "The Skill market detail modal exposes metadata and 内容摘要, with 添加 as the only visible primary action; no edit/local-open control appeared.",
+      "scope": "One report-template listing in Skill market, read-only",
+      "depth": "Visible iframe content and action set inspected",
+      "evidence": [
+        "证据/SKILL-053/SKILL-053-A01/preview.json",
+        "证据/SKILL-053/SKILL-053-A01/preview.png"
+      ],
+      "additional_feature": false
+    },
+    {
+      "observation_id": "OBS-230",
+      "feature_id": null,
+      "statement": "Before adding the market Skill, 查看简介 displayed the visible UI details (description, tags, version, author, examples and summary); the modal offered only close and 添加. Raw Skill source was not visible. The phrase “complete content” remains ambiguous.",
+      "case_ids": [
+        "SKILL-053"
+      ],
+      "attempt_ids": [
+        "SKILL-053-A02"
+      ],
+      "environment_id": "ENV-001",
+      "verified_depth": "Skills market listing and pre-add detail modal; no installation",
+      "scope_and_limits": "One report-template market item. No add/purchase, source package read, or external/local open was attempted.",
+      "evidence": [
+        "证据/SKILL-053/SKILL-053-A02/market-detail.png",
+        "证据/SKILL-053/SKILL-053-A02/market-detail.txt",
+        "证据/SKILL-053/SKILL-053-A02/market-entry.txt"
+      ],
+      "relation_to_design": "Pending bilateral review; this resolves the no-install inspection path but does not establish raw package readability.",
+      "review_status": "待双方审核"
+    }
+  ],
+  "differences": [],
+  "finding_ids": [],
+  "blocker": null,
+  "applicability_reason": null,
+  "cleanup": {
+    "changes": [],
+    "remaining": []
+  },
+  "review": {
+    "assistant": null,
+    "user": null,
+    "approved_scope": [],
+    "final_decision": "待审核"
+  }
+}

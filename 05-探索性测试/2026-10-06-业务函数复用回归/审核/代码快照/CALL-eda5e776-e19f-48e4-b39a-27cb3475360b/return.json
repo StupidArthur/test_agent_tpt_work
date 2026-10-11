@@ -1,0 +1,124 @@
+{
+  "observations": {
+    "observations": {
+      "title": {
+        "event_id": "business-5b9ceab5-e348-42c2-9ff2-e41049fed121-1",
+        "captured_at": "2026-10-06T09:03:53.893Z",
+        "environment_id": "env-fn-20261006-agent2",
+        "kind": "read",
+        "target": "本轮技能标题",
+        "business_call_id": "CALL-eda5e776-e19f-48e4-b39a-27cb3475360b",
+        "object_id": "skill-card-title",
+        "source": {
+          "channel": "dom",
+          "scope": "技能页/我的技能卡片",
+          "locator": ".card-title h3"
+        },
+        "value": "本轮中文优先",
+        "raw": {
+          "title": "本轮中文优先"
+        }
+      },
+      "meta": {
+        "event_id": "business-5b9ceab5-e348-42c2-9ff2-e41049fed121-2",
+        "captured_at": "2026-10-06T09:03:53.896Z",
+        "environment_id": "env-fn-20261006-agent2",
+        "kind": "read",
+        "target": "本轮技能来源与版本",
+        "business_call_id": "CALL-eda5e776-e19f-48e4-b39a-27cb3475360b",
+        "object_id": "skill-card-meta",
+        "source": {
+          "channel": "dom",
+          "scope": "技能页/我的技能卡片",
+          "locator": "section.panel [data-slot=\"card\"]"
+        },
+        "value": {
+          "source": "用户创建",
+          "version": null
+        },
+        "raw": {
+          "text": "本轮中文优先 FAST_DESCRIPTION_BASE FAST_SEARCH_TAG 来源 用户创建 快捷使用",
+          "source": "用户创建",
+          "version": null
+        }
+      },
+      "source": {
+        "event_id": "business-5b9ceab5-e348-42c2-9ff2-e41049fed121-4",
+        "captured_at": "2026-10-06T09:03:53.902Z",
+        "environment_id": "env-fn-20261006-agent2",
+        "kind": "read",
+        "target": "本轮技能来源",
+        "business_call_id": "CALL-eda5e776-e19f-48e4-b39a-27cb3475360b",
+        "object_id": "skill-card-source",
+        "source": {
+          "channel": "dom",
+          "scope": "技能页/我的技能卡片",
+          "locator": "section.panel [data-slot=\"card\"]"
+        },
+        "value": "用户创建",
+        "raw": {
+          "text": "本轮中文优先 FAST_DESCRIPTION_BASE FAST_SEARCH_TAG 来源 用户创建 快捷使用",
+          "source": "用户创建"
+        }
+      },
+      "version": {
+        "event_id": "business-5b9ceab5-e348-42c2-9ff2-e41049fed121-5",
+        "captured_at": "2026-10-06T09:03:53.904Z",
+        "environment_id": "env-fn-20261006-agent2",
+        "kind": "read",
+        "target": "本轮技能版本",
+        "business_call_id": "CALL-eda5e776-e19f-48e4-b39a-27cb3475360b",
+        "object_id": "skill-card-version",
+        "source": {
+          "channel": "dom",
+          "scope": "技能页/我的技能卡片",
+          "locator": "section.panel [data-slot=\"card\"]"
+        },
+        "value": null,
+        "raw": {
+          "text": "本轮中文优先 FAST_DESCRIPTION_BASE FAST_SEARCH_TAG 来源 用户创建 快捷使用",
+          "version": null
+        }
+      },
+      "description": {
+        "event_id": "business-5b9ceab5-e348-42c2-9ff2-e41049fed121-3",
+        "captured_at": "2026-10-06T09:03:53.900Z",
+        "environment_id": "env-fn-20261006-agent2",
+        "kind": "read",
+        "target": "本轮样本描述",
+        "business_call_id": "CALL-eda5e776-e19f-48e4-b39a-27cb3475360b",
+        "object_id": "skill-card-description",
+        "source": {
+          "channel": "dom",
+          "scope": "技能页/我的技能卡片",
+          "locator": "section.panel [data-slot=\"card\"]"
+        },
+        "value": "FAST_DESCRIPTION_BASE FAST_SEARCH_TAG",
+        "raw": {
+          "text": "本轮中文优先 FAST_DESCRIPTION_BASE FAST_SEARCH_TAG 来源 用户创建 快捷使用",
+          "desc": "FAST_DESCRIPTION_BASE FAST_SEARCH_TAG"
+        }
+      },
+      "switch": {
+        "event_id": "business-5b9ceab5-e348-42c2-9ff2-e41049fed121-6",
+        "captured_at": "2026-10-06T09:03:53.907Z",
+        "environment_id": "env-fn-20261006-agent2",
+        "kind": "read",
+        "target": "本轮技能开关",
+        "business_call_id": "CALL-eda5e776-e19f-48e4-b39a-27cb3475360b",
+        "object_id": "skill-card-switch",
+        "source": {
+          "channel": "dom",
+          "scope": "技能页/我的技能卡片",
+          "locator": "[role=\"switch\"]"
+        },
+        "value": true,
+        "raw": {
+          "aria_checked": "true"
+        },
+        "derivation": "aria_checked === 'true'"
+      }
+    },
+    "switch_read_ref": "business-5b9ceab5-e348-42c2-9ff2-e41049fed121-6"
+  }
+}

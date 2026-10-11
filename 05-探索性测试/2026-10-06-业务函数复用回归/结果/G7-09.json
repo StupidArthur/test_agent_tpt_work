@@ -1,0 +1,62 @@
+{
+  "case_id": "G7-09",
+  "contract_version": "2.1",
+  "attempt_id": "fn-20261006-agent2-G7-09-A1",
+  "environment_id": "env-fn-20261006-agent2",
+  "object_identity": {
+    "draft": "30 attachments",
+    "last": "count-30.txt"
+  },
+  "inputs": [
+    "使用 30 卡草稿，定位附件容器并滚到底"
+  ],
+  "action_refs": [
+    "business-a59251c0-69c2-420f-8c57-9338a595ab81-2",
+    "business-67a65dc4-4b7c-4358-a644-87c9d3efde76-2"
+  ],
+  "status": "通过",
+  "started_at": "2026-10-06T08:30:18.543Z",
+  "ended_at": "2026-10-06T08:30:32.438Z",
+  "actual_steps": [
+    "新建任务并加 30 卡",
+    "读取附件容器 scroll/client 尺寸与 overflow",
+    "滚到末端后读 count-30.txt 可见"
+  ],
+  "assertions": [
+    {
+      "id": "G7-09-A1",
+      "actual": true,
+      "read_refs": [
+        "business-75cae1ab-2720-4eed-8fda-f222940c960a-1"
+      ]
+    },
+    {
+      "id": "G7-09-A2",
+      "actual": true,
+      "read_refs": [
+        "business-75cae1ab-2720-4eed-8fda-f222940c960a-2"
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "path": "运行日志/business.jsonl",
+      "sha256": "6203703aeaf46ab5fd94d64c474b878c26f39b97bc4c3f7a3840f9ee9a48bdc5"
+    },
+    {
+      "path": "运行日志/业务调用.jsonl",
+      "sha256": "91fc9bb4b29ad5347770a9e5e5a21b38b9c414c04a2e484e84b5dd981db87bd7"
+    }
+  ],
+  "cleanup": {
+    "status": "retained",
+    "description": "草稿保留；后续清理",
+    "read_refs": []
+  },
+  "business_call_refs": [
+    "CALL-3ca17d1c-b95f-4a43-aada-5f7539f2c6cf",
+    "CALL-db8bd034-3c30-465d-9381-089116c45a9f",
+    "CALL-c57fd4c4-c836-4437-a1c4-4b683cd21351"
+  ],
+  "notes": "A1 raw scrollWidth=7490>clientWidth=1076，overflowX=auto，horiz=true"
+}

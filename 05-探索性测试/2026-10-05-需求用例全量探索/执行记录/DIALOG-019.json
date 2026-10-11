@@ -1,0 +1,117 @@
+{
+  "case_id": "DIALOG-019",
+  "case_title": "图片附件预览",
+  "source_sha256": "b712acd3b204ebcfdd07129c4d993ea1beb184f9a2d0c3827745ee1fdf7a6677",
+  "status": "已执行-符合预期",
+  "review_status": "待双方审核",
+  "latest_attempt_id": "DIALOG-019-A01",
+  "attempts": [
+    {
+      "attempt_id": "DIALOG-019-A01",
+      "started_at": "2026-10-06T06:20:00+08:00",
+      "ended_at": "2026-10-05T22:20:24.364Z",
+      "environment_id": "ENV-001",
+      "surface": "Unified task composer attachment UI and full-screen image preview via Electron CDP + Playwright",
+      "actual_preconditions": {
+        "account": "Arthur",
+        "project": "existing tpt-workspace",
+        "model": "standard / low",
+        "fixture": "round-preview-20261006.png, round-owned valid 32×24 RGBA PNG"
+      },
+      "input": "Attached round-preview-20261006.png through the in-app HTML input, inspected the thumbnail, then clicked 查看原图.",
+      "actual_steps": [
+        "Created and validated a harmless 32×24 PNG fixture with no personal or operational data.",
+        "Added exactly one image to a clean round-owned unsent draft using the in-app file input.",
+        "Scoped to the image item component; observed img alt round-preview-20261006.png, natural size 32×24, a thumbnail button titled 查看原图, and a 移除图片 action.",
+        "Clicked the thumbnail. A full-screen viewer appeared with role=dialog, aria-modal=true, aria-label=原图预览, the same source image and a 关闭原图预览 control.",
+        "Closed the viewer and removed the one round-owned image attachment; confirmed the draft had zero image items."
+      ],
+      "wait_condition": "Waited for image item and full-screen preview modal to render; then closed the modal and verified cleanup in the round-owned draft.",
+      "checkpoints": [
+        {
+          "expected_index": 1,
+          "expected": "显示缩略图和文件名",
+          "observed": "The composer rendered a PNG thumbnail with alt text round-preview-20261006.png and natural dimensions 32×24.",
+          "verdict": "符合",
+          "evidence": [
+            "证据/DIALOG-019/DIALOG-019-A01/png-thumbnail.png",
+            "证据/DIALOG-019/DIALOG-019-A01/png-thumbnail.txt"
+          ]
+        },
+        {
+          "expected_index": 2,
+          "expected": "点击进入整屏预览",
+          "observed": "Clicking the thumbnail opened a full-screen modal labeled 原图预览 with the same image and a close action.",
+          "verdict": "符合",
+          "evidence": [
+            "证据/DIALOG-019/DIALOG-019-A01/preview-fullscreen.png",
+            "证据/DIALOG-019/DIALOG-019-A01/preview-dialog.json"
+          ]
+        }
+      ],
+      "observed_result": "The harmless PNG appeared as an image thumbnail with filename and opened in the full-screen original-image preview. The viewer closed normally; the image was removed from the unsent draft afterward.",
+      "status": "已执行-符合预期",
+      "evidence": [
+        "证据/DIALOG-019/DIALOG-019-A01/png-thumbnail.png",
+        "证据/DIALOG-019/DIALOG-019-A01/png-thumbnail.txt",
+        "证据/DIALOG-019/DIALOG-019-A01/preview-fullscreen.png",
+        "证据/DIALOG-019/DIALOG-019-A01/preview-dialog.json",
+        "证据/DIALOG-019/DIALOG-019-A01/png-source-manifest.json",
+        "证据/DIALOG-019/DIALOG-019-A01/locator-correction.txt"
+      ],
+      "notes": "A selector-scope diagnostic was corrected: image items use a different component from ordinary file cards. The corrected UI evidence is registered; earlier no-card queries are retained only as locator diagnostics and do not support a product failure. Pending bilateral review.",
+      "cleanup": {
+        "changes": [
+          "Removed the only round-owned PNG attachment from the unsent draft after preview."
+        ],
+        "remaining": [
+          "round-preview-20261006.png remains as a harmless task fixture."
+        ]
+      }
+    }
+  ],
+  "product_observations": [
+    {
+      "observation_id": "OBS-242",
+      "feature_id": null,
+      "statement": "A harmless 32×24 round-owned PNG rendered as a thumbnail with its filename; clicking 查看原图 opened the full-screen 原图预览 dialog. The modal closed and the draft image attachment was removed.",
+      "case_ids": [
+        "DIALOG-019"
+      ],
+      "attempt_ids": [
+        "DIALOG-019-A01"
+      ],
+      "environment_id": "ENV-001",
+      "verified_depth": "Actual composer PNG thumbnail, filename alt text, full-screen preview modal and removal cleanup",
+      "scope_and_limits": "One tiny harmless round-owned PNG in an unsent draft. No message sent and no user file modified.",
+      "evidence": [
+        "证据/DIALOG-019/DIALOG-019-A01/png-thumbnail.png",
+        "证据/DIALOG-019/DIALOG-019-A01/png-thumbnail.txt",
+        "证据/DIALOG-019/DIALOG-019-A01/preview-fullscreen.png",
+        "证据/DIALOG-019/DIALOG-019-A01/preview-dialog.json",
+        "证据/DIALOG-019/DIALOG-019-A01/png-source-manifest.json",
+        "证据/DIALOG-019/DIALOG-019-A01/locator-correction.txt"
+      ],
+      "relation_to_design": "Pending bilateral review; scoped to the tested image item and preview path.",
+      "review_status": "待双方审核"
+    }
+  ],
+  "differences": [],
+  "finding_ids": [],
+  "blocker": null,
+  "applicability_reason": null,
+  "cleanup": {
+    "changes": [
+      "Removed the only round-owned PNG attachment from the unsent draft after preview."
+    ],
+    "remaining": [
+      "round-preview-20261006.png remains as a harmless task fixture."
+    ]
+  },
+  "review": {
+    "assistant": null,
+    "user": null,
+    "approved_scope": [],
+    "final_decision": "待审核"
+  }
+}

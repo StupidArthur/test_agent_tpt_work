@@ -1,0 +1,43 @@
+{
+  "case_id": "G13-02",
+  "contract_version": "2.0",
+  "environment_id": "agent-oc-20261006-funcfull-01",
+  "attempt_id": "G13-02-A01",
+  "object_identity": "composer + 菜单",
+  "inputs": [
+    "点击 + 打开菜单"
+  ],
+  "business_call_refs": [
+    "CALL-ffeeeb5b-5989-46d3-b2e4-3d10e816327f"
+  ],
+  "status": "通过",
+  "attempted_at": "2026-10-06T17:16:31.407Z",
+  "assertions": [
+    {
+      "id": "G13-02-A1",
+      "expected": true,
+      "actual": true,
+      "pass": true,
+      "read_refs": [
+        "CALL-ffeeeb5b-5989-46d3-b2e4-3d10e816327f-3"
+      ],
+      "raw": {
+        "items": [
+          "添加本地文件",
+          "从我的资料库添加",
+          "连接器",
+          "技能",
+          "专家",
+          "模式"
+        ]
+      }
+    }
+  ],
+  "restore": {
+    "status": "unchanged",
+    "description": "本case未改动设置/文件",
+    "read_refs": []
+  },
+  "residual": "",
+  "notes": ""
+}

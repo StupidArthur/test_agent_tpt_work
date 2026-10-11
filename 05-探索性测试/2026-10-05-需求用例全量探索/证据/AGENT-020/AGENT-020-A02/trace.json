@@ -1,0 +1,17 @@
+{
+  "case_id": "AGENT-020",
+  "attempt_id": "AGENT-020-A02",
+  "captured_at": "2026-10-05T16:09:02.479Z",
+  "surface": "Visible Expert use chip and UI Trace",
+  "model": "标准 / low",
+  "expert": "round-agent-inline-only-20261006",
+  "prompt": "Explicit user prompt for unique inline marker; agent.md and metadata do not contain that marker.",
+  "inline_skill_context_row": "工具\n\t\nskill{\"name\": \"round-inline-only-20261006\"}\n→\nerror",
+  "inline_skill_tool_row": "工具\n\t\nskill{\"name\": \"round-inline-only-20261006\"}\n→\nerror",
+  "assistant_row": "助手\n\t\nROUND_BUNDLE_ONLY_20261006",
+  "observed_tool_rows": [
+    "工具\n\t\nskill{\"name\": \"round-inline-only-20261006\"}\n→\nerror"
+  ],
+  "agent_prompt_marker_absent": true,
+  "result": "The unique marker is present only in bundled SKILL.md; invocation evidence is the trace row(s) plus exact output. No tools or external actions requested."
+}

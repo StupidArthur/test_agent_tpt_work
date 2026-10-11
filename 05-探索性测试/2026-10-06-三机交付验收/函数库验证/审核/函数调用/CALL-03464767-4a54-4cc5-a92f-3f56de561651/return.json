@@ -1,0 +1,56 @@
+{
+  "call_id": "CALL-03464767-4a54-4cc5-a92f-3f56de561651",
+  "status": "returned",
+  "observations": {
+    "action_refs": [
+      "CALL-03464767-4a54-4cc5-a92f-3f56de561651-2"
+    ],
+    "observations": {
+      "wait": {
+        "waited_ms": 6602
+      },
+      "assistant": {
+        "event_id": "CALL-03464767-4a54-4cc5-a92f-3f56de561651-3",
+        "captured_at": "2026-10-06T14:15:56.675Z",
+        "environment_id": "env-tool-review-20261006",
+        "business_call_id": "CALL-03464767-4a54-4cc5-a92f-3f56de561651",
+        "kind": "read",
+        "target": "专家助手最终正文",
+        "object_id": "last-assistant-bubble",
+        "source": {
+          "channel": "dom",
+          "scope": "对话 助手气泡",
+          "locator": "[class*=\"hWmORq_body\"]"
+        },
+        "value": "SMOKE_EXPERT_tools-20261006-smoke_OK",
+        "raw": {
+          "count": 1,
+          "last": "SMOKE_EXPERT_tools-20261006-smoke_OK"
+        }
+      },
+      "userReq": {
+        "event_id": "CALL-03464767-4a54-4cc5-a92f-3f56de561651-4",
+        "captured_at": "2026-10-06T14:15:56.675Z",
+        "environment_id": "env-tool-review-20261006",
+        "business_call_id": "CALL-03464767-4a54-4cc5-a92f-3f56de561651",
+        "kind": "read",
+        "target": "本轮用户请求",
+        "object_id": "submitted-composer",
+        "source": {
+          "channel": "dom",
+          "scope": "本次提交前编辑区完整输入",
+          "locator": "div[contenteditable=\"true\"][aria-label*=\"/ 调用指令\"]"
+        },
+        "value": false,
+        "raw": {
+          "requestText": "agent-smoke-expert-tools-20261006-smoke\n 请执行你的本轮回归固定回复规则。\n不要调用工具或访问文件。",
+          "session": "session-53218300-449e-4ee4-bd65-e3c445d45ac0",
+          "capturedAt": "2026-10-06T14:15:49.930Z",
+          "answer": "SMOKE_EXPERT_tools-20261006-smoke_OK",
+          "capturedBeforeSend": true
+        },
+        "derivation": "complete submitted composer text.includes(answer)"
+      }
+    }
+  }
+}

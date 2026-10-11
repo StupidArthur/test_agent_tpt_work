@@ -1,0 +1,64 @@
+{
+  "observations": {
+    "action_refs": [
+      "business-35912c9b-071e-48b5-9670-8a9592181aa4-3",
+      "business-35912c9b-071e-48b5-9670-8a9592181aa4-5"
+    ],
+    "observations": {
+      "sessionBefore": {
+        "event_id": "business-35912c9b-071e-48b5-9670-8a9592181aa4-1",
+        "captured_at": "2026-10-06T07:47:27.513Z",
+        "environment_id": "env-fn-20261006-agent2",
+        "kind": "read",
+        "target": "专家调用会话身份(前)",
+        "business_call_id": "CALL-2477b250-e542-40e8-a6fa-380e063b2e40",
+        "object_id": "session",
+        "source": {
+          "channel": "dom",
+          "scope": "主界面会话容器",
+          "locator": "[data-conversation-session]"
+        },
+        "value": "session-26fcd928-f045-4451-8033-55c98fad4b3a",
+        "raw": {
+          "value": "session-26fcd928-f045-4451-8033-55c98fad4b3a"
+        }
+      },
+      "sessionAfter": {
+        "event_id": "business-35912c9b-071e-48b5-9670-8a9592181aa4-7",
+        "captured_at": "2026-10-06T07:47:32.745Z",
+        "environment_id": "env-fn-20261006-agent2",
+        "kind": "read",
+        "target": "专家调用会话身份(后)",
+        "business_call_id": "CALL-2477b250-e542-40e8-a6fa-380e063b2e40",
+        "object_id": "session",
+        "source": {
+          "channel": "dom",
+          "scope": "主界面会话容器",
+          "locator": "[data-conversation-session]"
+        },
+        "value": "session-5c4f9da7-e77e-4528-86cd-10742a91df08",
+        "raw": {
+          "value": "session-5c4f9da7-e77e-4528-86cd-10742a91df08"
+        }
+      },
+      "reference": {
+        "event_id": "business-35912c9b-071e-48b5-9670-8a9592181aa4-6",
+        "captured_at": "2026-10-06T07:47:32.743Z",
+        "environment_id": "env-fn-20261006-agent2",
+        "kind": "read",
+        "target": "新会话专家引用",
+        "business_call_id": "CALL-2477b250-e542-40e8-a6fa-380e063b2e40",
+        "object_id": "composer-expert-reference",
+        "source": {
+          "channel": "dom",
+          "scope": "composer 输入区",
+          "locator": "div[contenteditable=\"true\"][aria-label*=\"/ 调用指令\"]"
+        },
+        "value": "agent-fast-assert-expert-fn-20261006-agent2",
+        "raw": {
+          "composerText": "agent-fast-assert-expert-fn-20261006-agent2\n "
+        }
+      }
+    }
+  }
+}

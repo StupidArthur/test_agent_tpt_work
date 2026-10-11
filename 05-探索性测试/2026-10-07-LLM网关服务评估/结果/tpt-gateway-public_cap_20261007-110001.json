@@ -1,0 +1,90 @@
+{
+  "run": {
+    "target": "tpt-gateway-public",
+    "module": "cap",
+    "items": [
+      "CAP-02"
+    ],
+    "ts": "20261007-110001",
+    "est_requests": 0,
+    "seconds": 120.39,
+    "key_present": true,
+    "base_url": "https://tpt.supcon.com/tpt-work-router/v1"
+  },
+  "instances": [
+    {
+      "instance_id": "CAP-02/tpt-gateway-public/closed-loop",
+      "item": "CAP-02",
+      "status": "通过",
+      "assertions": [
+        {
+          "name": "turns_requests_separated",
+          "expected": "True",
+          "actual": "[(1, 26, 26), (5, 125, 125)]",
+          "satisfied": true
+        }
+      ],
+      "attempts": [],
+      "evidence": [
+        "cap/CAP-02_tpt-gateway-public.json"
+      ],
+      "notes": [
+        "并发请求数不改称用户数；SLO 未确认则不出达标用户数"
+      ],
+      "metrics": {
+        "levels": [
+          {
+            "users": 1,
+            "turns_attempted": 26,
+            "turns_succeeded": 26,
+            "requests_attempted": 26,
+            "requests_succeeded": 26,
+            "peak_in_flight": 1,
+            "duration_s": 60.046000000002095,
+            "turn_p95_s": 0.437,
+            "first_text_p95_s": 0.437,
+            "success_rate": 1.0,
+            "rate_limited": 0,
+            "errors": {},
+            "client_bottleneck": false,
+            "enough_sample": true,
+            "meets_slo": null,
+            "notes": [
+              "SLO 未确认，仅测量"
+            ]
+          },
+          {
+            "users": 5,
+            "turns_attempted": 125,
+            "turns_succeeded": 125,
+            "requests_attempted": 125,
+            "requests_succeeded": 125,
+            "peak_in_flight": 5,
+            "duration_s": 60.328999999997905,
+            "turn_p95_s": 0.625,
+            "first_text_p95_s": 0.625,
+            "success_rate": 1.0,
+            "rate_limited": 0,
+            "errors": {},
+            "client_bottleneck": false,
+            "enough_sample": true,
+            "meets_slo": null,
+            "notes": [
+              "SLO 未确认，仅测量"
+            ]
+          }
+        ],
+        "capacity_conclusion": {
+          "statements": [
+            "无已确认 SLO：仅有观测数据，尚不能确认可支持用户数。"
+          ],
+          "verified_users": null,
+          "boundary": null,
+          "non_monotonic": false,
+          "max_unknown": false
+        }
+      },
+      "failure_attribution": null
+    }
+  ]
+}

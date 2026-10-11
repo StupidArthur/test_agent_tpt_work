@@ -1,0 +1,54 @@
+{
+  "case_id": "G11-11",
+  "contract_version": "2.0",
+  "environment_id": "agent-oc-20261006-funcfull-01",
+  "attempt_id": "G11-11-A01",
+  "object_identity": "fast-assert-expert-longread-agent-oc-20261006-funcfull-01",
+  "inputs": [
+    "外部给 agent.md 追加 FAST_EXTERNAL_REFRESH",
+    "重开详情",
+    "恢复"
+  ],
+  "business_call_refs": [
+    "CALL-0f03e41f-0736-49f3-bb0f-cc435e0b15d6",
+    "CALL-24bc5ffc-bac3-40ef-ae0e-55da93f0f57f",
+    "CALL-8ab917ce-4157-4000-b09e-7e4cb2575211",
+    "CALL-a1c54a1e-01a6-4e1e-9498-a212e17f9457",
+    "CALL-b761e1d6-c5dd-47e3-81f7-c36c5eb20489",
+    "CALL-b333c949-e2f2-44b4-8355-dae033487109"
+  ],
+  "status": "通过",
+  "attempted_at": "2026-10-06T17:01:29.534Z",
+  "assertions": [
+    {
+      "id": "G11-11-A1",
+      "expected": "FAST_EXTERNAL_REFRESH",
+      "actual": "...FAST_PROMPT_END\nFAST_EXTERNAL_REFRESH",
+      "pass": true,
+      "read_refs": [
+        "CALL-8ab917ce-4157-4000-b09e-7e4cb2575211-3"
+      ],
+      "derivation": "详情正文含 FAST_EXTERNAL_REFRESH"
+    },
+    {
+      "id": "G11-11-A2",
+      "expected": "sha256_equal",
+      "actual": {
+        "before": "a9fde1748df9e001a83a6c9288c8c0a50714dd75c8f279a53ff46dd1168f06dd",
+        "after": "a9fde1748df9e001a83a6c9288c8c0a50714dd75c8f279a53ff46dd1168f06dd"
+      },
+      "pass": true,
+      "read_refs": [
+        "CALL-b333c949-e2f2-44b4-8355-dae033487109-2",
+        "CALL-b761e1d6-c5dd-47e3-81f7-c36c5eb20489-1"
+      ]
+    }
+  ],
+  "restore": {
+    "status": "unchanged",
+    "description": "本case未改动设置/文件",
+    "read_refs": []
+  },
+  "residual": "agent.md 已恢复原哈希",
+  "notes": "外部修改后详情可刷新读到。"
+}

@@ -1,0 +1,31 @@
+{
+  "call_id": "CALL-ad3292c7-18c5-4083-a760-8a1d5f164cc8",
+  "status": "returned",
+  "observations": {
+    "action_refs": [
+      "CALL-ad3292c7-18c5-4083-a760-8a1d5f164cc8-2"
+    ],
+    "observations": {
+      "menu": {
+        "event_id": "CALL-ad3292c7-18c5-4083-a760-8a1d5f164cc8-3",
+        "captured_at": "2026-10-06T17:16:29.789Z",
+        "environment_id": "agent-oc-20261006-funcfull-01",
+        "business_call_id": "CALL-ad3292c7-18c5-4083-a760-8a1d5f164cc8",
+        "kind": "read",
+        "target": "composer 菜单项",
+        "object_id": "composer-menu",
+        "source": {
+          "channel": "dom",
+          "scope": "composer 弹出菜单",
+          "locator": "[class*=\"menu\"],[class*=\"Menu\"],[role=\"menu\"]"
+        },
+        "value": false,
+        "raw": {
+          "items": [],
+          "wantPattern": "文件|资料|本地"
+        },
+        "derivation": "菜单标签匹配 /文件|资料|本地/"
+      }
+    }
+  }
+}

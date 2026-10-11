@@ -1,0 +1,30 @@
+{
+  "id": "SM-02",
+  "contract_version": "smoke-1.0",
+  "machine_id": "PC-88",
+  "assertions": {
+    "SM-02-A1": {
+      "read": "editor isVisible & editable",
+      "editorVisible": true,
+      "editorEditable": true,
+      "expected": true,
+      "pass": true
+    },
+    "SM-02-A2": {
+      "read": "project control accessible text",
+      "projLabel": "在“smoketest”中新建会话",
+      "projName": "smoketest",
+      "expected": "smoketest",
+      "pass": true
+    },
+    "SM-02-A3": {
+      "read": "model control normalized",
+      "modelLabel": "选择模型，当前 标准，推理等级 low",
+      "expected": "标准/low",
+      "pass": true
+    }
+  },
+  "raw": {
+    "refCount": 0
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "case_id": "G7-14",
+  "contract_version": "2.0",
+  "attempt_id": "fn-20261006-agent2-G7-14-A1",
+  "environment_id": "env-fn-20261006-agent2",
+  "object_identity": {
+    "draft": "cleared"
+  },
+  "inputs": [
+    "清空本轮剩余草稿附件和文字，关闭预览"
+  ],
+  "action_refs": [
+    "business-4688e040-c9e3-479b-a220-a39c80ea2451-2",
+    "business-c7d9741c-edb8-4228-9e4e-12a5e1e86ab1-2"
+  ],
+  "status": "通过",
+  "started_at": "2026-10-06T08:32:43.637Z",
+  "ended_at": "2026-10-06T08:32:57.706Z",
+  "actual_steps": [
+    "逐个移除草稿剩余附件直至 0",
+    "读取草稿附件数与编辑器纯文本"
+  ],
+  "assertions": [
+    {
+      "id": "G7-14-A1",
+      "actual": 0,
+      "read_refs": [
+        "business-6aad14a2-7316-493f-b033-52819fdfe21c-2"
+      ]
+    },
+    {
+      "id": "G7-14-A2",
+      "actual": "",
+      "read_refs": [
+        "business-ac51a60b-8c5d-4d80-be6e-ee69dd18e3ce-1"
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "path": "运行日志/business.jsonl",
+      "sha256": "6203703aeaf46ab5fd94d64c474b878c26f39b97bc4c3f7a3840f9ee9a48bdc5"
+    },
+    {
+      "path": "运行日志/业务调用.jsonl",
+      "sha256": "91fc9bb4b29ad5347770a9e5e5a21b38b9c414c04a2e484e84b5dd981db87bd7"
+    }
+  ],
+  "cleanup": {
+    "status": "restored",
+    "description": "草稿附件清零、文字为空；预览已在 G7-05 关闭",
+    "read_refs": [
+      "business-6aad14a2-7316-493f-b033-52819fdfe21c-2",
+      "business-ac51a60b-8c5d-4d80-be6e-ee69dd18e3ce-1"
+    ]
+  },
+  "business_call_refs": [
+    "CALL-e2865044-b8f6-4ac5-a6fa-630f28cbef2d",
+    "CALL-e61ddda3-2b4c-4a5c-8794-1ecc96856b53",
+    "CALL-e053fc79-d7c9-4480-aba4-f50e282ae137",
+    "CALL-c436916f-f40b-46e8-bb37-ffbcde664140"
+  ],
+  "notes": "因无清空入口，采用逐项移除达成清理；A2 纯文本 trim 为空"
+}

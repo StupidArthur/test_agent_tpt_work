@@ -1,0 +1,56 @@
+{
+  "case_id": "G14-03",
+  "contract_version": "2.0",
+  "attempt_id": "fn-20261006-agent2-G14-03-A1",
+  "environment_id": "env-fn-20261006-agent2",
+  "object_identity": {
+    "zip": "collection.zip"
+  },
+  "inputs": [
+    "导入 collection.zip，读取候选技术名"
+  ],
+  "action_refs": [
+    "business-45ed764d-bbca-46c1-92a3-d03dd1a97a3c-1",
+    "business-b4244b59-037d-4d9c-addb-58144bf6e9e6-2"
+  ],
+  "status": "通过",
+  "started_at": "2026-10-06T11:43:00.000Z",
+  "ended_at": "2026-10-06T11:47:30.000Z",
+  "actual_steps": [
+    "读候选（弹窗仅显示文件名与文件计数）",
+    "确认导入",
+    "读取实际技术名"
+  ],
+  "assertions": [
+    {
+      "id": "G14-03-A1",
+      "actual": [
+        "fast-assert-collection-one-fn-20261006-agent2"
+      ],
+      "read_refs": [
+        "business-b4244b59-037d-4d9c-addb-58144bf6e9e6-3"
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "path": "运行日志/business.jsonl",
+      "sha256": "6203703aeaf46ab5fd94d64c474b878c26f39b97bc4c3f7a3840f9ee9a48bdc5"
+    },
+    {
+      "path": "运行日志/业务调用.jsonl",
+      "sha256": "91fc9bb4b29ad5347770a9e5e5a21b38b9c414c04a2e484e84b5dd981db87bd7"
+    }
+  ],
+  "cleanup": {
+    "status": "retained",
+    "description": "样本保留待审",
+    "read_refs": []
+  },
+  "business_call_refs": [
+    "CALL-f15ee304-3129-4590-ab46-c4207d1050c2",
+    "CALL-4d131e43-1d8e-4783-bb0f-eb1d1ba6169a",
+    "CALL-1190c307-7b52-417a-9382-3212dca61ca6"
+  ],
+  "notes": "collection.zip 弹窗文件计数=1，实际落库技术名仅 collection-one（二级 deep/two 未扫描）；候选名称经结果身份读取确认"
+}

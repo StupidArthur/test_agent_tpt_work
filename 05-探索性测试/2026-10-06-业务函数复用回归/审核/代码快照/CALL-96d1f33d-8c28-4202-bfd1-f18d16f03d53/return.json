@@ -1,0 +1,90 @@
+{
+  "observations": {
+    "action_refs": [
+      "business-40c099a4-73d8-4eb4-94b3-9967cb9f09a4-3",
+      "business-40c099a4-73d8-4eb4-94b3-9967cb9f09a4-7"
+    ],
+    "observations": {
+      "before": {
+        "event_id": "business-40c099a4-73d8-4eb4-94b3-9967cb9f09a4-1",
+        "captured_at": "2026-10-06T11:40:28.657Z",
+        "environment_id": "env-fn-20261006-agent2",
+        "kind": "read",
+        "target": "技能列表开关状态",
+        "business_call_id": "CALL-96d1f33d-8c28-4202-bfd1-f18d16f03d53",
+        "object_id": "skill-card-switch",
+        "source": {
+          "channel": "dom",
+          "scope": "技能页/本轮卡片开关",
+          "locator": "button[role=\"switch\"]"
+        },
+        "value": true,
+        "raw": {
+          "aria_checked": "true",
+          "matchText": "本轮中文优先"
+        },
+        "derivation": "aria_checked === 'true'"
+      },
+      "after": {
+        "event_id": "business-40c099a4-73d8-4eb4-94b3-9967cb9f09a4-4",
+        "captured_at": "2026-10-06T11:40:30.262Z",
+        "environment_id": "env-fn-20261006-agent2",
+        "kind": "read",
+        "target": "技能列表开关状态",
+        "business_call_id": "CALL-96d1f33d-8c28-4202-bfd1-f18d16f03d53",
+        "object_id": "skill-card-switch",
+        "source": {
+          "channel": "dom",
+          "scope": "技能页/本轮卡片开关",
+          "locator": "button[role=\"switch\"]"
+        },
+        "value": false,
+        "raw": {
+          "aria_checked": "false",
+          "matchText": "本轮中文优先"
+        },
+        "derivation": "aria_checked === 'true'"
+      },
+      "listState": {
+        "event_id": "business-40c099a4-73d8-4eb4-94b3-9967cb9f09a4-5",
+        "captured_at": "2026-10-06T11:40:30.266Z",
+        "environment_id": "env-fn-20261006-agent2",
+        "kind": "read",
+        "target": "切换后列表可见且详情未打开",
+        "business_call_id": "CALL-96d1f33d-8c28-4202-bfd1-f18d16f03d53",
+        "object_id": "skill-list-detail-state",
+        "source": {
+          "channel": "dom",
+          "scope": "技能页/列表与详情",
+          "locator": "[data-slot=\"card\"]"
+        },
+        "value": true,
+        "raw": {
+          "list": 1,
+          "detailOpen": false
+        },
+        "derivation": "列表卡可见且无 dir-preview 详情"
+      },
+      "restored": {
+        "event_id": "business-40c099a4-73d8-4eb4-94b3-9967cb9f09a4-8",
+        "captured_at": "2026-10-06T11:40:31.798Z",
+        "environment_id": "env-fn-20261006-agent2",
+        "kind": "read",
+        "target": "技能列表开关状态",
+        "business_call_id": "CALL-96d1f33d-8c28-4202-bfd1-f18d16f03d53",
+        "object_id": "skill-card-switch",
+        "source": {
+          "channel": "dom",
+          "scope": "技能页/本轮卡片开关",
+          "locator": "button[role=\"switch\"]"
+        },
+        "value": true,
+        "raw": {
+          "aria_checked": "true",
+          "matchText": "本轮中文优先"
+        },
+        "derivation": "aria_checked === 'true'"
+      }
+    }
+  }
+}

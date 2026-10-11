@@ -1,0 +1,135 @@
+{
+  "case_id": "DIALOG-011",
+  "case_title": "+资料及能力入口",
+  "source_sha256": "b712acd3b204ebcfdd07129c4d993ea1beb184f9a2d0c3827745ee1fdf7a6677",
+  "status": "已执行-存在差异",
+  "review_status": "待双方审核",
+  "latest_attempt_id": "DIALOG-011-A02",
+  "attempts": [
+    {
+      "attempt_id": "DIALOG-011-A01",
+      "started_at": "2026-10-05T19:41:00+08:00",
+      "ended_at": "2026-10-05T19:44:00+08:00",
+      "environment_id": "ENV-001",
+      "surface": "UI/CDP（顶层输入区）",
+      "actual_preconditions": {
+        "account_alias": "Arthur",
+        "workspace": "界面未暴露空间切换入口",
+        "project": "未绑定",
+        "session_id": "未创建会话",
+        "model": "标准 / low",
+        "permission": "工作区内修改",
+        "fixtures": []
+      },
+      "input": "无输入；点击编辑器左侧的「添加文件或调用指令」按钮",
+      "actual_steps": [
+        "清空编辑器后点击「添加文件或调用指令」",
+        "等待 1.5 秒，读取 [role=menu] 弹层内容"
+      ],
+      "wait_condition": "点击后等待 1.5 秒；本地渲染，取得稳定弹层。",
+      "checkpoints": [
+        {
+          "expected_index": 1,
+          "expected": "可识别资料入口与Agent、技能、连接器能力入口",
+          "observed": "+ 弹层返回 5 个 [role=menuitem]：添加本地文件、从我的资料库添加、连接器、技能、模式。资料入口（添加本地文件、从我的资料库添加）、连接器与技能均可识别。**未观察到 Agent 入口**。另发现同一菜单内容被渲染了 2 个同尺寸（204×185）的 [role=menu] 容器。注：本尝试的机器分类包含整页正文，可能被侧栏「专家」文字误判为存在 Agent 入口，需 A02 以菜单范围限定复核。",
+          "verdict": "差异",
+          "evidence": [
+            "证据/DIALOG-011/DIALOG-011-A01/plus菜单.txt",
+            "证据/DIALOG-011/DIALOG-011-A01/plus菜单.png"
+          ]
+        }
+      ],
+      "observed_result": "+ 菜单含 2 个资料入口与连接器、技能；无 Agent 入口。结论需 A02 复核。",
+      "status": "已执行-存在差异",
+      "evidence": [
+        "证据/DIALOG-011/DIALOG-011-A01/plus菜单.txt",
+        "证据/DIALOG-011/DIALOG-011-A01/plus菜单.png"
+      ],
+      "difference_ids": ["DIFF-016", "DIFF-019"],
+      "notes": "未点击任何菜单项，未打开本地文件选择器。"
+    },
+    {
+      "attempt_id": "DIALOG-011-A02",
+      "started_at": "2026-10-05T19:52:00+08:00",
+      "ended_at": "2026-10-05T19:56:00+08:00",
+      "environment_id": "ENV-001",
+      "surface": "UI/CDP（顶层输入区；分类严格限定在 [role=menu] 元素自身文本内）",
+      "actual_preconditions": {
+        "account_alias": "Arthur",
+        "workspace": "界面未暴露空间切换入口",
+        "project": "两态对比：未绑定 → 已绑定 tpt-workspace",
+        "session_id": "未创建会话",
+        "model": "标准 / low",
+        "permission": "工作区内修改",
+        "fixtures": []
+      },
+      "input": "无输入；点击「添加文件或调用指令」",
+      "actual_steps": [
+        "项目未绑定状态下点击「添加文件或调用指令」，只读取 [role=menu] 元素自身文本与 [role=menuitem] 条目",
+        "绑定已有项目 tpt-workspace 后重复同一操作",
+        "对两种状态的菜单文本做同一套正则分类"
+      ],
+      "wait_condition": "每次点击后等待 1.5 秒；两态均取得稳定弹层。",
+      "checkpoints": [
+        {
+          "expected_index": 1,
+          "expected": "可识别资料入口与Agent、技能、连接器能力入口",
+          "observed": "两种项目绑定状态下 + 菜单条目完全一致，均为 5 项：添加本地文件、从我的资料库添加、连接器、技能、模式。以菜单元素自身文本分类：「添加本地文件」true、「资料库」true、「连接器」true、「技能」true、「模式」true、**「Agent/专家」false**。即资料入口、技能、连接器三类可识别，**Agent 能力入口未观察到**。命名说明：设计称资料入口为「我的文件」，实现文案为「从我的资料库添加」，与数据资产模块的「我的资料库」页签同名，属命名差异而非功能缺失，不单独判为差异。「模式」一项为设计清单外的能力入口（对应设置中的场景预设），按可能的设计演进记录于 DIFF-019。分类已严格限定在菜单元素内，修正了 A01 整页正则被侧栏「专家」文字误判为「存在 Agent 入口」的问题。",
+          "verdict": "差异",
+          "evidence": [
+            "证据/DIALOG-011/DIALOG-011-A02/plus入口分类.txt",
+            "证据/DIALOG-011/DIALOG-011-A02/plus菜单-已绑定项目.png"
+          ]
+        }
+      ],
+      "observed_result": "验证深度：入口与实际行为盘点。资料/技能/连接器三类入口可识别，Agent 入口未观察到。未发现额外产品特性：菜单无分组标题、无快捷键提示、无空态文案。同一菜单被重复渲染为 2 个同尺寸容器（Round 1 已记录该现象），会影响定位但不改变用户可见条目。",
+      "status": "已执行-存在差异",
+      "evidence": [
+        "证据/DIALOG-011/DIALOG-011-A02/plus入口分类.txt",
+        "证据/DIALOG-011/DIALOG-011-A02/plus菜单-已绑定项目.png"
+      ],
+      "difference_ids": ["DIFF-016", "DIFF-019"],
+      "notes": "**未点击任何菜单项**：不点「添加本地文件」（会打开 Windows 原生文件选择器）、不点「从我的资料库添加」（依赖数据资产服务，而该模块当前 3 条 open-api 路由为 502，见 DIFF-001）、不点「连接器」「技能」「模式」（各自会打开对应面板，超出本 case 的入口识别范围，相关行为由 SKILL/连接器等用例覆盖）。用例前置要求「文件添加仅用可观察 HTML 输入或已有资产」，本检查点只判定入口识别，前置中的夹具不影响结论。本 attempt 的机器分类原始输出保存在 `证据/DIALOG-010/DIALOG-010-A02/入口分类-未绑定与已绑定项目对比.txt`（该文件由同一次运行同时记录 @ 与 + 两侧结果，索引归属为 DIALOG-010），其中 plus_classified 字段即本检查点结论依据。"
+    }
+  ],
+  "sub_items": [
+    { "id": "DIALOG-011/子项-001", "label": "资料入口：添加本地文件", "result": "存在（第 1 项）", "evidence": "证据/DIALOG-011/DIALOG-011-A01/plus菜单.txt" },
+    { "id": "DIALOG-011/子项-002", "label": "资料入口：从我的资料库添加", "result": "存在（第 2 项）；文案为「从我的资料库添加」而非设计所称「我的文件」", "evidence": "证据/DIALOG-011/DIALOG-011-A01/plus菜单.txt" },
+    { "id": "DIALOG-011/子项-003", "label": "能力入口：技能", "result": "存在（第 4 项）", "evidence": "证据/DIALOG-011/DIALOG-011-A01/plus菜单.txt" },
+    { "id": "DIALOG-011/子项-004", "label": "能力入口：连接器", "result": "存在（第 3 项）", "evidence": "证据/DIALOG-011/DIALOG-011-A01/plus菜单.txt" },
+    { "id": "DIALOG-011/子项-005", "label": "能力入口：Agent", "result": "**未观察到**（菜单元素范围内两种项目状态皆无）", "difference_ids": ["DIFF-016"] },
+    { "id": "DIALOG-011/子项-006", "label": "设计清单外的「模式」入口", "result": "存在（第 5 项）", "difference_ids": ["DIFF-019"] },
+    { "id": "DIALOG-011/子项-007", "label": "点击各菜单项后的实际行为", "result": "未点击，未验证", "verdict": "未验证" }
+  ],
+  "product_observations": [
+    {
+      "feature_id": "FEATURE-007",
+      "statement": "编辑器「添加文件或调用指令」菜单固定 5 项：添加本地文件、从我的资料库添加、连接器、技能、模式；在项目未绑定与已绑定两种状态下条目一致。同一菜单内容被渲染为 2 个同尺寸（204×185）的 [role=menu] 容器。",
+      "case_ids": ["DIALOG-011"],
+      "attempt_ids": ["DIALOG-011-A01", "DIALOG-011-A02"],
+      "environment_id": "ENV-001",
+      "verified_depth": "入口与实际行为盘点",
+      "scope_and_limits": "账号 Arthur、app.asar SHA256 EF56656B…4CC2D9D、2026-10-05。未点击任何菜单项；重复渲染现象会影响定位但不改变用户可见条目。",
+      "evidence": [
+        "证据/DIALOG-011/DIALOG-011-A01/plus菜单.txt",
+        "证据/DIALOG-010/DIALOG-010-A02/入口分类-未绑定与已绑定项目对比.txt"
+      ],
+      "relation_to_design": "部分符合（资料/技能/连接器齐备，Agent 入口未见，见 DIFF-016）",
+      "review_status": "待双方审核"
+    }
+  ],
+  "differences": ["DIFF-016", "DIFF-019"],
+  "finding_ids": [],
+  "blocker": null,
+  "applicability_reason": null,
+  "cleanup": {
+    "changes": [],
+    "remaining": []
+  },
+  "review": {
+    "assistant": null,
+    "user": null,
+    "approved_scope": [],
+    "final_decision": "待审核"
+  }
+}

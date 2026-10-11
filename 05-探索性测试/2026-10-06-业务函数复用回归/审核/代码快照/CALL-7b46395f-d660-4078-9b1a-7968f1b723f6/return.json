@@ -1,0 +1,26 @@
+{
+  "observations": {
+    "observations": {
+      "read": {
+        "event_id": "business-8847a760-3497-4b53-8e25-4a8220bffa3c-1",
+        "captured_at": "2026-10-06T09:18:55.682Z",
+        "environment_id": "env-fn-20261006-agent2",
+        "kind": "read",
+        "target": "目录树节点可见状态",
+        "business_call_id": "CALL-7b46395f-d660-4078-9b1a-7968f1b723f6",
+        "object_id": "skill-tree-node-visible",
+        "source": {
+          "channel": "dom",
+          "scope": "技能页/技能详情/目录树",
+          "locator": "[class*=\"dir-tree\"]"
+        },
+        "value": false,
+        "raw": {
+          "count": 0,
+          "visible": false
+        },
+        "derivation": "count>0 && visible"
+      }
+    }
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "case_id": "G13-12",
+  "contract_version": "2.0",
+  "environment_id": "agent-oc-20261006-funcfull-01",
+  "attempt_id": "G13-12-A01",
+  "object_identity": "插件页 persona 卡",
+  "inputs": [
+    "展开 persona",
+    "收起 persona"
+  ],
+  "business_call_refs": [
+    "CALL-1bef4a98-d6f5-491b-9f85-b52ef566b593",
+    "CALL-a0fecc8d-fd0c-4430-8896-29e02040f63f",
+    "CALL-e83dcce9-71dc-4c4b-a3ac-67e040166abb",
+    "CALL-047954c6-975a-431e-92f2-bcbd5770a358",
+    "CALL-0f6a762b-ef39-4e67-83c8-c691e38a4861",
+    "CALL-1bab1934-4514-4edc-a0c8-f4c0fd57065e"
+  ],
+  "status": "通过",
+  "attempted_at": "2026-10-06T17:19:33.654Z",
+  "assertions": [
+    {
+      "id": "G13-12-A1",
+      "expected": true,
+      "actual": true,
+      "pass": true,
+      "read_refs": [
+        "CALL-a0fecc8d-fd0c-4430-8896-29e02040f63f-1"
+      ],
+      "raw": {
+        "persona": {
+          "text": "persona\nComposition-authored deployment persona section for the DeepSeek Harness",
+          "expanded": "true"
+        }
+      }
+    },
+    {
+      "id": "G13-12-A2",
+      "expected": "same_value",
+      "actual": {
+        "before": "false",
+        "after": "false"
+      },
+      "pass": true,
+      "read_refs": [
+        "CALL-0f6a762b-ef39-4e67-83c8-c691e38a4861-1",
+        "CALL-047954c6-975a-431e-92f2-bcbd5770a358-1"
+      ]
+    }
+  ],
+  "restore": {
+    "status": "unchanged",
+    "description": "本case未改动设置/文件",
+    "read_refs": []
+  },
+  "residual": "",
+  "notes": "工具注意：conversation.readPluginCard 会误把项目按钮(tpt-workspace)当作展开插件卡；改用 settings.listPluginCards 读取 persona 的 aria-expanded。"
+}

@@ -1,0 +1,34 @@
+{
+  "case_id": "G9-05",
+  "contract_version": "2.0",
+  "environment_id": "agent-oc-20261006-funcfull-01",
+  "attempt_id": "G9-05-A01",
+  "object_identity": "fast-assert-desc-en-agent-oc-20261006-funcfull-01",
+  "inputs": [
+    "导入 variants/desc-en/SKILL.md"
+  ],
+  "business_call_refs": [
+    "CALL-1fa2eb63-a3ab-4bab-ae2d-039b8d90c329",
+    "CALL-18059e7c-511d-4a01-bfce-5ee04e479723"
+  ],
+  "status": "通过",
+  "attempted_at": "2026-10-06T16:33:15.831Z",
+  "assertions": [
+    {
+      "id": "G9-05-A1",
+      "expected": "FAST_DESCRIPTION_EN",
+      "actual": "FAST_DESCRIPTION_EN",
+      "pass": true,
+      "read_refs": [
+        "CALL-18059e7c-511d-4a01-bfce-5ee04e479723-3"
+      ]
+    }
+  ],
+  "restore": {
+    "status": "unchanged",
+    "description": "本case未改动设置/文件",
+    "read_refs": []
+  },
+  "residual": "",
+  "notes": "中文界面描述回退 description_en。"
+}

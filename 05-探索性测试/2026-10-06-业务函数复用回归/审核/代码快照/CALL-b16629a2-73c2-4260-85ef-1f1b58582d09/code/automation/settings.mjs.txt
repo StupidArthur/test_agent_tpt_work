@@ -1,0 +1,31 @@
+// 软件操作支撑层：设置弹窗定位与交互原语。
+import { connect } from './session.mjs';
+
+export const SETTINGS_SEL = {
+  dialog: '[data-shortcut-modal="settings"]',
+  close: 'button[class*="_close"], [data-shortcut-modal="settings"] button:has-text("关闭")',
+  navCell: 'button[class*="navCell"]',
+  themeBtn: 'button[aria-pressed]',
+  selector: 'button[class*="selector"]',
+  fontInc: 'button[aria-label="增大字号"]',
+  fontDec: 'button[aria-label="减小字号"]',
+};
+
+export async function openSettings(ctx) {
+  const conn = await connect(ctx);
+  const { page } = conn;
+  if (!(await page.locator(SETTINGS_SEL.dialog).count())) {
+    for (let i = 0; i < 2; i++) { await page.keyboard.press('Escape').catch(() => {}); await page.waitForTimeout(300); }
+    await page.locator('button', { hasText: 'Arthur' }).first().click();
+    await page.waitForTimeout(800);
+    await page.getByText('设置', { exact: true }).first().click();
+    await page.waitForTimeout(1500);
+  }
+  return conn;
+}
+
+export async function gotoTab(frame, page, name) {
+  const dlg = frame.locator(SETTINGS_SEL.dialog);
+  const cell = dlg.locator(SETTINGS_SEL.navCell).filter({ hasText: name });
+  if (await cell.count()) { await cell.first().click(); await page.waitForTimeout(1000); }
+}

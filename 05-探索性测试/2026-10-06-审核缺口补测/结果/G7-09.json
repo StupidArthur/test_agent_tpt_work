@@ -1,0 +1,58 @@
+{
+  "case_id": "G7-09",
+  "contract_version": "retest-1.0",
+  "attempt_id": "G7-09-A02",
+  "environment_id": "env-20261006-agent2",
+  "object_identity": "30附件草稿的附件容器",
+  "inputs": [
+    "count-01..count-30.txt"
+  ],
+  "action_refs": [
+    "business-08db2645-5fe9-459e-a9fc-01306a364deb-1",
+    "business-08db2645-5fe9-459e-a9fc-01306a364deb-2"
+  ],
+  "status": "通过",
+  "started_at": "2026-10-06T09:20:50.137Z",
+  "ended_at": "2026-10-06T09:22:03.481Z",
+  "actual_steps": [
+    "添加30份附件",
+    "读取附件容器横纵scroll/client与computed overflow",
+    "沿成立的轴滚动到末端",
+    "读取count-30.txt可见性"
+  ],
+  "assertions": [
+    {
+      "id": "G7-09-A1",
+      "actual": true,
+      "read_refs": [
+        "business-08db2645-5fe9-459e-a9fc-01306a364deb-3"
+      ]
+    },
+    {
+      "id": "G7-09-A2",
+      "actual": true,
+      "read_refs": [
+        "business-08db2645-5fe9-459e-a9fc-01306a364deb-4"
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "path": "运行日志/business.jsonl",
+      "sha256": "aaadf0b2901d2cb69e298a41be0118017d9deadfdfefd5334328191063ed931f"
+    },
+    {
+      "path": "运行日志/业务调用.jsonl",
+      "sha256": "8d619b0d6f5da075d69128ea5b9bd89cdcf86f03cc59f16c18c2888bc01ece1e"
+    }
+  ],
+  "cleanup": {
+    "status": "unchanged",
+    "description": "附件清理，未发送；无设置/资产变更",
+    "read_refs": []
+  },
+  "business_call_refs": [
+    "CALL-e4f47231-1e95-4086-9c2d-c9e48fd9fc62"
+  ],
+  "notes": "原问题：容器实际横向滚动而用例断言纵向高度。本轮读取横纵尺寸与computed overflow，按实际可滚轴滚动到末端，再验证count-30.txt可见。raw见日志。"
+}

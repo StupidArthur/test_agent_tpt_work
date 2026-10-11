@@ -1,0 +1,277 @@
+{
+  "observation_id": "OBS-269",
+  "recorded_at": "2026-10-06T03:27:38.332Z",
+  "related_cases": [
+    "OTHER-019"
+  ],
+  "category": "settings UI behavior with round-owned target, work sample, and active-message comparison",
+  "scope": "OTHER-019-A10 only; existing tpt-workspace; TPT Work standard/low; loopback target on 127.0.0.1; no production endpoint or existing user file intentionally edited",
+  "observation": "网页锚点实际点击分别进入TPT Work Browser侧栏及外部Chrome；代码工具开时显示Trace/JS差异、关时隐藏相关入口但仍可调用工作区文件工具；繁忙排队消息在首轮完成后单独应答，插话消息在首轮运行时立即显示并于首轮后被处理；单次Control+K未使搜索输入可见。所有可逆设置恢复到初始值。",
+  "candidate_status": "pending bilateral review; no product defect asserted",
+  "evidence": [
+    {
+      "path": "证据/SETTINGS-LINK-NIGHT2-20261006/current-settings-baseline.json",
+      "case_id": "OTHER-019",
+      "attempt_id": "OTHER-019-A10",
+      "observation_id": "OBS-269",
+      "captured_at": "2026-10-06T02:53:10Z–2026-10-06T03:27:38Z",
+      "type": "JSON",
+      "proves": "初始UI状态：网页链接应用内侧栏、代码工具开启、繁忙排队、搜索会话Ctrl+K。",
+      "redacted": true,
+      "sha256": "1824dc34ddbaddf819144089ffc06d402d36b9df02c9bfaa0c43090e17030f6b"
+    },
+    {
+      "path": "证据/SETTINGS-LINK-NIGHT2-20261006/current-settings-baseline.png",
+      "case_id": "OTHER-019",
+      "attempt_id": "OTHER-019-A10",
+      "observation_id": "OBS-269",
+      "captured_at": "2026-10-06T02:53:10Z–2026-10-06T03:27:38Z",
+      "type": "截图",
+      "proves": "初始设置与快捷键状态界面。",
+      "redacted": true,
+      "sha256": "ee615d28739e2560d4ea84023795b726b357ad06dcf5154978667fa667c15d65"
+    },
+    {
+      "path": "证据/SETTINGS-LINK-NIGHT2-20261006/chat-anchor-render.png",
+      "case_id": "OTHER-019",
+      "attempt_id": "OTHER-019-A10",
+      "observation_id": "OBS-269",
+      "captured_at": "2026-10-06T02:53:10Z–2026-10-06T03:27:38Z",
+      "type": "截图",
+      "proves": "对话中真实渲染的ROUND_CHAT_LINK_20261006锚点及目标地址。",
+      "redacted": true,
+      "sha256": "4c183c0f100bdf781800951a442aff4f5f9800d572f41e7aa48df4ce2d1b4e83"
+    },
+    {
+      "path": "证据/SETTINGS-LINK-NIGHT2-20261006/sidebar-click-before.png",
+      "case_id": "OTHER-019",
+      "attempt_id": "OTHER-019-A10",
+      "observation_id": "OBS-269",
+      "captured_at": "2026-10-06T02:53:10Z–2026-10-06T03:27:38Z",
+      "type": "截图",
+      "proves": "点击应用内侧栏模式的可见目标链接前。",
+      "redacted": true,
+      "sha256": "d412860d7208d68fc9a04232b402f40b45cc0eca796074e5022859a230187df0"
+    },
+    {
+      "path": "证据/SETTINGS-LINK-NIGHT2-20261006/sidebar-click-after.png",
+      "case_id": "OTHER-019",
+      "attempt_id": "OTHER-019-A10",
+      "observation_id": "OBS-269",
+      "captured_at": "2026-10-06T02:53:10Z–2026-10-06T03:27:38Z",
+      "type": "截图",
+      "proves": "点击后TPT Work内Browser侧栏加载Round Link Target及marker。",
+      "redacted": true,
+      "sha256": "7c0eaad83b7a76a81422149da612446862b41bcfbb53fb7d04bfd4c2cbd6404d"
+    },
+    {
+      "path": "证据/SETTINGS-LINK-NIGHT2-20261006/link-default-browser-selected.png",
+      "case_id": "OTHER-019",
+      "attempt_id": "OTHER-019-A10",
+      "observation_id": "OBS-269",
+      "captured_at": "2026-10-06T02:53:10Z–2026-10-06T03:27:38Z",
+      "type": "截图",
+      "proves": "网页链接默认方式切换为默认浏览器。",
+      "redacted": true,
+      "sha256": "57c4fd1872e5d6bbd0bee4f8b25f83db487e936b296e7dd649cf4b31b635683a"
+    },
+    {
+      "path": "证据/SETTINGS-LINK-NIGHT2-20261006/browser-click-before.png",
+      "case_id": "OTHER-019",
+      "attempt_id": "OTHER-019-A10",
+      "observation_id": "OBS-269",
+      "captured_at": "2026-10-06T02:53:10Z–2026-10-06T03:27:38Z",
+      "type": "截图",
+      "proves": "默认浏览器模式下点击同一可见目标链接前。",
+      "redacted": true,
+      "sha256": "1745ba56cd2ca67e4ae1c9d28defcb9343cc4238884fceffc0fd5757c07b9862"
+    },
+    {
+      "path": "证据/SETTINGS-LINK-NIGHT2-20261006/browser-click-after.png",
+      "case_id": "OTHER-019",
+      "attempt_id": "OTHER-019-A10",
+      "observation_id": "OBS-269",
+      "captured_at": "2026-10-06T02:53:10Z–2026-10-06T03:27:38Z",
+      "type": "截图",
+      "proves": "默认浏览器打开本轮localhost target。",
+      "redacted": true,
+      "sha256": "425677c93f6bdebe81f5169e7e9921f782df91a628f359d7b3553dd5e1fd7799"
+    },
+    {
+      "path": "证据/SETTINGS-LINK-NIGHT2-20261006/browser-page-rendered.png",
+      "case_id": "OTHER-019",
+      "attempt_id": "OTHER-019-A10",
+      "observation_id": "OBS-269",
+      "captured_at": "2026-10-06T02:53:10Z–2026-10-06T03:27:38Z",
+      "type": "截图",
+      "proves": "外部浏览器呈现本轮Round Link Target静态页面。",
+      "redacted": true,
+      "sha256": "9f6bbce1df685a67dff296d198201cb1d812a78fb5fe777b1c499da4da220065"
+    },
+    {
+      "path": "证据/SETTINGS-LINK-NIGHT2-20261006/requests.jsonl",
+      "case_id": "OTHER-019",
+      "attempt_id": "OTHER-019-A10",
+      "observation_id": "OBS-269",
+      "captured_at": "2026-10-06T02:53:10Z–2026-10-06T03:27:38Z",
+      "type": "HTTP请求日志",
+      "proves": "本轮静态夹具收到应用Electron导航与Chrome导航请求；服务关闭记录。",
+      "redacted": true,
+      "sha256": "45d69253d6d25a375cc3b4896eb4445cdc1776118d9642e06e3668f9fed7c5b3"
+    },
+    {
+      "path": "证据/SETTINGS-LINK-NIGHT2-20261006/server-info.json",
+      "case_id": "OTHER-019",
+      "attempt_id": "OTHER-019-A10",
+      "observation_id": "OBS-269",
+      "captured_at": "2026-10-06T02:53:10Z–2026-10-06T03:27:38Z",
+      "type": "JSON",
+      "proves": "仅绑定127.0.0.1的本轮静态链接夹具服务信息。",
+      "redacted": true,
+      "sha256": "93652c9b03b62644d9fb76d519ec0a6cb4138093d6089eecc1457a0467f36868"
+    },
+    {
+      "path": "证据/SETTINGS-LINK-NIGHT2-20261006/link-sidebar-restored.png",
+      "case_id": "OTHER-019",
+      "attempt_id": "OTHER-019-A10",
+      "observation_id": "OBS-269",
+      "captured_at": "2026-10-06T02:53:10Z–2026-10-06T03:27:38Z",
+      "type": "截图",
+      "proves": "网页链接设置恢复应用内侧栏。",
+      "redacted": true,
+      "sha256": "da52438d9fc2171575ee831bace429a9d2c2ec367ff7ba0e979f94f8ba87fe1f"
+    },
+    {
+      "path": "证据/SETTINGS-LINK-NIGHT2-20261006/code-diff-on-view.png",
+      "case_id": "OTHER-019",
+      "attempt_id": "OTHER-019-A10",
+      "observation_id": "OBS-269",
+      "captured_at": "2026-10-06T02:53:10Z–2026-10-06T03:27:38Z",
+      "type": "截图",
+      "proves": "代码工具开启时查看到round-owned JS的第1轮差异与+1/-0。",
+      "redacted": true,
+      "sha256": "72f7ece11b6cb69cef6936561cfa9c5dcd1db00b396bcc24c42c39ef313ba42f"
+    },
+    {
+      "path": "证据/SETTINGS-LINK-NIGHT2-20261006/code-diff-off-setting.png",
+      "case_id": "OTHER-019",
+      "attempt_id": "OTHER-019-A10",
+      "observation_id": "OBS-269",
+      "captured_at": "2026-10-06T02:53:10Z–2026-10-06T03:27:38Z",
+      "type": "截图",
+      "proves": "代码工具关闭状态设置界面。",
+      "redacted": true,
+      "sha256": "be91552690333c922e966703c5db50d09a758fc2754a9468d72d4ebbb278e9a2"
+    },
+    {
+      "path": "证据/SETTINGS-LINK-NIGHT2-20261006/code-diff-off-task-complete.png",
+      "case_id": "OTHER-019",
+      "attempt_id": "OTHER-019-A10",
+      "observation_id": "OBS-269",
+      "captured_at": "2026-10-06T02:53:10Z–2026-10-06T03:27:38Z",
+      "type": "截图",
+      "proves": "关闭状态下工作区工具仍改写本轮JS；该轮没有Trace或改动卡片。",
+      "redacted": true,
+      "sha256": "444f67150895ebf1660d45f76a7045049cfd98db7a07387dcc00a4210f4f0015"
+    },
+    {
+      "path": "证据/SETTINGS-LINK-NIGHT2-20261006/code-tools-on-restored.png",
+      "case_id": "OTHER-019",
+      "attempt_id": "OTHER-019-A10",
+      "observation_id": "OBS-269",
+      "captured_at": "2026-10-06T02:53:10Z–2026-10-06T03:27:38Z",
+      "type": "截图",
+      "proves": "代码工具恢复开启。",
+      "redacted": true,
+      "sha256": "2416e23eb69447b707cbc747f333fa653b75ccabcd826da9ebda4ff47997f710"
+    },
+    {
+      "path": "证据/SETTINGS-LINK-NIGHT2-20261006/queue-send-attempt.png",
+      "case_id": "OTHER-019",
+      "attempt_id": "OTHER-019-A10",
+      "observation_id": "OBS-269",
+      "captured_at": "2026-10-06T02:53:10Z–2026-10-06T03:27:38Z",
+      "type": "截图",
+      "proves": "Queue设置下第一任务运行时提交唯一第二消息，界面显示互补快捷键提示。",
+      "redacted": true,
+      "sha256": "eb44977bf6f6c1a03ec270bd7ac27d32ab9c6f455bd539d51110239bc3069722"
+    },
+    {
+      "path": "证据/SETTINGS-LINK-NIGHT2-20261006/queue-final.png",
+      "case_id": "OTHER-019",
+      "attempt_id": "OTHER-019-A10",
+      "observation_id": "OBS-269",
+      "captured_at": "2026-10-06T02:53:10Z–2026-10-06T03:27:38Z",
+      "type": "截图",
+      "proves": "Queue下第一任务完成后，第二条消息作为后续独立轮次得到回应。",
+      "redacted": true,
+      "sha256": "d3b1dca383dfaa0963411e7b81ee8fe0dd675c621cacb2621c1fad260c39ecbf"
+    },
+    {
+      "path": "证据/SETTINGS-LINK-NIGHT2-20261006/insert-send-attempt.png",
+      "case_id": "OTHER-019",
+      "attempt_id": "OTHER-019-A10",
+      "observation_id": "OBS-269",
+      "captured_at": "2026-10-06T02:53:10Z–2026-10-06T03:27:38Z",
+      "type": "截图",
+      "proves": "Insert设置下第一任务运行期间提交唯一第二消息，消息已进入当前对话。",
+      "redacted": true,
+      "sha256": "833596984747b18c04901e8ee0c617ae06bd451ff4779fecf85ed6eba90ea833"
+    },
+    {
+      "path": "证据/SETTINGS-LINK-NIGHT2-20261006/insert-after-completion.png",
+      "case_id": "OTHER-019",
+      "attempt_id": "OTHER-019-A10",
+      "observation_id": "OBS-269",
+      "captured_at": "2026-10-06T02:53:10Z–2026-10-06T03:27:38Z",
+      "type": "截图",
+      "proves": "Insert尝试中第一轮最终完成后处理第二消息；仅记录时序，不外推消息语义。",
+      "redacted": true,
+      "sha256": "aed7c02bd86cc8a990d0ccc6f955c8f0078c99fd71ffbc6c8b452beffe55a0f6"
+    },
+    {
+      "path": "证据/SETTINGS-LINK-NIGHT2-20261006/shortcut-control-k.png",
+      "case_id": "OTHER-019",
+      "attempt_id": "OTHER-019-A10",
+      "observation_id": "OBS-269",
+      "captured_at": "2026-10-06T02:53:10Z–2026-10-06T03:27:38Z",
+      "type": "截图",
+      "proves": "焦点离开编辑器后一次Control+K按键仍未打开搜索会话输入。",
+      "redacted": true,
+      "sha256": "fd156351394b42edff65d2adf80fb57a72a4d7d7e20be35d5b45b90c69aee5be"
+    },
+    {
+      "path": "证据/SETTINGS-LINK-NIGHT2-20261006/final-settings-restored.png",
+      "case_id": "OTHER-019",
+      "attempt_id": "OTHER-019-A10",
+      "observation_id": "OBS-269",
+      "captured_at": "2026-10-06T02:53:10Z–2026-10-06T03:27:38Z",
+      "type": "截图",
+      "proves": "最终UI设置回读：应用内侧栏、代码工具开启、排队发送。",
+      "redacted": true,
+      "sha256": "12dadf4cfa5aba9548a2d945eaecd8c01b3d35b224e9bae5900f2cb741f16639"
+    },
+    {
+      "path": "证据/SETTINGS-LINK-NIGHT2-20261006/final-settings-restored.json",
+      "case_id": "OTHER-019",
+      "attempt_id": "OTHER-019-A10",
+      "observation_id": "OBS-269",
+      "captured_at": "2026-10-06T02:53:10Z–2026-10-06T03:27:38Z",
+      "type": "JSON",
+      "proves": "最终设置回读的可访问UI文字及代码工具开关状态。",
+      "redacted": true,
+      "sha256": "3d03a4cac0295a613c5967d5314ffe6d724a2045f21501c0a9e7627ca9cca6aa"
+    },
+    {
+      "path": "证据/SETTINGS-LINK-NIGHT2-20261006/runtime-assertions.json",
+      "case_id": "OTHER-019",
+      "attempt_id": "OTHER-019-A10",
+      "observation_id": "OBS-269",
+      "captured_at": "2026-10-06T02:53:10Z–2026-10-06T03:27:38Z",
+      "type": "JSON",
+      "proves": "本轮四项UI对照的实际运行时值、目标URL、时序、设置恢复与结论范围。",
+      "redacted": true,
+      "sha256": "00d280edc842a0b04341b9e01cc9a7243841c45a1b35e89151bd8e04c998060f"
+    }
+  ]
+}

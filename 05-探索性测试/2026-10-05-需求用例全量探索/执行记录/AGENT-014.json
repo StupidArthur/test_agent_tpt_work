@@ -1,0 +1,117 @@
+{
+  "case_id": "AGENT-014",
+  "case_title": "完整包导入",
+  "source_sha256": "c3cdc4c71c1746e9a647aa5190e0983229af9b41c22e2e6c9a9bc3da80727b66",
+  "status": "已执行-符合预期",
+  "review_status": "待双方审核",
+  "latest_attempt_id": "AGENT-014-A01",
+  "attempts": [
+    {
+      "attempt_id": "AGENT-014-A01",
+      "started_at": "2026-10-06T05:33:00+08:00",
+      "ended_at": "2026-10-05T21:42:47.586Z",
+      "environment_id": "ENV-001",
+      "surface": "Expert management iframe and unified conversation UI via Electron CDP + Playwright",
+      "actual_preconditions": {
+        "account": "Arthur",
+        "expert_manager": "8 round-owned local experts before import",
+        "project": "existing tpt-workspace",
+        "model": "standard / low",
+        "permission": "workspace edits",
+        "fixture": "night-agent-complete-20261006 with root metadata.json and agent.md"
+      },
+      "input": "Imported the full valid round-owned package and read its displayed configuration; selected it in a new task and requested its unique marker.",
+      "actual_steps": [
+        "Verified the fixture contains metadata.json and agent.md at the package root.",
+        "Imported the folder through the Expert management UI directory input and observed the success notice.",
+        "Read back the resulting local card, which showed the fixture display name/description, source 我创建的·本地运行, version 1.0.0.",
+        "Clicked 使用 on that exact card; the new-task composer contained the expert chip agent-night-agent-complete-20261006.",
+        "Submitted a unique marker request in Standard / low mode; the assistant returned NIGHT_AGENT_IMPORT_OK_20261006. The UI trace showed one assistant turn and no tool step."
+      ],
+      "wait_condition": "Waited for the import terminal notice, then read the local expert card; for AGENT-014 also waited for the unique assistant marker.",
+      "checkpoints": [
+        {
+          "expected_index": 1,
+          "expected": "加入我的Agent",
+          "observed": "After UI import, 我的专家 count increased 8→9 and the exact round-owned card showed source 我创建的·本地运行.",
+          "verdict": "符合",
+          "evidence": [
+            "证据/AGENT-014/AGENT-014-A01/import-card.png"
+          ]
+        },
+        {
+          "expected_index": 2,
+          "expected": "配置内容可读",
+          "observed": "The card rendered the fixture display description and tags. Using it inserted the exact internal expert chip; the assistant then returned its unique marker. Trace showed 1 turn / 1 step and no tool call.",
+          "verdict": "符合",
+          "evidence": [
+            "证据/AGENT-014/AGENT-014-A01/call-result.png",
+            "证据/AGENT-014/AGENT-014-A01/call-result.txt",
+            "证据/AGENT-014/AGENT-014-A01/trace-summary.txt"
+          ]
+        }
+      ],
+      "observed_result": "The complete round-owned folder imported successfully and was visible as a local expert. Selecting the card inserted an expert reference in the new-task composer; the unique response marker matched the package instructions. The evidence supports this sample and path only.",
+      "status": "已执行-符合预期",
+      "evidence": [
+        "证据/AGENT-014/AGENT-014-A01/import-card.png",
+        "证据/AGENT-014/AGENT-014-A01/import-card.txt",
+        "证据/AGENT-014/AGENT-014-A01/call-result.png",
+        "证据/AGENT-014/AGENT-014-A01/call-result.txt",
+        "证据/AGENT-014/AGENT-014-A01/trace-summary.txt"
+      ],
+      "notes": "All findings remain pending bilateral review. The imported expert is a harmless round-owned sample, authorized for retention during this test round.",
+      "cleanup": {
+        "changes": [
+          "Added only round-owned expert night-agent-complete-20261006 via the authorized UI import."
+        ],
+        "remaining": [
+          "The sample remains installed under the product data root for continued authorized round testing."
+        ]
+      }
+    }
+  ],
+  "product_observations": [
+    {
+      "observation_id": "OBS-228",
+      "feature_id": null,
+      "statement": "A complete round-owned expert package imported through the UI, appeared as a local card with readable display metadata, was selected via 使用, and answered the fixture-only unique marker in Standard/low. Trace evidenced one turn and no tool call.",
+      "case_ids": [
+        "AGENT-014"
+      ],
+      "attempt_ids": [
+        "AGENT-014-A01"
+      ],
+      "environment_id": "ENV-001",
+      "verified_depth": "UI import, card configuration readback, expert selection, unique marker response and trace turn count",
+      "scope_and_limits": "One harmless round-owned local fixture; no existing user expert changed. The evidence does not establish behavior for market, cloud or other platform imports.",
+      "evidence": [
+        "证据\\AGENT-014\\AGENT-014-A01/import-card.png",
+        "证据\\AGENT-014\\AGENT-014-A01/import-card.txt",
+        "证据\\AGENT-014\\AGENT-014-A01/call-result.png",
+        "证据\\AGENT-014\\AGENT-014-A01/call-result.txt",
+        "证据\\AGENT-014\\AGENT-014-A01/trace-summary.txt"
+      ],
+      "relation_to_design": "Pending bilateral review; scoped to the tested local folder import and fixture call.",
+      "review_status": "待双方审核"
+    }
+  ],
+  "differences": [],
+  "finding_ids": [],
+  "blocker": null,
+  "applicability_reason": null,
+  "cleanup": {
+    "changes": [
+      "Added only round-owned expert night-agent-complete-20261006 via the authorized UI import."
+    ],
+    "remaining": [
+      "The sample remains installed under the product data root for continued authorized round testing."
+    ]
+  },
+  "review": {
+    "assistant": null,
+    "user": null,
+    "approved_scope": [],
+    "final_decision": "待审核"
+  }
+}

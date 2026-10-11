@@ -1,0 +1,59 @@
+{
+  "case_id": "G7-02",
+  "contract_version": "2.0",
+  "attempt_id": "fn-20261006-agent2-G7-02-A1",
+  "environment_id": "env-fn-20261006-agent2",
+  "object_identity": {
+    "count": 30
+  },
+  "inputs": [
+    "另一空白任务一次选择 count-01..count-30.txt"
+  ],
+  "action_refs": [
+    "business-0d50c5c6-92f6-49a8-88cf-2536e2a542aa-2"
+  ],
+  "status": "失败",
+  "started_at": "2026-10-06T08:22:48.636Z",
+  "ended_at": "2026-10-06T08:33:25.940Z",
+  "actual_steps": [
+    "新建任务",
+    "一次选择 30 个附件",
+    "读取附件数与数量提示"
+  ],
+  "assertions": [
+    {
+      "id": "G7-02-A1",
+      "actual": 30,
+      "read_refs": [
+        "business-661569e3-9039-48fd-b4dc-86075cae7f71-2"
+      ]
+    },
+    {
+      "id": "G7-02-A2",
+      "actual": false,
+      "read_refs": [
+        "business-661569e3-9039-48fd-b4dc-86075cae7f71-3"
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "path": "运行日志/business.jsonl",
+      "sha256": "6203703aeaf46ab5fd94d64c474b878c26f39b97bc4c3f7a3840f9ee9a48bdc5"
+    },
+    {
+      "path": "运行日志/业务调用.jsonl",
+      "sha256": "91fc9bb4b29ad5347770a9e5e5a21b38b9c414c04a2e484e84b5dd981db87bd7"
+    }
+  ],
+  "cleanup": {
+    "status": "retained",
+    "description": "草稿保留；G7-09 复用 30 卡草稿",
+    "read_refs": []
+  },
+  "business_call_refs": [
+    "CALL-c730dc1f-9a98-4113-a2a4-b89bba37bdf4",
+    "CALL-91e1da02-1a70-4f77-9927-152ec468d2f6"
+  ],
+  "notes": "A1 通过：附件数=30。A2 失败：附件区文本未出现 30/30 数量提示（raw.matched=null）"
+}

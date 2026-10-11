@@ -1,0 +1,95 @@
+// G5-07/G5-08: missing required file and malformed JSON expert package rejection.
+import path from 'node:path';
+import crypto from 'node:crypto';
+import fs from 'node:fs';
+import { withApp } from '../../automation/tpt.mjs';
+import { expEnsureList, expertCardCount, importExpertDir, expCloseDialogs } from '../../automation/experts.mjs';
+
+const sha256File = (p) => crypto.createHash('sha256').update(fs.readFileSync(p)).digest('hex');
+
+export async function expertsImportBad(ctx, args) {
+  const base = path.join(ctx.taskRoot, '夹具', '基础', ctx.runtime.extension_run);
+  return withApp(ctx, async (page) => {
+    const { recorder } = ctx;
+    const out = {};
+
+    // ---------- G5-07 missing agent.md ----------
+    await expEnsureList(page);
+    const cnt7Before = await recorder.read('专家列表数量', 'experts.list.count', {
+      channel: 'dom', scope: '专家iframe/我的专家列表', locator: '[class*="_card_"]',
+    }, async () => {
+      const f = await expEnsureList(page);
+      const c = await expertCardCount(f);
+      return { value: c, raw: { card_count: c } };
+    });
+    const act7 = await recorder.action('提交缺文件包', 'setInputFiles+click', '夹具/基础/' + ctx.runtime.extension_run + '/expert-missing-agent', async () => {
+      const f = await expEnsureList(page);
+      out.result7 = await importExpertDir(f, path.join(base, 'expert-missing-agent'), { uiWaitMs: 5000 });
+    });
+    const feed7 = await recorder.read('缺文件包提交反馈', 'experts.import.missing-agent', {
+      channel: 'dom', scope: '专家iframe/导入弹窗', locator: '[role="dialog"]',
+    }, async () => {
+      const r = out.result7 ?? {};
+      const text = r.dialogText ?? '';
+      const value = r.submitted ? /agent\.md|必填文件|缺少.{0,6}文件/i.test(text) : null;
+      return { value, raw: { dialog: text, submitted: r.submitted, dialog_open: r.dialogOpen }, reason: r.submitted ? undefined : '提交未完成' };
+    });
+    await expCloseDialogs(await expEnsureList(page), page);
+    const cnt7After = await recorder.read('专家列表数量', 'experts.list.count', {
+      channel: 'dom', scope: '专家iframe/我的专家列表', locator: '[class*="_card_"]',
+    }, async () => {
+      const f = await expEnsureList(page);
+      const c = await expertCardCount(f);
+      return { value: c, raw: { card_count: c } };
+    });
+
+    // ---------- G5-08 malformed metadata.json ----------
+    const badMeta = path.join(base, 'expert-bad-json', 'metadata.json');
+    const badAgent = path.join(base, 'expert-bad-json', 'agent.md');
+    const rMetaBefore = await recorder.read('坏包源metadata.json绝对路径', badMeta, {
+      channel: 'file', scope: '坏包源包', locator: badMeta,
+    }, async () => ({ value: sha256File(badMeta), raw: { path: badMeta } }));
+    const rAgentBefore = await recorder.read('坏包源agent.md绝对路径', badAgent, {
+      channel: 'file', scope: '坏包源包', locator: badAgent,
+    }, async () => ({ value: sha256File(badAgent), raw: { path: badAgent } }));
+
+    await expEnsureList(page);
+    const cnt8Before = await recorder.read('专家列表数量', 'experts.list.count', {
+      channel: 'dom', scope: '专家iframe/我的专家列表', locator: '[class*="_card_"]',
+    }, async () => {
+      const f = await expEnsureList(page);
+      const c = await expertCardCount(f);
+      return { value: c, raw: { card_count: c } };
+    });
+    const act8 = await recorder.action('提交坏JSON包', 'setInputFiles+click', '夹具/基础/' + ctx.runtime.extension_run + '/expert-bad-json', async () => {
+      const f = await expEnsureList(page);
+      out.result8 = await importExpertDir(f, path.join(base, 'expert-bad-json'), { uiWaitMs: 5000 });
+    });
+    const feed8 = await recorder.read('坏JSON提交反馈', 'experts.import.bad-json', {
+      channel: 'dom', scope: '专家iframe/导入弹窗', locator: '[role="dialog"]',
+    }, async () => {
+      const r = out.result8 ?? {};
+      const text = r.dialogText ?? '';
+      const value = r.submitted ? /metadata\.json|JSON|格式/i.test(text) : null;
+      return { value, raw: { dialog: text, submitted: r.submitted, dialog_open: r.dialogOpen }, reason: r.submitted ? undefined : '提交未完成' };
+    });
+    await expCloseDialogs(await expEnsureList(page), page);
+    const cnt8After = await recorder.read('专家列表数量', 'experts.list.count', {
+      channel: 'dom', scope: '专家iframe/我的专家列表', locator: '[class*="_card_"]',
+    }, async () => {
+      const f = await expEnsureList(page);
+      const c = await expertCardCount(f);
+      return { value: c, raw: { card_count: c } };
+    });
+    const rMetaAfter = await recorder.read('坏包源metadata.json绝对路径', badMeta, {
+      channel: 'file', scope: '坏包源包', locator: badMeta,
+    }, async () => ({ value: sha256File(badMeta), raw: { path: badMeta } }));
+    const rAgentAfter = await recorder.read('坏包源agent.md绝对路径', badAgent, {
+      channel: 'file', scope: '坏包源包', locator: badAgent,
+    }, async () => ({ value: sha256File(badAgent), raw: { path: badAgent } }));
+
+    out.G5_07 = { action: act7.event_id, feedbackRead: feed7.event_id, feedback: feed7.value, before: cnt7Before.event_id, after: cnt7After.event_id, beforeValue: cnt7Before.value, afterValue: cnt7After.value };
+    out.G5_08 = { action: act8.event_id, feedbackRead: feed8.event_id, feedback: feed8.value, before: cnt8Before.event_id, after: cnt8After.event_id, beforeValue: cnt8Before.value, afterValue: cnt8After.value, metaBefore: rMetaBefore.event_id, metaAfter: rMetaAfter.event_id, agentBefore: rAgentBefore.event_id, agentAfter: rAgentAfter.event_id };
+    return out;
+  });
+}

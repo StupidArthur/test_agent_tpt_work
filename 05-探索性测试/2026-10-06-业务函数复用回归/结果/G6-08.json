@@ -1,0 +1,54 @@
+{
+  "case_id": "G6-08",
+  "contract_version": "2.0",
+  "attempt_id": "fn-20261006-agent2-G6-08-A1",
+  "environment_id": "env-fn-20261006-agent2",
+  "object_identity": {
+    "scene_initial": "标准模式"
+  },
+  "inputs": [
+    "设置→场景预设：恢复原场景，再新建空白任务核对"
+  ],
+  "action_refs": [
+    "business-f5f18dff-2ebe-4516-8a2a-193145e9e685-2"
+  ],
+  "status": "通过",
+  "started_at": "2026-10-06T08:19:34.280Z",
+  "ended_at": "2026-10-06T08:19:42.531Z",
+  "actual_steps": [
+    "设置场景预设为 标准模式",
+    "新建空白任务",
+    "读取 composer 场景标签"
+  ],
+  "assertions": [
+    {
+      "id": "G6-08-A1",
+      "actual": "标准模式",
+      "read_refs": [
+        "business-3e1aa3b1-646b-4fbf-a223-a7d24b9d6f81-2"
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "path": "运行日志/business.jsonl",
+      "sha256": "6203703aeaf46ab5fd94d64c474b878c26f39b97bc4c3f7a3840f9ee9a48bdc5"
+    },
+    {
+      "path": "运行日志/业务调用.jsonl",
+      "sha256": "91fc9bb4b29ad5347770a9e5e5a21b38b9c414c04a2e484e84b5dd981db87bd7"
+    }
+  ],
+  "cleanup": {
+    "status": "restored",
+    "description": "场景已恢复为初值 标准模式并新建任务核验",
+    "read_refs": [
+      "business-3e1aa3b1-646b-4fbf-a223-a7d24b9d6f81-2"
+    ]
+  },
+  "business_call_refs": [
+    "CALL-70dfeb93-3566-47db-acb5-f0d645fc1fe3",
+    "CALL-872c9faa-682d-4d6d-a25c-eb977cba5a04"
+  ],
+  "notes": "恢复后新任务场景标签为 标准模式，与场景初值一致"
+}

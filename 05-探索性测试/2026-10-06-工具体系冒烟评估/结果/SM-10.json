@@ -1,0 +1,52 @@
+{
+  "case_id": "SM-10",
+  "started_at": "2026-10-06T14:28:43.976Z",
+  "ended_at": "2026-10-06T14:28:59.610Z",
+  "status": "通过",
+  "assertions": [
+    {
+      "id": "SM-10-A1",
+      "actual": true,
+      "expected": true,
+      "pass": true,
+      "read_refs": [
+        "CALL-2e6b918b-e47b-4b9b-b195-d418024f8fd0-1",
+        "CALL-2e6b918b-e47b-4b9b-b195-d418024f8fd0-3",
+        "CALL-2e6b918b-e47b-4b9b-b195-d418024f8fd0-2"
+      ]
+    },
+    {
+      "id": "SM-10-A2",
+      "actual": true,
+      "expected": true,
+      "pass": true,
+      "read_refs": [
+        "CALL-931fc4b3-6f58-4c76-8e3a-b4023f3c7110-1"
+      ]
+    }
+  ],
+  "business_call_refs": [
+    "CALL-2e6b918b-e47b-4b9b-b195-d418024f8fd0",
+    "CALL-931fc4b3-6f58-4c76-8e3a-b4023f3c7110"
+  ],
+  "tool_discovery": {
+    "feature_path": [
+      "设置",
+      "入口"
+    ],
+    "plan_functions": [
+      "settings.readGeneral",
+      "settings.readShortcut"
+    ],
+    "used": [
+      "settings.readGeneral",
+      "settings.readShortcut"
+    ],
+    "additional_functions": [],
+    "all_product_operations_via_functions": true
+  },
+  "error": null,
+  "attempt": "A04",
+  "supersedes": "历史/SM-10-A03.json",
+  "retest_reason": "项目控件按已观察的workspace定位；目标会话已打开时不强求侧栏再次选择"
+}

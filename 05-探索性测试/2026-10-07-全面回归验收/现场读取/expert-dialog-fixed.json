@@ -1,0 +1,49 @@
+{
+  "call_id": "CALL-6fa44708-5765-458b-9b71-c3ca09451f0e",
+  "status": "returned",
+  "observations": {
+    "action_refs": [
+      "CALL-6fa44708-5765-458b-9b71-c3ca09451f0e-2",
+      "CALL-6fa44708-5765-458b-9b71-c3ca09451f0e-5"
+    ],
+    "observations": {
+      "inputs": {
+        "event_id": "CALL-6fa44708-5765-458b-9b71-c3ca09451f0e-3",
+        "captured_at": "2026-10-07T00:16:05.716Z",
+        "environment_id": "acceptance-20261007",
+        "business_call_id": "CALL-6fa44708-5765-458b-9b71-c3ca09451f0e",
+        "kind": "read",
+        "target": "专家导入弹窗目录input数量",
+        "object_id": "expert-import-dir-inputs",
+        "source": {
+          "channel": "dom",
+          "scope": "专家页/导入本地专家弹窗",
+          "locator": "input[type=\"file\"][webkitdirectory]"
+        },
+        "value": 1,
+        "raw": {
+          "dirCount": 1,
+          "zipCount": 1,
+          "dialogText": "导入本地专家 × 选择或拖入专家压缩包 / 文件夹 支持 .zip 压缩包（不超过 32MB），也可选择或拖入专家文件夹 选择文件 选择文件夹 导入要求 校验专家结构（agent.md + metadata.json）与必填元数据 名称冲突时可覆盖或作为副本导入 导入后默认保存到本机，并出现在「我的专家」 支持专家 .zip 压缩包或文件夹（本地目录），系统会自动识别包内的 metadata.json，不需要预先选择格式。 内部名称（可选，默认取包内 metadata.json 的 name，缺失时回落文件夹或压缩包名） 提交"
+        }
+      },
+      "closed": {
+        "event_id": "CALL-6fa44708-5765-458b-9b71-c3ca09451f0e-6",
+        "captured_at": "2026-10-07T00:16:05.758Z",
+        "environment_id": "acceptance-20261007",
+        "business_call_id": "CALL-6fa44708-5765-458b-9b71-c3ca09451f0e",
+        "kind": "read",
+        "target": "专家导入弹窗关闭状态",
+        "object_id": "expert-import-dialog-closed",
+        "source": {
+          "channel": "dom",
+          "scope": "专家iframe"
+        },
+        "value": true,
+        "raw": {
+          "count": 0
+        }
+      }
+    }
+  }
+}

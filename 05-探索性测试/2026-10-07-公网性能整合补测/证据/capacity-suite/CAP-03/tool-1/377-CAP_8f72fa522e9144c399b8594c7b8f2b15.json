@@ -1,0 +1,200 @@
+{
+  "request": {
+    "model": "flash",
+    "input": [
+      {
+        "role": "user",
+        "content": [
+          {
+            "type": "input_text",
+            "text": "调用 add_numbers，参数 a=17 b=25。"
+          }
+        ]
+      },
+      {
+        "type": "function_call",
+        "name": "add_numbers",
+        "call_id": "call_9889126ce3477a63",
+        "arguments": "{\"a\": 17, \"b\": 25}"
+      },
+      {
+        "type": "function_call_output",
+        "call_id": "call_9889126ce3477a63",
+        "output": "42"
+      }
+    ],
+    "stream": true,
+    "instructions": "正文仅输出计算结果整数。",
+    "max_output_tokens": 512,
+    "tools": [
+      {
+        "type": "function",
+        "name": "add_numbers",
+        "description": "Add two integers and return the sum.",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "a": {
+              "type": "integer"
+            },
+            "b": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "a",
+            "b"
+          ]
+        }
+      }
+    ],
+    "reasoning": {
+      "effort": "low"
+    }
+  },
+  "response": {
+    "http_status": 200,
+    "error_kind": null,
+    "error": null,
+    "t_headers": 0.375,
+    "t_first_frame": 0.375,
+    "t_end": 0.375,
+    "is_event_stream": true,
+    "terminal": "completed",
+    "text": "42",
+    "final_text": "42",
+    "usage": {
+      "input_tokens": 409,
+      "input_tokens_details": {
+        "cached_tokens": 256,
+        "input_tokens_per_turn": [],
+        "cached_tokens_per_turn": []
+      },
+      "output_tokens": 3,
+      "output_tokens_details": {
+        "reasoning_tokens": 0,
+        "tool_output_tokens": 0,
+        "output_tokens_per_turn": [],
+        "tool_output_tokens_per_turn": []
+      },
+      "total_tokens": 412
+    }
+  },
+  "body_text": "",
+  "frames": [
+    {
+      "t": 223250.828,
+      "event": "response.created",
+      "data": "{\"response\":{\"id\":\"resp_aff5831309e86fe6\",\"created_at\":1791354642,\"incomplete_details\":null,\"instructions\":\"正文仅输出计算结果整数。\",\"metadata\":null,\"model\":\"flash\",\"object\":\"response\",\"output\":[],\"parallel_tool_calls\":true,\"temperature\":1.0,\"tool_choice\":\"auto\",\"tools\":[{\"name\":\"add_numbers\",\"parameters\":{\"properties\":{\"a\":{\"type\":\"integer\"},\"b\":{\"type\":\"integer\"}},\"required\":[\"a\",\"b\"],\"type\":\"object\"},\"strict\":null,\"type\":\"function\",\"allowed_callers\":null,\"defer_loading\":null,\"description\":\"Add two integers and return the sum.\",\"output_schema\":null}],\"top_p\":1.0,\"background\":false,\"max_output_tokens\":512,\"max_tool_calls\":null,\"previous_response_id\":null,\"prompt\":null,\"reasoning\":{\"context\":null,\"effort\":\"low\",\"generate_summary\":null,\"mode\":null,\"summary\":null},\"service_tier\":\"auto\",\"status\":\"in_progress\",\"text\":null,\"top_logprobs\":null,\"truncation\":\"disabled\",\"usage\":null,\"user\":null,\"presence_penalty\":0.0,\"frequency_penalty\":0.0,\"kv_transfer_params\":null,\"ec_transfer_params\":null,\"input_messages\":null,\"output_messages\":null},\"sequence_number\":0,\"type\":\"response.created\"}",
+      "raw": "event: response.created\ndata: {\"response\":{\"id\":\"resp_aff5831309e86fe6\",\"created_at\":1791354642,\"incomplete_details\":null,\"instructions\":\"正文仅输出计算结果整数。\",\"metadata\":null,\"model\":\"flash\",\"object\":\"response\",\"output\":[],\"parallel_tool_calls\":true,\"temperature\":1.0,\"tool_choice\":\"auto\",\"tools\":[{\"name\":\"add_numbers\",\"parameters\":{\"properties\":{\"a\":{\"type\":\"integer\"},\"b\":{\"type\":\"integer\"}},\"required\":[\"a\",\"b\"],\"type\":\"object\"},\"strict\":null,\"type\":\"function\",\"allowed_callers\":null,\"defer_loading\":null,\"description\":\"Add two integers and return the sum.\",\"output_schema\":null}],\"top_p\":1.0,\"background\":false,\"max_output_tokens\":512,\"max_tool_calls\":null,\"previous_response_id\":null,\"prompt\":null,\"reasoning\":{\"context\":null,\"effort\":\"low\",\"generate_summary\":null,\"mode\":null,\"summary\":null},\"service_tier\":\"auto\",\"status\":\"in_progress\",\"text\":null,\"top_logprobs\":null,\"truncation\":\"disabled\",\"usage\":null,\"user\":null,\"presence_penalty\":0.0,\"frequency_penalty\":0.0,\"kv_transfer_params\":null,\"ec_transfer_params\":null,\"input_messages\":null,\"output_messages\":null},\"sequence_number\":0,\"type\":\"response.created\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223250.828,
+      "event": "response.in_progress",
+      "data": "{\"response\":{\"id\":\"resp_aff5831309e86fe6\",\"created_at\":1791354642,\"incomplete_details\":null,\"instructions\":\"正文仅输出计算结果整数。\",\"metadata\":null,\"model\":\"flash\",\"object\":\"response\",\"output\":[],\"parallel_tool_calls\":true,\"temperature\":1.0,\"tool_choice\":\"auto\",\"tools\":[{\"name\":\"add_numbers\",\"parameters\":{\"properties\":{\"a\":{\"type\":\"integer\"},\"b\":{\"type\":\"integer\"}},\"required\":[\"a\",\"b\"],\"type\":\"object\"},\"strict\":null,\"type\":\"function\",\"allowed_callers\":null,\"defer_loading\":null,\"description\":\"Add two integers and return the sum.\",\"output_schema\":null}],\"top_p\":1.0,\"background\":false,\"max_output_tokens\":512,\"max_tool_calls\":null,\"previous_response_id\":null,\"prompt\":null,\"reasoning\":{\"context\":null,\"effort\":\"low\",\"generate_summary\":null,\"mode\":null,\"summary\":null},\"service_tier\":\"auto\",\"status\":\"in_progress\",\"text\":null,\"top_logprobs\":null,\"truncation\":\"disabled\",\"usage\":null,\"user\":null,\"presence_penalty\":0.0,\"frequency_penalty\":0.0,\"kv_transfer_params\":null,\"ec_transfer_params\":null,\"input_messages\":null,\"output_messages\":null},\"sequence_number\":1,\"type\":\"response.in_progress\"}",
+      "raw": "event: response.in_progress\ndata: {\"response\":{\"id\":\"resp_aff5831309e86fe6\",\"created_at\":1791354642,\"incomplete_details\":null,\"instructions\":\"正文仅输出计算结果整数。\",\"metadata\":null,\"model\":\"flash\",\"object\":\"response\",\"output\":[],\"parallel_tool_calls\":true,\"temperature\":1.0,\"tool_choice\":\"auto\",\"tools\":[{\"name\":\"add_numbers\",\"parameters\":{\"properties\":{\"a\":{\"type\":\"integer\"},\"b\":{\"type\":\"integer\"}},\"required\":[\"a\",\"b\"],\"type\":\"object\"},\"strict\":null,\"type\":\"function\",\"allowed_callers\":null,\"defer_loading\":null,\"description\":\"Add two integers and return the sum.\",\"output_schema\":null}],\"top_p\":1.0,\"background\":false,\"max_output_tokens\":512,\"max_tool_calls\":null,\"previous_response_id\":null,\"prompt\":null,\"reasoning\":{\"context\":null,\"effort\":\"low\",\"generate_summary\":null,\"mode\":null,\"summary\":null},\"service_tier\":\"auto\",\"status\":\"in_progress\",\"text\":null,\"top_logprobs\":null,\"truncation\":\"disabled\",\"usage\":null,\"user\":null,\"presence_penalty\":0.0,\"frequency_penalty\":0.0,\"kv_transfer_params\":null,\"ec_transfer_params\":null,\"input_messages\":null,\"output_messages\":null},\"sequence_number\":1,\"type\":\"response.in_progress\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223250.828,
+      "event": "response.output_item.added",
+      "data": "{\"item\":{\"id\":\"8351f6b3f2d67d8b\",\"content\":[],\"role\":\"assistant\",\"status\":\"in_progress\",\"type\":\"message\",\"phase\":null},\"output_index\":0,\"sequence_number\":2,\"type\":\"response.output_item.added\"}",
+      "raw": "event: response.output_item.added\ndata: {\"item\":{\"id\":\"8351f6b3f2d67d8b\",\"content\":[],\"role\":\"assistant\",\"status\":\"in_progress\",\"type\":\"message\",\"phase\":null},\"output_index\":0,\"sequence_number\":2,\"type\":\"response.output_item.added\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223250.828,
+      "event": "response.content_part.added",
+      "data": "{\"content_index\":0,\"item_id\":\"8351f6b3f2d67d8b\",\"output_index\":0,\"part\":{\"annotations\":[],\"text\":\"\",\"type\":\"output_text\",\"logprobs\":[]},\"sequence_number\":3,\"type\":\"response.content_part.added\"}",
+      "raw": "event: response.content_part.added\ndata: {\"content_index\":0,\"item_id\":\"8351f6b3f2d67d8b\",\"output_index\":0,\"part\":{\"annotations\":[],\"text\":\"\",\"type\":\"output_text\",\"logprobs\":[]},\"sequence_number\":3,\"type\":\"response.content_part.added\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223250.828,
+      "event": "response.output_text.delta",
+      "data": "{\"content_index\":0,\"delta\":\"42\",\"item_id\":\"8351f6b3f2d67d8b\",\"logprobs\":[],\"output_index\":0,\"sequence_number\":4,\"type\":\"response.output_text.delta\"}",
+      "raw": "event: response.output_text.delta\ndata: {\"content_index\":0,\"delta\":\"42\",\"item_id\":\"8351f6b3f2d67d8b\",\"logprobs\":[],\"output_index\":0,\"sequence_number\":4,\"type\":\"response.output_text.delta\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223250.828,
+      "event": "response.output_text.done",
+      "data": "{\"content_index\":0,\"item_id\":\"8351f6b3f2d67d8b\",\"logprobs\":[],\"output_index\":0,\"sequence_number\":5,\"text\":\"42\",\"type\":\"response.output_text.done\"}",
+      "raw": "event: response.output_text.done\ndata: {\"content_index\":0,\"item_id\":\"8351f6b3f2d67d8b\",\"logprobs\":[],\"output_index\":0,\"sequence_number\":5,\"text\":\"42\",\"type\":\"response.output_text.done\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223250.828,
+      "event": "response.content_part.done",
+      "data": "{\"content_index\":0,\"item_id\":\"8351f6b3f2d67d8b\",\"output_index\":0,\"part\":{\"annotations\":[],\"text\":\"42\",\"type\":\"output_text\",\"logprobs\":null},\"sequence_number\":6,\"type\":\"response.content_part.done\"}",
+      "raw": "event: response.content_part.done\ndata: {\"content_index\":0,\"item_id\":\"8351f6b3f2d67d8b\",\"output_index\":0,\"part\":{\"annotations\":[],\"text\":\"42\",\"type\":\"output_text\",\"logprobs\":null},\"sequence_number\":6,\"type\":\"response.content_part.done\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223250.828,
+      "event": "response.output_item.done",
+      "data": "{\"item\":{\"id\":\"8351f6b3f2d67d8b\",\"content\":[{\"annotations\":[],\"text\":\"42\",\"type\":\"output_text\",\"logprobs\":null}],\"role\":\"assistant\",\"status\":\"completed\",\"type\":\"message\",\"phase\":null,\"summary\":[]},\"output_index\":0,\"sequence_number\":7,\"type\":\"response.output_item.done\"}",
+      "raw": "event: response.output_item.done\ndata: {\"item\":{\"id\":\"8351f6b3f2d67d8b\",\"content\":[{\"annotations\":[],\"text\":\"42\",\"type\":\"output_text\",\"logprobs\":null}],\"role\":\"assistant\",\"status\":\"completed\",\"type\":\"message\",\"phase\":null,\"summary\":[]},\"output_index\":0,\"sequence_number\":7,\"type\":\"response.output_item.done\"}",
+      "json_ok": true
+    },
+    {
+      "t": 223250.828,
+      "event": "response.completed",
+      "data": "{\"response\":{\"id\":\"resp_aff5831309e86fe6\",\"created_at\":1791354642,\"incomplete_details\":null,\"instructions\":\"正文仅输出计算结果整数。\",\"metadata\":null,\"model\":\"flash\",\"object\":\"response\",\"output\":[{\"id\":\"msg_927a23594ded03f4\",\"content\":[{\"annotations\":[],\"text\":\"42\",\"type\":\"output_text\",\"logprobs\":null}],\"role\":\"assistant\",\"status\":\"completed\",\"type\":\"message\",\"phase\":null}],\"parallel_tool_calls\":true,\"temperature\":1.0,\"tool_choice\":\"auto\",\"tools\":[{\"name\":\"add_numbers\",\"parameters\":{\"properties\":{\"a\":{\"type\":\"integer\"},\"b\":{\"type\":\"integer\"}},\"required\":[\"a\",\"b\"],\"type\":\"object\"},\"strict\":null,\"type\":\"function\",\"allowed_callers\":null,\"defer_loading\":null,\"description\":\"Add two integers and return the sum.\",\"output_schema\":null}],\"top_p\":1.0,\"background\":false,\"max_output_tokens\":512,\"max_tool_calls\":null,\"previous_response_id\":null,\"prompt\":null,\"reasoning\":{\"context\":null,\"effort\":\"low\",\"generate_summary\":null,\"mode\":null,\"summary\":null},\"service_tier\":\"auto\",\"status\":\"completed\",\"text\":null,\"top_logprobs\":null,\"truncation\":\"disabled\",\"usage\":{\"input_tokens\":409,\"input_tokens_details\":{\"cached_tokens\":256,\"input_tokens_per_turn\":[],\"cached_tokens_per_turn\":[]},\"output_tokens\":3,\"output_tokens_details\":{\"reasoning_tokens\":0,\"tool_output_tokens\":0,\"output_tokens_per_turn\":[],\"tool_output_tokens_per_turn\":[]},\"total_tokens\":412},\"user\":null,\"presence_penalty\":0.0,\"frequency_penalty\":0.0,\"kv_transfer_params\":null,\"ec_transfer_params\":null,\"input_messages\":null,\"output_messages\":null},\"sequence_number\":8,\"type\":\"response.completed\"}",
+      "raw": "event: response.completed\ndata: {\"response\":{\"id\":\"resp_aff5831309e86fe6\",\"created_at\":1791354642,\"incomplete_details\":null,\"instructions\":\"正文仅输出计算结果整数。\",\"metadata\":null,\"model\":\"flash\",\"object\":\"response\",\"output\":[{\"id\":\"msg_927a23594ded03f4\",\"content\":[{\"annotations\":[],\"text\":\"42\",\"type\":\"output_text\",\"logprobs\":null}],\"role\":\"assistant\",\"status\":\"completed\",\"type\":\"message\",\"phase\":null}],\"parallel_tool_calls\":true,\"temperature\":1.0,\"tool_choice\":\"auto\",\"tools\":[{\"name\":\"add_numbers\",\"parameters\":{\"properties\":{\"a\":{\"type\":\"integer\"},\"b\":{\"type\":\"integer\"}},\"required\":[\"a\",\"b\"],\"type\":\"object\"},\"strict\":null,\"type\":\"function\",\"allowed_callers\":null,\"defer_loading\":null,\"description\":\"Add two integers and return the sum.\",\"output_schema\":null}],\"top_p\":1.0,\"background\":false,\"max_output_tokens\":512,\"max_tool_calls\":null,\"previous_response_id\":null,\"prompt\":null,\"reasoning\":{\"context\":null,\"effort\":\"low\",\"generate_summary\":null,\"mode\":null,\"summary\":null},\"service_tier\":\"auto\",\"status\":\"completed\",\"text\":null,\"top_logprobs\":null,\"truncation\":\"disabled\",\"usage\":{\"input_tokens\":409,\"input_tokens_details\":{\"cached_tokens\":256,\"input_tokens_per_turn\":[],\"cached_tokens_per_turn\":[]},\"output_tokens\":3,\"output_tokens_details\":{\"reasoning_tokens\":0,\"tool_output_tokens\":0,\"output_tokens_per_turn\":[],\"tool_output_tokens_per_turn\":[]},\"total_tokens\":412},\"user\":null,\"presence_penalty\":0.0,\"frequency_penalty\":0.0,\"kv_transfer_params\":null,\"ec_transfer_params\":null,\"input_messages\":null,\"output_messages\":null},\"sequence_number\":8,\"type\":\"response.completed\"}",
+      "json_ok": true
+    }
+  ],
+  "normalized": {
+    "protocol": "responses",
+    "text": "42",
+    "reasoning": "",
+    "final_text": "42",
+    "tool_calls": [],
+    "usage": {
+      "input_tokens": 409,
+      "input_tokens_details": {
+        "cached_tokens": 256,
+        "input_tokens_per_turn": [],
+        "cached_tokens_per_turn": []
+      },
+      "output_tokens": 3,
+      "output_tokens_details": {
+        "reasoning_tokens": 0,
+        "tool_output_tokens": 0,
+        "output_tokens_per_turn": [],
+        "tool_output_tokens_per_turn": []
+      },
+      "total_tokens": 412
+    },
+    "terminal": "completed",
+    "terminal_reason": "completed",
+    "error_message": null,
+    "unknown_events": [
+      {
+        "event": "response.created",
+        "data": "{\"response\":{\"id\":\"resp_aff5831309e86fe6\",\"created_at\":1791354642,\"incomplete_details\":null,\"instructions\":\"正文仅输出计算结果整数。\",\"metadata\":null,\"model\":\"flash\",\"object\":\"response\",\"output\":[],\"parallel_tool"
+      },
+      {
+        "event": "response.in_progress",
+        "data": "{\"response\":{\"id\":\"resp_aff5831309e86fe6\",\"created_at\":1791354642,\"incomplete_details\":null,\"instructions\":\"正文仅输出计算结果整数。\",\"metadata\":null,\"model\":\"flash\",\"object\":\"response\",\"output\":[],\"parallel_tool"
+      },
+      {
+        "event": "response.content_part.added",
+        "data": "{\"content_index\":0,\"item_id\":\"8351f6b3f2d67d8b\",\"output_index\":0,\"part\":{\"annotations\":[],\"text\":\"\",\"type\":\"output_text\",\"logprobs\":[]},\"sequence_number\":3,\"type\":\"response.content_part.added\"}"
+      },
+      {
+        "event": "response.output_text.done",
+        "data": "{\"content_index\":0,\"item_id\":\"8351f6b3f2d67d8b\",\"logprobs\":[],\"output_index\":0,\"sequence_number\":5,\"text\":\"42\",\"type\":\"response.output_text.done\"}"
+      },
+      {
+        "event": "response.content_part.done",
+        "data": "{\"content_index\":0,\"item_id\":\"8351f6b3f2d67d8b\",\"output_index\":0,\"part\":{\"annotations\":[],\"text\":\"42\",\"type\":\"output_text\",\"logprobs\":null},\"sequence_number\":6,\"type\":\"response.content_part.done\"}"
+      }
+    ],
+    "json_errors": []
+  },
+  "user": 0,
+  "turn_index": 6
+}

@@ -1,0 +1,114 @@
+{
+  "case_id": "SKILL-022",
+  "case_title": "中文名称回退",
+  "source_sha256": "92a6f4ecd2a5dffe0f1a2a60e73fa18b5fb98763b09cc56ce4cc22fd56e13f0e",
+  "status": "已执行-符合预期",
+  "review_status": "待双方审核",
+  "latest_attempt_id": "SKILL-022-A01",
+  "attempts": [
+    {
+      "attempt_id": "SKILL-022-A01",
+      "started_at": "2026-10-05T15:55:06.483Z",
+      "ended_at": "2026-10-05T15:55:06.483Z",
+      "environment_id": "ENV-001",
+      "surface": "Skills iframe visible import/card UI and task UI Trace via CDP+Playwright",
+      "actual_preconditions": {
+        "account_alias": "Arthur",
+        "workspace": "tpt-workspace",
+        "project": "未新增项目",
+        "session_id": "round-owned test session where applicable",
+        "model": "标准 / low",
+        "permission": "工作区内修改",
+        "fixtures": [
+          "夹具/skill-variants/SKILL-022/SKILL.md"
+        ]
+      },
+      "input": "Round-owned single-SKILL.md fixture; per-case UI observation JSON includes fixture hash and import dialog state.",
+      "actual_steps": [
+        "在可见的技能管理页面打开「导入技能」",
+        "通过页面 HTML file input 选择本轮 SKILL.md",
+        "观察页面导入结果/卡片字段；SKILL-028另在新任务中通过可见快捷使用 chip 调用并回读 Trace"
+      ],
+      "wait_condition": "等待导入终态及卡片稳定显示；使用测试时读取 UI DOM 与截图。",
+      "checkpoints": [
+        {
+          "expected_index": 1,
+          "expected": "按name_en再name回退",
+          "observed": "夹具省略 name_cn；中文技能列表成功显示 name_en「Round English Fallback」，来源为用户创建。导入成功。",
+          "verdict": "符合",
+          "evidence": [
+            "证据/SKILL-022/SKILL-022-A01/card.png",
+            "证据/SKILL-022/SKILL-022-A01/fixture-SKILL.md",
+            "证据/SKILL-022/SKILL-022-A01/import-dialog.png",
+            "证据/SKILL-022/SKILL-022-A01/ui-observation.json",
+            "证据/SKILL-022/SKILL-022-A01/技能详情页-摘录.txt"
+          ]
+        }
+      ],
+      "observed_result": "夹具省略 name_cn；中文技能列表成功显示 name_en「Round English Fallback」，来源为用户创建。导入成功。",
+      "status": "已执行-符合预期",
+      "evidence": [
+        "证据/SKILL-022/SKILL-022-A01/card.png",
+        "证据/SKILL-022/SKILL-022-A01/fixture-SKILL.md",
+        "证据/SKILL-022/SKILL-022-A01/import-dialog.png",
+        "证据/SKILL-022/SKILL-022-A01/ui-observation.json",
+        "证据/SKILL-022/SKILL-022-A01/技能详情页-摘录.txt"
+      ],
+      "difference_ids": [],
+      "notes": "round-owned package input；未修改用户已有技能。导入成功的本轮样本保留供后续测试。"
+    }
+  ],
+  "product_observations": [
+    {
+      "feature_id": null,
+      "statement": "夹具省略 name_cn；中文技能列表成功显示 name_en「Round English Fallback」，来源为用户创建。导入成功。",
+      "case_ids": [
+        "SKILL-022"
+      ],
+      "attempt_ids": [
+        "SKILL-022-A01"
+      ],
+      "environment_id": "ENV-001",
+      "verified_depth": "单文件导入 UI 实际结果；case-specific card/Trace readback",
+      "scope_and_limits": "仅本轮测试包字段、当前账号界面与指定尝试；不外推到市场包或其它数据根；待双方审核。",
+      "evidence": [
+        "证据/SKILL-022/SKILL-022-A01/card.png",
+        "证据/SKILL-022/SKILL-022-A01/fixture-SKILL.md",
+        "证据/SKILL-022/SKILL-022-A01/import-dialog.png",
+        "证据/SKILL-022/SKILL-022-A01/ui-observation.json",
+        "证据/SKILL-022/SKILL-022-A01/技能详情页-摘录.txt"
+      ],
+      "relation_to_design": "按源用例检查点记录；设计/需求待双方审核。",
+      "review_status": "待双方审核"
+    }
+  ],
+  "differences": [],
+  "finding_ids": [],
+  "blocker": null,
+  "applicability_reason": null,
+  "cleanup": {
+    "changes": [],
+    "remaining": []
+  },
+  "review": {
+    "assistant": null,
+    "user": null,
+    "approved_scope": [],
+    "final_decision": "待审核"
+  },
+  "audit_history": [
+    {
+      "type": "prior blocker reopened by round-owned fixture and direct UI route",
+      "recorded_at": "2026-10-05T15:55:06.483Z",
+      "blocker": {
+        "reason": "无法执行【中文名称回退】：需要缺中文名称的技能包夹具。本机技能页当前只有 5 个内置技能与 2 个更早批次创建的用户技能，均无上述变体。",
+        "missing_dependency": "需要缺中文名称的技能包夹具。本机技能页当前只有 5 个内置技能与 2 个更早批次创建的用户技能，均无上述变体。",
+        "evidence": [
+          "证据/SKILL-022/SKILL-022-A01/技能详情页-摘录.txt"
+        ],
+        "next_action": "需要构造并导入需要缺中文名称的技能包夹具（导入需经原生目录选择器，须先获得授权），或由测试市场提供对应样本。"
+      },
+      "disposition": "Historic reason preserved; fixture-based UI execution now registered."
+    }
+  ]
+}

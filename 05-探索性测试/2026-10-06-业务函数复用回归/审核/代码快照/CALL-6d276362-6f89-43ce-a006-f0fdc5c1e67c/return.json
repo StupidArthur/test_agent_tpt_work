@@ -1,0 +1,48 @@
+{
+  "observations": {
+    "action_refs": [
+      "business-494b788e-d7f7-423e-9933-21820c111c63-2",
+      "business-494b788e-d7f7-423e-9933-21820c111c63-5"
+    ],
+    "observations": {
+      "expected": {
+        "event_id": "business-494b788e-d7f7-423e-9933-21820c111c63-3",
+        "captured_at": "2026-10-06T11:32:21.262Z",
+        "environment_id": "env-fn-20261006-agent2",
+        "kind": "read",
+        "target": "所选案例提示词",
+        "business_call_id": "CALL-6d276362-6f89-43ce-a006-f0fdc5c1e67c",
+        "object_id": "automation-case-prompt",
+        "source": {
+          "channel": "dom",
+          "scope": "自动化任务页/案例卡",
+          "locator": "body"
+        },
+        "value": "工业 AI 每日简报",
+        "raw": {
+          "cardText": "",
+          "title": "工业 AI 每日简报"
+        },
+        "derivation": "案例标题作为提示词预期"
+      },
+      "actual": {
+        "event_id": "business-494b788e-d7f7-423e-9933-21820c111c63-6",
+        "captured_at": "2026-10-06T11:32:53.783Z",
+        "environment_id": "env-fn-20261006-agent2",
+        "kind": "read",
+        "target": "composer 预填文本",
+        "business_call_id": "CALL-6d276362-6f89-43ce-a006-f0fdc5c1e67c",
+        "object_id": "automation-composer",
+        "source": {
+          "channel": "dom",
+          "scope": "composer 输入区",
+          "locator": "div[contenteditable=\"true\"][aria-label*=\"/ 调用指令\"]"
+        },
+        "value": "/expert-manager 帮我创建一个 XXX 专家，擅长 XXXXX。我的经验是：[请补充你的行业背景、相关经验]",
+        "raw": {
+          "composer": "/expert-manager 帮我创建一个 XXX 专家，擅长 XXXXX。我的经验是：[请补充你的行业背景、相关经验]"
+        }
+      }
+    }
+  }
+}

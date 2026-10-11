@@ -1,0 +1,288 @@
+{
+  "run": {
+    "target": "tpt-gateway-public",
+    "module": "tpt",
+    "items": [
+      "TPT-06"
+    ],
+    "ts": "20261007-105354",
+    "est_requests": 12,
+    "seconds": 2.844,
+    "key_present": true,
+    "base_url": "https://tpt.supcon.com/tpt-work-router/v1"
+  },
+  "instances": [
+    {
+      "instance_id": "TPT-06/tpt-gateway-public/effort-off",
+      "item": "TPT-06",
+      "status": "通过",
+      "assertions": [
+        {
+          "name": "http_200",
+          "expected": "200",
+          "actual": "200",
+          "satisfied": true
+        },
+        {
+          "name": "body_is_mark",
+          "expected": "GW_CHECK_7c91",
+          "actual": "GW_CHECK_7c91",
+          "satisfied": true
+        },
+        {
+          "name": "has_terminal",
+          "expected": "completed",
+          "actual": "completed",
+          "satisfied": true
+        }
+      ],
+      "attempts": [
+        {
+          "http_status": 200,
+          "error_kind": null,
+          "error": null,
+          "t_headers": 0.563,
+          "t_first_frame": 0.563,
+          "t_end": 0.563,
+          "is_event_stream": true,
+          "terminal": "completed",
+          "text": "GW_CHECK_7c91",
+          "final_text": "GW_CHECK_7c91",
+          "usage": {
+            "input_tokens": 35,
+            "input_tokens_details": {
+              "cached_tokens": 0,
+              "input_tokens_per_turn": [],
+              "cached_tokens_per_turn": []
+            },
+            "output_tokens": 28,
+            "output_tokens_details": {
+              "reasoning_tokens": 0,
+              "tool_output_tokens": 0,
+              "output_tokens_per_turn": [],
+              "tool_output_tokens_per_turn": []
+            },
+            "total_tokens": 63
+          }
+        }
+      ],
+      "evidence": [
+        "api/TPT-06_tpt-gateway-public/off.json"
+      ],
+      "notes": [],
+      "metrics": {
+        "timings": {
+          "t_headers": 0.563,
+          "t_first_frame": 0.563,
+          "t_first_text": 0.563,
+          "t_end": 0.563
+        }
+      },
+      "failure_attribution": null
+    },
+    {
+      "instance_id": "TPT-06/tpt-gateway-public/effort-low",
+      "item": "TPT-06",
+      "status": "通过",
+      "assertions": [
+        {
+          "name": "http_200",
+          "expected": "200",
+          "actual": "200",
+          "satisfied": true
+        },
+        {
+          "name": "body_is_mark",
+          "expected": "GW_CHECK_7c91",
+          "actual": "GW_CHECK_7c91",
+          "satisfied": true
+        },
+        {
+          "name": "has_terminal",
+          "expected": "completed",
+          "actual": "completed",
+          "satisfied": true
+        }
+      ],
+      "attempts": [
+        {
+          "http_status": 200,
+          "error_kind": null,
+          "error": null,
+          "t_headers": 0.89,
+          "t_first_frame": 0.89,
+          "t_end": 1.296,
+          "is_event_stream": true,
+          "terminal": "completed",
+          "text": "GW_CHECK_7c91",
+          "final_text": "GW_CHECK_7c91",
+          "usage": {
+            "input_tokens": 35,
+            "input_tokens_details": {
+              "cached_tokens": 0,
+              "input_tokens_per_turn": [],
+              "cached_tokens_per_turn": []
+            },
+            "output_tokens": 131,
+            "output_tokens_details": {
+              "reasoning_tokens": 0,
+              "tool_output_tokens": 0,
+              "output_tokens_per_turn": [],
+              "tool_output_tokens_per_turn": []
+            },
+            "total_tokens": 166
+          }
+        }
+      ],
+      "evidence": [
+        "api/TPT-06_tpt-gateway-public/low.json"
+      ],
+      "notes": [],
+      "metrics": {
+        "timings": {
+          "t_headers": 0.89,
+          "t_first_frame": 0.89,
+          "t_first_text": 1.296,
+          "t_end": 1.296
+        }
+      },
+      "failure_attribution": null
+    },
+    {
+      "instance_id": "TPT-06/tpt-gateway-public/effort-medium",
+      "item": "TPT-06",
+      "status": "通过",
+      "assertions": [
+        {
+          "name": "http_200",
+          "expected": "200",
+          "actual": "200",
+          "satisfied": true
+        },
+        {
+          "name": "body_is_mark",
+          "expected": "GW_CHECK_7c91",
+          "actual": "GW_CHECK_7c91",
+          "satisfied": true
+        },
+        {
+          "name": "has_terminal",
+          "expected": "completed",
+          "actual": "completed",
+          "satisfied": true
+        }
+      ],
+      "attempts": [
+        {
+          "http_status": 200,
+          "error_kind": null,
+          "error": null,
+          "t_headers": 0.469,
+          "t_first_frame": 0.469,
+          "t_end": 0.469,
+          "is_event_stream": true,
+          "terminal": "completed",
+          "text": "GW_CHECK_7c91",
+          "final_text": "GW_CHECK_7c91",
+          "usage": {
+            "input_tokens": 35,
+            "input_tokens_details": {
+              "cached_tokens": 0,
+              "input_tokens_per_turn": [],
+              "cached_tokens_per_turn": []
+            },
+            "output_tokens": 17,
+            "output_tokens_details": {
+              "reasoning_tokens": 0,
+              "tool_output_tokens": 0,
+              "output_tokens_per_turn": [],
+              "tool_output_tokens_per_turn": []
+            },
+            "total_tokens": 52
+          }
+        }
+      ],
+      "evidence": [
+        "api/TPT-06_tpt-gateway-public/medium.json"
+      ],
+      "notes": [],
+      "metrics": {
+        "timings": {
+          "t_headers": 0.469,
+          "t_first_frame": 0.469,
+          "t_first_text": 0.469,
+          "t_end": 0.469
+        }
+      },
+      "failure_attribution": null
+    },
+    {
+      "instance_id": "TPT-06/tpt-gateway-public/effort-high",
+      "item": "TPT-06",
+      "status": "通过",
+      "assertions": [
+        {
+          "name": "http_200",
+          "expected": "200",
+          "actual": "200",
+          "satisfied": true
+        },
+        {
+          "name": "body_is_mark",
+          "expected": "GW_CHECK_7c91",
+          "actual": "GW_CHECK_7c91",
+          "satisfied": true
+        },
+        {
+          "name": "has_terminal",
+          "expected": "completed",
+          "actual": "completed",
+          "satisfied": true
+        }
+      ],
+      "attempts": [
+        {
+          "http_status": 200,
+          "error_kind": null,
+          "error": null,
+          "t_headers": 0.469,
+          "t_first_frame": 0.469,
+          "t_end": 0.469,
+          "is_event_stream": true,
+          "terminal": "completed",
+          "text": "GW_CHECK_7c91",
+          "final_text": "GW_CHECK_7c91",
+          "usage": {
+            "input_tokens": 35,
+            "input_tokens_details": {
+              "cached_tokens": 0,
+              "input_tokens_per_turn": [],
+              "cached_tokens_per_turn": []
+            },
+            "output_tokens": 15,
+            "output_tokens_details": {
+              "reasoning_tokens": 0,
+              "tool_output_tokens": 0,
+              "output_tokens_per_turn": [],
+              "tool_output_tokens_per_turn": []
+            },
+            "total_tokens": 50
+          }
+        }
+      ],
+      "evidence": [
+        "api/TPT-06_tpt-gateway-public/high.json"
+      ],
+      "notes": [],
+      "metrics": {
+        "timings": {
+          "t_headers": 0.469,
+          "t_first_frame": 0.469,
+          "t_first_text": 0.469,
+          "t_end": 0.469
+        }
+      },
+      "failure_attribution": null
+    }
+  ]
+}

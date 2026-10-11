@@ -1,0 +1,1011 @@
+[
+  {
+    "id": "G5-02",
+    "group": "G5",
+    "group_title": "专家使用与校验",
+    "title": "专家资源注入",
+    "steps": [
+      "选择本轮专家后执行无害请求",
+      "定位该轮专家加载/上下文资源记录",
+      "读取准确专家身份，不在全页搜专家名"
+    ],
+    "expected": [
+      "本轮专家正文被注入"
+    ],
+    "fixture": "本轮expert-template及坏包",
+    "evidence_required": [
+      "本次真实动作/读取日志、actual、事件引用和代码版本；通过默认不截图"
+    ],
+    "prior_case": "EXTRA-006",
+    "prior_attempt": "EXTRA-006-A02",
+    "prior_task": "2026-10-06-确定可执行回归",
+    "assertions": [
+      {
+        "id": "G5-02-A1",
+        "target": "本轮专家Trace",
+        "read": "仅读取本轮session、本次请求轨迹内专家正文注入记录的资源标识；保存该记录原文和成功状态，或明确展示已加载正文的记录。仅出现名称、composer引用、整页文本命中不算成功注入；没有可判别记录则actual=null并写原因。本次必须按本条steps指定的对象、动作顺序和读取范围取值；保存组成原值及失败依赖。",
+        "operator": "contains",
+        "expected": "$expert_resource",
+        "evidence_contract": {
+          "identity": "本轮专家内部name+实际安装文件/调用session id",
+          "raw": "记录真实原始文本/属性/字段/路径；布尔聚合须保存组成值与计算依据",
+          "normalization": "只按read定义规范化；不添加宽松同义替换或删除额外输出",
+          "absence": "对象不存在时记录真实false/0/空列表；对象无法读取时null+reason"
+        }
+      }
+    ],
+    "contract_version": "retest-1.0",
+    "feature_path": [
+      "专家",
+      "实际调用",
+      "专家资源注入"
+    ],
+    "depends_on": [],
+    "object_identity": "本轮专家内部name+实际安装文件/调用session id",
+    "runability": {
+      "kind": "model-dependent",
+      "guarantee": "在已接入且可恢复的当前环境中可实际尝试；业务成功与全部下游断言可达不作保证",
+      "prerequisite_failure": "先记录实际尝试与已知差异；无法观察的下游断言actual=null并指出失败依赖，不能伪造通过或把记录完成写成业务验证完成"
+    },
+    "preconditions": [
+      "按本机CDP及安装包实际身份接入；标准/low；只选已有项目",
+      "用本轮唯一后缀生成样本；按steps核验对象初态；旧name、路径和已安装对象不能默认复用"
+    ],
+    "wait": {
+      "ui_ms": 5000,
+      "model_ms": 90000,
+      "locator_corrections": 1,
+      "terminal": "目标控件/预览稳定、明确提交成功/拒绝/保存失败，或本轮任务明确终态；超时保存实际状态"
+    },
+    "source_case_id": "G5-02",
+    "source_task": "2026-10-06-运行时断言回归",
+    "original_status": "通过",
+    "retest_reason": "全页专家名称不足以证明注入提示词；绑定本轮任务并读取明确加载记录。"
+  },
+  {
+    "id": "G11-04",
+    "group": "G11",
+    "group_title": "专家扩展",
+    "title": "长提示词末尾完整",
+    "steps": [
+      "打开本轮长提示词专家详情",
+      "定位提示词正文及其滚动容器",
+      "读取首尾唯一标记，滚到底后比较末尾标记和容器边界",
+      "不要只找没有子节点的元素"
+    ],
+    "expected": [
+      "长提示词完整正文：\"FAST_PROMPT_END\"",
+      "末尾标记可见：true"
+    ],
+    "fixture": "夹具/扩展/experts/longread",
+    "prior_task": "2026-10-05-需求用例全量探索",
+    "prior_case": "AGENT-021",
+    "prior_attempt": "AGENT-021-A01",
+    "source": {
+      "key": "A",
+      "file": "待评审【桌面端】Agent管理需求设计.adoc_TPT桌面端Agent页面需求设计_V1.4.adoc.md",
+      "line": 134,
+      "section": "5.1 页面定位",
+      "quote": "5.1 页面定位"
+    },
+    "basis": "需求文档对应检查点；历史只证明操作路径可尝试，不作为本轮答案",
+    "assertions": [
+      {
+        "id": "G11-04-A1",
+        "target": "长提示词完整正文",
+        "read": "读取该提示词完整DOM文本。本次必须按本条steps指定的对象、动作顺序和读取范围取值；保存组成原值及失败依赖。",
+        "operator": "contains",
+        "expected": "FAST_PROMPT_END",
+        "evidence_contract": {
+          "identity": "本轮专家内部name+实际安装文件路径",
+          "raw": "记录真实原始文本/属性/字段/路径；布尔聚合须保存组成值与计算依据",
+          "normalization": "只按read定义规范化；不添加宽松同义替换或删除额外输出",
+          "absence": "对象不存在时记录真实false/0/空列表；对象无法读取时null+reason"
+        }
+      },
+      {
+        "id": "G11-04-A2",
+        "target": "末尾标记可见",
+        "read": "滚到底后读取末尾标记可见。本次必须按本条steps指定的对象、动作顺序和读取范围取值；保存组成原值及失败依赖。",
+        "operator": "equals",
+        "expected": true,
+        "evidence_contract": {
+          "identity": "本轮专家内部name+实际安装文件路径",
+          "raw": "记录真实原始文本/属性/字段/路径；布尔聚合须保存组成值与计算依据",
+          "normalization": "只按read定义规范化；不添加宽松同义替换或删除额外输出",
+          "absence": "对象不存在时记录真实false/0/空列表；对象无法读取时null+reason"
+        }
+      }
+    ],
+    "evidence_required": [
+      "本次真实动作/读取日志、actual、事件引用和代码版本；通过默认不截图"
+    ],
+    "cleanup": "恢复设置原值；仅恢复本轮fast-assert-资产；导入技能结束停用，专家保留待审；不删除用户资产。",
+    "contract_version": "retest-1.0",
+    "feature_path": [
+      "专家",
+      "详情阅读",
+      "长提示词末尾完整"
+    ],
+    "depends_on": [],
+    "object_identity": "本轮专家内部name+实际安装文件路径",
+    "runability": {
+      "kind": "stable-ui-or-file",
+      "guarantee": "在已接入且可恢复的当前环境中可实际尝试；业务成功与全部下游断言可达不作保证",
+      "prerequisite_failure": "先记录实际尝试与已知差异；无法观察的下游断言actual=null并指出失败依赖，不能伪造通过或把记录完成写成业务验证完成"
+    },
+    "preconditions": [
+      "按本机CDP及安装包实际身份接入；标准/low；只选已有项目",
+      "用本轮唯一后缀生成样本；按steps核验对象初态；旧name、路径和已安装对象不能默认复用"
+    ],
+    "wait": {
+      "ui_ms": 5000,
+      "model_ms": 90000,
+      "locator_corrections": 1,
+      "terminal": "目标控件/预览稳定、明确提交成功/拒绝/保存失败，或本轮任务明确终态；超时保存实际状态"
+    },
+    "source_case_id": "G11-04",
+    "source_task": "2026-10-06-运行时断言回归",
+    "original_status": "失败",
+    "retest_reason": "正文包含末尾标记，但只找叶子节点造成末尾可见性false；定位提示词滚动容器及标记节点，读取滚动后的边界位置。"
+  },
+  {
+    "id": "G11-07",
+    "group": "G11",
+    "group_title": "专家扩展",
+    "title": "附带Skill实际调用",
+    "steps": [
+      "调用本轮含内置技能专家",
+      "读取本轮任务的内置技能加载/调用身份及固定回复",
+      "回复成功不代替加载证明"
+    ],
+    "expected": [
+      "本轮成功加载资源正文：\"FAST_BUNDLED_OK\"",
+      "本轮助手正文：\"FAST_BUNDLED_OK\"",
+      "请求含输出串：false"
+    ],
+    "fixture": "见扩展场景与夹具说明",
+    "prior_task": "2026-10-05-需求用例全量探索",
+    "prior_case": "AGENT-020",
+    "prior_attempt": "AGENT-020-A04",
+    "source": {
+      "key": "A",
+      "file": "待评审【桌面端】Agent管理需求设计.adoc_TPT桌面端Agent页面需求设计_V1.4.adoc.md",
+      "line": 124,
+      "section": "4.3 导入校验",
+      "quote": "4.3 导入校验"
+    },
+    "basis": "需求文档对应检查点；历史只证明操作路径可尝试，不作为本轮答案",
+    "assertions": [
+      {
+        "id": "G11-07-A1",
+        "target": "本轮成功加载资源正文",
+        "read": "仅读取本轮专家session、本次请求成功加载的附带技能资源正文，核对安装路径/内部name并保存正文与成功记录；不从专家详情、用户请求或整页文本查标记。本次必须按本条steps指定的对象、动作顺序和读取范围取值；保存组成原值及失败依赖。",
+        "operator": "contains",
+        "expected": "FAST_BUNDLED_OK",
+        "evidence_contract": {
+          "identity": "本轮专家内部name+实际安装文件路径",
+          "raw": "记录真实原始文本/属性/字段/路径；布尔聚合须保存组成值与计算依据",
+          "normalization": "只按read定义规范化；不添加宽松同义替换或删除额外输出",
+          "absence": "对象不存在时记录真实false/0/空列表；对象无法读取时null+reason"
+        }
+      },
+      {
+        "id": "G11-07-A2",
+        "target": "本轮助手正文",
+        "read": "读取最终正文trim。本次必须按本条steps指定的对象、动作顺序和读取范围取值；保存组成原值及失败依赖。",
+        "operator": "equals",
+        "expected": "FAST_BUNDLED_OK",
+        "evidence_contract": {
+          "identity": "本轮专家内部name+实际安装文件路径",
+          "raw": "记录真实原始文本/属性/字段/路径；布尔聚合须保存组成值与计算依据",
+          "normalization": "只按read定义规范化；不添加宽松同义替换或删除额外输出",
+          "absence": "对象不存在时记录真实false/0/空列表；对象无法读取时null+reason"
+        }
+      },
+      {
+        "id": "G11-07-A3",
+        "target": "请求含输出串",
+        "read": "读取实际用户请求是否含FAST_BUNDLED_OK。本次必须按本条steps指定的对象、动作顺序和读取范围取值；保存组成原值及失败依赖。",
+        "operator": "equals",
+        "expected": false,
+        "evidence_contract": {
+          "identity": "本轮专家内部name+实际安装文件路径",
+          "raw": "记录真实原始文本/属性/字段/路径；布尔聚合须保存组成值与计算依据",
+          "normalization": "只按read定义规范化；不添加宽松同义替换或删除额外输出",
+          "absence": "对象不存在时记录真实false/0/空列表；对象无法读取时null+reason"
+        }
+      }
+    ],
+    "evidence_required": [
+      "本次真实动作/读取日志、actual、事件引用和代码版本；通过默认不截图"
+    ],
+    "cleanup": "恢复设置原值；仅恢复本轮fast-assert-资产；导入技能结束停用，专家保留待审；不删除用户资产。",
+    "contract_version": "retest-1.0",
+    "feature_path": [
+      "专家",
+      "内置技能",
+      "附带Skill实际调用"
+    ],
+    "depends_on": [],
+    "object_identity": "本轮专家内部name+实际安装文件路径",
+    "runability": {
+      "kind": "model-dependent",
+      "guarantee": "在已接入且可恢复的当前环境中可实际尝试；业务成功与全部下游断言可达不作保证",
+      "prerequisite_failure": "先记录实际尝试与已知差异；无法观察的下游断言actual=null并指出失败依赖，不能伪造通过或把记录完成写成业务验证完成"
+    },
+    "preconditions": [
+      "按本机CDP及安装包实际身份接入；标准/low；只选已有项目",
+      "用本轮唯一后缀生成样本；按steps核验对象初态；旧name、路径和已安装对象不能默认复用"
+    ],
+    "wait": {
+      "ui_ms": 5000,
+      "model_ms": 90000,
+      "locator_corrections": 1,
+      "terminal": "目标控件/预览稳定、明确提交成功/拒绝/保存失败，或本轮任务明确终态；超时保存实际状态"
+    },
+    "source_case_id": "G11-07",
+    "source_task": "2026-10-06-运行时断言回归",
+    "original_status": "通过",
+    "retest_reason": "固定回复有效，但全页回复关键词不证明内置技能加载；补关联该任务的技能加载身份，保留已有输出事实。"
+  },
+  {
+    "id": "G11-08",
+    "group": "G11",
+    "group_title": "专家扩展",
+    "title": "编辑上下文",
+    "steps": [
+      "进入本轮专家详情，读取实际可见编辑按钮",
+      "点击去对话编辑或当前对应入口",
+      "确认进入该专家编辑会话，读取编辑模式/绑定专家和编辑器内容，点击异常不可吞"
+    ],
+    "expected": [
+      "专家编辑引用身份：true",
+      "专家编辑模式：true",
+      "左侧导航保留：true"
+    ],
+    "fixture": "见扩展场景与夹具说明",
+    "prior_task": "2026-10-05-需求用例全量探索",
+    "prior_case": "AGENT-026",
+    "prior_attempt": "AGENT-026-A01",
+    "source": {
+      "key": "A",
+      "file": "待评审【桌面端】Agent管理需求设计.adoc_TPT桌面端Agent页面需求设计_V1.4.adoc.md",
+      "line": 144,
+      "section": "5.2 对话编辑",
+      "quote": "5.2 对话编辑"
+    },
+    "basis": "需求文档对应检查点；历史只证明操作路径可尝试，不作为本轮答案",
+    "assertions": [
+      {
+        "id": "G11-08-A1",
+        "target": "专家编辑引用身份",
+        "read": "读取composer明确指向本轮longread对象。本次必须按本条steps指定的对象、动作顺序和读取范围取值；保存组成原值及失败依赖。",
+        "operator": "equals",
+        "expected": true,
+        "evidence_contract": {
+          "identity": "本轮专家内部name+实际安装文件路径",
+          "raw": "记录真实原始文本/属性/字段/路径；布尔聚合须保存组成值与计算依据",
+          "normalization": "只按read定义规范化；不添加宽松同义替换或删除额外输出",
+          "absence": "对象不存在时记录真实false/0/空列表；对象无法读取时null+reason"
+        }
+      },
+      {
+        "id": "G11-08-A2",
+        "target": "专家编辑模式",
+        "read": "限定本次打开的编辑会话，读取可见编辑模式标签或composer上下文中明确表示修改/编辑该专家的文本，并保存原文；仅专家名称、普通对话入口或全页包含编辑二字不算。表面可读但无标识为false，无法读取为null。本次必须按本条steps指定的对象、动作顺序和读取范围取值；保存组成原值及失败依赖。",
+        "operator": "equals",
+        "expected": true,
+        "evidence_contract": {
+          "identity": "本轮专家内部name+实际安装文件路径",
+          "raw": "记录真实原始文本/属性/字段/路径；布尔聚合须保存组成值与计算依据",
+          "normalization": "只按read定义规范化；不添加宽松同义替换或删除额外输出",
+          "absence": "对象不存在时记录真实false/0/空列表；对象无法读取时null+reason"
+        }
+      },
+      {
+        "id": "G11-08-A3",
+        "target": "左侧导航保留",
+        "read": "读取左侧导航可见。本次必须按本条steps指定的对象、动作顺序和读取范围取值；保存组成原值及失败依赖。",
+        "operator": "equals",
+        "expected": true,
+        "evidence_contract": {
+          "identity": "本轮专家内部name+实际安装文件路径",
+          "raw": "记录真实原始文本/属性/字段/路径；布尔聚合须保存组成值与计算依据",
+          "normalization": "只按read定义规范化；不添加宽松同义替换或删除额外输出",
+          "absence": "对象不存在时记录真实false/0/空列表；对象无法读取时null+reason"
+        }
+      }
+    ],
+    "evidence_required": [
+      "本次真实动作/读取日志、actual、事件引用和代码版本；通过默认不截图"
+    ],
+    "cleanup": "恢复设置原值；仅恢复本轮fast-assert-资产；导入技能结束停用，专家保留待审；不删除用户资产。",
+    "contract_version": "retest-1.0",
+    "feature_path": [
+      "专家",
+      "对话编辑",
+      "编辑上下文"
+    ],
+    "depends_on": [
+      "G11-04"
+    ],
+    "object_identity": "本轮专家内部name+实际安装文件路径",
+    "runability": {
+      "kind": "stable-ui-or-file",
+      "guarantee": "在已接入且可恢复的当前环境中可实际尝试；业务成功与全部下游断言可达不作保证",
+      "prerequisite_failure": "先记录实际尝试与已知差异；无法观察的下游断言actual=null并指出失败依赖，不能伪造通过或把记录完成写成业务验证完成"
+    },
+    "preconditions": [
+      "按本机CDP及安装包实际身份接入；标准/low；只选已有项目",
+      "用本轮唯一后缀生成样本；按steps核验对象初态；旧name、路径和已安装对象不能默认复用"
+    ],
+    "wait": {
+      "ui_ms": 5000,
+      "model_ms": 90000,
+      "locator_corrections": 1,
+      "terminal": "目标控件/预览稳定、明确提交成功/拒绝/保存失败，或本轮任务明确终态；超时保存实际状态"
+    },
+    "source_case_id": "G11-08",
+    "source_task": "2026-10-06-运行时断言回归",
+    "original_status": "失败",
+    "retest_reason": "代码点对话修改，实际按钮为去对话编辑，点击异常被吞掉；修正可见按钮定位，确认进入指定专家编辑会话。"
+  },
+  {
+    "id": "G11-09",
+    "group": "G11",
+    "group_title": "专家扩展",
+    "title": "确认前文件不变",
+    "steps": [
+      "确认G11-08编辑会话已建立",
+      "提交本轮无害修改请求",
+      "等待有效修改提案，读取确认入口/提案内容和提交前文件哈希",
+      "没有提案时下游null并说明原因"
+    ],
+    "expected": [
+      "本轮安装agent.md绝对路径：null",
+      "本轮安装metadata.json绝对路径：null",
+      "待确认摘要：true"
+    ],
+    "fixture": "见扩展场景与夹具说明",
+    "prior_task": "2026-10-05-需求用例全量探索",
+    "prior_case": "AGENT-027",
+    "prior_attempt": "AGENT-027-A01",
+    "source": {
+      "key": "A",
+      "file": "待评审【桌面端】Agent管理需求设计.adoc_TPT桌面端Agent页面需求设计_V1.4.adoc.md",
+      "line": 144,
+      "section": "5.2 对话编辑",
+      "quote": "5.2 对话编辑"
+    },
+    "basis": "需求文档对应检查点；历史只证明操作路径可尝试，不作为本轮答案",
+    "assertions": [
+      {
+        "id": "G11-09-A1",
+        "target": "本轮安装agent.md绝对路径",
+        "read": "提方案前后SHA256。本次必须按本条steps指定的对象、动作顺序和读取范围取值；保存组成原值及失败依赖。",
+        "operator": "sha256_equal",
+        "expected": null,
+        "evidence_contract": {
+          "identity": "本轮专家内部name+实际安装文件路径",
+          "raw": "记录真实原始文本/属性/字段/路径；布尔聚合须保存组成值与计算依据",
+          "normalization": "只按read定义规范化；不添加宽松同义替换或删除额外输出",
+          "absence": "对象不存在时记录真实false/0/空列表；对象无法读取时null+reason"
+        }
+      },
+      {
+        "id": "G11-09-A2",
+        "target": "本轮安装metadata.json绝对路径",
+        "read": "提方案前后SHA256。本次必须按本条steps指定的对象、动作顺序和读取范围取值；保存组成原值及失败依赖。",
+        "operator": "sha256_equal",
+        "expected": null,
+        "evidence_contract": {
+          "identity": "本轮专家内部name+实际安装文件路径",
+          "raw": "记录真实原始文本/属性/字段/路径；布尔聚合须保存组成值与计算依据",
+          "normalization": "只按read定义规范化；不添加宽松同义替换或删除额外输出",
+          "absence": "对象不存在时记录真实false/0/空列表；对象无法读取时null+reason"
+        }
+      },
+      {
+        "id": "G11-09-A3",
+        "target": "待确认摘要",
+        "read": "读取本轮助手摘要正文trim，不从用户气泡取值。本次必须按本条steps指定的对象、动作顺序和读取范围取值；保存组成原值及失败依赖。",
+        "operator": "contains",
+        "expected": "displayDescription.zh",
+        "evidence_contract": {
+          "identity": "本轮专家内部name+实际安装文件路径",
+          "raw": "记录真实原始文本/属性/字段/路径；布尔聚合须保存组成值与计算依据",
+          "normalization": "只按read定义规范化；不添加宽松同义替换或删除额外输出",
+          "absence": "对象不存在时记录真实false/0/空列表；对象无法读取时null+reason"
+        }
+      }
+    ],
+    "evidence_required": [
+      "本次真实动作/读取日志、actual、事件引用和代码版本；通过默认不截图"
+    ],
+    "cleanup": "恢复设置原值；仅恢复本轮fast-assert-资产；导入技能结束停用，专家保留待审；不删除用户资产。",
+    "contract_version": "retest-1.0",
+    "feature_path": [
+      "专家",
+      "对话编辑",
+      "确认前文件不变"
+    ],
+    "depends_on": [
+      "G11-08"
+    ],
+    "object_identity": "本轮专家内部name+实际安装文件路径",
+    "runability": {
+      "kind": "model-dependent",
+      "guarantee": "在已接入且可恢复的当前环境中可实际尝试；业务成功与全部下游断言可达不作保证",
+      "prerequisite_failure": "先记录实际尝试与已知差异；无法观察的下游断言actual=null并指出失败依赖，不能伪造通过或把记录完成写成业务验证完成"
+    },
+    "preconditions": [
+      "按本机CDP及安装包实际身份接入；标准/low；只选已有项目",
+      "用本轮唯一后缀生成样本；按steps核验对象初态；旧name、路径和已安装对象不能默认复用"
+    ],
+    "wait": {
+      "ui_ms": 5000,
+      "model_ms": 90000,
+      "locator_corrections": 1,
+      "terminal": "目标控件/预览稳定、明确提交成功/拒绝/保存失败，或本轮任务明确终态；超时保存实际状态"
+    },
+    "source_case_id": "G11-09",
+    "source_task": "2026-10-06-运行时断言回归",
+    "original_status": "失败",
+    "retest_reason": "依赖G11-08进入编辑失败，发送亦可能失败，空回复不能证明缺确认机制；确认发送成功后读取变更提案，哈希未变只作为当前事实。"
+  },
+  {
+    "id": "G11-10",
+    "group": "G11",
+    "group_title": "专家扩展",
+    "title": "确认后写盘与摘要",
+    "steps": [
+      "使用已成功生成的本轮提案，保存agent.md和metadata.json",
+      "实际点击确认",
+      "读取确认反馈、两份文件及哈希",
+      "按用例验证写盘，再恢复两份原文件并独立核验"
+    ],
+    "expected": [
+      "修改后metadata.displayDescription.zh：\"FAST_EDITED\"",
+      "修改摘要字段正确：true",
+      "恢复后metadata描述：\"$expert_longread_description_initial\""
+    ],
+    "fixture": "见扩展场景与夹具说明",
+    "prior_task": "2026-10-05-需求用例全量探索",
+    "prior_case": "AGENT-028",
+    "prior_attempt": "AGENT-028-A01",
+    "source": {
+      "key": "A",
+      "file": "待评审【桌面端】Agent管理需求设计.adoc_TPT桌面端Agent页面需求设计_V1.4.adoc.md",
+      "line": 144,
+      "section": "5.2 对话编辑",
+      "quote": "5.2 对话编辑"
+    },
+    "basis": "需求文档对应检查点；历史只证明操作路径可尝试，不作为本轮答案",
+    "assertions": [
+      {
+        "id": "G11-10-A1",
+        "target": "修改后metadata.displayDescription.zh",
+        "read": "读取实际安装JSON字段。本次必须按本条steps指定的对象、动作顺序和读取范围取值；保存组成原值及失败依赖。",
+        "operator": "equals",
+        "expected": "FAST_EDITED",
+        "evidence_contract": {
+          "identity": "本轮专家内部name+实际安装文件路径",
+          "raw": "记录真实原始文本/属性/字段/路径；布尔聚合须保存组成值与计算依据",
+          "normalization": "只按read定义规范化；不添加宽松同义替换或删除额外输出",
+          "absence": "对象不存在时记录真实false/0/空列表；对象无法读取时null+reason"
+        }
+      },
+      {
+        "id": "G11-10-A2",
+        "target": "修改摘要字段正确",
+        "read": "读取本轮助手摘要正文trim，不从用户气泡取值。本次必须按本条steps指定的对象、动作顺序和读取范围取值；保存组成原值及失败依赖。",
+        "operator": "contains",
+        "expected": "displayDescription.zh",
+        "evidence_contract": {
+          "identity": "本轮专家内部name+实际安装文件路径",
+          "raw": "记录真实原始文本/属性/字段/路径；布尔聚合须保存组成值与计算依据",
+          "normalization": "只按read定义规范化；不添加宽松同义替换或删除额外输出",
+          "absence": "对象不存在时记录真实false/0/空列表；对象无法读取时null+reason"
+        }
+      },
+      {
+        "id": "G11-10-A3",
+        "target": "恢复后metadata描述",
+        "read": "读取同一字段。本次必须按本条steps指定的对象、动作顺序和读取范围取值；保存组成原值及失败依赖。",
+        "operator": "equals",
+        "expected": "$expert_longread_description_initial",
+        "evidence_contract": {
+          "identity": "本轮专家内部name+实际安装文件路径",
+          "raw": "记录真实原始文本/属性/字段/路径；布尔聚合须保存组成值与计算依据",
+          "normalization": "只按read定义规范化；不添加宽松同义替换或删除额外输出",
+          "absence": "对象不存在时记录真实false/0/空列表；对象无法读取时null+reason"
+        }
+      }
+    ],
+    "evidence_required": [
+      "本次真实动作/读取日志、actual、事件引用和代码版本；通过默认不截图"
+    ],
+    "cleanup": "恢复设置原值；仅恢复本轮fast-assert-资产；导入技能结束停用，专家保留待审；不删除用户资产。",
+    "contract_version": "retest-1.0",
+    "feature_path": [
+      "专家",
+      "对话编辑",
+      "确认后写盘与摘要"
+    ],
+    "depends_on": [
+      "G11-09"
+    ],
+    "object_identity": "本轮专家内部name+实际安装文件路径",
+    "runability": {
+      "kind": "model-dependent",
+      "guarantee": "在已接入且可恢复的当前环境中可实际尝试；业务成功与全部下游断言可达不作保证",
+      "prerequisite_failure": "先记录实际尝试与已知差异；无法观察的下游断言actual=null并指出失败依赖，不能伪造通过或把记录完成写成业务验证完成"
+    },
+    "preconditions": [
+      "按本机CDP及安装包实际身份接入；标准/low；只选已有项目",
+      "用本轮唯一后缀生成样本；按steps核验对象初态；旧name、路径和已安装对象不能默认复用"
+    ],
+    "wait": {
+      "ui_ms": 5000,
+      "model_ms": 90000,
+      "locator_corrections": 1,
+      "terminal": "目标控件/预览稳定、明确提交成功/拒绝/保存失败，或本轮任务明确终态；超时保存实际状态"
+    },
+    "source_case_id": "G11-10",
+    "source_task": "2026-10-06-运行时断言回归",
+    "original_status": "失败",
+    "retest_reason": "上游编辑与提案未成立，未变元数据不是确认写盘缺陷；建立有效提案，再点击确认并回读两类文件，恢复也走同一业务流程。"
+  },
+  {
+    "id": "G12-10",
+    "group": "G12",
+    "group_title": "设置扩展",
+    "title": "代码工具开启实际执行",
+    "steps": [
+      "记录代码工具及权限初值",
+      "开启代码工具并确认保存",
+      "在已有项目创建本轮文件，明确选择可写权限",
+      "提交修改请求，读执行终态/错误和文件实际内容及轨迹，恢复设置初值"
+    ],
+    "expected": [
+      "开启态code-on.js实际内容：\"module.exports = 1;\"",
+      "开启态Trace入口：true"
+    ],
+    "fixture": "见扩展场景与夹具说明",
+    "prior_task": "2026-10-05-需求用例全量探索",
+    "prior_case": "OTHER-019",
+    "prior_attempt": "OTHER-019-A10",
+    "source": {
+      "key": "SET",
+      "file": "【桌面端】设置界面.adoc.md",
+      "line": 8,
+      "section": "原则",
+      "quote": "原则：结构适应dsh和自身的高频迭代。在其他处显示自身特性"
+    },
+    "basis": "需求文档对应检查点；历史只证明操作路径可尝试，不作为本轮答案",
+    "assertions": [
+      {
+        "id": "G12-10-A1",
+        "target": "开启态code-on.js实际内容",
+        "read": "读取UTF8 trim。本次必须按本条steps指定的对象、动作顺序和读取范围取值；保存组成原值及失败依赖。",
+        "operator": "equals",
+        "expected": "module.exports = 1;",
+        "evidence_contract": {
+          "identity": "设置字段+本轮任务session id/目标URL",
+          "raw": "记录真实原始文本/属性/字段/路径；布尔聚合须保存组成值与计算依据",
+          "normalization": "只按read定义规范化；不添加宽松同义替换或删除额外输出",
+          "absence": "对象不存在时记录真实false/0/空列表；对象无法读取时null+reason"
+        }
+      },
+      {
+        "id": "G12-10-A2",
+        "target": "开启态Trace入口",
+        "read": "读取任务Trace可见。本次必须按本条steps指定的对象、动作顺序和读取范围取值；保存组成原值及失败依赖。",
+        "operator": "equals",
+        "expected": true,
+        "evidence_contract": {
+          "identity": "设置字段+本轮任务session id/目标URL",
+          "raw": "记录真实原始文本/属性/字段/路径；布尔聚合须保存组成值与计算依据",
+          "normalization": "只按read定义规范化；不添加宽松同义替换或删除额外输出",
+          "absence": "对象不存在时记录真实false/0/空列表；对象无法读取时null+reason"
+        }
+      }
+    ],
+    "evidence_required": [
+      "本次真实动作/读取日志、actual、事件引用和代码版本；通过默认不截图"
+    ],
+    "cleanup": "恢复设置原值；仅恢复本轮fast-assert-资产；导入技能结束停用，专家保留待审；不删除用户资产。",
+    "contract_version": "retest-1.0",
+    "feature_path": [
+      "设置",
+      "代码工具",
+      "代码工具开启实际执行"
+    ],
+    "depends_on": [],
+    "object_identity": "设置字段+本轮任务session id/目标URL",
+    "runability": {
+      "kind": "model-dependent",
+      "guarantee": "在已接入且可恢复的当前环境中可实际尝试；业务成功与全部下游断言可达不作保证",
+      "prerequisite_failure": "先记录实际尝试与已知差异；无法观察的下游断言actual=null并指出失败依赖，不能伪造通过或把记录完成写成业务验证完成"
+    },
+    "preconditions": [
+      "按本机CDP及安装包实际身份接入；标准/low；只选已有项目",
+      "用本轮唯一后缀生成样本；按steps核验对象初态；旧name、路径和已安装对象不能默认复用"
+    ],
+    "wait": {
+      "ui_ms": 5000,
+      "model_ms": 90000,
+      "locator_corrections": 1,
+      "terminal": "目标控件/预览稳定、明确提交成功/拒绝/保存失败，或本轮任务明确终态；超时保存实际状态"
+    },
+    "source_case_id": "G12-10",
+    "source_task": "2026-10-06-运行时断言回归",
+    "original_status": "失败",
+    "retest_reason": "文件保持0是实际事实，但任务权限选择异常被忽略且没有关联执行回复；确认允许写盘与本轮终态后判断代码工具开启效果。"
+  },
+  {
+    "id": "G12-11",
+    "group": "G12",
+    "group_title": "设置扩展",
+    "title": "代码工具关闭对照",
+    "steps": [
+      "关闭代码工具并确认保存",
+      "用独立本轮文件重复同类请求，读真实终态、文件内容和该任务工具记录",
+      "和开启场景分别绑定session比较，恢复设置并回读"
+    ],
+    "expected": [
+      "关闭态Trace入口：false",
+      "关闭态code-off.js实际内容：\"module.exports = 1;\"",
+      "恢复后代码工具设置：\"$code_tools_initial\""
+    ],
+    "fixture": "见扩展场景与夹具说明",
+    "prior_task": "2026-10-05-需求用例全量探索",
+    "prior_case": "OTHER-019",
+    "prior_attempt": "OTHER-019-A10",
+    "source": {
+      "key": "SET",
+      "file": "【桌面端】设置界面.adoc.md",
+      "line": 8,
+      "section": "原则",
+      "quote": "原则：结构适应dsh和自身的高频迭代。在其他处显示自身特性"
+    },
+    "basis": "需求文档对应检查点；历史只证明操作路径可尝试，不作为本轮答案",
+    "assertions": [
+      {
+        "id": "G12-11-A1",
+        "target": "关闭态Trace入口",
+        "read": "读取当前任务Trace可见。本次必须按本条steps指定的对象、动作顺序和读取范围取值；保存组成原值及失败依赖。",
+        "operator": "equals",
+        "expected": false,
+        "evidence_contract": {
+          "identity": "设置字段+本轮任务session id/目标URL",
+          "raw": "记录真实原始文本/属性/字段/路径；布尔聚合须保存组成值与计算依据",
+          "normalization": "只按read定义规范化；不添加宽松同义替换或删除额外输出",
+          "absence": "对象不存在时记录真实false/0/空列表；对象无法读取时null+reason"
+        }
+      },
+      {
+        "id": "G12-11-A2",
+        "target": "关闭态code-off.js实际内容",
+        "read": "读取UTF8 trim；这是当前产品观察基线，不代表需求已批准。本次必须按本条steps指定的对象、动作顺序和读取范围取值；保存组成原值及失败依赖。",
+        "operator": "equals",
+        "expected": "module.exports = 1;",
+        "evidence_contract": {
+          "identity": "设置字段+本轮任务session id/目标URL",
+          "raw": "记录真实原始文本/属性/字段/路径；布尔聚合须保存组成值与计算依据",
+          "normalization": "只按read定义规范化；不添加宽松同义替换或删除额外输出",
+          "absence": "对象不存在时记录真实false/0/空列表；对象无法读取时null+reason"
+        }
+      },
+      {
+        "id": "G12-11-A3",
+        "target": "恢复后代码工具设置",
+        "read": "独立读取checked。本次必须按本条steps指定的对象、动作顺序和读取范围取值；保存组成原值及失败依赖。",
+        "operator": "equals",
+        "expected": "$code_tools_initial",
+        "evidence_contract": {
+          "identity": "设置字段+本轮任务session id/目标URL",
+          "raw": "记录真实原始文本/属性/字段/路径；布尔聚合须保存组成值与计算依据",
+          "normalization": "只按read定义规范化；不添加宽松同义替换或删除额外输出",
+          "absence": "对象不存在时记录真实false/0/空列表；对象无法读取时null+reason"
+        }
+      }
+    ],
+    "evidence_required": [
+      "本次真实动作/读取日志、actual、事件引用和代码版本；通过默认不截图"
+    ],
+    "cleanup": "恢复设置原值；仅恢复本轮fast-assert-资产；导入技能结束停用，专家保留待审；不删除用户资产。",
+    "contract_version": "retest-1.0",
+    "feature_path": [
+      "设置",
+      "代码工具",
+      "代码工具关闭对照"
+    ],
+    "depends_on": [
+      "G12-10"
+    ],
+    "object_identity": "设置字段+本轮任务session id/目标URL",
+    "runability": {
+      "kind": "model-dependent",
+      "guarantee": "在已接入且可恢复的当前环境中可实际尝试；业务成功与全部下游断言可达不作保证",
+      "prerequisite_failure": "先记录实际尝试与已知差异；无法观察的下游断言actual=null并指出失败依赖，不能伪造通过或把记录完成写成业务验证完成"
+    },
+    "preconditions": [
+      "按本机CDP及安装包实际身份接入；标准/low；只选已有项目",
+      "用本轮唯一后缀生成样本；按steps核验对象初态；旧name、路径和已安装对象不能默认复用"
+    ],
+    "wait": {
+      "ui_ms": 5000,
+      "model_ms": 90000,
+      "locator_corrections": 1,
+      "terminal": "目标控件/预览稳定、明确提交成功/拒绝/保存失败，或本轮任务明确终态；超时保存实际状态"
+    },
+    "source_case_id": "G12-11",
+    "source_task": "2026-10-06-运行时断言回归",
+    "original_status": "失败",
+    "retest_reason": "关闭后文件未变有证据，trace消失是否违反产品预期仍需明确；限定同一工具能力对照并记录任务终态，恢复开关的true值可认可。"
+  },
+  {
+    "id": "G12-12",
+    "group": "G12",
+    "group_title": "设置扩展",
+    "title": "侧栏链接实际路径",
+    "steps": [
+      "启动本轮唯一URL的本地链接夹具，记录请求日志起点和链接设置初值",
+      "设应用内侧边栏",
+      "产生准确Markdown链接，核对href与预定URL完全一致后点击",
+      "读新增请求及实际侧栏，恢复初值"
+    ],
+    "expected": [
+      "本轮侧栏浏览器：true",
+      "本轮URL请求日志：\"$link_path\""
+    ],
+    "fixture": "tools/link_fixture.py + 本轮唯一URL",
+    "prior_task": "2026-10-05-需求用例全量探索",
+    "prior_case": "OTHER-019",
+    "prior_attempt": "OTHER-019-A10",
+    "source": {
+      "key": "SET",
+      "file": "【桌面端】设置界面.adoc.md",
+      "line": 8,
+      "section": "原则",
+      "quote": "原则：结构适应dsh和自身的高频迭代。在其他处显示自身特性"
+    },
+    "basis": "需求文档对应检查点；历史只证明操作路径可尝试，不作为本轮答案",
+    "assertions": [
+      {
+        "id": "G12-12-A1",
+        "target": "本轮侧栏浏览器",
+        "read": "读取应用内浏览器/侧栏面板可见。本次必须按本条steps指定的对象、动作顺序和读取范围取值；保存组成原值及失败依赖。",
+        "operator": "equals",
+        "expected": true,
+        "evidence_contract": {
+          "identity": "设置字段+本轮任务session id/目标URL",
+          "raw": "记录真实原始文本/属性/字段/路径；布尔聚合须保存组成值与计算依据",
+          "normalization": "只按read定义规范化；不添加宽松同义替换或删除额外输出",
+          "absence": "对象不存在时记录真实false/0/空列表；对象无法读取时null+reason"
+        }
+      },
+      {
+        "id": "G12-12-A2",
+        "target": "本轮URL请求日志",
+        "read": "读取夹具真实GET路径列表。本次必须按本条steps指定的对象、动作顺序和读取范围取值；保存组成原值及失败依赖。",
+        "operator": "contains",
+        "expected": "$link_path",
+        "evidence_contract": {
+          "identity": "设置字段+本轮任务session id/目标URL",
+          "raw": "记录真实原始文本/属性/字段/路径；布尔聚合须保存组成值与计算依据",
+          "normalization": "只按read定义规范化；不添加宽松同义替换或删除额外输出",
+          "absence": "对象不存在时记录真实false/0/空列表；对象无法读取时null+reason"
+        }
+      }
+    ],
+    "evidence_required": [
+      "本次真实动作/读取日志、actual、事件引用和代码版本；通过默认不截图"
+    ],
+    "cleanup": "恢复设置原值；仅恢复本轮fast-assert-资产；导入技能结束停用，专家保留待审；不删除用户资产。",
+    "contract_version": "retest-1.0",
+    "feature_path": [
+      "设置",
+      "网页链接",
+      "侧栏链接实际路径"
+    ],
+    "depends_on": [],
+    "object_identity": "设置字段+本轮任务session id/目标URL",
+    "runability": {
+      "kind": "local-host",
+      "guarantee": "在已接入且可恢复的当前环境中可实际尝试；业务成功与全部下游断言可达不作保证",
+      "prerequisite_failure": "先记录实际尝试与已知差异；无法观察的下游断言actual=null并指出失败依赖，不能伪造通过或把记录完成写成业务验证完成"
+    },
+    "preconditions": [
+      "按本机CDP及安装包实际身份接入；标准/low；只选已有项目",
+      "用本轮唯一后缀生成样本；按steps核验对象初态；旧name、路径和已安装对象不能默认复用"
+    ],
+    "wait": {
+      "ui_ms": 5000,
+      "model_ms": 90000,
+      "locator_corrections": 1,
+      "terminal": "目标控件/预览稳定、明确提交成功/拒绝/保存失败，或本轮任务明确终态；超时保存实际状态"
+    },
+    "source_case_id": "G12-12",
+    "source_task": "2026-10-06-运行时断言回归",
+    "original_status": "失败",
+    "retest_reason": "点击URL带上中文回复尾巴，并非精确夹具链接；请求列表还混入历史路径，使用唯一链接并按动作时间切分GET及目标侧栏。"
+  },
+  {
+    "id": "G12-13",
+    "group": "G12",
+    "group_title": "设置扩展",
+    "title": "默认浏览器实际路径",
+    "steps": [
+      "设默认浏览器并确认保存",
+      "使用另一条本轮唯一URL，核对href后点击",
+      "只读本次点击后新增请求的user_agent及可观察外部进程/页面，确认打开归属",
+      "恢复实际初值并回读"
+    ],
+    "expected": [
+      "默认浏览器User-Agent：true",
+      "恢复后网页链接设置：\"$link_initial\""
+    ],
+    "fixture": "见扩展场景与夹具说明",
+    "prior_task": "2026-10-05-需求用例全量探索",
+    "prior_case": "OTHER-019",
+    "prior_attempt": "OTHER-019-A10",
+    "source": {
+      "key": "SET",
+      "file": "【桌面端】设置界面.adoc.md",
+      "line": 8,
+      "section": "原则",
+      "quote": "原则：结构适应dsh和自身的高频迭代。在其他处显示自身特性"
+    },
+    "basis": "需求文档对应检查点；历史只证明操作路径可尝试，不作为本轮答案",
+    "assertions": [
+      {
+        "id": "G12-13-A1",
+        "target": "默认浏览器User-Agent",
+        "read": "读取匹配本轮URL的GET UA是否Chrome且不含Electron。本次必须按本条steps指定的对象、动作顺序和读取范围取值；保存组成原值及失败依赖。",
+        "operator": "equals",
+        "expected": true,
+        "evidence_contract": {
+          "identity": "设置字段+本轮任务session id/目标URL",
+          "raw": "记录真实原始文本/属性/字段/路径；布尔聚合须保存组成值与计算依据",
+          "normalization": "只按read定义规范化；不添加宽松同义替换或删除额外输出",
+          "absence": "对象不存在时记录真实false/0/空列表；对象无法读取时null+reason"
+        }
+      },
+      {
+        "id": "G12-13-A2",
+        "target": "恢复后网页链接设置",
+        "read": "独立读取选中值。本次必须按本条steps指定的对象、动作顺序和读取范围取值；保存组成原值及失败依赖。",
+        "operator": "equals",
+        "expected": "$link_initial",
+        "evidence_contract": {
+          "identity": "设置字段+本轮任务session id/目标URL",
+          "raw": "记录真实原始文本/属性/字段/路径；布尔聚合须保存组成值与计算依据",
+          "normalization": "只按read定义规范化；不添加宽松同义替换或删除额外输出",
+          "absence": "对象不存在时记录真实false/0/空列表；对象无法读取时null+reason"
+        }
+      }
+    ],
+    "evidence_required": [
+      "本次真实动作/读取日志、actual、事件引用和代码版本；通过默认不截图"
+    ],
+    "cleanup": "恢复设置原值；仅恢复本轮fast-assert-资产；导入技能结束停用，专家保留待审；不删除用户资产。",
+    "contract_version": "retest-1.0",
+    "feature_path": [
+      "设置",
+      "网页链接",
+      "默认浏览器实际路径"
+    ],
+    "depends_on": [
+      "G12-12"
+    ],
+    "object_identity": "设置字段+本轮任务session id/目标URL",
+    "runability": {
+      "kind": "local-host",
+      "guarantee": "在已接入且可恢复的当前环境中可实际尝试；业务成功与全部下游断言可达不作保证",
+      "prerequisite_failure": "先记录实际尝试与已知差异；无法观察的下游断言actual=null并指出失败依赖，不能伪造通过或把记录完成写成业务验证完成"
+    },
+    "preconditions": [
+      "按本机CDP及安装包实际身份接入；标准/low；只选已有项目",
+      "用本轮唯一后缀生成样本；按steps核验对象初态；旧name、路径和已安装对象不能默认复用"
+    ],
+    "wait": {
+      "ui_ms": 5000,
+      "model_ms": 90000,
+      "locator_corrections": 1,
+      "terminal": "目标控件/预览稳定、明确提交成功/拒绝/保存失败，或本轮任务明确终态；超时保存实际状态"
+    },
+    "source_case_id": "G12-13",
+    "source_task": "2026-10-06-运行时断言回归",
+    "original_status": "失败",
+    "retest_reason": "UA读取已修正但点击URL仍不准确、设置恢复值null；绑定精确链接与当前选项，关联点击后的新请求或外部进程，不从一次Electron UA判产品链接配置失效。"
+  },
+  {
+    "id": "G13-12",
+    "group": "G13",
+    "group_title": "一级入口与菜单",
+    "title": "插件详情展开收起",
+    "steps": [
+      "进入设置内置插件，观察实际插件卡结构，保存初始展开状态",
+      "点击对应卡并读取其详情真实可见状态",
+      "恢复初始状态并回读，找不到aria-expanded不等于没有展开"
+    ],
+    "expected": [
+      "插件展开详情：true",
+      "本轮插件卡展开状态：null"
+    ],
+    "fixture": "见扩展场景与夹具说明",
+    "prior_task": "2026-10-05-需求用例全量探索",
+    "prior_case": "EXTRA-001",
+    "prior_attempt": "EXTRA-001-A01",
+    "source": {
+      "key": "SET",
+      "file": "【桌面端】设置界面.adoc.md",
+      "line": 8,
+      "section": "原则",
+      "quote": "原则：结构适应dsh和自身的高频迭代。在其他处显示自身特性"
+    },
+    "basis": "需求文档对应检查点；历史只证明操作路径可尝试，不作为本轮答案",
+    "assertions": [
+      {
+        "id": "G13-12-A1",
+        "target": "插件展开详情",
+        "read": "读取同一卡aria-expanded且详情内容非空。本次必须按本条steps指定的对象、动作顺序和读取范围取值；保存组成原值及失败依赖。",
+        "operator": "equals",
+        "expected": true,
+        "evidence_contract": {
+          "identity": "当前frame/菜单或本轮对象内部name",
+          "raw": "记录真实原始文本/属性/字段/路径；布尔聚合须保存组成值与计算依据",
+          "normalization": "只按read定义规范化；不添加宽松同义替换或删除额外输出",
+          "absence": "对象不存在时记录真实false/0/空列表；对象无法读取时null+reason"
+        }
+      },
+      {
+        "id": "G13-12-A2",
+        "target": "本轮插件卡展开状态",
+        "read": "操作前与恢复后读取aria-expanded。本次必须按本条steps指定的对象、动作顺序和读取范围取值；保存组成原值及失败依赖。",
+        "operator": "same_value",
+        "expected": null,
+        "evidence_contract": {
+          "identity": "当前frame/菜单或本轮对象内部name",
+          "raw": "记录真实原始文本/属性/字段/路径；布尔聚合须保存组成值与计算依据",
+          "normalization": "只按read定义规范化；不添加宽松同义替换或删除额外输出",
+          "absence": "对象不存在时记录真实false/0/空列表；对象无法读取时null+reason"
+        }
+      }
+    ],
+    "evidence_required": [
+      "本次真实动作/读取日志、actual、事件引用和代码版本；通过默认不截图"
+    ],
+    "cleanup": "恢复设置原值；仅恢复本轮fast-assert-资产；导入技能结束停用，专家保留待审；不删除用户资产。",
+    "contract_version": "retest-1.0",
+    "feature_path": [
+      "设置",
+      "内置插件",
+      "插件详情展开收起"
+    ],
+    "depends_on": [],
+    "object_identity": "当前frame/菜单或本轮对象内部name",
+    "runability": {
+      "kind": "stable-ui-or-file",
+      "guarantee": "在已接入且可恢复的当前环境中可实际尝试；业务成功与全部下游断言可达不作保证",
+      "prerequisite_failure": "先记录实际尝试与已知差异；无法观察的下游断言actual=null并指出失败依赖，不能伪造通过或把记录完成写成业务验证完成"
+    },
+    "preconditions": [
+      "按本机CDP及安装包实际身份接入；标准/low；只选已有项目",
+      "用本轮唯一后缀生成样本；按steps核验对象初态；旧name、路径和已安装对象不能默认复用"
+    ],
+    "wait": {
+      "ui_ms": 5000,
+      "model_ms": 90000,
+      "locator_corrections": 1,
+      "terminal": "目标控件/预览稳定、明确提交成功/拒绝/保存失败，或本轮任务明确终态；超时保存实际状态"
+    },
+    "source_case_id": "G13-12",
+    "source_task": "2026-10-06-运行时断言回归",
+    "original_status": "失败",
+    "retest_reason": "展开控件前后均null，脚本点击为无操作；定位真实插件卡并读取可见详情与真实展开状态，不能把无对象判产品不展开。"
+  }
+]

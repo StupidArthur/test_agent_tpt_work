@@ -1,0 +1,63 @@
+// G9-07/G9-08: single-file skill missing technical name / description must be rejected with field feedback.
+import path from 'node:path';
+import { withApp } from '../../automation/tpt.mjs';
+import { ensureList, openImportDialog, setFileAndConfirm, dialogInfo, skillDirNames } from '../../automation/skills.mjs';
+
+async function submitOne(page, filePath) {
+  const f = await ensureList(page);
+  await openImportDialog(f);
+  return setFileAndConfirm(f, filePath);
+}
+
+export async function skillsRejectMissingField(ctx, args) {
+  const root = ctx.taskRoot;
+  const run = ctx.runtime.extension_run;
+  const variant = (name) => path.join(root, '夹具', '本轮', run, 'variants', name, 'SKILL.md');
+  return withApp(ctx, async (page) => {
+    const { recorder } = ctx;
+    const out = {};
+
+    // -------- G9-07 missing technical name --------
+    const set7Before = await recorder.read('技能列表内部身份集合', 'skills.identity.before-missing-name', {
+      channel: 'file', scope: '技能安装目录', locator: 'C:\\Users\\Administrator\\.tpt-work\\dsh\\skills',
+    }, async () => ({ value: skillDirNames(), raw: { count: skillDirNames().length } }));
+    const act7 = await recorder.action('提交缺name技能', 'setInputFiles+click', '夹具/本轮/' + run + '/variants/missing-name/SKILL.md', async () => {
+      out.r7 = await submitOne(page, variant('missing-name'));
+    });
+    const fb7 = await recorder.read('缺name导入反馈', 'skills.import.missing-name', {
+      channel: 'dom', scope: '技能iframe/导入弹窗', locator: '[role="dialog"]',
+    }, async () => {
+      const r = out.r7 ?? {};
+      const text = r.after?.text ?? '';
+      const value = /name|名称|必填|缺失|无效/i.test(text) && !/已跳过同名/.test(text);
+      return { value, raw: { dialog: text, confirm_clicked: r.confirmClicked }, reason: r.confirmClicked ? undefined : '提交未完成' };
+    });
+    const set7After = await recorder.read('技能列表内部身份集合', 'skills.identity.before-missing-name', {
+      channel: 'file', scope: '技能安装目录', locator: 'C:\\Users\\Administrator\\.tpt-work\\dsh\\skills',
+    }, async () => ({ value: skillDirNames(), raw: { count: skillDirNames().length } }));
+
+    // -------- G9-08 missing technical description --------
+    const set8Before = await recorder.read('技能列表内部身份集合', 'skills.identity.before-missing-description', {
+      channel: 'file', scope: '技能安装目录', locator: 'C:\\Users\\Administrator\\.tpt-work\\dsh\\skills',
+    }, async () => ({ value: skillDirNames(), raw: { count: skillDirNames().length } }));
+    const act8 = await recorder.action('提交缺description技能', 'setInputFiles+click', '夹具/本轮/' + run + '/variants/missing-description/SKILL.md', async () => {
+      out.r8 = await submitOne(page, variant('missing-description'));
+    });
+    const fb8 = await recorder.read('缺description导入反馈', 'skills.import.missing-description', {
+      channel: 'dom', scope: '技能iframe/导入弹窗', locator: '[role="dialog"]',
+    }, async () => {
+      const r = out.r8 ?? {};
+      const text = r.after?.text ?? '';
+      const value = /description|描述|必填|缺失|无效/i.test(text) && !/已跳过同名/.test(text);
+      return { value, raw: { dialog: text, confirm_clicked: r.confirmClicked }, reason: r.confirmClicked ? undefined : '提交未完成' };
+    });
+    const set8After = await recorder.read('技能列表内部身份集合', 'skills.identity.before-missing-description', {
+      channel: 'file', scope: '技能安装目录', locator: 'C:\\Users\\Administrator\\.tpt-work\\dsh\\skills',
+    }, async () => ({ value: skillDirNames(), raw: { count: skillDirNames().length } }));
+
+    out.G9_07 = { action: act7.event_id, feedbackRead: fb7.event_id, feedback: fb7.value, before: set7Before.event_id, after: set7After.event_id };
+    out.G9_08 = { action: act8.event_id, feedbackRead: fb8.event_id, feedback: fb8.value, before: set8Before.event_id, after: set8After.event_id };
+    out.dialogs = { r7: out.r7, r8: out.r8 };
+    return out;
+  });
+}

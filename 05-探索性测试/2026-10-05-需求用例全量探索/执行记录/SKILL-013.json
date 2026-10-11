@@ -1,0 +1,32 @@
+{
+  "case_id": "SKILL-013",
+  "case_title": "更新按钮不跳详情",
+  "source_sha256": "92a6f4ecd2a5dffe0f1a2a60e73fa18b5fb98763b09cc56ce4cc22fd56e13f0e",
+  "status": "阻塞",
+  "review_status": "待双方审核",
+  "latest_attempt_id": null,
+  "attempts": [],
+  "product_observations": [],
+  "differences": [],
+  "finding_ids": [],
+  "blocker": {
+    "reason": "本机 7 项技能均无「有新版本」标记，也没有任何「更新」按钮；缺少市场来源且存在新版的可更新样本，无法验证「单击更新打开确认弹窗且不触发跳转、不改变启用开关」。",
+    "missing_dependency": "一个已安装且市场侧存在新版本的市场来源 Skill",
+    "evidence": [
+      "证据/ROUND2-SKILL/SKILL-QUICKUSE-A01/快捷使用与更新与三点.txt",
+      "证据/SKILL-002/SKILL-002-A02/技能卡片全量.txt"
+    ],
+    "next_action": "需测试市场提供 v1→v2 更新样本，或授权安装市场技能后由市场侧发布新版；届时复核更新确认弹窗与启用开关是否受影响。"
+  },
+  "applicability_reason": null,
+  "cleanup": {
+    "changes": [],
+    "remaining": []
+  },
+  "review": {
+    "assistant": null,
+    "user": null,
+    "approved_scope": [],
+    "final_decision": "待审核"
+  }
+}

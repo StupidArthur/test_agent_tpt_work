@@ -1,0 +1,269 @@
+{
+  "functions": [
+    {
+      "name": "session.basic",
+      "feature_path": ["对话与任务", "创建与配置", "本轮基础场景"],
+      "file": "code/business/session/basic.mjs",
+      "export": "sessionBasic",
+      "version": "retest-1.0",
+      "status": "本轮验证-待审核",
+      "description": "选择已有项目、纯文本会话产物区、代码块会话产物区：执行动作并读取目标会话真实值。",
+      "contract": "code/business/session/basic.contract.md",
+      "parameters": {"type": "object", "required": [], "additionalProperties": false, "properties": {"text": {"type": "string"}, "codeRequest": {"type": "string"}}},
+      "modules": ["code/automation/tpt.mjs"]
+    },
+    {
+      "name": "skills.importSingle",
+      "feature_path": ["技能", "导入与卡片", "单文件导入与默认态"],
+      "file": "code/business/skills/importSingle.mjs",
+      "export": "skillsImportSingle",
+      "version": "retest-1.0",
+      "status": "本轮验证-待审核",
+      "description": "导入新内部名的单文件技能与默认态技能，读取卡片/详情内部身份、展示标题与导入后开关。",
+      "parameters": {"type": "object", "required": [], "additionalProperties": false, "properties": {"mainName": {"type": "string"}, "mainTitle": {"type": "string"}, "defaultName": {"type": "string"}, "defaultTitle": {"type": "string"}}},
+      "modules": ["code/automation/tpt.mjs", "code/automation/skills.mjs"]
+    },
+    {
+      "name": "skills.rejectMissingField",
+      "feature_path": ["技能", "元数据与校验", "缺字段拒绝"],
+      "file": "code/business/skills/rejectMissingField.mjs",
+      "export": "skillsRejectMissingField",
+      "version": "retest-1.0",
+      "status": "本轮验证-待审核",
+      "description": "提交缺技术name与缺技术description的技能，读取本次字段错误反馈与技能身份集合变化。",
+      "parameters": {"type": "object", "required": [], "additionalProperties": false, "properties": {}},
+      "modules": ["code/automation/tpt.mjs", "code/automation/skills.mjs"]
+    },
+    {
+      "name": "skills.zip",
+      "feature_path": ["技能", "ZIP导入", "结构与冲突"],
+      "file": "code/business/skills/zip.mjs",
+      "export": "skillsZip",
+      "version": "retest-1.0",
+      "status": "本轮验证-待审核",
+      "description": "提交root/collection/trash/mixed ZIP，读取正式身份集合变化、嵌套扫描、垃圾文件、同名跳过与逐项结果。",
+      "parameters": {"type": "object", "required": [], "additionalProperties": false, "properties": {}},
+      "modules": ["code/automation/tpt.mjs", "code/automation/skills.mjs"]
+    },
+    {
+      "name": "experts.importBad",
+      "feature_path": ["专家", "冲突与异常包", "缺文件与坏JSON拒绝"],
+      "file": "code/business/experts/importBad.mjs",
+      "export": "expertsImportBad",
+      "version": "retest-1.0",
+      "status": "本轮验证-待审核",
+      "description": "提交缺agent.md与坏metadata.json专家目录，读取本次可见错误反馈、列表数量与源文件哈希。",
+      "parameters": {"type": "object", "required": [], "additionalProperties": false, "properties": {}},
+      "modules": ["code/automation/tpt.mjs", "code/automation/experts.mjs"]
+    },
+    {
+      "name": "settings.permission",
+      "feature_path": ["设置", "默认权限", "默认权限新任务"],
+      "file": "code/business/settings/permission.mjs",
+      "export": "settingsPermission",
+      "version": "retest-1.0",
+      "status": "本轮验证-待审核",
+      "description": "读取默认权限初值、切换、重开回读、创建独立新任务读取composer权限，并恢复初值后二次核验。",
+      "parameters": {"type": "object", "required": [], "additionalProperties": false, "properties": {}},
+      "modules": ["code/automation/tpt.mjs", "code/automation/settings.mjs"]
+    },
+    {
+      "name": "settings.usage",
+      "feature_path": ["设置", "用量展示", "简洁与详细"],
+      "file": "code/business/settings/usage.mjs",
+      "export": "settingsUsage",
+      "version": "retest-1.0",
+      "status": "本轮验证-待审核",
+      "description": "切换性能与用量为简洁/详细并在真实回复页脚读取字段，最后恢复初值。",
+      "parameters": {"type": "object", "required": [], "additionalProperties": false, "properties": {}},
+      "modules": ["code/automation/tpt.mjs", "code/automation/settings.mjs"]
+    },
+    {
+      "name": "ui.menus",
+      "feature_path": ["一级入口和菜单", "菜单与入口", "本轮补测"],
+      "file": "code/business/ui/menus.mjs",
+      "export": "uiMenus",
+      "version": "retest-1.0",
+      "status": "本轮验证-待审核",
+      "description": "读取@菜单、专家/技能创建入口、自动化推荐、帮助响应、插件展开、会话排序菜单的真实状态。",
+      "parameters": {"type": "object", "required": [], "additionalProperties": false, "properties": {}},
+      "modules": ["code/automation/tpt.mjs", "code/automation/settings.mjs"]
+    },
+    {
+      "name": "ui.sort",
+      "feature_path": ["对话与任务", "会话排序", "排序菜单"],
+      "file": "code/business/ui/sort.mjs",
+      "export": "uiSort",
+      "version": "retest-1.0",
+      "status": "本轮验证-待审核",
+      "description": "读取会话排序菜单当前选中项，改另一项后回读，再恢复初值并回读。",
+      "parameters": {"type": "object", "required": [], "additionalProperties": false, "properties": {}},
+      "modules": ["code/automation/tpt.mjs"]
+    },
+    {
+      "name": "settings.shortcuts",
+      "feature_path": ["设置", "快捷键", "新建与搜索"],
+      "file": "code/business/settings/shortcuts.mjs",
+      "export": "settingsShortcuts",
+      "version": "retest-1.0",
+      "status": "本轮验证-待审核",
+      "description": "读取并修改新会话快捷键、重开回读、恢复初值，并读取搜索会话组合后实际按键验证搜索面板。",
+      "parameters": {"type": "object", "required": [], "additionalProperties": false, "properties": {}},
+      "modules": ["code/automation/tpt.mjs", "code/automation/settings.mjs"]
+    },
+    {
+      "name": "attachments.run",
+      "feature_path": ["对话与任务", "附件", "容器滚动与清空"],
+      "file": "code/business/attachments/run.mjs",
+      "export": "attachmentsRun",
+      "version": "retest-1.0",
+      "status": "本轮验证-待审核",
+      "description": "添加30份与3份附件的草稿，读取附件容器横纵尺寸/overflow并按可滚轴滚动验证末项可见，检查批量清空入口并实际清空。",
+      "parameters": {"type": "object", "required": [], "additionalProperties": false, "properties": {}},
+      "modules": ["code/automation/tpt.mjs"]
+    },
+    {
+      "name": "sessions.unread",
+      "feature_path": ["对话与任务", "状态与提醒", "未读标记"],
+      "file": "code/business/sessions/unread.mjs",
+      "export": "sessionsUnread",
+      "version": "retest-1.0",
+      "status": "本轮验证-待审核",
+      "description": "创建两个会话，标记A未读并按未读语义解码标记数，进入A后回读提醒变化与历史正文。",
+      "parameters": {"type": "object", "required": [], "additionalProperties": false, "properties": {}},
+      "modules": ["code/automation/tpt.mjs"]
+    },
+    {
+      "name": "settings.snapshot",
+      "feature_path": ["设置", "恢复核验", "全项快照"],
+      "file": "code/business/settings/snapshot.mjs",
+      "export": "settingsSnapshot",
+      "version": "retest-1.0",
+      "status": "本轮验证-待审核",
+      "description": "跨设置各分类读取可逆字段规范化快照，用于任务收尾前后同一字段集合比对。",
+      "parameters": {"type": "object", "required": [], "additionalProperties": false, "properties": {"phase": {"type": "string"}}},
+      "modules": ["code/automation/tpt.mjs", "code/automation/settings.mjs"]
+    },
+    {
+      "name": "skills.icons",
+      "feature_path": ["技能", "图标与卡片详情", "图标资源与卡片导航"],
+      "file": "code/business/skills/icons.mjs",
+      "export": "skillsIcons",
+      "version": "retest-1.0",
+      "status": "本轮验证-待审核",
+      "description": "导入rich/missing-icon/bad-png图标包与cn-all变体，读取各自卡片图标加载/资源来源及卡片主体打开的详情内部名。",
+      "parameters": {"type": "object", "required": [], "additionalProperties": false, "properties": {}},
+      "modules": ["code/automation/tpt.mjs", "code/automation/skills.mjs"]
+    },
+    {
+      "name": "trace.run",
+      "feature_path": ["对话与任务", "执行详情", "工具步骤轨迹"],
+      "file": "code/business/trace/run.mjs",
+      "export": "traceRun",
+      "version": "retest-1.0",
+      "status": "本轮验证-待审核",
+      "description": "发起本轮文件读取，读取成功工具步骤的默认折叠状态、展开后的执行记录、参数路径与输出。",
+      "parameters": {"type": "object", "required": [], "additionalProperties": false, "properties": {}},
+      "modules": ["code/automation/tpt.mjs"]
+    },
+    {
+      "name": "batchA.skillUse",
+      "feature_path": ["技能", "实际调用", "显式使用入口与资源装载"],
+      "file": "code/business/batchA/skillUse.mjs",
+      "export": "batchSkillUse",
+      "version": "batchA-1.0",
+      "status": "本轮验证-待审核",
+      "description": "记录此前会话，技能详情点击使用，读取新会话技能chip与session身份，发送无害请求并读取本轮轨迹记录。",
+      "parameters": {"type": "object", "required": [], "additionalProperties": false, "properties": {}},
+      "modules": ["code/automation/tpt.mjs", "code/automation/skills.mjs"]
+    },
+    {
+      "name": "batchA.cnAll",
+      "feature_path": ["技能", "卡片导航", "卡片主体打开详情"],
+      "file": "code/business/batchA/cnAll.mjs",
+      "export": "batchCnAll",
+      "version": "batchA-1.0",
+      "status": "本轮验证-待审核",
+      "description": "导入cn-all单文件样本，按内部name定位卡片并点击卡片主体打开详情，按YAML字段语义读取name。",
+      "parameters": {"type": "object", "required": [], "additionalProperties": false, "properties": {}},
+      "modules": ["code/automation/tpt.mjs", "code/automation/skills.mjs"]
+    },
+    {
+      "name": "batchA.attachmentSend",
+      "feature_path": ["对话与任务", "附件", "发送附件固定"],
+      "file": "code/business/batchA/attachmentSend.mjs",
+      "export": "batchAttachmentSend",
+      "version": "batchA-1.0",
+      "status": "本轮验证-待审核",
+      "description": "添加本轮附件并发送，限定该条已发送用户消息读取附件名称与删除控件数量。",
+      "parameters": {"type": "object", "required": [], "additionalProperties": false, "properties": {}},
+      "modules": ["code/automation/tpt.mjs"]
+    },
+    {
+      "name": "batchA.trace",
+      "feature_path": ["对话与任务", "执行详情", "长工具输出与单动作聚合"],
+      "file": "code/business/batchA/trace.mjs",
+      "export": "batchTrace",
+      "version": "batchA-1.0",
+      "status": "本轮验证-待审核",
+      "description": "读取本轮长行文件，展开工具步骤读取输出容器滚动与完整输出；另建单次读取任务检查父子聚合嵌套。",
+      "parameters": {"type": "object", "required": [], "additionalProperties": false, "properties": {}},
+      "modules": ["code/automation/tpt.mjs"]
+    },
+    {
+      "name": "batchA.richDetail",
+      "feature_path": ["技能", "目录与预览", "目录折叠与图片预览"],
+      "file": "code/business/batchA/richDetail.mjs",
+      "export": "batchRichDetail",
+      "version": "batchA-1.0",
+      "status": "本轮验证-待审核",
+      "description": "打开rich详情，展开/收起references读取checklist.md树节点可见性，点击assets/icon.png读取图片预览img加载。",
+      "parameters": {"type": "object", "required": [], "additionalProperties": false, "properties": {}},
+      "modules": ["code/automation/tpt.mjs", "code/automation/skills.mjs"]
+    },
+    {
+      "name": "batchA.externalModify",
+      "feature_path": ["技能", "外部文件更新", "合法修改生效与来源标签"],
+      "file": "code/business/batchA/externalModify.mjs",
+      "export": "batchExternalModify",
+      "version": "batchA-1.0",
+      "status": "本轮验证-待审核",
+      "description": "外部合法修改rich SKILL.md，修改期间读取卡片来源标签，调用技能读取正文与加载记录，最后恢复并核验哈希。",
+      "parameters": {"type": "object", "required": [], "additionalProperties": false, "properties": {}},
+      "modules": ["code/automation/tpt.mjs", "code/automation/skills.mjs"]
+    },
+    {
+      "name": "batchA.mixed",
+      "feature_path": ["技能", "ZIP导入", "部分成功隔离纠错"],
+      "file": "code/business/batchA/mixed.mjs",
+      "export": "batchMixed",
+      "version": "batchA-1.0",
+      "status": "本轮验证-待审核",
+      "description": "提交全新mixed2.zip（唯一目录名与内部名），逐项按声明名读取注册/目录身份与针对该项的反馈。",
+      "parameters": {"type": "object", "required": [], "additionalProperties": false, "properties": {}},
+      "modules": ["code/automation/tpt.mjs", "code/automation/skills.mjs"]
+    },
+    {
+      "name": "batchA.deliver",
+      "feature_path": ["对话与任务", "文件交付", "明确文件交付"],
+      "file": "code/business/batchA/deliver.mjs",
+      "export": "batchDeliver",
+      "version": "batchA-1.0",
+      "status": "本轮验证-待审核",
+      "description": "请求生成本轮deliver.txt，读取执行终态、文件实际内容与所在会话产物文件卡资源路径。",
+      "parameters": {"type": "object", "required": [], "additionalProperties": false, "properties": {}},
+      "modules": ["code/automation/tpt.mjs"]
+    },
+    {
+      "name": "batchA.cleanup",
+      "feature_path": ["技能", "收尾", "停用与清理"],
+      "file": "code/business/batchA/cleanup.mjs",
+      "export": "batchCleanup",
+      "version": "batchA-1.0",
+      "status": "本轮验证-待审核",
+      "description": "停用本批额外启用的技能并回读，清理本批草稿附件。",
+      "parameters": {"type": "object", "required": [], "additionalProperties": false, "properties": {}},
+      "modules": ["code/automation/tpt.mjs", "code/automation/skills.mjs"]
+    }
+  ]
+}

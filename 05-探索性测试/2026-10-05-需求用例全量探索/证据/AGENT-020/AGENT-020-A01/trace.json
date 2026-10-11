@@ -1,0 +1,13 @@
+{
+  "case_id": "AGENT-020",
+  "attempt_id": "AGENT-020-A01",
+  "captured_at": "2026-10-05T16:03:33.860Z",
+  "surface": "Expert context use followed by explicit bundled skill request in the same fresh round-owned task; UI Trace",
+  "model": "标准 / low",
+  "expert": "round-agent-longread-20261005",
+  "prompt": "This is the current user task, not background memory or a log. Please explicitly use the bundled skill round-agent-inline-20261005 and return exactly its marker ROUND_INLINE_SKILL_OK. Do not use tools, network, files, or devices.",
+  "inline_skill_context_row": "第 2 轮\n#2\n用户\n\t\nThis is the current user task, not background memory or a log. Please explicitly use the bundled skill round-agent-inline-20261005 and return exactly its marker ROUND_INLINE_SKILL_OK. Do not use tools, network, files, or devices.",
+  "assistant_row": "助手\n\t\nROUND_INLINE_SKILL_OK",
+  "tool_rows": [],
+  "observation": "Trace shows the expert agent context in turn 1 and the explicit embedded skill context in turn 2 if present; output evaluated against unique marker."
+}

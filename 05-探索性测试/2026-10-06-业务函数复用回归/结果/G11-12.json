@@ -1,0 +1,77 @@
+{
+  "case_id": "G11-12",
+  "contract_version": "2.1",
+  "attempt_id": "fn-20261006-agent2-G11-12-A1",
+  "environment_id": "env-fn-20261006-agent2",
+  "object_identity": {
+    "expert": "fast-assert-expert-longread-fn-20261006-agent2"
+  },
+  "inputs": [
+    "外部向安装 metadata.json 写入无效 JSON“{ invalid”，刷新详情，再恢复"
+  ],
+  "action_refs": [
+    "business-76363aaa-fff2-4272-8047-0af3e174cb6f-2"
+  ],
+  "status": "失败",
+  "started_at": "2026-10-06T09:45:00.000Z",
+  "ended_at": "2026-10-06T10:05:00.000Z",
+  "actual_steps": [
+    "备份 metadata 与哈希",
+    "写入无效 JSON",
+    "打开专家列表观察校验",
+    "重读坏文件哈希",
+    "恢复原字节并核验详情"
+  ],
+  "assertions": [
+    {
+      "id": "G11-12-A1",
+      "actual": false,
+      "read_refs": [
+        "business-76363aaa-fff2-4272-8047-0af3e174cb6f-3"
+      ]
+    },
+    {
+      "id": "G11-12-A2",
+      "actual": {
+        "before": "aa240a0ccab83012343d3c5968854e2015e18ba9061a9dff49e2b115ce86f98a",
+        "after": "aa240a0ccab83012343d3c5968854e2015e18ba9061a9dff49e2b115ce86f98a"
+      },
+      "read_refs": [
+        "business-0ed21aa4-96a6-4af2-8614-95760a413b10-1",
+        "business-34e4112e-f0ff-400f-8073-9e5ad9d9ec49-1"
+      ]
+    },
+    {
+      "id": "G11-12-A3",
+      "actual": true,
+      "read_refs": [
+        "business-449f30ad-2aac-47bd-a5bc-51f9fd32a82d-5"
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "path": "运行日志/business.jsonl",
+      "sha256": "6203703aeaf46ab5fd94d64c474b878c26f39b97bc4c3f7a3840f9ee9a48bdc5"
+    },
+    {
+      "path": "运行日志/业务调用.jsonl",
+      "sha256": "91fc9bb4b29ad5347770a9e5e5a21b38b9c414c04a2e484e84b5dd981db87bd7"
+    }
+  ],
+  "cleanup": {
+    "status": "restored",
+    "description": "metadata.json 已按原字节恢复并回读哈希一致",
+    "read_refs": [
+      "business-6f6f0707-a329-4477-91ed-bdba3a621b52-1"
+    ]
+  },
+  "business_call_refs": [
+    "CALL-6fa17851-a579-45f0-a62d-4c59314974fb",
+    "CALL-757acb08-bace-40c7-90f4-b501dc4f0315",
+    "CALL-2ed48add-5fb9-4de8-ba10-a58bedd2c716",
+    "CALL-c84d56fc-7983-4399-975d-fb1ab0f6fe07",
+    "CALL-8850915a-a41e-4b40-a279-96721ff5faf7"
+  ],
+  "notes": "A1 失败：坏 JSON 后专家列表未显示格式/校验错误提示（false）。A2 通过：坏文件刷新前后哈希一致（未被自动改写）。A3 通过：恢复后详情可访问"
+}

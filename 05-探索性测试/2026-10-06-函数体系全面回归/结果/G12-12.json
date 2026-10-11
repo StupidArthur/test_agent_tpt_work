@@ -1,0 +1,60 @@
+{
+  "case_id": "G12-12",
+  "contract_version": "2.0",
+  "environment_id": "agent-oc-20261006-funcfull-01",
+  "attempt_id": "G12-12-A01",
+  "object_identity": "链接夹具 127.0.0.1:8781 + 应用内侧边栏",
+  "inputs": [
+    "启动链接夹具",
+    "设 应用内侧边栏",
+    "生成并点击本轮链接"
+  ],
+  "business_call_refs": [
+    "CALL-f6b23b60-e593-436b-86fb-9b1343dc09c8",
+    "CALL-969ebcd9-1f56-4e9e-af59-6678adab0997",
+    "CALL-80882d61-5d38-4685-8162-72cbeb92f2e9",
+    "CALL-59738b3e-7512-4502-a775-811c2484c0c6",
+    "CALL-e4603ad5-f66a-44d1-b4fd-79f7246cddf6",
+    "CALL-e0c1cc80-e198-4425-b74e-01ea9bb67212",
+    "CALL-d14334c9-4de7-49c0-b16e-6f158505de36",
+    "CALL-bfe3458e-d731-4519-80a8-b53e2200ac07"
+  ],
+  "status": "失败",
+  "attempted_at": "2026-10-06T17:12:57.797Z",
+  "assertions": [
+    {
+      "id": "G12-12-A1",
+      "expected": true,
+      "actual": true,
+      "pass": true,
+      "read_refs": [
+        "CALL-e0c1cc80-e198-4425-b74e-01ea9bb67212-1"
+      ],
+      "raw": {
+        "found": true
+      }
+    },
+    {
+      "id": "G12-12-A2",
+      "expected": "/fast-assert-agent-oc-20261006-funcfull-01/sidebar",
+      "actual": "",
+      "pass": false,
+      "read_refs": [
+        "CALL-d14334c9-4de7-49c0-b16e-6f158505de36-1",
+        "CALL-bfe3458e-d731-4519-80a8-b53e2200ac07-1"
+      ],
+      "raw": {
+        "paths": [],
+        "total": 0
+      },
+      "derivation": "夹具日志无任何 GET 路径"
+    }
+  ],
+  "restore": {
+    "status": "unchanged",
+    "description": "本case未改动设置/文件",
+    "read_refs": []
+  },
+  "residual": "侧栏面板保留；链接夹具已停止",
+  "notes": "应用内侧边栏打开，但夹具未收到对本轮 URL 的 GET 请求，A2 不成立。登记候选问题。"
+}

@@ -1,0 +1,107 @@
+{
+  "case_id": "DIALOG-004",
+  "case_title": "手动标记未读",
+  "source_sha256": "b712acd3b204ebcfdd07129c4d993ea1beb184f9a2d0c3827745ee1fdf7a6677",
+  "status": "已执行-符合预期",
+  "review_status": "待双方审核",
+  "latest_attempt_id": "DIALOG-004-A01",
+  "attempts": [
+    {
+      "attempt_id": "DIALOG-004-A01",
+      "started_at": "2026-10-05T19:47:00+08:00",
+      "ended_at": "2026-10-05T19:48:00+08:00",
+      "environment_id": "ENV-001",
+      "surface": "Electron UI via CDP 9234 + Playwright, dsh-app://app/ top frame",
+      "actual_preconditions": {
+        "workspace": "tpt-workspace",
+        "project": "existing project",
+        "session": "Write 25 distinct short reminders; round-owned completed sample",
+        "model": "standard / low",
+        "permission": "workspace edits"
+      },
+      "input": "Use the completed round-owned conversation A; manually choose ???????, then leave and reopen A to restore read state.",
+      "actual_steps": [
+        "Hovered A row to reveal its actions.",
+        "Opened the action menu and selected ???????.",
+        "Read back row status and number of matching rows.",
+        "Switched to B and reopened A; verified the unread label cleared and A result remained visible."
+      ],
+      "wait_condition": "Observe marked state, then restore by navigating away and reopening the same session.",
+      "checkpoints": [
+        {
+          "expected_index": 1,
+          "expected": "复用完成提醒",
+          "observed": "The existing A row itself displayed ??????? with data-state=done after manual mark-unread.",
+          "verdict": "符合",
+          "evidence": [
+            "证据/DIALOG-004/DIALOG-004-A01/marked-state.json",
+            "证据/DIALOG-004/DIALOG-004-A01/marked.png"
+          ]
+        },
+        {
+          "expected_index": 2,
+          "expected": "不新增并列未读标记",
+          "observed": "Exactly one A row remained in the sidebar; no parallel duplicate unread row appeared. After switching away and reopening A, the unread label disappeared and its result marker remained accessible.",
+          "verdict": "符合",
+          "evidence": [
+            "证据/DIALOG-004/DIALOG-004-A01/restored-state.json",
+            "证据/DIALOG-004/DIALOG-004-A01/restored.png"
+          ]
+        }
+      ],
+      "observed_result": "Manual mark-unread reused the existing completion row. The sample returned to a read/current state after navigating to B and reopening A; the result remained accessible.",
+      "status": "已执行-符合预期",
+      "evidence": [
+        "证据/DIALOG-004/DIALOG-004-A01/marked-state.json",
+        "证据/DIALOG-004/DIALOG-004-A01/marked.png",
+        "证据/DIALOG-004/DIALOG-004-A01/restored-state.json",
+        "证据/DIALOG-004/DIALOG-004-A01/restored.png"
+      ],
+      "difference_ids": [],
+      "notes": "Only a round-owned sample was changed; status restored by read interaction. No user asset or setting changed."
+    }
+  ],
+  "product_observations": [
+    {
+      "observation": "Manual mark-unread set the current round-owned completion row to unread/idle done without making a duplicate row; reopening cleared the marker.",
+      "scope": "ENV-001 existing project, current-round sample",
+      "depth": "UI action and state restoration",
+      "evidence": [
+        "证据/DIALOG-004/DIALOG-004-A01/marked-state.json",
+        "证据/DIALOG-004/DIALOG-004-A01/marked.png",
+        "证据/DIALOG-004/DIALOG-004-A01/restored-state.json",
+        "证据/DIALOG-004/DIALOG-004-A01/restored.png"
+      ],
+      "additional_feature": false
+    }
+  ],
+  "differences": [],
+  "finding_ids": [],
+  "blocker": {
+    "reason": "无法执行【手动标记未读】：需要通过会话行更多菜单执行「标未读」，会改动既有会话状态。 本机可用条件：标准/low 模型、单一项目、无附件夹具、无故障注入、无第二身份。",
+    "missing_dependency": "需要通过会话行更多菜单执行「标未读」，会改动既有会话状态。 本机可用条件：标准/low 模型、单一项目、无附件夹具、无故障注入、无第二身份。",
+    "evidence": [
+      "证据/DIALOG-004/DIALOG-004-A01/反馈入口-摘录.txt"
+    ],
+    "next_action": "需要上述缺失的夹具/场景/能力之一；其中附件类需可控 HTML 输入或授权使用原生选择器，过程类需要一次包含工具调用的较长期望任务。"
+  },
+  "applicability_reason": null,
+  "cleanup": {
+    "changes": [
+      {
+        "item": "Manual unread flag on round-owned A session",
+        "action": "Set then cleared by reopening session",
+        "restore": "Verified no unread label after restore"
+      }
+    ],
+    "remaining": [
+      "A/B round-owned sessions remain in existing project"
+    ]
+  },
+  "review": {
+    "assistant": null,
+    "user": null,
+    "approved_scope": [],
+    "final_decision": "待审核"
+  }
+}

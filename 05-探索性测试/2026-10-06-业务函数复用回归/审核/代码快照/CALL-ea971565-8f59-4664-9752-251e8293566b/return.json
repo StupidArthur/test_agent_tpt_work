@@ -1,0 +1,45 @@
+{
+  "observations": {
+    "action_refs": [
+      "business-1fb2d6d8-9655-4b3c-836f-37589a509bfb-2"
+    ],
+    "observations": {
+      "read": {
+        "event_id": "business-1fb2d6d8-9655-4b3c-836f-37589a509bfb-3",
+        "captured_at": "2026-10-06T11:40:34.730Z",
+        "environment_id": "env-fn-20261006-agent2",
+        "kind": "read",
+        "target": "插件卡片展开状态",
+        "business_call_id": "CALL-ea971565-8f59-4664-9752-251e8293566b",
+        "object_id": "plugin-card-expanded",
+        "source": {
+          "channel": "dom",
+          "scope": "插件页/卡片",
+          "locator": "[aria-expanded]"
+        },
+        "value": "D:\\tpt-workspace\\0929\\p3",
+        "raw": {
+          "cards": [
+            {
+              "expanded": "true",
+              "text": "D:\\tpt-workspace\\0929\\p3"
+            },
+            {
+              "expanded": "true",
+              "text": "D:\\tpt-workspace\\0929\\p2"
+            },
+            {
+              "expanded": "true",
+              "text": "D:\\tpt-workspace\\0929\\p1"
+            },
+            {
+              "expanded": "false",
+              "text": "A Arthur"
+            }
+          ]
+        },
+        "derivation": "存在 aria-expanded=true 的插件卡片"
+      }
+    }
+  }
+}

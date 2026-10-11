@@ -1,0 +1,58 @@
+{
+  "case_id": "G8-02",
+  "contract_version": "2.0",
+  "environment_id": "agent-oc-20261006-funcfull-01",
+  "attempt_id": "G8-02-A01",
+  "object_identity": "session-b60cf70d-258a-4fda-8f9c-6d462ec4791c",
+  "inputs": [
+    "A任务请求 请只回复 G8AONLY",
+    "标未读后进入A"
+  ],
+  "business_call_refs": [
+    "CALL-f602245f-13a9-4931-a185-3107a8df2aa8",
+    "CALL-078d2d27-5bb5-4a82-a5f7-666007bdf12c",
+    "CALL-59152b85-f547-420b-9f8b-543a205fea7d",
+    "CALL-9bcc5319-1061-4982-8275-b9292df12ce1",
+    "CALL-416443c0-e820-4a53-b9e1-8ef020dfab16",
+    "CALL-80c0617a-9694-4693-83bb-4a91d2d5fdad",
+    "CALL-3e7485e3-489c-467f-91c0-4d33cc96a218",
+    "CALL-2f29cbda-bfbf-4b9b-b77f-b1b35f0fcd48"
+  ],
+  "status": "通过",
+  "attempted_at": "2026-10-06T16:46:00.766Z",
+  "assertions": [
+    {
+      "id": "G8-02-A1",
+      "expected": 0,
+      "actual": 0,
+      "pass": true,
+      "read_refs": [
+        "CALL-3e7485e3-489c-467f-91c0-4d33cc96a218-1"
+      ],
+      "raw": {
+        "badges": [],
+        "rowText": "请只回复 G8AONLY"
+      }
+    },
+    {
+      "id": "G8-02-A2",
+      "expected": true,
+      "actual": true,
+      "pass": true,
+      "read_refs": [
+        "CALL-2f29cbda-bfbf-4b9b-b77f-b1b35f0fcd48-2"
+      ],
+      "raw": {
+        "length": "非空"
+      },
+      "derivation": "助手最终正文非空"
+    }
+  ],
+  "restore": {
+    "status": "unchanged",
+    "description": "本case未改动设置/文件",
+    "read_refs": []
+  },
+  "residual": "",
+  "notes": "进入A后未读提醒归零，历史正文可读（本轮模型回复为拒答文本，仍为非空正文）。"
+}

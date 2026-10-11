@@ -1,0 +1,61 @@
+{
+  "case_id": "G14-06",
+  "contract_version": "retest-1.0",
+  "attempt_id": "G14-06-A02",
+  "environment_id": "env-20261006-agent2",
+  "object_identity": "mixed.zip逐项结果",
+  "inputs": [
+    "zips/mixed.zip"
+  ],
+  "action_refs": [
+    "business-bd39a311-6423-43c1-a8ea-0ece0855ca9f-25",
+    "business-bd39a311-6423-43c1-a8ea-0ece0855ca9f-26"
+  ],
+  "status": "失败",
+  "started_at": "2026-10-06T08:40:10.547Z",
+  "ended_at": "2026-10-06T08:42:11.630Z",
+  "actual_steps": [
+    "确认root已预装、valid/invalid未装",
+    "提交mixed.zip并确认",
+    "按技术名读取逐项状态与坏包正式匹配数"
+  ],
+  "assertions": [
+    {
+      "id": "G14-06-A1",
+      "actual": {
+        "fast-assert-mixed-valid-20261006-agent2": "",
+        "fast-assert-root-20261006-agent2": "跳过",
+        "fast-assert-mixed-invalid-20261006-agent2": "失败"
+      },
+      "read_refs": [
+        "business-bd39a311-6423-43c1-a8ea-0ece0855ca9f-27"
+      ]
+    },
+    {
+      "id": "G14-06-A2",
+      "actual": 0,
+      "read_refs": [
+        "business-bd39a311-6423-43c1-a8ea-0ece0855ca9f-28"
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "path": "运行日志/business.jsonl",
+      "sha256": "9e589ccd7fc0b470fc97aabb8726ebb2b911ac35b21193405c3c19a608047c11"
+    },
+    {
+      "path": "运行日志/业务调用.jsonl",
+      "sha256": "c3863d3663584fcab290658c6fa851e6059dedf9f16ae98307830ece3528a641"
+    }
+  ],
+  "cleanup": {
+    "status": "retained",
+    "description": "本轮导入对象保留待审",
+    "read_refs": []
+  },
+  "business_call_refs": [
+    "CALL-c82a3c3a-6e92-4426-9a8c-d70025396034"
+  ],
+  "notes": "原问题：反馈为duplicate/invalid/valid均被同名跳过。本轮提交前仅root预装，mixed反馈为“已跳过同名技能：duplicate、invalid、valid”，valid未成功（有效项内部名按包内文件夹名回落为valid，与既有valid目录同名）。坏包正式匹配数=0。dialog原文见raw。"
+}

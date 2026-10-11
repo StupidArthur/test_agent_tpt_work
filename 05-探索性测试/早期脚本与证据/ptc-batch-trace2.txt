@@ -1,0 +1,41 @@
+0 22 62 6f 6f 6c 65 61 6e 22 20 7d ===== svc-a.json ===== read OK, totalLines=1 1|"{ "name": "alpha", "port": 8080, "enabled": true }" bytes=50 hex=7b 20 22 6e 61 6d 65 22 3a 20 22 61 6c 70 68 61 22 2c 20 22 70 6f 72 74 22 3a 20 38 30 38 30 2c…
+
+
+子工具
+	
+read{"file_path":"F:\electron-ui\.tpt-agent\ptc-test\configs\schema.json"}
+→
+<path>F:\electron-ui.tpt-agent\ptc-test\configs\schema.json</path> <type>file</type> <content> 1: { "name": "string", "port": "number", "enabled": "boolean" } (End of file - total 1 lines) </content>
+
+
+子工具
+	
+pwsh{"command":"$p='F:\electron-ui\.tpt-agent\ptc-test\configs\schema.json'; $b=[System.IO.File]::ReadAllBytes($p); "bytes=$($b.Length)"; "hex=" + (($b | ForEach-Object { $_.ToString('x2') }) -join ' ')","description":"Dump raw bytes of schema.json"}
+→
+bytes=60 hex=7b 20 22 6e 61 6d 65 22 3a 20 22 73 74 72 69 6e 67 22 2c 20 22 70 6f 72 74 22 3a 20 22 6e 75 6d 62 65 72 22 2c 20 22 65 6e 61 62 6c 65 64 22 3a 20 22 62 6f 6f 6c 65 61 6e 22 20 7d
+
+
+子工具
+	
+read{"file_path":"F:\electron-ui\.tpt-agent\ptc-test\configs\svc-a.json"}
+→
+<path>F:\electron-ui.tpt-agent\ptc-test\configs\svc-a.json</path> <type>file</type> <content> 1: { "name": "alpha", "port": 8080, "enabled": true } (End of file - total 1 lines) </content>
+
+
+子工具
+	
+pwsh{"command":"$p='F:\electron-ui\.tpt-agent\ptc-test\configs\svc-a.json'; $b=[System.IO.File]::ReadAllBytes($p); "bytes=$($b.Length)"; "hex=" + (($b | ForEach-Object { $_.ToString('x2') }) -join ' ')","description":"Dump raw bytes of svc-a.json"}
+→
+bytes=50 hex=7b 20 22 6e 61 6d 65 22 3a 20 22 61 6c 70 68 61 22 2c 20 22 70 6f 72 74 22 3a 20 38 30 38 30 2c 20 22 65 6e 61 62 6c 65 64 22 3a 20 74 72 75 65 20 7d
+
+
+子工具
+	
+read{"file_path":"F:\electron-ui\.tpt-agent\ptc-test\configs\svc-b.json"}
+→
+<path>F:\electron-ui.tpt-agent\ptc-test\configs\svc-b.json</path> <type>file</type> <content> 1: { "name": "beta", "port": 9090, "enabled": false } (End of file - total 1 lines) </content>
+
+
+子工具
+	
+pwsh{"command":"$p='F:\electron-ui\.tpt-agent\ptc-test\configs\svc-b.json'; $b=[System.IO.File]::ReadAllBytes($p); "bytes=$($b.Length)"; "hex=" + (($b | ForEach-Object { $_.ToString('x2') }) -join ' ')","description":"Dump raw bytes of svc-

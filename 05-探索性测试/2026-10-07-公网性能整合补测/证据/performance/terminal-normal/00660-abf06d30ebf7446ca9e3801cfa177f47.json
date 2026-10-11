@@ -1,0 +1,97 @@
+{
+  "sample_id": "abf06d30ebf7446ca9e3801cfa177f47",
+  "request_index": 660,
+  "cases": [
+    "TPT-08",
+    "DIFF-07",
+    "CAP-06"
+  ],
+  "group": "terminal-normal",
+  "warmup": false,
+  "target": "gateway-responses",
+  "protocol": "responses",
+  "request": {
+    "model": "flash",
+    "input": [
+      {
+        "role": "user",
+        "content": [
+          {
+            "type": "input_text",
+            "text": "只输出 NORMAL_END_7f91"
+          }
+        ]
+      }
+    ],
+    "stream": false,
+    "max_output_tokens": 256,
+    "reasoning": {
+      "effort": "low"
+    }
+  },
+  "expected": {
+    "exact_text": "NORMAL_END_7f91"
+  },
+  "checks": {
+    "http200": true,
+    "no_transport_error": true,
+    "valid_json": true,
+    "terminal": true,
+    "exact_text": true
+  },
+  "ok": true,
+  "fully_completed": true,
+  "request_sha256": "9458c90a7d86c378c46f6ab52e70f508ccaed0c4e40a170eb2c02509be427841",
+  "utc": "2026-10-07T06:22:56Z",
+  "start_monotonic": 222787.765,
+  "end_monotonic": 222788.187,
+  "http": 200,
+  "error_kind": null,
+  "error": null,
+  "body_text": "{\"id\":\"resp_93a5525294d13d25\",\"created_at\":1791354179,\"incomplete_details\":null,\"instructions\":null,\"metadata\":null,\"model\":\"flash\",\"object\":\"response\",\"output\":[{\"id\":\"rs_904845515b35f513\",\"summary\":[],\"type\":\"reasoning\",\"content\":[{\"text\":\"我们只需要输出 NORMAL_END_7f91。\",\"type\":\"reasoning_text\"}],\"encrypted_content\":null,\"status\":null},{\"id\":\"msg_a7226c8016aef6eb\",\"content\":[{\"annotations\":[],\"text\":\"NORMAL_END_7f91\",\"type\":\"output_text\",\"logprobs\":null}],\"role\":\"assistant\",\"status\":\"completed\",\"type\":\"message\",\"phase\":null}],\"parallel_tool_calls\":true,\"temperature\":1.0,\"tool_choice\":\"none\",\"tools\":[],\"top_p\":1.0,\"background\":false,\"max_output_tokens\":256,\"max_tool_calls\":null,\"previous_response_id\":null,\"prompt\":null,\"reasoning\":{\"context\":null,\"effort\":\"low\",\"generate_summary\":null,\"mode\":null,\"summary\":null},\"service_tier\":\"auto\",\"status\":\"completed\",\"text\":null,\"top_logprobs\":null,\"truncation\":\"disabled\",\"usage\":{\"input_tokens\":14,\"input_tokens_details\":{\"cached_tokens\":0,\"input_tokens_per_turn\":[],\"cached_tokens_per_turn\":[]},\"output_tokens\":22,\"output_tokens_details\":{\"reasoning_tokens\":0,\"tool_output_tokens\":0,\"output_tokens_per_turn\":[],\"tool_output_tokens_per_turn\":[]},\"total_tokens\":36},\"user\":null,\"presence_penalty\":0.0,\"frequency_penalty\":0.0,\"kv_transfer_params\":null,\"ec_transfer_params\":null,\"input_messages\":null,\"output_messages\":null}",
+  "normalized": {
+    "protocol": "responses",
+    "text": "NORMAL_END_7f91",
+    "reasoning": "我们只需要输出 NORMAL_END_7f91。",
+    "final_text": null,
+    "tool_calls": [],
+    "usage": {
+      "input_tokens": 14,
+      "input_tokens_details": {
+        "cached_tokens": 0,
+        "input_tokens_per_turn": [],
+        "cached_tokens_per_turn": []
+      },
+      "output_tokens": 22,
+      "output_tokens_details": {
+        "reasoning_tokens": 0,
+        "tool_output_tokens": 0,
+        "output_tokens_per_turn": [],
+        "tool_output_tokens_per_turn": []
+      },
+      "total_tokens": 36
+    },
+    "terminal": "completed",
+    "terminal_reason": "completed",
+    "error_message": null,
+    "unknown_events": [],
+    "json_errors": []
+  },
+  "raw_frames": [],
+  "metrics": {
+    "e2e": 0.422,
+    "first_event": null,
+    "first_reasoning": null,
+    "first_text": null,
+    "first_tool": null,
+    "input_tokens": 14,
+    "output_tokens": 22,
+    "output_tokens_per_e2e": 52.13270142180095,
+    "text_chars": 15,
+    "text_delta_count": 0,
+    "text_span": null,
+    "text_intervals_s": [],
+    "middle_text_chunks_per_s": null,
+    "stream_batch_observation": null
+  }
+}

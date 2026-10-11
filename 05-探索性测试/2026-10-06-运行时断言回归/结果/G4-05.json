@@ -1,0 +1,43 @@
+{
+  "case_id": "G4-05",
+  "contract_version": "2.0",
+  "attempt_id": "G4-A01",
+  "environment_id": "env-20261006-oc1",
+  "object_identity": "本轮专家提示词正文",
+  "inputs": [],
+  "action_refs": [
+    "G4-9d3b4f5c-5c5a-4489-b535-67fe1c5f3db8-2",
+    "G4-9d3b4f5c-5c5a-4489-b535-67fe1c5f3db8-5"
+  ],
+  "status": "通过",
+  "started_at": "2026-10-06T04:49:46.152Z",
+  "ended_at": "2026-10-06T04:49:58.812Z",
+  "actual_steps": [
+    "读取详情正文"
+  ],
+  "assertions": [
+    {
+      "id": "G4-05-A1",
+      "actual": "专家\n/\n专家详情\n本轮快速回归专家\n\n本轮无害回归测试专家，用于确认本地导入、详情展示和固定回复规则，不访问网络设备，不操作现场，也不改动用户文件。\n\n删除\n打开文件夹\n去对话编辑\n使用\n回归验证\n版本\nv1.2.3\n来源\n我创建的\n运行类型\n本地运行\n分类\n技术工程\n推荐问题\n请执行你的本轮回归固定回复规则。\n专家提示词\n\nname: fast-assert-expert-20261006-oc1 description: Harmless regression expert. ---\n\nFixed reply\n\nWhen asked to execute your regression fixed reply rule, return exactly FAST_EXPERT_EXEC_OK. Do not access files, networks, devices, credentials, or memories. Do not call tools.",
+      "read_refs": [
+        "G4-9d3b4f5c-5c5a-4489-b535-67fe1c5f3db8-9"
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "path": "运行日志/G4.jsonl",
+      "sha256": "11bd5ff4cd358fc0ea9bf3929ce1043eeab6f5ad1c3da698249b4ee2be418d4a"
+    },
+    {
+      "path": "tools/run/scratch/g4-run.json",
+      "sha256": "f52fefa77ba77d534db51cf1e673627546ff3478e5da4bbac825e7fc733b3b1c"
+    }
+  ],
+  "cleanup": {
+    "status": "retained",
+    "description": "本轮专家保留待审；导入源目录只读",
+    "read_refs": []
+  },
+  "notes": "G4共享一次专家目录导入与详情快照。"
+}

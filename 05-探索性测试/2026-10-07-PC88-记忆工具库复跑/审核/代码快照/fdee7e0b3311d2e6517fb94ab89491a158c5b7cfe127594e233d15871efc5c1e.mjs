@@ -1,0 +1,9 @@
+import {connectExperts} from '../../automation/experts.mjs';
+export async function scrollPromptToEnd(ctx,args){const c=await connectExperts(ctx,{preserveView:true});try{
+ const prompt=c.frame.locator('[data-slot="markdown"]').first();await prompt.waitFor({state:'visible'});const whole=await c.frame.locator('body').innerText();if(!whole.includes(args.displayName))throw Error('Expert detail identity mismatch');
+ const action=await ctx.recorder.action('滚动专家提示词到底部','scroll',{endMarker:args.endMarker},async()=>{await prompt.evaluate(el=>{let p=el;while(p){const css=getComputedStyle(p);if(p.scrollHeight>p.clientHeight&&/(auto|scroll)/.test(css.overflowY)){p.scrollTop=p.scrollHeight;return;}p=p.parentElement;}el.scrollIntoView({block:'end'});});});
+ const read=await ctx.recorder.read('专家提示词末尾真实可见状态',args.displayName,{channel:'dom',scope:'专家详情/提示词实际滚动容器'},async()=>{
+ const raw=await prompt.evaluate((el,marker)=>{const walker=document.createTreeWalker(el,NodeFilter.SHOW_TEXT);let node;while(node=walker.nextNode()){const pos=node.textContent.indexOf(marker);if(pos<0)continue;const range=document.createRange();range.setStart(node,pos);range.setEnd(node,pos+marker.length);const rect=range.getBoundingClientRect();let top=0,bottom=innerHeight,parent=el;while(parent){const css=getComputedStyle(parent);if(/auto|scroll|hidden/.test(css.overflowY)){const r=parent.getBoundingClientRect();top=Math.max(top,r.top);bottom=Math.min(bottom,r.bottom);}parent=parent.parentElement;}return {found:true,visible:rect.top>=top&&rect.bottom<=bottom,rect:{top:rect.top,bottom:rect.bottom},clip:{top,bottom},text:el.innerText};}return {found:false,visible:false,text:el.innerText};},args.endMarker);
+ return {value:raw.visible,raw};
+ });return {action_refs:[action.event_id],observations:{read}};
+ }finally{await c.close();}}

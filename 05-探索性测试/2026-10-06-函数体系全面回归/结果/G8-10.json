@@ -1,0 +1,37 @@
+{
+  "case_id": "G8-10",
+  "contract_version": "2.0",
+  "environment_id": "agent-oc-20261006-funcfull-01",
+  "attempt_id": "G8-10-A01",
+  "object_identity": "session（单次read任务）工作步骤面板",
+  "inputs": [
+    "读取单read任务嵌套聚合层级"
+  ],
+  "business_call_refs": [
+    "CALL-c8adc87f-65ae-4cc0-8dba-619e446c31dc"
+  ],
+  "status": "通过",
+  "attempted_at": "2026-10-06T16:39:29.824Z",
+  "assertions": [
+    {
+      "id": "G8-10-A1",
+      "expected": false,
+      "actual": false,
+      "pass": true,
+      "read_refs": [
+        "CALL-c8adc87f-65ae-4cc0-8dba-619e446c31dc-5"
+      ],
+      "raw": {
+        "maxDepth": 1
+      },
+      "derivation": "maxDepth>=2 为 false"
+    }
+  ],
+  "restore": {
+    "status": "unchanged",
+    "description": "本case未改动设置/文件",
+    "read_refs": []
+  },
+  "residual": "",
+  "notes": "本任务只含一次读取动作请求，未混入写入要求。"
+}

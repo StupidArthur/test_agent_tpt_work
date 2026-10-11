@@ -1,0 +1,17 @@
+{
+  "case_id": "AGENT-015",
+  "attempt_id": "AGENT-015-A01",
+  "captured_at": "2026-10-05T16:12:05.671Z",
+  "input_path": "夹具/agent-variants/round-agent-missing-agentmd-20261005",
+  "baseline_my_experts": 3,
+  "selected_files": 1,
+  "missing_required_file": "agent.md",
+  "submit_button_enabled": true,
+  "after_submit_error": "md + metadata.json）与必填元数据\n名称冲突时可覆盖或作为副本导入\n导入后默认保存到本机，并出现在「我的专家」\n支持专家 .zip 压缩包或文件夹（本地目录），系统会自动识别包内的 metadata.json，不需要预先选择格式。\n内部名称（可选，默认取包内 metadata.json 的 name，缺失时回落文件夹或压缩包名）\n所选内容不是有效的专家包：需要包含 agent.md 与 metadata.json。\n提交",
+  "after_submit_my_experts_count": 3,
+  "after_submit_sample_title_visible": false,
+  "observation": "UI import rejected package with required missing agent.md; existing 3 entries remained and no partial sample appeared.",
+  "selected_folder_label_in_modal_count": 1,
+  "partial_expert_card_created": false,
+  "correction": "The initial count queried the entire iframe while the dialog still showed the selected folder name. The settled expert h3 list contains only the three pre-existing round-owned Experts; no card for round-agent-missing-agentmd-20261005."
+}

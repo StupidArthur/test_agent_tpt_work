@@ -1,0 +1,75 @@
+{
+  "case_id": "SM-05",
+  "started_at": "2026-10-06T14:27:25.688Z",
+  "ended_at": "2026-10-06T14:27:36.737Z",
+  "status": "通过",
+  "assertions": [
+    {
+      "id": "SM-05-A1",
+      "actual": 1,
+      "expected": 1,
+      "pass": true,
+      "read_refs": [
+        "CALL-c33f4645-c19a-49b3-bbf7-cd93fd14300c-3"
+      ]
+    },
+    {
+      "id": "SM-05-A2",
+      "actual": "smoke-skill-tool-smoke-20261006-eval1",
+      "expected": "smoke-skill-tool-smoke-20261006-eval1",
+      "pass": true,
+      "read_refs": [
+        "CALL-9fe034de-5791-4ef4-bd1c-2f38824559a0-1"
+      ]
+    },
+    {
+      "id": "SM-05-A3",
+      "actual": "1.2.3",
+      "expected": "1.2.3",
+      "pass": true,
+      "read_refs": [
+        "CALL-9fe034de-5791-4ef4-bd1c-2f38824559a0-1"
+      ]
+    },
+    {
+      "id": "SM-05-A4",
+      "actual": "用户",
+      "expected": "用户",
+      "pass": true,
+      "read_refs": [
+        "CALL-9fe034de-5791-4ef4-bd1c-2f38824559a0-1"
+      ]
+    }
+  ],
+  "business_call_refs": [
+    "CALL-a1145db0-2735-439b-86d8-279473e2fbde",
+    "CALL-b3add5f2-80fc-4a36-ba16-6c69784f094e",
+    "CALL-c33f4645-c19a-49b3-bbf7-cd93fd14300c",
+    "CALL-a1efc754-73d5-4f46-90b5-00243497809c",
+    "CALL-9fe034de-5791-4ef4-bd1c-2f38824559a0"
+  ],
+  "tool_discovery": {
+    "feature_path": [
+      "技能",
+      "导入与发现"
+    ],
+    "plan_functions": [
+      "skills.importSingleFile",
+      "skills.searchSkills",
+      "skills.readSkillDetail",
+      "skills.readSkillCard",
+      "application.readDetailIdentity"
+    ],
+    "used": [
+      "skills.readListIdentity",
+      "skills.importSingleFile",
+      "skills.searchSkills",
+      "skills.readSkillDetail",
+      "application.readDetailIdentity"
+    ],
+    "additional_functions": [
+      "skills.readListIdentity"
+    ],
+    "all_product_operations_via_functions": true
+  }
+}

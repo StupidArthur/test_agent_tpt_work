@@ -1,0 +1,34 @@
+{
+  "case_id": "G6-02",
+  "status": "通过",
+  "started_at": "2026-10-06T10:16:00+08:00",
+  "ended_at": "2026-10-06T10:18:00+08:00",
+  "actual_steps": [
+    "记录语言初值“中文”",
+    "切 English 观察设置导航语言",
+    "切回“中文”"
+  ],
+  "observed": "语言初值“中文”；切 English 后设置面板与左侧导航变为英文（Settings/General/Profile/Credits and plan/Scenario Presets/Appearance/Font size…，语言按钮显示 English），专家 iframe 内容同步英文；切回“中文”后恢复中文（设置/常规/…）。主外壳侧栏“新建任务/技能/专家”标签保持中文未翻译（候选观察）。",
+  "evidence": [
+    {
+      "path": "证据/G6-02-lang-english.png",
+      "sha256": "e768c09ceeb15ef2723dba76d47bed0430848eff75a0f26474dd9775e0dfa593"
+    },
+    {
+      "path": "证据/G6-02-lang-restored.png",
+      "sha256": "ed43d105b637fd955a1b9316f0dde6af54ef63bdb658990d3e8dbfa2e6efeffd"
+    },
+    {
+      "path": "证据/G6-02-lang.txt",
+      "sha256": "71296625fbc12c4c6287a7463c145b673ff353e125eeb0d837b071c53c913353"
+    }
+  ],
+  "cleanup": "已恢复初值“中文”。",
+  "timings": {
+    "操作等待秒": 40,
+    "产品执行秒": 10,
+    "取证登记秒": 15,
+    "排障恢复秒": 15
+  },
+  "group": "G6"
+}

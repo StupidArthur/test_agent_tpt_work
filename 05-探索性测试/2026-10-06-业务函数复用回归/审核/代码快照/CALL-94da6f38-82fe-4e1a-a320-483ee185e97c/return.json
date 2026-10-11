@@ -1,0 +1,51 @@
+{
+  "observations": {
+    "action_refs": [
+      "business-9aae0cbf-78b5-4793-831d-1061de7fce35-2",
+      "business-9aae0cbf-78b5-4793-831d-1061de7fce35-5"
+    ],
+    "observations": {
+      "inputs": {
+        "event_id": "business-9aae0cbf-78b5-4793-831d-1061de7fce35-3",
+        "captured_at": "2026-10-06T07:27:36.206Z",
+        "environment_id": "env-fn-20261006-agent2",
+        "kind": "read",
+        "target": "技能导入弹窗文件input数量",
+        "business_call_id": "CALL-94da6f38-82fe-4e1a-a320-483ee185e97c",
+        "object_id": "import-dialog-file-inputs",
+        "source": {
+          "channel": "dom",
+          "scope": "技能页/导入技能弹窗",
+          "locator": "input[type=\"file\"][accept*=\".md\"]"
+        },
+        "value": 1,
+        "raw": {
+          "fileCount": 1,
+          "dialogText": "导入技能 每次导入一个技能：选择 ZIP、SKILL.md 或 Skill 文件夹。 选择文件 选择文件夹 文件要求 压缩包或文件夹需包含 SKILL.md SKILL.md 需包含 YAML 格式的技能名称和描述 导入时复制完整内容，不修改原始来源 取消 导入"
+        },
+        "derivation": "文件 input(accept 含 .md)数量"
+      },
+      "card": {
+        "event_id": "business-9aae0cbf-78b5-4793-831d-1061de7fce35-6",
+        "captured_at": "2026-10-06T07:27:38.386Z",
+        "environment_id": "env-fn-20261006-agent2",
+        "kind": "read",
+        "target": "本轮技能卡存在",
+        "business_call_id": "CALL-94da6f38-82fe-4e1a-a320-483ee185e97c",
+        "object_id": "skill-card-present",
+        "source": {
+          "channel": "dom",
+          "scope": "技能页/我的技能卡片",
+          "locator": "section.panel [data-slot=\"card\"]"
+        },
+        "value": true,
+        "raw": {
+          "count": 1,
+          "visible": true
+        },
+        "derivation": "count>0 && visible"
+      },
+      "dialogClosed": true
+    }
+  }
+}

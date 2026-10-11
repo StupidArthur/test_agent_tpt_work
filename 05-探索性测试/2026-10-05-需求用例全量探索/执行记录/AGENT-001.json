@@ -1,0 +1,104 @@
+{
+  "case_id": "AGENT-001",
+  "case_title": "Agent默认我的列表",
+  "source_sha256": "c3cdc4c71c1746e9a647aa5190e0983229af9b41c22e2e6c9a9bc3da80727b66",
+  "status": "已执行-符合预期",
+  "review_status": "待双方审核",
+  "latest_attempt_id": "AGENT-001-A01",
+  "attempts": [
+    {
+      "attempt_id": "AGENT-001-A01",
+      "started_at": "2026-10-05T19:10:00+08:00",
+      "ended_at": "2026-10-05T19:16:00+08:00",
+      "environment_id": "ENV-001",
+      "surface": "UI/CDP（专家模块运行在 iframe dsh-app://app/api/supcon-agents/ui?lang=zh；侧栏导航在顶层）",
+      "actual_preconditions": {
+        "account_alias": "Arthur",
+        "workspace": "界面未暴露空间切换入口，本轮未验证",
+        "project": "tpt-workspace（已有项目；本 case 未进入项目）",
+        "session_id": "不适用（本 case 只涉及模块默认页与列表入口）",
+        "model": "标准 / low",
+        "permission": "工作区内修改",
+        "fixtures": []
+      },
+      "input": "无输入；仅从「更多 > 专家」进入并切换页签",
+      "actual_steps": [
+        "按表面标记（frame URL 含 supcon-agents）定位到专家 iframe",
+        "进入后立即读取 iframe 内 [role=tab] 的文本与 aria-selected，作为默认入口判定",
+        "读取顶层「更多」按钮的 aria-expanded 与其下 6 个子项的可见性",
+        "读取侧栏当前选中项（aria-current）",
+        "枚举我的专家页的全部可交互控件与卡片类容器",
+        "切换到专家市场再切回，确认默认入口在往返后仍为我的专家"
+      ],
+      "wait_condition": "每次切换后等待 2.2 秒；本地渲染，均取得稳定终态，截止时间未触发。",
+      "checkpoints": [
+        {
+          "expected_index": 1,
+          "expected": "默认我的Agent",
+          "observed": "默认入口为「我的专家」，符合。证据：进入后 2 个 [role=tab] 中「我的专家 0」的 aria-selected=true、「专家市场 3」为 false，未做任何预置点击。正文首屏为我的专家视图，内容为「导入专家」「新建专家」两个入口、两个筛选（全部来源 / 全部运行位置，role=combobox）、搜索输入框（300×35），以及空状态「本地已就绪 0 个专家，可在对话中直接调用」「还没有专家，去「专家市场」添加一个吧」。侧栏「专家」aria-current=\"page\"，全页唯一选中项。往返复核：切到专家市场后 aria-selected 互换，切回后恢复为「我的专家 0」=true。设计 §4.1 要求聚合当前账号可用的全部 Agent，本机账号当前为 0 个，因此聚合范围为空、显示空状态——入口与默认页签两项行为均可确认，实际聚合内容无从核对。",
+          "verdict": "符合",
+          "evidence": [
+            "证据/AGENT-001/AGENT-001-A01/默认页与列表.txt",
+            "证据/AGENT-001/AGENT-001-A01/默认页与列表.png",
+            "证据/AGENT-001/AGENT-001-A01/页签往返.txt"
+          ]
+        },
+        {
+          "expected_index": 2,
+          "expected": "更多保持展开",
+          "observed": "保持展开，符合。证据：进入专家模块后顶层 [data-tpt-sidebar-action=\"more\"] 的 aria-expanded=\"true\"；其下 6 个子项全部可见（IM 频道、技能、连接器、数据资产、专家、插件），与 Round 1 入口盘点一致。注：本轮通过侧栏「专家」按钮直接导航，未先点击「更多」，因此该结论说明的是「进入子项后更多仍为展开态」，未单独验证「点击更多展开后再点子项」这一路径。",
+          "verdict": "符合",
+          "evidence": ["证据/AGENT-001/AGENT-001-A01/默认页与列表.txt"]
+        }
+      ],
+      "observed_result": "验证深度：可进入或展开 + 默认状态属性回读。2/2 检查点均有直接属性级证据。未发现额外产品特性：除双页签、导入/新建两个入口、两个筛选器与搜索框外无其它控件；无卡片（列表为空）。设计 §4.1 提到的来源归类（我创建的 / 市场添加）本轮无从核对——列表为 0 项。",
+      "status": "已执行-符合预期",
+      "evidence": [
+        "证据/AGENT-001/AGENT-001-A01/默认页与列表.txt",
+        "证据/AGENT-001/AGENT-001-A01/默认页与列表.png",
+        "证据/AGENT-001/AGENT-001-A01/页签往返.txt"
+      ],
+      "difference_ids": [],
+      "notes": "用例前置写明「已有本轮自建、本地市场、云端市场样本；Agent规格待评审」。本 case 两个检查点（默认我的列表、更多保持展开）均可在 0 样本下判定入口行为，故样本缺失不影响本 case 结论；但 §4.1 的来源归类规则需样本才能核对，已在本 case 记录中标注未验证，并在 AGENT-002/003 及 blocker 中处理。本轮未点击导入专家、新建专家、筛选器或搜索框，未新增任何 Agent。设计文档为「待评审」状态，按 AGENTS 约束未将其视为已批准基线，冲突处以差异登记而非缺陷判定。"
+    }
+  ],
+  "sub_items": [
+    { "id": "AGENT-001/子项-001", "label": "默认进入「我的专家」页签", "result": "aria-selected=true，未预置点击；往返切换后仍返回该页签", "evidence": "证据/AGENT-001/AGENT-001-A01/默认页与列表.txt" },
+    { "id": "AGENT-001/子项-002", "label": "我的列表入口与空状态", "result": "导入专家/新建专家 2 个入口 + 2 个筛选器 + 搜索框；空状态文案「本地已就绪 0 个专家」", "evidence": "证据/AGENT-001/AGENT-001-A01/默认页与列表.txt" },
+    { "id": "AGENT-001/子项-003", "label": "侧栏「更多」保持展开", "result": "aria-expanded=true，6 个子项全部可见", "evidence": "证据/AGENT-001/AGENT-001-A01/默认页与列表.txt" },
+    { "id": "AGENT-001/子项-004", "label": "来源归类（我创建的/市场添加）", "result": "列表为 0 项，无样本可核对", "verdict": "未验证" },
+    { "id": "AGENT-001/子项-005", "label": "点击「更多」展开后再进入子项的路径", "result": "本轮为直接导航，未单独覆盖该路径", "verdict": "未验证" }
+  ],
+  "product_observations": [
+    {
+      "feature_id": "FEATURE-011",
+      "statement": "专家模块（iframe dsh-app://app/api/supcon-agents/ui?lang=zh）默认进入「我的专家」页签（我的专家 0 / 专家市场 3）；我的列表提供「导入专家」「新建专家」两个入口、全部来源与全部运行位置两个筛选器、一个搜索框，当前账号为 0 个 Agent 并显示空状态。侧栏「更多」aria-expanded=true 且 6 个子项可见。",
+      "case_ids": ["AGENT-001"],
+      "attempt_ids": ["AGENT-001-A01"],
+      "environment_id": "ENV-001",
+      "verified_depth": "可进入或展开",
+      "scope_and_limits": "账号 Arthur、app.asar SHA256 EF56656B…4CC2D9D、2026-10-05。计数 0 为本机当前值；未验证新增 Agent 后计数刷新、来源归类与筛选行为；设计文档为待评审状态。",
+      "evidence": [
+        "证据/AGENT-001/AGENT-001-A01/默认页与列表.txt",
+        "证据/AGENT-001/AGENT-001-A01/默认页与列表.png",
+        "证据/AGENT-001/AGENT-001-A01/页签往返.txt"
+      ],
+      "relation_to_design": "符合入口与默认页签要求（§4.1 待评审）；聚合内容因无样本未验证",
+      "review_status": "待双方审核"
+    }
+  ],
+  "differences": [],
+  "finding_ids": [],
+  "blocker": null,
+  "applicability_reason": null,
+  "cleanup": {
+    "changes": [],
+    "remaining": []
+  },
+  "review": {
+    "assistant": null,
+    "user": null,
+    "approved_scope": [],
+    "final_decision": "待审核"
+  }
+}

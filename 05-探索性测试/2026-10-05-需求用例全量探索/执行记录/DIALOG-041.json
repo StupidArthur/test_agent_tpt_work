@@ -1,0 +1,166 @@
+{
+  "case_id": "DIALOG-041",
+  "case_title": "长输出内部滚动",
+  "source_sha256": "b712acd3b204ebcfdd07129c4d993ea1beb184f9a2d0c3827745ee1fdf7a6677",
+  "status": "已执行-符合预期",
+  "review_status": "待双方审核",
+  "latest_attempt_id": "DIALOG-041-A02",
+  "attempts": [
+    {
+      "attempt_id": "DIALOG-041-A01",
+      "started_at": "2026-10-05T21:18:00+08:00",
+      "ended_at": "2026-10-05T21:20:00+08:00",
+      "environment_id": "ENV-001",
+      "surface": "Visible task conversation DOM and screenshots via CDP 9234 in existing tpt-workspace project",
+      "actual_preconditions": {
+        "project": "existing tpt-workspace",
+        "model": "standard / low",
+        "access_mode": "workspace edits",
+        "request": "80 short numbered lines, text only"
+      },
+      "input": "Return 80 distinct short numbered lines in conversation only; do not create files or call tools.",
+      "actual_steps": [
+        "Submitted the long plain-text response request through visible task UI.",
+        "Waited for completion; UI reported 11 seconds.",
+        "Inspected the long response DOM and viewport measurements; output rendered as an ordered list spanning 2394 CSS pixels, with visible overflow on its message body.",
+        "Scrolled the conversation viewport to the beginning and end of the response; no dedicated detail pane or internal scroll area was exposed in this task."
+      ],
+      "wait_condition": "UI reported completed task in 11 seconds.",
+      "checkpoints": [
+        {
+          "expected_index": 1,
+          "expected": "详情限制高度并可内部滚动",
+          "observed": "Requested 80-line answer appeared in a normal conversation message; no distinct detail pane was available to evaluate. Message body height was 2394px with overflow visible. The expected internal-scroll behavior remains unverified for the intended details surface.",
+          "verdict": "未验证",
+          "evidence": [
+            "证据/DIALOG-041/DIALOG-041-A01/top.png",
+            "证据/DIALOG-041/DIALOG-041-A01/bottom.png",
+            "证据/DIALOG-041/DIALOG-041-A01/dom.json"
+          ]
+        },
+        {
+          "expected_index": 2,
+          "expected": "不无限撑高对话",
+          "observed": "The main body remained viewport-sized while the conversation content area scrolled; however the tested response was not a dedicated detail card. Cannot conclude behavior for the intended long-detail surface.",
+          "verdict": "未验证",
+          "evidence": [
+            "证据/DIALOG-041/DIALOG-041-A01/top.png",
+            "证据/DIALOG-041/DIALOG-041-A01/bottom.png",
+            "证据/DIALOG-041/DIALOG-041-A01/dom.json"
+          ]
+        }
+      ],
+      "observed_result": "An 80-line plain-text response completed in 11 seconds. Conversation content scrolled to show it; the response body itself measured 2394px and no internal detail pane was present. This attempt does not establish the case behavior for a long execution detail.",
+      "status": "已执行-结论不确定",
+      "evidence": [
+        "证据/DIALOG-041/DIALOG-041-A01/top.png",
+        "证据/DIALOG-041/DIALOG-041-A01/bottom.png",
+        "证据/DIALOG-041/DIALOG-041-A01/dom.json"
+      ],
+      "notes": "Scope limitation: ordinary long assistant answer used as a safe probe, not an expanded tool detail. Do not treat the observation as a product defect or as a pass.",
+      "cleanup": {
+        "changes": [],
+        "remaining": []
+      }
+    },
+    {
+      "attempt_id": "DIALOG-041-A02",
+      "started_at": "2026-10-05T21:40:00+08:00",
+      "ended_at": "2026-10-05T21:45:00+08:00",
+      "environment_id": "ENV-001",
+      "surface": "Trace ledger row detail in visible TPT UI via CDP 9234; existing tpt-workspace",
+      "actual_preconditions": {
+        "project": "existing tpt-workspace",
+        "model": "standard / low",
+        "access_mode": "workspace edits",
+        "fixture": "80-line round-owned text file DIALOG041-long-round-owned.txt"
+      },
+      "input": "Read the 80-line round-owned fixture only; do not modify/copy/create files or echo contents in final answer.",
+      "actual_steps": [
+        "Created only DIALOG041-long-round-owned.txt through visible UI with 80 distinct numbered marker lines; independent read confirmed 80 lines, from ITEM_01 through ITEM_80.",
+        "Requested a single read-only task through visible UI; terminal UI returned READ_LONG_OK and no output artifact was created by the read task.",
+        "Opened Trace ledger and selected the single read row to open its detail panel.",
+        "Measured the result overview region at 38px client height vs 1655px scrollHeight with overflow-y:auto; scrolled within it from scrollTop 0 to about 1617 using mouse wheel.",
+        "Measured the task viewport body remained 752px high with 752px scrollHeight while the result content scrolled within the detail area.",
+        "Deleted only the round-owned fixture through UI; UI reported Test-Path False and an independent filesystem check returned false."
+      ],
+      "wait_condition": "Create task 19 seconds; read task 13 seconds; cleanup task 22 seconds per UI.",
+      "checkpoints": [
+        {
+          "expected_index": 1,
+          "expected": "详情限制高度并可内部滚动",
+          "observed": "Selected read result opened a fixed-height overview region (38px clientHeight, 1655px scrollHeight, overflow-y:auto); mouse-wheel scrolling moved through the full result to scrollTop?1617.",
+          "verdict": "符合",
+          "evidence": [
+            "证据/DIALOG-041/DIALOG-041-A02/top.png",
+            "证据/DIALOG-041/DIALOG-041-A02/bottom.png",
+            "证据/DIALOG-041/DIALOG-041-A02/scroll.json"
+          ]
+        },
+        {
+          "expected_index": 2,
+          "expected": "不无限撑高对话",
+          "observed": "The task viewport remained 752px high with 752px body scrollHeight while the selected result scrolled internally; the output did not expand the conversation viewport.",
+          "verdict": "符合",
+          "evidence": [
+            "证据/DIALOG-041/DIALOG-041-A02/top.png",
+            "证据/DIALOG-041/DIALOG-041-A02/bottom.png",
+            "证据/DIALOG-041/DIALOG-041-A02/scroll.json"
+          ]
+        }
+      ],
+      "observed_result": "An 80-line tool read produced a 1655px content result in a 38px-high scrollable preview inside the Trace detail panel. Mouse-wheel input scrolled the preview through its full contents while the overall app viewport stayed fixed. The sole test file was removed and verified absent.",
+      "status": "已执行-符合预期",
+      "evidence": [
+        "证据/DIALOG-041/DIALOG-041-A02/top.png",
+        "证据/DIALOG-041/DIALOG-041-A02/bottom.png",
+        "证据/DIALOG-041/DIALOG-041-A02/scroll.json",
+        "证据/DIALOG-041/DIALOG-041-A02/cleanup.png",
+        "证据/DIALOG-041/DIALOG-041-A02/cleanup.json"
+      ],
+      "notes": "This attempt directly tested a long tool result in Trace, unlike A01 which used an ordinary assistant answer. Only one round-owned fixture was created and then removed.",
+      "cleanup": {
+        "changes": [
+          "created and removed DIALOG041-long-round-owned.txt through UI"
+        ],
+        "remaining": []
+      }
+    }
+  ],
+  "product_observations": [
+    {
+      "observation": "A long ordinary answer is rendered as a tall conversation message with viewport conversation scrolling; no separate details pane was produced in this probe.",
+      "evidence": [
+        "证据/DIALOG-041/DIALOG-041-A01/top.png",
+        "证据/DIALOG-041/DIALOG-041-A01/bottom.png",
+        "证据/DIALOG-041/DIALOG-041-A01/dom.json"
+      ]
+    },
+    {
+      "observation": "Long read details remain in a fixed 38px preview with internal vertical scrolling; total app viewport does not grow.",
+      "evidence": [
+        "证据/DIALOG-041/DIALOG-041-A02/top.png",
+        "证据/DIALOG-041/DIALOG-041-A02/bottom.png",
+        "证据/DIALOG-041/DIALOG-041-A02/scroll.json",
+        "证据/DIALOG-041/DIALOG-041-A02/cleanup.png",
+        "证据/DIALOG-041/DIALOG-041-A02/cleanup.json"
+      ]
+    }
+  ],
+  "differences": [],
+  "finding_ids": [],
+  "blocker": null,
+  "applicability_reason": null,
+  "cleanup": {
+    "changes": [
+      "DIALOG041-long-round-owned.txt created and removed via UI; Test-Path False"
+    ],
+    "remaining": []
+  },
+  "review": {
+    "assistant": null,
+    "user": null,
+    "approved_scope": [],
+    "final_decision": "待审核"
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "call_id": "CALL-1f76836b-4603-45ad-9927-6a8f56b80702",
+  "status": "returned",
+  "observations": {
+    "action_refs": [
+      "CALL-1f76836b-4603-45ad-9927-6a8f56b80702-2"
+    ],
+    "observations": {
+      "conflict": {
+        "event_id": "CALL-1f76836b-4603-45ad-9927-6a8f56b80702-3",
+        "captured_at": "2026-10-06T16:16:33.802Z",
+        "environment_id": "agent-oc-20261006-funcfull-01",
+        "business_call_id": "CALL-1f76836b-4603-45ad-9927-6a8f56b80702",
+        "kind": "read",
+        "target": "同名冲突弹窗",
+        "object_id": "expert-conflict-dialog",
+        "source": {
+          "channel": "dom",
+          "scope": "专家页/导入冲突弹窗",
+          "locator": "[role=\"dialog\"]"
+        },
+        "value": {
+          "hasOverwrite": true,
+          "hasCopy": true
+        },
+        "raw": {
+          "dialogCount": 1,
+          "text": "导入本地专家 × 名称冲突 「fast-assert-expert-agent-oc-20261006-funcfull-01」已存在，请选择处理方式。 选择或拖入专家压缩包 / 文件夹 支持 .zip 压缩包（不超过 32MB），也可选择或拖入专家文件夹 选择文件 选择文件夹 FOLDER expert-src 2 个文件 · 1.3KB × 导入要求 校验专家结构（agent.md + metadata.json）与必填元数据 名称冲突时可覆盖或作为副本导入 导入后默认保存到本机，并出现在「我的专家」 支持专家 .zip 压缩包或文件夹（本地目录），系统会自动识别包内的 metadata.json，不需要预先选择格式。 内部名称（可选，默认取包内 metadata.json 的 name，缺失时回落文件夹或压缩包名） 覆盖现有 作为副本"
+        }
+      },
+      "both": {
+        "event_id": "CALL-1f76836b-4603-45ad-9927-6a8f56b80702-4",
+        "captured_at": "2026-10-06T16:16:33.804Z",
+        "environment_id": "agent-oc-20261006-funcfull-01",
+        "business_call_id": "CALL-1f76836b-4603-45ad-9927-6a8f56b80702",
+        "kind": "read",
+        "target": "同名冲突覆盖与副本并存",
+        "object_id": "expert-conflict-both",
+        "source": {
+          "channel": "dom",
+          "scope": "专家页/导入冲突弹窗",
+          "locator": "[role=\"dialog\"]"
+        },
+        "value": true,
+        "raw": {
+          "dialogCount": 1,
+          "hasOverwrite": true,
+          "hasCopy": true,
+          "text": "导入本地专家 × 名称冲突 「fast-assert-expert-agent-oc-20261006-funcfull-01」已存在，请选择处理方式。 选择或拖入专家压缩包 / 文件夹 支持 .zip 压缩包（不超过 32MB），也可选择或拖入专家文件夹 选择文件 选择文件夹 FOLDER expert-src 2 个文件 · 1.3KB × 导入要求 校验专家结构（agent.md + metadata.json）与必填元数据 名称冲突时可覆盖或作为副本导入 导入后默认保存到本机，并出现在「我的专家」 支持专家 .zip 压缩包或文件夹（本地目录），系统会自动识别包内的 metadata.json，不需要预先选择格式。 内部名称（可选，默认取包内 metadata.json 的 name，缺失时回落文件夹或压缩包名） 覆盖现有 作为副本"
+        },
+        "derivation": "hasOverwrite && hasCopy"
+      }
+    }
+  }
+}

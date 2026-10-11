@@ -1,0 +1,15 @@
+const fs=require('fs'), path=require('path');
+const root='探索性测试/2026-10-05-需求用例全量探索';
+const fixture=path.join(root,'夹具','night-agent-complete-20261006'); fs.mkdirSync(fixture,{recursive:true});
+const base=path.join(root,'夹具','round-import-expert-20261005');
+const meta=JSON.parse(fs.readFileSync(path.join(base,'metadata.json'),'utf8'));
+meta.name='night-agent-complete-20261006';
+meta.description='Round-owned harmless complete-package import and invocation verification sample.';
+meta.profession={zh:'本轮夜间导入验证专家',en:'Night Import Probe'};
+meta.displayDescription={zh:'本轮完整包导入与调用验证；只回复唯一标记，不联网、不操作设备、不读写文件。',en:'Round-owned complete package import and invocation probe. Marker only; no network, devices, or files.'};
+meta.defaultInitPrompt={zh:'请按本轮样本规则回复唯一标记。',en:'Return this fixture exact marker.'};
+meta.quickPrompts=[{zh:'请按本轮样本规则回复唯一标记。',en:'Return fixture marker.'}];
+fs.writeFileSync(path.join(fixture,'metadata.json'),JSON.stringify(meta,null,2)+'\n','utf8');
+const agent=`---\nname: night-agent-complete-20261006\ndescription: Round-owned harmless expert package import and invocation probe.\n---\n\n# Capability\nFor requests to return the fixture marker, reply exactly NIGHT_AGENT_IMPORT_OK_20261006.\n\n# Limits\nText-only. Never use tools, network, devices, credentials, or files. Do not provide real industrial setpoints.\n`;
+fs.writeFileSync(path.join(fixture,'agent.md'),agent,'utf8');
+console.log(JSON.stringify({fixture,files:fs.readdirSync(fixture),metadata:meta.name}));

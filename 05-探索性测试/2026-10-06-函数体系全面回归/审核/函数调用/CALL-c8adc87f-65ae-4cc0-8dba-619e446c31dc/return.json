@@ -1,0 +1,71 @@
+{
+  "call_id": "CALL-c8adc87f-65ae-4cc0-8dba-619e446c31dc",
+  "status": "returned",
+  "observations": {
+    "action_refs": [
+      "CALL-c8adc87f-65ae-4cc0-8dba-619e446c31dc-3"
+    ],
+    "observations": {
+      "collapsed": {
+        "event_id": "CALL-c8adc87f-65ae-4cc0-8dba-619e446c31dc-1",
+        "captured_at": "2026-10-06T16:39:28.258Z",
+        "environment_id": "agent-oc-20261006-funcfull-01",
+        "business_call_id": "CALL-c8adc87f-65ae-4cc0-8dba-619e446c31dc",
+        "kind": "read",
+        "target": "完成工作步骤默认折叠",
+        "object_id": "work-steps-collapsed",
+        "source": {
+          "channel": "dom",
+          "scope": "对话/已完成工作步骤面板",
+          "locator": "[data-chat-flow-kind=\"turn-process\"] [aria-expanded]"
+        },
+        "value": true,
+        "raw": {
+          "count": 1,
+          "ariaExpanded": "false"
+        },
+        "derivation": "ariaExpanded === 'false'"
+      },
+      "afterExpand": {
+        "event_id": "CALL-c8adc87f-65ae-4cc0-8dba-619e446c31dc-4",
+        "captured_at": "2026-10-06T16:39:29.816Z",
+        "environment_id": "agent-oc-20261006-funcfull-01",
+        "business_call_id": "CALL-c8adc87f-65ae-4cc0-8dba-619e446c31dc",
+        "kind": "read",
+        "target": "展开后执行记录可见",
+        "object_id": "work-steps-records",
+        "source": {
+          "channel": "dom",
+          "scope": "对话/已完成工作步骤面板",
+          "locator": "[data-chat-flow-kind=\"turn-process\"]"
+        },
+        "value": false,
+        "raw": {
+          "visibleRecords": 0,
+          "textLen": 12,
+          "maxDepth": 1
+        },
+        "derivation": "visibleRecords>0 && textLen>0"
+      },
+      "nesting": {
+        "event_id": "CALL-c8adc87f-65ae-4cc0-8dba-619e446c31dc-5",
+        "captured_at": "2026-10-06T16:39:29.824Z",
+        "environment_id": "agent-oc-20261006-funcfull-01",
+        "business_call_id": "CALL-c8adc87f-65ae-4cc0-8dba-619e446c31dc",
+        "kind": "read",
+        "target": "单动作聚合层级",
+        "object_id": "work-steps-nesting",
+        "source": {
+          "channel": "dom",
+          "scope": "对话/已完成工作步骤面板",
+          "locator": "[data-chat-flow-kind=\"turn-process\"]"
+        },
+        "value": false,
+        "raw": {
+          "maxDepth": 1
+        },
+        "derivation": "maxDepth >= 2"
+      }
+    }
+  }
+}
