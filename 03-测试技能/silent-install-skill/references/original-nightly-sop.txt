@@ -1,0 +1,128 @@
+---
+name: tpt-nightly-install
+description: 从局域网服务器下载 TPT Work nightly 包并静默安装/升级，含实测验证的命令与坑位清单。凡执行 nightly 下载安装、升级 tpt-work、或排查安装与启动报错时，先读本 SOP 再操作。
+---
+
+# TPT Work Nightly 下载与静默安装 SOP
+
+本 SOP 的命令与坑位均在 2026-10-08 实测验证（0.1.2-alpha.1 → 0.1.3-nightly.202610051942 升级）。执行 nightly 流程、人工升级、或排查安装/启动异常时按本页操作，不得跳过坑位检查。
+
+## 固定信息
+
+| 项 | 值 |
+|---|---|
+| 包服务器 | FTP `ftp://10.52.0.25/package`（列目录/下载统一走 [get-latest-package-skill](../../03-测试技能/get-latest-package-skill/SKILL.md)；凭据走环境变量或本地 `config.local.json`，不入库） |
+| 包命名 | `tpt-work-<版本>-nightly.<YYYYMMDDHHMM>-win-x64.exe` |
+| 更新规律 | 每天发布新 nightly（构建时间戳以服务器为准，通常北京时间凌晨上架） |
+| 安装器类型 | electron-builder NSIS（文件头 10MB 内可检索到 "Nullsoft"） |
+| 静默参数 | **仅限** `/S /currentuser`；manifest=asInvoker，无需管理员 |
+| 安装位置 | 默认 `%LOCALAPPDATA%\Programs\tpt-work`；若本机已存在同产品安装则沿用其位置——**一律以注册表 `InstallLocation` 为准，勿写死** |
+| 注册表 | `HKCU\Software\Microsoft\Windows\CurrentVersion\Uninstall\<guid>`，DisplayVersion = 完整 nightly id |
+| 应用数据 | 主数据 `C:\Users\<user>\.tpt-work`（agents/dsh/sandbox/tasks，含 credentials）；Chromium profile `%APPDATA%\@tpt-work\vendored-desktop`；updater `%LOCALAPPDATA%\@tpt-workvendored-desktop-updater` |
+| 本地服务 | `127.0.0.1:21029`（应答 401 = 服务存活，属正常鉴权） |
+| 包本地存放 | `d:\code\test_agent_tpt_work\nightly\downloads\` |
+| 状态台账 | `d:\code\test_agent_tpt_work\nightly\state.json`（门控 + 运行记录） |
+| 数据备份 | 升级前把 `~\.tpt-work` 复制到 `d:\code\test_agent_tpt_work\nightly\backup-userdata-<YYYYMMDD>\`（当日已存在则跳过） |
+
+## 执行流程
+
+1. 取最新包名：列目录，正则全量匹配 `tpt-work-[\d.]+-nightly\.\d+-win-x64\.exe`，取 `nightly.<时间戳>` 数值最大者。
+2. 门控：与 state.json 的 `lastProcessedBuild` 比对；相同 → 本轮仅在 state.json 的 `runs` 追加一条"无新包"记录后结束。
+3. 下载：先设 `$ProgressPreference='SilentlyContinue'`（PS5 进度条严重拖慢下载），下载到 `nightly\downloads\`。
+4. 校验：字节数与目录列表一致；计算 SHA-256。
+5. 备份 `~\.tpt-work`。
+6. 关闭运行中的应用（坑 10）、清理僵尸进程（坑 4）后执行静默安装。
+7. 验证安装：退出码 0；注册表 DisplayVersion = 包版本；`%LOCALAPPDATA%\Programs\tpt-work\tpt-work.exe` 版本正确。
+8. 启动应用，按"健康判定"确认。
+9. 更新 state.json（lastProcessedBuild、版本、SHA-256、时间、安装/启动结果、报告路径）。
+
+## 一键脚本（下载→装→启动→验证）
+
+```powershell
+$ProgressPreference='SilentlyContinue'
+$repo = "d:\code\test_agent_tpt_work"
+$dl   = "$repo\nightly\downloads"
+$ftp  = "$repo\03-测试技能\get-latest-package-skill\scripts\ftp_download.py"
+$env:FTP_LOCAL_DIR = $dl   # FTP_HOST/FTP_USER/FTP_PASSWORD/FTP_REMOTE_DIR 由环境变量或 config.local.json 提供
+
+# 最新包（FTP，见 get-latest-package-skill 技能）
+$latest = (& python $ftp latest 2>$null | ConvertFrom-Json).latest
+$state = Get-Content "$repo\nightly\state.json" -Raw -Encoding UTF8 | ConvertFrom-Json
+if ($state.lastProcessedBuild -eq $latest) { "无新包：$latest"; return }
+
+# 下载 + 校验（脚本内置 .part 半包保护、大小与 SHA-256）
+$r = (& python $ftp download 2>$null | ConvertFrom-Json)
+"下载: $($r.remote_file)  size=$($r.size)  reused=$($r.reused)  verified=$($r.verified)"
+if (-not $r.verified) { throw "下载校验未通过（size_match=$($r.size_match)）" }
+$exe = Get-Item $r.local_path; $sha = $r.sha256
+"SHA256=$sha"
+
+# 备份应用数据（当日已有则跳过）
+$bak = "d:\code\test_agent_tpt_work\nightly\backup-userdata-$(Get-Date -Format yyyyMMdd)"
+if (-not (Test-Path $bak)) { Copy-Item "$env:USERPROFILE\.tpt-work" $bak -Recurse -Force }
+
+# 关闭运行中的应用（安装器遇到运行中的应用会 Abort，见坑 10）
+Get-Process -Name "tpt-work" -EA SilentlyContinue | Stop-Process -Force -EA SilentlyContinue
+Start-Sleep -Seconds 3
+
+# 僵尸进程清理（应用进程名恰为 tpt-work，勿误杀；安装器进程名带版本后缀）
+Get-Process | Where-Object { $_.ProcessName -match '^tpt-work-[\d.]+-nightly' -or $_.ProcessName -eq 'dsh-7za' } |
+    Stop-Process -Force -EA SilentlyContinue
+
+# 静默安装（严禁加 /D）
+$p = Start-Process -FilePath $exe.FullName -ArgumentList "/S","/currentuser" -Wait -PassThru
+"安装退出码: $($p.ExitCode)"        # 0=成功，2=失败
+if ($p.ExitCode -ne 0) { throw "安装失败，退出码 $($p.ExitCode)" }
+
+# 启动 + 健康判定（安装位置从注册表读，勿写死 LOCALAPPDATA）
+$reg = Get-ItemProperty "HKCU:\Software\Microsoft\Windows\CurrentVersion\Uninstall\*" -EA SilentlyContinue |
+    Where-Object { $_.InstallLocation -match 'tpt-work' -or $_.DisplayName -match 'tpt' } | Select-Object -First 1
+$appExe = Join-Path $reg.InstallLocation 'tpt-work.exe'
+Start-Process $appExe
+Start-Sleep 30
+$app = Get-Process -Name "tpt-work" -EA SilentlyContinue | Where-Object MainWindowTitle
+if (-not $app) { Start-Process $appExe; Start-Sleep 30;
+     $app = Get-Process -Name "tpt-work" -EA SilentlyContinue | Where-Object MainWindowTitle }
+"窗口: $($app.MainWindowTitle)"     # 正常为 "TPT Work"
+try { $resp = Invoke-WebRequest "http://127.0.0.1:21029" -UseBasicParsing -TimeoutSec 10
+      "本地服务: HTTP $([int]$resp.StatusCode)" } catch { "本地服务: $($_.Exception.Message)" }  # 401 = 存活
+```
+
+## 静默卸载
+
+```powershell
+$dir = (Get-ItemProperty "HKCU:\Software\Microsoft\Windows\CurrentVersion\Uninstall\*" -EA SilentlyContinue |
+    Where-Object { $_.DisplayName -match 'tpt' } | Select-Object -First 1).InstallLocation
+Start-Process -FilePath "$dir\Uninstall tpt-work.exe" -ArgumentList "/currentuser","/S","_?=$dir" -Wait -PassThru
+```
+
+## 已知坑（每条均实测踩过）
+
+| # | 坑 | 处置 |
+|---|---|---|
+| 1 | **`/D=目录` 必失败**：退出码 2，目标目录留半成品（Electron 文件、无主 exe） | 静默模式只能装默认目录；半成品目录仅当其中无 `tpt-work.exe` 时才可整目录删除 |
+| 2 | `/S` 必须大写 | NSIS 约定 |
+| 3 | 无需管理员（asInvoker） | 用 `/currentuser`，勿用 `/allusers` |
+| 4 | **失败尝试留僵尸**：安装器名进程（`tpt-work-<版本>-win-x64`）与 `dsh-7za` 可能挂起，阻塞后续安装 | 重试前先 kill；安装器进程名带版本后缀，正常应用进程名恰为 `tpt-work`，勿误杀；两次安装严禁并行 |
+| 5 | **装完首启可能进入"无法使用"后退出** | 属启动过渡态（dsh runtime 未就绪），等待或再拉起一次即可；**不需要重启系统** |
+| 6 | 内网 `http://IP:端口` 用 WebFetch 会强制升级 HTTPS 而失败 | 内网地址一律用 PowerShell `Invoke-WebRequest` |
+| 7 | 退出码语义 | 0 = 成功；2 = .onInit 阶段 Abort（多半是 /D 或进程冲突） |
+| 8 | 覆盖升级 | 同产品 GUID 直接静默装新版即可覆盖（实测 0.1.2→0.1.3 成功），旧版无需先卸载 |
+| 9 | 证据纪律 | 包路径、SHA-256、时间、结果登记 state.json；界面报错引用原文（如"TPT Work 无法使用"） |
+| 10 | **应用运行中执行静默安装会 Abort（exit 2）** | 安装前先关闭全部 `tpt-work` 进程；若机器上正有人使用该实例，先协调再关（无人值守时记录后关闭） |
+| 11 | **包文件被占用 = 并发安装信号**：直接覆盖下载会失败；脚本若无 `-ErrorAction Stop` 会拿旧文件冒充新下载 | 已有同大小包则复用并复核 SHA-256；文件被占用即说明另一安装进行中——等它结束再动手，不清理他人进行中的安装器进程（坑 4 的清理只针对本会话遗留的挂起进程） |
+| 12 | **`trigger` 定时任务与本会话并发打架**：独立会话与本会话同时跑全链路，互相杀进程/抢安装（本会话安装连续 exit 2 的真实原因）、抢 UI 锁 | 手动试跑前确认无在跑的定时任务运行；门控重置后等在跑会话结束再操作；发现并发迹象（应用被莫名拉起/杀掉、state.json 与实际不符）先停下排查 |
+| 13 | **UI 工具僵尸锁**：`04-测试工具/ui-operations/.ui.lock` 持有进程死后锁不释放；`Remove-Item`/`rmSync` 均可能被安全策略或句柄拦截静默失败 | 先核对 `owner.json` 的 PID 是否存活；死锁用 `Rename-Item .ui.lock ui.lock.dead` 改名让位，新调用即可正常建锁 |
+| 14 | **PS5 编码两坑**：UTF-8 无 BOM 中文脚本被按 ANSI 解析（语法错误）；`Out-File -Encoding utf8` 写出带 BOM 的 JSON 参数文件毒化解析器 | 脚本统一存 UTF-8 带 BOM；JSON 参数文件一律用无 BOM UTF-8 写入 |
+| 15 | **npm 装包网络不通**（默认源与 npmmirror 均失败） | 冒烟/回归根本不需要装 playwright——项目 `04-测试工具/ui-operations` 自带 node_modules 与 `call.mjs`，`node 04-测试工具/ui-operations/call.mjs <函数> --task <任务> --args-file <参数>` 直接调用 |
+| 16 | **UI 冒烟前置 = 实例已登录且已配置 TPT API 密钥**：未配置时发消息直接失败，界面原文 `MISSING_CREDENTIAL 尚未配置 TPT 的 API 密钥`，气泡定位器还会因超时返回 count=0 掩盖真实原因 | 冒烟前先确认实例登录态与模型凭证；遇 sendMessage 超时+气泡 0 时，立即重读界面全文找报错原文，勿先怀疑选择器 |
+| 17 | **nightly 服务器时钟为 UTC**：目录页时间戳带 `+0000 UTC`、nightly.yml 带 `Z`、HTTP 头 GMT 三处一致；页面显示的 `20:07` 实为北京时间凌晨 04:07，新包实际每天北京时间凌晨 4 点左右上架，按页面钟点读会误判"晚上八点发布"（2026-10-09 实测：服务器 Date 头与本机 UTC 仅差 7 秒） | 判断包发布时间一律 +8 换算成北京时间再下结论；可比对服务器 Date 头与本机 UTC 时间验证时钟 |
+| 18 | **同一文件并行批量 Edit 会互相覆盖丢改动**：多条 Edit 同批提交时每条返回都显示成功，最终文件却成混合状态（部分改动丢失或回退旧文本；2026-10-08/09 两次实测复现，21:00→00:00→06:00 改时点时各丢 3 处） | 同一文件多处修改用单次 Write 整文件重写，或严格逐条串行 Edit；批量改完必须整体重读核验，勿信单条返回的成功回显 |
+| 19 | **newTask 绑定项目时 workspace 按钮定位超时**：`button[class*="_workspace"]` 5000ms 内未挂载，click 直接 TimeoutError（2026-10-10 实测 `CALL-ae57d40c`，属 UI 挂载竞态非产品缺陷） | 先 inspectConnection 复核 CDP 连接正常，再把 `ui_timeout_ms` 提到 10000 重试即成功；原 attempt 保留作证据，勿判为产品功能错误 |
+| 20 | **Windows PowerShell 5.1 无 `&&` 操作符**：命令用 `&&` 链接直接报错退出（2026-10-10 下载环节实测踩坑） | 用 `;` 顺序连接，或拆成多条独立执行；PS7 才支持 `&&`，勿混用 |
+| 21 | **202610101943 起记忆与进化面板重构，主库 `memory.addEntry` 失效**：「概览/记忆库/日志」三 tab 整体移除，改单页（开关区 + 高级设置 + 分层记忆文件 S/A/U/M 行各带「查看」+ 活动趋势 + 近期动态 + 工作日志）；依赖「记忆库」tab 的 `memory.addEntry` 超时报错（2026-10-11 实测 `CALL-3d53b3b2`），NL-08 面板写入路径改变 | 面板写入改走分层文件行「查看 → 编辑 → 保存」（2026-10-11 任务函数 `task.editLayerWrite` 已验证落盘一致，实现见 `05-探索性测试/2026-10-11-nightly-202610101943/code/business/editLayerWrite.mjs`，待主库审核并入）；面板/参数枚举仍可用 `memory.readOverview`（其 `memory-advanced-values` 读取在新 UI 下正常，14 项参数可读）；遇到旧 tab 函数超时先 readOverview 枚举真实结构，勿反复盲试 |
+| 22 | **call.mjs 无参函数也必须带 `--args-file`**：`node call.mjs <函数> --task <目录>` 直接报 Usage 退出（2026-10-10/11 两轮实测：readSnapshot、readTaskPermissionOptions、readGeneral 等） | 用内容为 `{}` 的空参数文件（如任务 `code\参数-空.json`）调用；契约上无参不等于可不传文件 |
+
+## 健康判定
+
+主窗口标题 = `TPT Work` 且 Responding=True；`127.0.0.1:21029` 应答（401 属正常）。启动后前 30~60 秒内窗口可能短暂显示 `TPT Work 无法使用`，等它自愈后再判定，不要在过渡态下下结论。
