@@ -17,3 +17,7 @@
 按目标查工具：登录/退出→application.login/account；空白任务/标题切换→conversation.session.basic；项目入口/表单/移除/项目内新会话→conversation.project对应叶子；产物预览→conversation.artifact.preview；审批等待→conversation.approval.observe；允许/拒绝→现有conversation.decideApproval；问题卡→conversation.question。无需通读全部工具。
 
 本次只整理和静态验证，没有重新操作产品。原始来源SHA-256：13205ccc57ad2b5b27fe1945c1819219597bf1c311548a5983b1f9f5fbb390c0。
+
+## 固定测试账号
+
+用户明确指定本轮smoketest账号密码为测试专用并授权提交，凭据保存在[测试账号.json](测试账号.json)。执行登录时将该文件的实际路径传给 `application.loginWithPassword` 的 `credentialsPath`，不再引用原机器临时凭据路径。历史结果和原始调用参数保持原样。
