@@ -1,0 +1,22 @@
+{
+  "call_id": "CALL-a8248b0f-173f-4635-a568-ccec7be344e1",
+  "status": "returned",
+  "observations": {
+    "action_ref": "CALL-a8248b0f-173f-4635-a568-ccec7be344e1-2",
+    "kind": "approval",
+    "approval": {
+      "buttons": [
+        "拒绝",
+        "允许一次"
+      ],
+      "text": "等待审批 允许本次操作使用 danger-full-access 权限：用户明确要求再试一次写入工作区外的 D:\\tptwork-smoketest\\permission\\1.txt，该路径超出 workspace-write 范围，需一次性放宽权限才能追加这一行。 $p = 'D:\\tptwork-smoketest\\permission\\1.txt' $enc = New-Object System.Text.UTF8Encoding($true) $old = [System.IO.File]::ReadAllText($p, [System.Text.Encoding]::UTF8) $new = $old.TrimEnd(\"`r\",\"`n\") + \"`r`n\" + '我没有权限，但是到此一游' + \"`r`n\" [System.IO.File]::WriteAllText($p, $new, $enc) Get-Item -LiteralPath $p | Select-Object Length, LastWriteTime 拒绝 允许一次"
+    },
+    "snapshot": {
+      "running": 3,
+      "stop": 1,
+      "replyCount": 13,
+      "lastReply": "Still denied. Since you asked me to try again, I'll make one more escalated attempt on the exact same write:"
+    },
+    "evidence_ref": "CALL-a8248b0f-173f-4635-a568-ccec7be344e1-3"
+  }
+}

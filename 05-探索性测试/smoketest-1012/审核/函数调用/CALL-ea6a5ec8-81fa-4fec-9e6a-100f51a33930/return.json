@@ -1,0 +1,82 @@
+{
+  "call_id": "CALL-ea6a5ec8-81fa-4fec-9e6a-100f51a33930",
+  "status": "returned",
+  "observations": {
+    "observations": {
+      "running": {
+        "event_id": "CALL-ea6a5ec8-81fa-4fec-9e6a-100f51a33930-1",
+        "captured_at": "2026-10-12T10:21:14.616Z",
+        "environment_id": "smoketest-1012",
+        "business_call_id": "CALL-ea6a5ec8-81fa-4fec-9e6a-100f51a33930",
+        "kind": "read",
+        "target": "可见运行中指示数量",
+        "object_id": "running-indicators",
+        "source": {
+          "channel": "dom",
+          "scope": "当前会话",
+          "locator": "text=进行中/探索中..."
+        },
+        "value": 1,
+        "raw": {
+          "count": 1
+        }
+      },
+      "assistant": {
+        "event_id": "CALL-ea6a5ec8-81fa-4fec-9e6a-100f51a33930-2",
+        "captured_at": "2026-10-12T10:21:14.641Z",
+        "environment_id": "smoketest-1012",
+        "business_call_id": "CALL-ea6a5ec8-81fa-4fec-9e6a-100f51a33930",
+        "kind": "read",
+        "target": "助手最终正文",
+        "object_id": "last-assistant-bubble",
+        "source": {
+          "channel": "dom",
+          "scope": "对话 助手气泡",
+          "locator": "[class*=\"hWmORq_body\"]"
+        },
+        "value": "",
+        "raw": {
+          "count": 8,
+          "last": ""
+        }
+      },
+      "code": {
+        "event_id": "CALL-ea6a5ec8-81fa-4fec-9e6a-100f51a33930-3",
+        "captured_at": "2026-10-12T10:21:14.644Z",
+        "environment_id": "smoketest-1012",
+        "business_call_id": "CALL-ea6a5ec8-81fa-4fec-9e6a-100f51a33930",
+        "kind": "read",
+        "target": "本轮代码块",
+        "object_id": "code-block",
+        "source": {
+          "channel": "dom",
+          "scope": "助手气泡内 pre/code",
+          "locator": "[class*=\"hWmORq_body\"] pre, [class*=\"hWmORq_body\"] code"
+        },
+        "value": null,
+        "raw": {
+          "count": 0,
+          "text": null
+        }
+      },
+      "fileCards": {
+        "event_id": "CALL-ea6a5ec8-81fa-4fec-9e6a-100f51a33930-4",
+        "captured_at": "2026-10-12T10:21:14.646Z",
+        "environment_id": "smoketest-1012",
+        "business_call_id": "CALL-ea6a5ec8-81fa-4fec-9e6a-100f51a33930",
+        "kind": "read",
+        "target": "文件产物卡片数量",
+        "object_id": "changed-file-cards",
+        "source": {
+          "channel": "dom",
+          "scope": "当前会话对话区 产物卡",
+          "locator": "[data-changed-files=\"true\"]"
+        },
+        "value": 0,
+        "raw": {
+          "count": 0
+        }
+      }
+    }
+  }
+}

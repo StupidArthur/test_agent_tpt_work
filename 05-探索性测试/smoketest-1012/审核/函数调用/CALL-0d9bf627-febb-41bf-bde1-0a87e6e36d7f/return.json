@@ -1,0 +1,14 @@
+{
+  "call_id": "CALL-0d9bf627-febb-41bf-bde1-0a87e6e36d7f",
+  "status": "returned",
+  "observations": {
+    "approval": {
+      "buttons": [
+        "拒绝",
+        "允许一次"
+      ],
+      "text": "等待审批 允许本次操作使用 danger-full-access 权限：要追加内容的 D:\\tptwork-smoketest\\permission\\1.txt 位于会话工作区之外，工作区写权限无法覆盖，需一次性提权写入该文件。 $p = 'D:\\tptwork-smoketest\\permission\\1.txt' $enc = New-Object System.Text.UTF8Encoding($true) $old = [System.IO.File]::ReadAllText($p, [System.Text.Encoding]::UTF8) $new = $old.TrimEnd(\"`r\",\"`n\") + \"`r`n\" + '我没有权限，但是到此一游' + \"`r`n\" [System.IO.File]::WriteAllText($p, $new, $enc) Get-Item -LiteralPath $p | Select-Object Length, LastWriteTime 拒绝 允许一次"
+    },
+    "evidence_ref": "CALL-0d9bf627-febb-41bf-bde1-0a87e6e36d7f-1"
+  }
+}

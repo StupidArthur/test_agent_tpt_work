@@ -1,0 +1,16 @@
+{
+  "call_id": "CALL-beccf924-696f-4b26-9577-594a28141e18",
+  "status": "returned",
+  "observations": {
+    "action_ref": "CALL-beccf924-696f-4b26-9577-594a28141e18-2",
+    "kind": "idle",
+    "approval": null,
+    "snapshot": {
+      "running": 0,
+      "stop": 0,
+      "replyCount": 3,
+      "lastReply": "目录 D:\\tptwork-smoketest\\permission\\ 下只有 1 个文件（没有子目录）：\n\n名称\t大小\t修改时间\n1.txt\t82 字节\t2026-10-12 19:01:23\n\n顺带把内容读了，全文 3 行：\n\n代码块\n2026-10-12 18:19:52\n我没有权限，但是到此一游\n我现在无敌了\n\n另外说明一句：这次是只读文件策略，列出目录和读文件都不受影响；命令输出里那两段报错是 pwsh 的编码预设语句在受限语言模式下无法创建 .NET 类型，跟本次列目录无关，结果本身是完整的。需要我改这个文件、或在目录里新建文件的话，得先放开写入权限再动手。"
+    },
+    "evidence_ref": "CALL-beccf924-696f-4b26-9577-594a28141e18-3"
+  }
+}

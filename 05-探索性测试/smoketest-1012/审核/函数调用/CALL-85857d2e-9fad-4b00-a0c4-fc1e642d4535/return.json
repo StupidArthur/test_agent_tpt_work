@@ -1,0 +1,33 @@
+{
+  "call_id": "CALL-85857d2e-9fad-4b00-a0c4-fc1e642d4535",
+  "status": "returned",
+  "observations": {
+    "action_refs": [
+      "CALL-85857d2e-9fad-4b00-a0c4-fc1e642d4535-2"
+    ],
+    "observations": {
+      "wait": {
+        "waited_ms": 10469
+      },
+      "assistant": {
+        "event_id": "CALL-85857d2e-9fad-4b00-a0c4-fc1e642d4535-3",
+        "captured_at": "2026-10-12T08:10:49.568Z",
+        "environment_id": "smoketest-1012",
+        "business_call_id": "CALL-85857d2e-9fad-4b00-a0c4-fc1e642d4535",
+        "kind": "read",
+        "target": "助手最终正文",
+        "object_id": "last-assistant-bubble",
+        "source": {
+          "channel": "dom",
+          "scope": "对话 助手气泡",
+          "locator": "[class*=\"hWmORq_body\"]"
+        },
+        "value": "文件已生成，回读校验通过。\n\n路径：smoketest-20261012-161044.txt（所在目录 D:\\tptwork-smoketest\\delete_project，创建前是空的）\n大小：200 字节，UTF-8 无 BOM，4 行，无乱码\n内容：生成时间 2026-10-12 16:10:44（Asia/Shanghai）、会话工作目录、以及文件用途说明\n\n一点交底：文件名我按之前几轮冒烟测试的习惯取了时间戳格式 smoketest-yyyyMMdd-HHmmss.txt。如果你想要固定名字（比如 test.txt）、或指定具体文件名与内容，说一声我改名/重写即可——新建的文件改动起来不费事。",
+        "raw": {
+          "count": 4,
+          "last": "文件已生成，回读校验通过。\n\n路径：smoketest-20261012-161044.txt（所在目录 D:\\tptwork-smoketest\\delete_project，创建前是空的）\n大小：200 字节，UTF-8 无 BOM，4 行，无乱码\n内容：生成时间 2026-10-12 16:10:44（Asia/Shanghai）、会话工作目录、以及文件用途说明\n\n一点交底：文件名我按之前几轮冒烟测试的习惯取了时间戳格式 smoketest-yyyyMMdd-HHmmss.txt。如果你想要固定名字（比如 test.txt）、或指定具体文件名与内容，说一声我改名/重写即可——新建的文件改动起来不费事。"
+        }
+      }
+    }
+  }
+}

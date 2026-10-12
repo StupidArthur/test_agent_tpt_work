@@ -1,3 +1,4 @@
+import {clickApproval as clickApprovalObserved} from '../smoke/approval.mjs';
 // 业务函数层：对话与任务（新建、选项目、发送、读取终态）。
 // 前置：CDP 实例已启动（环境记录.json）。副作用：UI 操作、可能产生模型调用。
 import { withPage, SEL, runningIndicatorCount, waitTerminal, ensureConversationView } from '../../automation/conversation.mjs';
@@ -460,17 +461,11 @@ export async function readTraceVisible(ctx) {  return withPage(ctx, async (page)
 }
 
 // 处理对话内权限审批（允许一次 / 拒绝）。
-export async function decideApproval(ctx, args = {}) {
-  const { decision = 'allow' } = args;
-  return withPage(ctx, async (page) => {
-    const rec = ctx.recorder;
-    const label = decision === 'allow' ? '允许一次' : '拒绝';
-    const act = await rec.action('处理权限审批', 'click', { decision }, async () => {
-      await page.getByText(label, { exact: true }).first().click();
-      await page.waitForTimeout(2000);
-    });
-    return { action_refs: [act.event_id], observations: { decision } };
-  });
+export async function decideApproval(ctx,args={}) {
+ const decision=args.decision||'allow';
+ if(!['allow','deny','reject'].includes(decision))throw Error('Unknown decision');
+ const result=await clickApprovalObserved(ctx,{label:decision==='allow'?'允许一次':'拒绝'});
+ return {...result,action_refs:[result.action_ref],observations:{decision,before:result.before,stillVisible:result.stillVisible}};
 }
 
 // 点击助手回复中的真实锚点（href 含指定片段）。

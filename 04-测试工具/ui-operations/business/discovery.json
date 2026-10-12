@@ -916,6 +916,169 @@
         "smoke.skills.setSwitch",
         "smoke.skills.openAndReadDetail"
       ]
+    },
+    {
+      "id": "application.login",
+      "module": "application",
+      "title": "登录页读取与账号密码登录",
+      "intent": "登录页读取与账号密码登录",
+      "keywords": [
+        "登录页读取",
+        "账号密码登录"
+      ],
+      "guide": "缺登录页字段先读取，再登录；密码只由本地credentialsPath读取，不把凭据写进参数或证据。 来源smoketest-1012，迁库版本仅静态复核；需要时查看单函数契约。",
+      "functions": [
+        "application.readLoginPage",
+        "application.loginWithPassword"
+      ]
+    },
+    {
+      "id": "application.account",
+      "module": "application",
+      "title": "首页账号与退出登录",
+      "intent": "首页账号与退出登录",
+      "keywords": [
+        "首页账号",
+        "退出登录"
+      ],
+      "guide": "账号菜单读取会开关菜单；退出会中断账号下任务，按本轮授权执行。 来源smoketest-1012，迁库版本仅静态复核；需要时查看单函数契约。",
+      "functions": [
+        "application.readHomeAccount",
+        "application.readAccountMenu",
+        "application.logout"
+      ]
+    },
+    {
+      "id": "conversation.session.basic",
+      "module": "conversation",
+      "title": "只新建任务或按标题切换",
+      "intent": "只新建任务或按标题切换",
+      "keywords": [
+        "只新建任务或按标题切换"
+      ],
+      "guide": "只需空白任务用newTaskOnly，配置项目/模型仍查newTask；按标题切换须回读会话身份。 来源smoketest-1012，迁库版本仅静态复核；需要时查看单函数契约。",
+      "functions": [
+        "conversation.newTaskOnly",
+        "conversation.switchSessionByTitle"
+      ]
+    },
+    {
+      "id": "conversation.inspect",
+      "module": "conversation",
+      "title": "观察当前控件与侧栏结构",
+      "intent": "观察当前控件与侧栏结构",
+      "keywords": [
+        "观察当前控件",
+        "侧栏结构"
+      ],
+      "guide": "仅定位失败、结构未知时读此场景，不作为所有业务的前置。 来源smoketest-1012，迁库版本仅静态复核；需要时查看单函数契约。",
+      "functions": [
+        "conversation.probeControls",
+        "conversation.probeSidebar"
+      ]
+    },
+    {
+      "id": "conversation.project.entry",
+      "module": "conversation",
+      "title": "打开项目选择入口及菜单",
+      "intent": "打开项目选择入口及菜单",
+      "keywords": [
+        "打开项目选择入口及菜单"
+      ],
+      "guide": "无项目时入口可能直接打开系统选择器；已有项目时可能显示菜单。按实际观察选择下一步，不强设路径。 来源smoketest-1012，迁库版本仅静态复核；需要时查看单函数契约。",
+      "functions": [
+        "conversation.clickSelectProject",
+        "conversation.clickMenuItem"
+      ]
+    },
+    {
+      "id": "conversation.project.form",
+      "module": "conversation",
+      "title": "读取并填写新建项目表单",
+      "intent": "读取并填写新建项目表单",
+      "keywords": [
+        "读取并填写新建项目表单"
+      ],
+      "guide": "只操作当前唯一表单；源目录选择复用nativeWindow场景。创建整体流程另见project.create，不能把步骤成功当创建完成。 来源smoketest-1012，迁库版本仅静态复核；需要时查看单函数契约。",
+      "functions": [
+        "conversation.readProjectForm",
+        "conversation.fillProjectForm",
+        "conversation.clickDialogButton"
+      ]
+    },
+    {
+      "id": "conversation.project.manage",
+      "module": "conversation",
+      "title": "项目行菜单与移除项目",
+      "intent": "项目行菜单与移除项目",
+      "keywords": [
+        "项目行菜单",
+        "移除项目"
+      ],
+      "guide": "先观察准确项目行；移除只移出产品列表，不代表删除磁盘目录。 来源smoketest-1012，迁库版本仅静态复核；需要时查看单函数契约。",
+      "functions": [
+        "conversation.readProjectRow",
+        "conversation.readProjectMenu",
+        "conversation.removeProject"
+      ]
+    },
+    {
+      "id": "conversation.project.session",
+      "module": "conversation",
+      "title": "在已有项目下创建会话",
+      "intent": "在已有项目下创建会话",
+      "keywords": [
+        "在已有项目下创建会话"
+      ],
+      "guide": "绑定本轮唯一项目，回读项目按钮和会话身份。 来源smoketest-1012，迁库版本仅静态复核；需要时查看单函数契约。",
+      "functions": [
+        "conversation.newSessionInProject"
+      ]
+    },
+    {
+      "id": "conversation.artifact.preview",
+      "module": "conversation",
+      "title": "读取产物链接和侧栏预览",
+      "intent": "读取产物链接和侧栏预览",
+      "keywords": [
+        "读取产物链接和侧栏预览"
+      ],
+      "guide": "按准确文件名打开产物并回读预览。iframe外壳不等于内部正文已读取。 来源smoketest-1012，迁库版本仅静态复核；需要时查看单函数契约。",
+      "functions": [
+        "conversation.readArtifactLinks",
+        "conversation.openArtifactLink",
+        "conversation.readSidePanel"
+      ]
+    },
+    {
+      "id": "conversation.approval.observe",
+      "module": "conversation",
+      "title": "发送并等待审批或任务结束",
+      "intent": "发送并等待审批或任务结束",
+      "keywords": [
+        "发送并等待审批或任务结束"
+      ],
+      "guide": "sendAwait区分approval/idle/超时；waitIdle只读取当前会话，调用者绑定本轮请求并检查idle。 来源smoketest-1012，迁库版本仅静态复核；需要时查看单函数契约。",
+      "functions": [
+        "conversation.sendAwait",
+        "conversation.readApprovalDialog",
+        "conversation.waitIdle"
+      ]
+    },
+    {
+      "id": "conversation.question",
+      "module": "conversation",
+      "title": "读取问题卡并选择或提交",
+      "intent": "读取问题卡并选择或提交",
+      "keywords": [
+        "读取问题卡并选择或提交"
+      ],
+      "guide": "先读取实际问题卡，按观察到的选项和提交按钮执行；精确按钮优先。readQuestionCard当前识别重新授权一次写入选项，不覆盖全部ask-user卡。 来源smoketest-1012，迁库版本仅静态复核；需要时查看单函数契约。",
+      "functions": [
+        "conversation.readQuestionCard",
+        "conversation.clickButtonContaining",
+        "conversation.clickExactButton"
+      ]
     }
   ]
 }

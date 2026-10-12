@@ -7,6 +7,8 @@
 | 要做什么 | 意图 | 下一份资料 |
 |---|---|---|
 | 核对连接与当前详情身份 | 观察 | [候选与指导](../scenarios/application.connection.md) |
+| 登录页读取与账号密码登录 | 登录页读取与账号密码登录 | [候选与指导](../scenarios/application.login.md) |
+| 首页账号与退出登录 | 首页账号与退出登录 | [候选与指导](../scenarios/application.account.md) |
 
 命令行：`node 04-测试工具/ui-operations/call.mjs --browse application`。
 

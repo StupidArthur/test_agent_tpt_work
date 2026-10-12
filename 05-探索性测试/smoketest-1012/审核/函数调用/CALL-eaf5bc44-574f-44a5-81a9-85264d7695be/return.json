@@ -1,0 +1,33 @@
+{
+  "call_id": "CALL-eaf5bc44-574f-44a5-81a9-85264d7695be",
+  "status": "returned",
+  "observations": {
+    "action_refs": [
+      "CALL-eaf5bc44-574f-44a5-81a9-85264d7695be-2"
+    ],
+    "observations": {
+      "wait": {
+        "waited_ms": 5479
+      },
+      "assistant": {
+        "event_id": "CALL-eaf5bc44-574f-44a5-81a9-85264d7695be-3",
+        "captured_at": "2026-10-12T08:20:05.965Z",
+        "environment_id": "smoketest-1012",
+        "business_call_id": "CALL-eaf5bc44-574f-44a5-81a9-85264d7695be",
+        "kind": "read",
+        "target": "助手最终正文",
+        "object_id": "last-assistant-bubble",
+        "source": {
+          "channel": "dom",
+          "scope": "对话 助手气泡",
+          "locator": "[class*=\"hWmORq_body\"]"
+        },
+        "value": "当前工作目录 D:\\tptwork-smoketest\\new_project 下只有 1 个文件，没有子目录：\n\n名称\t大小\t最后修改时间\nsmoketest-20261012-155625.txt\t258 字节\t2026-10-12 15:56:25\n\n就是本会话早些时候那次冒烟测试留下的记录文件（文件名里带生成时刻 15:56:25，与此前采样到的 15:56:22 相差 3 秒，属正常执行间隔）。\n\n需要我读一下它的内容核对，或者顺手清理掉这个测试文件吗？删除类操作我会先等你确认。",
+        "raw": {
+          "count": 3,
+          "last": "当前工作目录 D:\\tptwork-smoketest\\new_project 下只有 1 个文件，没有子目录：\n\n名称\t大小\t最后修改时间\nsmoketest-20261012-155625.txt\t258 字节\t2026-10-12 15:56:25\n\n就是本会话早些时候那次冒烟测试留下的记录文件（文件名里带生成时刻 15:56:25，与此前采样到的 15:56:22 相差 3 秒，属正常执行间隔）。\n\n需要我读一下它的内容核对，或者顺手清理掉这个测试文件吗？删除类操作我会先等你确认。"
+        }
+      }
+    }
+  }
+}

@@ -17,6 +17,15 @@
 | 读取或关闭页面弹窗 | 观察/恢复 | [候选与指导](../scenarios/conversation.dialogs.md) |
 | 读取左侧插件页卡片 | 观察 | [候选与指导](../scenarios/conversation.legacy-plugin.md) |
 | 读取输入区用量展示 | 观察 | [候选与指导](../scenarios/conversation.usage.md) |
+| 只新建任务或按标题切换 | 只新建任务或按标题切换 | [候选与指导](../scenarios/conversation.session.basic.md) |
+| 观察当前控件与侧栏结构 | 观察当前控件与侧栏结构 | [候选与指导](../scenarios/conversation.inspect.md) |
+| 打开项目选择入口及菜单 | 打开项目选择入口及菜单 | [候选与指导](../scenarios/conversation.project.entry.md) |
+| 读取并填写新建项目表单 | 读取并填写新建项目表单 | [候选与指导](../scenarios/conversation.project.form.md) |
+| 项目行菜单与移除项目 | 项目行菜单与移除项目 | [候选与指导](../scenarios/conversation.project.manage.md) |
+| 在已有项目下创建会话 | 在已有项目下创建会话 | [候选与指导](../scenarios/conversation.project.session.md) |
+| 读取产物链接和侧栏预览 | 读取产物链接和侧栏预览 | [候选与指导](../scenarios/conversation.artifact.preview.md) |
+| 发送并等待审批或任务结束 | 发送并等待审批或任务结束 | [候选与指导](../scenarios/conversation.approval.observe.md) |
+| 读取问题卡并选择或提交 | 读取问题卡并选择或提交 | [候选与指导](../scenarios/conversation.question.md) |
 
 命令行：`node 04-测试工具/ui-operations/call.mjs --browse conversation`。
 

@@ -1,0 +1,43 @@
+{
+  "call_id": "CALL-83f582bb-27cb-461e-bbce-840e1993a5b1",
+  "status": "returned",
+  "observations": {
+    "action_refs": [
+      "CALL-83f582bb-27cb-461e-bbce-840e1993a5b1-3"
+    ],
+    "observations": {
+      "before": {
+        "event_id": "CALL-83f582bb-27cb-461e-bbce-840e1993a5b1-1",
+        "captured_at": "2026-10-12T10:30:09.805Z",
+        "environment_id": "smoketest-1012",
+        "business_call_id": "CALL-83f582bb-27cb-461e-bbce-840e1993a5b1",
+        "kind": "read",
+        "target": "任务权限修改前",
+        "object_id": "task-permission",
+        "source": {
+          "channel": "dom",
+          "scope": "当前任务"
+        },
+        "value": "工作区内修改"
+      },
+      "after": {
+        "event_id": "CALL-83f582bb-27cb-461e-bbce-840e1993a5b1-4",
+        "captured_at": "2026-10-12T10:30:09.905Z",
+        "environment_id": "smoketest-1012",
+        "business_call_id": "CALL-83f582bb-27cb-461e-bbce-840e1993a5b1",
+        "kind": "read",
+        "target": "任务权限修改后",
+        "object_id": "task-permission",
+        "source": {
+          "channel": "dom",
+          "scope": "当前任务"
+        },
+        "value": "仅可查看",
+        "raw": {
+          "aria": "访问模式，当前：仅可查看",
+          "session": "session-4ad7cb3f-f232-4847-ab5e-283b3b4973a1"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "call_id": "CALL-9b1a0fba-fd83-432f-870f-497227cf0433",
+  "status": "returned",
+  "observations": {
+    "action_refs": [
+      "CALL-9b1a0fba-fd83-432f-870f-497227cf0433-2"
+    ],
+    "observations": {
+      "wait": {
+        "waited_ms": 9010
+      },
+      "assistant": {
+        "event_id": "CALL-9b1a0fba-fd83-432f-870f-497227cf0433-3",
+        "captured_at": "2026-10-12T07:56:31.189Z",
+        "environment_id": "smoketest-1012",
+        "business_call_id": "CALL-9b1a0fba-fd83-432f-870f-497227cf0433",
+        "kind": "read",
+        "target": "助手最终正文",
+        "object_id": "last-assistant-bubble",
+        "source": {
+          "channel": "dom",
+          "scope": "对话 助手气泡",
+          "locator": "[class*=\"hWmORq_body\"]"
+        },
+        "value": "文件已创建并核对完成。\n\n文件路径：smoketest-20261012-155625.txt\n\n文件内容（UTF-8，258 字节）：\n\n代码块\n冒烟测试记录\n================\n测试时间：2026-10-12 15:56:25 （时区：Asia/Shanghai）\n所属会话工作目录：D:\\tptwork-smoketest\\new_project\n测试内容：本文件由本次冒烟测试自动生成，用于验证文件写入链路。\n\n几点交底：\n\n文件名按时间命名，格式为 smoketest-yyyyMMdd-HHmmss.txt，即脚本执行机器时刻 2026-10-12 15:56:25（+08:00），而不是提问时采样到的 15:56:22——两者相差 3 秒，属正常执行间隔 数据 [1]。\n文件落在当前会话工作目录 D:\\tptwork-smoketest\\new_project 下。这次的工作目录与上一任务（...\\tasks\\t-20261012-152737-4e0b）不同，说明任务工作目录是按任务切换的，我没有往旧目录写。\n写入方式为 PowerShell Set-Content -Encoding UTF8，随后用 read 回读校验，内容与预期一致，未出现乱码。\n需要的话我可以再补一个「本次冒烟测试耗时/链路结论」的汇总文件，或把时间戳改成带毫秒的格式。",
+        "raw": {
+          "count": 4,
+          "last": "文件已创建并核对完成。\n\n文件路径：smoketest-20261012-155625.txt\n\n文件内容（UTF-8，258 字节）：\n\n代码块\n冒烟测试记录\n================\n测试时间：2026-10-12 15:56:25 （时区：Asia/Shanghai）\n所属会话工作目录：D:\\tptwork-smoketest\\new_project\n测试内容：本文件由本次冒烟测试自动生成，用于验证文件写入链路。\n\n几点交底：\n\n文件名按时间命名，格式为 smoketest-yyyyMMdd-HHmmss.txt，即脚本执行机器时刻 2026-10-12 15:56:25（+08:00），而不是提问时采样到的 15:56:22——两者相差 3 秒，属正常执行间隔 数据 [1]。\n文件落在当前会话工作目录 D:\\tptwork-smoketest\\new_project 下。这次的工作目录与上一任务（...\\tasks\\t-20261012-152737-4e0b）不同，说明任务工作目录是按任务切换的，我没有往旧目录写。\n写入方式为 PowerShell Set-Content -Encoding UTF8，随后用 read 回读校验，内容与预期一致，未出现乱码。\n需要的话我可以再补一个「本次冒烟测试耗时/链路结论」的汇总文件，或把时间戳改成带毫秒的格式。"
+        }
+      }
+    }
+  }
+}

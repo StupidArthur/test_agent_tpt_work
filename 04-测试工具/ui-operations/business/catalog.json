@@ -576,9 +576,9 @@
       ],
       "file": "business/conversation/tasks.mjs",
       "export": "decideApproval",
-      "version": "portable-1.0",
+      "version": "smoketest-1012-1.0",
       "status": "已迁移-验证状态见verification.json",
-      "description": "处理对话内权限审批（允许一次/拒绝）",
+      "description": "处理当前实际权限审批（允许一次/拒绝），唯一按钮点击并返回审批前后观察",
       "parameters": {
         "type": "object",
         "required": [],
@@ -591,7 +591,9 @@
       },
       "modules": [
         "automation/session.mjs",
-        "automation/conversation.mjs"
+        "automation/conversation.mjs",
+        "business/smoke/approval.mjs",
+        "automation/login-session.mjs"
       ],
       "origin": {
         "machine": "PC-G",
@@ -6956,6 +6958,1097 @@
       "returns": "删除后真实exists、动作与读取引用；不判case",
       "cleanup": "本函数执行恢复；没有不存在基线时不可用于补删",
       "modules": []
+    },
+    {
+      "name": "application.readLoginPage",
+      "file": "business/smoke/login.mjs",
+      "export": "readLoginPage",
+      "description": "读取登录页(welcome.html)实际结构：URL/正文/输入框/页签/复选框/按钮，只读，供定位用。",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "required": [],
+        "additionalProperties": false
+      },
+      "version": "smoketest-1012-1.0",
+      "status": "来源smoketest-1012用户已判定；迁库及唯一性/错误传播修正仅静态检查，未重新操作软件",
+      "feature_path": [
+        "接入与账号",
+        "冒烟复用能力"
+      ],
+      "modules": [
+        "automation/login-session.mjs",
+        "automation/session.mjs",
+        "automation/conversation.mjs"
+      ],
+      "preconditions": [
+        "本轮CDP与授权对象已确定；可选expectedSession绑定当前会话",
+        "写入、登录、退出、审批和项目移除按本轮用例授权；源任务历史参数不得直接复用"
+      ],
+      "returns": "实际DOM观察与事件引用；returned不等于业务断言或持久化通过",
+      "cleanup": "保留原任务证据；调用者按本轮范围恢复账号、项目、权限和表单，不自动删除磁盘资产",
+      "origin": {
+        "task": "05-探索性测试/smoketest-1012",
+        "function": "task.readLoginPage",
+        "evidence_calls": [
+          "CALL-ad77f885-31d8-4a72-84b3-36c12a8778a2"
+        ]
+      }
+    },
+    {
+      "name": "application.loginWithPassword",
+      "file": "business/smoke/login.mjs",
+      "export": "loginWithPassword",
+      "description": "在登录页执行账号密码登录：选tab、填用户名/密码、勾选记住密码与协议、点击登录，读取提交前后真实状态与结果。密码从credentialsPath读取并脱敏。",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "credentialsPath": {
+            "type": "string"
+          },
+          "rememberPassword": {
+            "type": "boolean"
+          },
+          "agreeTerms": {
+            "type": "boolean"
+          },
+          "expectedLoginUrl": {
+            "type": "string"
+          },
+          "timeoutMs": {
+            "type": "integer"
+          }
+        },
+        "required": [
+          "credentialsPath",
+          "rememberPassword",
+          "agreeTerms"
+        ],
+        "additionalProperties": false
+      },
+      "version": "smoketest-1012-1.0",
+      "status": "来源smoketest-1012用户已判定；迁库及唯一性/错误传播修正仅静态检查，未重新操作软件",
+      "feature_path": [
+        "接入与账号",
+        "冒烟复用能力"
+      ],
+      "modules": [
+        "automation/login-session.mjs",
+        "automation/session.mjs",
+        "automation/conversation.mjs"
+      ],
+      "preconditions": [
+        "本轮CDP与授权对象已确定；可选expectedSession绑定当前会话",
+        "写入、登录、退出、审批和项目移除按本轮用例授权；源任务历史参数不得直接复用"
+      ],
+      "returns": "实际DOM观察与事件引用；returned不等于业务断言或持久化通过",
+      "cleanup": "保留原任务证据；调用者按本轮范围恢复账号、项目、权限和表单，不自动删除磁盘资产",
+      "origin": {
+        "task": "05-探索性测试/smoketest-1012",
+        "function": "task.loginWithPassword",
+        "evidence_calls": [
+          "CALL-be39281d-1153-4a41-bed0-4140062cf075",
+          "CALL-d361f3dc-9fd7-45ed-bb5d-df0329a1c1d9"
+        ]
+      }
+    },
+    {
+      "name": "application.readHomeAccount",
+      "file": "business/smoke/home.mjs",
+      "export": "readHomeAccount",
+      "description": "在主界面定位左下角账号显示：返回等于 expectedUsername 的可见元素与左下角候选元素及其位置。只读。",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "expectedUsername": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "expectedUsername"
+        ],
+        "additionalProperties": false
+      },
+      "version": "smoketest-1012-1.0",
+      "status": "来源smoketest-1012用户已判定；迁库及唯一性/错误传播修正仅静态检查，未重新操作软件",
+      "feature_path": [
+        "接入与账号",
+        "冒烟复用能力"
+      ],
+      "modules": [
+        "automation/login-session.mjs",
+        "automation/session.mjs",
+        "automation/conversation.mjs"
+      ],
+      "preconditions": [
+        "本轮CDP与授权对象已确定；可选expectedSession绑定当前会话",
+        "写入、登录、退出、审批和项目移除按本轮用例授权；源任务历史参数不得直接复用"
+      ],
+      "returns": "实际DOM观察与事件引用；returned不等于业务断言或持久化通过",
+      "cleanup": "保留原任务证据；调用者按本轮范围恢复账号、项目、权限和表单，不自动删除磁盘资产",
+      "origin": {
+        "task": "05-探索性测试/smoketest-1012",
+        "function": "task.readHomeAccount",
+        "evidence_calls": [
+          "CALL-9320f6a2-5dd1-4dc5-b89b-4e403ec2fa38",
+          "CALL-fa7547cb-77f9-48fa-ae82-e5ef73857eee"
+        ]
+      }
+    },
+    {
+      "name": "application.readAccountMenu",
+      "file": "business/smoke/account.mjs",
+      "export": "readAccountMenu",
+      "description": "打开主界面左下角账号菜单并读取菜单项文本/角色，随后按 Escape 关闭，不点击任何项。只读。",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "required": [],
+        "additionalProperties": false
+      },
+      "version": "smoketest-1012-1.0",
+      "status": "来源smoketest-1012用户已判定；迁库及唯一性/错误传播修正仅静态检查，未重新操作软件",
+      "feature_path": [
+        "接入与账号",
+        "冒烟复用能力"
+      ],
+      "modules": [
+        "automation/login-session.mjs",
+        "automation/session.mjs",
+        "automation/conversation.mjs"
+      ],
+      "preconditions": [
+        "本轮CDP与授权对象已确定；可选expectedSession绑定当前会话",
+        "写入、登录、退出、审批和项目移除按本轮用例授权；源任务历史参数不得直接复用"
+      ],
+      "returns": "实际DOM观察与事件引用；returned不等于业务断言或持久化通过",
+      "cleanup": "保留原任务证据；调用者按本轮范围恢复账号、项目、权限和表单，不自动删除磁盘资产",
+      "origin": {
+        "task": "05-探索性测试/smoketest-1012",
+        "function": "task.readAccountMenu",
+        "evidence_calls": [
+          "CALL-c3aa37cc-df2a-43f9-8775-b326d1bcb9f2"
+        ]
+      }
+    },
+    {
+      "name": "application.logout",
+      "file": "business/smoke/account.mjs",
+      "export": "logout",
+      "description": "点击左下角账号菜单中的退出登录并读取退出后真实页面状态：登录页是否出现、是否有确认弹窗；如有确认弹窗则点击允许的确认按钮。",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "timeoutMs": {
+            "type": "integer"
+          }
+        },
+        "required": [],
+        "additionalProperties": false
+      },
+      "version": "smoketest-1012-1.0",
+      "status": "来源smoketest-1012用户已判定；迁库及唯一性/错误传播修正仅静态检查，未重新操作软件",
+      "feature_path": [
+        "接入与账号",
+        "冒烟复用能力"
+      ],
+      "modules": [
+        "automation/login-session.mjs",
+        "automation/session.mjs",
+        "automation/conversation.mjs"
+      ],
+      "preconditions": [
+        "本轮CDP与授权对象已确定；可选expectedSession绑定当前会话",
+        "写入、登录、退出、审批和项目移除按本轮用例授权；源任务历史参数不得直接复用"
+      ],
+      "returns": "实际DOM观察与事件引用；returned不等于业务断言或持久化通过",
+      "cleanup": "保留原任务证据；调用者按本轮范围恢复账号、项目、权限和表单，不自动删除磁盘资产",
+      "origin": {
+        "task": "05-探索性测试/smoketest-1012",
+        "function": "task.logout",
+        "evidence_calls": [
+          "CALL-ce90daaf-411f-454e-858a-31b9215d05fd"
+        ]
+      }
+    },
+    {
+      "name": "conversation.probeControls",
+      "file": "business/smoke/probe.mjs",
+      "export": "probeControls",
+      "description": "探测主界面当前可见按钮(aria-label/文本)、composer、会话身份与正文片段。只读，供定位用。",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "required": [],
+        "additionalProperties": false
+      },
+      "version": "smoketest-1012-1.0",
+      "status": "来源smoketest-1012用户已判定；迁库及唯一性/错误传播修正仅静态检查，未重新操作软件",
+      "feature_path": [
+        "对话与任务",
+        "冒烟复用能力"
+      ],
+      "modules": [
+        "automation/login-session.mjs",
+        "automation/session.mjs",
+        "automation/conversation.mjs"
+      ],
+      "preconditions": [
+        "本轮CDP与授权对象已确定；可选expectedSession绑定当前会话",
+        "写入、登录、退出、审批和项目移除按本轮用例授权；源任务历史参数不得直接复用"
+      ],
+      "returns": "实际DOM观察与事件引用；returned不等于业务断言或持久化通过",
+      "cleanup": "保留原任务证据；调用者按本轮范围恢复账号、项目、权限和表单，不自动删除磁盘资产",
+      "origin": {
+        "task": "05-探索性测试/smoketest-1012",
+        "function": "task.probeControls",
+        "evidence_calls": [
+          "CALL-16cfe2bb-16ee-4b20-a56f-f922ca42c809"
+        ]
+      }
+    },
+    {
+      "name": "conversation.probeSidebar",
+      "file": "business/smoke/probe.mjs",
+      "export": "probeSidebar",
+      "description": "探测左侧列表结构：所有 data-row-key、role 行、侧栏文本与侧栏 HTML。只读。",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "required": [],
+        "additionalProperties": false
+      },
+      "version": "smoketest-1012-1.0",
+      "status": "来源smoketest-1012用户已判定；迁库及唯一性/错误传播修正仅静态检查，未重新操作软件",
+      "feature_path": [
+        "对话与任务",
+        "冒烟复用能力"
+      ],
+      "modules": [
+        "automation/login-session.mjs",
+        "automation/session.mjs",
+        "automation/conversation.mjs"
+      ],
+      "preconditions": [
+        "本轮CDP与授权对象已确定；可选expectedSession绑定当前会话",
+        "写入、登录、退出、审批和项目移除按本轮用例授权；源任务历史参数不得直接复用"
+      ],
+      "returns": "实际DOM观察与事件引用；returned不等于业务断言或持久化通过",
+      "cleanup": "保留原任务证据；调用者按本轮范围恢复账号、项目、权限和表单，不自动删除磁盘资产",
+      "origin": {
+        "task": "05-探索性测试/smoketest-1012",
+        "function": "task.probeSidebar",
+        "evidence_calls": [
+          "CALL-7f57db4a-bcc5-44dd-89be-d85a07bafb20",
+          "CALL-2c53ba61-4b5a-4159-bd64-954b39bf49b6"
+        ]
+      }
+    },
+    {
+      "name": "conversation.readArtifactLinks",
+      "file": "business/smoke/probe.mjs",
+      "export": "readArtifactLinks",
+      "description": "探测会话中的产物链接/卡片/文件元素，用于依次点击并验证右侧显示页渲染。只读。",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "required": [],
+        "additionalProperties": false
+      },
+      "version": "smoketest-1012-1.0",
+      "status": "来源smoketest-1012用户已判定；迁库及唯一性/错误传播修正仅静态检查，未重新操作软件",
+      "feature_path": [
+        "对话与任务",
+        "冒烟复用能力"
+      ],
+      "modules": [
+        "automation/login-session.mjs",
+        "automation/session.mjs",
+        "automation/conversation.mjs"
+      ],
+      "preconditions": [
+        "本轮CDP与授权对象已确定；可选expectedSession绑定当前会话",
+        "写入、登录、退出、审批和项目移除按本轮用例授权；源任务历史参数不得直接复用"
+      ],
+      "returns": "实际DOM观察与事件引用；returned不等于业务断言或持久化通过",
+      "cleanup": "保留原任务证据；调用者按本轮范围恢复账号、项目、权限和表单，不自动删除磁盘资产",
+      "origin": {
+        "task": "05-探索性测试/smoketest-1012",
+        "function": "task.readArtifactLinks",
+        "evidence_calls": [
+          "CALL-6a90555f-8a33-450c-a410-2a2c32e95d2b"
+        ]
+      }
+    },
+    {
+      "name": "conversation.newTaskOnly",
+      "file": "business/smoke/session.mjs",
+      "export": "newTask",
+      "description": "点击左上角“新建任务”，读取切换前后会话身份与 composer 状态。",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "required": [],
+        "additionalProperties": false
+      },
+      "version": "smoketest-1012-1.0",
+      "status": "来源smoketest-1012用户已判定；迁库及唯一性/错误传播修正仅静态检查，未重新操作软件",
+      "feature_path": [
+        "对话与任务",
+        "冒烟复用能力"
+      ],
+      "modules": [
+        "automation/login-session.mjs",
+        "automation/session.mjs",
+        "automation/conversation.mjs"
+      ],
+      "preconditions": [
+        "本轮CDP与授权对象已确定；可选expectedSession绑定当前会话",
+        "写入、登录、退出、审批和项目移除按本轮用例授权；源任务历史参数不得直接复用"
+      ],
+      "returns": "实际DOM观察与事件引用；returned不等于业务断言或持久化通过",
+      "cleanup": "保留原任务证据；调用者按本轮范围恢复账号、项目、权限和表单，不自动删除磁盘资产",
+      "origin": {
+        "task": "05-探索性测试/smoketest-1012",
+        "function": "task.newTask",
+        "evidence_calls": [
+          "CALL-b83990d6-6e26-4af8-bece-d6d66c822bd3"
+        ]
+      }
+    },
+    {
+      "name": "conversation.switchSessionByTitle",
+      "file": "business/smoke/session.mjs",
+      "export": "switchSession",
+      "description": "在左侧列表中按会话名切换到指定会话，读取切换前后会话身份。",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "name"
+        ],
+        "additionalProperties": false
+      },
+      "version": "smoketest-1012-1.0",
+      "status": "来源smoketest-1012用户已判定；迁库及唯一性/错误传播修正仅静态检查，未重新操作软件",
+      "feature_path": [
+        "对话与任务",
+        "冒烟复用能力"
+      ],
+      "modules": [
+        "automation/login-session.mjs",
+        "automation/session.mjs",
+        "automation/conversation.mjs"
+      ],
+      "preconditions": [
+        "本轮CDP与授权对象已确定；可选expectedSession绑定当前会话",
+        "写入、登录、退出、审批和项目移除按本轮用例授权；源任务历史参数不得直接复用"
+      ],
+      "returns": "实际DOM观察与事件引用；returned不等于业务断言或持久化通过",
+      "cleanup": "保留原任务证据；调用者按本轮范围恢复账号、项目、权限和表单，不自动删除磁盘资产",
+      "origin": {
+        "task": "05-探索性测试/smoketest-1012",
+        "function": "task.switchSession",
+        "evidence_calls": [
+          "CALL-34d25857-eba0-4dda-8217-3df92fffdb19"
+        ]
+      }
+    },
+    {
+      "name": "conversation.clickSelectProject",
+      "file": "business/smoke/project.mjs",
+      "export": "clickSelectProject",
+      "description": "点击 composer 旁的“选择项目”，读取点击后 DOM 是否出现菜单/对话框（原生窗口另行探测）。",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "required": [],
+        "additionalProperties": false
+      },
+      "version": "smoketest-1012-1.0",
+      "status": "来源smoketest-1012用户已判定；迁库及唯一性/错误传播修正仅静态检查，未重新操作软件",
+      "feature_path": [
+        "对话与任务",
+        "冒烟复用能力"
+      ],
+      "modules": [
+        "automation/login-session.mjs",
+        "automation/session.mjs",
+        "automation/conversation.mjs"
+      ],
+      "preconditions": [
+        "本轮CDP与授权对象已确定；可选expectedSession绑定当前会话",
+        "写入、登录、退出、审批和项目移除按本轮用例授权；源任务历史参数不得直接复用"
+      ],
+      "returns": "实际DOM观察与事件引用；returned不等于业务断言或持久化通过",
+      "cleanup": "保留原任务证据；调用者按本轮范围恢复账号、项目、权限和表单，不自动删除磁盘资产",
+      "origin": {
+        "task": "05-探索性测试/smoketest-1012",
+        "function": "task.clickSelectProject",
+        "evidence_calls": [
+          "CALL-7fa6d64a-883e-4a1d-b7ce-98ae5c79496b"
+        ]
+      }
+    },
+    {
+      "name": "conversation.readProjectRow",
+      "file": "business/smoke/project.mjs",
+      "export": "readProjectRow",
+      "description": "hover 侧栏项目行并列出其按钮与结构，用于定位移除入口。只读。",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "name"
+        ],
+        "additionalProperties": false
+      },
+      "version": "smoketest-1012-1.0",
+      "status": "来源smoketest-1012用户已判定；迁库及唯一性/错误传播修正仅静态检查，未重新操作软件",
+      "feature_path": [
+        "对话与任务",
+        "冒烟复用能力"
+      ],
+      "modules": [
+        "automation/login-session.mjs",
+        "automation/session.mjs",
+        "automation/conversation.mjs"
+      ],
+      "preconditions": [
+        "本轮CDP与授权对象已确定；可选expectedSession绑定当前会话",
+        "写入、登录、退出、审批和项目移除按本轮用例授权；源任务历史参数不得直接复用"
+      ],
+      "returns": "实际DOM观察与事件引用；returned不等于业务断言或持久化通过",
+      "cleanup": "保留原任务证据；调用者按本轮范围恢复账号、项目、权限和表单，不自动删除磁盘资产",
+      "origin": {
+        "task": "05-探索性测试/smoketest-1012",
+        "function": "task.readProjectRow",
+        "evidence_calls": [
+          "CALL-db2c59b6-7405-4334-a28f-c9c0121e77af"
+        ]
+      }
+    },
+    {
+      "name": "conversation.readProjectMenu",
+      "file": "business/smoke/project.mjs",
+      "export": "readProjectMenu",
+      "description": "打开项目行操作菜单并读取菜单项，随后 Escape 关闭。只读。",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "name"
+        ],
+        "additionalProperties": false
+      },
+      "version": "smoketest-1012-1.0",
+      "status": "来源smoketest-1012用户已判定；迁库及唯一性/错误传播修正仅静态检查，未重新操作软件",
+      "feature_path": [
+        "对话与任务",
+        "冒烟复用能力"
+      ],
+      "modules": [
+        "automation/login-session.mjs",
+        "automation/session.mjs",
+        "automation/conversation.mjs"
+      ],
+      "preconditions": [
+        "本轮CDP与授权对象已确定；可选expectedSession绑定当前会话",
+        "写入、登录、退出、审批和项目移除按本轮用例授权；源任务历史参数不得直接复用"
+      ],
+      "returns": "实际DOM观察与事件引用；returned不等于业务断言或持久化通过",
+      "cleanup": "保留原任务证据；调用者按本轮范围恢复账号、项目、权限和表单，不自动删除磁盘资产",
+      "origin": {
+        "task": "05-探索性测试/smoketest-1012",
+        "function": "task.readProjectMenu",
+        "evidence_calls": [
+          "CALL-a45b880c-6c03-4c29-af69-c8457d4a2445"
+        ]
+      }
+    },
+    {
+      "name": "conversation.removeProject",
+      "file": "business/smoke/project.mjs",
+      "export": "removeProject",
+      "description": "移除项目：hover 项目行→操作菜单→点击「移除项目」→处理确认弹窗，并回读项目行列表。",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "name"
+        ],
+        "additionalProperties": false
+      },
+      "version": "smoketest-1012-1.0",
+      "status": "来源smoketest-1012用户已判定；迁库及唯一性/错误传播修正仅静态检查，未重新操作软件",
+      "feature_path": [
+        "对话与任务",
+        "冒烟复用能力"
+      ],
+      "modules": [
+        "automation/login-session.mjs",
+        "automation/session.mjs",
+        "automation/conversation.mjs"
+      ],
+      "preconditions": [
+        "本轮CDP与授权对象已确定；可选expectedSession绑定当前会话",
+        "写入、登录、退出、审批和项目移除按本轮用例授权；源任务历史参数不得直接复用"
+      ],
+      "returns": "实际DOM观察与事件引用；returned不等于业务断言或持久化通过",
+      "cleanup": "保留原任务证据；调用者按本轮范围恢复账号、项目、权限和表单，不自动删除磁盘资产",
+      "origin": {
+        "task": "05-探索性测试/smoketest-1012",
+        "function": "task.removeProject",
+        "evidence_calls": [
+          "CALL-e8fa40a7-ba78-48fe-bfbd-9a895defdfd3"
+        ]
+      }
+    },
+    {
+      "name": "conversation.clickDialogButton",
+      "file": "business/smoke/project.mjs",
+      "export": "clickDialogButton",
+      "description": "点击当前可见弹窗中指定名称的按钮，并回读侧栏项目行列表。",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "name"
+        ],
+        "additionalProperties": false
+      },
+      "version": "smoketest-1012-1.0",
+      "status": "来源smoketest-1012用户已判定；迁库及唯一性/错误传播修正仅静态检查，未重新操作软件",
+      "feature_path": [
+        "对话与任务",
+        "冒烟复用能力"
+      ],
+      "modules": [
+        "automation/login-session.mjs",
+        "automation/session.mjs",
+        "automation/conversation.mjs"
+      ],
+      "preconditions": [
+        "本轮CDP与授权对象已确定；可选expectedSession绑定当前会话",
+        "写入、登录、退出、审批和项目移除按本轮用例授权；源任务历史参数不得直接复用"
+      ],
+      "returns": "实际DOM观察与事件引用；returned不等于业务断言或持久化通过",
+      "cleanup": "保留原任务证据；调用者按本轮范围恢复账号、项目、权限和表单，不自动删除磁盘资产",
+      "origin": {
+        "task": "05-探索性测试/smoketest-1012",
+        "function": "task.clickDialogButton",
+        "evidence_calls": [
+          "CALL-5e9c32ec-f0a4-4ca9-9b11-35db59303eeb"
+        ]
+      }
+    },
+    {
+      "name": "conversation.clickMenuItem",
+      "file": "business/smoke/project.mjs",
+      "export": "clickMenuItem",
+      "description": "点击当前可见菜单中指定文本的菜单项，并回读项目按钮文本。",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "name"
+        ],
+        "additionalProperties": false
+      },
+      "version": "smoketest-1012-1.0",
+      "status": "来源smoketest-1012用户已判定；迁库及唯一性/错误传播修正仅静态检查，未重新操作软件",
+      "feature_path": [
+        "对话与任务",
+        "冒烟复用能力"
+      ],
+      "modules": [
+        "automation/login-session.mjs",
+        "automation/session.mjs",
+        "automation/conversation.mjs"
+      ],
+      "preconditions": [
+        "本轮CDP与授权对象已确定；可选expectedSession绑定当前会话",
+        "写入、登录、退出、审批和项目移除按本轮用例授权；源任务历史参数不得直接复用"
+      ],
+      "returns": "实际DOM观察与事件引用；returned不等于业务断言或持久化通过",
+      "cleanup": "保留原任务证据；调用者按本轮范围恢复账号、项目、权限和表单，不自动删除磁盘资产",
+      "origin": {
+        "task": "05-探索性测试/smoketest-1012",
+        "function": "task.clickMenuItem",
+        "evidence_calls": [
+          "CALL-7df3b18e-783f-4207-8acb-84185d4bfd4b"
+        ]
+      }
+    },
+    {
+      "name": "conversation.readProjectForm",
+      "file": "business/smoke/project.mjs",
+      "export": "readProjectForm",
+      "description": "读取可见的“新建项目”表单：输入框/标签/按钮。只读。",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "required": [],
+        "additionalProperties": false
+      },
+      "version": "smoketest-1012-1.0",
+      "status": "来源smoketest-1012用户已判定；迁库及唯一性/错误传播修正仅静态检查，未重新操作软件",
+      "feature_path": [
+        "对话与任务",
+        "冒烟复用能力"
+      ],
+      "modules": [
+        "automation/login-session.mjs",
+        "automation/session.mjs",
+        "automation/conversation.mjs"
+      ],
+      "preconditions": [
+        "本轮CDP与授权对象已确定；可选expectedSession绑定当前会话",
+        "写入、登录、退出、审批和项目移除按本轮用例授权；源任务历史参数不得直接复用"
+      ],
+      "returns": "实际DOM观察与事件引用；returned不等于业务断言或持久化通过",
+      "cleanup": "保留原任务证据；调用者按本轮范围恢复账号、项目、权限和表单，不自动删除磁盘资产",
+      "origin": {
+        "task": "05-探索性测试/smoketest-1012",
+        "function": "task.readProjectForm",
+        "evidence_calls": [
+          "CALL-f48954ea-15a9-4193-a801-3da9d2c56020"
+        ]
+      }
+    },
+    {
+      "name": "conversation.fillProjectForm",
+      "file": "business/smoke/project.mjs",
+      "export": "fillProjectForm",
+      "description": "在“新建项目”表单中填写项目名称，返回改前/改后与可见按钮。",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "name"
+        ],
+        "additionalProperties": false
+      },
+      "version": "smoketest-1012-1.0",
+      "status": "来源smoketest-1012用户已判定；迁库及唯一性/错误传播修正仅静态检查，未重新操作软件",
+      "feature_path": [
+        "对话与任务",
+        "冒烟复用能力"
+      ],
+      "modules": [
+        "automation/login-session.mjs",
+        "automation/session.mjs",
+        "automation/conversation.mjs"
+      ],
+      "preconditions": [
+        "本轮CDP与授权对象已确定；可选expectedSession绑定当前会话",
+        "写入、登录、退出、审批和项目移除按本轮用例授权；源任务历史参数不得直接复用"
+      ],
+      "returns": "实际DOM观察与事件引用；returned不等于业务断言或持久化通过",
+      "cleanup": "保留原任务证据；调用者按本轮范围恢复账号、项目、权限和表单，不自动删除磁盘资产",
+      "origin": {
+        "task": "05-探索性测试/smoketest-1012",
+        "function": "task.fillProjectForm",
+        "evidence_calls": [
+          "CALL-35a8ebc2-5e84-4aef-a7fc-d1c1eb55e06c"
+        ]
+      }
+    },
+    {
+      "name": "conversation.newSessionInProject",
+      "file": "business/smoke/project.mjs",
+      "export": "newSessionInProject",
+      "description": "hover 项目行→点击「在“<项目>”中新建会话」图标，在该项目下创建新任务；回读会话身份与项目按钮。",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "name"
+        ],
+        "additionalProperties": false
+      },
+      "version": "smoketest-1012-1.0",
+      "status": "来源smoketest-1012用户已判定；迁库及唯一性/错误传播修正仅静态检查，未重新操作软件",
+      "feature_path": [
+        "对话与任务",
+        "冒烟复用能力"
+      ],
+      "modules": [
+        "automation/login-session.mjs",
+        "automation/session.mjs",
+        "automation/conversation.mjs"
+      ],
+      "preconditions": [
+        "本轮CDP与授权对象已确定；可选expectedSession绑定当前会话",
+        "写入、登录、退出、审批和项目移除按本轮用例授权；源任务历史参数不得直接复用"
+      ],
+      "returns": "实际DOM观察与事件引用；returned不等于业务断言或持久化通过",
+      "cleanup": "保留原任务证据；调用者按本轮范围恢复账号、项目、权限和表单，不自动删除磁盘资产",
+      "origin": {
+        "task": "05-探索性测试/smoketest-1012",
+        "function": "task.newSessionInProject",
+        "evidence_calls": [
+          "CALL-ae01137a-9477-4a64-a5f3-e3f20819063c",
+          "CALL-50594337-4b22-4555-ad4f-d90be53a4252"
+        ]
+      }
+    },
+    {
+      "name": "conversation.openArtifactLink",
+      "file": "business/smoke/artifact.mjs",
+      "export": "openArtifactLink",
+      "description": "点击会话中的产物文件链接(button._fileLink_)，读取随后右侧显示页的真实状态(iframe/面板/右侧文本)。",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "name"
+        ],
+        "additionalProperties": false
+      },
+      "version": "smoketest-1012-1.0",
+      "status": "来源smoketest-1012用户已判定；迁库及唯一性/错误传播修正仅静态检查，未重新操作软件",
+      "feature_path": [
+        "对话与任务",
+        "冒烟复用能力"
+      ],
+      "modules": [
+        "automation/login-session.mjs",
+        "automation/session.mjs",
+        "automation/conversation.mjs"
+      ],
+      "preconditions": [
+        "本轮CDP与授权对象已确定；可选expectedSession绑定当前会话",
+        "写入、登录、退出、审批和项目移除按本轮用例授权；源任务历史参数不得直接复用"
+      ],
+      "returns": "实际DOM观察与事件引用；returned不等于业务断言或持久化通过",
+      "cleanup": "保留原任务证据；调用者按本轮范围恢复账号、项目、权限和表单，不自动删除磁盘资产",
+      "origin": {
+        "task": "05-探索性测试/smoketest-1012",
+        "function": "task.openArtifactLink",
+        "evidence_calls": [
+          "CALL-cbac6a64-048c-4c43-9594-73371f2737a0",
+          "CALL-361a231b-cd08-44f9-919a-8f5ab7f4b7b8",
+          "CALL-153b5ff1-17bc-43f9-8e98-630d174128f7",
+          "CALL-30c06548-0235-419f-b815-2f668bbbdbfb"
+        ]
+      }
+    },
+    {
+      "name": "conversation.readSidePanel",
+      "file": "business/smoke/artifact.mjs",
+      "export": "readSidePanel",
+      "description": "只读当前右侧显示页状态(iframe/面板)。",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "required": [],
+        "additionalProperties": false
+      },
+      "version": "smoketest-1012-1.0",
+      "status": "来源smoketest-1012用户已判定；迁库及唯一性/错误传播修正仅静态检查，未重新操作软件",
+      "feature_path": [
+        "对话与任务",
+        "冒烟复用能力"
+      ],
+      "modules": [
+        "automation/login-session.mjs",
+        "automation/session.mjs",
+        "automation/conversation.mjs"
+      ],
+      "preconditions": [
+        "本轮CDP与授权对象已确定；可选expectedSession绑定当前会话",
+        "写入、登录、退出、审批和项目移除按本轮用例授权；源任务历史参数不得直接复用"
+      ],
+      "returns": "实际DOM观察与事件引用；returned不等于业务断言或持久化通过",
+      "cleanup": "保留原任务证据；调用者按本轮范围恢复账号、项目、权限和表单，不自动删除磁盘资产",
+      "origin": {
+        "task": "05-探索性测试/smoketest-1012",
+        "function": "task.readSidePanel",
+        "evidence_calls": [
+          "CALL-fd1d3ed2-cbdc-4356-95a8-d74c422d2535"
+        ]
+      }
+    },
+    {
+      "name": "conversation.sendAwait",
+      "file": "business/smoke/approval.mjs",
+      "export": "sendAwait",
+      "description": "填入并发送消息，轮询等待权限审批弹窗出现或对话空闲。",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "text": {
+            "type": "string"
+          },
+          "timeoutMs": {
+            "type": "integer"
+          }
+        },
+        "required": [
+          "text"
+        ],
+        "additionalProperties": false
+      },
+      "version": "smoketest-1012-1.0",
+      "status": "来源smoketest-1012用户已判定；迁库及唯一性/错误传播修正仅静态检查，未重新操作软件",
+      "feature_path": [
+        "对话与任务",
+        "冒烟复用能力"
+      ],
+      "modules": [
+        "automation/login-session.mjs",
+        "automation/session.mjs",
+        "automation/conversation.mjs"
+      ],
+      "preconditions": [
+        "本轮CDP与授权对象已确定；可选expectedSession绑定当前会话",
+        "写入、登录、退出、审批和项目移除按本轮用例授权；源任务历史参数不得直接复用"
+      ],
+      "returns": "实际DOM观察与事件引用；returned不等于业务断言或持久化通过",
+      "cleanup": "保留原任务证据；调用者按本轮范围恢复账号、项目、权限和表单，不自动删除磁盘资产",
+      "origin": {
+        "task": "05-探索性测试/smoketest-1012",
+        "function": "task.sendAwait",
+        "evidence_calls": [
+          "CALL-08fc0cbf-713f-4597-888c-7bf86014bc4d",
+          "CALL-a8248b0f-173f-4635-a568-ccec7be344e1"
+        ]
+      }
+    },
+    {
+      "name": "conversation.waitIdle",
+      "file": "business/smoke/approval.mjs",
+      "export": "waitIdle",
+      "description": "等待当前对话空闲并回读最终助手正文。",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "timeoutMs": {
+            "type": "integer"
+          }
+        },
+        "required": [],
+        "additionalProperties": false
+      },
+      "version": "smoketest-1012-1.0",
+      "status": "来源smoketest-1012用户已判定；迁库及唯一性/错误传播修正仅静态检查，未重新操作软件",
+      "feature_path": [
+        "对话与任务",
+        "冒烟复用能力"
+      ],
+      "modules": [
+        "automation/login-session.mjs",
+        "automation/session.mjs",
+        "automation/conversation.mjs"
+      ],
+      "preconditions": [
+        "本轮CDP与授权对象已确定；可选expectedSession绑定当前会话",
+        "写入、登录、退出、审批和项目移除按本轮用例授权；源任务历史参数不得直接复用"
+      ],
+      "returns": "实际DOM观察与事件引用；returned不等于业务断言或持久化通过",
+      "cleanup": "保留原任务证据；调用者按本轮范围恢复账号、项目、权限和表单，不自动删除磁盘资产",
+      "origin": {
+        "task": "05-探索性测试/smoketest-1012",
+        "function": "task.waitIdle",
+        "evidence_calls": [
+          "CALL-606a7740-15df-4ccf-a7ae-6d26feeb8ac8",
+          "CALL-e3a82870-3fdb-490f-8569-59a89257414d"
+        ]
+      }
+    },
+    {
+      "name": "conversation.readApprovalDialog",
+      "file": "business/smoke/approval.mjs",
+      "export": "readApprovalDialog",
+      "description": "只读当前权限审批弹窗文本与按钮。",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "required": [],
+        "additionalProperties": false
+      },
+      "version": "smoketest-1012-1.0",
+      "status": "来源smoketest-1012用户已判定；迁库及唯一性/错误传播修正仅静态检查，未重新操作软件",
+      "feature_path": [
+        "对话与任务",
+        "冒烟复用能力"
+      ],
+      "modules": [
+        "automation/login-session.mjs",
+        "automation/session.mjs",
+        "automation/conversation.mjs"
+      ],
+      "preconditions": [
+        "本轮CDP与授权对象已确定；可选expectedSession绑定当前会话",
+        "写入、登录、退出、审批和项目移除按本轮用例授权；源任务历史参数不得直接复用"
+      ],
+      "returns": "实际DOM观察与事件引用；returned不等于业务断言或持久化通过",
+      "cleanup": "保留原任务证据；调用者按本轮范围恢复账号、项目、权限和表单，不自动删除磁盘资产",
+      "origin": {
+        "task": "05-探索性测试/smoketest-1012",
+        "function": "task.readApprovalDialog",
+        "evidence_calls": [
+          "CALL-0d9bf627-febb-41bf-bde1-0a87e6e36d7f",
+          "CALL-b8938cad-acfb-4334-b7e3-99195b710aa8"
+        ]
+      }
+    },
+    {
+      "name": "conversation.clickExactButton",
+      "file": "business/smoke/approval.mjs",
+      "export": "clickExactButton",
+      "description": "点击当前可见、文本精确匹配的按钮，并回读审批弹窗与对话状态。",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "name"
+        ],
+        "additionalProperties": false
+      },
+      "version": "smoketest-1012-1.0",
+      "status": "来源smoketest-1012用户已判定；迁库及唯一性/错误传播修正仅静态检查，未重新操作软件",
+      "feature_path": [
+        "对话与任务",
+        "冒烟复用能力"
+      ],
+      "modules": [
+        "automation/login-session.mjs",
+        "automation/session.mjs",
+        "automation/conversation.mjs"
+      ],
+      "preconditions": [
+        "本轮CDP与授权对象已确定；可选expectedSession绑定当前会话",
+        "写入、登录、退出、审批和项目移除按本轮用例授权；源任务历史参数不得直接复用"
+      ],
+      "returns": "实际DOM观察与事件引用；returned不等于业务断言或持久化通过",
+      "cleanup": "保留原任务证据；调用者按本轮范围恢复账号、项目、权限和表单，不自动删除磁盘资产",
+      "origin": {
+        "task": "05-探索性测试/smoketest-1012",
+        "function": "task.clickExactButton",
+        "evidence_calls": [
+          "CALL-3be2c9ec-3d8e-4968-9e92-5607bf00164b"
+        ]
+      }
+    },
+    {
+      "name": "conversation.clickButtonContaining",
+      "file": "business/smoke/approval.mjs",
+      "export": "clickButtonContaining",
+      "description": "点击当前可见、文本包含指定片段的按钮（用于问题卡选项），并回读审批/对话状态。",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "text": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "text"
+        ],
+        "additionalProperties": false
+      },
+      "version": "smoketest-1012-1.0",
+      "status": "来源smoketest-1012用户已判定；迁库及唯一性/错误传播修正仅静态检查，未重新操作软件",
+      "feature_path": [
+        "对话与任务",
+        "冒烟复用能力"
+      ],
+      "modules": [
+        "automation/login-session.mjs",
+        "automation/session.mjs",
+        "automation/conversation.mjs"
+      ],
+      "preconditions": [
+        "本轮CDP与授权对象已确定；可选expectedSession绑定当前会话",
+        "写入、登录、退出、审批和项目移除按本轮用例授权；源任务历史参数不得直接复用"
+      ],
+      "returns": "实际DOM观察与事件引用；returned不等于业务断言或持久化通过",
+      "cleanup": "保留原任务证据；调用者按本轮范围恢复账号、项目、权限和表单，不自动删除磁盘资产",
+      "origin": {
+        "task": "05-探索性测试/smoketest-1012",
+        "function": "task.clickButtonContaining",
+        "evidence_calls": [
+          "CALL-62670a28-7414-48e3-b103-5f4e9c2296e6"
+        ]
+      }
+    },
+    {
+      "name": "conversation.readQuestionCard",
+      "file": "business/smoke/approval.mjs",
+      "export": "readQuestionCard",
+      "description": "只读当前问题卡片(ask-user)结构，用于定位提交按钮。",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "required": [],
+        "additionalProperties": false
+      },
+      "version": "smoketest-1012-1.0",
+      "status": "来源smoketest-1012用户已判定；迁库及唯一性/错误传播修正仅静态检查，未重新操作软件",
+      "feature_path": [
+        "对话与任务",
+        "冒烟复用能力"
+      ],
+      "modules": [
+        "automation/login-session.mjs",
+        "automation/session.mjs",
+        "automation/conversation.mjs"
+      ],
+      "preconditions": [
+        "本轮CDP与授权对象已确定；可选expectedSession绑定当前会话",
+        "写入、登录、退出、审批和项目移除按本轮用例授权；源任务历史参数不得直接复用"
+      ],
+      "returns": "实际DOM观察与事件引用；returned不等于业务断言或持久化通过",
+      "cleanup": "保留原任务证据；调用者按本轮范围恢复账号、项目、权限和表单，不自动删除磁盘资产",
+      "origin": {
+        "task": "05-探索性测试/smoketest-1012",
+        "function": "task.readQuestionCard",
+        "evidence_calls": [
+          "CALL-eb3b1e2b-1bc8-42dd-b202-9a9402b3558e"
+        ]
+      }
     }
   ]
 }

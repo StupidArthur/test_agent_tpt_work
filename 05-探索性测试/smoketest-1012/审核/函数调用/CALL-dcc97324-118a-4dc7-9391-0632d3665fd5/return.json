@@ -1,0 +1,82 @@
+{
+  "call_id": "CALL-dcc97324-118a-4dc7-9391-0632d3665fd5",
+  "status": "returned",
+  "observations": {
+    "observations": {
+      "running": {
+        "event_id": "CALL-dcc97324-118a-4dc7-9391-0632d3665fd5-1",
+        "captured_at": "2026-10-12T07:19:58.019Z",
+        "environment_id": "smoketest-1012",
+        "business_call_id": "CALL-dcc97324-118a-4dc7-9391-0632d3665fd5",
+        "kind": "read",
+        "target": "可见运行中指示数量",
+        "object_id": "running-indicators",
+        "source": {
+          "channel": "dom",
+          "scope": "当前会话",
+          "locator": "text=进行中/探索中..."
+        },
+        "value": 0,
+        "raw": {
+          "count": 0
+        }
+      },
+      "assistant": {
+        "event_id": "CALL-dcc97324-118a-4dc7-9391-0632d3665fd5-2",
+        "captured_at": "2026-10-12T07:19:58.048Z",
+        "environment_id": "smoketest-1012",
+        "business_call_id": "CALL-dcc97324-118a-4dc7-9391-0632d3665fd5",
+        "kind": "read",
+        "target": "助手最终正文",
+        "object_id": "last-assistant-bubble",
+        "source": {
+          "channel": "dom",
+          "scope": "对话 助手气泡",
+          "locator": "[class*=\"hWmORq_body\"]"
+        },
+        "value": "收到，冒烟测试信号正常——我这边链路通着，能读到你的消息、能定位到本次会话的工作目录，回复也发得出去。\n\n当前状态回执\n\n会话工作目录：C:\\Users\\Administrator\\.tpt-work\\tasks\\t-20261012-141622-56b1\n文件策略：workspace-write，工作区内可读写\n审批策略：ask\n可用技能已加载：configure-connector、create-connector、create-skill、diagnose-windows-sandbox-acl、expert-manager、find-skills、office-docx、office-pptx、office-xlsx\n时间：2026-10-12 15:19 (Asia/Shanghai)\n\n可以顺手帮你压测的点（你说一声我就跑）\n\n文件读写往返：在工作区写一个临时文件、读回校验、再删掉\n命令执行：跑一条简单 pwsh 命令看退出码\n知识库检索：给个装置/位号关键词，验证 knowledge_search 是否返回片段\n记忆读写：memory_log 记一条日志并读回\n技能加载：随便挑一个技能（比如 office-xlsx）走一遍加载流程\n\n需要我直接开跑哪些？也可以只当你这次冒烟测试的回声确认，不用做别的。",
+        "raw": {
+          "count": 1,
+          "last": "收到，冒烟测试信号正常——我这边链路通着，能读到你的消息、能定位到本次会话的工作目录，回复也发得出去。\n\n当前状态回执\n\n会话工作目录：C:\\Users\\Administrator\\.tpt-work\\tasks\\t-20261012-141622-56b1\n文件策略：workspace-write，工作区内可读写\n审批策略：ask\n可用技能已加载：configure-connector、create-connector、create-skill、diagnose-windows-sandbox-acl、expert-manager、find-skills、office-docx、office-pptx、office-xlsx\n时间：2026-10-12 15:19 (Asia/Shanghai)\n\n可以顺手帮你压测的点（你说一声我就跑）\n\n文件读写往返：在工作区写一个临时文件、读回校验、再删掉\n命令执行：跑一条简单 pwsh 命令看退出码\n知识库检索：给个装置/位号关键词，验证 knowledge_search 是否返回片段\n记忆读写：memory_log 记一条日志并读回\n技能加载：随便挑一个技能（比如 office-xlsx）走一遍加载流程\n\n需要我直接开跑哪些？也可以只当你这次冒烟测试的回声确认，不用做别的。"
+        }
+      },
+      "code": {
+        "event_id": "CALL-dcc97324-118a-4dc7-9391-0632d3665fd5-3",
+        "captured_at": "2026-10-12T07:19:58.051Z",
+        "environment_id": "smoketest-1012",
+        "business_call_id": "CALL-dcc97324-118a-4dc7-9391-0632d3665fd5",
+        "kind": "read",
+        "target": "本轮代码块",
+        "object_id": "code-block",
+        "source": {
+          "channel": "dom",
+          "scope": "助手气泡内 pre/code",
+          "locator": "[class*=\"hWmORq_body\"] pre, [class*=\"hWmORq_body\"] code"
+        },
+        "value": null,
+        "raw": {
+          "count": 0,
+          "text": null
+        }
+      },
+      "fileCards": {
+        "event_id": "CALL-dcc97324-118a-4dc7-9391-0632d3665fd5-4",
+        "captured_at": "2026-10-12T07:19:58.055Z",
+        "environment_id": "smoketest-1012",
+        "business_call_id": "CALL-dcc97324-118a-4dc7-9391-0632d3665fd5",
+        "kind": "read",
+        "target": "文件产物卡片数量",
+        "object_id": "changed-file-cards",
+        "source": {
+          "channel": "dom",
+          "scope": "当前会话对话区 产物卡",
+          "locator": "[data-changed-files=\"true\"]"
+        },
+        "value": 0,
+        "raw": {
+          "count": 0
+        }
+      }
+    }
+  }
+}

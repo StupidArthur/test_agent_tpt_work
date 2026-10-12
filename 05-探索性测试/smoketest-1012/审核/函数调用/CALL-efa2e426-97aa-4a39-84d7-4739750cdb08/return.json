@@ -1,0 +1,33 @@
+{
+  "call_id": "CALL-efa2e426-97aa-4a39-84d7-4739750cdb08",
+  "status": "returned",
+  "observations": {
+    "action_refs": [
+      "CALL-efa2e426-97aa-4a39-84d7-4739750cdb08-2"
+    ],
+    "observations": {
+      "wait": {
+        "waited_ms": 5499
+      },
+      "assistant": {
+        "event_id": "CALL-efa2e426-97aa-4a39-84d7-4739750cdb08-3",
+        "captured_at": "2026-10-12T07:27:54.465Z",
+        "environment_id": "smoketest-1012",
+        "business_call_id": "CALL-efa2e426-97aa-4a39-84d7-4739750cdb08",
+        "kind": "read",
+        "target": "助手最终正文",
+        "object_id": "last-assistant-bubble",
+        "source": {
+          "channel": "dom",
+          "scope": "对话 助手气泡",
+          "locator": "[class*=\"hWmORq_body\"]"
+        },
+        "value": "收到，第二个任务已收到回声（2）✅\n\n这次会话的一切都正常：\n\n会话工作目录：C:\\Users\\Administrator\\.tpt-work\\tasks\\t-20261012-152737-4e0b\n文件策略：workspace-write（工作区内可自由读写）\n审批策略：ask（越界操作会先问过你）\n可用技能：office 三件套（docx / pptx / xlsx）、连接器配置与创建、技能创建与查找、Windows 沙箱 ACL 诊断、专家管理等都在线\n\n需要我顺手压一下链路、还是直接开工？几个常见的测法我可以立刻跑：\n\n文件往返 — 在工作区写一个文件、读回来核对字节数；\n命令执行 — 跑条 pwsh 看退出码与输出；\n知识库检索 — 拿一个装置/位号做 knowledge_search，验证资料库通道；\n记忆读写 — 刚写入的日志再读回确认（这条已经先跑通了）。\n\n有具体活儿的话，直接把要求丢过来就行，我这边整装待发。",
+        "raw": {
+          "count": 2,
+          "last": "收到，第二个任务已收到回声（2）✅\n\n这次会话的一切都正常：\n\n会话工作目录：C:\\Users\\Administrator\\.tpt-work\\tasks\\t-20261012-152737-4e0b\n文件策略：workspace-write（工作区内可自由读写）\n审批策略：ask（越界操作会先问过你）\n可用技能：office 三件套（docx / pptx / xlsx）、连接器配置与创建、技能创建与查找、Windows 沙箱 ACL 诊断、专家管理等都在线\n\n需要我顺手压一下链路、还是直接开工？几个常见的测法我可以立刻跑：\n\n文件往返 — 在工作区写一个文件、读回来核对字节数；\n命令执行 — 跑条 pwsh 看退出码与输出；\n知识库检索 — 拿一个装置/位号做 knowledge_search，验证资料库通道；\n记忆读写 — 刚写入的日志再读回确认（这条已经先跑通了）。\n\n有具体活儿的话，直接把要求丢过来就行，我这边整装待发。"
+        }
+      }
+    }
+  }
+}

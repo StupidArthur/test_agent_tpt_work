@@ -7,7 +7,7 @@
 | 候选函数 | 用途 |
 |---|---|
 | `conversation.sendMessage` | 向 composer 填写文本并发送，等待终态后读取助手最终正文 |
-| `conversation.decideApproval` | 处理对话内权限审批（允许一次/拒绝） |
+| `conversation.decideApproval` | 处理当前实际权限审批（允许一次/拒绝），唯一按钮点击并返回审批前后观察 |
 | `conversation.readTaskState` | 读取当前会话终态：可见运行中指示数量、助手最终正文、助手气泡内代码块文本、产物卡数量 |
 | `conversation.readCompletion` | 绑定session与唯一回复，读取已完成工作终态 |
 

@@ -1,0 +1,153 @@
+{
+  "task": "smoketest-1012",
+  "generated_at": "2026-10-12",
+  "items": [
+    {
+      "id": "SMK-Q1",
+      "type": "候选工具问题（选择器漂移）",
+      "summary": "conversation.newTask 等待 button[aria-label^=\"选择模型\"] 超时",
+      "evidence_calls": ["CALL-55ab6a90-2588-4d86-8a6f-a54243cd3ba2", "CALL-16cfe2bb-16ee-4b20-a56f-f922ca42c809"],
+      "actual": "模型选择按钮 aria-label=\"模型与思考强度\"（text=\"标准\"，class tpt-mp-trigger），不含「选择模型」前缀",
+      "impact": "newTask 抛 TimeoutError；但「新建任务」点击已发生，新任务已建立",
+      "status": "未修改主库，留待管理者审核选择器更新"
+    },
+    {
+      "id": "SMK-Q2",
+      "type": "候选工具问题（选择器漂移）",
+      "summary": "conversation.listSessionRows 用 [data-row-key^=\"session:\"] 读到 0 行",
+      "evidence_calls": ["CALL-4ea5f00e-0c7e-4070-b01d-f1da8e1af941", "CALL-7f57db4a-bcc5-44dd-89be-d85a07bafb20"],
+      "actual": "侧栏会话行不再带 data-row-key=\"session:\"；probe 仅发现 data-row-key=\"empty\"（暂无项目）；自动对话名以文本出现在「最近」下",
+      "impact": "依赖该属性的 listSessionRows / markUnread / openSession / readUnreadBadge 等可能失效",
+      "status": "未修改主库"
+    },
+    {
+      "id": "SMK-D1",
+      "type": "产品行为差异（待审核）",
+      "summary": "SMK-03 期望仅回复「我正在被冒烟测试」，实际回复长文且不含该句",
+      "evidence_calls": ["CALL-cf7c4760-9e79-4f79-8aee-9ecfc5d603e0", "CALL-dcc97324-118a-4dc7-9391-0632d3665fd5"],
+      "actual": "助手回复约 400 字状态回执（含工作目录/文件策略/审批策略/技能/压测建议），无「我正在被冒烟测试」",
+      "status": "模型未遵循指令；未判定为产品缺陷，仅记录实际值"
+    },
+    {
+      "id": "SMK-D2",
+      "type": "产品行为差异（待审核）",
+      "summary": "SMK-04 期望回复「只有 2」，实际回复长文",
+      "evidence_calls": ["CALL-efa2e426-97aa-4a39-84d7-4739750cdb08"],
+      "actual": "助手回复约 350 字状态回执（「收到，第二个任务已收到回声（2）✅…」），含「（2）」但非仅「2」",
+      "status": "与 SMK-D1 同源：模型未遵循「仅回复指定内容」指令；未判定产品缺陷"
+    },
+    {
+      "id": "SMK-O1",
+      "type": "产品观察（非缺陷）",
+      "summary": "退出登录存在二次确认弹窗，用例未提及",
+      "evidence_calls": ["CALL-ce90daaf-411f-454e-858a-31b9215d05fd"],
+      "actual": "弹窗文本「退出登录后，正在执行中的任务将停止…」，按钮 [取消, 退出登录]；确认后回到登录页",
+      "status": "与用例最终预期一致，仅流程多一步"
+    },
+    {
+      "id": "SMK-N1",
+      "type": "对照观察（重跑）",
+      "summary": "SMK-04R 把消息改为「请仅回复我（2）」后，模型仅回复 (2)",
+      "evidence_calls": ["CALL-5ca81851-93d2-4c5c-abd3-de9bf4fcf577"],
+      "actual": "回复值 = \"(2)\"，无附加文本；左侧自动对话名 = 用户要求仅回复（2）",
+      "status": "与 SMK-D1/SMK-D2 对照，说明「只回指定内容」对措辞敏感；未判定产品缺陷。备注：回复为 (2) 带括号，非裸 2"
+    },
+    {
+      "id": "SMK-Q3",
+      "type": "候选工具问题（未验收能力）",
+      "summary": "SMK-05 首次创建项目未走主库组合函数",
+      "evidence_calls": ["CALL-7fa6d64a-883e-4a1d-b7ce-98ae5c79496b", "CALL-42a2fed1-b1ef-44d0-9759-8f614f064e2f", "CALL-08418398-f70d-4dc0-9ec0-eeacd2d1174b", "CALL-1c660857-f629-498f-9f0f-c5e990802105"],
+      "actual": "conversation.createProject/openProject 状态为「已实现；仅静态检查，待现场验收」，且 conversation.newTask 选择器漂移；本轮改用 nativeWindow.probe/describe/act + task 函数完成首次创建项目",
+      "status": "未修改主库；建议在项目业务组合待验收轮覆盖创建/首次打开全流程"
+    },
+    {
+      "id": "SMK-A1",
+      "type": "本轮产生的资产（用例要求）",
+      "summary": "SMK-05 创建了项目与文件",
+      "evidence_calls": ["CALL-ce496620-0fd0-4e2d-939c-38be389b3b23", "CALL-a39dbba0-fcd4-4272-8d64-acd948ee3a67"],
+      "actual": "项目 `tptwork-smoketest`（源目录 D:\\tptwork-smoketest）；文件 D:\\tptwork-smoketest\\20261012-154152.txt（651 字节）",
+      "status": "项目已在 SMK-05R 从 tpt-work 移除；文件夹与文件保留"
+    },
+    {
+      "id": "SMK-A2",
+      "type": "本轮产生的资产（用例要求）",
+      "summary": "SMK-05R 创建了项目与文件（新目录）",
+      "evidence_calls": ["CALL-a75e4028-790a-49eb-a0b3-d4308b79c559", "CALL-9b1a0fba-fd83-432f-870f-497227cf0433"],
+      "actual": "项目 `new_project`（源目录 D:\\tptwork-smoketest\\new_project）；文件 D:\\tptwork-smoketest\\new_project\\smoketest-20261012-155625.txt（258 字节）",
+      "status": "未恢复/删除；如需清理另行授权"
+    },
+    {
+      "id": "SMK-Q4",
+      "type": "候选工具问题（任务函数）",
+      "summary": "task.removeProject 的确认按钮匹配未覆盖「移除项目」文案",
+      "evidence_calls": ["CALL-e8fa40a7-ba78-48fe-bfbd-9a895defdfd3"],
+      "actual": "确认弹窗按钮为「取消 / 移除项目」，原正则未命中，confirmHandled=null、弹窗保持打开；改用 task.clickDialogButton 点「移除项目」后成功（workspaceRowsAfter=[]）",
+      "status": "已在任务函数中修正（正则加入「移除项目」），SMK-07 单次成功（confirmHandled=移除项目）"
+    },
+    {
+      "id": "SMK-B1",
+      "type": "候选产品问题（入口行为不一致，用户标记）",
+      "summary": "新建项目入口在「无项目」与「已有项目」两种情形下行为不一致",
+      "evidence_calls": ["CALL-e8420480-7ace-4507-b7a7-7ab41affdef0", "CALL-44f2b523-f183-4f5a-b374-57c7286493c3", "CALL-f48954ea-15a9-4193-a801-3da9d2c56020"],
+      "actual": "无项目时点「选择项目」→ 直接唤起原生「选择文件夹」系统选择器，无「新建项目」DOM 表单；已有项目时经菜单「新建项目…」→ 先弹「新建项目」DOM 表单（项目名称 + 源文件夹→选择文件夹 → 创建）",
+      "impact": "同一「新建项目」意图出现两条不同路径，首装用户看不到项目名称/默认位置提示；用户已确认「应该要有」该表单，据此 SMK-05 与 SMK-05R 判为 `失败`",
+      "status": "用户确认期望：首次创建项目应先有「新建项目」表单；SMK-05/SMK-05R 标 fail。本轮未修改产品。"
+    },
+    {
+      "id": "SMK-A3",
+      "type": "本轮产生的资产（用例要求）",
+      "summary": "SMK-07 创建并移除了项目 delete_project",
+      "evidence_calls": ["CALL-e59bf0ee-e9ab-41d6-86c6-c3ca329989b0", "CALL-85857d2e-9fad-4b00-a0c4-fc1e642d4535", "CALL-ce9b3f3f-1c42-4455-b297-463e02afb44e"],
+      "actual": "项目 `delete_project`（源目录 D:\\tptwork-smoketest\\delete_project）已从 tpt-work 列表移除；目录与文件 `smoketest-20261012-161044.txt`（200 字节）保留",
+      "status": "目录按要求保留；如需清理另行授权"
+    },
+    {
+      "id": "SMK-O4",
+      "type": "产品观察（文案与用例不一致）",
+      "summary": "权限审批弹窗的拒绝按钮文案是「拒绝」，用例写的是「不允许」",
+      "evidence_calls": ["CALL-0d9bf627-febb-41bf-bde1-0a87e6e36d7f", "CALL-d52fdb1b-924e-47fb-9047-e206610e7cb9"],
+      "actual": "审批弹窗按钮为 [拒绝, 允许一次]；用例要求点「不允许」，实际不存在该文案，按「拒绝」执行",
+      "status": "含义一致，仅文案差异；未判定为缺陷"
+    },
+    {
+      "id": "SMK-A5",
+      "type": "本轮产生的资产（用例要求）",
+      "summary": "SMK-10 在工作区外目录写入/追加了文件",
+      "evidence_calls": ["CALL-8a5c823c-fc7c-4b51-9b6c-0f194815a931"],
+      "actual": "D:\\tptwork-smoketest\\permission\\1.txt：初始 24 字节（时间行），拒绝后不变；允许一次后追加一行「我没有权限，但是到此一游」，最终 62 字节、BOM+CRLF 保留",
+      "status": "用例要求；未清理"
+    },
+    {
+      "id": "SMK-A6",
+      "type": "本轮产生的资产（用例要求）",
+      "summary": "SMK-11 完全权限下再追加一行",
+      "evidence_calls": ["CALL-348d5e1a-4100-4932-af57-52848cb2b5ad"],
+      "actual": "D:\\tptwork-smoketest\\permission\\1.txt 追加「我现在无敌了」，62→82 字节，BOM+CRLF 保持；本会话任务权限改为「完全权限」",
+      "status": "用例要求；未清理；任务权限未恢复（会话级）"
+    },
+    {
+      "id": "SMK-A7",
+      "type": "本轮产生的资产（用例要求）",
+      "summary": "SMK-12 仅可查看下经「允许一次」追加一行，新增项目 permission",
+      "evidence_calls": ["CALL-9e76f21c-452c-4df0-9c27-36dc74527cde"],
+      "actual": "新建项目 `permission`（源 D:\\tptwork-smoketest\\permission）；1.txt 由 82→105 字节、4 行（含「我现在是个废物。」）；本会话任务权限改为「仅可查看」",
+      "status": "用例要求；未清理；项目与任务权限未恢复"
+    },
+    {
+      "id": "SMK-O5",
+      "type": "产品观察（副作用：BOM 被去除）",
+      "summary": "SMK-12 经「允许一次」写入时把原文件的 UTF-8 BOM 去掉了",
+      "evidence_calls": ["CALL-9e76f21c-452c-4df0-9c27-36dc74527cde", "CALL-41bf0364-c786-45ca-a884-9a2c44f76c2f"],
+      "actual": "写入前 82 字节含 BOM（EF BB BF）；写入后 105 字节，开头为 `202`(0x32)，BOM 丢失。助手自述并核对；SMK-10/11 的写入则保留了 BOM",
+      "status": "同一对象不同写入路径的编码处理不一致；**SMK-12R 重跑同样出现**，稳定复现；待审核，未判定缺陷"
+    },
+    {
+      "id": "SMK-O6",
+      "type": "产品观察（拒绝后的 ask-user 问题卡）",
+      "summary": "写入被拒后助手弹出 ask-user 问题卡，需选选项后点「提交」",
+      "evidence_calls": ["CALL-eb3b1e2b-1bc8-42dd-b202-9a9402b3558e", "CALL-3be2c9ec-3d8e-4968-9e92-5607bf00164b", "CALL-9384dc14-784e-4670-9ddc-db14518f0216"],
+      "actual": "SMK-12 首轮：拒绝后弹出问题卡（选项 `1 我自己在编辑器里改 / 2 重新授权一次写入 / 3 先不改了`，需选一项 + 「提交」）；**SMK-12R 重跑未复现**（readQuestionCard.found=false，页面直接回终态）",
+      "status": "仅首轮出现、重跑未复现 → 判为 LLM 随机行为差异，非稳定产品行为"
+    }
+  ]
+}

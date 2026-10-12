@@ -1,0 +1,322 @@
+{
+  "sourceTask": "05-探索性测试/smoketest-1012",
+  "currentRunResults": false,
+  "cases": [
+    {
+      "case_id": "SMK-01",
+      "historical_status": "通过",
+      "functions": [
+        "application.readLoginPage",
+        "application.loginWithPassword",
+        "nativeWindow.readState",
+        "application.inspectConnection",
+        "application.readHomeAccount"
+      ],
+      "source_calls": [
+        "CALL-ad77f885-31d8-4a72-84b3-36c12a8778a2",
+        "CALL-be39281d-1153-4a41-bed0-4140062cf075",
+        "CALL-e7b5db84-1604-4c75-8e10-05594d64fab7",
+        "CALL-3fe8f81b-8405-42dc-8e18-26892ec59c3c",
+        "CALL-9320f6a2-5dd1-4dc5-b89b-4e403ec2fa38"
+      ]
+    },
+    {
+      "case_id": "SMK-02",
+      "historical_status": "通过",
+      "functions": [
+        "application.readAccountMenu",
+        "application.logout",
+        "application.loginWithPassword",
+        "application.readHomeAccount"
+      ],
+      "source_calls": [
+        "CALL-4ade15c4-4f84-45c9-84c9-6a4ac85e47a3",
+        "CALL-c3aa37cc-df2a-43f9-8775-b326d1bcb9f2",
+        "CALL-ce90daaf-411f-454e-858a-31b9215d05fd",
+        "CALL-d361f3dc-9fd7-45ed-bb5d-df0329a1c1d9",
+        "CALL-fa7547cb-77f9-48fa-ae82-e5ef73857eee"
+      ]
+    },
+    {
+      "case_id": "SMK-03",
+      "historical_status": "差异",
+      "functions": [
+        "conversation.newTask",
+        "conversation.sendMessage",
+        "conversation.readTaskState",
+        "conversation.probeSidebar",
+        "conversation.listSessionRows"
+      ],
+      "source_calls": [
+        "CALL-55ab6a90-2588-4d86-8a6f-a54243cd3ba2",
+        "CALL-cf7c4760-9e79-4f79-8aee-9ecfc5d603e0",
+        "CALL-dcc97324-118a-4dc7-9391-0632d3665fd5",
+        "CALL-7f57db4a-bcc5-44dd-89be-d85a07bafb20",
+        "CALL-4ea5f00e-0c7e-4070-b01d-f1da8e1af941"
+      ]
+    },
+    {
+      "case_id": "SMK-04",
+      "historical_status": "差异",
+      "functions": [
+        "conversation.newTaskOnly",
+        "conversation.sendMessage",
+        "conversation.probeSidebar",
+        "conversation.switchSessionByTitle"
+      ],
+      "source_calls": [
+        "CALL-b83990d6-6e26-4af8-bece-d6d66c822bd3",
+        "CALL-efa2e426-97aa-4a39-84d7-4739750cdb08",
+        "CALL-2c53ba61-4b5a-4159-bd64-954b39bf49b6",
+        "CALL-34d25857-eba0-4dda-8217-3df92fffdb19"
+      ]
+    },
+    {
+      "case_id": "SMK-04R",
+      "historical_status": "通过（备注）",
+      "functions": [
+        "conversation.newTaskOnly",
+        "conversation.sendMessage",
+        "conversation.probeSidebar",
+        "conversation.switchSessionByTitle"
+      ],
+      "source_calls": [
+        "CALL-718cf937-e502-46a0-9672-2d7a47912b6d",
+        "CALL-5ca81851-93d2-4c5c-abd3-de9bf4fcf577",
+        "CALL-43c0cf42-855d-41fa-9895-9d61668d1829",
+        "CALL-c5338009-52b7-40fd-bc40-e55930a6b717"
+      ]
+    },
+    {
+      "case_id": "SMK-05",
+      "historical_status": "失败",
+      "functions": [
+        "conversation.readProjectControls",
+        "conversation.newTaskOnly",
+        "conversation.clickSelectProject",
+        "nativeWindow.probe",
+        "nativeWindow.describe",
+        "nativeWindow.act",
+        "conversation.sendMessage"
+      ],
+      "source_calls": [
+        "CALL-ad3562e2-9236-4407-973c-ca218c958158",
+        "CALL-352704cc-1ef4-44e3-889f-6ae6f23047b2",
+        "CALL-7fa6d64a-883e-4a1d-b7ce-98ae5c79496b",
+        "CALL-e8420480-7ace-4507-b7a7-7ab41affdef0",
+        "CALL-42a2fed1-b1ef-44d0-9759-8f614f064e2f",
+        "CALL-08418398-f70d-4dc0-9ec0-eeacd2d1174b",
+        "CALL-1c660857-f629-498f-9f0f-c5e990802105",
+        "CALL-ce496620-0fd0-4e2d-939c-38be389b3b23",
+        "CALL-a39dbba0-fcd4-4272-8d64-acd948ee3a67"
+      ]
+    },
+    {
+      "case_id": "SMK-05R",
+      "historical_status": "失败",
+      "functions": [
+        "conversation.removeProject",
+        "conversation.clickDialogButton",
+        "conversation.newTaskOnly",
+        "conversation.clickSelectProject",
+        "nativeWindow.probe",
+        "nativeWindow.describe",
+        "nativeWindow.act",
+        "conversation.readProjectControls",
+        "conversation.sendMessage"
+      ],
+      "source_calls": [
+        "CALL-e8fa40a7-ba78-48fe-bfbd-9a895defdfd3",
+        "CALL-5e9c32ec-f0a4-4ca9-9b11-35db59303eeb",
+        "CALL-96b74918-5a2a-4e1e-b6b0-1e75bb60f566",
+        "CALL-6a2af99c-6b30-4027-a4f9-91f01e616ed4",
+        "CALL-13be1e87-b9c3-4a19-bb94-bb32de63e0a1",
+        "CALL-b9f9dedb-ad8d-49b3-8a17-f723933ee8d8",
+        "CALL-33363b3b-4941-4155-89d4-40f00ef0b5ad",
+        "CALL-6d4997e7-fd74-409b-8251-54dc537a360b",
+        "CALL-a75e4028-790a-49eb-a0b3-d4308b79c559",
+        "CALL-9b1a0fba-fd83-432f-870f-497227cf0433"
+      ]
+    },
+    {
+      "case_id": "SMK-06",
+      "historical_status": "通过",
+      "functions": [
+        "conversation.newTaskOnly",
+        "conversation.clickSelectProject",
+        "conversation.clickMenuItem",
+        "conversation.sendMessage"
+      ],
+      "source_calls": [
+        "CALL-afc7a60e-fe43-4bd4-91af-417e276566be",
+        "CALL-e3600fb6-3488-4dbb-9631-6263c7194db8",
+        "CALL-7df3b18e-783f-4207-8acb-84185d4bfd4b",
+        "CALL-9aeba976-c976-46b2-b2f8-51bf08b1d15b"
+      ]
+    },
+    {
+      "case_id": "SMK-07",
+      "historical_status": "通过",
+      "functions": [
+        "conversation.newTaskOnly",
+        "conversation.clickSelectProject",
+        "conversation.clickMenuItem",
+        "conversation.readProjectForm",
+        "conversation.fillProjectForm",
+        "conversation.clickDialogButton",
+        "nativeWindow.probe",
+        "nativeWindow.describe",
+        "nativeWindow.act",
+        "conversation.readProjectControls",
+        "conversation.sendMessage",
+        "conversation.removeProject"
+      ],
+      "source_calls": [
+        "CALL-a66e392b-7fb4-4fd3-a804-051ef311ef19",
+        "CALL-26cdceb1-03ed-4e30-855e-e51845a6ce75",
+        "CALL-3598af5b-ad41-4639-8438-e75c2fc6f601",
+        "CALL-f48954ea-15a9-4193-a801-3da9d2c56020",
+        "CALL-35a8ebc2-5e84-4aef-a7fc-d1c1eb55e06c",
+        "CALL-32b2c748-1a45-4857-bb5c-737abe88f5fc",
+        "CALL-94a42ed4-2425-4ec2-a565-50f8c400591e",
+        "CALL-784b131a-920f-41dd-97b6-bde090b76718",
+        "CALL-9720034f-11b3-4c54-b2bc-27af6067c151",
+        "CALL-dc1c3c43-bc20-4680-92ba-3d682c55b6bb",
+        "CALL-d8511058-1b2b-49d0-ae5f-e9a15700a406",
+        "CALL-e59bf0ee-e9ab-41d6-86c6-c3ca329989b0",
+        "CALL-b05c4369-6f6b-4afc-83ad-3e113c6287ab",
+        "CALL-85857d2e-9fad-4b00-a0c4-fc1e642d4535",
+        "CALL-ce9b3f3f-1c42-4455-b297-463e02afb44e"
+      ]
+    },
+    {
+      "case_id": "SMK-08",
+      "historical_status": "通过",
+      "functions": [
+        "conversation.newSessionInProject",
+        "conversation.sendMessage",
+        "conversation.probeSidebar"
+      ],
+      "source_calls": [
+        "CALL-ae01137a-9477-4a64-a5f3-e3f20819063c",
+        "CALL-eaf5bc44-574f-44a5-81a9-85264d7695be",
+        "CALL-bc234f3d-6b41-469c-a0e1-7a573d92e5e3"
+      ]
+    },
+    {
+      "case_id": "SMK-09",
+      "historical_status": "通过",
+      "functions": [
+        "conversation.clickDialogButton",
+        "conversation.newSessionInProject",
+        "conversation.sendMessage",
+        "conversation.readArtifactLinks",
+        "conversation.openArtifactLink",
+        "conversation.readSidePanel"
+      ],
+      "source_calls": [
+        "CALL-83c3c3cd-1284-426c-8abf-71b6d859dbe5",
+        "CALL-50594337-4b22-4555-ad4f-d90be53a4252",
+        "CALL-0ef3239d-ccaa-482b-91e3-20400d72cb6d",
+        "CALL-6a90555f-8a33-450c-a410-2a2c32e95d2b",
+        "CALL-cbac6a64-048c-4c43-9594-73371f2737a0",
+        "CALL-361a231b-cd08-44f9-919a-8f5ab7f4b7b8",
+        "CALL-153b5ff1-17bc-43f9-8e98-630d174128f7",
+        "CALL-30c06548-0235-419f-b815-2f668bbbdbfb",
+        "CALL-fd1d3ed2-cbdc-4356-95a8-d74c422d2535"
+      ]
+    },
+    {
+      "case_id": "SMK-10",
+      "historical_status": "通过",
+      "functions": [
+        "conversation.newSessionInProject",
+        "conversation.sendAwait",
+        "conversation.readApprovalDialog",
+        "conversation.decideApproval",
+        "conversation.waitIdle"
+      ],
+      "source_calls": [
+        "CALL-5ec192b3-ef2e-46c2-b8b5-4e33e3f7beb8",
+        "CALL-08fc0cbf-713f-4597-888c-7bf86014bc4d",
+        "CALL-9b265e8a-2a6f-4ea9-ba3e-6c938bfe24f1",
+        "CALL-0d9bf627-febb-41bf-bde1-0a87e6e36d7f",
+        "CALL-d52fdb1b-924e-47fb-9047-e206610e7cb9",
+        "CALL-606a7740-15df-4ccf-a7ae-6d26feeb8ac8",
+        "CALL-a8248b0f-173f-4635-a568-ccec7be344e1",
+        "CALL-8a5c823c-fc7c-4b51-9b6c-0f194815a931",
+        "CALL-e3a82870-3fdb-490f-8569-59a89257414d"
+      ]
+    },
+    {
+      "case_id": "SMK-11",
+      "historical_status": "通过",
+      "functions": [
+        "conversation.newSessionInProject",
+        "conversation.readTaskPermissionOptions",
+        "conversation.setTaskPermission",
+        "conversation.sendAwait"
+      ],
+      "source_calls": [
+        "CALL-9805d384-0a67-4de1-9cc1-7089d143e77c",
+        "CALL-88793b07-01d3-4731-bc35-7be340ee57c5",
+        "CALL-3c4726a5-86c9-4997-9b40-d4753a11b5b5",
+        "CALL-d53c335f-7c6c-455b-ba1b-96d24e3851f5",
+        "CALL-348d5e1a-4100-4932-af57-52848cb2b5ad"
+      ]
+    },
+    {
+      "case_id": "SMK-12",
+      "historical_status": "通过",
+      "functions": [
+        "conversation.clickDialogButton",
+        "conversation.setTaskPermission",
+        "conversation.sendAwait",
+        "conversation.decideApproval",
+        "conversation.readQuestionCard",
+        "conversation.clickButtonContaining",
+        "conversation.clickExactButton",
+        "conversation.waitIdle"
+      ],
+      "source_calls": [
+        "CALL-be7e2c8c-6620-4e58-9798-5c18761768a9",
+        "CALL-83f582bb-27cb-461e-bbce-840e1993a5b1",
+        "CALL-4c5b91ad-842e-44de-8684-6e89b6543dd3",
+        "CALL-bef20507-4799-47d5-b703-9c9fc1a5541d",
+        "CALL-98ae415c-9260-416a-8674-bbca125644f2",
+        "CALL-eb3b1e2b-1bc8-42dd-b202-9a9402b3558e",
+        "CALL-62670a28-7414-48e3-b103-5f4e9c2296e6",
+        "CALL-3be2c9ec-3d8e-4968-9e92-5607bf00164b",
+        "CALL-9e76f21c-452c-4df0-9c27-36dc74527cde",
+        "CALL-41bf0364-c786-45ca-a884-9a2c44f76c2f"
+      ]
+    },
+    {
+      "case_id": "SMK-12R",
+      "historical_status": "通过",
+      "functions": [
+        "conversation.removeProject",
+        "conversation.clickDialogButton",
+        "conversation.setTaskPermission",
+        "conversation.sendAwait",
+        "conversation.decideApproval",
+        "conversation.readQuestionCard",
+        "conversation.waitIdle"
+      ],
+      "source_calls": [
+        "CALL-cc9a8df8-7e52-4f3c-aabc-8cf17a4e6f19",
+        "CALL-53947fea-4504-415a-972c-47b3dcb3d446",
+        "CALL-5a44b5c7-e6ad-4890-b527-b047bf1f47a8",
+        "CALL-c6935f57-6abc-4381-9095-7a0a9785099f",
+        "CALL-beccf924-696f-4b26-9577-594a28141e18",
+        "CALL-142a9cb3-3826-496c-a1b2-6dc9ff24e166",
+        "CALL-a053006e-d931-4378-93a2-c0b8e9e18130",
+        "CALL-9384dc14-784e-4670-9ddc-db14518f0216",
+        "CALL-c403a4c6-fdc4-4eb3-9950-8f5e53595fe5",
+        "CALL-b7bc17b7-9de6-4e2f-9ced-d8296d4d3438",
+        "CALL-f21bc019-4a84-4606-abd2-4943baa1ee85",
+        "CALL-91d5daec-e4ca-4e42-a521-40e57008b3bf"
+      ]
+    }
+  ]
+}

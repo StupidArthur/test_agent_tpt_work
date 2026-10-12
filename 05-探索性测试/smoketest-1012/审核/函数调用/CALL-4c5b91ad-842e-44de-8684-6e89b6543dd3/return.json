@@ -1,0 +1,16 @@
+{
+  "call_id": "CALL-4c5b91ad-842e-44de-8684-6e89b6543dd3",
+  "status": "returned",
+  "observations": {
+    "action_ref": "CALL-4c5b91ad-842e-44de-8684-6e89b6543dd3-2",
+    "kind": "idle",
+    "approval": null,
+    "snapshot": {
+      "running": 0,
+      "stop": 0,
+      "replyCount": 3,
+      "lastReply": "目录 D:\\tptwork-smoketest\\permission\\ 下只有一个文件：\n\n名称\t大小\t修改时间\n1.txt\t82 字节\t2026-10-12 18:26:04\n\n内容共 3 行：\n\n代码块\n2026-10-12 18:19:52\n我没有权限，但是到此一游\n我现在无敌了\n\n目录里没有子目录，也没有隐藏文件（用 -Force 列过）。顺带说明两点：一是这个目录就在当前会话工作区内，读取正常，没有出现上次 file_type\\ 那种工作区外被沙箱拦截的情况；二是本次是只读策略，我只做了列目录和读取，没有改动任何文件。"
+    },
+    "evidence_ref": "CALL-4c5b91ad-842e-44de-8684-6e89b6543dd3-3"
+  }
+}

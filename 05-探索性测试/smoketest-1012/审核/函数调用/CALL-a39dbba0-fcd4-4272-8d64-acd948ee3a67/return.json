@@ -1,0 +1,33 @@
+{
+  "call_id": "CALL-a39dbba0-fcd4-4272-8d64-acd948ee3a67",
+  "status": "returned",
+  "observations": {
+    "action_refs": [
+      "CALL-a39dbba0-fcd4-4272-8d64-acd948ee3a67-2"
+    ],
+    "observations": {
+      "wait": {
+        "waited_ms": 10645
+      },
+      "assistant": {
+        "event_id": "CALL-a39dbba0-fcd4-4272-8d64-acd948ee3a67-3",
+        "captured_at": "2026-10-12T07:41:59.461Z",
+        "environment_id": "smoketest-1012",
+        "business_call_id": "CALL-a39dbba0-fcd4-4272-8d64-acd948ee3a67",
+        "kind": "read",
+        "target": "助手最终正文",
+        "object_id": "last-assistant-bubble",
+        "source": {
+          "channel": "dom",
+          "scope": "对话 助手气泡",
+          "locator": "[class*=\"hWmORq_body\"]"
+        },
+        "value": "文件已创建并回读验证通过。\n\n产出\n\n文件：20261012-154152.txt\n路径：\nD:\\tptwork-smoketest\\20261012-154152.txt\n（项目目录根下，文件名取自创建时刻 yyyyMMdd-HHmmss）\n大小：651 字节，写入时间 2026-10-12 15:41:54\n\n内容要点：记录本次冒烟测试时间 2026-10-12 15:41:52（+08:00，Asia/Shanghai）、会话工作目录，以及 4 项核验结果（读消息、定位工作目录、建文件、写中文内容）均为通过。\n\n核验方式：直接用 Get-ChildItem 列出目录确认文件存在，并用 Get-Content -Raw -Encoding UTF8 回读，中文无乱码——说明「按时间命名 + 写文本 + 读回」这条链路是通的。\n\n顺带提一句：文件名用了 20261012-154152 这种格式，是因为 Windows 文件名不允许冒号。如果你更习惯 2026-10-12_154152.txt 这类带分隔符的写法，下次我按你的偏好来，你说一声就行。",
+        "raw": {
+          "count": 4,
+          "last": "文件已创建并回读验证通过。\n\n产出\n\n文件：20261012-154152.txt\n路径：\nD:\\tptwork-smoketest\\20261012-154152.txt\n（项目目录根下，文件名取自创建时刻 yyyyMMdd-HHmmss）\n大小：651 字节，写入时间 2026-10-12 15:41:54\n\n内容要点：记录本次冒烟测试时间 2026-10-12 15:41:52（+08:00，Asia/Shanghai）、会话工作目录，以及 4 项核验结果（读消息、定位工作目录、建文件、写中文内容）均为通过。\n\n核验方式：直接用 Get-ChildItem 列出目录确认文件存在，并用 Get-Content -Raw -Encoding UTF8 回读，中文无乱码——说明「按时间命名 + 写文本 + 读回」这条链路是通的。\n\n顺带提一句：文件名用了 20261012-154152 这种格式，是因为 Windows 文件名不允许冒号。如果你更习惯 2026-10-12_154152.txt 这类带分隔符的写法，下次我按你的偏好来，你说一声就行。"
+        }
+      }
+    }
+  }
+}
