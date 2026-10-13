@@ -10,6 +10,7 @@
 | 从 FTP/FTPS 获取带时间标签的最新构建包 | [get-latest-package-skill](get-latest-package-skill/SKILL.md)：筛选候选、按时间选包及下载；不执行安装 |
 | 覆盖升级/已在用之后，需要把 TPT Work 恢复到初始（首次安装）环境（登录页、无项目、无会话） | [reset-environment-to-initial-skill](reset-environment-to-initial-skill/SKILL.md)：移走真正的用户数据与登录态后重开并核验起点；只清 `tasks`/`projects` 无效 |
 | 通过 HTTP 管理局域网 OpenCode（会话、派工、状态与事件） | [lan-opencode-manage-skill](lan-opencode-manage-skill/SKILL.md)；机器地址清单按技能说明保存在本地，不提交凭据 |
+| 通过 WebSocket / JSON-RPC 管理局域网 Codex（默认本机模型、全量 RPC 透传） | [codex-lan-manage-skill](codex-lan-manage-skill/SKILL.md)；独立机器清单与安全连接，继承主控 Git 验收规则 |
 | 设计、执行、续跑探索性测试 | [exploratory-testing](exploratory-testing/SKILL.md)：通用流程、断言、恢复和交付 |
 | TPT Work 尚未启动、CDP 不可用或不清楚如何接入 | [tpt-work-access](tpt-work-access/SKILL.md) → [启动与接入](tpt-work-access/references/启动与接入.md)；具体 EXE 命令、登录与界面操作见 [UI 与 API 操作指南](tpt-work-access/references/UI与API操作.md) |
 | TPT Work 已接入，准备操作界面 | [软件 UI 操作工具](../04-测试工具/ui-operations/README.md)：按用例查函数、参数、调用和实际读取 |
