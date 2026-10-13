@@ -2,7 +2,7 @@
 
 在局域网里遥控多台 Windows PC 上的 **OpenCode V2**(`opencode web` 或 `opencode serve`)的 agent skill + Python CLI。
 
-- `SKILL.md` —— 可被 opencode 自动发现的 skill:教 agent 把整个机队当资源池来调度(派活 / 盯梢 / 验收 / 并发纪律)。
+- `SKILL.md` —— 可被 opencode 自动发现的 skill:教 agent 把整个机队当资源池来调度(派活 / 按需查询 / 验收 / 并发纪律)。
 - `scripts/occtl.py` —— Python 3.11 + httpx 单文件 CLI,封装 opencode HTTP API:会话管理、prompt、SSE 事件流、断流对账。
 - `scripts/test_occtl.py` —— 24 个单元用例,内建假 opencode 服务器(含 SSE),无需真实环境。
 - `scripts/test_integration.py` —— 真实服务器集成测试(环境变量开关,默认跳过)。

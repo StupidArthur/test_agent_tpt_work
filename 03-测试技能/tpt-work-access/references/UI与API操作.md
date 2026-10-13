@@ -104,18 +104,22 @@ $targets | Select-Object type, title, url
 
 - 已知的 API Key 弹窗：可按当前环境要求点“稍后”；如果操作者提供测试用占位 key，也可在设置中保存。保存后需新建任务复查弹窗是否消失。
 - 其他弹窗：记录标题、正文、按钮和截图，再按用例要求处理。
-- 原生 Windows 文件选择器不属于页面 DOM。Playwright 页面定位器看不到它。可让操作者先创建项目，或在可控的 `<input type="file">` 上使用 Playwright `setInputFiles`；不要隔着弹窗继续点后台页面。
+- 原生 Windows 文件/文件夹选择器不属于页面 DOM，但仍可通过 UIA 定位和 Win32 操作。按 [原生 Windows 弹窗方案](原生Windows弹窗.md) 限定应用 PID、动态发现窗口与控件，通过登记函数处理已知类型，再回读页面路径和业务结果。未知窗口或通道不可用时取证并记录阻塞及人工补测条件，不隔着弹窗继续点后台页面。`setInputFiles` 只用于实际存在且适用的文件 input。
+
+页面动作“点了没反应”或超时时，同时排查原生模态窗口；DOM 无变化或顶层窗口枚举无结果，不足以认定定位器失败或没有弹窗。
 
 弹窗关闭后重新读取页面状态，确认目标项目、任务和模型。之前在一台机器上保存占位 key 后，新建任务不再弹窗且界面仍显示 MiniMax；这**只证明界面行为**，不能据此断言实际请求路由。
 
 ### 2.4 用 Playwright/CDP 观察并分组操作
 
-在配套测试仓库根目录创建临时 `.mjs` 探索脚本时，可从这个最小代码开始（用 `apply_patch` 写文件，运行后按需删除）：
+在本仓库根目录准备探索脚本时，优先通过已登记函数取证。下列代码仅说明连接原理；实际UI读取或动作需放进本轮登记函数，经 call.mjs 留存源码与证据。复用本项目的依赖解析，不凭根目录缺少 playwright 判断未安装：
 
 ```js
-import { chromium } from 'playwright';
+import { playwright } from './04-测试工具/ui-operations/automation/session.mjs';
+const { chromium } = playwright();
 
-const port = Number(process.env.TPT_CDP_PORT ?? 9234);
+const port = Number(process.env.TPT_CDP_PORT);
+if (!Number.isInteger(port) || port < 1 || port > 65535) throw new Error('先填写已核验的 TPT_CDP_PORT');
 const browser = await chromium.connectOverCDP(`http://127.0.0.1:${port}`);
 try {
   const pages = browser.contexts().flatMap(context => context.pages());
@@ -136,7 +140,7 @@ try {
 }
 ```
 
-如果只有本资料目录、没有配套测试仓库，可临时安装轻量的 `playwright-core` 做接入探测，无需安装浏览器（CDP 连接的是已启动的 Electron）：
+只有有效环境报告确认本项目解析不到可用包，且获得依赖安装授权时，才安装。若仅持有资料而没有工具工程，可临时安装轻量的 `playwright-core` 做接入探测，无需安装浏览器（CDP 连接的是已启动的 Electron）：
 
 ```powershell
 $probeRoot = Join-Path $env:TEMP 'tpt-cdp'
@@ -144,7 +148,7 @@ $npmCache = Join-Path $env:TEMP 'tpt-npm-cache'
 npm.cmd install --prefix $probeRoot --cache $npmCache --no-audit --no-fund playwright-core
 ```
 
-在临时 `.mjs` 脚本中将上例第一行替换为以下代码，其余连接代码相同：
+在临时 `.mjs` 脚本中将上例前两行的依赖解析替换为以下代码，其余连接代码相同：
 
 ```js
 import { createRequire } from 'node:module';
@@ -392,7 +396,7 @@ Get-CimInstance Win32_Process -Filter "ProcessId=$($tptApiProcess.Id)" |
 | `Start-Process` 找不到 exe | `TPT_EXE` 是否为当前机器真实绝对路径，文件是否存在 | 请操作者提供安装路径；不要套用原机器路径 |
 | exe 进程出现后立刻退出 | 工作目录、启动参数、stdout/stderr、产品日志 | 记录退出码；不要把进程曾出现当作启动成功 |
 | `/json/version` 通，但 `/json/list` 无 TPT 页面 | renderer 尚未就绪、已有单实例、窗口被弹窗阻塞 | 等待并重新取 targets；检查当前进程归属与实际界面 |
-| Playwright 点击超时 | 当前可见弹窗、遮挡层、目标 locator 数量 | 重新观察当前页面；确认已知弹窗关闭后再操作 |
+| Playwright 点击超时 | DOM 弹窗、遮挡层、目标 locator 数量及原生模态窗口 | 重新观察页面；必要时按 [原生窗口方案](原生Windows弹窗.md) 限定 PID 探测并处理已知类型，再回读业务状态 |
 | `/__verbs` 无 token 返回 401 | 只是鉴权门槛正常工作 | 用启动时相同的 Bearer token 再请求，必须得到 200 |
 | `/__verbs` 带 token 仍连接失败 | 端口、PID、网关日志、包是否支持 `--test` | 停在网关启动问题，不运行 API case |
 | API 返回 HTTP 200 但 case 失败 | `result.ok`、`result.error`、RPC 参数形状 | 按当前包的 schema 与业务状态定位 |

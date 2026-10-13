@@ -17,6 +17,8 @@
 | 读取或关闭页面弹窗 | 观察/恢复 | [候选与指导](../scenarios/conversation.dialogs.md) |
 | 读取左侧插件页卡片 | 观察 | [候选与指导](../scenarios/conversation.legacy-plugin.md) |
 | 读取输入区用量展示 | 观察 | [候选与指导](../scenarios/conversation.usage.md) |
+| 当前对话首次打开本地项目 | 当前对话首次打开本地项目 | [候选与指导](../scenarios/conversation.project.open.md) |
+| 创建项目并读取项目选项 | 创建项目并读取项目选项 | [候选与指导](../scenarios/conversation.project.create.md) |
 | 只新建任务或按标题切换 | 只新建任务或按标题切换 | [候选与指导](../scenarios/conversation.session.basic.md) |
 | 观察当前控件与侧栏结构 | 观察当前控件与侧栏结构 | [候选与指导](../scenarios/conversation.inspect.md) |
 | 打开项目选择入口及菜单 | 打开项目选择入口及菜单 | [候选与指导](../scenarios/conversation.project.entry.md) |

@@ -2,7 +2,7 @@
 
 [仓库说明](../README.md) · [工作规则](../AGENTS.md)
 
-这里是全仓库的二级入口。先选与你的目标一致的一行，只进入该行需要的资料；已知任务、case 或函数时直接使用对应入口。目录编号表示资料职责，不表示阅读顺序。
+这里是全仓库的二级入口。先选与你的目标一致的一行，只进入该行需要的资料；已知任务、case 或函数时直接使用对应入口。目录编号表示资料职责，不表示阅读顺序。按目标选路由，当前接入状态和输入缺项决定下一步条件，不把参数齐备作为进入目标路径的门槛。
 
 ## 目标明确：直接到执行所需资料
 
@@ -10,8 +10,9 @@
 |---|---|---|
 | 进入新环境，或执行工具/宿主发生变化 | [环境检测工具集](../04-测试工具/environment-check/README.md)：一次检查 PowerShell、CMD、Node.js、Python、Node.js Playwright，并读返回的使用指南 | 同环境复用结果；大型任务编写命令前按指南选择兼容写法，异常时只补查受影响能力 |
 | 执行或续跑已分配测试 | 本轮任务 README → [通用测试技能](../03-测试技能/exploratory-testing/SKILL.md)；沿用队列、样本与现有结果 | 只为当前前置、动作或断言补读，不重跑已完成项 |
-| 操作 TPT Work，已接入 | [UI 工具入口](../04-测试工具/ui-operations/README.md)：有 case 查 `--plan`；目标明确查 `--find`，再 `--describe` 单函数 | 调用格式查[调用与记录](../04-测试工具/ui-operations/docs/调用与记录.md)；没有匹配能力才进入开发路径 |
-| 启动、连接 TPT Work，或实例不确定 | [接入技能](../03-测试技能/tpt-work-access/SKILL.md) → [启动与接入](../03-测试技能/tpt-work-access/references/启动与接入.md) | 需要具体命令、登录或 API 模式时查[实操指南](../03-测试技能/tpt-work-access/references/UI与API操作.md)；稳定接入后转工具入口 |
+| 执行已接入 TPT Work 的业务操作 | [UI 工具入口](../04-测试工具/ui-operations/README.md)：有 case 查 `--plan`；目标明确查 `--find`，再 `--describe` 单函数 | 调用格式查[调用与记录](../04-测试工具/ui-operations/docs/调用与记录.md)；没有匹配能力才进入开发路径 |
+| 打开、复用、显示或绑定真实 TPT 实例（包括已有CDP） | [接入技能](../03-测试技能/tpt-work-access/SKILL.md) 按目标进入实例路由；缺标题等字段在叶子指导读取 | 未知安装路径/端口才补读[启动与接入](../03-测试技能/tpt-work-access/references/启动与接入.md)；登录/API细节按需读[实操指南](../03-测试技能/tpt-work-access/references/UI与API操作.md) |
+| 覆盖升级/已在用之后，需要把 TPT Work 恢复到初始（首次安装）环境 | [reset-environment-to-initial-skill](../03-测试技能/reset-environment-to-initial-skill/SKILL.md)：移走用户数据与登录态后重开并核验起点 | 只清 `tasks`/`projects` 无效；破坏性，先备份；命令见[实测命令](../03-测试技能/reset-environment-to-initial-skill/references/tpt-work-windows.md) |
 | 执行 LLM 网关 API 测试 | [网关测试入口](../02-测试项/saas-llm-test/README.md)；按本轮目标选方案、case 和代码 | 缺指标依据或出现协议/性能问题才读对应定义、诊断；不读 UI 启动资料 |
 | 动作定位失败、前置不足、读值矛盾 | [补测规则](../03-测试技能/exploratory-testing/references/retest.md)；保留原 attempt，按证据确定修正或限制 | 需要产品接入排障时查接入指南，不反复扩大历史检索 |
 | 缺能力，需新增、修改或评审测试代码 | [代码开发技能](../03-测试技能/test-automation-development/SKILL.md)；扩展 UI 库再查[扩展与边界](../04-测试工具/ui-operations/docs/扩展与边界.md) | 先核对既有候选，再按缺口选择契约、分层或验证参考；任务实现留本轮待审核 |

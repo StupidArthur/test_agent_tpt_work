@@ -7,6 +7,7 @@
 | 要做什么 | 意图 | 下一份资料 |
 |---|---|---|
 | 核对连接与当前详情身份 | 观察 | [候选与指导](../scenarios/application.connection.md) |
+| 复用或授权启动明确应用 | 明确exe的打开、复用或显示目标；缺标题等输入按叶子指导读取 | [候选与指导](../scenarios/application.startup.md) |
 | 登录页读取与账号密码登录 | 登录页读取与账号密码登录 | [候选与指导](../scenarios/application.login.md) |
 | 首页账号与退出登录 | 首页账号与退出登录 | [候选与指导](../scenarios/application.account.md) |
 

@@ -7,7 +7,10 @@
         "接入",
         "连接",
         "环境",
-        "CDP"
+        "CDP",
+        "启动",
+        "复用",
+        "显示"
       ]
     },
     {
@@ -84,6 +87,17 @@
       "keywords": [
         "冒烟",
         "smoke"
+      ]
+    },
+    {
+      "name": "nativeWindow",
+      "title": "原生Windows窗口",
+      "keywords": [
+        "原生",
+        "弹窗",
+        "选择文件夹",
+        "UIA",
+        "Win32"
       ]
     }
   ],
@@ -916,6 +930,84 @@
         "smoke.skills.setSwitch",
         "smoke.skills.openAndReadDetail"
       ]
+    },
+    {
+      "id": "nativeWindow.inspect",
+      "module": "nativeWindow",
+      "title": "发现和读取原生窗口",
+      "intent": "页面被模态窗口阻塞或触发系统选择器时，限定PID发现窗口、读取控件和身份",
+      "guide": "先probe或list，再用describe读取动态句柄。扫描失败不能记为无弹窗；未知窗口只取证。",
+      "functions": [
+        "nativeWindow.probe",
+        "nativeWindow.list",
+        "nativeWindow.describe"
+      ]
+    },
+    {
+      "id": "nativeWindow.select",
+      "module": "nativeWindow",
+      "title": "操作已识别文件/文件夹选择器",
+      "intent": "依据describe的PID、句柄、标题和进程启动时间，写路径、确认或取消并回读",
+      "guide": "仅处理已识别的选择器结构；act需要显式动作和最新身份参数。成功返回不代表项目创建通过，必须再读页面路径和业务对象。",
+      "functions": [
+        "nativeWindow.act"
+      ]
+    },
+    {
+      "id": "nativeWindow.visibility",
+      "module": "nativeWindow",
+      "title": "读取窗口身份、显示状态与恢复",
+      "intent": "读取实际标题、HWND与启动时间；区分原生显示、最小化和前台，恢复已授权窗口",
+      "guide": "先readState动态取得PID、HWND、标题和启动时间；需要显示时才显式restore并回读。visible不证明未被遮挡，未知归属或陈旧绑定拒绝动作。",
+      "functions": [
+        "nativeWindow.readState",
+        "nativeWindow.restore"
+      ]
+    },
+    {
+      "id": "application.startup",
+      "module": "application",
+      "title": "复用或授权启动明确应用",
+      "intent": "明确exe的打开、复用或显示目标；缺标题等输入按叶子指导读取",
+      "guide": "新环境工具版本只检测一次，同环境有效结果复用。已知准确exe/标题/端口时直接查application.open契约并调用；进程路径/启动时间、端口归属、窗口与实际CDP目标在调用内分别核验留证，不在前面重复裸shell窗口或/json/list预检。已知PID但缺准确标题时，先用nativeWindow.readState读取实际标题/HWND，再绑定唯一授权主窗口；有歧义停止猜测，不扫描安装包或日志推断标题。CDP需实际本机端口及URL前缀；旧实例无CDP或端口归属不一致时拒绝重复启动。ensureVisible仅在需要显示且有授权时使用。ready只证明绑定窗口已观察、请求CDP时唯一目标的非空body可读；不能推出业务完成、无模态阻塞、获焦点或无遮挡。看实际原生状态、CDP body和分阶段机器耗时。",
+      "functions": [
+        "application.open",
+        "nativeWindow.readState"
+      ]
+    },
+    {
+      "id": "conversation.project.open",
+      "module": "conversation",
+      "title": "当前对话首次打开本地项目",
+      "intent": "当前对话首次打开本地项目",
+      "keywords": [
+        "项目",
+        "首次",
+        "打开",
+        "目录"
+      ],
+      "functions": [
+        "conversation.openProject",
+        "conversation.readProjectSurface"
+      ],
+      "guide": "先登记读取当前会话、项目按钮及菜单入口，再调用openProject。已有项目走已有项目场景，不重复添加。入口role/name不能猜。 新组合仅静态检查，待现场验收。参数和恢复见[项目业务组合](../项目业务组合.md)。"
+    },
+    {
+      "id": "conversation.project.create",
+      "module": "conversation",
+      "title": "创建项目并读取项目选项",
+      "intent": "创建项目并读取项目选项",
+      "keywords": [
+        "项目",
+        "创建",
+        "新建",
+        "文件夹"
+      ],
+      "functions": [
+        "conversation.createProject",
+        "conversation.readProjectSurface"
+      ],
+      "guide": "先登记读取表单字段和菜单选项，排除同名项目，再调用createProject。单次提交，失败先核对实际资产，不盲目重试。精确菜单项不证明持久化。 新组合仅静态检查，待现场验收。参数和恢复见[项目业务组合](../项目业务组合.md)。"
     },
     {
       "id": "application.login",

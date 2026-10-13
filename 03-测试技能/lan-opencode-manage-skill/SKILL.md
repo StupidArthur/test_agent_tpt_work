@@ -40,7 +40,7 @@ copy 03-测试技能\lan-opencode-manage-skill\references\servers.example.json .
 py -3.11 scripts\occtl.py --server PC88 info
 ```
 
-- 主控清单固定放在当前项目仓库根目录的 `.lan-opencodes.json`,可从技能目录中的 `references/servers.example.json` 复制创建。不同 PC 可配置不同密码;该文件已加入仓库根 `.gitignore`,不可提交 Git。CLI 从仓库根目录或其子目录运行时会向上查找该文件。
+- 主控清单固定放在当前项目仓库根目录的 `.lan-opencodes.json`,可从技能目录中的 `references/servers.example.json` 复制创建。不同 PC 可配置不同密码;该文件已加入仓库根 `.gitignore`,不可提交 Git。CLI 从仓库根目录或其子目录运行时先确定Git边界，再使用根清单；子目录同名文件不能覆盖根清单，缺失时也不跨仓库回退。非Git目录可向上找到最近同名文件；显式路径优先。
 - 客户端认证优先级: `--password` > `OCCTL_PASSWORD` > 当前 PC 的 registry `password` > `OPENCODE_SERVER_PASSWORD`(兼容末级回退);CLI 登录用户名固定为 `opencode`。
 - `servers` 和 `ps` 的文本输出用 `configured_model:` 表示绑定配置;JSON 结构仍使用 `model` 字段。两者都不代表当前会话实际使用的模型。
 
@@ -49,7 +49,7 @@ py -3.11 scripts\occtl.py --server PC88 info
 | 命令 | 说明 |
 |------|------|
 | `info` | 探活/服务信息 |
-| `servers [--probe]` | 列出 servers.json 里的机器(含各自绑定的模型) |
+| `servers [--probe]` | 列出项目根目录 `.lan-opencodes.json` 里的机器(含各自绑定的模型) |
 | `ps` | **全队视图**:每台在线状态 + 正在跑的会话(管理入口) |
 | `ls [--dir D:/w] [--limit N]` | 会话列表(含 outcome) |
 | `run --dir D:/w "任务"` | **新建会话**跑任务,流式输出,等结束 |
@@ -79,7 +79,7 @@ py -3.11 scripts\occtl.py --server PC88 --json run --session ses_xxx "运行测�
 - 退出码:`0` 成功 · `1` 用法/HTTP 错误 · `2` 会话执行失败 · `3` 超时(已自动 interrupt,会话可续用)。
 - 新建会话默认注入"全部允许"权限,headless 不会卡权限询问;需要收紧时用 `--no-allow-all` 并自行在目标机配置 `permissions`。
 - **版本兼容**:自动适配 opencode v2.0.x(stable)与 dev/下一版两套 API 形状——prompt 请求体(`text` ↔ `prompt.text`)、wait 路径(experimental ↔ 正式)、服务信息(`/api/info` ↔ `/api/server`)、create 权限字段(新版不支持时自动去掉并在 stderr 提醒)。无需配置。
-- **断流对账**:事件流被掐断时,自动查会话 `outcome` 并补回最终文本,不会把已完成的任务误报成丢失(见"盯梢")。
+- **断流对账**:事件流被掐断时,先查当前 `/api/session/active`，再结合会话 `outcome` 和最新已完成 assistant 补回最终文本,不会把已完成的任务误报成丢失(见“按需查询”)。
 
 ## 管理规程(AI 当调度器)
 
@@ -97,15 +97,15 @@ py -3.11 scripts\occtl.py --server PC88 --json run --session ses_xxx "运行测�
   ```
 
   state 取值:`dispatched`(已派)→ `running`(执行中)→ `done`/`failed`(执行终态)→ `accepted`/`rejected`(主控验收)→ `merged`(已合并);被拒任务在同一机器分支继续修正,不直接启动下一任务。
-  终态依据:会话 `outcome`(succeeded/failed/interrupted)+ 最新 assistant 文本摘要。
+  终态依据：先核对当前 `/api/session/active`。活动会话即使保留旧 succeeded 也仍是 running；活动查询失败/结构异常、updated晚于旧idle，或最新assistant未完成时不能确认成功。空闲且最新assistant finish=stop后才结合 outcome 与最终文本验收，不取更旧轮次的final代替当前结果。
 
 ### Git 多机协作(固定 PC 分支,主控审批)
 
 1. **项目边界**:管理侧一个工作目录只对应一个项目、一个 Git 仓库;用 `git rev-parse --show-toplevel`、`git remote get-url origin` 确认,不建全局项目注册表。远端同一项目的目录可不同,但 `origin` 必须一致。
-2. **机器命名**:全局 `servers.json` 中的名称是机器身份,约定 `192.168.1.88 → PC88`、`192.168.1.89 → PC89`。机器名**区分大小写**且在注册表中唯一;地址变化须先核对并更新映射,不可按未知 IP 猜测机器身份。
+2. **机器命名**:项目根目录 `.lan-opencodes.json` 中的名称是机器身份,约定 `192.168.1.88 → PC88`、`192.168.1.89 → PC89`。机器名**区分大小写**且在注册表中唯一;地址变化须先核对并更新映射,不可按未知 IP 猜测机器身份。
 3. **固定分支**:在**每个项目仓库**里,非主控 `PC88` 只允许在 `PC88` 分支开发、`commit` 和 `push origin PC88`; `PC89` 同理。机器分支长期复用,**不按任务另建 `agent/<jobId>` 分支**。非主控不得向主分支或他机分支提交/推送,不得自行向主分支合并或强推;仅允许在主控批准后通过 `--ff-only` 将主分支同步进自己的分支。主控独占主分支合并决定权。
-4. **远端初始化**:首次由该 PC 的 Agent 在已存在的父目录内 `git clone`,之后改用仓库目录作为 `--dir`;已有仓库先 `git fetch origin`、核对 remote 和 `git status`。不覆盖未提交修改,未经确认不得 `reset --hard`、`clean -fd`。
-5. **派活准备**:主控明确 PC、项目、远端目录、基准分支(如 `main`)、基准 Commit SHA 和任务 ID。首次从 `origin/<主分支>`(常见为 `origin/main`)建立同名机器分支;后续仅在**上轮已验收并合并、工作区干净**时同步主分支到该分支。若无法快进或仍有未合并工作,停下并报告主控。
+4. **远端初始化**:首次由该 PC 的 Agent 在已存在的父目录内 `git clone`,克隆后立刻从核定的 `origin/<主分支>` 建立并切到主控指定的同名机器分支，再核验当前分支、工作区、origin与基准SHA；之后用仓库目录作为 `--dir`。不凭相近名字复用旧历史分支（如PC-88不等于PC88），不默认从旧分支建立新机器分支。已有仓库先 `git fetch origin`、核对 remote 和 `git status`，按本轮授权处理；不覆盖未提交修改,未经确认不得 `reset --hard`、`clean -fd`。执行者只需知道明确分支，不必自行猜测机器身份。
+5. **派活准备**:主控明确 PC、项目、远端目录、基准分支(如 `main`)、基准 Commit SHA 和任务 ID，并在prompt明确本轮任务目录、README/环境/交付位置；--dir只选择工作目录，不会自动指出本轮任务，不能让执行者从历史目录猜测。首次从 `origin/<主分支>`(常见为 `origin/main`)建立同名机器分支;后续仅在**上轮已验收并合并、工作区干净**时同步主分支到该分支。若无法快进或仍有未合并工作,停下并报告主控。
 6. **交付**:非主控只在自己的机器分支修改并测试,完成后 `commit + push` 该分支,向主控返回任务 ID、Session ID、分支名、Commit SHA、测试结果和风险;不得自己合并或自行领取下一任务。
 7. **主控闸门**:主控 `git fetch` 相应机器分支或查看 PR,核对相对基准的 diff 与测试;决定 `merge`、退回继续修改或放弃。**主控明确处理本轮结果之前,不可向该 PC 派下一任务**;不同 PC 的独立任务可并行。
 8. **合并后同步**:默认由主控以**保留原提交祖先关系**的 merge commit / fast-forward 合并到主分支(不默认 squash/rebase 长期机器分支)。主控确认合并后,PC 在干净的本机分支上 `git fetch origin` → `git merge --ff-only origin/<主分支>` → `git push origin <PC名>`,成功后才接新任务;快进失败需主控介入,不能擅自重置或强推。
@@ -124,18 +124,22 @@ py -3.11 scripts\occtl.py --server PC88 --json run --detach --require-idle --dir
 
 `--require-idle` 是程序级防呆:派发前先查目标机 `/api/session/active`,有其它会话在跑就直接拒绝(exit 1);这是尽力检查,不是跨管理机的原子锁。
 
-### 盯梢
+### 按需查询
+
+默认流程是异步派发 → 写台账 → 回到用户协作或主控自己的任务，不紧接长时间wait或围绕单任务循环查询。用户问进度、需要审核结果/决定重试，或执行机队管理时，按目的读取一次状态；纯管理工作可周期巡检全队。用户明确授权持续自主验收时，主控按阶段管理队列并审核结果，不因此停止工作。
+
+同一工作目录中的本机只读验收任务应明确“不改正式代码、不commit/push”，保留任务证据；不要在主控正在使用的工作区切换分支。远端独立开发任务才按机器分支提交交付。
 
 ```bat
 :: 全队:谁在跑
 py -3.11 scripts\occtl.py ps
 py -3.11 scripts\occtl.py --server PC88 --json messages ses_x --limit 5
-:: → 看 newest assistant 文本与 idle.outcome 判断 done/failed
+:: → 先查 ps 当前活动，再看最新已完成 assistant 文本与 idle.outcome 判断 done/failed
 :: 需要时续轮
 py -3.11 scripts\occtl.py --server PC88 run --session ses_x "..."
 ```
 
-`run/prompt --wait` 的事件流被掐断时,occtl 会**自动向服务器对账**:查会话 `outcome`(succeeded/failed/interrupted)并补回最终文本;若仍在跑会明确提示用 `wait`/`messages` 跟踪。不需要重跑任务。
+`run/prompt --wait` 的事件流被掐断时,occtl 会**自动向服务器对账**:先核对当前活动，再查会话 `outcome`(succeeded/failed/interrupted)与最新已完成assistant并补回最终文本;若仍在跑会明确提示用 `wait`/`messages` 跟踪。不需要重跑任务。
 
 ### 验收与收尾(逐任务)
 

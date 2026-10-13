@@ -6960,6 +6960,587 @@
       "modules": []
     },
     {
+      "name": "nativeWindow.probe",
+      "feature_path": [
+        "原生Windows窗口",
+        "发现与读取"
+      ],
+      "file": "business/native-window/index.mjs",
+      "export": "probe",
+      "version": "native-window-1.2",
+      "status": "已通过本机Windows夹具验收；TPT全树扫描未单独验证",
+      "description": "按PID发现原生模态窗口；区分未发现与通道失败，返回窗口、owner及UIA观察，不连接CDP",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "processId": {
+            "type": "integer"
+          }
+        },
+        "required": [
+          "processId"
+        ],
+        "additionalProperties": false
+      },
+      "modules": [
+        "automation/native-window.mjs",
+        "automation/native-window.ps1"
+      ],
+      "origin": {
+        "machine": "controller",
+        "note": "2026-10-12 implementation based on native Windows dialog note"
+      }
+    },
+    {
+      "name": "nativeWindow.list",
+      "feature_path": [
+        "原生Windows窗口",
+        "发现与读取"
+      ],
+      "file": "business/native-window/index.mjs",
+      "export": "list",
+      "version": "native-window-1.2",
+      "status": "已通过本机Windows夹具验收；TPT全树扫描未单独验证",
+      "description": "列出目标PID可访问的UIA窗口（包括DOM窗口候选），不操作窗口",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "processId": {
+            "type": "integer"
+          }
+        },
+        "required": [
+          "processId"
+        ],
+        "additionalProperties": false
+      },
+      "modules": [
+        "automation/native-window.mjs",
+        "automation/native-window.ps1"
+      ],
+      "origin": {
+        "machine": "controller",
+        "note": "2026-10-12 implementation based on native Windows dialog note"
+      }
+    },
+    {
+      "name": "nativeWindow.describe",
+      "feature_path": [
+        "原生Windows窗口",
+        "发现与读取"
+      ],
+      "file": "business/native-window/index.mjs",
+      "export": "describe",
+      "version": "native-window-1.2",
+      "status": "已通过本机Windows夹具及真实TPT文件夹结构验收",
+      "description": "读取动态窗口句柄的控件、真实值及进程启动身份，区分选择器候选和未知窗口",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "processId": {
+            "type": "integer"
+          },
+          "dialogHwnd": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "processId",
+          "dialogHwnd"
+        ],
+        "additionalProperties": false
+      },
+      "modules": [
+        "automation/native-window.mjs",
+        "automation/native-window.ps1"
+      ],
+      "origin": {
+        "machine": "controller",
+        "note": "2026-10-12 implementation based on native Windows dialog note"
+      }
+    },
+    {
+      "name": "nativeWindow.act",
+      "feature_path": [
+        "原生Windows窗口",
+        "选择器操作"
+      ],
+      "file": "business/native-window/index.mjs",
+      "export": "act",
+      "version": "native-window-1.3",
+      "status": "Windows文件选择全链/路径拒绝与TPT文件夹取消已验收；业务确认回填另测",
+      "description": "显式操作已识别选择器：写入存在的绝对路径、确认或取消；校验进程启动时间和标题，回读窗口状态，不代表业务通过；Edit缺ValuePattern时用有界WM_GETTEXT真实回读并记录取值渠道",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "processId": {
+            "type": "integer"
+          },
+          "dialogHwnd": {
+            "type": "string"
+          },
+          "expectedTitle": {
+            "type": "string"
+          },
+          "expectedProcessStartTimeUtc": {
+            "type": "string"
+          },
+          "action": {
+            "type": "string",
+            "enum": [
+              "setPath",
+              "confirm",
+              "cancel"
+            ]
+          },
+          "pathValue": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "processId",
+          "dialogHwnd",
+          "expectedTitle",
+          "expectedProcessStartTimeUtc",
+          "action"
+        ],
+        "additionalProperties": false
+      },
+      "modules": [
+        "automation/native-window.mjs",
+        "automation/native-window.ps1"
+      ],
+      "origin": {
+        "machine": "controller",
+        "note": "2026-10-12 implementation based on native Windows dialog note"
+      }
+    },
+    {
+      "name": "nativeWindow.readState",
+      "feature_path": [
+        "原生Windows窗口",
+        "显示状态与恢复"
+      ],
+      "file": "business/native-window/index.mjs",
+      "export": "readState",
+      "version": "window-state-1.0",
+      "status": "Windows非模态隐藏/最小化/恢复与身份拒绝23项验收；前台请求true/Win10待测",
+      "description": "按真实PID读取Win32窗口身份（标题、HWND、启动时间）与最小化/可见/前台状态；不把CDP可达当显示",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "processId": {
+            "type": "integer"
+          }
+        },
+        "required": [
+          "processId"
+        ],
+        "additionalProperties": false
+      },
+      "modules": [
+        "automation/native-window.mjs",
+        "automation/window-state.ps1"
+      ],
+      "origin": {
+        "machine": "controller",
+        "note": "2026-10-12 structured window evidence based on local notes 001/003"
+      }
+    },
+    {
+      "name": "nativeWindow.restore",
+      "feature_path": [
+        "原生Windows窗口",
+        "显示状态与恢复"
+      ],
+      "file": "business/native-window/index.mjs",
+      "export": "restore",
+      "version": "window-state-1.1",
+      "status": "非模态隐藏/最小化/身份拒绝已验收；稳定矩形返回另经组合启动02复验，前台true/Win10待测",
+      "description": "显式恢复已授权、动态身份绑定的隐藏或最小化窗口；动作后回读状态，前台请求可能被系统拒绝，不能证明无遮挡或业务通过",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "processId": {
+            "type": "integer"
+          },
+          "windowHwnd": {
+            "type": "string"
+          },
+          "expectedTitle": {
+            "type": "string"
+          },
+          "expectedProcessStartTimeUtc": {
+            "type": "string"
+          },
+          "requestForeground": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "processId",
+          "windowHwnd",
+          "expectedTitle",
+          "expectedProcessStartTimeUtc"
+        ],
+        "additionalProperties": false
+      },
+      "modules": [
+        "automation/native-window.mjs",
+        "automation/window-state.ps1"
+      ],
+      "origin": {
+        "machine": "controller",
+        "note": "2026-10-12 structured window evidence based on local notes 001/003"
+      }
+    },
+    {
+      "name": "application.open",
+      "feature_path": [
+        "接入与环境",
+        "复用或启动应用"
+      ],
+      "file": "business/application/open.mjs",
+      "export": "open",
+      "version": "application-open-1.2",
+      "status": "GUI启动/复用/稳定恢复14项及真实TPT已测；新端口输入防护和实际摘要本轮独立复验；Win10/新TPT启动待测",
+      "description": "合并明确目标的进程/端口归属、复用或授权启动、原生窗口状态与CDP真实目标读取；可显式恢复显示，返回机器阶段耗时，不重复环境版本检查、不结束旧实例；直接返回实际端口归属和唯一目标计数",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "executablePath": {
+            "type": "string"
+          },
+          "expectedWindowTitle": {
+            "type": "string"
+          },
+          "processId": {
+            "type": "integer",
+            "description": "Optional explicit positive process ID; zero and negative values are rejected, never treated as omitted."
+          },
+          "arguments": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "cdpEndpoint": {
+            "type": "string"
+          },
+          "targetUrlPrefix": {
+            "type": "string"
+          },
+          "allowLaunch": {
+            "type": "boolean"
+          },
+          "ensureVisible": {
+            "type": "boolean"
+          },
+          "timeoutMs": {
+            "type": "integer"
+          }
+        },
+        "required": [
+          "executablePath",
+          "expectedWindowTitle"
+        ],
+        "additionalProperties": false
+      },
+      "modules": [
+        "automation/application-open.mjs",
+        "automation/application-system.ps1",
+        "automation/native-window.mjs",
+        "automation/window-state.ps1",
+        "automation/session.mjs"
+      ],
+      "preconditions": [
+        "Windows当前交互session和已授权应用，指定真实绝对exe和精确窗口标题",
+        "native_execution_policy按有效环境指南；CDP指定本机真实端口及目标URL前缀",
+        "launch参数不含空白/引号；复杂参数需要经过审核的显式launcher"
+      ],
+      "effects": [
+        "allowLaunch=true且未发现旧实例时启动应用；ensureVisible=true可恢复隐藏或最小化窗口",
+        "读取真实页面body及窗口状态，写入本轮证据；失败不终止应用，实际启动身份保留在read事件"
+      ],
+      "origin": {
+        "machine": "controller",
+        "note": "local-notes001/003及优化笔记；旧实现不存在，重新实现且不搬入旧性能结论"
+      }
+    },
+    {
+      "name": "conversation.readProjectSurface",
+      "feature_path": [
+        "对话与任务",
+        "项目首次打开与创建"
+      ],
+      "file": "business/conversation/project-workflows.mjs",
+      "export": "readProjectSurface",
+      "version": "project-workflow-0.1",
+      "status": "已实现；仅静态检查，待现场验收",
+      "description": "读取当前项目入口、表单字段、会话身份与项目按钮，不打开菜单或选择器",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "required": [],
+        "additionalProperties": false
+      },
+      "modules": [
+        "automation/session.mjs",
+        "automation/conversation.mjs",
+        "business/native-window/index.mjs",
+        "automation/native-window.mjs",
+        "automation/native-window.ps1",
+        "automation/window-state.ps1"
+      ],
+      "preconditions": [
+        "准确PID/启动时间/页面/当前会话身份；目录和项目已授权",
+        "按钮和字段标签来自本轮登记读取；存在菜单/弹窗或未知结构拒绝",
+        "创建前登记读取排除同名项目并留projectAbsenceEvidenceRef；引用由调用者审核，不自动证明不存在"
+      ],
+      "returns": "真实DOM和原生事件引用；stage仅表示观察阶段，businessVerified和persistenceVerified均false",
+      "cleanup": "失败不自动重试、取消或删除项目；按证据恢复本轮对象",
+      "origin": {
+        "task": "2026-10-12-项目业务组合待验收",
+        "source": "已验收文件夹回填编排；业务全流程新增待验收"
+      }
+    },
+    {
+      "name": "conversation.openProject",
+      "feature_path": [
+        "对话与任务",
+        "项目首次打开与创建"
+      ],
+      "file": "business/conversation/project-workflows.mjs",
+      "export": "openProject",
+      "version": "project-workflow-0.1",
+      "status": "已实现；仅静态检查，待现场验收",
+      "description": "当前对话首次打开本地目录：项目菜单→原生选择器→实际项目按钮回读，不新建会话",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "expectedProcessStartTimeUtc": {
+            "type": "string"
+          },
+          "expectedPageUrl": {
+            "type": "string"
+          },
+          "expectedSession": {
+            "type": "string"
+          },
+          "folderPath": {
+            "type": "string"
+          },
+          "expectedProjectLabel": {
+            "type": "string"
+          },
+          "projectControlName": {
+            "type": "string"
+          },
+          "processId": {
+            "type": "integer"
+          },
+          "timeoutMs": {
+            "type": "integer"
+          },
+          "entry": {
+            "type": "object",
+            "required": [
+              "role",
+              "name"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "role": {
+                "type": "string",
+                "enum": [
+                  "button",
+                  "menuitem"
+                ]
+              },
+              "name": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "required": [
+          "expectedProcessStartTimeUtc",
+          "expectedPageUrl",
+          "expectedSession",
+          "folderPath",
+          "expectedProjectLabel",
+          "projectControlName",
+          "processId",
+          "entry"
+        ],
+        "additionalProperties": false
+      },
+      "modules": [
+        "automation/session.mjs",
+        "automation/conversation.mjs",
+        "business/native-window/index.mjs",
+        "automation/native-window.mjs",
+        "automation/native-window.ps1",
+        "automation/window-state.ps1"
+      ],
+      "preconditions": [
+        "准确PID/启动时间/页面/当前会话身份；目录和项目已授权",
+        "按钮和字段标签来自本轮登记读取；存在菜单/弹窗或未知结构拒绝",
+        "创建前登记读取排除同名项目并留projectAbsenceEvidenceRef；引用由调用者审核，不自动证明不存在"
+      ],
+      "returns": "真实DOM和原生事件引用；stage仅表示观察阶段，businessVerified和persistenceVerified均false",
+      "cleanup": "失败不自动重试、取消或删除项目；按证据恢复本轮对象",
+      "origin": {
+        "task": "2026-10-12-项目业务组合待验收",
+        "source": "已验收文件夹回填编排；业务全流程新增待验收"
+      }
+    },
+    {
+      "name": "conversation.createProject",
+      "feature_path": [
+        "对话与任务",
+        "项目首次打开与创建"
+      ],
+      "file": "business/conversation/project-workflows.mjs",
+      "export": "createProject",
+      "version": "project-workflow-0.1",
+      "status": "已实现；仅静态检查，待现场验收",
+      "description": "创建项目：填写表单、选择源目录、单次提交、读取精确项目菜单项；持久化另验",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "expectedProcessStartTimeUtc": {
+            "type": "string"
+          },
+          "expectedPageUrl": {
+            "type": "string"
+          },
+          "expectedSession": {
+            "type": "string"
+          },
+          "folderPath": {
+            "type": "string"
+          },
+          "expectedProjectLabel": {
+            "type": "string"
+          },
+          "projectControlName": {
+            "type": "string"
+          },
+          "processId": {
+            "type": "integer"
+          },
+          "timeoutMs": {
+            "type": "integer"
+          },
+          "entry": {
+            "type": "object",
+            "required": [
+              "role",
+              "name"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "role": {
+                "type": "string",
+                "enum": [
+                  "button",
+                  "menuitem"
+                ]
+              },
+              "name": {
+                "type": "string"
+              }
+            }
+          },
+          "projectName": {
+            "type": "string"
+          },
+          "nameFieldLabel": {
+            "type": "string"
+          },
+          "folderControl": {
+            "type": "object",
+            "required": [
+              "role",
+              "name"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "role": {
+                "type": "string",
+                "enum": [
+                  "button",
+                  "menuitem"
+                ]
+              },
+              "name": {
+                "type": "string"
+              }
+            }
+          },
+          "submitControl": {
+            "type": "object",
+            "required": [
+              "role",
+              "name"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "role": {
+                "type": "string",
+                "enum": [
+                  "button",
+                  "menuitem"
+                ]
+              },
+              "name": {
+                "type": "string"
+              }
+            }
+          },
+          "projectAbsenceEvidenceRef": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "expectedProcessStartTimeUtc",
+          "expectedPageUrl",
+          "expectedSession",
+          "folderPath",
+          "expectedProjectLabel",
+          "projectControlName",
+          "processId",
+          "entry",
+          "projectName",
+          "nameFieldLabel",
+          "folderControl",
+          "submitControl",
+          "projectAbsenceEvidenceRef"
+        ],
+        "additionalProperties": false
+      },
+      "modules": [
+        "automation/session.mjs",
+        "automation/conversation.mjs",
+        "business/native-window/index.mjs",
+        "automation/native-window.mjs",
+        "automation/native-window.ps1",
+        "automation/window-state.ps1"
+      ],
+      "preconditions": [
+        "准确PID/启动时间/页面/当前会话身份；目录和项目已授权",
+        "按钮和字段标签来自本轮登记读取；存在菜单/弹窗或未知结构拒绝",
+        "创建前登记读取排除同名项目并留projectAbsenceEvidenceRef；引用由调用者审核，不自动证明不存在"
+      ],
+      "returns": "真实DOM和原生事件引用；stage仅表示观察阶段，businessVerified和persistenceVerified均false",
+      "cleanup": "失败不自动重试、取消或删除项目；按证据恢复本轮对象",
+      "origin": {
+        "task": "2026-10-12-项目业务组合待验收",
+        "source": "已验收文件夹回填编排；业务全流程新增待验收"
+      }
+    },
+    {
       "name": "application.readLoginPage",
       "file": "business/smoke/login.mjs",
       "export": "readLoginPage",

@@ -270,12 +270,15 @@ class FakeOpencode:
 
 
 def run_cli(*argv: str, timeout: float = 60.0, env: dict[str, str] | None = None) -> subprocess.CompletedProcess:
+    child_env = dict(os.environ if env is None else env)
+    child_env["PYTHONIOENCODING"] = "utf-8"
     return subprocess.run(
         [sys.executable, str(CLI), *argv],
         capture_output=True,
         text=True,
+        encoding="utf-8",
         timeout=timeout,
-        env=env,
+        env=child_env,
     )
 
 
@@ -608,6 +611,7 @@ class OcctlTest(unittest.TestCase):
                     {
                         "id": "m1",
                         "type": "assistant",
+                        "finish": "stop",
                         "content": [{"type": "text", "text": "complete answer from messages"}],
                     }
                 ]

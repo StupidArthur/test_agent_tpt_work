@@ -63,7 +63,7 @@ class CtlError(Exception):
 
 
 # ---------------------------------------------------------------------------
-# 服务器解析(URL 或 servers.json 里的名字)
+# 服务器解析(URL 或 .lan-opencodes.json 里的名字)
 # ---------------------------------------------------------------------------
 
 
@@ -72,13 +72,15 @@ def default_servers_path() -> Path | None:
     if env:
         return Path(env).expanduser()
     current = Path.cwd()
+    nearest = None
     for directory in (current, *current.parents):
         local = directory / ".lan-opencodes.json"
-        if local.is_file():
-            return local
         if (directory / ".git").exists():
+            # A repository uses its root manifest, never a shadowing child file.
             return local
-    return None
+        if nearest is None and local.is_file():
+            nearest = local
+    return nearest
 
 
 def load_registry(path: Path | None) -> dict[str, dict[str, Any]]:
@@ -100,7 +102,7 @@ def resolve_server(args: argparse.Namespace) -> tuple[str, str]:
     """返回 (base_url, password)。"""
     ref = (args.server or os.environ.get("OCCTL_SERVER") or "").strip()
     if not ref:
-        raise CtlError("缺少 --server(URL 或 servers.json 里的名字),或用 OCCTL_SERVER 环境变量")
+        raise CtlError("缺少 --server(URL 或 .lan-opencodes.json 里的名字),或用 OCCTL_SERVER 环境变量")
 
     # 客户端显式密码优先;OpenCode 服务端变量仅用作兜底,不会覆盖机器清单的独立密码。
     password = args.password or os.environ.get("OCCTL_PASSWORD") or ""
@@ -111,7 +113,7 @@ def resolve_server(args: argparse.Namespace) -> tuple[str, str]:
 
     entry = load_registry(Path(args.servers).expanduser() if args.servers else default_servers_path()).get(ref)
     if entry is None:
-        raise CtlError(f"servers.json 里没有名为 {ref!r} 的服务器")
+        raise CtlError(f".lan-opencodes.json 里没有名为 {ref!r} 的服务器")
     url = str(entry.get("url", "")).rstrip("/")
     if not url:
         raise CtlError(f"服务器 {ref!r} 缺少 url 字段")
@@ -121,7 +123,7 @@ def resolve_server(args: argparse.Namespace) -> tuple[str, str]:
 
 
 def registry_model(args: argparse.Namespace) -> str:
-    """从 servers.json 读取该机器绑定的模型;直接给 URL 或未配置时返回空串。"""
+    """从 .lan-opencodes.json 读取该机器绑定的模型;直接给 URL 或未配置时返回空串。"""
     ref = (args.server or os.environ.get("OCCTL_SERVER") or "").strip()
     if not ref or ref.startswith("http://") or ref.startswith("https://"):
         return ""
@@ -133,7 +135,7 @@ def registry_model(args: argparse.Namespace) -> str:
 def effective_model(args: argparse.Namespace) -> str:
     """新建会话时实际使用的模型。
 
-    优先级:--model > 环境变量 OCCTL_MODEL > servers.json 里该机器的 model。
+    优先级:--model > 环境变量 OCCTL_MODEL > .lan-opencodes.json 里该机器的 model。
     全为空则返回 "",交给目标机 opencode 自己的默认模型兜底。
     """
     return (args.model or os.environ.get("OCCTL_MODEL") or registry_model(args) or "").strip()
@@ -342,18 +344,29 @@ def recover_session(client: httpx.Client, session_id: str, result: dict[str, Any
     只要拿得到最终 assistant 消息,就用它**校准**正文——断流前可能只收到部分 delta。
     """
     outcome = None
+    sess = {}
     try:
         sess = unwrap(client.get(f"/api/session/{session_id}")) or {}
         outcome = sess.get("outcome")
     except Exception:
         pass
-    if not outcome:
-        try:
-            active = unwrap(client.get("/api/session/active")) or {}
-            if session_id in active:
-                return "running"
-        except Exception:
-            pass
+    # A resumed session can retain the previous turn's outcome while working.
+    # Check current activity even when outcome is already populated.
+    try:
+        active = unwrap(client.get("/api/session/active"))
+        if active is not None and not isinstance(active, dict):
+            return None
+        if session_id in (active or {}):
+            return "running"
+    except Exception:
+        return None
+    if outcome not in ("succeeded", "failed", "interrupted"):
+        return None
+    timing = sess.get("time") or {}
+    if (isinstance(timing.get("updated"), (int, float))
+            and isinstance(timing.get("idle"), (int, float))
+            and timing["updated"] > timing["idle"]):
+        # New work may be queued between the metadata and active snapshots.
         return None
     # 以最终 assistant 消息校准文本(可能比已累积的 delta 更完整)
     try:
@@ -362,6 +375,9 @@ def recover_session(client: httpx.Client, session_id: str, result: dict[str, Any
         ) or []
         for m in msgs:
             if m.get("type") == "assistant":
+                if m.get("finish") != "stop":
+                    # Never replace this turn's partial text with an older final.
+                    return None if outcome == "succeeded" else outcome
                 text = "".join(
                     p.get("text", "") for p in (m.get("content") or []) if p.get("type") == "text"
                 )
@@ -481,7 +497,7 @@ def cmd_servers(args: argparse.Namespace) -> int:
     if args.json:
         print_json({"file": str(path) if path else None, "servers": rows})
     else:
-        print(f"# {path or '(未找到 servers.json)'}")
+        print(f"# {path or '(未找到 .lan-opencodes.json)'}")
         for row in rows:
             mark = {True: "online", False: "OFFLINE", None: "-"}[row["online"]]
             print(f"{row['name']:<12} {mark:<8} {row['url']}  configured_model:{row['model'] or '(目标机默认)'}")
@@ -885,7 +901,7 @@ def build_parser() -> argparse.ArgumentParser:
         prog="occtl",
         description="控制局域网内已开启 web 模式(opencode serve)的 opencode",
     )
-    parser.add_argument("--server", help="http(s)://host:port 或 servers.json 里的名字(env: OCCTL_SERVER)")
+    parser.add_argument("--server", help="http(s)://host:port 或 .lan-opencodes.json 里的名字(env: OCCTL_SERVER)")
     parser.add_argument("--password", help="访问密码(env: OCCTL_PASSWORD;直连时亦可用 OPENCODE_SERVER_PASSWORD)")
     parser.add_argument("--servers", help="服务器清单路径(env: OCCTL_SERVERS;默认仓库根目录 .lan-opencodes.json)")
     parser.add_argument("--json", action="store_true", help="以 JSON 输出(便于脚本/agent 消费)")
@@ -895,7 +911,7 @@ def build_parser() -> argparse.ArgumentParser:
 
     sub.add_parser("info", help="服务信息/探活").set_defaults(func=cmd_info)
 
-    p = sub.add_parser("servers", help="列出 servers.json 里的服务器")
+    p = sub.add_parser("servers", help="列出 .lan-opencodes.json 里的服务器")
     p.add_argument("--probe", action="store_true", help="逐个探活")
     p.set_defaults(func=cmd_servers)
 
@@ -913,7 +929,7 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--agent")
     p.add_argument(
         "--model",
-        help="provider/model[#variant];省略则用 servers.json 里该机器的 model,再退到目标机默认",
+        help="provider/model[#variant];省略则用 .lan-opencodes.json 里该机器的 model,再退到目标机默认",
     )
     p.add_argument("--no-allow-all", action="store_true", help="不注入'全部允许'权限")
     p.set_defaults(func=cmd_new)
@@ -969,7 +985,7 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--agent")
     p.add_argument(
         "--model",
-        help="provider/model[#variant];省略则用 servers.json 里该机器的 model,再退到目标机默认",
+        help="provider/model[#variant];省略则用 .lan-opencodes.json 里该机器的 model,再退到目标机默认",
     )
     p.add_argument("--no-allow-all", action="store_true")
     p.add_argument("--timeout", type=float, help="整体超时秒数")
