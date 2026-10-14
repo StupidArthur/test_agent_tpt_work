@@ -40,6 +40,29 @@ class TestWatchdog(unittest.TestCase):
         with self.assertRaises(wd.GuardError):
             wd.init(self.cfg)
 
+    def test_ambiguous_init_cannot_create_again(self):
+        with patch.object(wd, "execute", side_effect=wd.GuardError("timeout")) as call:
+            with self.assertRaises(wd.GuardError):
+                wd.init(self.cfg)
+            with self.assertRaises(wd.GuardError):
+                wd.init(self.cfg)
+        self.assertEqual(call.call_count, 1)
+
+    def test_completion_after_tools_and_latest_turn(self):
+        items = [{"type": "user", "text": "autopilot-cycle:X"},
+                 {"type": "assistant", "finish": "tool-calls"},
+                 {"type": "assistant", "finish": "stop"}]
+        self.assertTrue(wd.finished_cycle(items, "X"))
+        self.assertFalse(wd.finished_cycle(items + [{"type": "assistant"}], "X"))
+        self.assertFalse(wd.finished_cycle(items + [{"type": "user", "text": "next"},
+                                                  {"type": "assistant", "finish": "stop"}], "X"))
+
+    def test_subprocess_uses_utf8(self):
+        import subprocess
+        with patch.object(wd.subprocess, "run", return_value=subprocess.CompletedProcess([], 0, '{}', '')) as run:
+            wd.execute(self.cfg, "info")
+        self.assertEqual(run.call_args.kwargs["env"]["PYTHONIOENCODING"], "utf-8")
+
     def test_first_cycle_stores_intent_before_send(self):
         self.initialise()
         def fake(cfg, *args):

@@ -126,10 +126,11 @@ def execute(cfg, *args):
     command = [sys.executable, str(cfg["occtl"]), "--server",
                cfg["master_server"], "--json", *args]
     try:
+        env = dict(os.environ, PYTHONIOENCODING="utf-8")
         p = subprocess.run(command, cwd=cfg["project_dir"], text=True,
                            encoding="utf-8", errors="replace",
                            stdout=subprocess.PIPE, stderr=subprocess.PIPE,
-                           timeout=cfg["timeout_seconds"], check=False)
+                           timeout=cfg["timeout_seconds"], check=False, env=env)
     except subprocess.TimeoutExpired as exc:
         raise GuardError(f"occtl 超时: {args[0]}") from exc
     if p.returncode != 0:
@@ -162,8 +163,10 @@ def store(cfg, state, event, **details):
 
 
 def init(cfg):
-    if path_state(cfg).exists():
+    intent = cfg["runtime_dir"] / "init-intent.json"
+    if path_state(cfg).exists() or intent.exists():
         raise GuardError("主控会话已初始化；不会创建第二个主控会话")
+    save_json(intent, {"phase": "creating", "time": stamp()})
     info = execute(cfg, "new", "--dir", str(cfg["project_dir"]),
                    "--title", "OpenCode Autopilot Manager", "--no-allow-all")
     sid = info.get("id") if isinstance(info, dict) else None
@@ -172,6 +175,7 @@ def init(cfg):
     state = {"version": 1, "session_id": sid, "phase": "idle",
              "cycle_id": None, "generation": 0, "last_completed": None}
     store(cfg, state, "init")
+    intent.unlink()
     return state
 
 
@@ -206,11 +210,14 @@ def finished_cycle(messages, cycle_id):
             start = index
     if start < 0:
         return False
+    latest = None
     for msg in messages[start + 1:]:
         info = msg.get("info") or msg
+        if info.get("role", info.get("type")) == "user":
+            return False
         if info.get("role", info.get("type")) == "assistant":
-            return info.get("finish") == "stop"
-    return False
+            latest = info
+    return latest is not None and latest.get("finish") == "stop"
 
 
 def wake_prompt(cfg, cycle_id):
@@ -324,6 +331,8 @@ def main(argv=None):
                         result = tick(cfg)
                         print(json.dumps({"time": stamp(), **result},
                                          ensure_ascii=False), flush=True)
+                        if result.get("phase") == "idle" and result.get("last_completed"):
+                            continue  # Reconciliation must not consume another full interval.
                     except (GuardError, OSError, ValueError) as exc:
                         print(f"[watchdog] {stamp()}: {exc}", file=sys.stderr,
                               flush=True)

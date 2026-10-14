@@ -16,6 +16,11 @@ if ($cfg.master_server -ne "http://127.0.0.1:$Port") {
 $scriptDir = Split-Path -Parent $MyInvocation.MyCommand.Path
 $watchdog = Join-Path $scriptDir "watchdog.py"
 $root = Split-Path -Parent $cfgPath
+if (-not [IO.Path]::IsPathRooted($cfg.project_dir)) {
+  $cfg.project_dir = Join-Path $root $cfg.project_dir
+}
+# occtl prioritizes OCCTL_PASSWORD; bind it to this newly started server.
+$env:OCCTL_PASSWORD = $env:OPENCODE_SERVER_PASSWORD
 $runtime = if ([IO.Path]::IsPathRooted($cfg.runtime_dir)) { $cfg.runtime_dir } elseif ($cfg.runtime_dir) {
   Join-Path $root $cfg.runtime_dir
 } else { Join-Path $root ".ocautopilot" }

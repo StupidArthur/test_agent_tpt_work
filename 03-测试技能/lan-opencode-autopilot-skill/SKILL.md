@@ -46,6 +46,8 @@ py -3.11 scripts/watchdog.py --config .ocautopilot/manager.json run
 ## 唤醒周期和状态安全
 
 - init：仅首次创建会话并原子存储 Session ID；如果初始化请求结果不明则必须人工检查已有会话，不要盲目重建。
+- 初始化前保存 `init-intent.json`；成功后移除。若该文件残留，后续 init 拒绝重建。人工核对服务端会话后，绑定已创建的会话状态，或确认未创建后移走该意图文件再初始化。
+- 每30分钟巡检设置 `interval_seconds: 1800`。常驻 run 确认上轮完成后立即进入下一次空闲检查，不额外等待一个周期；单次 once 只完成一次状态转换，外部调度需考虑完成对账这一轮。
 - once：查询当前主控服务器活动状态；主控空闲时先持久化随机 cycle ID 和 sending 状态，然后运行现有 occtl run --session ... --detach --require-idle。
 - run：按间隔周期执行 once 的逻辑；不重复创建 Session，不叠加主控 turn。
 - 如果上轮正在运行，就只观察。若已空闲，必须在**最近的同一周期 user 消息之后**找到完成的 assistant 回复，并确认 current_state.md 的修改时间已经变化，才准进入下个周期。
