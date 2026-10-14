@@ -6,7 +6,7 @@ export const SEL = {
   project: 'button[class*="_workspace"][aria-haspopup="menu"]:visible',
   model: 'button[aria-label^="选择模型"]',
   access: 'button[aria-label^="访问模式"]',
-  composer: 'div[contenteditable="true"][aria-label*="/ 调用指令"]',
+  composer: 'div[contenteditable="true"]:is([aria-label*="/ 调用指令"],[aria-label*="/ 调用专家或技能"]):visible',
   send: 'button[aria-label="发送消息"]',
   addFile: 'button[aria-label="添加文件或调用指令"]',
   assistantBody: '[class*="hWmORq_body"]',

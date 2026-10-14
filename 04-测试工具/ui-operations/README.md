@@ -46,6 +46,7 @@ status=returned 不表示 case 通过。优先调用现成函数；缺能力时�
 | 没有合适函数、需留存新函数 | [代码开发技能](../../03-测试技能/test-automation-development/SKILL.md) → [本库扩展与边界](docs/扩展与边界.md) |
 | 查看用例候选映射 | [用例映射](coverage/README.md)，通常优先单条 --plan |
 | 实际验证和已知缺口 | [全面回归验收](../../05-探索性测试/2026-10-07-全面回归验收/验收报告.md) |
+| 退出软件、重置前结束应用进程 | [退出应用进程](docs/scenarios/application.quit.md)：绑定身份、终止进程树、回读exited；关闭窗口/托盘/CDP断开不算退出 |
 | 对话首次打开本地项目／创建项目 | [对话分类](docs/modules/conversation.md) → 首次打开／创建叶子；新组合待现场验收 |
 | 系统文件/文件夹选择器或原生模态窗口 | [原生窗口分类](docs/modules/nativeWindow.md) → 发现/读取或显式操作；使用动态PID/句柄，业务结果另行回读 |
 | 当前覆盖与效率评估 | [当前评估](docs/当前评估.md) |

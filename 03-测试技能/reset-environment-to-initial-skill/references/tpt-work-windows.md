@@ -11,7 +11,7 @@
 
 ## 重置（Windows PowerShell）
 
-先按本轮授权退出已绑定的TPT Work实例，确认没有应用或安装器仍在使用这两个目录。不要在用户正在使用时重置。
+先按本轮授权调用 [退出应用进程](../../../04-测试工具/ui-operations/docs/scenarios/application.quit.md) 的 `application.quit`，传准确exe/PID/启动时间，检查 `exited=true`。该工具明确终止绑定进程树，先确认没有未完成任务或需保存的内容。WM_CLOSE可能只进托盘，CDP客户端断开也不等于退出；不得据此移动数据。未知身份先登记读取，不临时猜PID或重复实现关闭。
 
 无需额外复制：退出后把原目录改名保留，原目录本身就是完整备份。复用[move-state.ps1](../scripts/move-state.ps1)，两个目录中的任何一个移动失败，会把本次已移动的目录移回；已有备份不会覆盖。使用Windows PowerShell 5.1，执行策略遵循本环境约定，不修改全局策略。
 

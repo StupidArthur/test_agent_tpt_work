@@ -1,5 +1,5 @@
 import {connectLogin} from '../../automation/login-session.mjs';
-import {ensureConversationView,runningIndicatorCount} from '../../automation/conversation.mjs';
+import {ensureConversationView,runningIndicatorCount,SEL} from '../../automation/conversation.mjs';
 
 const sleep=ms=>new Promise(r=>setTimeout(r,ms));
 
@@ -29,7 +29,7 @@ export async function sendAwait(ctx,args){
     const page=c.main;
     if(!page)throw Error('Main page (dsh-app://app/) not present');
     await ensureConversationView(page);
-    const composer=page.locator('div[contenteditable="true"][aria-label*="/ 调用指令"]').first();
+    const composer=page.locator(SEL.composer).first();
     const preCount=await page.locator('[class*="hWmORq_body"]').count();
     const act=await ctx.recorder.action('composer 发送消息','fill-and-send',{chars:text.length},async()=>{
       await composer.click();await composer.fill(text);await page.waitForTimeout(400);

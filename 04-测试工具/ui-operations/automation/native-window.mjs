@@ -6,7 +6,7 @@ import {fileURLToPath} from 'node:url';
 export function runNative(request, {timeoutMs = 15000, executionPolicy} = {}) {
   if (process.platform !== 'win32') throw Error('Native windows require Windows');
   const host = path.join(process.env.SystemRoot || 'C:\\Windows', 'System32', 'WindowsPowerShell', 'v1.0', 'powershell.exe');
-  const script = fileURLToPath(new URL(['state','restore'].includes(request.mode) ? './window-state.ps1' : './native-window.ps1', import.meta.url));
+  const script = fileURLToPath(new URL(request.mode==='quit' ? './application-quit.ps1' : ['state','restore'].includes(request.mode) ? './window-state.ps1' : './native-window.ps1', import.meta.url));
   const payload = Buffer.from(JSON.stringify(request), 'utf8').toString('base64');
   if (executionPolicy && !['Bypass', 'RemoteSigned'].includes(executionPolicy)) throw Error('Unsupported explicit native execution policy');
   const policyArgs = executionPolicy ? ['-ExecutionPolicy', executionPolicy] : [];

@@ -10,6 +10,7 @@
 | 复用或授权启动明确应用 | 明确exe的打开、复用或显示目标；缺标题等输入按叶子指导读取 | [候选与指导](../scenarios/application.startup.md) |
 | 登录页读取与账号密码登录 | 登录页读取与账号密码登录 | [候选与指导](../scenarios/application.login.md) |
 | 首页账号与退出登录 | 首页账号与退出登录 | [候选与指导](../scenarios/application.account.md) |
+| 退出应用进程，为重置或收尾做准备 | 已授权退出本轮准确实例，不是关闭窗口或断开CDP | [候选与指导](../scenarios/application.quit.md) |
 
 命令行：`node 04-测试工具/ui-operations/call.mjs --browse application`。
 

@@ -343,6 +343,17 @@
       "evidence": [
         "真实读取和原始字段"
       ]
+    },
+    "application.quit": {
+      "keywords": [
+        "退出应用",
+        "关软件",
+        "重置前退出",
+        "进程树"
+      ],
+      "effects": "终止准确绑定的进程树，可能丢失未保存内容；不删除用户数据",
+      "evidence": "实际进程身份、退出前后清单与剩余PID",
+      "limits": "Windows；不保证产品数据已保存，不代替初始状态或恢复断言"
     }
   },
   "routes": [
@@ -417,7 +428,7 @@
       "module": "conversation",
       "title": "读取或修改当前任务权限",
       "intent": "修改/观察",
-      "guide": "仅当前任务；默认权限转设置模块。改前保留初值，改后回读并恢复。",
+      "guide": "仅当前任务composer访问模式；默认权限属于设置模块，不以改全局默认代替本操作。value来自当前选项实际读值，不凭旧名称推断映射。完全权限和全部允许均需confirmFullPermission=true，处理对应风险复选框和启用按钮；disabled或原有弹窗拒绝。改前保留初值，改后回读并恢复。",
       "functions": [
         "conversation.readTaskPermissionOptions",
         "conversation.setTaskPermission"
@@ -1171,6 +1182,25 @@
         "conversation.clickButtonContaining",
         "conversation.clickExactButton"
       ]
+    },
+    {
+      "id": "application.quit",
+      "module": "application",
+      "title": "退出应用进程，为重置或收尾做准备",
+      "intent": "已授权退出本轮准确实例，不是关闭窗口或断开CDP",
+      "keywords": [
+        "退出",
+        "关软件",
+        "关闭应用",
+        "停止进程",
+        "重置",
+        "托盘"
+      ],
+      "functions": [
+        "application.quit",
+        "nativeWindow.readState"
+      ],
+      "guide": "已有application.open返回的processInfo直接复用其PID/path/processStartTimeUtc；缺身份时才用readState并核对准确exe。application.quit明确终止绑定进程树，可能丢失未保存状态，调用者先确认退出授权和无未完成业务。只有exited=true且实际进程消失才可移动状态目录；WM_CLOSE可能仅进入托盘，browser.close仅断开客户端。未知或其他实例拒绝，不临时改用模糊进程名强杀。"
     }
   ]
 }

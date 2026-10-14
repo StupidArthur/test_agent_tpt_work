@@ -57,8 +57,8 @@
       ],
       "file": "business/conversation/tasks.mjs",
       "export": "sendMessage",
-      "version": "portable-1.0",
-      "status": "已迁移-验证状态见verification.json",
+      "version": "feature-compat-1.0",
+      "status": "修复smoketest-Go发现的0.1.4控件漂移；新旧DOM夹具检查通过，共享版本未重新连接产品",
       "description": "向 composer 填写文本并发送，等待终态后读取助手最终正文",
       "parameters": {
         "type": "object",
@@ -82,7 +82,9 @@
       "origin": {
         "machine": "PC-G",
         "commit": "7aff430",
-        "export": "sendMessage"
+        "export": "sendMessage",
+        "correction_source": "2026-10-13-冒烟用例试运行-Go",
+        "correction_note": "共用SEL.composer，识别新旧输入框语义标签"
       },
       "preconditions": [
         "当前实例CDP及环境身份已核验",
@@ -6649,12 +6651,12 @@
       "name": "conversation.setTaskPermission",
       "file": "business/conversation/permissions.mjs",
       "export": "setTaskPermission",
-      "version": "portable-1.1",
+      "version": "feature-compat-1.0",
       "feature_path": [
         "对话与任务",
         "当前任务权限"
       ],
-      "description": "只修改当前任务访问模式，记录前后值与会话身份",
+      "description": "仅在当前任务访问模式控件修改权限，兼容完全权限/全部允许风险确认，记录前后实际值与会话身份",
       "parameters": {
         "type": "object",
         "properties": {
@@ -6674,14 +6676,18 @@
         "automation/session.mjs"
       ],
       "origin": {
-        "machine": "管理者验收"
+        "machine": "管理者验收",
+        "correction_source": "2026-10-13-冒烟用例试运行-Go",
+        "correction_note": "完全权限/全部允许均需confirmFullPermission=true并处理对应风险确认"
       },
       "preconditions": [
         "先核验当前任务session",
-        "修改后按同一任务初值恢复"
+        "修改后按同一任务初值恢复",
+        "完全权限与全部允许均要求confirmFullPermission=true；不自动批准已存在的用户弹窗"
       ],
       "returns": "动作和真实读取事件",
-      "cleanup": "setTaskPermission按同一任务初值恢复"
+      "cleanup": "setTaskPermission按同一任务初值恢复",
+      "status": "修复smoketest-Go发现的0.1.4控件漂移；新旧DOM夹具检查通过，共享版本未重新连接产品"
     },
     {
       "name": "memory.inspectSurfaces",
@@ -8407,8 +8413,8 @@
         ],
         "additionalProperties": false
       },
-      "version": "smoketest-1012-1.0",
-      "status": "来源smoketest-1012用户已判定；迁库及唯一性/错误传播修正仅静态检查，未重新操作软件",
+      "version": "feature-compat-1.0",
+      "status": "修复smoketest-Go发现的0.1.4控件漂移；新旧DOM夹具检查通过，共享版本未重新连接产品",
       "feature_path": [
         "对话与任务",
         "冒烟复用能力"
@@ -8430,7 +8436,9 @@
         "evidence_calls": [
           "CALL-08fc0cbf-713f-4597-888c-7bf86014bc4d",
           "CALL-a8248b0f-173f-4635-a568-ccec7be344e1"
-        ]
+        ],
+        "correction_source": "2026-10-13-冒烟用例试运行-Go",
+        "correction_note": "共用SEL.composer，识别新旧输入框语义标签"
       }
     },
     {
@@ -8630,6 +8638,53 @@
           "CALL-eb3b1e2b-1bc8-42dd-b202-9a9402b3558e"
         ]
       }
+    },
+    {
+      "name": "application.quit",
+      "file": "business/application/quit.mjs",
+      "export": "quit",
+      "version": "application-quit-1.0",
+      "feature_path": [
+        "接入与环境",
+        "退出应用"
+      ],
+      "description": "为重置或收尾终止准确绑定的应用进程树并回读全部退出；不以关闭窗口、进入托盘或断开CDP代替退出",
+      "status": "本机Windows隔离进程树7项通过；错误身份/其他实例拒绝，进程退出与PID已失效判据已测；真实TPT共享版本及Win10未现场复验",
+      "parameters": {
+        "type": "object",
+        "required": [
+          "executablePath",
+          "processId",
+          "expectedProcessStartTimeUtc"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "executablePath": {
+            "type": "string"
+          },
+          "processId": {
+            "type": "integer"
+          },
+          "expectedProcessStartTimeUtc": {
+            "type": "string"
+          },
+          "timeoutMs": {
+            "type": "integer"
+          }
+        }
+      },
+      "modules": [
+        "automation/application-quit.mjs",
+        "automation/application-quit.ps1",
+        "automation/native-window.mjs"
+      ],
+      "preconditions": [
+        "本轮已授权退出准确实例，确认没有需要保留的运行任务或未保存内容",
+        "PID、exe绝对路径、启动时间来自本轮登记实际读值；不使用历史PID",
+        "独占该exe实例；检测到同exe其他实例拒绝终止"
+      ],
+      "returns": "exited、before/after、terminatedPids、remainingExecutablePids及动作/读取事件引用；exited=false时禁止重置数据",
+      "cleanup": "此函数明确终止进程树而非菜单正常退出，可能丢失未保存状态；原数据恢复/重开按任务授权执行"
     }
   ]
 }

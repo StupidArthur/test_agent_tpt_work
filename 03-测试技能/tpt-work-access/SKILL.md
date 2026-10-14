@@ -12,6 +12,7 @@ description: 在测试中需要定位、启动、连接、操作 TPT Work 的真
 新环境先调用 [环境检测工具集](../../04-测试工具/environment-check/README.md) 并读使用指南，再补产品实例和对象核验；已有有效结果不重复手查工具版本。CDP接入支持 `playwright-core` 或 `playwright`，环境报告ok就复用，不能因没有 `node_modules/playwright` 而安装依赖。
 
 - 目标是打开、复用、恢复显示或核对真实 TPT 实例，且已知准确exe：先进入 [复用或启动应用](../../04-测试工具/ui-operations/docs/scenarios/application.startup.md)，即使程序已连接或尚缺准确标题，也按该目标选路由。叶子指导会给缺字段的读取候选；已有PID可取得实际标题，再使用组合契约合并进程路径/端口归属、授权启动、窗口和真实页面读取。同环境检测复用，未知归属不重复启动。
+- 目标是退出应用，为重置或收尾做准备：直接查 [退出应用进程](../../04-测试工具/ui-operations/docs/scenarios/application.quit.md)，复用已绑定的processInfo；明确终止该进程树并回读退出，不把窗口关闭、托盘提示或CDP断开当作成功。
 - 目标仅核对既有CDP target与body：按 [连接观察](../../04-测试工具/ui-operations/docs/scenarios/application.connection.md) 选择读取；需要运行exe/PID与端口的绑定时回到真实实例路线。
 - 目标是已接入实例中的业务操作：查 [软件 UI 操作工具](../../04-测试工具/ui-operations/README.md)，用case或目标分类选函数；接入状态只决定是否补连接条件，不替代业务目标分类。调用和取值经主库或任务登记函数。
 - 安装路径、实例或实际端口未知：读 [启动与接入](references/启动与接入.md) 按当前缺项补定位；需要登录/UI控件或命令细节才查 [实操指南](references/UI与API操作.md)。不因一个参数尚缺而扫描完整安装包或产品源码。
