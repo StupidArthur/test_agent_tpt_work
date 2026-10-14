@@ -10,7 +10,7 @@ for ($i = $Start; $i -lt ($Start + $Count); $i++) {
   $content = "MEM88R2-PC88-20261007-r2-01-MEM-15-b$n 预算边界样本，用于测试用户级日预算（4000字符每日）是否限制 MEMORY.md 写入。本行重复填充常规说明文字以累计字符数：工业设备巡检、仓库物料盘点、安全复核、异常记录与上报等流程描述，不含真实数据，仅作长度填充，标记唯一。"
   $json = @{ type = '事实'; content = $content } | ConvertTo-Json -Compress
   [System.IO.File]::WriteAllText($argsFile, $json, (New-Object System.Text.UTF8Encoding($false)))
-  $raw = & node (Join-Path $root 'tools\ui-operations\call.mjs') memory.addEntry --task $d --args-file $argsFile 2>&1 | Out-String
+  $raw = & node (Join-Path $root 'tools\ui-driver\call.mjs') memory.addEntry --task $d --args-file $argsFile 2>&1 | Out-String
   try {
     $o = $raw | ConvertFrom-Json
     $t = $o.observations.observations.after.value.surface.text

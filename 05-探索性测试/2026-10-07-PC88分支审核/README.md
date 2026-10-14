@@ -2,7 +2,7 @@
 
 源分支：`origin/test/pc88-memory-20261007`，审核提交 `770dacd`（前序 `3de5c68`、`95f85aa`）。本机通过 CDP 9234 对当前 TPT Work 实际调用。环境、代码快照、函数调用与试用结果在本目录，远程记录核对见 [远程交付核对](远程交付核对.json)。
 
-本次选择接收 6 个经修正、实际试用的主库函数：`memory.inspectSurfaces`、`memory.probePanel`、`memory.readOverview`、`memory.readFiles`、`memory.addEntry`、`memory.editLayerFile`。主库位置 `tools/ui-operations/business/memory/panel.mjs` 和 `automation/memory.mjs`，渐进入口见 [记忆模块说明](../../tools/ui-operations/docs/记忆与进化.md)。
+本次选择接收 6 个经修正、实际试用的主库函数：`memory.inspectSurfaces`、`memory.probePanel`、`memory.readOverview`、`memory.readFiles`、`memory.addEntry`、`memory.editLayerFile`。主库位置 `tools/ui-driver/business/memory/panel.mjs` 和 `automation/memory.mjs`，渐进入口见 [记忆模块说明](../../tools/ui-driver/docs/记忆与进化.md)。
 
 原分支的整体测试结果暂不作为已验收结果合并，也不整批 cherry-pick。测试资料仍在远程分支待修正。本目录 code 内的任务候选来源和运行时快照仅供审核；公共入口只登记上述 6 个函数。
 

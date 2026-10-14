@@ -1,5 +1,5 @@
 import fs from 'node:fs';import path from 'node:path';import {fileURLToPath} from 'node:url';
-import {invoke} from '../../../tools/ui-operations/call.mjs';
+import {invoke} from '../../../tools/ui-driver/call.mjs';
 const taskRoot=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const environment=JSON.parse(fs.readFileSync(path.join(taskRoot,'环境记录.json')));const shared={};const results=[];
 async function call(name,args={}){const r=await invoke(name,args,{taskRoot,environment,shared});results.push(r);console.log(JSON.stringify({name,call_id:r.call_id,status:r.status,error:r.error}));if(r.status!=='returned')throw Error(name+':'+r.error.message);return r.observations.observations;}

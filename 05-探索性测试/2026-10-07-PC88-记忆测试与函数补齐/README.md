@@ -12,9 +12,9 @@
 
 1. 根 [AGENTS.md](../../AGENTS.md) → [执行任务约定](../../04-测试项/执行任务约定.md)：历史测试删减必须有用户明确确认。
 2. [记忆测试项入口](../../04-测试项/记忆与进化功能测试/README.md) → [测试设计](../../04-测试项/记忆与进化功能测试/测试设计.md) → 本任务 [队列](任务队列.md)。
-3. [exploratory-testing 技能](../../skills/exploratory-testing/SKILL.md) → [UI 工具](../../tools/ui-operations/README.md)，首次接入核验本机环境。
+3. [exploratory-testing 技能](../../skills/exploratory-testing/SKILL.md) → [UI 工具](../../tools/ui-driver/README.md)，首次接入核验本机环境。
 4. 需要回溯时查 [历史记录与证据](../../04-测试项/记忆与进化功能测试/历史记录与证据.md)，再查相关章节/文件；输入、产品产物与模型复述分开。
-5. 异常用 [补测规则](../../skills/exploratory-testing/references/retest.md)，缺函数用 [扩展约定](../../tools/ui-operations/docs/扩展与边界.md)。不要先全量读所有需求或函数。
+5. 异常用 [补测规则](../../skills/exploratory-testing/references/retest.md)，缺函数用 [扩展约定](../../tools/ui-driver/docs/扩展与边界.md)。不要先全量读所有需求或函数。
 
 ## 本机准备
 

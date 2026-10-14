@@ -1,4 +1,4 @@
-import {playwright,cdpBaseFromEnv} from '../../../../04-测试工具/ui-operations/automation/session.mjs';
+import {playwright,cdpBaseFromEnv} from '../../../../04-测试工具/ui-driver/automation/session.mjs';
 
 // 连接本轮 CDP 实例，返回登录页(welcome.html)与主界面(dsh-app://app/)两个 page。
 export async function connectLogin(ctx){

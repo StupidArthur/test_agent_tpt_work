@@ -6,6 +6,7 @@
 
 | 测试项 | 范围 | 入口 |
 |---|---|---|
+| TPT Work 整体测试方案 | 六章功能范围、渐进式测试设计与综合验收框架 | [整体方案](TPT%20Work整体测试方案.md) |
 | TPT Work 冒烟测试 | 登录、会话、项目、产物预览、任务权限与审批 | [测试项入口](TPT Work冒烟测试/README.md) |
 | LLM 网关服务评估 | 通用 API、供 TPT Work 使用的协议、性能和用户并发；不含软件操作 | [saas-llm-test](saas-llm-test/README.md) |
 | 沙箱与提权沙箱测试 | 权限、受限执行、审批、ACL 边界、诊断和 elevated 实现 | [测试项入口](沙箱与提权沙箱测试/README.md) |

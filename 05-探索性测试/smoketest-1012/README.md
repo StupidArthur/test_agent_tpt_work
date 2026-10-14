@@ -12,7 +12,7 @@
 | 应用版本 / 环境 | TPT Work 0.1.3-nightly.202610111943（Electron 44.0.0 / Chrome 152），本机 CDP 127.0.0.1:9234 |
 | 测试来源 / 范围 | 用户口述用例（无正式来源，按待审核处理） |
 | 用例队列 | [测试用例.md](测试用例.md)，编号用于覆盖核对，按共享场景执行 |
-| 测试通道 | UI：Electron CDP + Playwright，入口 04-测试工具/ui-operations/call.mjs |
+| 测试通道 | UI：Electron CDP + Playwright，入口 04-测试工具/ui-driver/call.mjs |
 | 夹具/前置/授权/恢复边界 | 授权操作本机真实 TPT 实例；逐条用例执行后按需恢复；未逐条确认前不删除资产、不触发模型请求 |
 | 输出位置 | 本任务目录 |
 

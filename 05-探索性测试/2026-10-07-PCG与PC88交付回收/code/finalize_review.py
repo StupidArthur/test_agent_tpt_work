@@ -19,11 +19,11 @@ if issues or len(rows) != 158:
     raise SystemExit(json.dumps(result, ensure_ascii=False))
 files = [p for p in task.rglob('*') if p.is_file() and p.name != '交付SHA256.json']
 files += [root / p for p in [
-    'tools/ui-operations/business/fixtures/cleanup.mjs',
-    'tools/ui-operations/automation/settings.mjs',
-    'tools/ui-operations/business/catalog.json',
-    'tools/ui-operations/business/discovery.json',
-    'tools/ui-operations/verification.json',
+    'tools/ui-driver/business/fixtures/cleanup.mjs',
+    'tools/ui-driver/automation/settings.mjs',
+    'tools/ui-driver/business/catalog.json',
+    'tools/ui-driver/business/discovery.json',
+    'tools/ui-driver/verification.json',
 ]]
 manifest = {p.relative_to(root).as_posix(): hashlib.sha256(p.read_bytes()).hexdigest() for p in sorted(files)}
 (task / '审核/交付SHA256.json').write_text(json.dumps(manifest, ensure_ascii=False, indent=2), encoding='utf-8')

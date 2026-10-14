@@ -4,7 +4,7 @@
 
 PC-G/PC88在验证函数等价与去重实现。本机负责验证操作意图能否找到正确函数，以及其取值能否支撑判断。管理者收到本任务后，应能直接决定改哪几个检索词、契约、索引或函数，不依赖“工具不好找”的宏观结论。
 
-固定40项，分5批各8项；每项两种检索说法、契约核对、实际操作与断言能力验证。读取 [AGENTS.md](AGENTS.md) → [执行说明](执行说明.md) → [探索技能](../../skills/exploratory-testing/SKILL.md) → [工具入口](../../tools/ui-operations/README.md)。当前批次才读 [发现队列](用例/发现队列.json)，不全量读180个函数。
+固定40项，分5批各8项；每项两种检索说法、契约核对、实际操作与断言能力验证。读取 [AGENTS.md](AGENTS.md) → [执行说明](执行说明.md) → [探索技能](../../skills/exploratory-testing/SKILL.md) → [工具入口](../../tools/ui-driver/README.md)。当前批次才读 [发现队列](用例/发现队列.json)，不全量读180个函数。
 
 记录本轮commit及主库版本。先fetch最新main，在干净工作区或独立worktree新建 `review/pc-local-ui-discovery-night`；不覆盖既有未提交内容。不得操作PC-G/PC88实例，不改主库，不接管其他任务。同一应用只允许一个UI执行者。
 

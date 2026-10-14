@@ -1,7 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
-import {invoke} from '../../../tools/ui-operations/call.mjs';
+import {invoke} from '../../../tools/ui-driver/call.mjs';
 const taskRoot=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const environment=JSON.parse(fs.readFileSync(path.join(taskRoot,'环境记录.json'),'utf8'));
  for(const [name,args] of [['mem.probePanel',{action:'tabs'}],['mem.probePanel',{action:'rows'}],['mem.probePanel',{action:'library'}],['mem.probePanel',{action:'advanced'}],['mem.probePanel',{action:'edit',index:0}],['mem.readOverview',{}],['mem.setAdvanced',{label:'不存在的审核参数',value:1}]]) {

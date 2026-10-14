@@ -2,8 +2,8 @@ import fs from 'node:fs';
 import path from 'node:path';
 import assert from 'node:assert/strict';
 import {fileURLToPath} from 'node:url';
-import {invoke,catalog} from '../../../tools/ui-operations/call.mjs';
-import {discover} from '../../../tools/ui-operations/automation/discovery.mjs';
+import {invoke,catalog} from '../../../tools/ui-driver/call.mjs';
+import {discover} from '../../../tools/ui-driver/automation/discovery.mjs';
 
 const taskRoot=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const environment=JSON.parse(fs.readFileSync(path.join(taskRoot,'环境记录.json')));

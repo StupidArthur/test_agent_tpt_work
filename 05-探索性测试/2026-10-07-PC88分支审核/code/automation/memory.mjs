@@ -1,5 +1,5 @@
 // 任务支撑层：记忆与进化面板/设置定位与读取（PC88 记忆任务）
-import { connect } from '../../../../tools/ui-operations/automation/session.mjs';
+import { connect } from '../../../../tools/ui-driver/automation/session.mjs';
 
 const SETTINGS = '[data-shortcut-modal="settings"]';
 

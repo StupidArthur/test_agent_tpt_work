@@ -28,7 +28,7 @@ description: 当需要编写、扩展、重构、调试、验证或评审自动�
 
 - **探索性测试**：需要探索执行、断言判定或补测时使用 [exploratory-testing](../exploratory-testing/SKILL.md)，不因开发代码而把本技能并入该技能。
 - **TPT Work 接入**：需要启动或连接该产品时使用 [tpt-work-access](../tpt-work-access/SKILL.md)；它不是通用编码规范。
-- **TPT Work 共享 UI 工具**：具体目录、`async (ctx,args)`、catalog、CLI 命令和版本验证以 [工具扩展与边界](../../04-测试工具/ui-operations/docs/扩展与边界.md) 为准。
+- **TPT Work 共享 UI 工具**：具体目录、`async (ctx,args)`、catalog、CLI 命令和版本验证以 [工具扩展与边界](../../04-测试工具/ui-driver/docs/扩展与边界.md) 为准。
 - **钉钉通知**：属于独立的 [dingtalk-notify](../dingtalk-notify/SKILL.md)，本技能不处理通知发送。
 
 仅在需要编写或修改测试代码时加载本技能；单纯调用已经具备的业务函数，不要求通读开发文档。

@@ -14,7 +14,7 @@ powershell.exe -NoProfile -NonInteractive -File 04-测试工具/environment-chec
 
 不依赖 Node/Python 引导检测。首版执行入口为 Windows PowerShell 5.1 或 Windows 上的 PowerShell 7；尚未实测其他系统。找不到 PowerShell 或脚本被执行策略拦截时，记录宿主限制，使用环境正常授权的执行方式，不把未运行当作其他工具缺失。
 
-默认从 `ui-operations` 项目解析 Playwright；其他项目用 `-ModuleRoot "项目绝对路径"`。`-IncludeOptional` 加查 Git 和 ripgrep，非必需项缺失不阻塞默认环境就绪。额外能力按任务需要添加，不把所有工具都变成默认前置。
+默认从 `ui-driver` 项目解析 Playwright；其他项目用 `-ModuleRoot "项目绝对路径"`。`-IncludeOptional` 加查 Git 和 ripgrep，非必需项缺失不阻塞默认环境就绪。额外能力按任务需要添加，不把所有工具都变成默认前置。
 
 ## 结果与复用
 

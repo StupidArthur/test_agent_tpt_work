@@ -12,8 +12,8 @@
 
 1. 根 [AGENTS](../../AGENTS.md) → [执行任务约定](../../04-测试项/执行任务约定.md)。
 2. [任务队列](任务队列.md) → [记忆测试设计](../../04-测试项/记忆与进化功能测试/测试设计.md)。设计表中的必要断言是本轮范围，不只验证入口。
-3. [探索性测试技能](../../skills/exploratory-testing/SKILL.md) → [UI 工具入口](../../tools/ui-operations/README.md) → [记忆函数说明](../../tools/ui-operations/docs/记忆与进化.md)。只按当前操作查候选函数，不全量阅读源码。
-4. 执行前读 [同版本审核](../2026-10-07-PC88分支审核/同版本结果对照.md)。出现异常再查 [补测办法](../../skills/exploratory-testing/references/retest.md)，需要补函数再查 [扩展约定](../../tools/ui-operations/docs/扩展与边界.md)。
+3. [探索性测试技能](../../skills/exploratory-testing/SKILL.md) → [UI 工具入口](../../tools/ui-driver/README.md) → [记忆函数说明](../../tools/ui-driver/docs/记忆与进化.md)。只按当前操作查候选函数，不全量阅读源码。
+4. 执行前读 [同版本审核](../2026-10-07-PC88分支审核/同版本结果对照.md)。出现异常再查 [补测办法](../../skills/exploratory-testing/references/retest.md)，需要补函数再查 [扩展约定](../../tools/ui-driver/docs/扩展与边界.md)。
 5. 需要历史上下文再读 [历史证据入口](../../04-测试项/记忆与进化功能测试/历史记录与证据.md)。保留历史观察，不复制其结论。
 
 ## 开始前
@@ -26,7 +26,7 @@
 
 ## 必须使用工具体系
 
-全部产品操作、外部夹具修改、读取和恢复经 `tools/ui-operations/call.mjs` 的主库函数或登记的任务函数执行。现有记忆函数包括查看表面/概览/文件、添加、编辑；先用它们，不复制旧分支的 `mem.*` 实现。
+全部产品操作、外部夹具修改、读取和恢复经 `tools/ui-driver/call.mjs` 的主库函数或登记的任务函数执行。现有记忆函数包括查看表面/概览/文件、添加、编辑；先用它们，不复制旧分支的 `mem.*` 实现。
 
 有映射先 `--plan MEM-02`；没有完整映射用 `--find "记忆 编辑" --module memory --limit 5`、`--describe <函数>`，再查 settings/conversation/fixtures 等模块。partial 映射仅作找函数提示，不代表覆盖全部判据。
 

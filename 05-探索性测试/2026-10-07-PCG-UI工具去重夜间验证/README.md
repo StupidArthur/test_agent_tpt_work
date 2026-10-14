@@ -9,7 +9,7 @@
 ## 渐进阅读
 
 1. 本任务 [AGENTS.md](AGENTS.md) → [执行说明](执行说明.md)。
-2. [探索性测试技能](../../skills/exploratory-testing/SKILL.md) → [工具入口](../../tools/ui-operations/README.md)，首次接入按快速开始。
+2. [探索性测试技能](../../skills/exploratory-testing/SKILL.md) → [工具入口](../../tools/ui-driver/README.md)，首次接入按快速开始。
 3. 只读当前批次的 [基线case](用例/基线.json) 或 [去重比较](用例/去重比较.json)，用 --plan/--find/--describe 查本条操作。不要先读全部历史和180个源码。
 4. 异常时读补测规则；开始比较某组函数时才读这组实现。相关历史问题摘要见 [交付审核](../2026-10-07-PCG与PC88交付回收/审核报告.md)，不是本轮预设结论。
 

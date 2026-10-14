@@ -15,7 +15,7 @@
 
 历史笔记记录了 `powershell.exe` 5.1 加载 .NET Framework 的 `UIAutomationClient` / `UIAutomationTypes`、UIA 定位与 Win32 消息操作的路径。每台新环境先确认组件可加载、桌面可访问；已有有效结果复用。笔记中的 `pwsh` 加载失败只适用于当时环境，不能推广为所有 PowerShell 7 不支持，也不能假定所有机器都无需补依赖。
 
-共享库已提供 `nativeWindow.probe/list/describe/act`，按 [原生窗口工具分类](../../../04-测试工具/ui-operations/docs/modules/nativeWindow.md) 查少量候选和单函数契约。发现和操作不需要 CDP，但仍需本轮环境记录与证据目录；新实现的真实验收状态见下文。
+共享库已提供 `nativeWindow.probe/list/describe/act`，按 [原生窗口工具分类](../../../04-测试工具/ui-driver/docs/modules/nativeWindow.md) 查少量候选和单函数契约。发现和操作不需要 CDP，但仍需本轮环境记录与证据目录；新实现的真实验收状态见下文。
 
 | 意图 | 历史样本 | 执行前条件与回读 |
 |---|---|---|
@@ -39,13 +39,13 @@ AutomationId、标题、按钮名都是历史例子，不写死跨版本契约�
 
 本页吸收 `local-notes/20261011-006-主控-原生Windows弹窗可用UIA加Win32驱动.md` 的历史方案，来源文件 SHA-256：`B8910E54BA0BB7B991BB1D427AC9C2343B91F6264600AFDB16172AF7D5A55A36`。笔记记录的环境为 Windows 10 Pro build 19045、交互式桌面、PowerShell 5.1；文件夹选择和项目创建由笔记作者报告通过。当前仓库未保留笔记所指的旧任务源码和调用证据，不将旧记录当作当前版本通过证据。Windows 11、其他 PowerShell 宿主、保存对话框及其他系统提示尚未由该笔记覆盖；新实现以下方本轮证据为准。
 
-2026-10-12主控按用户授权重新实现并注册了 `nativeWindow.probe/list/describe/act`，PowerShell源文件纳入调用快照与哈希。原笔记的源码未直接迁入；首次尝试与后续修正分别留在原生窗口验收任务01至05，以以下本轮结果为准。业务组合另提供 `conversation.openProject/createProject/readProjectSurface`，仅静态检查、待现场验收；`removeProject` 尚未实现。按[项目业务场景](../../../04-测试工具/ui-operations/docs/项目业务组合.md)选择首次打开或创建，不要求执行者手工重写原生层。
+2026-10-12主控按用户授权重新实现并注册了 `nativeWindow.probe/list/describe/act`，PowerShell源文件纳入调用快照与哈希。原笔记的源码未直接迁入；首次尝试与后续修正分别留在原生窗口验收任务01至05，以以下本轮结果为准。业务组合另提供 `conversation.openProject/createProject/readProjectSurface`，仅静态检查、待现场验收；`removeProject` 尚未实现。按[项目业务场景](../../../04-测试工具/ui-driver/docs/项目业务组合.md)选择首次打开或创建，不要求执行者手工重写原生层。
 
 03轮固定编排在真实setPath回读失败，已记录共享工具问题与Cancel/进程退出恢复；主控修复回读机制后安排04新会话完整复验。原失败保留在 `05-探索性测试/2026-10-12-原生窗口工具验收-03`，不能以静态检查或修复后的重试覆盖。
 
 05轮修正任务夹具关闭定位后25/25通过，涵盖真实文件OK/精确路径、Cancel、未知模态阻塞与拒绝、失败和空观察区分、快照哈希及进程恢复。随后 `05-探索性测试/2026-10-12-TPT原生文件夹集成` 在原用户PID46528上观察到真实文件夹选择器Edit1152，取消并回读表单不变、关闭本轮表单后DOM与初值一致。此Cancel轮未验证目录确认和项目创建；后续确认回填的结果单独记录，不覆盖本轮范围。
 
-窗口没有可访问UIA根时可按 [显示状态与恢复](../../../04-测试工具/ui-operations/docs/scenarios/nativeWindow.visibility.md) 使用Win32结构化状态查隐藏窗口；不要把通道失败当无窗口。恢复只绑定当前授权对象，仍需独立回读。
+窗口没有可访问UIA根时可按 [显示状态与恢复](../../../04-测试工具/ui-driver/docs/scenarios/nativeWindow.visibility.md) 使用Win32结构化状态查隐藏窗口；不要把通道失败当无窗口。恢复只绑定当前授权对象，仍需独立回读。
 
 `05-探索性测试/2026-10-12-窗口状态验收-02` 的23项登记断言通过：非模态窗口隐藏/最小化后仍枚举到，restore 后独立回读正常状态；错误身份拒绝；文件路径 drive-relative/root-relative 拒绝，完全限定样本实际选中。首轮模态夹具因隐藏而结束的失败保留，不能用它判断工具漏窗。前台请求true、真实TPT隐藏恢复、Win10及其他PowerShell版本仍未覆盖。visible、foreground和DOM visibilityState都不证明无遮挡。
 

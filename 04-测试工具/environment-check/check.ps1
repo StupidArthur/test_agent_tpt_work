@@ -8,7 +8,7 @@ $ErrorActionPreference = 'Stop'
 if ([Environment]::OSVersion.Platform -ne [PlatformID]::Win32NT) { throw 'This adapter supports Windows only; use an OS-specific adapter' }
 if ($PSVersionTable.PSVersion -lt [Version]'5.1') { throw 'This adapter requires PowerShell 5.1 or newer; older hosts are not validated' }
 if (-not $EnvironmentId.Trim()) { throw 'EnvironmentId must not be empty' }
-if (-not $ModuleRoot) { $ModuleRoot = Join-Path $PSScriptRoot '../ui-operations' }
+if (-not $ModuleRoot) { $ModuleRoot = Join-Path $PSScriptRoot '../ui-driver' }
 $ModuleRoot = [IO.Path]::GetFullPath($ModuleRoot)
 if (-not (Test-Path -LiteralPath $ModuleRoot -PathType Container)) { throw 'ModuleRoot must be an existing project directory' }
 $OutputDirectory = [IO.Path]::GetFullPath($OutputDirectory)

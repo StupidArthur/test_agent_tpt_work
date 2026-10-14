@@ -4,7 +4,7 @@ T=Path(__file__).resolve().parents[1]; R=T.parents[1]; E=T.parent
 def read(p):return json.loads(p.read_text(encoding='utf-8-sig'))
 def lines(p):return [json.loads(x) for x in p.read_text(encoding='utf-8-sig').splitlines() if x.strip()]
 def h(b):return hashlib.sha256(b).hexdigest()
-out={}; allhash={}; main=read(R/'tools/ui-operations/business/catalog.json')['functions']; byname={x['name']:x for x in main}
+out={}; allhash={}; main=read(R/'tools/ui-driver/business/catalog.json')['functions']; byname={x['name']:x for x in main}
 for machine,folder in [('PCG','2026-10-06-业务函数复用回归'),('PC88','2026-10-07-PC88-记忆工具库复跑')]:
  b=E/folder; results=[read(p) for p in sorted((b/'结果').glob('*.json'))]; calls=lines(b/'运行日志/业务调用.jsonl'); events=lines(b/'运行日志/business.jsonl'); eventmap={x.get('event_id'):x for x in events}; callmap={x['call_id']:x for x in calls}; checks={}; issues=[]
  def check(rel,digest):

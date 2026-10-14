@@ -12,9 +12,9 @@
 
 1. 仓库根 [AGENTS.md](../../AGENTS.md) → [执行任务约定](../../04-测试项/执行任务约定.md)。特别注意旧测试删减需用户明确确认。
 2. [沙箱测试项入口](../../04-测试项/沙箱与提权沙箱测试/README.md) → [测试设计](../../04-测试项/沙箱与提权沙箱测试/测试设计.md) → 本任务 [队列](任务队列.md)。
-3. [exploratory-testing 技能](../../skills/exploratory-testing/SKILL.md) → [UI 工具入口](../../tools/ui-operations/README.md)，首次接入读快速开始。
+3. [exploratory-testing 技能](../../skills/exploratory-testing/SKILL.md) → [UI 工具入口](../../tools/ui-driver/README.md)，首次接入读快速开始。
 4. 当前场景需要核对历史时读 [历史记录与证据](../../04-测试项/沙箱与提权沙箱测试/历史记录与证据.md)，再进对应原文。不用先读全部 refs。
-5. 有异常读 [补测规则](../../skills/exploratory-testing/references/retest.md)；写新函数读 [扩展约定](../../tools/ui-operations/docs/扩展与边界.md)。
+5. 有异常读 [补测规则](../../skills/exploratory-testing/references/retest.md)；写新函数读 [扩展约定](../../tools/ui-driver/docs/扩展与边界.md)。
 
 ## 本机准备
 

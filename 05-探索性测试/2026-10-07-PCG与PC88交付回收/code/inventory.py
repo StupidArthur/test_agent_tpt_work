@@ -6,7 +6,7 @@ ROOT=TASK.parents[1]
 EXP=TASK.parent
 sources={'PCG':EXP/'2026-10-06-业务函数复用回归','PC88':EXP/'2026-10-07-PC88-记忆工具库复跑'}
 def read(p):return json.loads(p.read_text(encoding='utf-8-sig'))
-main=read(ROOT/'tools/ui-operations/business/catalog.json')['functions']
+main=read(ROOT/'tools/ui-driver/business/catalog.json')['functions']
 summary={}
 for name,base in sources.items():
     results=[]

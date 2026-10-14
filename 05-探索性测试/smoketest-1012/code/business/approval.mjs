@@ -1,5 +1,5 @@
 import {connectLogin} from '../automation/login-session.mjs';
-import {ensureConversationView,runningIndicatorCount} from '../../../../04-测试工具/ui-operations/automation/conversation.mjs';
+import {ensureConversationView,runningIndicatorCount} from '../../../../04-测试工具/ui-driver/automation/conversation.mjs';
 
 const sleep=ms=>new Promise(r=>setTimeout(r,ms));
 

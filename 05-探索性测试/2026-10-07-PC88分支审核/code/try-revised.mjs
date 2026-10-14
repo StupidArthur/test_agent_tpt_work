@@ -1,11 +1,11 @@
 import fs from 'node:fs';import path from 'node:path';import crypto from 'node:crypto';import {fileURLToPath} from 'node:url';
-import {invoke} from '../../../tools/ui-operations/call.mjs';
+import {invoke} from '../../../tools/ui-driver/call.mjs';
 const taskRoot=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const environment=JSON.parse(fs.readFileSync(path.join(taskRoot,'环境记录.json'),'utf8'));
 const shared={},results=[];const hash=b=>crypto.createHash('sha256').update(b).digest('hex');
 const root=fs.realpathSync(environment.memory_root),backups=[];
 const initialNames=fs.readdirSync(root),initialAudit=fs.readFileSync(path.join(root,'audit.jsonl'));
-const lock=path.resolve('tools/ui-operations/.ui.lock');fs.mkdirSync(lock);fs.writeFileSync(path.join(lock,'owner.json'),JSON.stringify({pid:process.pid,taskRoot}));
+const lock=path.resolve('tools/ui-driver/.ui.lock');fs.mkdirSync(lock);fs.writeFileSync(path.join(lock,'owner.json'),JSON.stringify({pid:process.pid,taskRoot}));
 const route=name=>process.argv.includes('--library')?name.replace('mem.','memory.'):name;
 async function call(name,args={}){name=route(name);const r=await invoke(name,args,{taskRoot,environment,shared});results.push({name,args,status:r.status,error:r.error,call_id:r.call_id});console.log(JSON.stringify(results.at(-1)));if(r.status!=='returned')throw Error(name+': '+r.error?.message);return r.observations.observations;}
 let failure;

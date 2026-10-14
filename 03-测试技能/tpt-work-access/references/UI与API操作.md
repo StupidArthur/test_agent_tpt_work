@@ -2,7 +2,7 @@
 
 这份文档可单独复制到另一台 Windows 机器。它说明如何找到并启动 `tpt-work.exe`，如何操作真实 UI，如何启动 `--test` 网关做 API 测试，以及如何把探索变成可复跑的 case。运行文中的现有脚本和 case 还需同时复制本测试仓库。安装路径、端口、项目目录和模型配置都以目标机器的实际情况为准。
 
-**本仓库的使用顺序：**先读任务与 [测试技能总入口](../../README.md)。已接入时调用 [软件 UI 操作工具](../../../04-测试工具/ui-operations/README.md)；本指南按需查启动、登录和API细节。文中 tests/ui、Playwright Test 与 npm run test:* 示例需要另有配套工程，不能仅复制本文就运行。本仓库现成函数的依赖在 04-测试工具/ui-operations/package.json。
+**本仓库的使用顺序：**先读任务与 [测试技能总入口](../../README.md)。已接入时调用 [软件 UI 操作工具](../../../04-测试工具/ui-driver/README.md)；本指南按需查启动、登录和API细节。文中 tests/ui、Playwright Test 与 npm run test:* 示例需要另有配套工程，不能仅复制本文就运行。本仓库现成函数的依赖在 04-测试工具/ui-driver/package.json。
 
 ## 先记住两条入口
 
@@ -20,7 +20,7 @@
 1. 定位本机 exe、记录包身份，并检查已有 TPT Work 实例和端口。已有可用 CDP 实例就复用；没有时，先处理旧实例的归属，再带 `--remote-debugging-port` 启动。关闭窗口可能只隐藏窗口，后台进程仍会占用单实例锁；如果新启动后端口未监听，重新检查进程，不要反复启动。
 2. 同时验证 `/json/version` 和 `/json/list`。后者必须有属于 TPT Work 的 `page` 或 `webview`；记录目标 URL。登录页可能是 `file:///.../renderer/welcome.html`，主界面是 `dsh-app://app/`，同一进程可同时暴露两者。按当前可见界面选择目标，不能只找 `dsh-app://` 然后误报“无页面”。
 3. 用现成业务函数连接和操作；它们内部通过 Playwright `chromium.connectOverCDP()` 接入。按**观察 → 一组已确认的操作 → 等待结果 → 再观察与判定**执行。稳定表单填写可顺序合并；发生页面或流程状态变化后重新发现控件。缺能力才写留存的任务函数，定位限定对象与frame，不跨状态复用截图坐标。关闭 Playwright 连接不表示退出 TPT Work。
-4. 按本轮任务保存实际输入、读取、调用、代码快照、结果与恢复。通过默认不截图，失败仅在图片有解释价值时留图。另有配套工程时才使用本文 fixture/test:* 示例，本仓库默认从 04-测试工具/ui-operations/call.mjs 调用业务函数。
+4. 按本轮任务保存实际输入、读取、调用、代码快照、结果与恢复。通过默认不截图，失败仅在图片有解释价值时留图。另有配套工程时才使用本文 fixture/test:* 示例，本仓库默认从 04-测试工具/ui-driver/call.mjs 调用业务函数。
 
 桌面窗口工具适合处理 Playwright 看不到的原生 Windows 弹窗，或已运行但未开放 CDP 的实例；它不是这份指南的默认 UI 测试入口。测试网关是另一条 **API / wire** 入口，不等同于 CDP，也不能代替真实界面的可见状态验证。
 
@@ -30,12 +30,12 @@
 
 ```powershell
 Set-Location '<测试仓库路径>'
-Test-Path -LiteralPath '.\04-测试工具\ui-operations\package.json'
+Test-Path -LiteralPath '.\04-测试工具\ui-driver\package.json'
 node --version
 npm.cmd --version
 # 使用本仓库的软件UI操作工具时，在仓库根目录执行：
-if (Test-Path -LiteralPath '.\04-测试工具\ui-operations\package.json') {
-  npm.cmd ci --prefix '.\04-测试工具\ui-operations'
+if (Test-Path -LiteralPath '.\04-测试工具\ui-driver\package.json') {
+  npm.cmd ci --prefix '.\04-测试工具\ui-driver'
 }
 # 使用独立配套测试工程时，另按该工程的package.json安装依赖。
 ```
@@ -115,7 +115,7 @@ $targets | Select-Object type, title, url
 在本仓库根目录准备探索脚本时，优先通过已登记函数取证。下列代码仅说明连接原理；实际UI读取或动作需放进本轮登记函数，经 call.mjs 留存源码与证据。复用本项目的依赖解析，不凭根目录缺少 playwright 判断未安装：
 
 ```js
-import { playwright } from './04-测试工具/ui-operations/automation/session.mjs';
+import { playwright } from './04-测试工具/ui-driver/automation/session.mjs';
 const { chromium } = playwright();
 
 const port = Number(process.env.TPT_CDP_PORT);
@@ -192,7 +192,7 @@ if (loginVisible) {
 
 ### 2.5 运行 UI case
 
-下面是独立配套测试工程的命令，非本仓库根目录命令。当前任务优先按 04-测试工具/ui-operations 的工具调用与本轮结果契约执行；未携带对应package/scripts时不要运行下面示例。
+下面是独立配套测试工程的命令，非本仓库根目录命令。当前任务优先按 04-测试工具/ui-driver 的工具调用与本轮结果契约执行；未携带对应package/scripts时不要运行下面示例。
 
 ```powershell
 # 保留第 1 层解析得到的 $env:TPT_EXE
@@ -405,4 +405,4 @@ Get-CimInstance Win32_Process -Filter "ProcessId=$($tptApiProcess.Id)" |
 
 ## 可直接发给执行 Agent 的任务指令
 
-> 先读根AGENTS、本轮任务README与适用测试技能。已接入就查 04-测试工具/ui-operations/README.md，按case用 --plan 或 --find 找工具、--describe 查契约。未接入才按本指南确认真实exe、实例与CDP端口。通过现成业务函数执行，缺能力时保留任务函数；稳定操作可顺序合并，遇未知页面变化重新观察。API测试另用 --test 网关验证鉴权与接口。记录本轮真实动作、取值、恢复和剩余项；通过默认不截图，失败按需取图。持续完成已分配队列，不把checkpoint当暂停；只处理本轮已核实归属的进程和数据。
+> 先读根AGENTS、本轮任务README与适用测试技能。已接入就查 04-测试工具/ui-driver/README.md，按case用 --plan 或 --find 找工具、--describe 查契约。未接入才按本指南确认真实exe、实例与CDP端口。通过现成业务函数执行，缺能力时保留任务函数；稳定操作可顺序合并，遇未知页面变化重新观察。API测试另用 --test 网关验证鉴权与接口。记录本轮真实动作、取值、恢复和剩余项；通过默认不截图，失败按需取图。持续完成已分配队列，不把checkpoint当暂停；只处理本轮已核实归属的进程和数据。

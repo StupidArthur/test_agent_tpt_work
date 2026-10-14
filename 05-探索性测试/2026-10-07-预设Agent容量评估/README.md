@@ -11,7 +11,7 @@
 5. CAPACITY-02：边界两个独立窗口，每窗至少15分钟且500个完整任务尝试；开放到达复核。
 6. CAPACITY-03：排空、恢复检查、哈希审核及综合报告。
 
-读取根AGENTS、skills/exploratory-testing/SKILL.md；API实现优先复用04-测试项/saas-llm-test/code。UI只提取产品负载，不纳入网关产品功能验收，使用tools/ui-operations。新增函数、代码和所有执行产物留在本目录待审。
+读取根AGENTS、skills/exploratory-testing/SKILL.md；API实现优先复用04-测试项/saas-llm-test/code。UI只提取产品负载，不纳入网关产品功能验收，使用tools/ui-driver。新增函数、代码和所有执行产物留在本目录待审。
 
 ## 冻结标准
 

@@ -23,7 +23,7 @@ description: 把 TPT Work 的状态恢复到初始（首次安装）环境：清
 
 > 可直接执行的 Windows 命令与回滚方式见 [TPT Work（Windows）实测命令](references/tpt-work-windows.md)。
 
-1. **记录并退出**：按本轮授权使用 [退出应用工具](../../04-测试工具/ui-operations/docs/scenarios/application.quit.md) `application.quit`，绑定本轮exe/PID/启动时间并核对 `exited=true`；记录两个实际状态目录和本轮版本。关闭窗口或进入托盘不算退出。
+1. **记录并退出**：按本轮授权使用 [退出应用工具](../../04-测试工具/ui-driver/docs/scenarios/application.quit.md) `application.quit`，绑定本轮exe/PID/启动时间并核对 `exited=true`；记录两个实际状态目录和本轮版本。关闭窗口或进入托盘不算退出。
 2. **移走保留**：使用参考页的小脚本整体改名为 `*.bak-<时间戳>`；原目录就是备份，不额外复制、不删除。已有目标拒绝，移动失败补偿移回已移动的目录。
 3. **保存恢复位置**：保留返回的From/To和后缀，核对本轮移走范围。
 4. **重启**：以调试端口启动（TPT Work：`tpt-work.exe --remote-debugging-port=9234`）。

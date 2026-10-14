@@ -6,7 +6,7 @@ def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
 audit=read(T/'审核/全量结果与工具审计.json')
 pcg=E/'2026-10-06-业务函数复用回归';pc88=E/'2026-10-07-PC88-记忆工具库复跑'
 cases={x['id']:x for x in read(pcg/'用例/cases.json')}
-main={x['name']:x for x in read(R/'tools/ui-operations/business/catalog.json')['functions']}
+main={x['name']:x for x in read(R/'tools/ui-driver/business/catalog.json')['functions']}
 
 # Recover separate copies; original imported snapshots are not changed.
 fix=T/'审核/换行复核';fix.mkdir(exist_ok=True)
@@ -97,7 +97,7 @@ def bodies(p):
  s=p.read_text(encoding='utf-8-sig');matches=list(re.finditer(r'export\s+async\s+function\s+(\w+)\s*\(',s));return {m.group(1):s[m.start():matches[i+1].start() if i+1<len(matches) else len(s)] for i,m in enumerate(matches)}
 mapping=[]
 for f in audit['PCG']['function_mappings']:
- entry=main[f['main_function']];oldcat=read(pcg/'code/business/catalog.json');es=oldcat if isinstance(oldcat,list) else oldcat['functions'];old=next(x for x in es if x['name']==f['task_function']);ob=bodies(pcg/old['file']).get(old['export'],'');nb=bodies(R/'tools/ui-operations'/entry['file']).get(entry['export'],'');norm=lambda s:re.sub(r'\s+','',s)
+ entry=main[f['main_function']];oldcat=read(pcg/'code/business/catalog.json');es=oldcat if isinstance(oldcat,list) else oldcat['functions'];old=next(x for x in es if x['name']==f['task_function']);ob=bodies(pcg/old['file']).get(old['export'],'');nb=bodies(R/'tools/ui-driver'/entry['file']).get(entry['export'],'');norm=lambda s:re.sub(r'\s+','',s)
  f.update(comparison='same_text_ignoring_whitespace' if norm(ob)==norm(nb) and ob else 'same_capability_name_implementation_differs',decision='不重复入库；差异实现按缺陷和当前主库契约逐项取舍')
  mapping.append(f)
 (T/'审核/函数去向.json').write_text(json.dumps(mapping,ensure_ascii=False,indent=2)+'\n',encoding='utf-8',newline='\n')
