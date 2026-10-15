@@ -2,6 +2,7 @@ import fs from 'node:fs';import path from 'node:path';import crypto from 'node:c
 import {createRecorder} from './automation/recorder.mjs';
 import {discover,discovery,browse} from './automation/discovery.mjs';
 import {readArgsFile} from './automation/args-file.mjs';
+import {compactReturn} from './automation/compact-return.mjs';
 const root=path.dirname(fileURLToPath(import.meta.url));
 export const catalog=JSON.parse(fs.readFileSync(path.join(root,'business/catalog.json'),'utf8'));
 export function taskCatalog(taskRoot){const p=taskRoot&&path.join(taskRoot,'code/business/catalog.json');if(!p||!fs.existsSync(p))return catalog;const local=JSON.parse(fs.readFileSync(p,'utf8')),entries=Array.isArray(local)?local:local.functions;if(!Array.isArray(entries))throw Error('Task catalog requires functions array');const names=new Set(catalog.functions.map(f=>f.name));for(const e of entries){if(names.has(e.name))throw Error('Task function name conflicts with library: '+e.name);names.add(e.name);const target=path.resolve(taskRoot,e.file);if(!target.startsWith(path.join(path.resolve(taskRoot),'code')+path.sep))throw Error('Task function must be in task/code: '+e.name);}return {...catalog,functions:[...catalog.functions,...entries.map(e=>({...e,task_local:true,version:e.version||'task-local-1.0'}))]};}
@@ -40,12 +41,13 @@ export async function main(){
  if(argv[0]==='--list'){const query=argv[1]&&!argv[1].startsWith('--')?argv[1]:'';console.log(JSON.stringify(taskCatalog(flag('--task')).functions.filter(f=>!query||[f.name,...(f.feature_path||[]),f.description||''].join(' ').includes(query)).map(({name,feature_path,description})=>({name,feature_path,description})),null,2));return;}
  if(argv[0]==='--describe'){const e=taskCatalog(flag('--task')).functions.find(f=>f.name===argv[1]);if(!e)throw Error('Unknown function');console.log(JSON.stringify({...e,...(discovery.contracts[e.name]?{selection:discovery.contracts[e.name]}:{})},null,2));return;}
  if(argv[0]==='--plan'){const plan=JSON.parse(fs.readFileSync(path.join(root,'coverage/cases.json'),'utf8')).cases.find(c=>c.case_id===argv[1]);if(!plan)throw Error('Unknown case');console.log(JSON.stringify(plan,null,2));return;}
+ if(flag('--output')&&!['full','compact'].includes(flag('--output')))throw Error('--output must be full or compact');
  const taskRoot=path.resolve(flag('--task')||''),argsFile=flag('--args-file'),argsBase=flag('--args-base')||'cwd';if(!flag('--task')||!argsFile)throw Error('Usage: node call.mjs function --task <taskDir> --args-file <jsonFile> [--args-base cwd|task] [--session-id id]');
  const {value:args}=readArgsFile(argsFile,{taskRoot,base:argsBase});
  const environment=JSON.parse(fs.readFileSync(path.join(taskRoot,'环境记录.json'),'utf8')),runtime=fs.existsSync(path.join(taskRoot,'运行上下文.json'))?JSON.parse(fs.readFileSync(path.join(taskRoot,'运行上下文.json'),'utf8')):{};
  const batch=argv[0]==='--batch'?args:[{name:argv[0],args}];if(!Array.isArray(batch)||!batch.length)throw Error('Batch must contain calls');
  for(const c of batch){const e=taskCatalog(taskRoot).functions.find(f=>f.name===c.name);if(!e)throw Error('Unknown function '+c.name);validate(e.parameters,c.args);}
  const lock=path.join(root,'.ui.lock');try{fs.mkdirSync(lock);}catch(e){if(e.code==='EEXIST')throw Error('Another tool call owns the UI lock; wait for it to finish');throw e;}fs.writeFileSync(path.join(lock,'owner.json'),JSON.stringify({pid:process.pid,started_at:new Date().toISOString(),taskRoot}));
- const shared={};try{for(const c of batch){const r=await invoke(c.name,c.args,{taskRoot,environment,runtime,shared,expectedSession:c.expectedSession||flag('--session-id')});console.log(JSON.stringify(r,null,2));if(r.status==='error'){process.exitCode=1;break;}}}finally{try{await shared.connection?.close();}finally{fs.unlinkSync(path.join(lock,'owner.json'));fs.rmdirSync(lock);}}
+ const shared={};try{for(const c of batch){const r=await invoke(c.name,c.args,{taskRoot,environment,runtime,shared,expectedSession:c.expectedSession||flag('--session-id')});console.log(JSON.stringify(flag('--output')==='compact'?compactReturn(r,taskRoot):r,null,2));if(r.status==='error'){process.exitCode=1;break;}}}finally{try{await shared.connection?.close();}finally{fs.unlinkSync(path.join(lock,'owner.json'));fs.rmdirSync(lock);}}
 }
 if(process.argv[1]&&path.resolve(process.argv[1])===fileURLToPath(import.meta.url))main().catch(e=>{console.error(JSON.stringify({error:{type:e.name,message:e.message}}));process.exitCode=1;});

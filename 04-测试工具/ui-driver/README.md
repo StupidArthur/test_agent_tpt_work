@@ -32,7 +32,7 @@ node 04-测试工具/ui-driver/call.mjs --browse skills.use
 node 04-测试工具/ui-driver/call.mjs --describe skills.useSkillRequest
 ~~~
 
-核对参数来源、对象、是否含准备或恢复，以及真正要读取的结果。按 [调用与记录](docs/调用与记录.md) 执行、比较实际值、恢复并引用本轮证据。
+核对参数来源、对象、是否含准备或恢复，以及真正要读取的结果。按 [调用与记录](docs/调用与记录.md) 执行；常规调用加 `--output compact`，完整证据留盘，需要完整断言时定向读取。稳定步骤顺序批量执行，减少模型往返，再比较实际值、恢复并引用本轮证据。
 
 status=returned 不表示 case 通过。优先调用现成函数；缺能力时先读 [测试代码开发技能](../../03-测试技能/test-automation-development/SKILL.md)，再按本库 [扩展与边界](docs/扩展与边界.md) 登记和实现；保留新增任务函数及实际调用，供收尾审核。
 
